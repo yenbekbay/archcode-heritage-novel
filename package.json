@@ -1,29 +1,51 @@
 {
+  "name": "@archcode-kz/architecture-novel-game",
   "private": true,
-  "name": "remix-app-template",
   "description": "",
-  "license": "",
+  "license": "GPL-3.0",
+  "sideEffects": false,
   "scripts": {
     "build": "remix build",
     "dev": "remix dev",
-    "postinstall": "remix setup node"
+    "postinstall": "remix setup node",
+    "prepare": "husky install"
+  },
+  "lint-staged": {
+    "**/*.{js,ts,tsx,json,yml,yaml}": "prettier --write"
+  },
+  "prettier": {
+    "arrowParens": "always",
+    "bracketSameLine": true,
+    "bracketSpacing": false,
+    "jsxSingleQuote": false,
+    "printWidth": 80,
+    "quoteProps": "as-needed",
+    "semi": false,
+    "singleQuote": true,
+    "tabWidth": 2,
+    "trailingComma": "all",
+    "useTabs": false
   },
   "dependencies": {
-    "@remix-run/react": "^1.0.6",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "remix": "^1.0.6",
-    "@remix-run/serve": "^1.0.6",
-    "@remix-run/vercel": "^1.0.6"
+    "@remix-run/react": "1.1.1",
+    "@remix-run/serve": "1.1.1",
+    "@remix-run/vercel": "1.1.1",
+    "@trivago/prettier-plugin-sort-imports": "3.1.1",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "remix": "1.1.1"
   },
   "devDependencies": {
-    "@remix-run/dev": "^1.0.6",
-    "@types/react": "^17.0.24",
-    "@types/react-dom": "^17.0.9",
-    "typescript": "^4.1.2"
+    "@remix-run/dev": "1.1.1",
+    "@types/react": "17.0.37",
+    "@types/react-dom": "17.0.11",
+    "husky": "^7.0.4",
+    "lint-staged": "12.1.2",
+    "prettier": "2.5.1",
+    "prettier-plugin-packagejson": "2.2.15",
+    "typescript": "4.5.4"
   },
   "engines": {
     "node": ">=14"
-  },
-  "sideEffects": false
+  }
 }

@@ -1,0 +1,21 @@
+{
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.insertSpaces": true,
+  "editor.rulers": [80],
+  "editor.tabSize": 2,
+  "javascript.format.enable": false,
+  "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": false,
+  "javascript.preferences.quoteStyle": "single",
+  "javascript.preferences.useAliasesForRenames": true,
+  "javascript.suggestionActions.enabled": false,
+  "typescript.disableAutomaticTypeAcquisition": true,
+  "typescript.format.enable": false,
+  "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": false,
+  "typescript.preferences.quoteStyle": "single",
+  "typescript.preferences.useAliasesForRenames": true,
+  "typescript.tsc.autoDetect": "off",
+  "typescript.tsdk": "./node_modules/typescript/lib",
+  "[properties]": {
+    "editor.defaultFormatter": null
+  }
+}
