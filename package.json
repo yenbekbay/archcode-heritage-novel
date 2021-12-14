@@ -5,8 +5,10 @@
   "license": "GPL-3.0",
   "sideEffects": false,
   "scripts": {
-    "build": "remix build",
-    "dev": "remix dev",
+    "build": "npm run build:css && remix build",
+    "build:css": "tailwindcss -o ./app/tailwind.css",
+    "dev": "concurrently \"npm run dev:css\" \"remix dev\"",
+    "dev:css": "tailwindcss -o ./app/tailwind.css --watch",
     "postinstall": "remix setup node",
     "prepare": "husky install"
   },
@@ -39,10 +41,12 @@
     "@remix-run/dev": "1.1.1",
     "@types/react": "17.0.37",
     "@types/react-dom": "17.0.11",
-    "husky": "^7.0.4",
+    "concurrently": "6.5.0",
+    "husky": "7.0.4",
     "lint-staged": "12.1.2",
     "prettier": "2.5.1",
     "prettier-plugin-packagejson": "2.2.15",
+    "tailwindcss": "3.0.7",
     "typescript": "4.5.4"
   },
   "engines": {

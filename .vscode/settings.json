@@ -3,6 +3,10 @@
   "editor.insertSpaces": true,
   "editor.rulers": [80],
   "editor.tabSize": 2,
+  "editor.quickSuggestions": {
+    "strings": true
+  },
+  "css.validate": false,
   "javascript.format.enable": false,
   "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": false,
   "javascript.preferences.quoteStyle": "single",
@@ -16,6 +20,9 @@
   "typescript.tsc.autoDetect": "off",
   "typescript.tsdk": "./node_modules/typescript/lib",
   "[properties]": {
+    "editor.defaultFormatter": null
+  },
+  "[ignore]": {
     "editor.defaultFormatter": null
   }
 }
