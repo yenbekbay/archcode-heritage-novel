@@ -1,7 +1,6 @@
 import {Box, Container, Flex, Section, Separator} from '@modulz/design-system'
 import {MetaFunction} from 'remix'
 import {Header} from '~/components/Header'
-import {Hero} from '~/components/Hero'
 
 // https://remix.run/api/conventions#meta
 export let meta: MetaFunction = () => {
@@ -11,7 +10,7 @@ export let meta: MetaFunction = () => {
   }
 }
 
-export default function Home() {
+export default function About() {
   return (
     <Box>
       <Box
@@ -31,14 +30,9 @@ export default function Home() {
         }}
       />
       <Header />
-      <Hero />
-
-      <Flex justify="center">
-        <Separator size="2" />
-      </Flex>
 
       <Section size={{'@initial': '2', '@bp1': '3'}}>
-        <Container size="3">TODO</Container>
+        <Container size="3">TODO: О нас</Container>
       </Section>
     </Box>
   )
