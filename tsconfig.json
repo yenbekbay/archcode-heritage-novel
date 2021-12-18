@@ -7,6 +7,7 @@
     "jsx": "react-jsx",
     "moduleResolution": "node",
     "resolveJsonModule": true,
+    "module": "ES2020",
     "target": "ES2019",
     "strict": true,
     "paths": {

@@ -1,0 +1,31 @@
+backgrounds:
+  room: assets/game/backgrounds/room_day.jpg
+  room_night: assets/game/backgrounds/room_night.jpg
+  room_night_light: assets/game/backgrounds/room_night_light.jpg
+
+characters:
+  deuzi:
+    displayName: Deuzilene
+    speechColour: '#ca90cf'
+    looks:
+      normal: assets/game/characters/Char3NormalSchool.png
+      happy: assets/game/characters/Char3HappySchool.png
+      angry: assets/game/characters/Char3AngrySchool.png
+
+cgs:
+  phone1: assets/game/objects/phone1.png
+  phone2: assets/game/objects/phone2.png
+
+music:
+  rollingCredits: assets/game/audio/Evan_Schaeffer_-_01_-_Aqueduct.mp3
+  morningBGM: assets/game/audio/Evan_Schaeffer_-_03_-_Glow.mp3
+sfx:
+  ringtoneSFX: assets/game/audio/nokia6210-24-elise.mp3
+  ringtoneSFX2: assets/game/audio/alcatel-top_secret.mp3
+
+extra:
+  spritesheets:
+    rain: assets/game/ambient/rain.png 17 17
+    sakura: assets/game/ambient/sakura-petals.png 17 26
+    snowflakes: assets/game/ambient/snowflakes.png 17 17
+    snowflakes_large: assets/game/ambient/snowflakes_large.png 64 64
