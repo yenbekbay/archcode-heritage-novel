@@ -1,5 +1,6 @@
-import {Box, Container, Section} from '@modulz/design-system'
 import {MetaFunction} from 'remix'
+import {Container} from '~/styles/Container'
+import {Section} from '~/styles/Section'
 
 // https://remix.run/api/conventions#meta
 export let meta: MetaFunction = () => {
@@ -11,10 +12,8 @@ export let meta: MetaFunction = () => {
 
 export default function Interactive() {
   return (
-    <Box>
-      <Section size="2">
-        <Container size="3">TODO</Container>
-      </Section>
-    </Box>
+    <Section>
+      <Container>TODO: Интерактив</Container>
+    </Section>
   )
 }

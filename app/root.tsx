@@ -1,9 +1,5 @@
-import {
-  Container,
-  DesignSystemProvider,
-  getCssText,
-  Section,
-} from '@modulz/design-system'
+import {Box} from './styles/Box'
+import {Flex} from './styles/Flex'
 import {
   Links,
   LinksFunction,
@@ -16,7 +12,15 @@ import {
   useLocation,
 } from 'remix'
 import {Footer} from '~/components/Footer'
-import {InteractivePage} from '~/components/InteractivePage'
+import GradientBackground from '~/components/GradientBackground'
+import {Header} from '~/components/Header'
+import {getCssText} from '~/stitches.config'
+import {Container} from '~/styles/Container'
+import {Heading} from '~/styles/Heading'
+import {Section} from '~/styles/Section'
+import {Text} from '~/styles/Text'
+import {globalStyles} from '~/styles/global'
+import {Separator} from '~/styles/separator'
 import tailwindStylesUrl from '~/tailwind.css'
 
 // https://remix.run/api/app#links
@@ -47,15 +51,19 @@ export function ErrorBoundary({error}: {error: Error}) {
   return (
     <Document title="Ошибка!">
       <Layout>
-        <Section size={{'@initial': '2', '@bp1': '3'}}>
-          <Container size="3">
-            <h1>Что-то пошло не так!</h1>
-            <p>{error.message}</p>
-            <hr />
-            <p>
+        <Section>
+          <Container>
+            <Heading>Что-то пошло не так!</Heading>
+            <Text as="p">{error.message}</Text>
+
+            <Flex justify="center">
+              <Separator size="2" />
+            </Flex>
+
+            <Text as="p">
               Мы уже в курсе этой ошибки, и постараемся её исправить как можно
               скорее.
-            </p>
+            </Text>
           </Container>
         </Section>
       </Layout>
@@ -91,14 +99,22 @@ export function CatchBoundary() {
   return (
     <Document title={`${caught.status} ${caught.statusText}`}>
       <Layout>
-        <h1>
-          {caught.status}: {caught.statusText}
-        </h1>
-        {message}
+        <Section>
+          <Container>
+            <Heading>
+              {caught.status}: {caught.statusText}
+            </Heading>
+
+            <Text as="p">{message}</Text>
+          </Container>
+        </Section>
       </Layout>
     </Document>
   )
 }
+
+const FONT_INTER =
+  'https://fonts.googleapis.com/css?family=Inter:400,500,600,700&display=swap'
 
 function Document({
   children,
@@ -107,15 +123,26 @@ function Document({
   children: React.ReactNode
   title?: string
 }) {
+  globalStyles()
+
   return (
     <html lang="en">
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <Meta />
+
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
+        <link href={FONT_INTER} rel="preload" as="style" />
+        <link href={FONT_INTER} rel="stylesheet" media="all" />
+        <Links />
+
         <style id="stitches" dangerouslySetInnerHTML={{__html: getCssText()}} />
         {title ? <title>{title}</title> : null}
-        <Meta />
-        <Links />
       </head>
 
       <body>
@@ -132,9 +159,17 @@ function Layout({children}: {children: React.ReactNode}) {
   let location = useLocation()
   const isInteractive = location.pathname.includes('/interactive')
   return (
-    <DesignSystemProvider>
-      {isInteractive ? <InteractivePage>{children}</InteractivePage> : children}
-      {!isInteractive && <Footer />}
-    </DesignSystemProvider>
+    <Box css={{position: 'relative'}}>
+      {isInteractive ? (
+        children
+      ) : (
+        <>
+          <GradientBackground />
+          <Header />
+          {children}
+          <Footer />
+        </>
+      )}
+    </Box>
   )
 }

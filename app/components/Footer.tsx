@@ -1,177 +1,117 @@
 import {ArchcodeLogo} from './ArchcodeLogo'
-import {
-  Box,
-  Container,
-  Flex,
-  Grid,
-  Link,
-  Separator,
-  Text,
-} from '@modulz/design-system'
 import {Link as RemixLink} from 'remix'
+import {Box} from '~/styles/Box'
+import {Container} from '~/styles/Container'
+import {Flex} from '~/styles/Flex'
+import {Grid} from '~/styles/Grid'
+import {Heading} from '~/styles/Heading'
+import {Link} from '~/styles/Link'
+import {Separator} from '~/styles/Separator'
+import {Text} from '~/styles/Text'
 
 export function Footer() {
   return (
-    <Box as="footer" css={{py: '$9'}}>
-      <Flex justify="center" css={{mb: '$9'}}>
+    <Flex as="footer" direction="column" gap="5" css={{py: '$5'}}>
+      <Flex justify="center">
         <Separator size="2" />
       </Flex>
 
-      <Container size="3">
+      <Container>
         <Grid
+          gap={{
+            '@initial': '4',
+            '@bp2': '6',
+          }}
           css={{
             gridTemplateColumns: '1fr',
-            gap: '$6',
-            '& ul': {listStyle: 'none', margin: '0', padding: '0'},
             '@bp2': {
               gridTemplateColumns: '3fr 1fr 2fr',
-              gap: '$8',
             },
           }}>
-          <Box>
-            <Text
-              as="h6"
-              size="3"
-              css={{
-                fontWeight: 500,
-                textTransform: 'uppercase',
-                lineHeight: '20px',
-              }}>
+          <Flex direction="column" gap="3">
+            <Heading as="h6" css={{fontSize: '$3', textTransform: 'uppercase'}}>
               Контакты
-            </Text>
+            </Heading>
 
-            <ul>
-              <Flex as="li" align="center" css={{mt: '$2'}}>
+            <Flex
+              as="ul"
+              direction="column"
+              gap="2"
+              css={{
+                '> li > svg': {
+                  flexShrink: 0,
+                },
+              }}>
+              <Flex as="li" align="center" gap="2">
                 <MailboxCircleIcon />
-                <Text
-                  as="p"
-                  size="3"
-                  css={{ml: '$2', lineHeight: '20px', color: '$slate11'}}>
+                <Text as="p" size="3" variant="gray">
                   arch4gen@gmail.com
                 </Text>
               </Flex>
-              <Flex as="li" align="center" css={{mt: '$2'}}>
+
+              <Flex as="li" align="center" gap="2">
                 <PersonCircleIcon />
-                <Text
-                  as="p"
-                  size="3"
-                  css={{ml: '$2', lineHeight: '20px', color: '$slate11'}}>
+                <Text as="p" size="3" variant="gray">
                   Адиль Ажиев, сооснователь проекта, тел.: +7 747 690 78 57
                 </Text>
               </Flex>
-              <Flex as="li" align="center" css={{mt: '$2'}}>
+
+              <Flex as="li" align="center" gap="2">
                 <PersonCircleIcon />
-                <Text
-                  as="p"
-                  size="3"
-                  css={{ml: '$2', lineHeight: '20px', color: '$slate11'}}>
+                <Text as="p" size="3" variant="gray">
                   Анель Молдахметова, координатор проекта, тел. : +7 707 121 04
                   83
                 </Text>
               </Flex>
-            </ul>
-          </Box>
+            </Flex>
+          </Flex>
 
-          <Box>
-            <Text
-              as="h6"
-              size="3"
-              css={{
-                fontWeight: 500,
-                textTransform: 'uppercase',
-                lineHeight: '20px',
-              }}>
+          <Flex direction="column" gap="3">
+            <Heading as="h6" css={{fontSize: '$3', textTransform: 'uppercase'}}>
               Наши соцсети
-            </Text>
+            </Heading>
 
-            <ul>
-              <li>
-                <Text as="p" size="3" css={{mt: '$3', lineHeight: '20px'}}>
-                  <Link
-                    href="https://www.facebook.com/ArchcodeAlmaty/"
-                    variant="subtle">
-                    Facebook
-                  </Link>
-                </Text>
-              </li>
-              <li>
-                <Text as="p" size="3" css={{mt: '$3', lineHeight: '20px'}}>
-                  <Link
-                    href="https://www.instagram.com/archcode_almaty/"
-                    variant="subtle">
-                    Instagram
-                  </Link>
-                </Text>
-              </li>
-            </ul>
-          </Box>
+            <Flex as="ul" direction="column" gap="2">
+              <Text as="li" size="3">
+                <Link href="https://www.facebook.com/ArchcodeAlmaty/">
+                  Facebook
+                </Link>
+              </Text>
+
+              <Text as="li" size="3">
+                <Link href="https://www.instagram.com/archcode_almaty/">
+                  Instagram
+                </Link>
+              </Text>
+            </Flex>
+          </Flex>
 
           <Flex
-            css={{
-              alignItems: 'center',
-              '@bp2': {
-                flexDirection: 'column',
-                alignItems: 'start',
-              },
-            }}>
-            <Box
-              as={RemixLink}
-              to="/"
-              css={{
-                flexShrink: 0,
-                color: '$hiContrast',
-                display: 'inline-flex',
-                '&:focus': {
-                  boxShadow: 'none',
-                },
-              }}>
-              <span
-                style={{
-                  position: 'absolute',
-                  width: 1,
-                  height: 1,
-                  padding: 0,
-                  margin: -1,
-                  overflow: 'hidden',
-                  clip: 'rect(0, 0, 0, 0)',
-                  whiteSpace: 'nowrap',
-                  border: 0,
-                }}>
-                Главная страница
-              </span>
+            direction={{'@initial': 'row', '@bp2': 'column'}}
+            align={{'@initial': 'center', '@bp2': 'start'}}
+            gap="4">
+            <Box as={RemixLink} css={{flexShrink: 0}} to="/">
               <ArchcodeLogo />
             </Box>
 
-            <Box
-              css={{
-                ml: '$4',
-                pr: '$8',
-                '@bp2': {mt: '$5', ml: '0'},
-              }}>
-              <Text
-                as="p"
-                size="2"
-                css={{lineHeight: '20px', color: '$slate11'}}>
+            <Flex direction="column">
+              <Text as="p" size="2" variant="gray">
                 © 2021 Архкод Алматы
               </Text>
-              <Text
-                as="p"
-                size="2"
-                css={{lineHeight: '20px', color: '$slate11'}}>
+
+              <Text as="p" size="2" variant="gray">
                 Все права защищены
               </Text>
-              <Text
-                as="p"
-                size="2"
-                css={{mt: '$3', lineHeight: '20px', color: '$slate11'}}>
+
+              <Text as="p" size="2" variant="gray" css={{mt: '$3'}}>
                 При использовании материалов сайта обязательна ссылка на
                 источник
               </Text>
-            </Box>
+            </Flex>
           </Flex>
         </Grid>
       </Container>
-    </Box>
+    </Flex>
   )
 }
 
