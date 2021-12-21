@@ -1,4 +1,9 @@
-import {Container, DesignSystemProvider, Section} from '@modulz/design-system'
+import {
+  Container,
+  DesignSystemProvider,
+  getCssText,
+  Section,
+} from '@modulz/design-system'
 import {
   Links,
   LinksFunction,
@@ -79,7 +84,6 @@ export function CatchBoundary() {
         </p>
       )
       break
-
     default:
       throw new Error(caught.data || caught.statusText)
   }
@@ -108,6 +112,7 @@ function Document({
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <style id="stitches" dangerouslySetInnerHTML={{__html: getCssText()}} />
         {title ? <title>{title}</title> : null}
         <Meta />
         <Links />
