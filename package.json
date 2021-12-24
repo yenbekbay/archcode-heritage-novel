@@ -38,10 +38,13 @@
     "@remix-run/vercel": "1.1.1",
     "@stitches/react": "1.2.6",
     "@trivago/prettier-plugin-sort-imports": "3.1.1",
+    "framer-motion": "5.5.5",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "remeda": "0.0.32",
-    "remix": "1.1.1"
+    "remix": "1.1.1",
+    "type-fest": "2.8.0",
+    "use-onclickoutside": "0.4.0"
   },
   "devDependencies": {
     "@remix-run/dev": "1.1.1",

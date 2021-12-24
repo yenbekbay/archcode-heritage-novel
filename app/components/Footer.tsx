@@ -52,15 +52,16 @@ export function Footer() {
               <Flex as="li" align="center" gap="2">
                 <PersonCircleIcon />
                 <Text as="p" size="3" variant="gray">
-                  Адиль Ажиев, сооснователь проекта, тел.: +7 747 690 78 57
+                  Адиль Ажиев, сооснователь проекта, тел.:{' '}
+                  <span style={{whiteSpace: 'nowrap'}}>+7 747 690 78 57</span>
                 </Text>
               </Flex>
 
               <Flex as="li" align="center" gap="2">
                 <PersonCircleIcon />
                 <Text as="p" size="3" variant="gray">
-                  Анель Молдахметова, координатор проекта, тел. : +7 707 121 04
-                  83
+                  Анель Молдахметова, координатор проекта, тел. :{' '}
+                  <span style={{whiteSpace: 'nowrap'}}>+7 707 121 04 83</span>
                 </Text>
               </Flex>
             </Flex>

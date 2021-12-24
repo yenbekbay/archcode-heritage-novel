@@ -146,7 +146,7 @@ export const {
     },
     fonts: {
       sans: 'Inter, sans-serif',
-      mono: 'Fira Mono, monospace',
+      mono: 'monospace',
     },
     fontSizes: {
       1: '12px',

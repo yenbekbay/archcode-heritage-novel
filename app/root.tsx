@@ -53,17 +53,25 @@ export function ErrorBoundary({error}: {error: Error}) {
       <Layout>
         <Section>
           <Container>
-            <Heading>Что-то пошло не так!</Heading>
-            <Text as="p">{error.message}</Text>
+            <Flex direction="column" gap="2">
+              <Heading>Что-то пошло не так!</Heading>
 
-            <Flex justify="center">
-              <Separator size="2" />
+              <Text
+                as="pre"
+                variant="red"
+                css={{
+                  padding: '$3',
+                  backgroundColor: '$redA3',
+                  fontFamily: '$mono',
+                }}>
+                {error.message}
+              </Text>
+
+              <Text as="p">
+                Мы уже в курсе этой ошибки, и постараемся её исправить как можно
+                скорее.
+              </Text>
             </Flex>
-
-            <Text as="p">
-              Мы уже в курсе этой ошибки, и постараемся её исправить как можно
-              скорее.
-            </Text>
           </Container>
         </Section>
       </Layout>
@@ -101,11 +109,13 @@ export function CatchBoundary() {
       <Layout>
         <Section>
           <Container>
-            <Heading>
-              {caught.status}: {caught.statusText}
-            </Heading>
+            <Flex direction="column" gap="2">
+              <Heading>
+                {caught.status}: {caught.statusText}
+              </Heading>
 
-            <Text as="p">{message}</Text>
+              <Text as="p">{message}</Text>
+            </Flex>
           </Container>
         </Section>
       </Layout>

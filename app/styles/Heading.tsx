@@ -18,7 +18,6 @@ export const Heading = React.forwardRef<
   React.ElementRef<typeof DEFAULT_TAG>,
   HeadingProps
 >(({size = '1', ...textProps}, forwardedRef) => {
-  // This is the mapping of Heading Variants to Text variants
   const textSize: Record<HeadingSizeVariants, TextSizeVariants['size']> = {
     1: {'@initial': '4', '@bp2': '5'},
     2: {'@initial': '5', '@bp2': '6'},
