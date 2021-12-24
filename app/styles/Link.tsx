@@ -42,7 +42,7 @@ export const Link = styled('a', {
         },
       },
       contrast: {
-        color: '$hiContrast',
+        color: '$contrast',
         textDecoration: 'underline',
         textDecorationColor: '$slate4',
         '@hover': {

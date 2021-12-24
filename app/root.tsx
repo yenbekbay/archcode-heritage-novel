@@ -11,6 +11,7 @@ import {
   useCatch,
   useLocation,
 } from 'remix'
+import {useMediaQuery} from 'usehooks-ts'
 import {Footer} from '~/components/Footer'
 import GradientBackground from '~/components/GradientBackground'
 import {Header} from '~/components/Header'
@@ -20,7 +21,6 @@ import {Heading} from '~/styles/Heading'
 import {Section} from '~/styles/Section'
 import {Text} from '~/styles/Text'
 import {globalStyles} from '~/styles/global'
-import {Separator} from '~/styles/separator'
 import tailwindStylesUrl from '~/tailwind.css'
 
 // https://remix.run/api/app#links
@@ -168,13 +168,15 @@ function Document({
 function Layout({children}: {children: React.ReactNode}) {
   let location = useLocation()
   const isInteractive = location.pathname.includes('/interactive')
+  const isTall = useMediaQuery('(min-height: 768px)')
   return (
     <Box css={{position: 'relative'}}>
-      {isInteractive ? (
+      <GradientBackground />
+
+      {isInteractive && !isTall ? (
         children
       ) : (
         <>
-          <GradientBackground />
           <Header />
           {children}
           <Footer />
