@@ -168,12 +168,11 @@ function Document({
 function Layout({children}: {children: React.ReactNode}) {
   let location = useLocation()
   const isInteractive = location.pathname.includes('/interactive')
-  const isTall = useMediaQuery('(min-height: 768px)')
   return (
     <Box css={{position: 'relative'}}>
       <GradientBackground />
 
-      {isInteractive && !isTall ? (
+      {isInteractive ? (
         children
       ) : (
         <>

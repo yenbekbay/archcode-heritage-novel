@@ -15,6 +15,7 @@
   "typescript.disableAutomaticTypeAcquisition": true,
   "typescript.format.enable": false,
   "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": false,
+  "typescript.preferences.jsxAttributeCompletionStyle": "none",
   "typescript.preferences.quoteStyle": "single",
   "typescript.preferences.useAliasesForRenames": true,
   "typescript.tsc.autoDetect": "off",

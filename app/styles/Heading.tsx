@@ -1,6 +1,5 @@
 import {Text} from './Text'
 import React from 'react'
-import {merge} from 'remeda'
 import {CSS, VariantProps} from '~/stitches.config'
 
 const DEFAULT_TAG = 'h1'

@@ -38,8 +38,15 @@ function MobileDeviceChromeFrame({
 }: MobileDeviceChromeFrameProps) {
   const ratio = height / 451
   return (
-    <Box css={{position: 'relative', height: '100%'}}>
-      <svg
+    <Box css={{position: 'relative', width: ratio * 212, height: height}}>
+      <Box
+        as="svg"
+        css={{
+          position: 'absolute',
+          inset: 0,
+          zIndex: 1,
+          pointerEvents: 'none',
+        }}
         width={ratio * 212}
         height={height}
         viewBox="0 0 212 451"
@@ -96,7 +103,7 @@ function MobileDeviceChromeFrame({
           strokeLinecap="round"
           strokeLinejoin="round"
         />
-      </svg>
+      </Box>
 
       <Flex
         css={{
@@ -105,7 +112,6 @@ function MobileDeviceChromeFrame({
           right: ratio * 9,
           bottom: ratio * 17,
           left: ratio * 9,
-          zIndex: -1,
           borderRadius: ratio * 16,
           backgroundColor: '$background',
         }}
