@@ -20,7 +20,7 @@ export default function Interactive() {
   const isDesktop = useMediaQuery('(min-width: 750px)')
   return (
     <Div100vh>
-      <Flex css={{position: 'absolute', top: '$4', left: '$4'}}>
+      <Flex css={{position: 'absolute', top: '$4', left: '$4', zIndex: 1}}>
         <IconButton variant="raised" onClick={() => navigate('/')}>
           <ArrowLeftIcon />
         </IconButton>
