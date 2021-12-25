@@ -41,8 +41,8 @@ export const Link = styled('a', {
           outlineColor: '$slate8',
         },
       },
-      contrast: {
-        color: '$contrast',
+      hiContrast: {
+        color: '$hiContrast',
         textDecoration: 'underline',
         textDecorationColor: '$slate4',
         '@hover': {
@@ -57,6 +57,6 @@ export const Link = styled('a', {
     },
   },
   defaultVariants: {
-    variant: 'contrast',
+    variant: 'hiContrast',
   },
 })

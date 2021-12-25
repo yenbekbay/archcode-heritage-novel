@@ -1,7 +1,7 @@
+import {useLatestRef} from './useLatestRef'
 import JsonURL from '@jsonurl/jsonurl'
 import React from 'react'
 import {useSearchParams} from 'remix'
-import {useUpdateEffect} from 'usehooks-ts'
 
 export function useSearchParam<T>(key: string, defaultValue: T) {
   const [searchParams, setSearchParams] = useSearchParams()
@@ -14,11 +14,8 @@ export function useSearchParam<T>(key: string, defaultValue: T) {
     }
   }, [defaultValue, raw])
 
-  const latestParsedRef = React.useRef(parsed)
-  useUpdateEffect(() => {
-    latestParsedRef.current = parsed
-  }, [parsed])
-
+  const latestRawRef = useLatestRef(raw)
+  const latestParsedRef = useLatestRef(parsed)
   const setValue = React.useCallback(
     (action: React.SetStateAction<T>) => {
       const newValue =
@@ -26,11 +23,15 @@ export function useSearchParam<T>(key: string, defaultValue: T) {
           ? (action as (prev: T) => T)(latestParsedRef.current)
           : action
       const newSerializedValue = JsonURL.stringify(newValue)
+      if (newSerializedValue === latestRawRef.current) {
+        return
+      }
+
       setSearchParams(
         newSerializedValue === undefined ? {} : {[key]: newSerializedValue},
       )
     },
-    [key, setSearchParams],
+    [key, latestParsedRef, latestRawRef, setSearchParams],
   )
 
   return [parsed, setValue] as const

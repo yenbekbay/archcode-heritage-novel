@@ -3,16 +3,29 @@ import {Panel as PanelT, SceneContext, SceneContextValue} from './SceneContext'
 import {AnimatePresence} from 'framer-motion'
 import React from 'react'
 import flattenChildren from 'react-keyed-flatten-children'
-import {useUpdateEffect} from 'usehooks-ts'
+import {useElementSize} from 'usehooks-ts'
+import {useLatestRef} from '~/hooks/useLatestRef'
 import {useSearchParam} from '~/hooks/useSearchParam'
 import {Flex} from '~/styles/Flex'
 
+export interface SceneBackgroundComponentProps {
+  containerSize: {width: number; height: number}
+  /** 0 to 1 */
+  completedPercent: number
+}
+
 export interface SceneProps {
   id: string
+  BackgroundComponent?: React.ComponentType<SceneBackgroundComponentProps>
   children?: React.ReactElement[] | React.ReactElement
 }
 
-export function Scene({id, children: childrenProp}: SceneProps) {
+export function Scene({
+  id,
+  BackgroundComponent,
+  children: childrenProp,
+}: SceneProps) {
+  const [containerRef, containerSize] = useElementSize()
   const [activePanelIndex, setActivePanelIndex] = useActivePanelIndex(id)
   const [panelMap] = React.useState(() => new Map<number, PanelT>())
   const children = React.useMemo(
@@ -30,9 +43,11 @@ export function Scene({id, children: childrenProp}: SceneProps) {
     }),
     [children.length, panelMap, setActivePanelIndex],
   )
+
   return (
     <SceneContext.Provider value={ctx}>
       <Flex
+        ref={containerRef}
         css={{flex: 1, position: 'relative'}}
         tabIndex={-1}
         onClick={() => {
@@ -44,6 +59,13 @@ export function Scene({id, children: childrenProp}: SceneProps) {
 
           ctx.continue()
         }}>
+        {BackgroundComponent && (
+          <BackgroundComponent
+            containerSize={containerSize}
+            completedPercent={(activePanelIndex + 1) / children.length}
+          />
+        )}
+
         <AnimatePresence>
           {children.map(
             (child, idx) =>
@@ -70,11 +92,7 @@ function useActivePanelIndex(sceneId: string) {
     activePanelIndex = 0
   }
 
-  const latestActivePanelIndexRef = React.useRef(activePanelIndex)
-  useUpdateEffect(() => {
-    latestActivePanelIndexRef.current = activePanelIndex
-  }, [activePanelIndex])
-
+  const latestActivePanelIndexRef = useLatestRef(activePanelIndex)
   const setActivePanelIndex = React.useCallback(
     (action: React.SetStateAction<number>) => {
       const newValue =
@@ -83,7 +101,7 @@ function useActivePanelIndex(sceneId: string) {
           : action
       setActivePanelId(`${sceneId}_${newValue}`)
     },
-    [sceneId, setActivePanelId],
+    [latestActivePanelIndexRef, sceneId, setActivePanelId],
   )
   return [activePanelIndex, setActivePanelIndex] as const
 }

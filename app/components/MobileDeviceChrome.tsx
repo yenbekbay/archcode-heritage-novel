@@ -113,6 +113,7 @@ function MobileDeviceChromeFrame({
           bottom: ratio * 17,
           left: ratio * 9,
           borderRadius: ratio * 16,
+          overflow: 'hidden',
           backgroundColor: '$background',
         }}
         direction="column">

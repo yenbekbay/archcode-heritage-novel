@@ -136,7 +136,8 @@ export const {
 
       // Semantic colors
       background: 'white',
-      contrast: '$slate12',
+      hiContrast: '$slate12',
+      loContrast: 'white',
     },
     fonts: {
       sans: 'Inter, sans-serif',

@@ -87,8 +87,8 @@ export const Text = styled('span', {
       gray: {
         color: '$slate11',
       },
-      contrast: {
-        color: '$contrast',
+      hiContrast: {
+        color: '$hiContrast',
       },
     },
     gradient: {
@@ -212,15 +212,15 @@ export const Text = styled('span', {
       },
     },
     {
-      variant: 'contrast',
+      variant: 'hiContrast',
       gradient: 'true',
       css: {
-        background: 'linear-gradient(to right, $contrast, $gray12)',
+        background: 'linear-gradient(to right, $hiContrast, $gray12)',
       },
     },
   ],
   defaultVariants: {
     size: '3',
-    variant: 'contrast',
+    variant: 'hiContrast',
   },
 })
