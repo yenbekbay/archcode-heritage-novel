@@ -1,4 +1,5 @@
 import {Say} from './commands/Say'
+import {Title} from './commands/Title'
 import {Scene, SceneBackgroundComponentProps} from './components/Scene'
 import {motion, useAnimation} from 'framer-motion'
 import React from 'react'
@@ -34,7 +35,7 @@ export function Scene1() {
         Наше настоящее в ваших руках!” - были его последние слова.
       </Say>
 
-      <Say>Снести нельзя оставить</Say>
+      <Title>Снести нельзя оставить</Title>
     </Scene>
   )
 }
