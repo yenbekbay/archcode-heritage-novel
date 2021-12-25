@@ -1,17 +1,19 @@
 import {Box} from './styles/Box'
 import {Flex} from './styles/Flex'
+import React from 'react'
 import {
   Links,
   LinksFunction,
   LiveReload,
+  LoaderFunction,
   Meta,
   Outlet,
   Scripts,
   ScrollRestoration,
   useCatch,
+  useLoaderData,
   useLocation,
 } from 'remix'
-import {useMediaQuery} from 'usehooks-ts'
 import {Footer} from '~/components/Footer'
 import GradientBackground from '~/components/GradientBackground'
 import {Header} from '~/components/Header'
@@ -21,7 +23,8 @@ import {Heading} from '~/styles/Heading'
 import {Section} from '~/styles/Section'
 import {Text} from '~/styles/Text'
 import {globalStyles} from '~/styles/global'
-import tailwindStylesUrl from '~/tailwind.css'
+import globalStylesUrl from '~/styles/global.css'
+import tailwindStylesUrl from '~/styles/tailwind.css'
 
 // https://remix.run/api/app#links
 export let links: LinksFunction = () => {
@@ -30,7 +33,15 @@ export let links: LinksFunction = () => {
       rel: 'stylesheet',
       href: tailwindStylesUrl,
     },
+    {
+      rel: 'stylesheet',
+      href: globalStylesUrl,
+    },
   ]
+}
+
+export let loader: LoaderFunction = () => {
+  return getCssText()
 }
 
 // https://remix.run/api/conventions#default-export
@@ -133,8 +144,8 @@ function Document({
   children: React.ReactNode
   title?: string
 }) {
+  const stitchesCss = useLoaderData()
   globalStyles()
-
   return (
     <html lang="en">
       <head>
@@ -151,7 +162,7 @@ function Document({
         <link href={FONT_INTER} rel="stylesheet" media="all" />
         <Links />
 
-        <style id="stitches" dangerouslySetInnerHTML={{__html: getCssText()}} />
+        <style id="stitches" dangerouslySetInnerHTML={{__html: stitchesCss}} />
         {title ? <title>{title}</title> : null}
       </head>
 
@@ -183,4 +194,7 @@ function Layout({children}: {children: React.ReactNode}) {
       )}
     </Box>
   )
+}
+function StylesContext(StylesContext: any) {
+  throw new Error('Function not implemented.')
 }

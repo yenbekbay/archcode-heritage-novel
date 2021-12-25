@@ -141,6 +141,7 @@ export const {
     fonts: {
       sans: 'Inter, sans-serif',
       mono: 'monospace',
+      calligraph: 'calligraph',
     },
     fontSizes: {
       1: '12px',

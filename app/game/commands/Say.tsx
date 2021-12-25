@@ -51,7 +51,7 @@ export function Say({children}: SayProps) {
 
   return (
     <Flex css={{flex: 1, padding: '$4'}} direction="column">
-      <Text css={{textAlign: 'center'}}>
+      <Text css={{textAlign: 'center', fontFamily: '$calligraph'}}>
         {children.split('').map((char, idx) => (
           <motion.span
             key={`${char}_${idx}`}
