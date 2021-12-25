@@ -1,3 +1,4 @@
+import {Option, Options} from '../components/Options'
 import {useGoToNext, useRegisterPanel} from '../components/PanelContext'
 import {motion, useAnimation, usePresence} from 'framer-motion'
 import React from 'react'
@@ -6,10 +7,11 @@ import {Text} from '~/styles/Text'
 
 export interface SayProps {
   children: string
+  options?: Option[]
   continue?: boolean
 }
 
-export function Say({children, continue: shouldContinue}: SayProps) {
+export function Say({children, options, continue: shouldContinue}: SayProps) {
   const controls = useAnimation()
   const skippedRef = React.useRef(false)
   const [isPresent, safeToRemove] = usePresence()
@@ -37,6 +39,7 @@ export function Say({children, continue: shouldContinue}: SayProps) {
   React.useEffect(
     () => {
       if (isPresent) {
+        skippedRef.current = false
         controls
           .start((idx) => ({
             opacity: 1,
@@ -66,17 +69,26 @@ export function Say({children, continue: shouldContinue}: SayProps) {
 
   return (
     <Flex css={{flex: 1, padding: '$4'}} direction="column">
-      <Text css={{textAlign: 'center', fontFamily: '$calligraph'}}>
-        {children.split('').map((char, idx) => (
-          <motion.span
-            key={`${char}_${idx}`}
-            initial={{opacity: 0}}
-            animate={controls}
-            custom={idx}>
-            {char}
-          </motion.span>
-        ))}
-      </Text>
+      <Flex css={{flex: 1}} direction="column" justify="center">
+        <Text
+          css={{
+            textAlign: 'center',
+            textShadow: '0 1px $colors$slate8',
+            fontFamily: '$calligraph',
+          }}>
+          {children.split('').map((char, idx) => (
+            <motion.span
+              key={`${char}_${idx}`}
+              initial={{opacity: 0}}
+              animate={controls}
+              custom={idx}>
+              {char}
+            </motion.span>
+          ))}
+        </Text>
+      </Flex>
+
+      {options && <Options options={options} />}
     </Flex>
   )
 }

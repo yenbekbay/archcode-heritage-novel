@@ -1,3 +1,4 @@
+import {Option, Options} from '../components/Options'
 import {useRegisterPanel} from '../components/PanelContext'
 import {motion, useAnimation, usePresence} from 'framer-motion'
 import React from 'react'
@@ -6,9 +7,10 @@ import {Text} from '~/styles/Text'
 
 export interface TitleProps {
   children: string
+  options?: Option[]
 }
 
-export function Title({children}: TitleProps) {
+export function Title({children, options}: TitleProps) {
   const controls = useAnimation()
   const skippedRef = React.useRef(false)
   const [isPresent, safeToRemove] = usePresence()
@@ -55,20 +57,25 @@ export function Title({children}: TitleProps) {
 
   return (
     <Flex css={{flex: 1, padding: '$4'}} direction="column" justify="center">
-      <Text
-        as={motion.span}
-        css={{
-          textAlign: 'center',
-          color: '$red10',
-          fontFamily: '$calligraph',
-          fontWeight: 700,
-          lineHeight: 1,
-        }}
-        size="7"
-        initial={{opacity: 0}}
-        animate={controls}>
-        {children}
-      </Text>
+      <Flex css={{flex: 1}} direction="column" justify="center">
+        <Text
+          as={motion.span}
+          css={{
+            color: '$red10',
+            textAlign: 'center',
+            textShadow: '0 1px $colors$slate12',
+            fontFamily: '$calligraph',
+            fontWeight: 700,
+            lineHeight: 1,
+          }}
+          size="7"
+          initial={{opacity: 0}}
+          animate={controls}>
+          {children}
+        </Text>
+      </Flex>
+
+      {options && <Options options={options} />}
     </Flex>
   )
 }

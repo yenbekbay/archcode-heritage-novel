@@ -35,7 +35,18 @@ export function Scene1() {
         Наше настоящее в ваших руках!” - были его последние слова.
       </Say>
 
-      <Title>Снести нельзя оставить</Title>
+      <Title
+        options={[
+          {
+            label: 'Выбрать персонажа',
+            action: {
+              type: 'show_options',
+              options: [],
+            },
+          },
+        ]}>
+        Снести нельзя оставить
+      </Title>
     </Scene>
   )
 }
