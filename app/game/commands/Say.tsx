@@ -61,7 +61,10 @@ export function Say({children, options, continue: shouldContinue}: SayProps) {
   React.useEffect(() => {
     if (!isPresent) {
       controls
-        .start({opacity: 0, transition: {duration: 0.5, ease: 'easeOut'}})
+        .start({
+          opacity: 0,
+          transition: {duration: EXIT_DURATION / 1000, ease: 'easeOut'},
+        })
         .then(() => safeToRemove?.())
       return controls.stop
     }
@@ -94,3 +97,4 @@ export function Say({children, options, continue: shouldContinue}: SayProps) {
 }
 
 const AUTO_CONTINUE_TIMEOUT = 4000
+const EXIT_DURATION = 500

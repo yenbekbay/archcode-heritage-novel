@@ -65,7 +65,7 @@ export function Scene1Background({
     controls.start({
       y: `calc(calc(${containerSize.height}px - 100%) * ${completedPercent})`,
       transition: {
-        duration: BACKGROUND_ANIMATION_DURATION_PER_PANEL / 1000,
+        duration: BACKGROUND_TRANSITION_DURATION_PER_PANEL / 1000,
         ease: 'easeInOut',
       },
     })
@@ -90,4 +90,4 @@ export function Scene1Background({
   )
 }
 
-const BACKGROUND_ANIMATION_DURATION_PER_PANEL = 8000
+const BACKGROUND_TRANSITION_DURATION_PER_PANEL = 8000

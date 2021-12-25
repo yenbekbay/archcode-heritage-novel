@@ -1,3 +1,4 @@
+import {motion} from 'framer-motion'
 import {Button} from '~/styles/Button'
 import {Flex} from '~/styles/Flex'
 
@@ -14,7 +15,14 @@ export interface OptionsProps {
 
 export function Options({options}: OptionsProps) {
   return (
-    <Flex direction="column" align="center" gap="2">
+    <Flex
+      as={motion.div}
+      direction="column"
+      align="center"
+      gap="2"
+      initial={{opacity: 0}}
+      exit={{opacity: 0, transition: {duration: EXIT_DURATION / 1000}}}
+      animate={{opacity: 1, transition: {duration: ENTRY_DURATION / 1000}}}>
       {options.map((o) => (
         <Button
           key={o.label}
@@ -34,3 +42,6 @@ export function Options({options}: OptionsProps) {
     </Flex>
   )
 }
+
+const ENTRY_DURATION = 4000
+const EXIT_DURATION = 500

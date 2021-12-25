@@ -37,7 +37,10 @@ export function Title({children, options}: TitleProps) {
   React.useEffect(
     () => {
       if (isPresent) {
-        controls.start({opacity: 1, transition: {duration: 4}})
+        controls.start({
+          opacity: 1,
+          transition: {duration: ENTRY_DURATION / 1000},
+        })
         return controls.stop
       }
     },
@@ -49,7 +52,10 @@ export function Title({children, options}: TitleProps) {
   React.useEffect(() => {
     if (!isPresent) {
       controls
-        .start({opacity: 0, transition: {duration: 0.5, ease: 'easeOut'}})
+        .start({
+          opacity: 0,
+          transition: {duration: EXIT_DURATION / 1000, ease: 'easeOut'},
+        })
         .then(() => safeToRemove?.())
       return controls.stop
     }
@@ -79,3 +85,6 @@ export function Title({children, options}: TitleProps) {
     </Flex>
   )
 }
+
+const ENTRY_DURATION = 4000
+const EXIT_DURATION = 500
