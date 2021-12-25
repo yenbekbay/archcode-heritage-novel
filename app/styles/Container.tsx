@@ -1,7 +1,6 @@
 import {styled} from '~/stitches.config'
 
 export const Container = styled('div', {
-  boxSizing: 'border-box',
   flexShrink: 0,
 
   ml: 'auto',

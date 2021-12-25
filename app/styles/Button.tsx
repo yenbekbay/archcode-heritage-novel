@@ -4,7 +4,6 @@ export const Button = styled('button', {
   alignItems: 'center',
   appearance: 'none',
   borderWidth: 0,
-  boxSizing: 'border-box',
   display: 'inline-flex',
   flexShrink: 0,
   justifyContent: 'center',

@@ -5,19 +5,16 @@ import {
   Links,
   LinksFunction,
   LiveReload,
-  LoaderFunction,
   Meta,
   Outlet,
   Scripts,
   ScrollRestoration,
   useCatch,
-  useLoaderData,
   useLocation,
 } from 'remix'
 import {Footer} from '~/components/Footer'
 import GradientBackground from '~/components/GradientBackground'
 import {Header} from '~/components/Header'
-import {getCssText} from '~/stitches.config'
 import {Container} from '~/styles/Container'
 import {Heading} from '~/styles/Heading'
 import {Section} from '~/styles/Section'
@@ -38,10 +35,6 @@ export let links: LinksFunction = () => {
       href: globalStylesUrl,
     },
   ]
-}
-
-export let loader: LoaderFunction = () => {
-  return getCssText()
 }
 
 // https://remix.run/api/conventions#default-export
@@ -144,7 +137,6 @@ function Document({
   children: React.ReactNode
   title?: string
 }) {
-  const stitchesCss = useLoaderData()
   globalStyles()
   return (
     <html lang="en">
@@ -162,7 +154,6 @@ function Document({
         <link href={FONT_INTER} rel="stylesheet" media="all" />
         <Links />
 
-        <style id="stitches" dangerouslySetInnerHTML={{__html: stitchesCss}} />
         {title ? <title>{title}</title> : null}
       </head>
 
@@ -194,7 +185,4 @@ function Layout({children}: {children: React.ReactNode}) {
       )}
     </Box>
   )
-}
-function StylesContext(StylesContext: any) {
-  throw new Error('Function not implemented.')
 }

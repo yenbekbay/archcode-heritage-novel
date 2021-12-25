@@ -3,6 +3,7 @@ import {Title} from './commands/Title'
 import {Scene, SceneBackgroundComponentProps} from './components/Scene'
 import {motion, useAnimation} from 'framer-motion'
 import React from 'react'
+import {useImageOnLoad} from 'usehooks-ts'
 import backgroundSrc from '~/assets/game/scene-1-bg.png'
 import {Box} from '~/styles/Box'
 
@@ -56,8 +57,9 @@ export function Scene1Background({
   completedPercent,
 }: SceneBackgroundComponentProps) {
   const controls = useAnimation()
+  const [loaded, setLoaded] = React.useState(false)
   React.useEffect(() => {
-    if (containerSize.height === 0) {
+    if (containerSize.height === 0 || !loaded) {
       return
     }
 
@@ -69,7 +71,7 @@ export function Scene1Background({
         ease: 'easeInOut',
       },
     })
-  }, [completedPercent, containerSize.height, controls])
+  }, [completedPercent, containerSize.height, controls, loaded])
 
   if (containerSize.height === 0) {
     return null
@@ -81,6 +83,7 @@ export function Scene1Background({
       src={backgroundSrc}
       initial={{y: 0}}
       animate={controls}
+      onLoad={() => setLoaded(true)}
       css={{
         position: 'absolute',
         top: 0,

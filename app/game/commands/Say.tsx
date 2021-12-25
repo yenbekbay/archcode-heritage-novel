@@ -72,7 +72,7 @@ export function Say({children, options, continue: shouldContinue}: SayProps) {
 
   return (
     <Flex css={{flex: 1, padding: '$4'}} direction="column">
-      <Flex css={{flex: 1}} direction="column" justify="center">
+      <Flex css={{flex: 1}} direction="column">
         <Text
           css={{
             textAlign: 'center',
