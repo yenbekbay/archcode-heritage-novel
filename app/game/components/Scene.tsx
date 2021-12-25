@@ -34,7 +34,7 @@ export function Scene({
   )
   const ctx = React.useMemo(
     (): SceneContextValue => ({
-      continue: () =>
+      goToNext: () =>
         setActivePanelIndex((prev) => Math.min(children.length - 1, prev + 1)),
       registerPanel: (index, panel) => {
         panelMap.set(index, panel)
@@ -57,7 +57,7 @@ export function Scene({
             return
           }
 
-          ctx.continue()
+          ctx.goToNext()
         }}>
         {BackgroundComponent && (
           <BackgroundComponent

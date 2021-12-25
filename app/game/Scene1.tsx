@@ -8,14 +8,14 @@ import {Box} from '~/styles/Box'
 export function Scene1() {
   return (
     <Scene id="Prologue" BackgroundComponent={Scene1Background}>
-      <Say>
+      <Say continue>
         В городе, с цветущими яблонями и журчащими арыками, где возвышалось
         здание с изогнутой золотой крышей и стучали об рельсы трамваи, на
         центральной площади что-то строил старик, а перед ним табличка: “Я верну
         голубое небо”
       </Say>
 
-      <Say>
+      <Say continue>
         Его считали городским сумасшедшим, ведь небо всегда было серое, но никто
         его не трогал, потому что всем было дико интересно, что же он строит.
         Когда-то он был архитектором, и по неизвестной причине лишился всего,
@@ -23,13 +23,13 @@ export function Scene1() {
         застывщих над городом.
       </Say>
 
-      <Say>
+      <Say continue>
         Город показывается сверху, и это оказывается плотный смог из призраков
         снесенных зданий. Вокруг небо обычное. И вот настал день, когда старик
         завершил строение.
       </Say>
 
-      <Say>
+      <Say continue>
         “Это машина времени, которая вернет вас туда, где небо было голубым.
         Наше настоящее в ваших руках!” - были его последние слова.
       </Say>
@@ -52,7 +52,10 @@ export function Scene1Background({
     controls.stop()
     controls.start({
       y: `calc(calc(${containerSize.height}px - 100%) * ${completedPercent})`,
-      transition: {duration: 5, ease: 'easeOut'},
+      transition: {
+        duration: BACKGROUND_ANIMATION_DURATION_PER_PANEL / 1000,
+        ease: 'easeInOut',
+      },
     })
   }, [completedPercent, containerSize.height, controls])
 
@@ -74,3 +77,5 @@ export function Scene1Background({
     />
   )
 }
+
+const BACKGROUND_ANIMATION_DURATION_PER_PANEL = 8000

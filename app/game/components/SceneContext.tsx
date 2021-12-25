@@ -5,7 +5,7 @@ export interface Panel {
 }
 
 export interface SceneContextValue {
-  continue: () => void
+  goToNext: () => void
   registerPanel: (index: number, panel: Panel) => () => void
 }
 

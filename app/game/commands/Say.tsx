@@ -1,4 +1,4 @@
-import {useRegisterPanel} from '../components/PanelContext'
+import {useGoToNext, useRegisterPanel} from '../components/PanelContext'
 import {motion, useAnimation, usePresence} from 'framer-motion'
 import React from 'react'
 import {Flex} from '~/styles/Flex'
@@ -6,12 +6,14 @@ import {Text} from '~/styles/Text'
 
 export interface SayProps {
   children: string
+  continue?: boolean
 }
 
-export function Say({children}: SayProps) {
+export function Say({children, continue: shouldContinue}: SayProps) {
   const controls = useAnimation()
   const skippedRef = React.useRef(false)
   const [isPresent, safeToRemove] = usePresence()
+  const goToNext = useGoToNext()
 
   useRegisterPanel(
     React.useMemo(
@@ -32,13 +34,25 @@ export function Say({children}: SayProps) {
   )
 
   // Animate on mount
-  React.useEffect(() => {
-    controls.start((idx) => ({
-      opacity: 1,
-      transition: {delay: 0.5 + 0.02 * idx},
-    }))
-    return controls.stop
-  }, [controls])
+  React.useEffect(
+    () => {
+      if (isPresent) {
+        controls
+          .start((idx) => ({
+            opacity: 1,
+            transition: {delay: 0.5 + 0.02 * idx},
+          }))
+          .then(() => {
+            if (shouldContinue) {
+              setTimeout(() => goToNext(), AUTO_CONTINUE_TIMEOUT)
+            }
+          })
+        return controls.stop
+      }
+    },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [isPresent],
+  )
 
   // Animate on exit
   React.useEffect(() => {
@@ -46,6 +60,7 @@ export function Say({children}: SayProps) {
       controls
         .start({opacity: 0, transition: {duration: 0.5, ease: 'easeOut'}})
         .then(() => safeToRemove?.())
+      return controls.stop
     }
   }, [controls, isPresent, safeToRemove])
 
@@ -65,3 +80,5 @@ export function Say({children}: SayProps) {
     </Flex>
   )
 }
+
+const AUTO_CONTINUE_TIMEOUT = 4000

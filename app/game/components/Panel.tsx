@@ -1,6 +1,8 @@
 import {PanelContext, PanelContextValue} from './PanelContext'
 import {SceneContext} from './SceneContext'
+import {usePresence} from 'framer-motion'
 import React from 'react'
+import {useLatestRef} from '~/hooks/useLatestRef'
 import {Flex} from '~/styles/Flex'
 
 export interface PanelProps {
@@ -9,13 +11,20 @@ export interface PanelProps {
 }
 
 export function Panel({index, children}: PanelProps) {
+  const [isPresent] = usePresence()
+  const latestIsPresentRef = useLatestRef(isPresent)
   const sceneCtx = React.useContext(SceneContext)
   const panelCtx = React.useMemo(
     (): PanelContextValue => ({
       registerPanel: (panel) =>
         sceneCtx?.registerPanel(index, panel) ?? (() => {}),
+      goToNext: () => {
+        if (latestIsPresentRef.current) {
+          sceneCtx?.goToNext()
+        }
+      },
     }),
-    [index, sceneCtx],
+    [index, latestIsPresentRef, sceneCtx],
   )
   return (
     <PanelContext.Provider value={panelCtx}>
