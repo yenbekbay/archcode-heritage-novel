@@ -1,3 +1,4 @@
+import {useGameContext} from './GameContext'
 import {motion} from 'framer-motion'
 import {Button} from '~/styles/Button'
 import {Flex} from '~/styles/Flex'
@@ -14,6 +15,7 @@ export interface OptionsProps {
 }
 
 export function Options({options}: OptionsProps) {
+  const {goToScene} = useGameContext()
   return (
     <Flex
       as={motion.div}
@@ -37,7 +39,13 @@ export function Options({options}: OptionsProps) {
           animate={{y: -8}}
           transition={{repeat: Infinity, repeatType: 'reverse', duration: 1}}
           onClick={() => {
-            alert('Не сделано')
+            switch (o.action.type) {
+              case 'go_to_scene':
+                goToScene(o.action.sceneId)
+                break
+              default:
+                alert('Не сделано')
+            }
           }}>
           {o.label}
         </Button>

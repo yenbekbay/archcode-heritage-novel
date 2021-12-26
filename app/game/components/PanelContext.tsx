@@ -3,27 +3,24 @@ import React from 'react'
 
 export interface PanelContextValue {
   registerPanel: (panel: PanelT) => () => void
-  goToNextPanel: () => void
+  skipToNextPanel: () => void
 }
 
 export const PanelContext = React.createContext<PanelContextValue | null>(null)
 
-export function useRegisterPanel(panel: PanelT) {
+export function usePanelContext() {
   const ctx = React.useContext(PanelContext)
   if (!ctx) {
-    throw new Error('`useOnSkip` can only be used inside a Panel component')
+    throw new Error(
+      '`usePanelContext` can only be used inside a Panel component',
+    )
   }
+  return ctx
+}
 
+export function useRegisterPanel(panel: PanelT) {
+  const ctx = usePanelContext()
   React.useEffect(() => {
     return ctx.registerPanel(panel)
   }, [panel, ctx])
-}
-
-export function useGoToNextPanel() {
-  const ctx = React.useContext(PanelContext)
-  if (!ctx) {
-    throw new Error('`useGoToNext` can only be used inside a Panel component')
-  }
-
-  return ctx?.goToNextPanel
 }

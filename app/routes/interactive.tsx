@@ -1,9 +1,8 @@
 import {ArrowLeft as ArrowLeftIcon} from 'phosphor-react'
-import Div100vh from 'react-div-100vh'
 import {MetaFunction, useNavigate} from 'remix'
 import {Media} from '~/Media'
 import {MobileDeviceChrome} from '~/components/MobileDeviceChrome'
-import {Game} from '~/game'
+import {MyGame} from '~/game'
 import {Box} from '~/styles/Box'
 import {Flex} from '~/styles/Flex'
 import {IconButton} from '~/styles/IconButton'
@@ -27,12 +26,12 @@ export default function Interactive() {
       </Flex>
 
       <Box as={Media} css={{width: '100%', height: '100%'}} at="sm">
-        <Game />
+        <MyGame />
       </Box>
 
       <Box as={Media} css={{width: '100%', height: '100%'}} greaterThan="sm">
         <MobileDeviceChrome>
-          <Game />
+          <MyGame />
         </MobileDeviceChrome>
       </Box>
     </Flex>

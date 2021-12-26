@@ -1,85 +1,35 @@
-import {Panel} from './Panel'
 import {Panel as PanelT, SceneContext, SceneContextValue} from './SceneContext'
-import useSize from '@react-hook/size'
-import {AnimatePresence} from 'framer-motion'
 import React from 'react'
-import flattenChildren from 'react-keyed-flatten-children'
 import {useLatestRef} from '~/hooks/useLatestRef'
 import {useSearchParam} from '~/hooks/useSearchParam'
-import {Flex} from '~/styles/Flex'
-
-export interface SceneBackgroundComponentProps {
-  containerSize: [number, number]
-  /** 0 to 1 */
-  completedPercent: number
-}
+import {useStableCallback} from '~/hooks/useStableCallback'
 
 export interface SceneProps {
   id: string
-  BackgroundComponent?: React.ComponentType<SceneBackgroundComponentProps>
-  children?: React.ReactElement[] | React.ReactElement
+  children?: React.ReactNode
 }
 
-export function Scene({
-  id,
-  BackgroundComponent,
-  children: childrenProp,
-}: SceneProps) {
-  const containerRef = React.useRef<HTMLDivElement>(null)
-  const containerSize = useSize(containerRef)
-  const [activePanelIndex, setActivePanelIndex] = useActivePanelIndex(id)
+export function Scene({id, children}: SceneProps) {
   const [panelMap] = React.useState(() => new Map<number, PanelT>())
-  const children = React.useMemo(
-    () => flattenChildren(childrenProp) as React.ReactElement[],
-    [childrenProp],
-  )
+  const [activePanelIndex, setActivePanelIndex] = useActivePanelIndex(id)
+  const registerPanel = useStableCallback((index: number, panel: PanelT) => {
+    panelMap.set(index, panel)
+    return () => panelMap.delete(index)
+  })
+  const skipActivePanel = useStableCallback(() => {
+    const activePanel = panelMap.get(activePanelIndex)
+    return activePanel?.onSkip?.() ?? false
+  })
   const ctx = React.useMemo(
     (): SceneContextValue => ({
-      goToNextPanel: () =>
-        setActivePanelIndex((prev) => Math.min(children.length - 1, prev + 1)),
-      registerPanel: (index, panel) => {
-        panelMap.set(index, panel)
-        return () => panelMap.delete(index)
-      },
+      registerPanel,
+      skipActivePanel,
+      activePanelIndex,
+      setActivePanelIndex,
     }),
-    [children.length, panelMap, setActivePanelIndex],
+    [activePanelIndex, registerPanel, setActivePanelIndex, skipActivePanel],
   )
-
-  return (
-    <SceneContext.Provider value={ctx}>
-      <Flex
-        ref={containerRef}
-        css={{flex: 1, position: 'relative'}}
-        tabIndex={-1}
-        onClick={() => {
-          const activePanel = panelMap.get(activePanelIndex)
-          const skipped = activePanel?.onSkip?.()
-          if (skipped) {
-            return
-          }
-
-          ctx.goToNextPanel()
-        }}>
-        {BackgroundComponent && (
-          <BackgroundComponent
-            containerSize={containerSize}
-            completedPercent={(activePanelIndex + 1) / children.length}
-          />
-        )}
-
-        <AnimatePresence>
-          {children.map(
-            (child, idx) =>
-              activePanelIndex === idx && (
-                <Panel key={child.key} index={idx}>
-                  {child}
-                </Panel>
-              ),
-          )}
-        </AnimatePresence>
-      </Flex>
-    </SceneContext.Provider>
-  )
+  return <SceneContext.Provider value={ctx}>{children}</SceneContext.Provider>
 }
 
 function useActivePanelIndex(sceneId: string) {

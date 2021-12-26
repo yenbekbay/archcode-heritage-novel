@@ -1,7 +1,8 @@
 import {Option, Options} from '../components/Options'
-import {useGoToNextPanel, useRegisterPanel} from '../components/PanelContext'
+import {usePanelContext, useRegisterPanel} from '../components/PanelContext'
 import {motion, useAnimation, usePresence} from 'framer-motion'
 import React from 'react'
+import {useLatestRef} from '~/hooks/useLatestRef'
 import {Flex} from '~/styles/Flex'
 import {Text} from '~/styles/Text'
 
@@ -15,7 +16,7 @@ export function Say({children, options, continue: shouldContinue}: SayProps) {
   const controls = useAnimation()
   const skippedRef = React.useRef(false)
   const [isPresent, safeToRemove] = usePresence()
-  const goToNextPanel = useGoToNextPanel()
+  const {skipToNextPanel} = usePanelContext()
 
   useRegisterPanel(
     React.useMemo(
@@ -36,6 +37,7 @@ export function Say({children, options, continue: shouldContinue}: SayProps) {
   )
 
   // Animate on mount
+  const latestIsPresentRef = useLatestRef(isPresent)
   React.useLayoutEffect(
     () => {
       if (isPresent) {
@@ -46,8 +48,8 @@ export function Say({children, options, continue: shouldContinue}: SayProps) {
             transition: {delay: 0.5 + 0.02 * idx},
           }))
           .then(() => {
-            if (shouldContinue) {
-              setTimeout(() => goToNextPanel(), AUTO_CONTINUE_TIMEOUT)
+            if (shouldContinue && latestIsPresentRef.current) {
+              setTimeout(() => skipToNextPanel(), AUTO_CONTINUE_TIMEOUT)
             }
           })
         return controls.stop
