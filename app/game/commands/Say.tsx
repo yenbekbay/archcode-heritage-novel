@@ -1,5 +1,5 @@
 import {Option, Options} from '../components/Options'
-import {useGoToNext, useRegisterPanel} from '../components/PanelContext'
+import {useGoToNextPanel, useRegisterPanel} from '../components/PanelContext'
 import {motion, useAnimation, usePresence} from 'framer-motion'
 import React from 'react'
 import {Flex} from '~/styles/Flex'
@@ -15,7 +15,7 @@ export function Say({children, options, continue: shouldContinue}: SayProps) {
   const controls = useAnimation()
   const skippedRef = React.useRef(false)
   const [isPresent, safeToRemove] = usePresence()
-  const goToNext = useGoToNext()
+  const goToNextPanel = useGoToNextPanel()
 
   useRegisterPanel(
     React.useMemo(
@@ -47,7 +47,7 @@ export function Say({children, options, continue: shouldContinue}: SayProps) {
           }))
           .then(() => {
             if (shouldContinue) {
-              setTimeout(() => goToNext(), AUTO_CONTINUE_TIMEOUT)
+              setTimeout(() => goToNextPanel(), AUTO_CONTINUE_TIMEOUT)
             }
           })
         return controls.stop

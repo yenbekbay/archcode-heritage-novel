@@ -26,6 +26,7 @@ export function Options({options}: OptionsProps) {
       {options.map((o) => (
         <Button
           key={o.label}
+          as={motion.div}
           variant="transparentWhite"
           css={{
             fontFamily: '$calligraph',
@@ -33,6 +34,8 @@ export function Options({options}: OptionsProps) {
             textShadow: '0 1px $colors$slate12',
             backgroundColor: 'transparent',
           }}
+          animate={{y: -8}}
+          transition={{repeat: Infinity, repeatType: 'reverse', duration: 1}}
           onClick={() => {
             alert('Не сделано')
           }}>

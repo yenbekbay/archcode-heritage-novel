@@ -18,9 +18,9 @@ export function Panel({index, children}: PanelProps) {
     (): PanelContextValue => ({
       registerPanel: (panel) =>
         sceneCtx?.registerPanel(index, panel) ?? (() => {}),
-      goToNext: () => {
+      goToNextPanel: () => {
         if (latestIsPresentRef.current) {
-          sceneCtx?.goToNext()
+          sceneCtx?.goToNextPanel()
         }
       },
     }),

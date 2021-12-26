@@ -3,7 +3,7 @@ import React from 'react'
 
 export interface PanelContextValue {
   registerPanel: (panel: PanelT) => () => void
-  goToNext: () => void
+  goToNextPanel: () => void
 }
 
 export const PanelContext = React.createContext<PanelContextValue | null>(null)
@@ -19,11 +19,11 @@ export function useRegisterPanel(panel: PanelT) {
   }, [panel, ctx])
 }
 
-export function useGoToNext() {
+export function useGoToNextPanel() {
   const ctx = React.useContext(PanelContext)
   if (!ctx) {
     throw new Error('`useGoToNext` can only be used inside a Panel component')
   }
 
-  return ctx?.goToNext
+  return ctx?.goToNextPanel
 }
