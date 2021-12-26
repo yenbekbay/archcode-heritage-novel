@@ -1,9 +1,9 @@
 import {Say} from './commands/Say'
 import {Title} from './commands/Title'
 import {Scene, SceneBackgroundComponentProps} from './components/Scene'
+import useSize from '@react-hook/size'
 import {motion, useAnimation} from 'framer-motion'
 import React from 'react'
-import {useImageOnLoad} from 'usehooks-ts'
 import backgroundSrc from '~/assets/game/scene-1-bg.png'
 import {Box} from '~/styles/Box'
 
@@ -57,33 +57,32 @@ export function Scene1Background({
   completedPercent,
 }: SceneBackgroundComponentProps) {
   const controls = useAnimation()
-  const [loaded, setLoaded] = React.useState(false)
+  const imgRef = React.useRef<HTMLImageElement>(null)
+  const imgSize = useSize(imgRef)
   React.useLayoutEffect(() => {
-    if (containerSize.height === 0 || !loaded) {
+    console.log('containerSize[1]', containerSize[1])
+    console.log('imgSize[1]', imgSize[1])
+    if (containerSize[1] === 0 || imgSize[1] === 0) {
       return
     }
 
     controls.stop()
     controls.start({
-      y: `calc(calc(${containerSize.height}px - 100%) * ${completedPercent})`,
+      y: `calc(${containerSize[1] - imgSize[1]}px * ${completedPercent})`,
       transition: {
         duration: BACKGROUND_TRANSITION_DURATION_PER_PANEL / 1000,
         ease: 'easeInOut',
       },
     })
-  }, [completedPercent, containerSize.height, controls, loaded])
-
-  if (containerSize.height === 0) {
-    return null
-  }
+  }, [completedPercent, containerSize, controls, imgSize])
 
   return (
     <Box
+      ref={imgRef}
       as={motion.img}
       src={backgroundSrc}
       initial={{y: 0}}
       animate={controls}
-      onLoad={() => setLoaded(true)}
       css={{
         position: 'absolute',
         top: 0,

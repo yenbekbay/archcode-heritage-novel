@@ -27,7 +27,7 @@ const LINKS: {to: string; label: string}[] = [
 export function Header() {
   return (
     <Container as="header">
-      <Flex justify="between" gap="5" css={{py: '$5'}}>
+      <Flex justify="between" gap="4" css={{py: '$4'}}>
         <Box as={RemixNavLink} css={{flexShrink: 0}} to="/">
           <ArchcodeLogo />
         </Box>

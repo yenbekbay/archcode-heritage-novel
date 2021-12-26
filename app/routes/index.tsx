@@ -15,10 +15,10 @@ export const meta: MetaFunction = () => {
 
 export default function Home() {
   return (
-    <Flex direction="column" gap="5">
+    <Flex direction="column">
       <Hero />
 
-      <Flex justify="center">
+      <Flex justify="center" css={{py: '$4'}}>
         <Separator size="2" />
       </Flex>
 

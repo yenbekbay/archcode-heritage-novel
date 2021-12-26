@@ -1,15 +1,15 @@
 import {Panel} from './Panel'
 import {Panel as PanelT, SceneContext, SceneContextValue} from './SceneContext'
+import useSize from '@react-hook/size'
 import {AnimatePresence} from 'framer-motion'
 import React from 'react'
 import flattenChildren from 'react-keyed-flatten-children'
-import {useElementSize} from 'usehooks-ts'
 import {useLatestRef} from '~/hooks/useLatestRef'
 import {useSearchParam} from '~/hooks/useSearchParam'
 import {Flex} from '~/styles/Flex'
 
 export interface SceneBackgroundComponentProps {
-  containerSize: {width: number; height: number}
+  containerSize: [number, number]
   /** 0 to 1 */
   completedPercent: number
 }
@@ -25,7 +25,8 @@ export function Scene({
   BackgroundComponent,
   children: childrenProp,
 }: SceneProps) {
-  const [containerRef, containerSize] = useElementSize()
+  const containerRef = React.useRef<HTMLDivElement>(null)
+  const containerSize = useSize(containerRef)
   const [activePanelIndex, setActivePanelIndex] = useActivePanelIndex(id)
   const [panelMap] = React.useState(() => new Map<number, PanelT>())
   const children = React.useMemo(

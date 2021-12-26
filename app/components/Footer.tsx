@@ -11,12 +11,12 @@ import {Text} from '~/styles/Text'
 
 export function Footer() {
   return (
-    <Flex as="footer" direction="column" gap="5" css={{py: '$5'}}>
-      <Flex justify="center">
+    <Flex as="footer" direction="column">
+      <Flex justify="center" css={{py: '$4'}}>
         <Separator size="2" />
       </Flex>
 
-      <Container>
+      <Container css={{py: '$4'}}>
         <Grid
           gap={{
             '@initial': '4',

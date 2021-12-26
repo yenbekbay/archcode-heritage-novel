@@ -1,5 +1,5 @@
+import useSize from '@react-hook/size'
 import React from 'react'
-import {useElementSize} from 'usehooks-ts'
 import {Box} from '~/styles/Box'
 import {Flex} from '~/styles/Flex'
 
@@ -8,15 +8,17 @@ export interface MobileDeviceChromeProps {
 }
 
 export function MobileDeviceChrome({children}: MobileDeviceChromeProps) {
-  const [frameRef, frameSize] = useElementSize()
+  const containerRef = React.useRef<HTMLDivElement>(null)
+  const containerSize = useSize(containerRef)
   return (
     <Flex
+      direction="column"
       justify="center"
       align="center"
       css={{width: '100%', height: '100%', padding: '$4'}}>
-      <Flex ref={frameRef} css={{height: '100%'}}>
-        {frameSize.height !== 0 && (
-          <MobileDeviceChromeFrame height={frameSize.height}>
+      <Flex ref={containerRef} css={{height: '100%'}} direction="column">
+        {containerSize[1] !== 0 && (
+          <MobileDeviceChromeFrame height={containerSize[1]}>
             {children}
           </MobileDeviceChromeFrame>
         )}

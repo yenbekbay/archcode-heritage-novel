@@ -19,7 +19,7 @@ export const meta: MetaFunction = () => {
 export default function Interactive() {
   const navigate = useNavigate()
   return (
-    <Div100vh>
+    <Flex css={{height: '100vh'}}>
       <Flex css={{position: 'absolute', top: '$3', left: '$3', zIndex: 1}}>
         <IconButton variant="raised" onClick={() => navigate('/')}>
           <ArrowLeftIcon />
@@ -35,6 +35,6 @@ export default function Interactive() {
           <Game />
         </MobileDeviceChrome>
       </Box>
-    </Div100vh>
+    </Flex>
   )
 }

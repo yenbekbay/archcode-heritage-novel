@@ -17,6 +17,6 @@ export const Section = styled('section', {
     },
   },
   defaultVariants: {
-    size: '3',
+    size: '2',
   },
 })
