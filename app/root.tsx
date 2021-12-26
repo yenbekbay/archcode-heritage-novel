@@ -1,5 +1,4 @@
-import {Box} from './styles/Box'
-import {Flex} from './styles/Flex'
+import {MediaContextProvider, mediaStyle} from './Media'
 import React from 'react'
 import {
   Links,
@@ -15,7 +14,9 @@ import {
 import {Footer} from '~/components/Footer'
 import GradientBackground from '~/components/GradientBackground'
 import {Header} from '~/components/Header'
+import {Box} from '~/styles/Box'
 import {Container} from '~/styles/Container'
+import {Flex} from '~/styles/Flex'
 import {Heading} from '~/styles/Heading'
 import {Section} from '~/styles/Section'
 import {Text} from '~/styles/Text'
@@ -24,7 +25,7 @@ import globalStylesUrl from '~/styles/global.css'
 import tailwindStylesUrl from '~/styles/tailwind.css'
 
 // https://remix.run/api/app#links
-export let links: LinksFunction = () => {
+export const links: LinksFunction = () => {
   return [
     {
       rel: 'stylesheet',
@@ -154,11 +155,13 @@ function Document({
         <link href={FONT_INTER} rel="stylesheet" media="all" />
         <Links />
 
+        <style id="fresnel" dangerouslySetInnerHTML={{__html: mediaStyle}} />
+
         {title ? <title>{title}</title> : null}
       </head>
 
       <body>
-        {children}
+        <MediaContextProvider>{children}</MediaContextProvider>
         <ScrollRestoration />
         <Scripts />
         {process.env.NODE_ENV === 'development' && <LiveReload />}

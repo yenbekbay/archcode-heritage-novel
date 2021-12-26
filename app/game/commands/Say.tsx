@@ -36,7 +36,7 @@ export function Say({children, options, continue: shouldContinue}: SayProps) {
   )
 
   // Animate on mount
-  React.useEffect(
+  React.useLayoutEffect(
     () => {
       if (isPresent) {
         skippedRef.current = false
@@ -58,7 +58,7 @@ export function Say({children, options, continue: shouldContinue}: SayProps) {
   )
 
   // Animate on exit
-  React.useEffect(() => {
+  React.useLayoutEffect(() => {
     if (!isPresent) {
       controls
         .start({

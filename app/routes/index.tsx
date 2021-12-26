@@ -6,7 +6,7 @@ import {Section} from '~/styles/Section'
 import {Separator} from '~/styles/Separator'
 
 // https://remix.run/api/conventions#meta
-export let meta: MetaFunction = () => {
+export const meta: MetaFunction = () => {
   return {
     title: 'Снести нельзя оставить!',
     description: 'Сохраняем архитектурную идентичность Алматы',

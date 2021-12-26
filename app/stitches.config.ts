@@ -194,10 +194,10 @@ export const {
     },
   },
   media: {
-    bp1: '(min-width: 575px)',
-    bp2: '(min-width: 750px)',
-    bp3: '(min-width: 1000px)',
-    bp4: '(min-width: 1200px)',
+    bp1: '(min-width: 0)',
+    bp2: '(min-width: 768px)',
+    bp3: '(min-width: 1024px)',
+    bp4: '(min-width: 1192px)',
   },
   utils: {
     p: (value: Stitches.PropertyValue<'paddingTop'>) => ({

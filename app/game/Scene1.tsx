@@ -58,7 +58,7 @@ export function Scene1Background({
 }: SceneBackgroundComponentProps) {
   const controls = useAnimation()
   const [loaded, setLoaded] = React.useState(false)
-  React.useEffect(() => {
+  React.useLayoutEffect(() => {
     if (containerSize.height === 0 || !loaded) {
       return
     }

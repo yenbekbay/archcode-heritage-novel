@@ -34,7 +34,7 @@ export function Title({children, options}: TitleProps) {
   )
 
   // Animate on mount
-  React.useEffect(
+  React.useLayoutEffect(
     () => {
       if (isPresent) {
         controls.start({
@@ -49,7 +49,7 @@ export function Title({children, options}: TitleProps) {
   )
 
   // Animate on exit
-  React.useEffect(() => {
+  React.useLayoutEffect(() => {
     if (!isPresent) {
       controls
         .start({
