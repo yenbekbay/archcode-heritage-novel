@@ -1,7 +1,6 @@
 import {Option, Options} from '../components/Options'
-import {useRegisterPanel} from '../components/PanelContext'
-import {motion, useAnimation, usePresence} from 'framer-motion'
-import React from 'react'
+import {useCommandControls} from './useCommandControls'
+import {motion} from 'framer-motion'
 import {Flex} from '~/styles/Flex'
 import {Text} from '~/styles/Text'
 
@@ -11,56 +10,12 @@ export interface TitleProps {
 }
 
 export function Title({children, options}: TitleProps) {
-  const controls = useAnimation()
-  const skippedRef = React.useRef(false)
-  const [isPresent, safeToRemove] = usePresence()
-
-  useRegisterPanel(
-    React.useMemo(
-      () => ({
-        onSkip: () => {
-          if (skippedRef.current) {
-            return false
-          }
-
-          skippedRef.current = true
-          controls.stop()
-          controls.set({opacity: 1})
-          return true
-        },
-      }),
-      [controls],
-    ),
-  )
-
-  // Animate on mount
-  React.useLayoutEffect(
-    () => {
-      if (isPresent) {
-        controls.start({
-          opacity: 1,
-          transition: {duration: ENTRY_DURATION / 1000},
-        })
-        return controls.stop
-      }
+  const controls = useCommandControls({
+    entryAnimation: {
+      opacity: 1,
+      transition: {duration: ENTRY_DURATION / 1000},
     },
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [isPresent],
-  )
-
-  // Animate on exit
-  React.useLayoutEffect(() => {
-    if (!isPresent) {
-      controls
-        .start({
-          opacity: 0,
-          transition: {duration: EXIT_DURATION / 1000, ease: 'easeOut'},
-        })
-        .then(() => safeToRemove?.())
-      return controls.stop
-    }
-  }, [controls, isPresent, safeToRemove])
-
+  })
   return (
     <Flex css={{flex: 1, padding: '$4'}} direction="column" justify="center">
       <Flex css={{flex: 1}} direction="column" justify="center">
@@ -87,4 +42,3 @@ export function Title({children, options}: TitleProps) {
 }
 
 const ENTRY_DURATION = 4000
-const EXIT_DURATION = 500

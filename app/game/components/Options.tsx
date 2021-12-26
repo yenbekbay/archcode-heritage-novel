@@ -37,7 +37,12 @@ export function Options({options}: OptionsProps) {
             backgroundColor: 'transparent',
           }}
           animate={{y: -8}}
-          transition={{repeat: Infinity, repeatType: 'reverse', duration: 1}}
+          transition={{
+            repeat: Infinity,
+            repeatType: 'reverse',
+            duration: 1,
+            ease: 'easeInOut',
+          }}
           onClick={() => {
             switch (o.action.type) {
               case 'go_to_scene':
