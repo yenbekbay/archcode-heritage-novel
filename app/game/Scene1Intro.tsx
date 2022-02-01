@@ -10,6 +10,8 @@ import React from 'react'
 import backgroundSrc from '~/assets/game/scene-1-intro-bg.png'
 import {Box} from '~/styles/Box'
 
+export const assets = [backgroundSrc]
+
 export function Scene1Intro() {
   return (
     <SceneContainer BackgroundComponent={Background}>

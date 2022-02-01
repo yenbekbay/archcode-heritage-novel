@@ -1,7 +1,9 @@
-import {Scene1Intro} from './Scene1Intro'
-import {Scene2Fence} from './Scene2Fence'
+import {assets as scene1Assets, Scene1Intro} from './Scene1Intro'
+import {assets as scene2Assets, Scene2Fence} from './Scene2Fence'
 import {Game} from './components/Game'
 import {Scene} from './components/Scene'
+
+export const assets = [...scene1Assets, ...scene2Assets]
 
 export function MyGame() {
   return (

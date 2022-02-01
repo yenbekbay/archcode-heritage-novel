@@ -2,9 +2,10 @@ import {
   SceneBackgroundComponentProps,
   SceneContainer,
 } from './components/SceneContainer'
-import React from 'react'
 import backgroundSrc from '~/assets/game/scene-2-fence-bg.gif'
 import {Box} from '~/styles/Box'
+
+export const assets = [backgroundSrc]
 
 export function Scene2Fence() {
   return <SceneContainer BackgroundComponent={Background}></SceneContainer>

@@ -68,6 +68,7 @@ export function ErrorBoundary({error}: {error: Error}) {
                   padding: '$3',
                   backgroundColor: '$redA3',
                   fontFamily: '$mono',
+                  whiteSpace: 'pre-line',
                 }}>
                 {error.message}
               </Text>
