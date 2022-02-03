@@ -1,4 +1,5 @@
 import {MediaContextProvider, mediaStyle} from './Media'
+import normalizeStylesUrl from 'modern-normalize/modern-normalize.css'
 import React from 'react'
 import {
   Links,
@@ -22,14 +23,13 @@ import {Section} from '~/styles/Section'
 import {Text} from '~/styles/Text'
 import {globalStyles} from '~/styles/global'
 import globalStylesUrl from '~/styles/global.css'
-import tailwindStylesUrl from '~/styles/tailwind.css'
 
 // https://remix.run/api/app#links
 export const links: LinksFunction = () => {
   return [
     {
       rel: 'stylesheet',
-      href: tailwindStylesUrl,
+      href: normalizeStylesUrl,
     },
     {
       rel: 'stylesheet',
