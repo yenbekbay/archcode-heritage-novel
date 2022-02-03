@@ -1,7 +1,7 @@
 import {useGameContext} from './GameContext'
 import {motion} from 'framer-motion'
-import {Button} from '~/styles/Button'
-import {Flex} from '~/styles/Flex'
+import {Button} from '~/lib/components/Button'
+import {Flex} from '~/lib/components/Flex'
 
 export interface Option {
   label: string

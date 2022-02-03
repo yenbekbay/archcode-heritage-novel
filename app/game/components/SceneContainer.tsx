@@ -4,8 +4,8 @@ import useSize from '@react-hook/size'
 import {AnimatePresence} from 'framer-motion'
 import React from 'react'
 import flattenChildren from 'react-keyed-flatten-children'
-import {useStableCallback} from '~/hooks/useStableCallback'
-import {Flex} from '~/styles/Flex'
+import {Flex} from '~/lib/components/Flex'
+import {useStableCallback} from '~/lib/hooks/useStableCallback'
 
 export interface SceneBackgroundComponentProps {
   containerSize: [number, number]

@@ -8,7 +8,7 @@ import useSize from '@react-hook/size'
 import {motion, useAnimation} from 'framer-motion'
 import React from 'react'
 import backgroundSrc from '~/assets/game/scene-1-intro-bg.png'
-import {Box} from '~/styles/Box'
+import {Box} from '~/lib/components/Box'
 
 export const assets = [backgroundSrc]
 

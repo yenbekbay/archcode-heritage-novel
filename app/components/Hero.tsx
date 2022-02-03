@@ -1,8 +1,8 @@
 import {HeroGraphic} from './HeroGraphic'
-import {Container} from '~/styles/Container'
-import {Flex} from '~/styles/Flex'
-import {Heading} from '~/styles/Heading'
-import {Section} from '~/styles/Section'
+import {Container} from '~/lib/components/Container'
+import {Flex} from '~/lib/components/Flex'
+import {Heading} from '~/lib/components/Heading'
+import {Section} from '~/lib/components/Section'
 
 export function Hero() {
   return (

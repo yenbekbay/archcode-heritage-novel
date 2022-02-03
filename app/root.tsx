@@ -15,14 +15,14 @@ import {
 import {Footer} from '~/components/Footer'
 import GradientBackground from '~/components/GradientBackground'
 import {Header} from '~/components/Header'
-import {Box} from '~/styles/Box'
-import {Container} from '~/styles/Container'
-import {Flex} from '~/styles/Flex'
-import {Heading} from '~/styles/Heading'
-import {Section} from '~/styles/Section'
-import {Text} from '~/styles/Text'
-import {globalStyles} from '~/styles/global'
-import globalStylesUrl from '~/styles/global.css'
+import {Box} from '~/lib/components/Box'
+import {Container} from '~/lib/components/Container'
+import {Flex} from '~/lib/components/Flex'
+import {Heading} from '~/lib/components/Heading'
+import {Section} from '~/lib/components/Section'
+import {Text} from '~/lib/components/Text'
+import {globalStyles} from '~/lib/global'
+import globalStylesUrl from '~/lib/global.css'
 
 // https://remix.run/api/app#links
 export const links: LinksFunction = () => {

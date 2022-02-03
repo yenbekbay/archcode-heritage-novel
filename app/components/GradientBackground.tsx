@@ -1,4 +1,4 @@
-import {Box} from '~/styles/Box'
+import {Box} from '~/lib/components/Box'
 
 export default function GradientBackground() {
   return (

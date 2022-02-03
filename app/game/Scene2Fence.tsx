@@ -3,7 +3,7 @@ import {
   SceneContainer,
 } from './components/SceneContainer'
 import backgroundSrc from '~/assets/game/scene-2-fence-bg.gif'
-import {Box} from '~/styles/Box'
+import {Box} from '~/lib/components/Box'
 
 export const assets = [backgroundSrc]
 

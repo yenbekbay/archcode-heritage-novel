@@ -2,7 +2,7 @@ import {usePanelContext, useRegisterPanel} from '../components/PanelContext'
 import {useAnimation, usePresence} from 'framer-motion'
 import type {ControlsAnimationDefinition} from 'framer-motion/types/animation/types'
 import React from 'react'
-import {useLatestRef} from '~/hooks/useLatestRef'
+import {useLatestRef} from '~/lib/hooks/useLatestRef'
 
 export function useCommandControls({
   entryAnimation,

@@ -1,8 +1,8 @@
 import {Option, Options} from '../components/Options'
 import {useCommandControls} from './useCommandControls'
 import {motion} from 'framer-motion'
-import {Flex} from '~/styles/Flex'
-import {Text} from '~/styles/Text'
+import {Flex} from '~/lib/components/Flex'
+import {Text} from '~/lib/components/Text'
 
 export interface TitleProps {
   children: string

@@ -1,7 +1,7 @@
 import useSize from '@react-hook/size'
 import React from 'react'
-import {Box} from '~/styles/Box'
-import {Flex} from '~/styles/Flex'
+import {Box} from '~/lib/components/Box'
+import {Flex} from '~/lib/components/Flex'
 
 export interface MobileDeviceChromeProps {
   children?: React.ReactNode

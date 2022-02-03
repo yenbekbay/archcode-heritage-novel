@@ -1,13 +1,13 @@
 import {ArchcodeLogo} from './ArchcodeLogo'
 import {Link as RemixLink} from 'remix'
-import {Box} from '~/styles/Box'
-import {Container} from '~/styles/Container'
-import {Flex} from '~/styles/Flex'
-import {Grid} from '~/styles/Grid'
-import {Heading} from '~/styles/Heading'
-import {Link} from '~/styles/Link'
-import {Separator} from '~/styles/Separator'
-import {Text} from '~/styles/Text'
+import {Box} from '~/lib/components/Box'
+import {Container} from '~/lib/components/Container'
+import {Flex} from '~/lib/components/Flex'
+import {Grid} from '~/lib/components/Grid'
+import {Heading} from '~/lib/components/Heading'
+import {Link} from '~/lib/components/Link'
+import {Separator} from '~/lib/components/Separator'
+import {Text} from '~/lib/components/Text'
 
 export function Footer() {
   return (

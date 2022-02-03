@@ -5,12 +5,12 @@ import {MetaFunction, useNavigate} from 'remix'
 import {Media} from '~/Media'
 import {MobileDeviceChrome} from '~/components/MobileDeviceChrome'
 import {assets, MyGame} from '~/game'
-import {useResult} from '~/hooks/useResult'
-import {Box} from '~/styles/Box'
-import {Flex} from '~/styles/Flex'
-import {Heading} from '~/styles/Heading'
-import {IconButton} from '~/styles/IconButton'
-import {Text} from '~/styles/Text'
+import {Box} from '~/lib/components/Box'
+import {Flex} from '~/lib/components/Flex'
+import {Heading} from '~/lib/components/Heading'
+import {IconButton} from '~/lib/components/IconButton'
+import {Text} from '~/lib/components/Text'
+import {useResult} from '~/lib/hooks/useResult'
 
 // https://remix.run/api/conventions#meta
 export const meta: MetaFunction = () => {

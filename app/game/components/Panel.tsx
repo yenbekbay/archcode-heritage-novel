@@ -1,7 +1,7 @@
 import {PanelContext, PanelContextValue} from './PanelContext'
 import {SceneContext} from './SceneContext'
 import React from 'react'
-import {Flex} from '~/styles/Flex'
+import {Flex} from '~/lib/components/Flex'
 
 export interface PanelProps {
   index: number
