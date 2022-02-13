@@ -1,9 +1,6 @@
-import {ArchcodeLogo} from './ArchcodeLogo'
 import {NavLink as RemixNavLink} from 'remix'
-import {Box} from '~/lib/components/Box'
-import {Container} from '~/lib/components/Container'
-import {Flex} from '~/lib/components/Flex'
-import {Link} from '~/lib/components/Link'
+import {Box, Container, Flex, Link} from '~/lib'
+import {ArchcodeLogo} from './ArchcodeLogo'
 
 const LINKS: {to: string; label: string}[] = [
   {

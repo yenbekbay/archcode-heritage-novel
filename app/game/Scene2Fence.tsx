@@ -1,9 +1,6 @@
-import {
-  SceneBackgroundComponentProps,
-  SceneContainer,
-} from './components/SceneContainer'
 import backgroundSrc from '~/assets/game/scene-2-fence-bg.gif'
-import {Box} from '~/lib/components/Box'
+import {Box} from '~/lib'
+import {SceneBackgroundComponentProps, SceneContainer} from './components'
 
 export const assets = [backgroundSrc]
 

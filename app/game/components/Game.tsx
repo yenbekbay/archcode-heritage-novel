@@ -1,10 +1,8 @@
-import {GameContext, GameContextValue} from './GameContext'
-import {Scene} from './Scene'
 import React from 'react'
 import flattenChildren from 'react-keyed-flatten-children'
-import {Flex} from '~/lib/components/Flex'
-import {useLatestRef} from '~/lib/hooks/useLatestRef'
-import {useSearchParam} from '~/lib/hooks/useSearchParam'
+import {Flex, useLatestRef, useSearchParam} from '~/lib'
+import {GameContext, GameContextValue} from './GameContext'
+import {Scene} from './Scene'
 
 export interface GameProps {
   initialSceneId: string

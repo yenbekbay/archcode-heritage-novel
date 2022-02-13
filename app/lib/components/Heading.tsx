@@ -1,6 +1,6 @@
-import {Text} from './Text'
 import React from 'react'
-import {CSS, VariantProps} from '~/stitches.config'
+import {CSS, VariantProps} from '../stitches.config'
+import {Text} from './Text'
 
 const DEFAULT_TAG = 'h1'
 

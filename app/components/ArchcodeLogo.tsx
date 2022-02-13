@@ -1,5 +1,5 @@
 import archcodeLogoUrl from '~/assets/logo.png'
-import {Box} from '~/lib/components/Box'
+import {Box} from '~/lib'
 
 export function ArchcodeLogo() {
   return (

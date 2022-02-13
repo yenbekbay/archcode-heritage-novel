@@ -1,4 +1,5 @@
-import {globalCss} from '~/stitches.config'
+import globalStylesUrl from './global.css'
+import {globalCss} from './stitches.config'
 
 export const globalStyles = globalCss({
   body: {
@@ -12,3 +13,5 @@ export const globalStyles = globalCss({
     color: '$hiContrast',
   },
 })
+
+export {globalStylesUrl}

@@ -1,4 +1,3 @@
-import {MediaContextProvider, mediaStyle} from './Media'
 import normalizeStylesUrl from 'modern-normalize/modern-normalize.css'
 import React from 'react'
 import {
@@ -12,17 +11,19 @@ import {
   useCatch,
   useLocation,
 } from 'remix'
-import {Footer} from '~/components/Footer'
-import GradientBackground from '~/components/GradientBackground'
-import {Header} from '~/components/Header'
-import {Box} from '~/lib/components/Box'
-import {Container} from '~/lib/components/Container'
-import {Flex} from '~/lib/components/Flex'
-import {Heading} from '~/lib/components/Heading'
-import {Section} from '~/lib/components/Section'
-import {Text} from '~/lib/components/Text'
-import {globalStyles} from '~/lib/global'
-import globalStylesUrl from '~/lib/global.css'
+import {Footer, GradientBackground, Header} from '~/components'
+import {
+  Box,
+  Container,
+  Flex,
+  globalStyles,
+  globalStylesUrl,
+  Heading,
+  MediaContextProvider,
+  mediaStyle,
+  Section,
+  Text,
+} from '~/lib'
 
 // https://remix.run/api/app#links
 export const links: LinksFunction = () => {

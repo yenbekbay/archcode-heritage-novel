@@ -1,8 +1,5 @@
+import {Container, Flex, Heading, Section} from '~/lib'
 import {HeroGraphic} from './HeroGraphic'
-import {Container} from '~/lib/components/Container'
-import {Flex} from '~/lib/components/Flex'
-import {Heading} from '~/lib/components/Heading'
-import {Section} from '~/lib/components/Section'
 
 export function Hero() {
   return (

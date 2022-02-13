@@ -2,15 +2,9 @@ import loadAsset from 'load-asset'
 import {ArrowLeft as ArrowLeftIcon} from 'phosphor-react'
 import React from 'react'
 import {MetaFunction, useNavigate} from 'remix'
-import {Media} from '~/Media'
-import {MobileDeviceChrome} from '~/components/MobileDeviceChrome'
+import {MobileDeviceChrome} from '~/components'
 import {assets, MyGame} from '~/game'
-import {Box} from '~/lib/components/Box'
-import {Flex} from '~/lib/components/Flex'
-import {Heading} from '~/lib/components/Heading'
-import {IconButton} from '~/lib/components/IconButton'
-import {Text} from '~/lib/components/Text'
-import {useResult} from '~/lib/hooks/useResult'
+import {Box, Flex, Heading, IconButton, Media, Text, useResult} from '~/lib'
 
 // https://remix.run/api/conventions#meta
 export const meta: MetaFunction = () => {

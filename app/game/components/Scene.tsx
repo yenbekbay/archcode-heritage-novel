@@ -1,8 +1,6 @@
-import {Panel as PanelT, SceneContext, SceneContextValue} from './SceneContext'
 import React from 'react'
-import {useLatestRef} from '~/lib/hooks/useLatestRef'
-import {useSearchParam} from '~/lib/hooks/useSearchParam'
-import {useStableCallback} from '~/lib/hooks/useStableCallback'
+import {useLatestRef, useSearchParam, useStableCallback} from '~/lib'
+import {PanelT, SceneContext, SceneContextValue} from './SceneContext'
 
 export interface SceneProps {
   id: string

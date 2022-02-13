@@ -1,6 +1,6 @@
-import {Box} from '~/lib/components/Box'
+import {Box} from '~/lib'
 
-export default function GradientBackground() {
+export function GradientBackground() {
   return (
     <Box
       css={{

@@ -1,6 +1,5 @@
 import {MetaFunction} from 'remix'
-import {Container} from '~/lib/components/Container'
-import {Section} from '~/lib/components/Section'
+import {Container, Section} from '~/lib'
 
 // https://remix.run/api/conventions#meta
 export const meta: MetaFunction = () => {

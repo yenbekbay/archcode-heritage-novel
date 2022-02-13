@@ -1,5 +1,5 @@
-import {Panel as PanelT} from './SceneContext'
 import React from 'react'
+import {PanelT} from './SceneContext'
 
 export interface PanelContextValue {
   registerPanel: (panel: PanelT) => () => void

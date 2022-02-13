@@ -1,11 +1,11 @@
 import React from 'react'
 
-export interface Panel {
+export interface PanelT {
   onSkip?: () => boolean
 }
 
 export interface SceneContextValue {
-  registerPanel: (index: number, panel: Panel) => () => void
+  registerPanel: (index: number, panel: PanelT) => () => void
   skipActivePanel: () => boolean
   activePanelIndex: number
   setActivePanelIndex: React.Dispatch<React.SetStateAction<number>>

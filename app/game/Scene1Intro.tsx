@@ -1,14 +1,10 @@
-import {Say} from './commands/Say'
-import {Title} from './commands/Title'
-import {
-  SceneBackgroundComponentProps,
-  SceneContainer,
-} from './components/SceneContainer'
 import useSize from '@react-hook/size'
 import {motion, useAnimation} from 'framer-motion'
 import React from 'react'
 import backgroundSrc from '~/assets/game/scene-1-intro-bg.png'
-import {Box} from '~/lib/components/Box'
+import {Box} from '~/lib'
+import {Say, Title} from './commands'
+import {SceneBackgroundComponentProps, SceneContainer} from './components'
 
 export const assets = [backgroundSrc]
 

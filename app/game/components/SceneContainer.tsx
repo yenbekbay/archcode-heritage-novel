@@ -1,11 +1,10 @@
-import {Panel} from './Panel'
-import {useSceneContext} from './SceneContext'
 import useSize from '@react-hook/size'
 import {AnimatePresence} from 'framer-motion'
 import React from 'react'
 import flattenChildren from 'react-keyed-flatten-children'
-import {Flex} from '~/lib/components/Flex'
-import {useStableCallback} from '~/lib/hooks/useStableCallback'
+import {Flex, useStableCallback} from '~/lib'
+import {Panel} from './Panel'
+import {useSceneContext} from './SceneContext'
 
 export interface SceneBackgroundComponentProps {
   containerSize: [number, number]

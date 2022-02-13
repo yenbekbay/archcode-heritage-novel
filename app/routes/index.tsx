@@ -1,9 +1,6 @@
 import {MetaFunction} from 'remix'
-import {Hero} from '~/components/Hero'
-import {Container} from '~/lib/components/Container'
-import {Flex} from '~/lib/components/Flex'
-import {Section} from '~/lib/components/Section'
-import {Separator} from '~/lib/components/Separator'
+import {Hero} from '~/components'
+import {Container, Flex, Section, Separator} from '~/lib'
 
 // https://remix.run/api/conventions#meta
 export const meta: MetaFunction = () => {
