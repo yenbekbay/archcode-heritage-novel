@@ -16,16 +16,23 @@ export function Scene({id, children}: SceneProps) {
   })
   const skipActivePanel = useStableCallback(() => {
     const activePanel = panelMap.get(activePanelIndex)
-    return activePanel?.onSkip?.() ?? false
+    return activePanel?.skip() ?? false
   })
   const ctx = React.useMemo(
     (): SceneContextValue => ({
+      panelMap,
       registerPanel,
       skipActivePanel,
       activePanelIndex,
       setActivePanelIndex,
     }),
-    [activePanelIndex, registerPanel, setActivePanelIndex, skipActivePanel],
+    [
+      activePanelIndex,
+      panelMap,
+      registerPanel,
+      setActivePanelIndex,
+      skipActivePanel,
+    ],
   )
   return <SceneContext.Provider value={ctx}>{children}</SceneContext.Provider>
 }

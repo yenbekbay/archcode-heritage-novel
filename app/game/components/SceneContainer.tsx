@@ -1,5 +1,4 @@
 import useSize from '@react-hook/size'
-import {AnimatePresence} from 'framer-motion'
 import React from 'react'
 import flattenChildren from 'react-keyed-flatten-children'
 import {Flex, useStableCallback} from '~/lib'
@@ -47,19 +46,18 @@ export function SceneContainer({
         />
       )}
 
-      <AnimatePresence>
-        {children.map(
-          (child, idx) =>
-            ctx.activePanelIndex === idx && (
-              <Panel
-                key={child.key}
-                index={idx}
-                skipToNextPanel={skipToNextPanel}>
-                {child}
-              </Panel>
-            ),
-        )}
-      </AnimatePresence>
+      {children.map((child, idx) => (
+        <Panel
+          key={child.key}
+          index={idx}
+          visible={
+            ctx.activePanelIndex === idx ||
+            (ctx.activePanelIndex > idx && !!ctx.panelMap.get(idx)?.fixed)
+          }
+          skipToNextPanel={skipToNextPanel}>
+          {child}
+        </Panel>
+      ))}
     </Flex>
   )
 }

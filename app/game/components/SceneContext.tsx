@@ -1,10 +1,12 @@
 import React from 'react'
 
 export interface PanelT {
-  onSkip?: () => boolean
+  fixed: boolean
+  skip: () => void
 }
 
 export interface SceneContextValue {
+  panelMap: Map<number, PanelT>
   registerPanel: (index: number, panel: PanelT) => () => void
   skipActivePanel: () => boolean
   activePanelIndex: number

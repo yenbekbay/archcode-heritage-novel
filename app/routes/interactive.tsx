@@ -18,7 +18,7 @@ export default function Interactive() {
   const navigate = useNavigate()
   return (
     <Flex css={{height: '100vh'}}>
-      <Flex css={{position: 'absolute', top: '$3', left: '$3', zIndex: 1}}>
+      <Flex css={{position: 'absolute', top: '$3', left: '$3', zIndex: 1000}}>
         <IconButton variant="raised" onClick={() => navigate('/')}>
           <ArrowLeftIcon />
         </IconButton>

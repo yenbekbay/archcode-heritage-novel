@@ -2,6 +2,8 @@ import React from 'react'
 import {PanelT} from './SceneContext'
 
 export interface PanelContextValue {
+  index: number
+  visible: boolean
   registerPanel: (panel: PanelT) => () => void
   skipToNextPanel: () => void
 }
