@@ -118,35 +118,35 @@ export const Button = styled('button', {
           },
       },
       transparentWhite: {
-        backgroundColor: 'hsla(0,100%,100%,.2)',
+        backgroundColor: 'hsla(0, 100%, 100%, .2)',
         color: 'white',
         '@hover': {
           '&:hover': {
-            backgroundColor: 'hsla(0,100%,100%,.25)',
+            backgroundColor: 'hsla(0, 100%, 100%, .25)',
           },
         },
         '&:active': {
-          backgroundColor: 'hsla(0,100%,100%,.3)',
+          backgroundColor: 'hsla(0, 100%, 100%, .3)',
         },
         '&:focus': {
           boxShadow:
-            'inset 0 0 0 1px hsla(0,100%,100%,.35), 0 0 0 1px hsla(0,100%,100%,.35)',
+            'inset 0 0 0 1px hsla(0, 100%, 100%, .35), 0 0 0 1px hsla(0, 100%, 100%, .35)',
         },
       },
       transparentBlack: {
-        backgroundColor: 'hsla(0,0%,0%,.2)',
+        backgroundColor: 'hsla(0, 0%, 0%, .2)',
         color: 'black',
         '@hover': {
           '&:hover': {
-            backgroundColor: 'hsla(0,0%,0%,.25)',
+            backgroundColor: 'hsla(0, 0%, 0%, .25)',
           },
         },
         '&:active': {
-          backgroundColor: 'hsla(0,0%,0%,.3)',
+          backgroundColor: 'hsla(0, 0%, 0%, .3)',
         },
         '&:focus': {
           boxShadow:
-            'inset 0 0 0 1px hsla(0,0%,0%,.35), 0 0 0 1px hsla(0,0%,0%,.35)',
+            'inset 0 0 0 1px hsla(0, 0%, 0%, .35), 0 0 0 1px hsla(0, 0%, 0%, .35)',
         },
       },
     },

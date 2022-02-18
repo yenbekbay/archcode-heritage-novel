@@ -2,7 +2,6 @@
 export * from './CommandContainer'
 export * from './Game'
 export * from './GameContext'
-export * from './Options'
 export * from './Panel'
 export * from './PanelContext'
 export * from './Scene'

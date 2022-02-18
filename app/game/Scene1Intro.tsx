@@ -3,7 +3,7 @@ import {motion, useAnimation} from 'framer-motion'
 import React from 'react'
 import backgroundSrc from '~/assets/game/scene-1-intro-bg.png'
 import {Box} from '~/lib'
-import {Say, Title} from './commands'
+import {Options, Say, Title} from './commands'
 import {SceneBackgroundComponentProps, SceneContainer} from './components'
 
 export const assets = [backgroundSrc]
@@ -11,14 +11,14 @@ export const assets = [backgroundSrc]
 export function Scene1Intro() {
   return (
     <SceneContainer BackgroundComponent={Background}>
-      <Say auto>
+      <Say autoContinue>
         В городе, с цветущими яблонями и журчащими арыками, где возвышалось
         здание с изогнутой золотой крышей и стучали об рельсы трамваи, на
         центральной площади что-то строил старик, а перед ним табличка: “Я верну
         голубое небо”
       </Say>
 
-      <Say auto>
+      <Say autoContinue>
         Его считали городским сумасшедшим, ведь небо всегда было серое, но никто
         его не трогал, потому что всем было дико интересно, что же он строит.
         Когда-то он был архитектором, и по неизвестной причине лишился всего,
@@ -26,18 +26,22 @@ export function Scene1Intro() {
         застывщих над городом.
       </Say>
 
-      <Say auto>
+      <Say autoContinue>
         Город показывается сверху, и это оказывается плотный смог из призраков
         снесенных зданий. Вокруг небо обычное. И вот настал день, когда старик
         завершил строение.
       </Say>
 
-      <Say auto>
+      <Say autoContinue>
         “Это машина времени, которая вернет вас туда, где небо было голубым.
         Наше настоящее в ваших руках!” - были его последние слова.
       </Say>
 
-      <Title
+      <Title autoContinue fixed>
+        Снести нельзя оставить
+      </Title>
+
+      <Options
         options={[
           {
             label: 'Выбрать персонажа',
@@ -46,9 +50,8 @@ export function Scene1Intro() {
               sceneId: 'Fence',
             },
           },
-        ]}>
-        Снести нельзя оставить
-      </Title>
+        ]}
+      />
     </SceneContainer>
   )
 }

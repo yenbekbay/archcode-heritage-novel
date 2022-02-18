@@ -1,41 +1,49 @@
 import {motion} from 'framer-motion'
-import {Flex, Image} from '~/lib'
-import {CommandContainer} from '../components'
+import {CSS, Flex, Image} from '~/lib'
+import {
+  CommandContainer,
+  CommandContainerProps,
+  CommandViewVariants,
+} from '../components'
 
-export interface ForegroundProps {
+export interface ForegroundProps
+  extends Partial<Omit<CommandContainerProps, 'children'>> {
   src: string
-  auto?: boolean
-  fixed?: boolean
+  css?: CSS
+  variants?: CommandViewVariants
 }
 
-export function Foreground({src, fixed, auto}: ForegroundProps) {
+export function Foreground({
+  src,
+  css,
+  variants = {
+    initial: {opacity: 0},
+    mount: {
+      opacity: 1,
+      transition: {delay: 0.5, duration: 2},
+    },
+    exit: {
+      opacity: 0,
+      transition: {duration: 0.5, ease: 'easeOut'},
+    },
+  },
+  ...restProps
+}: ForegroundProps) {
   return (
-    <CommandContainer
-      mountAnimation={{
-        x: 0,
-        scale: 1,
-        transition: {delay: 0.5, duration: 2},
-      }}
-      exitAnimation={{
-        opacity: 0,
-        transition: {duration: 0.5, ease: 'easeOut'},
-      }}
-      autoContinueTimeout={500}
-      autoContinue={auto}
-      fixed={fixed}>
+    <CommandContainer autoContinueTimeout={500} {...restProps}>
       {(controls) => (
-        <MotionFlex
+        <Flex
+          as={motion.div}
           css={{flex: 1}}
-          initial={{x: '250%', scale: 0.5, originY: 1}}
+          variants={variants}
+          initial="initial"
           animate={controls}>
           <Image
-            css={{height: '100%', transform: 'translate(-50%) scale(1.15)'}}
+            css={{position: 'absolute', height: '100%', ...css}}
             src={src}
           />
-        </MotionFlex>
+        </Flex>
       )}
     </CommandContainer>
   )
 }
-
-const MotionFlex = motion(Flex)

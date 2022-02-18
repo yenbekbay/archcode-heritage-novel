@@ -1,47 +1,55 @@
 import {motion} from 'framer-motion'
 import {Flex, Text} from '~/lib'
-import {CommandContainer, Option, Options} from '../components'
+import {
+  CommandContainer,
+  CommandContainerProps,
+  CommandViewVariants,
+} from '../components'
 
-export interface TitleProps {
+export interface TitleProps
+  extends Partial<Omit<CommandContainerProps, 'children'>> {
   children: string
-  options?: Option[]
+  variants?: CommandViewVariants
 }
 
-export function Title({children, options}: TitleProps) {
+export function Title({
+  children,
+  variants = {
+    initial: {opacity: 0},
+    mount: {
+      opacity: 1,
+      transition: {delay: 0.5, duration: 4},
+    },
+    exit: {
+      opacity: 0,
+      transition: {duration: 0.5, ease: 'easeOut'},
+    },
+  },
+  ...restProps
+}: TitleProps) {
   return (
-    <CommandContainer
-      mountAnimation={{
-        opacity: 1,
-        transition: {duration: 4},
-      }}
-      exitAnimation={{
-        opacity: 0,
-        transition: {duration: 0.5, ease: 'easeOut'},
-      }}>
+    <CommandContainer autoContinueTimeout={0} {...restProps}>
       {(controls) => (
         <Flex
           css={{flex: 1, padding: '$4'}}
           direction="column"
           justify="center">
-          <Flex css={{flex: 1}} direction="column" justify="center">
-            <Text
-              as={motion.span}
-              css={{
-                color: '$red10',
-                textAlign: 'center',
-                textShadow: '0 1px $colors$slate12',
-                fontFamily: '$calligraph',
-                fontWeight: 700,
-                lineHeight: 1,
-              }}
-              size="7"
-              initial={{opacity: 0}}
-              animate={controls}>
-              {children}
-            </Text>
-          </Flex>
-
-          {options && <Options options={options} />}
+          <Text
+            as={motion.span}
+            css={{
+              color: '$red10',
+              textAlign: 'center',
+              textShadow: '0 1px $colors$slate12',
+              fontFamily: '$calligraph',
+              fontWeight: 700,
+              lineHeight: 1,
+            }}
+            size="7"
+            variants={variants}
+            initial="initial"
+            animate={controls}>
+            {children}
+          </Text>
         </Flex>
       )}
     </CommandContainer>
