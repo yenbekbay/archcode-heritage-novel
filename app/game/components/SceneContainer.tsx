@@ -27,10 +27,10 @@ export function SceneContainer({
     () => flattenChildren(childrenProp) as React.ReactElement[],
     [childrenProp],
   )
-  const skipToNextPanel = useStableCallback(() => {
-    const skipped = ctx.skipActivePanel()
-    if (!skipped) {
-      ctx.setActivePanelIndex((prev) => Math.min(children.length - 1, prev + 1))
+  const goToNextFrame = useStableCallback(() => {
+    const completed = ctx.completeActivePanel()
+    if (!completed) {
+      ctx.setActiveFrame((prev) => Math.min(children.length - 1, prev + 1))
     }
   })
   return (
@@ -38,12 +38,14 @@ export function SceneContainer({
       ref={containerRef}
       css={{flex: 1, position: 'relative'}}
       tabIndex={-1}
-      onClick={() => skipToNextPanel()}>
+      onClick={() => goToNextFrame()}>
       {BackgroundComponent && (
-        <BackgroundComponent
-          containerSize={containerSize}
-          completedPercent={(ctx.activePanelIndex + 1) / children.length}
-        />
+        <Flex direction="column" css={{position: 'absolute', inset: 0}}>
+          <BackgroundComponent
+            containerSize={containerSize}
+            completedPercent={(ctx.activeFrame + 1) / children.length}
+          />
+        </Flex>
       )}
 
       {children.map((child, idx) => (
@@ -51,10 +53,10 @@ export function SceneContainer({
           key={child.key}
           index={idx}
           visible={
-            ctx.activePanelIndex === idx ||
-            (ctx.activePanelIndex > idx && !!ctx.panelMap.get(idx)?.fixed)
+            ctx.activeFrame >= idx &&
+            ctx.activeFrame <= idx + (ctx.panelMap.get(idx)?.retainFor ?? 0)
           }
-          skipToNextPanel={skipToNextPanel}>
+          goToNextFrame={goToNextFrame}>
           {child}
         </Panel>
       ))}

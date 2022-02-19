@@ -39,7 +39,12 @@ export function Foreground({
           initial="initial"
           animate={controls}>
           <Image
-            css={{position: 'absolute', height: '100%', ...css}}
+            css={{
+              position: 'absolute',
+              bottom: 0,
+              filter: 'drop-shadow(40px 40px 5px rgba(0, 0, 0, .35))',
+              ...css,
+            }}
             src={src}
           />
         </Flex>

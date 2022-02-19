@@ -5,7 +5,7 @@ export interface PanelContextValue {
   index: number
   visible: boolean
   registerPanel: (panel: PanelT) => () => void
-  skipToNextPanel: () => void
+  goToNextFrame: () => void
 }
 
 export const PanelContext = React.createContext<PanelContextValue | null>(null)

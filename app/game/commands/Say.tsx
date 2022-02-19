@@ -1,5 +1,5 @@
 import {motion} from 'framer-motion'
-import {Flex, Text} from '~/lib'
+import {CSS, Flex, Image, Text} from '~/lib'
 import {
   CommandContainer,
   CommandContainerProps,
@@ -10,12 +10,16 @@ export interface SayProps
   extends Partial<Omit<CommandContainerProps, 'children'>> {
   children: string
   large?: boolean
+  foregroundSrc?: string
+  foregroundCss?: CSS
   variants?: CommandViewVariants
 }
 
 export function Say({
   children,
   large,
+  foregroundSrc,
+  foregroundCss,
   variants = {
     initial: {opacity: 0},
     mount: (idx) => ({
@@ -29,32 +33,60 @@ export function Say({
   },
   ...restProps
 }: SayProps) {
+  const chars = children.split('')
   return (
-    <CommandContainer autoContinueTimeout={4000} {...restProps}>
+    <CommandContainer
+      autoContinueTimeout={3000 + chars.length * 20}
+      {...restProps}>
       {(controls) => (
-        <Flex css={{flex: 1, padding: '$4'}} direction="column">
-          <Text
-            css={{
-              textAlign: 'center',
-              textShadow: '0 1px $colors$slate8',
-              fontFamily: '$calligraph',
-              ...(large && {
-                fontSize: '$5',
-                mt: '$4',
-              }),
-            }}>
-            {children.split('').map((char, idx) => (
-              <motion.span
-                key={`${char}_${idx}`}
-                variants={variants}
-                initial="initial"
-                animate={controls}
-                custom={idx}>
-                {char}
-              </motion.span>
-            ))}
-          </Text>
-        </Flex>
+        <>
+          <Flex
+            css={{flex: 1, padding: '$4', paddingTop: '$5'}}
+            direction="column">
+            <Text
+              css={{
+                textAlign: 'center',
+                textShadow: '0 1px $colors$slate8',
+                fontFamily: '$calligraph',
+                ...(large && {
+                  fontSize: '$5',
+                }),
+              }}>
+              {chars.map((char, idx) => (
+                <motion.span
+                  key={`${char}_${idx}`}
+                  variants={variants}
+                  initial="initial"
+                  animate={controls}
+                  custom={idx}>
+                  {char}
+                </motion.span>
+              ))}
+            </Text>
+          </Flex>
+
+          {foregroundSrc && (
+            <Flex
+              as={motion.div}
+              css={{position: 'absolute', inset: 0}}
+              variants={variants}
+              initial="initial"
+              animate={controls}
+              custom={0}>
+              <Image
+                css={{
+                  position: 'absolute',
+                  height: '100%',
+                  width: '100%',
+                  objectFit: 'cover',
+                  filter: 'drop-shadow(40px 40px 5px rgba(0, 0, 0, .35))',
+                  ...foregroundCss,
+                }}
+                src={foregroundSrc}
+              />
+            </Flex>
+          )}
+        </>
       )}
     </CommandContainer>
   )

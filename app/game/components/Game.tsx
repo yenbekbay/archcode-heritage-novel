@@ -40,11 +40,14 @@ export function Game({initialSceneId, children: childrenProp}: GameProps) {
 }
 
 function useActiveSceneId(initialSceneId: string) {
-  const [activePanelId, setActivePanelId] = useSearchParam<string>(
+  const [_activePanelId, setActivePanelId] = useSearchParam<string>(
     'p',
     `${initialSceneId}_${0}`,
   )
-  const activeSceneId = activePanelId.split('_').slice(0, -1).join('_')
+  const activePanelId = String(_activePanelId)
+  const activeSceneId = activePanelId.includes('_')
+    ? activePanelId.split('_').slice(0, -1).join('_')
+    : activePanelId
 
   const latestActiveSceneIdRef = useLatestRef(activeSceneId)
   const setActiveSceneId = React.useCallback(

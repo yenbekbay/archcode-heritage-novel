@@ -52,7 +52,7 @@ function WithAssets({children}: WithAssetsProps) {
   React.useEffect(() => {
     ;(async () => {
       try {
-        await loadAsset.all(assets)
+        await loadAsset.all([...new Set(assets)])
         setRes({status: 'success', data: undefined})
       } catch {
         setRes({
@@ -66,7 +66,7 @@ function WithAssets({children}: WithAssetsProps) {
   if (res.status === 'loading') {
     return (
       <Flex
-        css={{flex: 1, padding: '$4'}}
+        css={{width: '100%', height: '100%', padding: '$4'}}
         direction="column"
         justify="center"
         align="center">
@@ -77,7 +77,7 @@ function WithAssets({children}: WithAssetsProps) {
   if (res.status === 'failure') {
     return (
       <Flex
-        css={{flex: 1, padding: '$4'}}
+        css={{width: '100%', height: '100%', padding: '$4'}}
         direction="column"
         justify="center"
         align="center"

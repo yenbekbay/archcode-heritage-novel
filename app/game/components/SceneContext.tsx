@@ -1,16 +1,17 @@
 import React from 'react'
 
 export interface PanelT {
-  fixed: boolean
-  skip: () => void
+  /** For how many frames is this panel visible */
+  retainFor: number
+  complete: () => void
 }
 
 export interface SceneContextValue {
   panelMap: Map<number, PanelT>
   registerPanel: (index: number, panel: PanelT) => () => void
-  skipActivePanel: () => boolean
-  activePanelIndex: number
-  setActivePanelIndex: React.Dispatch<React.SetStateAction<number>>
+  completeActivePanel: () => boolean
+  activeFrame: number
+  setActiveFrame: React.Dispatch<React.SetStateAction<number>>
 }
 
 export const SceneContext = React.createContext<SceneContextValue | null>(null)

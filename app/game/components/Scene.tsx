@@ -9,47 +9,42 @@ export interface SceneProps {
 
 export function Scene({id, children}: SceneProps) {
   const [panelMap] = React.useState(() => new Map<number, PanelT>())
-  const [activePanelIndex, setActivePanelIndex] = useActivePanelIndex(id)
+  const [activeFrame, setActiveFrame] = useActiveFrame(id)
   const registerPanel = useStableCallback((index: number, panel: PanelT) => {
     panelMap.set(index, panel)
     return () => panelMap.delete(index)
   })
-  const skipActivePanel = useStableCallback(() => {
-    const activePanel = panelMap.get(activePanelIndex)
-    return activePanel?.skip() ?? false
+  const completeActivePanel = useStableCallback(() => {
+    const activePanel = panelMap.get(activeFrame)
+    return activePanel?.complete() ?? false
   })
   const ctx = React.useMemo(
     (): SceneContextValue => ({
       panelMap,
       registerPanel,
-      skipActivePanel,
-      activePanelIndex,
-      setActivePanelIndex,
+      completeActivePanel,
+      activeFrame: activeFrame,
+      setActiveFrame,
     }),
-    [
-      activePanelIndex,
-      panelMap,
-      registerPanel,
-      setActivePanelIndex,
-      skipActivePanel,
-    ],
+    [activeFrame, panelMap, registerPanel, setActiveFrame, completeActivePanel],
   )
   return <SceneContext.Provider value={ctx}>{children}</SceneContext.Provider>
 }
 
-function useActivePanelIndex(sceneId: string) {
-  const [activePanelId, setActivePanelId] = useSearchParam<string>(
+function useActiveFrame(sceneId: string) {
+  const [_activePanelId, setActivePanelId] = useSearchParam<string>(
     'p',
     `${sceneId}_${0}`,
   )
 
-  let activePanelIndex = Number(activePanelId.replace(`${sceneId}_`, ''))
-  if (Number.isNaN(activePanelIndex)) {
-    activePanelIndex = 0
+  const activePanelId = String(_activePanelId)
+  let activeFrame = Number(activePanelId.replace(`${sceneId}_`, ''))
+  if (Number.isNaN(activeFrame)) {
+    activeFrame = 0
   }
 
-  const latestActivePanelIndexRef = useLatestRef(activePanelIndex)
-  const setActivePanelIndex = React.useCallback(
+  const latestActivePanelIndexRef = useLatestRef(activeFrame)
+  const setActiveFrame = React.useCallback(
     (action: React.SetStateAction<number>) => {
       const newValue =
         typeof action === 'function'
@@ -59,5 +54,5 @@ function useActivePanelIndex(sceneId: string) {
     },
     [latestActivePanelIndexRef, sceneId, setActivePanelId],
   )
-  return [activePanelIndex, setActivePanelIndex] as const
+  return [activeFrame, setActiveFrame] as const
 }

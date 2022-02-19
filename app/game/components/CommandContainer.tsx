@@ -14,14 +14,14 @@ export interface CommandContainerProps {
   children: (controls: AnimationControls) => React.ReactNode
   autoContinueTimeout: number
   autoContinue?: boolean
-  fixed?: boolean
+  retain?: boolean | number
 }
 
 export function CommandContainer({
   children,
   autoContinueTimeout,
   autoContinue = false,
-  fixed = false,
+  retain = false,
 }: CommandContainerProps) {
   const {visible} = usePanelContext()
 
@@ -30,8 +30,16 @@ export function CommandContainer({
   useRegisterPanel(
     React.useMemo(
       (): PanelT => ({
-        fixed,
-        skip: () => {
+        retainFor: (() => {
+          if (typeof retain === 'number') {
+            return Math.max(0, retain)
+          }
+          if (retain === true) {
+            return Number.MAX_SAFE_INTEGER
+          }
+          return 0
+        })(),
+        complete: () => {
           if (skippedRef.current) {
             return false
           }
@@ -42,7 +50,7 @@ export function CommandContainer({
           return true
         },
       }),
-      [controls, fixed, skippedRef],
+      [controls, retain, skippedRef],
     ),
   )
 
@@ -84,7 +92,7 @@ export function CommandView({
   autoContinueTimeout,
   autoContinue,
 }: CommandViewProps) {
-  const {index, skipToNextPanel} = usePanelContext()
+  const {index, goToNextFrame} = usePanelContext()
   const [isPresent, safeToRemove] = usePresence()
 
   const latestIsPresentRef = useLatestRef(isPresent)
@@ -97,7 +105,7 @@ export function CommandView({
             controls.start('mount').then(() => {
               skippedRef.current = true
               if (autoContinue && latestIsPresentRef.current) {
-                setTimeout(() => skipToNextPanel(), autoContinueTimeout)
+                setTimeout(() => goToNextFrame(), autoContinueTimeout)
               }
             })
           }),
