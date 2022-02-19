@@ -7,8 +7,8 @@ import {
 import type {AnimationControls} from 'framer-motion/types/animation/types'
 import React from 'react'
 import {Flex, useLatestRef} from '~/lib'
-import {usePanelContext, useRegisterPanel} from './PanelContext'
-import {PanelT} from './SceneContext'
+import {useCommandContext, useRegisterCommand} from './CommandContext'
+import {CommandT} from './SceneContext'
 
 export interface CommandContainerProps {
   children: (controls: AnimationControls) => React.ReactNode
@@ -23,13 +23,13 @@ export function CommandContainer({
   autoContinue = false,
   retain = false,
 }: CommandContainerProps) {
-  const {visible} = usePanelContext()
+  const {visible} = useCommandContext()
 
   const controls = useAnimation()
   const skippedRef = React.useRef(false)
-  useRegisterPanel(
+  useRegisterCommand(
     React.useMemo(
-      (): PanelT => ({
+      (): CommandT => ({
         retainFor: (() => {
           if (typeof retain === 'number') {
             return Math.max(0, retain)
@@ -92,7 +92,7 @@ export function CommandView({
   autoContinueTimeout,
   autoContinue,
 }: CommandViewProps) {
-  const {index, goToNextFrame} = usePanelContext()
+  const {index, goToNextFrame} = useCommandContext()
   const [isPresent, safeToRemove] = usePresence()
 
   const latestIsPresentRef = useLatestRef(isPresent)

@@ -1,15 +1,15 @@
 import React from 'react'
 
-export interface PanelT {
-  /** For how many frames is this panel visible */
+export interface CommandT {
+  /** For how many frames is this command visible */
   retainFor: number
   complete: () => void
 }
 
 export interface SceneContextValue {
-  panelMap: Map<number, PanelT>
-  registerPanel: (index: number, panel: PanelT) => () => void
-  completeActivePanel: () => boolean
+  commandMap: Map<number, CommandT>
+  registerCommand: (index: number, command: CommandT) => () => void
+  completeActiveCommand: () => boolean
   activeFrame: number
   setActiveFrame: React.Dispatch<React.SetStateAction<number>>
 }

@@ -1,6 +1,6 @@
 import React from 'react'
 import {useLatestRef, useSearchParam, useStableCallback} from '~/lib'
-import {PanelT, SceneContext, SceneContextValue} from './SceneContext'
+import {CommandT, SceneContext, SceneContextValue} from './SceneContext'
 
 export interface SceneProps {
   id: string
@@ -8,51 +8,59 @@ export interface SceneProps {
 }
 
 export function Scene({id, children}: SceneProps) {
-  const [panelMap] = React.useState(() => new Map<number, PanelT>())
+  const [commandMap] = React.useState(() => new Map<number, CommandT>())
   const [activeFrame, setActiveFrame] = useActiveFrame(id)
-  const registerPanel = useStableCallback((index: number, panel: PanelT) => {
-    panelMap.set(index, panel)
-    return () => panelMap.delete(index)
-  })
-  const completeActivePanel = useStableCallback(() => {
-    const activePanel = panelMap.get(activeFrame)
-    return activePanel?.complete() ?? false
+  const registerCommand = useStableCallback(
+    (index: number, command: CommandT) => {
+      commandMap.set(index, command)
+      return () => commandMap.delete(index)
+    },
+  )
+  const completeActiveCommand = useStableCallback(() => {
+    const activeCommand = commandMap.get(activeFrame)
+    return activeCommand?.complete() ?? false
   })
   const ctx = React.useMemo(
     (): SceneContextValue => ({
-      panelMap,
-      registerPanel,
-      completeActivePanel,
+      commandMap,
+      registerCommand,
+      completeActiveCommand,
       activeFrame: activeFrame,
       setActiveFrame,
     }),
-    [activeFrame, panelMap, registerPanel, setActiveFrame, completeActivePanel],
+    [
+      activeFrame,
+      commandMap,
+      registerCommand,
+      setActiveFrame,
+      completeActiveCommand,
+    ],
   )
   return <SceneContext.Provider value={ctx}>{children}</SceneContext.Provider>
 }
 
 function useActiveFrame(sceneId: string) {
-  const [_activePanelId, setActivePanelId] = useSearchParam<string>(
+  const [_activeFrameId, setActiveFrameId] = useSearchParam<string>(
     'p',
     `${sceneId}_${0}`,
   )
 
-  const activePanelId = String(_activePanelId)
-  let activeFrame = Number(activePanelId.replace(`${sceneId}_`, ''))
+  const activeFrameId = String(_activeFrameId)
+  let activeFrame = Number(activeFrameId.replace(`${sceneId}_`, ''))
   if (Number.isNaN(activeFrame)) {
     activeFrame = 0
   }
 
-  const latestActivePanelIndexRef = useLatestRef(activeFrame)
+  const latestActiveCommandIndexRef = useLatestRef(activeFrame)
   const setActiveFrame = React.useCallback(
     (action: React.SetStateAction<number>) => {
       const newValue =
         typeof action === 'function'
-          ? action(latestActivePanelIndexRef.current)
+          ? action(latestActiveCommandIndexRef.current)
           : action
-      setActivePanelId(`${sceneId}_${newValue}`)
+      setActiveFrameId(`${sceneId}_${newValue}`)
     },
-    [latestActivePanelIndexRef, sceneId, setActivePanelId],
+    [latestActiveCommandIndexRef, sceneId, setActiveFrameId],
   )
   return [activeFrame, setActiveFrame] as const
 }

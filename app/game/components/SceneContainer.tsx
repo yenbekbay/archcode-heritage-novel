@@ -2,7 +2,7 @@ import useSize from '@react-hook/size'
 import React from 'react'
 import flattenChildren from 'react-keyed-flatten-children'
 import {Flex, useStableCallback} from '~/lib'
-import {Panel} from './Panel'
+import {Command} from './Command'
 import {useSceneContext} from './SceneContext'
 
 export interface SceneBackgroundComponentProps {
@@ -28,7 +28,7 @@ export function SceneContainer({
     [childrenProp],
   )
   const goToNextFrame = useStableCallback(() => {
-    const completed = ctx.completeActivePanel()
+    const completed = ctx.completeActiveCommand()
     if (!completed) {
       ctx.setActiveFrame((prev) => Math.min(children.length - 1, prev + 1))
     }
@@ -49,16 +49,16 @@ export function SceneContainer({
       )}
 
       {children.map((child, idx) => (
-        <Panel
+        <Command
           key={child.key}
           index={idx}
           visible={
             ctx.activeFrame >= idx &&
-            ctx.activeFrame <= idx + (ctx.panelMap.get(idx)?.retainFor ?? 0)
+            ctx.activeFrame <= idx + (ctx.commandMap.get(idx)?.retainFor ?? 0)
           }
           goToNextFrame={goToNextFrame}>
           {child}
-        </Panel>
+        </Command>
       ))}
     </Flex>
   )

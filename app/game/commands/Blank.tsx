@@ -1,15 +1,15 @@
 import React from 'react'
-import {PanelT, usePanelContext, useRegisterPanel} from '../components'
+import {CommandT, useCommandContext, useRegisterCommand} from '../components'
 
 export interface BlankProps {
   autoContinueIn?: number
 }
 
 export function Blank({autoContinueIn}: BlankProps) {
-  const {visible, goToNextFrame} = usePanelContext()
-  useRegisterPanel(
+  const {visible, goToNextFrame} = useCommandContext()
+  useRegisterCommand(
     React.useMemo(
-      (): PanelT => ({
+      (): CommandT => ({
         retainFor: 0,
         complete: () => false,
       }),
