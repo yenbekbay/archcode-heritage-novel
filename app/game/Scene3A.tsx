@@ -31,7 +31,7 @@ export function Scene3A() {
           filter: 'drop-shadow(40px 40px 5px rgba(0, 0, 0, .35))',
         }}
         transitory>
-        Скорее всего, ничего особенного. Очередное...да не важно.
+        Скорее всего, ничего особенного. Очередное...да не важно
       </Say>
 
       <Say
@@ -42,16 +42,17 @@ export function Scene3A() {
           filter: 'drop-shadow(40px 40px 5px rgba(0, 0, 0, .35))',
         }}
         transitory>
-        Поберегу нервы, семья ждет, пойду дома чай попью.
+        Поберегу нервы, семья ждет, пойду дома чай попью
       </Say>
 
-      <Blank transitoryIn={10000} />
+      <Blank duration={10000} />
 
       <Title transitory retained>
         Конец игры
       </Title>
 
       <Options
+        dark
         options={[
           {
             label: 'Начать заново',

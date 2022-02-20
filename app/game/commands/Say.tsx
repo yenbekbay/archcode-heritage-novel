@@ -5,12 +5,19 @@ import {
   CommandContainerProps,
   CommandViewVariants,
   ForegroundView,
+  Option,
+  OptionsPlacement,
+  OptionsView,
 } from '../components'
 
 export interface SayProps
   extends Partial<Omit<CommandContainerProps, 'children'>> {
   children: string
   large?: boolean
+  dark?: boolean
+  options?: Option[]
+  optionsDark?: boolean
+  optionsPlacement?: OptionsPlacement
   foregroundSrc?: string
   foregroundCss?: CSS
   variants?: CommandViewVariants
@@ -19,6 +26,10 @@ export interface SayProps
 export function Say({
   children,
   large,
+  dark,
+  options,
+  optionsDark,
+  optionsPlacement,
   foregroundSrc,
   foregroundCss,
   variants = {
@@ -62,11 +73,12 @@ export function Say({
             <Text
               css={{
                 textAlign: 'center',
-                textShadow: '0 1px $colors$slate8',
                 fontFamily: '$calligraph',
-                ...(large && {
-                  fontSize: '$5',
-                }),
+                fontSize: large ? '$5' : '$4',
+                color: dark ? 'white' : '$hiContrast',
+                textShadow: dark
+                  ? '0 1px $colors$slate12'
+                  : '0 1px $colors$slate4',
               }}>
               {chars.map((char, idx) => (
                 <motion.span
@@ -80,6 +92,16 @@ export function Say({
               ))}
             </Text>
           </Flex>
+
+          {options && (
+            <OptionsView
+              dark={optionsDark}
+              placement={optionsPlacement}
+              options={options}
+              variants={variants}
+              controls={controls}
+            />
+          )}
         </>
       )}
     </CommandContainer>

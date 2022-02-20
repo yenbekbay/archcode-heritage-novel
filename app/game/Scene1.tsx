@@ -42,6 +42,7 @@ export function Scene1() {
       </Title>
 
       <Options
+        dark
         options={[
           {
             label: 'Выбрать персонажа',

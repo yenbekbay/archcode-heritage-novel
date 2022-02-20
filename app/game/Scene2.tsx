@@ -3,7 +3,7 @@ import staticBackgroundSrc from '~/assets/game/bg-map.png'
 import fenceSrc from '~/assets/game/fence.png'
 import redhead1Src from '~/assets/game/redhead-1.png'
 import {Image} from '~/lib'
-import {Foreground, Options, Say} from './commands'
+import {Foreground, Say} from './commands'
 import {
   SceneBackgroundComponentProps,
   SceneContainer,
@@ -45,17 +45,7 @@ export function Scene2() {
 
       <Say
         large
-        foregroundSrc={redhead1Src}
-        foregroundCss={{
-          width: '90%',
-          filter: 'drop-shadow(40px 40px 5px rgba(0, 0, 0, .35))',
-        }}
-        transitory
-        retained>
-        Это что за забор? И что за ним?
-      </Say>
-
-      <Options
+        optionsDark
         options={[
           {
             label: 'Пройти мимо',
@@ -72,7 +62,13 @@ export function Scene2() {
             },
           },
         ]}
-      />
+        foregroundSrc={redhead1Src}
+        foregroundCss={{
+          width: '90%',
+          filter: 'drop-shadow(40px 40px 5px rgba(0, 0, 0, .35))',
+        }}>
+        Это что за забор? И что за ним?
+      </Say>
     </SceneContainer>
   )
 }

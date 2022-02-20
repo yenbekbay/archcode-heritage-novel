@@ -26,9 +26,7 @@ export function ForegroundView({
       <Image
         css={{
           position: 'absolute',
-          height: '100%',
-          width: '100%',
-          objectFit: 'cover',
+          bottom: 0,
           ...css,
         }}
         src={src}

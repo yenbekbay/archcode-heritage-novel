@@ -5,7 +5,7 @@ import fenceSrc from '~/assets/game/fence.png'
 import redhead2Src from '~/assets/game/redhead-2.png'
 import redhead4Src from '~/assets/game/redhead-4.png'
 import {Box, Image} from '~/lib'
-import {Blank, Options, Say} from './commands'
+import {Blank, Say} from './commands'
 import {
   SceneBackgroundComponentProps,
   SceneContainer,
@@ -34,18 +34,11 @@ export function Scene3B() {
         Мутят что-то без доклада народу. Надо разобраться!
       </Say>
 
-      <Blank transitoryIn={10000} />
+      <Blank duration={10000} />
 
       <Say
         large
-        foregroundSrc={redhead2Src}
-        foregroundCss={{width: '90%'}}
-        transitory
-        retained>
-        Это что за новости?!?! Уничтожают историю, значит?
-      </Say>
-
-      <Options
+        optionsDark
         options={[
           {
             label: 'Как-то печально всё это',
@@ -62,7 +55,10 @@ export function Scene3B() {
             },
           },
         ]}
-      />
+        foregroundSrc={redhead2Src}
+        foregroundCss={{width: '90%'}}>
+        Это что за новости?!?! Уничтожают историю, значит?
+      </Say>
     </SceneContainer>
   )
 }
