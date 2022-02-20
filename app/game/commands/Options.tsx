@@ -1,15 +1,19 @@
 import {motion} from 'framer-motion'
+import React from 'react'
 import {Button, Flex} from '~/lib'
 import {
   CommandContainer,
   CommandContainerProps,
   CommandViewVariants,
   useGameContext,
+  useSceneContext,
 } from '../components'
 
 export interface Option {
   label: string
-  action: {type: 'go_to_scene'; sceneId: string}
+  action:
+    | {type: 'go_to_scene'; sceneId: string}
+    | {type: 'go_to_frame'; frame: number}
 }
 
 export interface OptionsProps
@@ -34,6 +38,7 @@ export function Options({
   ...restProps
 }: OptionsProps) {
   const {goToScene} = useGameContext()
+  const {goToFrame} = useSceneContext()
   return (
     <CommandContainer autoContinueTimeout={0} {...restProps}>
       {(controls) => (
@@ -48,6 +53,7 @@ export function Options({
             <Flex
               key={o.label}
               as={motion.div}
+              direction="column"
               variants={variants}
               initial="initial"
               animate={controls}
@@ -56,6 +62,9 @@ export function Options({
                 as={motion.div}
                 variant="transparentBlack"
                 css={{
+                  height: 'auto',
+                  lineHeight: '$4',
+                  textAlign: 'center',
                   fontFamily: '$calligraph',
                   fontSize: '$4',
                   color: 'white',
@@ -70,10 +79,14 @@ export function Options({
                   duration: 1,
                   ease: 'easeInOut',
                 }}
-                onClick={() => {
+                onClick={(event: React.MouseEvent) => {
+                  event.stopPropagation()
                   switch (o.action.type) {
                     case 'go_to_scene':
                       goToScene(o.action.sceneId)
+                      break
+                    case 'go_to_frame':
+                      goToFrame(o.action.frame)
                       break
                   }
                 }}>

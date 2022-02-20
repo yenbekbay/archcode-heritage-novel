@@ -1,7 +1,7 @@
 import useSize from '@react-hook/size'
 import {motion, useAnimation} from 'framer-motion'
 import React from 'react'
-import backgroundSrc from '~/assets/game/bg-1.png'
+import backgroundSrc from '~/assets/game/bg-intro.png'
 import {Image} from '~/lib'
 import {Options, Say, Title} from './commands'
 import {SceneBackgroundComponentProps, SceneContainer} from './components'

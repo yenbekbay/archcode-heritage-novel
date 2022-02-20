@@ -11,7 +11,7 @@ export interface SceneContextValue {
   registerCommand: (index: number, command: CommandT) => () => void
   completeActiveCommand: () => boolean
   activeFrame: number
-  setActiveFrame: React.Dispatch<React.SetStateAction<number>>
+  goToFrame: React.Dispatch<React.SetStateAction<number>>
 }
 
 export const SceneContext = React.createContext<SceneContextValue | null>(null)

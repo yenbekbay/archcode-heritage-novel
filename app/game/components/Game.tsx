@@ -41,7 +41,7 @@ export function Game({initialSceneId, children: childrenProp}: GameProps) {
 
 function useActiveSceneId(initialSceneId: string) {
   const [_activeFrameId, setActiveFrameId] = useSearchParam<string>(
-    'p',
+    'f',
     `${initialSceneId}_${0}`,
   )
   const activeFrameId = String(_activeFrameId)

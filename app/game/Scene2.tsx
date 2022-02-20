@@ -1,5 +1,5 @@
-import animatedBackgroundSrc from '~/assets/game/bg-2.gif'
-import staticBackgroundSrc from '~/assets/game/bg-2.png'
+import animatedBackgroundSrc from '~/assets/game/bg-map.gif'
+import staticBackgroundSrc from '~/assets/game/bg-map.png'
 import fenceSrc from '~/assets/game/fence.png'
 import redhead1Src from '~/assets/game/redhead-1.png'
 import {Image} from '~/lib'
@@ -10,7 +10,12 @@ import {
   useSceneContext,
 } from './components'
 
-export const assets = [animatedBackgroundSrc, staticBackgroundSrc, fenceSrc]
+export const assets = [
+  animatedBackgroundSrc,
+  staticBackgroundSrc,
+  fenceSrc,
+  redhead1Src,
+]
 
 export function Scene2() {
   return (
@@ -56,14 +61,14 @@ export function Scene2() {
             label: 'Пройти мимо',
             action: {
               type: 'go_to_scene',
-              sceneId: '2.1',
+              sceneId: '3A',
             },
           },
           {
             label: 'Посмотреть',
             action: {
               type: 'go_to_scene',
-              sceneId: '2.2',
+              sceneId: '3B',
             },
           },
         ]}

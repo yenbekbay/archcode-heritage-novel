@@ -25,8 +25,8 @@ export function Scene({id, children}: SceneProps) {
       commandMap,
       registerCommand,
       completeActiveCommand,
-      activeFrame: activeFrame,
-      setActiveFrame,
+      activeFrame,
+      goToFrame: setActiveFrame,
     }),
     [
       activeFrame,
@@ -41,7 +41,7 @@ export function Scene({id, children}: SceneProps) {
 
 function useActiveFrame(sceneId: string) {
   const [_activeFrameId, setActiveFrameId] = useSearchParam<string>(
-    'p',
+    'f',
     `${sceneId}_${0}`,
   )
 

@@ -40,8 +40,34 @@ export function Say({
       {...restProps}>
       {(controls) => (
         <>
+          {foregroundSrc && (
+            <Flex
+              as={motion.div}
+              css={{position: 'absolute', inset: 0}}
+              variants={variants}
+              initial="initial"
+              animate={controls}
+              custom={0}>
+              <Image
+                css={{
+                  position: 'absolute',
+                  height: '100%',
+                  width: '100%',
+                  objectFit: 'cover',
+                  ...foregroundCss,
+                }}
+                src={foregroundSrc}
+              />
+            </Flex>
+          )}
+
           <Flex
-            css={{flex: 1, padding: '$4', paddingTop: '$5'}}
+            css={{
+              position: 'absolute',
+              inset: 0,
+              padding: '$4',
+              paddingTop: '$5',
+            }}
             direction="column">
             <Text
               css={{
@@ -64,27 +90,6 @@ export function Say({
               ))}
             </Text>
           </Flex>
-
-          {foregroundSrc && (
-            <Flex
-              as={motion.div}
-              css={{position: 'absolute', inset: 0}}
-              variants={variants}
-              initial="initial"
-              animate={controls}
-              custom={0}>
-              <Image
-                css={{
-                  position: 'absolute',
-                  height: '100%',
-                  width: '100%',
-                  objectFit: 'cover',
-                  ...foregroundCss,
-                }}
-                src={foregroundSrc}
-              />
-            </Flex>
-          )}
         </>
       )}
     </CommandContainer>

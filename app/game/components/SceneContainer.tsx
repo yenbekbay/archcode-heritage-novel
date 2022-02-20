@@ -30,7 +30,7 @@ export function SceneContainer({
   const goToNextFrame = useStableCallback(() => {
     const completed = ctx.completeActiveCommand()
     if (!completed) {
-      ctx.setActiveFrame((prev) => Math.min(children.length - 1, prev + 1))
+      ctx.goToFrame((prev) => Math.min(children.length - 1, prev + 1))
     }
   })
   return (
