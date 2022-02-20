@@ -66,6 +66,7 @@ export function Options({
                 transition={{
                   repeat: Infinity,
                   repeatType: 'reverse',
+                  delay: 0.05 * idx,
                   duration: 1,
                   ease: 'easeInOut',
                 }}

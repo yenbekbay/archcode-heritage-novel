@@ -2,8 +2,14 @@ import {Game, Scene} from './components'
 import {Scene1, assets as scene1Assets} from './Scene1'
 import {Scene2, assets as scene2Assets} from './Scene2'
 import {Scene2_1, assets as scene2_1Assets} from './Scene2_1'
+import {Scene2_2, assets as scene2_2Assets} from './Scene2_2'
 
-export const assets = [...scene1Assets, ...scene2Assets, ...scene2_1Assets]
+export const assets = [
+  ...scene1Assets,
+  ...scene2Assets,
+  ...scene2_1Assets,
+  ...scene2_2Assets,
+]
 
 export function MyGame() {
   return (
@@ -19,6 +25,11 @@ export function MyGame() {
       <Scene id="2.1">
         {/* eslint-disable-next-line react/jsx-pascal-case */}
         <Scene2_1 />
+      </Scene>
+
+      <Scene id="2.2">
+        {/* eslint-disable-next-line react/jsx-pascal-case */}
+        <Scene2_2 />
       </Scene>
     </Game>
   )

@@ -26,7 +26,7 @@ export function CommandContainer({
   const {visible} = useCommandContext()
 
   const controls = useAnimation()
-  const skippedRef = React.useRef(false)
+  const completedRef = React.useRef(false)
   useRegisterCommand(
     React.useMemo(
       (): CommandT => ({
@@ -40,17 +40,17 @@ export function CommandContainer({
           return 0
         })(),
         complete: () => {
-          if (skippedRef.current) {
+          if (completedRef.current) {
             return false
           }
 
-          skippedRef.current = true
+          completedRef.current = true
           controls.stop()
           controls.set('mount')
           return true
         },
       }),
-      [controls, retain, skippedRef],
+      [controls, retain, completedRef],
     ),
   )
 
@@ -59,7 +59,7 @@ export function CommandContainer({
       {visible && (
         <CommandView
           controls={controls}
-          skippedRef={skippedRef}
+          completedRef={completedRef}
           autoContinueTimeout={autoContinueTimeout}
           autoContinue={autoContinue}>
           {children}
@@ -80,7 +80,7 @@ export type CommandViewVariants = {
 export interface CommandViewProps {
   children: (controls: AnimationControls) => React.ReactNode
   controls: AnimationControls
-  skippedRef: React.MutableRefObject<boolean>
+  completedRef: React.MutableRefObject<boolean>
   autoContinueTimeout: number
   autoContinue: boolean
 }
@@ -88,7 +88,7 @@ export interface CommandViewProps {
 export function CommandView({
   children,
   controls,
-  skippedRef,
+  completedRef,
   autoContinueTimeout,
   autoContinue,
 }: CommandViewProps) {
@@ -99,13 +99,17 @@ export function CommandView({
   React.useLayoutEffect(
     () => {
       if (isPresent) {
-        skippedRef.current = false
+        completedRef.current = false
         requestAnimationFrame(() =>
           requestAnimationFrame(() => {
             controls.start('mount').then(() => {
-              skippedRef.current = true
-              if (autoContinue && latestIsPresentRef.current) {
-                setTimeout(() => goToNextFrame(), autoContinueTimeout)
+              completedRef.current = true
+              if (autoContinue) {
+                setTimeout(() => {
+                  if (latestIsPresentRef.current) {
+                    goToNextFrame()
+                  }
+                }, autoContinueTimeout)
               }
             })
           }),

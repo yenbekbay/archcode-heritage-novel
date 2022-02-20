@@ -1,7 +1,7 @@
 import animatedBackgroundSrc from '~/assets/game/bg-2.gif'
 import staticBackgroundSrc from '~/assets/game/bg-2.png'
 import fenceSrc from '~/assets/game/fence.png'
-import readhead1Src from '~/assets/game/readhead-1.png'
+import redhead1Src from '~/assets/game/redhead-1.png'
 import {Image} from '~/lib'
 import {Foreground, Options, Say} from './commands'
 import {
@@ -40,8 +40,11 @@ export function Scene2() {
 
       <Say
         large
-        foregroundSrc={readhead1Src}
-        foregroundCss={{width: '90%'}}
+        foregroundSrc={redhead1Src}
+        foregroundCss={{
+          width: '90%',
+          filter: 'drop-shadow(40px 40px 5px rgba(0, 0, 0, .35))',
+        }}
         autoContinue
         retain>
         Это что за забор? И что за ним?

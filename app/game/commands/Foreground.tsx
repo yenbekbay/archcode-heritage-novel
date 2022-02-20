@@ -42,7 +42,6 @@ export function Foreground({
             css={{
               position: 'absolute',
               bottom: 0,
-              filter: 'drop-shadow(40px 40px 5px rgba(0, 0, 0, .35))',
               ...css,
             }}
             src={src}

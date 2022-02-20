@@ -79,7 +79,6 @@ export function Say({
                   height: '100%',
                   width: '100%',
                   objectFit: 'cover',
-                  filter: 'drop-shadow(40px 40px 5px rgba(0, 0, 0, .35))',
                   ...foregroundCss,
                 }}
                 src={foregroundSrc}
