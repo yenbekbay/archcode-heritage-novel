@@ -30,7 +30,7 @@ export function Scene3A() {
           width: '90%',
           filter: 'drop-shadow(40px 40px 5px rgba(0, 0, 0, .35))',
         }}
-        autoContinue>
+        transitory>
         Скорее всего, ничего особенного. Очередное...да не важно.
       </Say>
 
@@ -41,13 +41,13 @@ export function Scene3A() {
           width: '90%',
           filter: 'drop-shadow(40px 40px 5px rgba(0, 0, 0, .35))',
         }}
-        autoContinue>
+        transitory>
         Поберегу нервы, семья ждет, пойду дома чай попью.
       </Say>
 
-      <Blank autoContinueIn={10000} />
+      <Blank transitoryIn={10000} />
 
-      <Title autoContinue retain>
+      <Title transitory retained>
         Конец игры
       </Title>
 

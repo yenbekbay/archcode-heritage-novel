@@ -1,9 +1,9 @@
-import {motion} from 'framer-motion'
-import {CSS, Flex, Image} from '~/lib'
+import {CSS} from '~/lib'
 import {
   CommandContainer,
   CommandContainerProps,
   CommandViewVariants,
+  ForegroundView,
 } from '../components'
 
 export interface ForegroundProps
@@ -30,23 +30,14 @@ export function Foreground({
   ...restProps
 }: ForegroundProps) {
   return (
-    <CommandContainer autoContinueTimeout={500} {...restProps}>
+    <CommandContainer duration={500} skippable {...restProps}>
       {(controls) => (
-        <Flex
-          as={motion.div}
-          css={{flex: 1}}
+        <ForegroundView
+          src={src}
+          css={css}
           variants={variants}
-          initial="initial"
-          animate={controls}>
-          <Image
-            css={{
-              position: 'absolute',
-              bottom: 0,
-              ...css,
-            }}
-            src={src}
-          />
-        </Flex>
+          controls={controls}
+        />
       )}
     </CommandContainer>
   )

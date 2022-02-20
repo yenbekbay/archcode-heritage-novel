@@ -2,7 +2,7 @@ import bldgBackgroundSrc from '~/assets/game/bg-bldg-1-fence.png'
 import phoneBackgroundSrc from '~/assets/game/bg-phone-hands.png'
 import redhead5Src from '~/assets/game/redhead-5.png'
 import {Image} from '~/lib'
-import {Foreground, Options, Say} from './commands'
+import {Options, Say} from './commands'
 import {SceneBackgroundComponentProps, SceneContainer} from './components'
 
 export const assets = [bldgBackgroundSrc, phoneBackgroundSrc, redhead5Src]
@@ -14,7 +14,7 @@ export function Scene4A() {
         large
         foregroundSrc={redhead5Src}
         foregroundCss={{width: '90%'}}
-        autoContinue>
+        transitory>
         В моменты отчаяния всегда можно вылить свою боль в соц. сети
       </Say>
 
@@ -22,8 +22,9 @@ export function Scene4A() {
         large
         foregroundSrc={phoneBackgroundSrc}
         foregroundCss={{transform: 'scale(1.25)'}}
-        autoContinue
-        retain>
+        duration={0}
+        transitory
+        retained>
         Варианты отчаяния:
       </Say>
 
@@ -33,27 +34,17 @@ export function Scene4A() {
             label: 'Создать мем',
             action: {
               type: 'go_to_frame',
-              frame: 4,
+              frame: 3,
             },
           },
           {
             label: 'Написать пост о том, как всё плохо',
             action: {
               type: 'go_to_frame',
-              frame: 5,
+              frame: 4,
             },
           },
         ]}
-      />
-
-      <Foreground
-        src={phoneBackgroundSrc}
-        css={{
-          width: '100%',
-          transform: 'scale(2.5) translate(-4%, 0) rotate(-9.5deg)',
-        }}
-        autoContinue
-        retain
       />
 
       <Options
@@ -66,6 +57,11 @@ export function Scene4A() {
             },
           },
         ]}
+        foregroundSrc={phoneBackgroundSrc}
+        foregroundCss={{
+          width: '100%',
+          transform: 'scale(2) translate(-4%, 0) rotate(-9.5deg)',
+        }}
       />
 
       <Options
@@ -78,6 +74,11 @@ export function Scene4A() {
             },
           },
         ]}
+        foregroundSrc={phoneBackgroundSrc}
+        foregroundCss={{
+          width: '100%',
+          transform: 'scale(2) translate(-4%, 0) rotate(-9.5deg)',
+        }}
       />
     </SceneContainer>
   )

@@ -30,18 +30,18 @@ export function Scene3B() {
           width: '90%',
           filter: 'drop-shadow(40px 40px 5px rgba(0, 0, 0, .35))',
         }}
-        autoContinue>
+        transitory>
         Мутят что-то без доклада народу. Надо разобраться!
       </Say>
 
-      <Blank autoContinueIn={10000} />
+      <Blank transitoryIn={10000} />
 
       <Say
         large
         foregroundSrc={redhead2Src}
         foregroundCss={{width: '90%'}}
-        autoContinue
-        retain>
+        transitory
+        retained>
         Это что за новости?!?! Уничтожают историю, значит?
       </Say>
 

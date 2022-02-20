@@ -12,16 +12,18 @@ import {CommandT} from './SceneContext'
 
 export interface CommandContainerProps {
   children: (controls: AnimationControls) => React.ReactNode
-  autoContinueTimeout: number
-  autoContinue?: boolean
-  retain?: boolean | number
+  duration?: number
+  skippable?: boolean
+  transitory?: boolean
+  retained?: boolean | number
 }
 
 export function CommandContainer({
   children,
-  autoContinueTimeout,
-  autoContinue = false,
-  retain = false,
+  duration = 0,
+  skippable = false,
+  transitory = false,
+  retained = false,
 }: CommandContainerProps) {
   const {visible} = useCommandContext()
 
@@ -30,11 +32,12 @@ export function CommandContainer({
   useRegisterCommand(
     React.useMemo(
       (): CommandT => ({
-        retainFor: (() => {
-          if (typeof retain === 'number') {
-            return Math.max(0, retain)
+        skippable,
+        retainedFor: (() => {
+          if (typeof retained === 'number') {
+            return Math.max(0, retained)
           }
-          if (retain === true) {
+          if (retained === true) {
             return Number.MAX_SAFE_INTEGER
           }
           return 0
@@ -50,7 +53,7 @@ export function CommandContainer({
           return true
         },
       }),
-      [controls, retain, completedRef],
+      [skippable, retained, controls],
     ),
   )
 
@@ -60,8 +63,9 @@ export function CommandContainer({
         <CommandView
           controls={controls}
           completedRef={completedRef}
-          autoContinueTimeout={autoContinueTimeout}
-          autoContinue={autoContinue}>
+          duration={duration}
+          skippable={skippable}
+          transitory={transitory}>
           {children}
         </CommandView>
       )}
@@ -81,21 +85,23 @@ export interface CommandViewProps {
   children: (controls: AnimationControls) => React.ReactNode
   controls: AnimationControls
   completedRef: React.MutableRefObject<boolean>
-  autoContinueTimeout: number
-  autoContinue: boolean
+  duration: number
+  skippable: boolean
+  transitory: boolean
 }
 
 export function CommandView({
   children,
   controls,
   completedRef,
-  autoContinueTimeout,
-  autoContinue,
+  duration,
+  skippable,
+  transitory,
 }: CommandViewProps) {
-  const {index, goToNextFrame} = useCommandContext()
+  const {frame, active, goToNextFrame} = useCommandContext()
   const [isPresent, safeToRemove] = usePresence()
 
-  const latestIsPresentRef = useLatestRef(isPresent)
+  const latestActiveRef = useLatestRef(active)
   React.useLayoutEffect(
     () => {
       if (isPresent) {
@@ -104,12 +110,12 @@ export function CommandView({
           requestAnimationFrame(() => {
             controls.start('mount').then(() => {
               completedRef.current = true
-              if (autoContinue) {
+              if (skippable && transitory) {
                 setTimeout(() => {
-                  if (latestIsPresentRef.current) {
+                  if (latestActiveRef.current) {
                     goToNextFrame()
                   }
-                }, autoContinueTimeout)
+                }, duration)
               }
             })
           }),
@@ -125,7 +131,7 @@ export function CommandView({
 
   return (
     <Flex
-      css={{position: 'absolute', inset: 0, zIndex: index}}
+      css={{position: 'absolute', inset: 0, zIndex: frame}}
       direction="column">
       {children(controls)}
     </Flex>

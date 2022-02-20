@@ -1,8 +1,9 @@
 import React from 'react'
 
 export interface CommandT {
-  /** For how many frames is this command visible */
-  retainFor: number
+  skippable: boolean
+  /** For how many frames is this command active */
+  retainedFor: number
   complete: () => void
 }
 

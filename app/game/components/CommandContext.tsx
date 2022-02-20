@@ -2,7 +2,8 @@ import React from 'react'
 import {CommandT} from './SceneContext'
 
 export interface CommandContextValue {
-  index: number
+  frame: number
+  active: boolean
   visible: boolean
   registerCommand: (command: CommandT) => () => void
   goToNextFrame: () => void

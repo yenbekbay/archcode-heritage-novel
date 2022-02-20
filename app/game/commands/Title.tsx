@@ -28,7 +28,7 @@ export function Title({
   ...restProps
 }: TitleProps) {
   return (
-    <CommandContainer autoContinueTimeout={0} {...restProps}>
+    <CommandContainer skippable {...restProps}>
       {(controls) => (
         <Flex
           css={{flex: 1, padding: '$4'}}

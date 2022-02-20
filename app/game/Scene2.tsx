@@ -20,7 +20,7 @@ export const assets = [
 export function Scene2() {
   return (
     <SceneContainer BackgroundComponent={Background}>
-      <Say large autoContinue>
+      <Say large transitory>
         Забор в этом городе появился новый
       </Say>
 
@@ -39,8 +39,8 @@ export function Scene2() {
             transition: {duration: 0.5, ease: 'easeOut'},
           },
         }}
-        autoContinue
-        retain
+        transitory
+        retained
       />
 
       <Say
@@ -50,8 +50,8 @@ export function Scene2() {
           width: '90%',
           filter: 'drop-shadow(40px 40px 5px rgba(0, 0, 0, .35))',
         }}
-        autoContinue
-        retain>
+        transitory
+        retained>
         Это что за забор? И что за ним?
       </Say>
 

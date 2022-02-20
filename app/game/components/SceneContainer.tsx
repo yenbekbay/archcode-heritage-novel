@@ -38,7 +38,12 @@ export function SceneContainer({
       ref={containerRef}
       css={{flex: 1, position: 'relative'}}
       tabIndex={-1}
-      onClick={() => goToNextFrame()}>
+      onClick={() => {
+        const command = ctx.commandMap.get(ctx.activeFrame)
+        if (command?.skippable) {
+          goToNextFrame()
+        }
+      }}>
       {BackgroundComponent && (
         <Flex direction="column" css={{position: 'absolute', inset: 0}}>
           <BackgroundComponent
@@ -51,10 +56,10 @@ export function SceneContainer({
       {children.map((child, idx) => (
         <Command
           key={child.key}
-          index={idx}
+          frame={idx}
           visible={
             ctx.activeFrame >= idx &&
-            ctx.activeFrame <= idx + (ctx.commandMap.get(idx)?.retainFor ?? 0)
+            ctx.activeFrame <= idx + (ctx.commandMap.get(idx)?.retainedFor ?? 0)
           }
           goToNextFrame={goToNextFrame}>
           {child}

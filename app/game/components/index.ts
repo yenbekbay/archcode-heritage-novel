@@ -2,6 +2,7 @@
 export * from './Command'
 export * from './CommandContainer'
 export * from './CommandContext'
+export * from './ForegroundView'
 export * from './Game'
 export * from './GameContext'
 export * from './Scene'

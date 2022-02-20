@@ -1,9 +1,10 @@
 import {motion} from 'framer-motion'
-import {CSS, Flex, Image, Text} from '~/lib'
+import {CSS, Flex, Text} from '~/lib'
 import {
   CommandContainer,
   CommandContainerProps,
   CommandViewVariants,
+  ForegroundView,
 } from '../components'
 
 export interface SayProps
@@ -36,29 +37,18 @@ export function Say({
   const chars = children.split('')
   return (
     <CommandContainer
-      autoContinueTimeout={3000 + chars.length * 20}
+      duration={3000 + chars.length * 20}
+      skippable
       {...restProps}>
       {(controls) => (
         <>
           {foregroundSrc && (
-            <Flex
-              as={motion.div}
-              css={{position: 'absolute', inset: 0}}
+            <ForegroundView
+              src={foregroundSrc}
+              css={foregroundCss}
               variants={variants}
-              initial="initial"
-              animate={controls}
-              custom={0}>
-              <Image
-                css={{
-                  position: 'absolute',
-                  height: '100%',
-                  width: '100%',
-                  objectFit: 'cover',
-                  ...foregroundCss,
-                }}
-                src={foregroundSrc}
-              />
-            </Flex>
+              controls={controls}
+            />
           )}
 
           <Flex

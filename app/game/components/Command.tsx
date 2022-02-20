@@ -3,14 +3,14 @@ import {CommandContext, CommandContextValue} from './CommandContext'
 import {SceneContext} from './SceneContext'
 
 export interface CommandProps {
-  index: number
+  frame: number
   visible: boolean
   goToNextFrame: () => void
   children: React.ReactNode
 }
 
 export function Command({
-  index,
+  frame,
   visible,
   goToNextFrame,
   children,
@@ -18,13 +18,14 @@ export function Command({
   const sceneCtx = React.useContext(SceneContext)
   const commandCtx = React.useMemo(
     (): CommandContextValue => ({
-      index,
+      frame,
+      active: sceneCtx?.activeFrame === frame,
       visible,
       registerCommand: (command) =>
-        sceneCtx?.registerCommand(index, command) ?? (() => {}),
+        sceneCtx?.registerCommand(frame, command) ?? (() => {}),
       goToNextFrame,
     }),
-    [index, sceneCtx, goToNextFrame, visible],
+    [frame, sceneCtx, goToNextFrame, visible],
   )
   return (
     <CommandContext.Provider value={commandCtx}>
