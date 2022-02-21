@@ -74,7 +74,7 @@ function WithAssets({children}: WithAssetsProps) {
         await loadAsset.all([...new Set(assets)], (info) =>
           setProgress(info.progress),
         )
-        // setRes({status: 'success', data: undefined})
+        setRes({status: 'success', data: undefined})
       } catch {
         setRes({
           status: 'failure',
