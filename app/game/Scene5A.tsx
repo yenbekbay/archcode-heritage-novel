@@ -209,25 +209,11 @@ export function Scene5A() {
         сайт Архкода
       </Say>
 
-      <Say
-        href="tel://+77071210483"
-        large
-        textCss={{mt: 64, transform: 'rotate(-6deg)'}}
-        foregroundSrc={bgPhoneHandSrc}
-        foregroundCss={{
-          height: '100%',
-          width: '100%',
-          objectFit: 'cover',
-          transform: 'scale(2.25) translateX(-15px)',
-        }}>
-        Звонок в Архкод
-      </Say>
-
       <Options
         optionsBottom={[
           {
-            label: 'Что ещё?',
-            onClick: (ctx) => ctx.goToScene('4B'),
+            label: 'Позвонить в Архкод',
+            onClick: (ctx) => ctx.goToScene('5C'),
           },
         ]}
       />

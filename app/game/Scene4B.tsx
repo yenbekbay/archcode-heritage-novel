@@ -23,7 +23,7 @@ export function Scene4B() {
           },
           {
             label: 'Обратиться в организации',
-            onClick: () => alert('Ещё не сделано!'),
+            onClick: (ctx) => ctx.goToScene('5C'),
           },
         ]}
         foregroundSrc={redhead8Src}

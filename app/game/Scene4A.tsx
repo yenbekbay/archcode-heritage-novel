@@ -41,8 +41,8 @@ export function Scene4A() {
         ]}
         foregroundSrc={bgPhoneFingerSrc}
         foregroundCss={{
-          height: '100%',
           width: '100%',
+          height: '100%',
           objectFit: 'cover',
           transform: 'scale(1.25)',
         }}>
@@ -60,7 +60,9 @@ export function Scene4A() {
         foregroundSrc={bgPhoneFingerSrc}
         foregroundCss={{
           width: '100%',
-          transform: 'scale(2) translateX(-20px) rotate(-9.5deg)',
+          height: '100%',
+          objectFit: 'cover',
+          transform: 'scale(2) rotate(-9.5deg) translateX(-20px)',
         }}
       />
 
@@ -75,7 +77,9 @@ export function Scene4A() {
         foregroundSrc={bgPhoneFingerSrc}
         foregroundCss={{
           width: '100%',
-          transform: 'scale(2) translateX(-20%) rotate(-9.5deg)',
+          height: '100%',
+          objectFit: 'cover',
+          transform: 'scale(2) rotate(-9.5deg) translateX(-20px)',
         }}
       />
 

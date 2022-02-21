@@ -8,6 +8,7 @@ import {Scene4A, assets as scene4AAssets} from './Scene4A'
 import {Scene4B, assets as scene4BAssets} from './Scene4B'
 import {Scene5A, assets as scene5AAssets} from './Scene5A'
 import {Scene5B, assets as scene5BAssets} from './Scene5B'
+import {Scene5C, assets as scene5CAssets} from './Scene5C'
 
 export const assets = [
   ...scene1Assets,
@@ -18,6 +19,7 @@ export const assets = [
   ...scene4BAssets,
   ...scene5AAssets,
   ...scene5BAssets,
+  ...scene5CAssets,
 ]
 
 export const MyGame = React.forwardRef(
@@ -54,6 +56,10 @@ export const MyGame = React.forwardRef(
 
         <Scene id="5B">
           <Scene5B />
+        </Scene>
+
+        <Scene id="5C">
+          <Scene5C />
         </Scene>
       </Game>
     )

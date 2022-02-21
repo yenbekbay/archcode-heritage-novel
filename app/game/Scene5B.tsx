@@ -81,7 +81,7 @@ export function Scene5B() {
           height: '100%',
           width: '100%',
           objectFit: 'cover',
-          transform: 'scale(2) translate(-15px, 20px)',
+          transform: 'scale(2) translate(-12px, 20px)',
         }}
         transitory
         retained={1}>
@@ -93,6 +93,7 @@ export function Scene5B() {
           mt: 80,
           width: 190,
           transform: 'rotate(-6deg)',
+          transformOrigin: 'top',
           textAlign: 'right',
         }}>
         {
@@ -179,7 +180,12 @@ export function Scene5B() {
       <Say
         href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
         large
-        textCss={{mt: 64, width: 200, transform: 'rotate(-6deg)'}}
+        textCss={{
+          mt: 64,
+          width: 220,
+          transform: 'rotate(-6deg)',
+          transformOrigin: 'top',
+        }}
         foregroundSrc={bgPhoneHandSrc}
         foregroundCss={{
           height: '100%',
@@ -202,7 +208,12 @@ export function Scene5B() {
       <Say
         href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
         large
-        textCss={{mt: 64, transform: 'rotate(-6deg)'}}
+        textCss={{
+          mt: 64,
+          width: 220,
+          transform: 'rotate(-6deg)',
+          transformOrigin: 'top',
+        }}
         foregroundSrc={bgPhoneHandSrc}
         foregroundCss={{
           height: '100%',
@@ -225,7 +236,12 @@ export function Scene5B() {
       <Say
         href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
         large
-        textCss={{mt: 64, width: 240, transform: 'rotate(-6deg)'}}
+        textCss={{
+          mt: 64,
+          width: 220,
+          transform: 'rotate(-6deg)',
+          transformOrigin: 'top',
+        }}
         foregroundSrc={bgPhoneHandSrc}
         foregroundCss={{
           height: '100%',
@@ -247,7 +263,12 @@ export function Scene5B() {
       <Say
         href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
         large
-        textCss={{mt: 64, width: 240, transform: 'rotate(-6deg)'}}
+        textCss={{
+          mt: 64,
+          width: 220,
+          transform: 'rotate(-6deg)',
+          transformOrigin: 'top',
+        }}
         foregroundSrc={bgPhoneHandSrc}
         foregroundCss={{
           height: '100%',
@@ -279,8 +300,8 @@ export function Scene5B() {
         foregroundSrc={bgPhoneFingerSrc}
         foregroundCss={{
           width: '100%',
-          transform: 'scale(2.5) translate(-30px, -150px)',
-          transformOrigin: 'top',
+          top: 120,
+          transform: 'scale(2.5) translateX(-7%)',
         }}
         duration={0}
         transitory
@@ -293,7 +314,8 @@ export function Scene5B() {
         textCss={{
           mt: 80,
           width: 190,
-          transform: 'rotate(9deg)',
+          transform: 'rotate(9deg) translateX(16px)',
+          transformOrigin: 'top',
         }}>
         *ссылка на примеры писем по разным ситуациям. Проверить информацию из
         СМИ *Ссылка *23 на инструкцию по факт чеку
@@ -321,8 +343,8 @@ export function Scene5B() {
         foregroundSrc={bgPhoneFingerSrc}
         foregroundCss={{
           width: '100%',
-          transform: 'scale(2.5) translate(-30px, -150px)',
-          transformOrigin: 'top',
+          top: 120,
+          transform: 'scale(2.5) translateX(-7%)',
         }}
         duration={0}
         transitory
@@ -336,7 +358,8 @@ export function Scene5B() {
         textCss={{
           mt: 80,
           width: 190,
-          transform: 'rotate(9deg)',
+          transform: 'rotate(9deg) translateX(16px)',
+          transformOrigin: 'top',
         }}>
         сайт Архкода
       </Say>
@@ -352,8 +375,8 @@ export function Scene5B() {
       <Options
         optionsBottom={[
           {
-            label: 'Что ещё?',
-            onClick: (ctx) => ctx.goToScene('4B'),
+            label: 'Позвонить в Архкод',
+            onClick: (ctx) => ctx.goToScene('5C'),
           },
         ]}
       />
