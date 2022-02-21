@@ -1,12 +1,13 @@
 import React from 'react'
+import {useSceneContext} from '.'
 import {CommandT} from './SceneContext'
 
 export interface CommandContextValue {
   frame: number
+  /** Is this the current frame? */
   active: boolean
+  /** Is this frame still shown but not necessarily active? */
   visible: boolean
-  registerCommand: (command: CommandT) => () => void
-  goToNextFrame: () => void
 }
 
 export const CommandContext = React.createContext<CommandContextValue | null>(
@@ -24,8 +25,9 @@ export function useCommandContext() {
 }
 
 export function useRegisterCommand(command: CommandT) {
-  const ctx = useCommandContext()
+  const sceneCtx = useSceneContext()
+  const {frame} = useCommandContext()
   React.useEffect(() => {
-    return ctx.registerCommand(command)
-  }, [command, ctx])
+    return sceneCtx.registerCommand(frame, command)
+  }, [command, frame, sceneCtx])
 }

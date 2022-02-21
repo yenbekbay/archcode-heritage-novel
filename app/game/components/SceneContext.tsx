@@ -8,11 +8,12 @@ export interface CommandT {
 }
 
 export interface SceneContextValue {
-  commandMap: Map<number, CommandT>
-  registerCommand: (index: number, command: CommandT) => () => void
-  completeActiveCommand: () => boolean
+  sceneId: string
+  getCommand: (frame: number) => CommandT | undefined
+  registerCommand: (frame: number, command: CommandT) => void
   activeFrame: number
   goToFrame: React.Dispatch<React.SetStateAction<number>>
+  goToNextFrame: () => void
 }
 
 export const SceneContext = React.createContext<SceneContextValue | null>(null)
@@ -21,7 +22,7 @@ export function useSceneContext() {
   const ctx = React.useContext(SceneContext)
   if (!ctx) {
     throw new Error(
-      '`useSceneContext` can only be used inside a Scene component',
+      '`useSceneContext` can only be used inside a SceneContainer component',
     )
   }
   return ctx

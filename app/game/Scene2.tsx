@@ -49,17 +49,11 @@ export function Scene2() {
         options={[
           {
             label: 'Пройти мимо',
-            action: {
-              type: 'go_to_scene',
-              sceneId: '3A',
-            },
+            onClick: (ctx) => ctx.goToScene('3A'),
           },
           {
             label: 'Посмотреть',
-            action: {
-              type: 'go_to_scene',
-              sceneId: '3B',
-            },
+            onClick: (ctx) => ctx.goToScene('3B'),
           },
         ]}
         foregroundSrc={redhead1Src}

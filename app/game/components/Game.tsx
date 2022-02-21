@@ -40,7 +40,7 @@ export function Game({initialSceneId, children: childrenProp}: GameProps) {
 }
 
 function useActiveSceneId(initialSceneId: string) {
-  const [_activeFrameId, setActiveFrameId] = useSearchParam<string>(
+  const [_activeFrameId, goToFrameId] = useSearchParam<string>(
     'f',
     `${initialSceneId}_${0}`,
   )
@@ -56,9 +56,9 @@ function useActiveSceneId(initialSceneId: string) {
         typeof action === 'function'
           ? action(latestActiveSceneIdRef.current)
           : action
-      setActiveFrameId(`${newValue}_0`)
+      goToFrameId(`${newValue}_0`)
     },
-    [latestActiveSceneIdRef, setActiveFrameId],
+    [latestActiveSceneIdRef, goToFrameId],
   )
   return [activeSceneId, setActiveSceneId] as const
 }

@@ -8,13 +8,15 @@ import type {AnimationControls} from 'framer-motion/types/animation/types'
 import React from 'react'
 import {Flex, useLatestRef} from '~/lib'
 import {useCommandContext, useRegisterCommand} from './CommandContext'
-import {CommandT} from './SceneContext'
+import {CommandT, useSceneContext} from './SceneContext'
 
 export interface CommandContainerProps {
   children: (controls: AnimationControls) => React.ReactNode
   duration?: number
   skippable?: boolean
+  /** Should scene automatically skip to next frame after duration? */
   transitory?: boolean
+  /** Should content still be shown after skipping to next frame? */
   retained?: boolean | number
 }
 
@@ -98,7 +100,8 @@ export function CommandView({
   skippable,
   transitory,
 }: CommandViewProps) {
-  const {frame, active, goToNextFrame} = useCommandContext()
+  const {goToNextFrame} = useSceneContext()
+  const {frame, active} = useCommandContext()
   const [isPresent, safeToRemove] = usePresence()
 
   const latestActiveRef = useLatestRef(active)

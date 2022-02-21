@@ -1,31 +1,24 @@
 import React from 'react'
 import {CommandContext, CommandContextValue} from './CommandContext'
-import {SceneContext} from './SceneContext'
+import {useSceneContext} from './SceneContext'
 
 export interface CommandProps {
   frame: number
-  visible: boolean
-  goToNextFrame: () => void
   children: React.ReactNode
 }
 
-export function Command({
-  frame,
-  visible,
-  goToNextFrame,
-  children,
-}: CommandProps) {
-  const sceneCtx = React.useContext(SceneContext)
+export function Command({frame, children}: CommandProps) {
+  const sceneCtx = useSceneContext()
   const commandCtx = React.useMemo(
     (): CommandContextValue => ({
       frame,
-      active: sceneCtx?.activeFrame === frame,
-      visible,
-      registerCommand: (command) =>
-        sceneCtx?.registerCommand(frame, command) ?? (() => {}),
-      goToNextFrame,
+      active: sceneCtx.activeFrame === frame,
+      visible:
+        sceneCtx.activeFrame >= frame &&
+        sceneCtx.activeFrame <=
+          frame + (sceneCtx.getCommand(frame)?.retainedFor ?? 0),
     }),
-    [frame, sceneCtx, goToNextFrame, visible],
+    [frame, sceneCtx],
   )
   return (
     <CommandContext.Provider value={commandCtx}>

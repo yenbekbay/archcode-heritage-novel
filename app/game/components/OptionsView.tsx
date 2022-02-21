@@ -1,16 +1,22 @@
 import {AnimationControls, motion} from 'framer-motion'
+import React from 'react'
 import {Button, Flex} from '~/lib'
 import {CommandViewVariants} from './CommandContainer'
 import {useCommandContext} from './CommandContext'
 import {useGameContext} from './GameContext'
 import {useSceneContext} from './SceneContext'
 
+interface OptionContext {
+  sceneId: string
+  frame: number
+  goToScene: (sceneId: string) => void
+  goToFrame: (frame: number) => void
+  goToNextFrame: () => void
+}
+
 export interface Option {
   label: string
-  action:
-    | {type: 'go_to_scene'; sceneId: string}
-    | {type: 'go_to_frame'; frame: number}
-    | {type: 'go_to_next_frame'}
+  onClick: (ctx: OptionContext) => void
 }
 
 export type OptionsPlacement = 'top' | 'bottom'
@@ -31,8 +37,18 @@ export function OptionsView({
   controls,
 }: OptionsViewProps) {
   const {goToScene} = useGameContext()
-  const {goToFrame} = useSceneContext()
-  const {goToNextFrame} = useCommandContext()
+  const {sceneId, goToFrame, goToNextFrame} = useSceneContext()
+  const {frame} = useCommandContext()
+  const ctx = React.useMemo(
+    (): OptionContext => ({
+      sceneId,
+      frame,
+      goToFrame,
+      goToScene,
+      goToNextFrame,
+    }),
+    [frame, goToFrame, goToNextFrame, goToScene, sceneId],
+  )
   return (
     <Flex
       css={{
@@ -79,17 +95,7 @@ export function OptionsView({
             }}
             onClick={(event: React.MouseEvent) => {
               event.stopPropagation()
-              switch (o.action.type) {
-                case 'go_to_scene':
-                  goToScene(o.action.sceneId)
-                  break
-                case 'go_to_frame':
-                  goToFrame(o.action.frame)
-                  break
-                case 'go_to_next_frame':
-                  goToNextFrame()
-                  break
-              }
+              o.onClick(ctx)
             }}>
             {o.label}
           </Button>

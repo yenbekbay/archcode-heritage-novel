@@ -42,17 +42,11 @@ export function Scene3B() {
         options={[
           {
             label: 'Как-то печально всё это',
-            action: {
-              type: 'go_to_scene',
-              sceneId: '4A',
-            },
+            onClick: (ctx) => ctx.goToScene('4A'),
           },
           {
             label: 'Что я могу сделать?',
-            action: {
-              type: 'go_to_scene',
-              sceneId: '4B',
-            },
+            onClick: (ctx) => ctx.goToScene('4B'),
           },
         ]}
         foregroundSrc={redhead2Src}

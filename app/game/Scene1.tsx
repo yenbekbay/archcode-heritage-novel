@@ -46,10 +46,7 @@ export function Scene1() {
         options={[
           {
             label: 'Выбрать персонажа',
-            action: {
-              type: 'go_to_scene',
-              sceneId: '2',
-            },
+            onClick: (ctx) => ctx.goToScene('2'),
           },
         ]}
       />

@@ -32,17 +32,11 @@ export function Scene4A() {
         options={[
           {
             label: 'Создать мем',
-            action: {
-              type: 'go_to_frame',
-              frame: 2,
-            },
+            onClick: (ctx) => ctx.goToFrame(ctx.frame + 1),
           },
           {
             label: 'Написать пост о том, как всё плохо',
-            action: {
-              type: 'go_to_frame',
-              frame: 3,
-            },
+            onClick: (ctx) => ctx.goToFrame(ctx.frame + 2),
           },
         ]}
         foregroundSrc={phoneBackgroundSrc}
@@ -60,10 +54,7 @@ export function Scene4A() {
         options={[
           {
             label: 'Загрузить мем',
-            action: {
-              type: 'go_to_frame',
-              frame: 4,
-            },
+            onClick: (ctx) => ctx.goToFrame(ctx.frame + 2),
           },
         ]}
         foregroundSrc={phoneBackgroundSrc}
@@ -78,10 +69,7 @@ export function Scene4A() {
         options={[
           {
             label: 'Загрузить пост',
-            action: {
-              type: 'go_to_frame',
-              frame: 4,
-            },
+            onClick: (ctx) => ctx.goToFrame(ctx.frame + 1),
           },
         ]}
         foregroundSrc={phoneBackgroundSrc}
@@ -105,16 +93,11 @@ export function Scene4A() {
         options={[
           {
             label: 'Что я еще могу сделать?',
-            action: {
-              type: 'go_to_scene',
-              sceneId: 'TODO',
-            },
+            onClick: (ctx) => ctx.goToScene('TODO'),
           },
           {
             label: 'Я сделала всё что было в моих силах',
-            action: {
-              type: 'go_to_next_frame',
-            },
+            onClick: (ctx) => ctx.goToNextFrame(),
           },
         ]}
         foregroundSrc={redhead2Src}
@@ -130,10 +113,7 @@ export function Scene4A() {
         options={[
           {
             label: 'Начать заново',
-            action: {
-              type: 'go_to_scene',
-              sceneId: '1',
-            },
+            onClick: (ctx) => ctx.goToScene('1'),
           },
         ]}
       />

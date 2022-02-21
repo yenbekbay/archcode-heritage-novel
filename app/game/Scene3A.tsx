@@ -56,10 +56,7 @@ export function Scene3A() {
         options={[
           {
             label: 'Начать заново',
-            action: {
-              type: 'go_to_scene',
-              sceneId: '1',
-            },
+            onClick: (ctx) => ctx.goToScene('1'),
           },
         ]}
       />
