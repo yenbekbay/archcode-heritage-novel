@@ -5,7 +5,17 @@ import {MetaFunction, useNavigate} from 'remix'
 import {MobileDeviceChrome} from '~/components'
 import {assets, MyGame} from '~/game'
 import {GameInstance} from '~/game/components'
-import {Box, Flex, Heading, IconButton, Media, Text, useResult} from '~/lib'
+import {
+  Box,
+  Flex,
+  Heading,
+  IconButton,
+  Media,
+  Progress,
+  ProgressIndicator,
+  Text,
+  useResult,
+} from '~/lib'
 
 // https://remix.run/api/conventions#meta
 export const meta: MetaFunction = () => {
@@ -57,11 +67,14 @@ interface WithAssetsProps {
 
 function WithAssets({children}: WithAssetsProps) {
   const [res, setRes] = useResult<Error, undefined>()
+  const [progress, setProgress] = React.useState(0)
   React.useEffect(() => {
     ;(async () => {
       try {
-        await loadAsset.all([...new Set(assets)])
-        setRes({status: 'success', data: undefined})
+        await loadAsset.all([...new Set(assets)], (info) =>
+          setProgress(info.progress),
+        )
+        // setRes({status: 'success', data: undefined})
       } catch {
         setRes({
           status: 'failure',
@@ -77,8 +90,13 @@ function WithAssets({children}: WithAssetsProps) {
         css={{width: '100%', height: '100%', padding: '$4'}}
         direction="column"
         justify="center"
-        align="center">
-        Загрузка…
+        align="center"
+        gap="2">
+        <Text>Загрузка…</Text>
+
+        <Progress value={progress * 100}>
+          <ProgressIndicator style={{width: `${progress * 100}%`}} />
+        </Progress>
       </Flex>
     )
   }
