@@ -28,6 +28,7 @@ export function Scene3A() {
         foregroundSrc={redhead2Src}
         foregroundCss={{
           width: '90%',
+          bottom: 0,
           filter: 'drop-shadow(40px 40px 5px rgba(0, 0, 0, .35))',
         }}
         transitory>
@@ -39,6 +40,7 @@ export function Scene3A() {
         foregroundSrc={redhead3Src}
         foregroundCss={{
           width: '90%',
+          bottom: 0,
           filter: 'drop-shadow(40px 40px 5px rgba(0, 0, 0, .35))',
         }}
         transitory>

@@ -17,6 +17,7 @@ export interface SayProps
   bottom?: boolean
   dark?: boolean
   css?: CSS
+  textCss?: CSS
   optionsTop?: Option[]
   optionsBottom?: Option[]
   optionsDark?: boolean
@@ -32,6 +33,7 @@ export function Say({
   bottom,
   dark,
   css,
+  textCss,
   optionsTop,
   optionsBottom,
   optionsDark,
@@ -76,20 +78,23 @@ export function Say({
               ...css,
             }}
             direction="column"
-            justify={bottom ? 'end' : 'start'}>
+            justify={bottom ? 'end' : 'start'}
+            align="center">
             <Text
               as={href ? 'a' : 'span'}
               css={{
                 textAlign: 'center',
                 fontFamily: '$calligraph',
                 fontSize: large ? '$5' : '$4',
-                color: dark ? 'white' : '$hiContrast',
+                whiteSpace: 'pre-wrap',
+                color: dark ? '#fBf9e0' : '$hiContrast',
                 textShadow: dark
                   ? '0 2px $colors$slate12'
                   : '0 2px $colors$slate4',
                 ...(href && {
-                  textUnderlineOffset: '6px',
+                  textUnderlineOffset: large ? '6px' : '4px',
                 }),
+                ...textCss,
               }}
               {...(href && {
                 href,

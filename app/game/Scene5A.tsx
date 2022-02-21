@@ -76,7 +76,7 @@ export function Scene5A() {
       <Say
         large
         foregroundSrc={redhead9Src}
-        foregroundCss={{width: '110%'}}
+        foregroundCss={{width: '100%', bottom: 0}}
         transitory
         retained={1}>
         Узнать надо побольше...
@@ -94,7 +94,7 @@ export function Scene5A() {
           height: '100%',
           width: '100%',
           objectFit: 'cover',
-          transform: 'scale(2) translateY(5%)',
+          transform: 'scale(2) translateY(30px)',
         }}>
         Ссылка*фактчек
       </Say>
@@ -102,7 +102,7 @@ export function Scene5A() {
       <Say
         large
         foregroundSrc={redhead10Src}
-        foregroundCss={{width: '110%'}}
+        foregroundCss={{width: '100%', bottom: 0}}
         transitory>
         А теперь как запилю пост, что весь город на уши встанет!!!
       </Say>
@@ -115,7 +115,7 @@ export function Scene5A() {
           height: '100%',
           width: '100%',
           objectFit: 'cover',
-          transform: 'scale(2) translateY(5%)',
+          transform: 'scale(2) translateY(30px)',
         }}>
         Ссылка *22 “как написать пост в соц.сети и быть услышанным.”
       </Say>
@@ -123,7 +123,7 @@ export function Scene5A() {
       <Say
         large
         foregroundSrc={redhead11Src}
-        foregroundCss={{width: '110%'}}
+        foregroundCss={{width: '100%', bottom: 0}}
         transitory>
         Буду писать во все инстанции!
       </Say>
@@ -136,7 +136,7 @@ export function Scene5A() {
           height: '100%',
           width: '100%',
           objectFit: 'cover',
-          transform: 'scale(2) translateY(5%)',
+          transform: 'scale(2) translateY(30px)',
         }}>
         Ссылка : список “кому можно писать “ и Примеры официальных писем.
       </Say>
@@ -144,7 +144,7 @@ export function Scene5A() {
       <Say
         large
         foregroundSrc={redhead9Src}
-        foregroundCss={{width: '110%'}}
+        foregroundCss={{width: '100%', bottom: 0}}
         transitory>
         Таксссссс, а слушания то будут??
       </Say>
@@ -157,7 +157,7 @@ export function Scene5A() {
           height: '100%',
           width: '100%',
           objectFit: 'cover',
-          transform: 'scale(2) translateY(5%)',
+          transform: 'scale(2) translateY(30px)',
         }}>
         Новости, статьи и объявления о слушаниях
       </Say>
@@ -165,7 +165,7 @@ export function Scene5A() {
       <Say
         large
         foregroundSrc={redhead12Src}
-        foregroundCss={{width: '110%'}}
+        foregroundCss={{width: '100%', bottom: 0}}
         transitory>
         И вообще, если не будет диалога, я готова действовать!!!
       </Say>
@@ -173,7 +173,7 @@ export function Scene5A() {
       <Say
         large
         foregroundSrc={redhead11Src}
-        foregroundCss={{width: '110%'}}
+        foregroundCss={{width: '100%', bottom: 0}}
         transitory>
         Устрою протест!!!
       </Say>
@@ -185,7 +185,7 @@ export function Scene5A() {
           height: '100%',
           width: '100%',
           objectFit: 'cover',
-          transform: 'scale(2) translateY(5%)',
+          transform: 'scale(2) translateY(30px)',
         }}>
         *переход на СЦЕНЫ ( Примеры протестных акций: Акция женщины, обклеившей
         свой дом фотографиями президента, Розовый фламинго Талдыколя, Художник в
@@ -198,26 +198,27 @@ export function Scene5A() {
           height: '100%',
           width: '100%',
           objectFit: 'cover',
-          transform: 'scale(2) translateY(5%)',
+          transform: 'scale(2) translateY(30px)',
         }}
+        transitory
         retained={1}>
         Думаю, можно обратиться к ним
       </Say>
 
-      <Say href="https://archcode.kz" large css={{mt: '$5'}}>
+      <Say href="https://archcode.kz" large textCss={{mt: 64}}>
         сайт Архкода
       </Say>
 
       <Say
         href="tel://+77071210483"
         large
-        css={{mt: '$5', transform: 'rotate(-6deg) translateX(20px)'}}
+        textCss={{mt: 64, transform: 'rotate(-6deg)'}}
         foregroundSrc={bgPhoneHandSrc}
         foregroundCss={{
           height: '100%',
           width: '100%',
           objectFit: 'cover',
-          transform: 'scale(2.25) translateX(-4%)',
+          transform: 'scale(2.25) translateX(-15px)',
         }}>
         Звонок в Архкод
       </Say>

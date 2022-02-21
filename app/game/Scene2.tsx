@@ -54,6 +54,7 @@ export function Scene2() {
         foregroundSrc={redhead1Src}
         foregroundCss={{
           width: '90%',
+          bottom: 0,
           filter: 'drop-shadow(40px 40px 5px rgba(0, 0, 0, .35))',
         }}>
         Это что за забор? И что за ним?

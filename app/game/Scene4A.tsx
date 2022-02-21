@@ -21,7 +21,7 @@ export function Scene4A() {
       <Say
         large
         foregroundSrc={redhead5Src}
-        foregroundCss={{width: '90%'}}
+        foregroundCss={{width: '90%', bottom: 0}}
         transitory>
         В моменты отчаяния всегда можно вылить свою боль в соц. сети
       </Say>
@@ -60,7 +60,7 @@ export function Scene4A() {
         foregroundSrc={bgPhoneFingerSrc}
         foregroundCss={{
           width: '100%',
-          transform: 'scale(2) translate(-4%, 0) rotate(-9.5deg)',
+          transform: 'scale(2) translateX(-20px) rotate(-9.5deg)',
         }}
       />
 
@@ -75,14 +75,14 @@ export function Scene4A() {
         foregroundSrc={bgPhoneFingerSrc}
         foregroundCss={{
           width: '100%',
-          transform: 'scale(2) translate(-4%, 0) rotate(-9.5deg)',
+          transform: 'scale(2) translateX(-20%) rotate(-9.5deg)',
         }}
       />
 
       <Say
         large
         foregroundSrc={redhead7Src}
-        foregroundCss={{width: '90%'}}
+        foregroundCss={{width: '90%', bottom: 0}}
         transitory>
         ПОЗДРАВЛЯЕМ!!! ВАШИ ПОСТЫ/МЕМЫ УВИДЕЛА ИЗВЕСТНАЯ АКТИВИСТКА ТИНА ШТУНЕР,
         И ТЕПЕРЬ ОНА БУДЕТ ДОБИВАТЬСЯ СПРАВЕДЛИВОСТИ
@@ -100,7 +100,7 @@ export function Scene4A() {
           },
         ]}
         foregroundSrc={redhead2Src}
-        foregroundCss={{width: '90%'}}
+        foregroundCss={{width: '90%', bottom: 0}}
       />
 
       <Title transitory retained>

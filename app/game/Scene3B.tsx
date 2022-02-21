@@ -28,6 +28,7 @@ export function Scene3B() {
         foregroundSrc={redhead4Src}
         foregroundCss={{
           width: '90%',
+          bottom: 0,
           filter: 'drop-shadow(40px 40px 5px rgba(0, 0, 0, .35))',
         }}
         transitory>
@@ -50,7 +51,7 @@ export function Scene3B() {
           },
         ]}
         foregroundSrc={redhead2Src}
-        foregroundCss={{width: '90%'}}>
+        foregroundCss={{width: '90%', bottom: 0}}>
         Это что за новости?!?! Уничтожают историю, значит?
       </Say>
     </SceneContainer>

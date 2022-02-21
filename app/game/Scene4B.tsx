@@ -19,7 +19,7 @@ export function Scene4B() {
           },
           {
             label: 'Объединиться в команду',
-            onClick: () => alert('Ещё не сделано!'),
+            onClick: (ctx) => ctx.goToScene('5B'),
           },
           {
             label: 'Обратиться в организации',
@@ -27,7 +27,7 @@ export function Scene4B() {
           },
         ]}
         foregroundSrc={redhead8Src}
-        foregroundCss={{width: '90%'}}>
+        foregroundCss={{width: '90%', bottom: 0}}>
         Что я могу?
       </Say>
     </SceneContainer>
