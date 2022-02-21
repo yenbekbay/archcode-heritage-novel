@@ -1,16 +1,16 @@
-# @archcode-kz/architecture-novel-game
+# archcode-visual-novel
 
 - [Remix Docs](https://remix.run/docs)
 
 ## Development
 
-To run your Remix app locally, make sure your project's local dependencies are installed:
+To run the app locally, make sure your project's local dependencies are installed:
 
 ```sh
 npm install
 ```
 
-Afterwards, start the Remix development server like so:
+Afterwards, start the development server like so:
 
 ```sh
 npm run dev
