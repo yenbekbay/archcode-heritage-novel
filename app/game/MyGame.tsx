@@ -11,7 +11,6 @@ import {Scene5B, assets as scene5BAssets} from './Scene5B'
 import {Scene5C, assets as scene5CAssets} from './Scene5C'
 
 export const assets = [
-  '/fonts/calligraph.otf',
   ...scene1Assets,
   ...scene3Assets,
   ...scene3AAssets,
