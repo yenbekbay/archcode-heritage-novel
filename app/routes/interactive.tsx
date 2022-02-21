@@ -1,9 +1,10 @@
 import loadAsset from 'load-asset'
-import {ArrowLeft as ArrowLeftIcon} from 'phosphor-react'
+import {ArrowLeft as ArrowLeftIcon, X as XIcon} from 'phosphor-react'
 import React from 'react'
 import {MetaFunction, useNavigate} from 'remix'
 import {MobileDeviceChrome} from '~/components'
 import {assets, MyGame} from '~/game'
+import {GameInstance} from '~/game/components'
 import {Box, Flex, Heading, IconButton, Media, Text, useResult} from '~/lib'
 
 // https://remix.run/api/conventions#meta
@@ -16,24 +17,31 @@ export const meta: MetaFunction = () => {
 
 export default function Interactive() {
   const navigate = useNavigate()
+  const gameRef = React.useRef<GameInstance>(null)
   return (
     <Flex css={{height: '100vh'}}>
-      <Flex css={{position: 'absolute', top: '$3', left: '$3', zIndex: 1000}}>
+      <Flex
+        css={{position: 'absolute', top: '$3', left: '$3', zIndex: 1000}}
+        gap="2">
         <IconButton variant="raised" onClick={() => navigate('/')}>
+          <XIcon />
+        </IconButton>
+
+        <IconButton variant="raised" onClick={() => gameRef.current?.goBack()}>
           <ArrowLeftIcon />
         </IconButton>
       </Flex>
 
       <Box as={Media} css={{width: '100%', height: '100%'}} at="sm">
         <WithAssets>
-          <MyGame />
+          <MyGame ref={gameRef} />
         </WithAssets>
       </Box>
 
       <Box as={Media} css={{width: '100%', height: '100%'}} greaterThan="sm">
         <MobileDeviceChrome>
           <WithAssets>
-            <MyGame />
+            <MyGame ref={gameRef} />
           </WithAssets>
         </MobileDeviceChrome>
       </Box>

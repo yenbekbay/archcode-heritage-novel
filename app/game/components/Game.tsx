@@ -9,35 +9,51 @@ export interface GameProps {
   children?: React.ReactElement[] | React.ReactElement
 }
 
-export function Game({initialSceneId, children: childrenProp}: GameProps) {
-  const [activeSceneId, setActiveSceneId] = useActiveSceneId(initialSceneId)
-  const children = React.useMemo(
-    () =>
-      (flattenChildren(childrenProp) as React.ReactElement[]).filter(
-        (el) => el.type === Scene,
-      ),
-    [childrenProp],
-  )
-  const ctx = React.useMemo(
-    (): GameContextValue => ({
-      goToScene: setActiveSceneId,
-    }),
-    [setActiveSceneId],
-  )
-  return (
-    <GameContext.Provider value={ctx}>
-      <Flex
-        css={{
-          width: '100%',
-          height: '100%',
-          overflow: 'hidden',
-          backgroundColor: '$background',
-        }}>
-        {children.map((child) => activeSceneId === child.props.id && child)}
-      </Flex>
-    </GameContext.Provider>
-  )
+export interface GameInstance {
+  goBack: () => void
 }
+
+export const Game = React.forwardRef(
+  (
+    {initialSceneId, children: childrenProp}: GameProps,
+    forwardedRef: React.ForwardedRef<GameInstance>,
+  ) => {
+    const [activeSceneId, setActiveSceneId] = useActiveSceneId(initialSceneId)
+    const children = React.useMemo(
+      () =>
+        (flattenChildren(childrenProp) as React.ReactElement[]).filter(
+          (el) => el.type === Scene,
+        ),
+      [childrenProp],
+    )
+    const ctx = React.useMemo(
+      (): GameContextValue => ({
+        goToScene: setActiveSceneId,
+      }),
+      [setActiveSceneId],
+    )
+    React.useImperativeHandle(
+      forwardedRef,
+      (): GameInstance => ({
+        goBack: () => window.history.back(),
+      }),
+      [],
+    )
+    return (
+      <GameContext.Provider value={ctx}>
+        <Flex
+          css={{
+            width: '100%',
+            height: '100%',
+            overflow: 'hidden',
+            backgroundColor: '$background',
+          }}>
+          {children.map((child) => activeSceneId === child.props.id && child)}
+        </Flex>
+      </GameContext.Provider>
+    )
+  },
+)
 
 function useActiveSceneId(initialSceneId: string) {
   const [_activeFrameId, goToFrameId] = useSearchParam<string>(
