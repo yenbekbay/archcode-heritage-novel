@@ -5,7 +5,7 @@
   "license": "GPL-3.0",
   "sideEffects": false,
   "scripts": {
-    "build": "npm run build:css && remix build",
+    "build": "remix build",
     "dev": "remix dev",
     "postinstall": "remix setup node",
     "lint": "eslint --ext .js,.ts,.tsx --cache .",
