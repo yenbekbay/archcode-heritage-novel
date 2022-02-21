@@ -6,18 +6,20 @@ import {
   CommandViewVariants,
   ForegroundView,
   Option,
-  OptionsPlacement,
   OptionsView,
 } from '../components'
 
 export interface SayProps
   extends Partial<Omit<CommandContainerProps, 'children'>> {
   children: string
+  href?: string
   large?: boolean
+  bottom?: boolean
   dark?: boolean
-  options?: Option[]
+  css?: CSS
+  optionsTop?: Option[]
+  optionsBottom?: Option[]
   optionsDark?: boolean
-  optionsPlacement?: OptionsPlacement
   foregroundSrc?: string
   foregroundCss?: CSS
   variants?: CommandViewVariants
@@ -25,11 +27,14 @@ export interface SayProps
 
 export function Say({
   children,
+  href,
   large,
+  bottom,
   dark,
-  options,
+  css,
+  optionsTop,
+  optionsBottom,
   optionsDark,
-  optionsPlacement,
   foregroundSrc,
   foregroundCss,
   variants = {
@@ -68,18 +73,29 @@ export function Say({
               inset: 0,
               padding: '$4',
               paddingTop: '$5',
+              ...css,
             }}
-            direction="column">
+            direction="column"
+            justify={bottom ? 'end' : 'start'}>
             <Text
+              as={href ? 'a' : 'span'}
               css={{
                 textAlign: 'center',
                 fontFamily: '$calligraph',
                 fontSize: large ? '$5' : '$4',
                 color: dark ? 'white' : '$hiContrast',
                 textShadow: dark
-                  ? '0 1px $colors$slate12'
-                  : '0 1px $colors$slate4',
-              }}>
+                  ? '0 2px $colors$slate12'
+                  : '0 2px $colors$slate4',
+                ...(href && {
+                  textUnderlineOffset: '6px',
+                }),
+              }}
+              {...(href && {
+                href,
+                target: '_blank',
+                rel: 'noopener',
+              })}>
               {chars.map((char, idx) => (
                 <motion.span
                   key={`${char}_${idx}`}
@@ -93,11 +109,21 @@ export function Say({
             </Text>
           </Flex>
 
-          {options && (
+          {optionsTop && (
             <OptionsView
               dark={optionsDark}
-              placement={optionsPlacement}
-              options={options}
+              placement="top"
+              options={optionsTop}
+              variants={variants}
+              controls={controls}
+            />
+          )}
+
+          {optionsBottom && (
+            <OptionsView
+              dark={optionsDark}
+              placement="bottom"
+              options={optionsBottom}
               variants={variants}
               controls={controls}
             />

@@ -1,12 +1,12 @@
 import useSize from '@react-hook/size'
 import {motion, useAnimation} from 'framer-motion'
 import React from 'react'
-import backgroundSrc from '~/assets/game/bg-intro.png'
+import bgIntroSrc from '~/assets/game/bg-intro.png'
 import {Image} from '~/lib'
 import {Options, Say, Title} from './commands'
 import {SceneBackgroundComponentProps, SceneContainer} from './components'
 
-export const assets = [backgroundSrc]
+export const assets = [bgIntroSrc]
 
 export function Scene1() {
   return (
@@ -43,7 +43,7 @@ export function Scene1() {
 
       <Options
         dark
-        options={[
+        optionsBottom={[
           {
             label: 'Выбрать персонажа',
             onClick: (ctx) => ctx.goToScene('2'),
@@ -80,7 +80,7 @@ function Background({
     <Image
       ref={imgRef}
       as={motion.img}
-      src={backgroundSrc}
+      src={bgIntroSrc}
       initial={{y: 0}}
       animate={controls}
       css={{width: '100%'}}

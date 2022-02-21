@@ -1,5 +1,5 @@
-import animatedBackgroundSrc from '~/assets/game/bg-map.gif'
-import staticBackgroundSrc from '~/assets/game/bg-map.png'
+import bgMapGifSrc from '~/assets/game/bg-map.gif'
+import bgMapStaticSrc from '~/assets/game/bg-map.png'
 import fenceSrc from '~/assets/game/fence.png'
 import redhead1Src from '~/assets/game/redhead-1.png'
 import {Image} from '~/lib'
@@ -10,12 +10,7 @@ import {
   useSceneContext,
 } from './components'
 
-export const assets = [
-  animatedBackgroundSrc,
-  staticBackgroundSrc,
-  fenceSrc,
-  redhead1Src,
-]
+export const assets = [bgMapGifSrc, bgMapStaticSrc, fenceSrc, redhead1Src]
 
 export function Scene2() {
   return (
@@ -46,7 +41,7 @@ export function Scene2() {
       <Say
         large
         optionsDark
-        options={[
+        optionsBottom={[
           {
             label: 'Пройти мимо',
             onClick: (ctx) => ctx.goToScene('3A'),
@@ -71,7 +66,7 @@ function Background(_props: SceneBackgroundComponentProps) {
   const {activeFrame} = useSceneContext()
   return (
     <Image
-      src={activeFrame < 2 ? animatedBackgroundSrc : staticBackgroundSrc}
+      src={activeFrame < 2 ? bgMapGifSrc : bgMapStaticSrc}
       css={{flex: 0, minHeight: '100%', objectFit: 'cover'}}
     />
   )

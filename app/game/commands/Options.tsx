@@ -6,24 +6,23 @@ import {
   CommandViewVariants,
   ForegroundView,
   Option,
-  OptionsPlacement,
   OptionsView,
 } from '../components'
 
 export interface OptionsProps
   extends Partial<Omit<CommandContainerProps, 'children'>> {
-  options: Option[]
+  optionsTop?: Option[]
+  optionsBottom?: Option[]
   dark?: boolean
-  placement?: OptionsPlacement
   foregroundSrc?: string
   foregroundCss?: CSS
   variants?: CommandViewVariants
 }
 
 export function Options({
-  options,
+  optionsTop,
+  optionsBottom,
   dark,
-  placement,
   foregroundSrc,
   foregroundCss,
   variants = {
@@ -52,13 +51,25 @@ export function Options({
             />
           )}
 
-          <OptionsView
-            dark={dark}
-            placement={placement}
-            options={options}
-            variants={variants}
-            controls={controls}
-          />
+          {optionsTop && (
+            <OptionsView
+              dark={dark}
+              placement="top"
+              options={optionsTop}
+              variants={variants}
+              controls={controls}
+            />
+          )}
+
+          {optionsBottom && (
+            <OptionsView
+              dark={dark}
+              placement="bottom"
+              options={optionsBottom}
+              variants={variants}
+              controls={controls}
+            />
+          )}
         </>
       )}
     </CommandContainer>

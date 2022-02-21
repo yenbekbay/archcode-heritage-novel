@@ -1,6 +1,6 @@
 import {AnimatePresence, motion} from 'framer-motion'
-import animatedBackgroundSrc from '~/assets/game/bg-bldg-1.gif'
-import staticBackgroundSrc from '~/assets/game/bg-bldg-1.png'
+import bgBldg1GifSrc from '~/assets/game/bg-bldg-1.gif'
+import bgBldg1StaticSrc from '~/assets/game/bg-bldg-1.png'
 import fenceSrc from '~/assets/game/fence.png'
 import redhead2Src from '~/assets/game/redhead-2.png'
 import redhead3Src from '~/assets/game/redhead-3.png'
@@ -13,8 +13,8 @@ import {
 } from './components'
 
 export const assets = [
-  animatedBackgroundSrc,
-  staticBackgroundSrc,
+  bgBldg1GifSrc,
+  bgBldg1StaticSrc,
   fenceSrc,
   redhead2Src,
   redhead3Src,
@@ -53,7 +53,7 @@ export function Scene3A() {
 
       <Options
         dark
-        options={[
+        optionsBottom={[
           {
             label: 'Начать заново',
             onClick: (ctx) => ctx.goToScene('1'),
@@ -69,7 +69,7 @@ function Background(_props: SceneBackgroundComponentProps) {
   return (
     <>
       <Image
-        src={activeFrame < 2 ? staticBackgroundSrc : animatedBackgroundSrc}
+        src={activeFrame < 2 ? bgBldg1StaticSrc : bgBldg1GifSrc}
         css={{flex: 1, minHeight: '100%', objectFit: 'cover'}}
       />
 

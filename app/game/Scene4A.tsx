@@ -1,5 +1,5 @@
-import bldgBackgroundSrc from '~/assets/game/bg-bldg-1-fence.png'
-import phoneBackgroundSrc from '~/assets/game/bg-phone-hands.png'
+import bgBldg1FenceSrc from '~/assets/game/bg-bldg-1-fence.png'
+import bgPhoneFingerSrc from '~/assets/game/bg-phone-finger.png'
 import redhead2Src from '~/assets/game/redhead-2.png'
 import redhead5Src from '~/assets/game/redhead-5.png'
 import redhead7Src from '~/assets/game/redhead-7.png'
@@ -8,8 +8,8 @@ import {Options, Say, Title} from './commands'
 import {SceneBackgroundComponentProps, SceneContainer} from './components'
 
 export const assets = [
-  bldgBackgroundSrc,
-  phoneBackgroundSrc,
+  bgBldg1FenceSrc,
+  bgPhoneFingerSrc,
   redhead2Src,
   redhead5Src,
   redhead7Src,
@@ -29,7 +29,7 @@ export function Scene4A() {
       <Say
         large
         optionsDark
-        options={[
+        optionsBottom={[
           {
             label: 'Создать мем',
             onClick: (ctx) => ctx.goToFrame(ctx.frame + 1),
@@ -39,7 +39,7 @@ export function Scene4A() {
             onClick: (ctx) => ctx.goToFrame(ctx.frame + 2),
           },
         ]}
-        foregroundSrc={phoneBackgroundSrc}
+        foregroundSrc={bgPhoneFingerSrc}
         foregroundCss={{
           height: '100%',
           width: '100%',
@@ -51,13 +51,13 @@ export function Scene4A() {
 
       <Options
         dark
-        options={[
+        optionsBottom={[
           {
             label: 'Загрузить мем',
             onClick: (ctx) => ctx.goToFrame(ctx.frame + 2),
           },
         ]}
-        foregroundSrc={phoneBackgroundSrc}
+        foregroundSrc={bgPhoneFingerSrc}
         foregroundCss={{
           width: '100%',
           transform: 'scale(2) translate(-4%, 0) rotate(-9.5deg)',
@@ -66,13 +66,13 @@ export function Scene4A() {
 
       <Options
         dark
-        options={[
+        optionsBottom={[
           {
             label: 'Загрузить пост',
             onClick: (ctx) => ctx.goToFrame(ctx.frame + 1),
           },
         ]}
-        foregroundSrc={phoneBackgroundSrc}
+        foregroundSrc={bgPhoneFingerSrc}
         foregroundCss={{
           width: '100%',
           transform: 'scale(2) translate(-4%, 0) rotate(-9.5deg)',
@@ -89,11 +89,10 @@ export function Scene4A() {
       </Say>
 
       <Options
-        placement="top"
-        options={[
+        optionsTop={[
           {
             label: 'Что я еще могу сделать?',
-            onClick: (ctx) => ctx.goToScene('TODO'),
+            onClick: (ctx) => ctx.goToScene('4B'),
           },
           {
             label: 'Я сделала всё что было в моих силах',
@@ -110,7 +109,7 @@ export function Scene4A() {
 
       <Options
         dark
-        options={[
+        optionsBottom={[
           {
             label: 'Начать заново',
             onClick: (ctx) => ctx.goToScene('1'),
@@ -124,7 +123,7 @@ export function Scene4A() {
 function Background(_props: SceneBackgroundComponentProps) {
   return (
     <Image
-      src={bldgBackgroundSrc}
+      src={bgBldg1FenceSrc}
       css={{flex: 0, minHeight: '100%', objectFit: 'cover'}}
     />
   )

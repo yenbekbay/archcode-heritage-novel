@@ -9,16 +9,16 @@ export interface CommandProps {
 
 export function Command({frame, children}: CommandProps) {
   const sceneCtx = useSceneContext()
+  const command = sceneCtx.getCommand(frame)
   const commandCtx = React.useMemo(
     (): CommandContextValue => ({
       frame,
       active: sceneCtx.activeFrame === frame,
       visible:
         sceneCtx.activeFrame >= frame &&
-        sceneCtx.activeFrame <=
-          frame + (sceneCtx.getCommand(frame)?.retainedFor ?? 0),
+        sceneCtx.activeFrame <= frame + (command?.retainedFor ?? 0),
     }),
-    [frame, sceneCtx],
+    [command?.retainedFor, frame, sceneCtx.activeFrame],
   )
   return (
     <CommandContext.Provider value={commandCtx}>

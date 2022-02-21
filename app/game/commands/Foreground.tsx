@@ -20,7 +20,7 @@ export function Foreground({
     initial: {opacity: 0},
     mount: {
       opacity: 1,
-      transition: {delay: 0.5, duration: 2},
+      transition: {delay: 0.5, duration: 1},
     },
     exit: {
       opacity: 0,

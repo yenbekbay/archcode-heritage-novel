@@ -4,6 +4,8 @@ import {Scene2, assets as scene3Assets} from './Scene2'
 import {Scene3A, assets as scene3AAssets} from './Scene3A'
 import {Scene3B, assets as scene3BAssets} from './Scene3B'
 import {Scene4A, assets as scene4AAssets} from './Scene4A'
+import {Scene4B, assets as scene4BAssets} from './Scene4B'
+import {Scene5A, assets as scene5AAssets} from './Scene5A'
 
 export const assets = [
   ...scene1Assets,
@@ -11,6 +13,8 @@ export const assets = [
   ...scene3AAssets,
   ...scene3BAssets,
   ...scene4AAssets,
+  ...scene4BAssets,
+  ...scene5AAssets,
 ]
 
 export function MyGame() {
@@ -34,6 +38,14 @@ export function MyGame() {
 
       <Scene id="4A">
         <Scene4A />
+      </Scene>
+
+      <Scene id="4B">
+        <Scene4B />
+      </Scene>
+
+      <Scene id="5A">
+        <Scene5A />
       </Scene>
     </Game>
   )
