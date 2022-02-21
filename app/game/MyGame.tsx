@@ -1,5 +1,4 @@
 import React from 'react'
-import calligraphFontSrc from '~/assets/fonts/calligraph.otf'
 import {Game, GameInstance, Scene} from './components'
 import {Scene1, assets as scene1Assets} from './Scene1'
 import {Scene2, assets as scene3Assets} from './Scene2'
@@ -12,7 +11,7 @@ import {Scene5B, assets as scene5BAssets} from './Scene5B'
 import {Scene5C, assets as scene5CAssets} from './Scene5C'
 
 export const assets = [
-  calligraphFontSrc,
+  '/fonts/calligraph.otf',
   ...scene1Assets,
   ...scene3Assets,
   ...scene3AAssets,
