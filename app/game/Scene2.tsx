@@ -2,13 +2,9 @@ import bgMapGifSrc from '~/assets/game/bg-map.gif'
 import bgMapStaticSrc from '~/assets/game/bg-map.png'
 import fenceSrc from '~/assets/game/fence.png'
 import redhead1Src from '~/assets/game/redhead-1.png'
-import {Image} from '~/lib'
 import {Foreground, Say} from './commands'
-import {
-  SceneBackgroundComponentProps,
-  SceneContainer,
-  useSceneContext,
-} from './components'
+import type {SceneBackgroundComponentProps} from './components'
+import {SceneContainer, useSceneContext} from './components'
 
 export const assets = [bgMapGifSrc, bgMapStaticSrc, fenceSrc, redhead1Src]
 
@@ -21,7 +17,7 @@ export function Scene2() {
 
       <Foreground
         src={fenceSrc}
-        css={{height: '100%', transform: 'translate(-50%) scale(1.15)'}}
+        style={{height: '100%', transform: 'translate(-50%) scale(1.15)'}}
         variants={{
           initial: {x: '250%', scale: 0.5, originY: 1},
           mount: {
@@ -52,7 +48,7 @@ export function Scene2() {
           },
         ]}
         foregroundSrc={redhead1Src}
-        foregroundCss={{
+        foregroundStyle={{
           width: '90%',
           bottom: 0,
           filter: 'drop-shadow(40px 40px 5px rgba(0, 0, 0, .35))',
@@ -66,9 +62,9 @@ export function Scene2() {
 function Background(_props: SceneBackgroundComponentProps) {
   const {activeFrame} = useSceneContext()
   return (
-    <Image
+    <img
       src={activeFrame < 2 ? bgMapGifSrc : bgMapStaticSrc}
-      css={{flex: 0, minHeight: '100%', objectFit: 'cover'}}
+      className="flex-shrink-1 min-h-full flex-grow-0 basis-0 object-cover "
     />
   )
 }

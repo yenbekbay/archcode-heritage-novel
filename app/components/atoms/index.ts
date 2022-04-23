@@ -1,7 +1,5 @@
 // codegen:start {preset: barrel, include: "./{*.{ts,tsx},*/index.{ts,tsx}}", exclude: "./**/*.{d,spec,test,fixture,decorator,stories,web,native,ios,android}.{ts,tsx}"}
-export * from './atoms/index'
-export * from './Footer'
-export * from './Header'
-export * from './Hero'
-export * from './MobileDeviceChrome'
+export * from './ArchcodeLogo'
+export * from './ExternalIcon'
+export * from './HeroGraphic'
 // codegen:end

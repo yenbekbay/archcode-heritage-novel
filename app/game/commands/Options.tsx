@@ -1,13 +1,10 @@
 import React from 'react'
-import {CSS} from '~/lib'
-import {
-  CommandContainer,
+import type {
   CommandContainerProps,
   CommandViewVariants,
-  ForegroundView,
   Option,
-  OptionsView,
 } from '../components'
+import {CommandContainer, ForegroundView, OptionsView} from '../components'
 
 export interface OptionsProps
   extends Partial<Omit<CommandContainerProps, 'children'>> {
@@ -15,7 +12,7 @@ export interface OptionsProps
   optionsBottom?: Option[]
   dark?: boolean
   foregroundSrc?: string
-  foregroundCss?: CSS
+  foregroundStyle?: React.CSSProperties
   variants?: CommandViewVariants
 }
 
@@ -24,7 +21,7 @@ export function Options({
   optionsBottom,
   dark,
   foregroundSrc,
-  foregroundCss,
+  foregroundStyle,
   variants = {
     initial: {opacity: 0},
     mount: (idx) => ({
@@ -45,7 +42,7 @@ export function Options({
           {foregroundSrc && (
             <ForegroundView
               src={foregroundSrc}
-              css={foregroundCss}
+              style={foregroundStyle}
               variants={variants}
               controls={controls}
             />

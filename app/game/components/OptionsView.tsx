@@ -1,10 +1,11 @@
-import {AnimationControls, motion} from 'framer-motion'
+import type {AnimationControls} from 'framer-motion'
+import {motion} from 'framer-motion'
 import React from 'react'
-import {Button, Flex} from '~/lib'
-import {CommandViewVariants} from './CommandContainer'
+import type {CommandViewVariants} from './CommandContainer'
 import {useCommandContext} from './CommandContext'
 import {useGameContext} from './GameContext'
 import {useSceneContext} from './SceneContext'
+import clsx from 'clsx'
 
 interface OptionContext {
   sceneId: string
@@ -50,39 +51,29 @@ export function OptionsView({
     [frame, goToFrame, goToNextFrame, goToScene, sceneId],
   )
   return (
-    <Flex
-      css={{
-        position: 'absolute',
-        inset: 0,
-        padding: '$4',
-        paddingTop: '$5',
-      }}
-      direction="column"
-      justify={placement === 'bottom' ? 'end' : 'start'}
-      align="center"
-      gap="2">
+    <div
+      className={clsx(
+        'absolute inset-0 flex flex-col items-center space-y-2 p-8 pt-20',
+        placement === 'bottom' ? 'justify-end' : 'justify-start',
+      )}>
       {options.map((o, idx) => (
-        <Flex
+        <motion.div
           key={o.label}
-          as={motion.div}
-          direction="column"
+          className="flex flex-col"
           variants={variants}
           initial="initial"
           animate={controls}
           custom={idx}>
-          <Button
-            as={motion.div}
-            variant={dark ? 'transparentBlack' : 'transparentWhite'}
-            css={{
-              height: 'auto',
-              lineHeight: '$4',
-              textAlign: 'center',
-              fontFamily: '$calligraph',
-              fontSize: '$4',
-              color: dark ? 'white' : '$hiContrast',
+          <motion.div
+            className="btn btn-ghost btn-lg h-10 min-h-0 font-calligraph shadow-md"
+            style={{
+              color: dark ? 'white' : 'hsl(206, 24.0%, 9.0%)',
+              backgroundColor: dark
+                ? 'hsla(0, 0%, 0%, .2)'
+                : 'hsla(0, 100%, 100%, .2)',
               textShadow: dark
-                ? '0 1px $colors$slate12'
-                : '0 1px $colors$slate4',
+                ? '0 1px hsl(206, 24.0%, 9.0%)'
+                : '0 1px hsl(209, 12.2%, 93.2%)',
               boxShadow: '0 2px rgba(0, 0, 0, .35)',
             }}
             animate={{y: -8}}
@@ -98,9 +89,9 @@ export function OptionsView({
               o.onClick(ctx)
             }}>
             {o.label}
-          </Button>
-        </Flex>
+          </motion.div>
+        </motion.div>
       ))}
-    </Flex>
+    </div>
   )
 }

@@ -6,13 +6,13 @@ import bgLaptopAboveSrc from '~/assets/game/bg-laptop-above.png'
 import bgLaptopHandsSrc from '~/assets/game/bg-laptop-hands.png'
 import bgLaptopStandaloneSrc from '~/assets/game/bg-laptop-standalone.png'
 import bgPhoneHandSrc from '~/assets/game/bg-phone-hand.png'
-import redhead9Src from '~/assets/game/redhead-9.png'
 import redhead10Src from '~/assets/game/redhead-10.png'
 import redhead11Src from '~/assets/game/redhead-11.png'
 import redhead12Src from '~/assets/game/redhead-12.png'
-import {Image} from '~/lib'
+import redhead9Src from '~/assets/game/redhead-9.png'
 import {Blank, Foreground, Options, Say} from './commands'
-import {SceneBackgroundComponentProps, SceneContainer} from './components'
+import type {SceneBackgroundComponentProps} from './components'
+import {SceneContainer} from './components'
 
 export const assets = [
   aptEntranceSrc,
@@ -36,7 +36,7 @@ export function Scene5A() {
 
       <Foreground
         src={aptOutsideWindowSrc}
-        css={{height: '100%', width: '100%', objectFit: 'cover'}}
+        style={{height: '100%', width: '100%', objectFit: 'cover'}}
         duration={3000}
         transitory
         retained={1}
@@ -44,7 +44,7 @@ export function Scene5A() {
 
       <Foreground
         src={aptEntranceSrc}
-        css={{height: '100%', width: '100%', objectFit: 'cover'}}
+        style={{height: '100%', width: '100%', objectFit: 'cover'}}
         duration={3000}
         transitory
         retained={1}
@@ -52,7 +52,7 @@ export function Scene5A() {
 
       <Foreground
         src={bgLaptopAboveSrc}
-        css={{height: '100%', width: '100%', objectFit: 'cover'}}
+        style={{height: '100%', width: '100%', objectFit: 'cover'}}
         duration={3000}
         transitory
         retained={3}
@@ -68,7 +68,7 @@ export function Scene5A() {
 
       <Foreground
         src={aptKitchenSrc}
-        css={{height: '100%', width: '100%', objectFit: 'cover'}}
+        style={{height: '100%', width: '100%', objectFit: 'cover'}}
         transitory
         retained
       />
@@ -76,7 +76,7 @@ export function Scene5A() {
       <Say
         large
         foregroundSrc={redhead9Src}
-        foregroundCss={{width: '100%', bottom: 0}}
+        foregroundStyle={{width: '100%', bottom: 0}}
         transitory
         retained={1}>
         Узнать надо побольше...
@@ -90,7 +90,7 @@ export function Scene5A() {
         href="https://factcheck.kz/"
         large
         foregroundSrc={bgLaptopHandsSrc}
-        foregroundCss={{
+        foregroundStyle={{
           height: '100%',
           width: '100%',
           objectFit: 'cover',
@@ -102,7 +102,7 @@ export function Scene5A() {
       <Say
         large
         foregroundSrc={redhead10Src}
-        foregroundCss={{width: '100%', bottom: 0}}
+        foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
         А теперь как запилю пост, что весь город на уши встанет!!!
       </Say>
@@ -111,7 +111,7 @@ export function Scene5A() {
         href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
         large
         foregroundSrc={bgLaptopHandsSrc}
-        foregroundCss={{
+        foregroundStyle={{
           height: '100%',
           width: '100%',
           objectFit: 'cover',
@@ -123,7 +123,7 @@ export function Scene5A() {
       <Say
         large
         foregroundSrc={redhead11Src}
-        foregroundCss={{width: '100%', bottom: 0}}
+        foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
         Буду писать во все инстанции!
       </Say>
@@ -132,7 +132,7 @@ export function Scene5A() {
         href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
         large
         foregroundSrc={bgLaptopHandsSrc}
-        foregroundCss={{
+        foregroundStyle={{
           height: '100%',
           width: '100%',
           objectFit: 'cover',
@@ -144,7 +144,7 @@ export function Scene5A() {
       <Say
         large
         foregroundSrc={redhead9Src}
-        foregroundCss={{width: '100%', bottom: 0}}
+        foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
         Таксссссс, а слушания то будут??
       </Say>
@@ -153,7 +153,7 @@ export function Scene5A() {
         href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
         large
         foregroundSrc={bgLaptopHandsSrc}
-        foregroundCss={{
+        foregroundStyle={{
           height: '100%',
           width: '100%',
           objectFit: 'cover',
@@ -165,7 +165,7 @@ export function Scene5A() {
       <Say
         large
         foregroundSrc={redhead12Src}
-        foregroundCss={{width: '100%', bottom: 0}}
+        foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
         И вообще, если не будет диалога, я готова действовать!!!
       </Say>
@@ -173,7 +173,7 @@ export function Scene5A() {
       <Say
         large
         foregroundSrc={redhead11Src}
-        foregroundCss={{width: '100%', bottom: 0}}
+        foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
         Устрою протест!!!
       </Say>
@@ -181,7 +181,7 @@ export function Scene5A() {
       <Say
         href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
         foregroundSrc={bgLaptopHandsSrc}
-        foregroundCss={{
+        foregroundStyle={{
           height: '100%',
           width: '100%',
           objectFit: 'cover',
@@ -194,7 +194,7 @@ export function Scene5A() {
 
       <Say
         foregroundSrc={bgLaptopStandaloneSrc}
-        foregroundCss={{
+        foregroundStyle={{
           height: '100%',
           width: '100%',
           objectFit: 'cover',
@@ -205,7 +205,7 @@ export function Scene5A() {
         Думаю, можно обратиться к ним
       </Say>
 
-      <Say href="https://archcode.kz" large textCss={{mt: 64}}>
+      <Say href="https://archcode.kz" large textStyle={{marginTop: 64}}>
         сайт Архкода
       </Say>
 
@@ -223,9 +223,9 @@ export function Scene5A() {
 
 function Background(_props: SceneBackgroundComponentProps) {
   return (
-    <Image
+    <img
       src={bgCourtyardSrc}
-      css={{flex: 0, minHeight: '100%', objectFit: 'cover'}}
+      className="flex-shrink-1 min-h-full flex-grow-0 basis-0 object-cover"
     />
   )
 }

@@ -4,9 +4,9 @@ import bgPhoneHandSrc from '~/assets/game/bg-phone-hand.png'
 import redhead19Src from '~/assets/game/redhead-19.png'
 import redhead20Src from '~/assets/game/redhead-20.png'
 import sillhouetteSrc from '~/assets/game/sillhouette.png'
-import {Image} from '~/lib'
 import {Blank, Foreground, Options, Say, Title} from './commands'
-import {SceneBackgroundComponentProps, SceneContainer} from './components'
+import type {SceneBackgroundComponentProps} from './components'
+import {SceneContainer} from './components'
 
 export const assets = [
   bgArchcodeOfficeSrc,
@@ -25,14 +25,14 @@ export function Scene5C() {
       <Say
         large
         foregroundSrc={redhead19Src}
-        foregroundCss={{width: '100%', bottom: 0}}
+        foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
         Алло, здравствуйте, это Архкод?
       </Say>
 
       <Foreground
         src={bgArchcodeOfficeSrc}
-        css={{height: '100%', width: '100%', objectFit: 'cover'}}
+        style={{height: '100%', width: '100%', objectFit: 'cover'}}
         duration={0}
         transitory
         retained={1}
@@ -41,14 +41,14 @@ export function Scene5C() {
       <Say
         large
         foregroundSrc={sillhouetteSrc}
-        foregroundCss={{width: '90%', bottom: 0}}
+        foregroundStyle={{width: '90%', bottom: 0}}
         transitory>
         Здравствуйте, да, я вас слушаю.
       </Say>
 
       <Say
         foregroundSrc={redhead19Src}
-        foregroundCss={{width: '100%', bottom: 0}}
+        foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
         Непонятно, что творится! Забор там! Здание снесут! Унчтожат!
         Испоганят!!! Что делать???
@@ -56,7 +56,7 @@ export function Scene5C() {
 
       <Foreground
         src={bgArchcodeOfficeSrc}
-        css={{height: '100%', width: '100%', objectFit: 'cover'}}
+        style={{height: '100%', width: '100%', objectFit: 'cover'}}
         duration={0}
         transitory
         retained={1}
@@ -65,7 +65,7 @@ export function Scene5C() {
       <Say
         large
         foregroundSrc={sillhouetteSrc}
-        foregroundCss={{width: '90%', bottom: 0}}
+        foregroundStyle={{width: '90%', bottom: 0}}
         transitory>
         Без паники. Приходите, поделимся опытом
       </Say>
@@ -73,14 +73,14 @@ export function Scene5C() {
       <Say
         href="tel://+77071210483"
         large
-        textCss={{
-          mt: 64,
+        textStyle={{
+          marginTop: 64,
           width: 220,
           transform: 'rotate(-6deg)',
           transformOrigin: 'top',
         }}
         foregroundSrc={bgPhoneHandSrc}
-        foregroundCss={{
+        foregroundStyle={{
           height: '100%',
           width: '100%',
           objectFit: 'cover',
@@ -108,9 +108,9 @@ export function Scene5C() {
 
 function Background(_props: SceneBackgroundComponentProps) {
   return (
-    <Image
+    <img
       src={bgCourtyardSrc}
-      css={{flex: 0, minHeight: '100%', objectFit: 'cover'}}
+      className="flex-shrink-1 min-h-full flex-grow-0 basis-0 object-cover"
     />
   )
 }

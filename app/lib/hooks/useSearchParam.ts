@@ -1,7 +1,7 @@
 import {useLatestRef} from './useLatestRef'
 import JsonURL from '@jsonurl/jsonurl'
 import React from 'react'
-import {useSearchParams} from 'remix'
+import {useSearchParams} from '@remix-run/react'
 
 export function useSearchParam<T>(key: string, defaultValue: T) {
   const [searchParams, setSearchParams] = useSearchParams()

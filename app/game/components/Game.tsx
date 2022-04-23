@@ -1,7 +1,8 @@
 import React from 'react'
 import flattenChildren from 'react-keyed-flatten-children'
-import {Flex, useLatestRef, useSearchParam} from '~/lib'
-import {GameContext, GameContextValue} from './GameContext'
+import {useLatestRef, useSearchParam} from '~/lib'
+import type {GameContextValue} from './GameContext'
+import {GameContext} from './GameContext'
 import {Scene} from './Scene'
 
 export interface GameProps {
@@ -13,47 +14,39 @@ export interface GameInstance {
   goBack: () => void
 }
 
-export const Game = React.forwardRef(
-  (
-    {initialSceneId, children: childrenProp}: GameProps,
-    forwardedRef: React.ForwardedRef<GameInstance>,
-  ) => {
-    const [activeSceneId, setActiveSceneId] = useActiveSceneId(initialSceneId)
-    const children = React.useMemo(
-      () =>
-        (flattenChildren(childrenProp) as React.ReactElement[]).filter(
-          (el) => el.type === Scene,
-        ),
-      [childrenProp],
-    )
-    const ctx = React.useMemo(
-      (): GameContextValue => ({
-        goToScene: setActiveSceneId,
-      }),
-      [setActiveSceneId],
-    )
-    React.useImperativeHandle(
-      forwardedRef,
-      (): GameInstance => ({
-        goBack: () => window.history.back(),
-      }),
-      [],
-    )
-    return (
-      <GameContext.Provider value={ctx}>
-        <Flex
-          css={{
-            width: '100%',
-            height: '100%',
-            overflow: 'hidden',
-            backgroundColor: '$background',
-          }}>
-          {children.map((child) => activeSceneId === child.props.id && child)}
-        </Flex>
-      </GameContext.Provider>
-    )
-  },
-)
+export const Game = React.forwardRef(function Game(
+  {initialSceneId, children: childrenProp}: GameProps,
+  forwardedRef: React.ForwardedRef<GameInstance>,
+) {
+  const [activeSceneId, setActiveSceneId] = useActiveSceneId(initialSceneId)
+  const children = React.useMemo(
+    () =>
+      (flattenChildren(childrenProp) as React.ReactElement[]).filter(
+        (el) => el.type === Scene,
+      ),
+    [childrenProp],
+  )
+  const ctx = React.useMemo(
+    (): GameContextValue => ({
+      goToScene: setActiveSceneId,
+    }),
+    [setActiveSceneId],
+  )
+  React.useImperativeHandle(
+    forwardedRef,
+    (): GameInstance => ({
+      goBack: () => window.history.back(),
+    }),
+    [],
+  )
+  return (
+    <GameContext.Provider value={ctx}>
+      <div className="flex h-full w-full overflow-hidden bg-base-100">
+        {children.map((child) => activeSceneId === child.props.id && child)}
+      </div>
+    </GameContext.Provider>
+  )
+})
 
 function useActiveSceneId(initialSceneId: string) {
   const [_activeFrameId, goToFrameId] = useSearchParam<string>(

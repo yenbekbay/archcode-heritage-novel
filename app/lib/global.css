@@ -1,3 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.bg-gradient {
+  background: radial-gradient(
+      circle at top left,
+      var(--gradient-start),
+      rgba(255, 255, 255, 0) 15%
+    ),
+    radial-gradient(
+      circle at 80% 20%,
+      var(--gradient-end),
+      rgba(255, 255, 255, 0) 15%
+    );
+}
+
+@media (min-width: 1024px) {
+  .bg-gradient {
+    background: radial-gradient(
+        circle at 15% 50%,
+        var(--gradient-start),
+        rgba(255, 255, 255, 0) 25%
+      ),
+      radial-gradient(
+        circle at 85% 30%,
+        var(--gradient-end),
+        rgba(255, 255, 255, 0) 25%
+      );
+  }
+}
+
 @font-face {
   font-family: 'calligraph';
   src: url('/fonts/calligraph.otf') format('opentype');

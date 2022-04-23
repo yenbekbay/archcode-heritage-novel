@@ -1,13 +1,12 @@
+import clsx from 'clsx'
 import {motion} from 'framer-motion'
-import {CSS, Flex, Text} from '~/lib'
-import {
-  CommandContainer,
+import React from 'react'
+import type {
   CommandContainerProps,
   CommandViewVariants,
-  ForegroundView,
   Option,
-  OptionsView,
 } from '../components'
+import {CommandContainer, ForegroundView, OptionsView} from '../components'
 
 export interface SayProps
   extends Partial<Omit<CommandContainerProps, 'children'>> {
@@ -16,13 +15,13 @@ export interface SayProps
   large?: boolean
   bottom?: boolean
   dark?: boolean
-  css?: CSS
-  textCss?: CSS
+  style?: React.CSSProperties
+  textStyle?: React.CSSProperties
   optionsTop?: Option[]
   optionsBottom?: Option[]
   optionsDark?: boolean
   foregroundSrc?: string
-  foregroundCss?: CSS
+  foregroundStyle?: React.CSSProperties
   variants?: CommandViewVariants
 }
 
@@ -32,13 +31,13 @@ export function Say({
   large,
   bottom,
   dark,
-  css,
-  textCss,
+  style,
+  textStyle,
   optionsTop,
   optionsBottom,
   optionsDark,
   foregroundSrc,
-  foregroundCss,
+  foregroundStyle,
   variants = {
     initial: {opacity: 0},
     mount: (idx) => ({
@@ -53,6 +52,7 @@ export function Say({
   ...restProps
 }: SayProps) {
   const chars = children.split('')
+  const TextComp = href ? 'a' : 'span'
   return (
     <CommandContainer
       duration={3000 + chars.length * 20}
@@ -63,43 +63,35 @@ export function Say({
           {foregroundSrc && (
             <ForegroundView
               src={foregroundSrc}
-              css={foregroundCss}
+              style={foregroundStyle}
               variants={variants}
               controls={controls}
             />
           )}
 
-          <Flex
-            css={{
-              position: 'absolute',
-              inset: 0,
-              padding: '$4',
-              paddingTop: '$5',
-              ...css,
-            }}
-            direction="column"
-            justify={bottom ? 'end' : 'start'}
-            align="center">
-            <Text
-              as={href ? 'a' : 'span'}
-              css={{
-                textAlign: 'center',
-                fontFamily: '$calligraph',
-                fontSize: large ? '$5' : '$4',
-                whiteSpace: 'pre-wrap',
-                color: dark ? '#fBf9e0' : '$hiContrast',
+          <div
+            className={clsx(
+              'absolute inset-0 flex flex-col items-center p-8 pt-20',
+              bottom ? 'justify-end' : 'justify-start',
+            )}
+            style={style}>
+            <TextComp
+              className={clsx(
+                'whitespace-pre-wrap text-center font-calligraph',
+                large ? 'text-xl' : 'text-md',
+              )}
+              style={{
+                color: dark ? '#fBf9e0' : 'hsl(206, 24.0%, 9.0%)',
                 textShadow: dark
-                  ? '0 2px $colors$slate12'
-                  : '0 2px $colors$slate4',
-                ...(href && {
-                  textUnderlineOffset: large ? '6px' : '4px',
-                }),
-                ...textCss,
+                  ? '0 -1px rgba(0, 0, 0, 0.35), 0 2px hsl(206, 24.0%, 9.0%)'
+                  : '0 1px hsl(209, 12.2%, 93.2%)',
+                textUnderlineOffset: large ? '6px' : '4px',
+                ...textStyle,
               }}
               {...(href && {
                 href,
                 target: '_blank',
-                rel: 'noopener',
+                rel: 'noopener noreferrer',
               })}>
               {chars.map((char, idx) => (
                 <motion.span
@@ -111,8 +103,8 @@ export function Say({
                   {char}
                 </motion.span>
               ))}
-            </Text>
-          </Flex>
+            </TextComp>
+          </div>
 
           {optionsTop && (
             <OptionsView

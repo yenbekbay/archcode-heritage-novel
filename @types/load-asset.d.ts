@@ -17,17 +17,11 @@ declare module 'load-asset' {
     value: unknown
   }) => void
 
-  function loadAsset(item: AssetItem): Promise<unknown>
-  function all(
-    items: AssetItem[],
-    progress?: ProgressCallback,
-  ): Promise<unknown[]>
-  function any(
-    items: AssetItem[],
-    progress?: ProgressCallback,
-  ): Promise<unknown[]>
+  const loadAsset: {
+    (item: AssetItem): Promise<unknown>
+    all(items: AssetItem[], progress?: ProgressCallback): Promise<unknown[]>
+    any(items: AssetItem[], progress?: ProgressCallback): Promise<unknown[]>
+  }
 
-  exports = loadAsset
-  exports.all = all
-  exports.any = any
+  export default loadAsset
 }

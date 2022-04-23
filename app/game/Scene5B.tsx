@@ -14,9 +14,9 @@ import redhead15Src from '~/assets/game/redhead-15.png'
 import redhead16Src from '~/assets/game/redhead-16.png'
 import redhead17Src from '~/assets/game/redhead-17.png'
 import redhead18Src from '~/assets/game/redhead-18.png'
-import {Image} from '~/lib'
 import {Blank, Foreground, Options, Say} from './commands'
-import {SceneBackgroundComponentProps, SceneContainer} from './components'
+import type {SceneBackgroundComponentProps} from './components'
+import {SceneContainer} from './components'
 
 export const assets = [
   aptEntranceSrc,
@@ -44,7 +44,7 @@ export function Scene5B() {
 
       <Foreground
         src={aptOutsideWindowSrc}
-        css={{height: '100%', width: '100%', objectFit: 'cover'}}
+        style={{height: '100%', width: '100%', objectFit: 'cover'}}
         duration={3000}
         transitory
         retained={1}
@@ -52,7 +52,7 @@ export function Scene5B() {
 
       <Foreground
         src={aptEntranceSrc}
-        css={{height: '100%', width: '100%', objectFit: 'cover'}}
+        style={{height: '100%', width: '100%', objectFit: 'cover'}}
         duration={3000}
         transitory
         retained={1}
@@ -60,7 +60,7 @@ export function Scene5B() {
 
       <Foreground
         src={aptKitchenSrc}
-        css={{height: '100%', width: '100%', objectFit: 'cover'}}
+        style={{height: '100%', width: '100%', objectFit: 'cover'}}
         transitory
         retained={7}
       />
@@ -68,7 +68,7 @@ export function Scene5B() {
       <Say
         large
         foregroundSrc={redhead14Src}
-        foregroundCss={{width: '100%', bottom: 0}}
+        foregroundStyle={{width: '100%', bottom: 0}}
         transitory
         retained={1}>
         БЕСПРЕДЕЛ!
@@ -77,7 +77,7 @@ export function Scene5B() {
       <Say
         dark
         foregroundSrc={bgPhoneHandSrc}
-        foregroundCss={{
+        foregroundStyle={{
           height: '100%',
           width: '100%',
           objectFit: 'cover',
@@ -89,8 +89,8 @@ export function Scene5B() {
       </Say>
 
       <Say
-        textCss={{
-          mt: 80,
+        textStyle={{
+          marginTop: 80,
           width: 190,
           transform: 'rotate(-6deg)',
           transformOrigin: 'top',
@@ -104,7 +104,7 @@ export function Scene5B() {
       <Say
         large
         foregroundSrc={redhead15Src}
-        foregroundCss={{width: '100%', bottom: 0}}
+        foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
         Ты представляешь, что происходит ??
       </Say>
@@ -112,18 +112,21 @@ export function Scene5B() {
       <Say
         large
         foregroundSrc={redhead16Src}
-        foregroundCss={{width: '100%', bottom: 0}}
+        foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
         {'*pop up\n\nзвуки уведомлений'}
       </Say>
 
       <Say
         foregroundSrc={bgLaptopStandaloneSrc}
-        foregroundCss={{
+        foregroundStyle={{
           height: '100%',
           width: '100%',
           objectFit: 'cover',
           transform: 'scale(2) translateY(75px)',
+        }}
+        textStyle={{
+          marginTop: -24,
         }}
         transitory
         retained={1}>
@@ -131,8 +134,8 @@ export function Scene5B() {
       </Say>
 
       <Say
-        textCss={{
-          mt: 90,
+        textStyle={{
+          marginTop: 72,
           width: 280,
           fontSize: '$2',
           textAlign: 'left',
@@ -147,7 +150,7 @@ export function Scene5B() {
       <Say
         large
         foregroundSrc={guyBSrc}
-        foregroundCss={{width: '100%', bottom: 0}}
+        foregroundStyle={{width: '100%', bottom: 0}}
         transitory
         retained={2}>
         *встреча активистов
@@ -155,13 +158,13 @@ export function Scene5B() {
 
       <Foreground
         src={guyASrc}
-        css={{width: '100%', bottom: 0, transform: 'translateX(-25%)'}}
+        style={{width: '100%', bottom: 0, transform: 'translateX(-25%)'}}
         retained={1}
       />
 
       <Foreground
         src={redhead17Src}
-        css={{
+        style={{
           width: '100%',
           bottom: 0,
           transform: 'translateX(25%) scaleX(-1)',
@@ -170,7 +173,7 @@ export function Scene5B() {
 
       <Say
         foregroundSrc={guyASrc}
-        foregroundCss={{width: '100%', bottom: 0}}
+        foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
         {
           'Действовать надо последовательно…\n\nДля начала давайте узнаем, кто здесь - заинтересованные стороны'
@@ -180,14 +183,14 @@ export function Scene5B() {
       <Say
         href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
         large
-        textCss={{
-          mt: 64,
+        textStyle={{
+          marginTop: 64,
           width: 220,
           transform: 'rotate(-6deg)',
           transformOrigin: 'top',
         }}
         foregroundSrc={bgPhoneHandSrc}
-        foregroundCss={{
+        foregroundStyle={{
           height: '100%',
           width: '100%',
           objectFit: 'cover',
@@ -198,7 +201,7 @@ export function Scene5B() {
 
       <Say
         foregroundSrc={redhead5Src}
-        foregroundCss={{width: '100%', bottom: 0}}
+        foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
         {
           'И узнать надо побольше.\n\nИ не только почитать новости, а проверить, правду ли говорят'
@@ -208,14 +211,14 @@ export function Scene5B() {
       <Say
         href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
         large
-        textCss={{
-          mt: 64,
+        textStyle={{
+          marginTop: 64,
           width: 220,
           transform: 'rotate(-6deg)',
           transformOrigin: 'top',
         }}
         foregroundSrc={bgPhoneHandSrc}
-        foregroundCss={{
+        foregroundStyle={{
           height: '100%',
           width: '100%',
           objectFit: 'cover',
@@ -226,7 +229,7 @@ export function Scene5B() {
 
       <Say
         foregroundSrc={guyBSrc}
-        foregroundCss={{width: '100%', bottom: 0}}
+        foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
         {
           'Нужно как можно больше писать в соц.сети. \n\nЧем больше людей знают, тем сложнее что-то скрыть!'
@@ -236,14 +239,14 @@ export function Scene5B() {
       <Say
         href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
         large
-        textCss={{
-          mt: 64,
+        textStyle={{
+          marginTop: 64,
           width: 220,
           transform: 'rotate(-6deg)',
           transformOrigin: 'top',
         }}
         foregroundSrc={bgPhoneHandSrc}
-        foregroundCss={{
+        foregroundStyle={{
           height: '100%',
           width: '100%',
           objectFit: 'cover',
@@ -255,7 +258,7 @@ export function Scene5B() {
       <Say
         large
         foregroundSrc={guyASrc}
-        foregroundCss={{width: '100%', bottom: 0}}
+        foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
         Еще мы должны участвовать в общественных слушаниях...
       </Say>
@@ -263,14 +266,14 @@ export function Scene5B() {
       <Say
         href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
         large
-        textCss={{
-          mt: 64,
+        textStyle={{
+          marginTop: 64,
           width: 220,
           transform: 'rotate(-6deg)',
           transformOrigin: 'top',
         }}
         foregroundSrc={bgPhoneHandSrc}
-        foregroundCss={{
+        foregroundStyle={{
           height: '100%',
           width: '100%',
           objectFit: 'cover',
@@ -282,7 +285,7 @@ export function Scene5B() {
       <Say
         large
         foregroundSrc={redhead1Src}
-        foregroundCss={{width: '100%', bottom: 0}}
+        foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
         Будем писать во все инстанции!!!
       </Say>
@@ -290,7 +293,7 @@ export function Scene5B() {
       <Say
         large
         foregroundSrc={guyASrc}
-        foregroundCss={{width: '100%', bottom: 0, transform: 'scaleX(-1)'}}
+        foregroundStyle={{width: '100%', bottom: 0, transform: 'scaleX(-1)'}}
         transitory>
         А куда можно написать?
       </Say>
@@ -298,7 +301,7 @@ export function Scene5B() {
       <Say
         dark
         foregroundSrc={bgPhoneFingerSrc}
-        foregroundCss={{
+        foregroundStyle={{
           width: '100%',
           top: 120,
           transform: 'scale(2.5) translateX(-7%)',
@@ -311,8 +314,8 @@ export function Scene5B() {
 
       <Say
         href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-        textCss={{
-          mt: 80,
+        textStyle={{
+          marginTop: 80,
           width: 190,
           transform: 'rotate(9deg) translateX(16px)',
           transformOrigin: 'top',
@@ -324,7 +327,7 @@ export function Scene5B() {
       <Say
         large
         foregroundSrc={redhead18Src}
-        foregroundCss={{width: '100%', bottom: 0, transform: 'scaleX(-1)'}}
+        foregroundStyle={{width: '100%', bottom: 0, transform: 'scaleX(-1)'}}
         transitory>
         А если не будет дельных ответов, просто устроим протестную акцию!
       </Say>
@@ -332,7 +335,7 @@ export function Scene5B() {
       <Say
         large
         foregroundSrc={guyBSrc}
-        foregroundCss={{width: '100%', bottom: 0}}
+        foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
         А я тут новости читал. Есть группа Архкод, вроде как наследием
         занимается
@@ -341,7 +344,7 @@ export function Scene5B() {
       <Say
         dark
         foregroundSrc={bgPhoneFingerSrc}
-        foregroundCss={{
+        foregroundStyle={{
           width: '100%',
           top: 120,
           transform: 'scale(2.5) translateX(-7%)',
@@ -355,8 +358,8 @@ export function Scene5B() {
       <Say
         href="https://archcode.kz"
         large
-        textCss={{
-          mt: 80,
+        textStyle={{
+          marginTop: 80,
           width: 190,
           transform: 'rotate(9deg) translateX(16px)',
           transformOrigin: 'top',
@@ -367,7 +370,7 @@ export function Scene5B() {
       <Say
         large
         foregroundSrc={guyASrc}
-        foregroundCss={{width: '100%', bottom: 0}}
+        foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
         Да, давайте позвоним им
       </Say>
@@ -386,9 +389,9 @@ export function Scene5B() {
 
 function Background(_props: SceneBackgroundComponentProps) {
   return (
-    <Image
+    <img
       src={bgCourtyardSrc}
-      css={{flex: 0, minHeight: '100%', objectFit: 'cover'}}
+      className="flex-shrink-1 min-h-full flex-grow-0 basis-0 object-cover"
     />
   )
 }

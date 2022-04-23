@@ -3,9 +3,9 @@ import bgPhoneFingerSrc from '~/assets/game/bg-phone-finger.png'
 import redhead2Src from '~/assets/game/redhead-2.png'
 import redhead5Src from '~/assets/game/redhead-5.png'
 import redhead7Src from '~/assets/game/redhead-7.png'
-import {Image} from '~/lib'
 import {Options, Say, Title} from './commands'
-import {SceneBackgroundComponentProps, SceneContainer} from './components'
+import type {SceneBackgroundComponentProps} from './components'
+import {SceneContainer} from './components'
 
 export const assets = [
   bgBldg1FenceSrc,
@@ -21,7 +21,7 @@ export function Scene4A() {
       <Say
         large
         foregroundSrc={redhead5Src}
-        foregroundCss={{width: '90%', bottom: 0}}
+        foregroundStyle={{width: '90%', bottom: 0}}
         transitory>
         В моменты отчаяния всегда можно вылить свою боль в соц. сети
       </Say>
@@ -40,7 +40,7 @@ export function Scene4A() {
           },
         ]}
         foregroundSrc={bgPhoneFingerSrc}
-        foregroundCss={{
+        foregroundStyle={{
           width: '100%',
           height: '100%',
           objectFit: 'cover',
@@ -58,7 +58,7 @@ export function Scene4A() {
           },
         ]}
         foregroundSrc={bgPhoneFingerSrc}
-        foregroundCss={{
+        foregroundStyle={{
           width: '100%',
           height: '100%',
           objectFit: 'cover',
@@ -75,7 +75,7 @@ export function Scene4A() {
           },
         ]}
         foregroundSrc={bgPhoneFingerSrc}
-        foregroundCss={{
+        foregroundStyle={{
           width: '100%',
           height: '100%',
           objectFit: 'cover',
@@ -86,7 +86,7 @@ export function Scene4A() {
       <Say
         large
         foregroundSrc={redhead7Src}
-        foregroundCss={{width: '90%', bottom: 0}}
+        foregroundStyle={{width: '90%', bottom: 0}}
         transitory>
         ПОЗДРАВЛЯЕМ!!! ВАШИ ПОСТЫ/МЕМЫ УВИДЕЛА ИЗВЕСТНАЯ АКТИВИСТКА ТИНА ШТУНЕР,
         И ТЕПЕРЬ ОНА БУДЕТ ДОБИВАТЬСЯ СПРАВЕДЛИВОСТИ
@@ -95,7 +95,7 @@ export function Scene4A() {
       <Options
         optionsTop={[
           {
-            label: 'Что я еще могу сделать?',
+            label: 'Что я ещё могу сделать?',
             onClick: (ctx) => ctx.goToScene('4B'),
           },
           {
@@ -104,7 +104,7 @@ export function Scene4A() {
           },
         ]}
         foregroundSrc={redhead2Src}
-        foregroundCss={{width: '90%', bottom: 0}}
+        foregroundStyle={{width: '90%', bottom: 0}}
       />
 
       <Title transitory retained>
@@ -126,9 +126,9 @@ export function Scene4A() {
 
 function Background(_props: SceneBackgroundComponentProps) {
   return (
-    <Image
+    <img
       src={bgBldg1FenceSrc}
-      css={{flex: 0, minHeight: '100%', objectFit: 'cover'}}
+      className="flex-shrink-1 min-h-full flex-grow-0 basis-0 object-cover"
     />
   )
 }

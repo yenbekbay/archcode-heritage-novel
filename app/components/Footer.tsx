@@ -1,111 +1,75 @@
-import {Link as RemixLink} from 'remix'
-import {Box, Container, Flex, Grid, Heading, Link, Separator, Text} from '~/lib'
-import {ArchcodeLogo} from './ArchcodeLogo'
+import {Link as RemixLink} from '@remix-run/react'
+import {ArchcodeLogo} from './atoms'
 
 export function Footer() {
   return (
-    <Flex as="footer" direction="column">
-      <Flex justify="center" css={{py: '$4'}}>
-        <Separator size="2" />
-      </Flex>
+    <footer className="container mx-auto">
+      <div className="flex flex-col py-8">
+        <div className="divider mx-auto w-64" />
+      </div>
 
-      <Container css={{py: '$4'}}>
-        <Grid
-          gap={{
-            '@initial': '4',
-            '@bp2': '6',
-          }}
-          css={{
-            gridTemplateColumns: '1fr',
-            '@bp2': {
-              gridTemplateColumns: '3fr 1fr 2fr',
-            },
-          }}>
-          <Flex direction="column" gap="3">
-            <Heading as="h6" css={{fontSize: '$3', textTransform: 'uppercase'}}>
-              Контакты
-            </Heading>
-
-            <Flex
-              as="ul"
-              direction="column"
-              gap="2"
-              css={{
-                '> li > svg': {
-                  flexShrink: 0,
-                },
-              }}>
-              <Flex as="li" align="center" gap="2">
+      <div className="footer px-4 py-16">
+        <div>
+          <span className="footer-title">Контакты</span>
+          <ul className="list-none space-y-1">
+            <li className="flex items-center space-x-2">
+              <i className="flex-shrink-0">
                 <MailboxCircleIcon />
-                <Text as="p" size="3" variant="gray">
-                  arch4gen@gmail.com
-                </Text>
-              </Flex>
+              </i>
+              <span>arch4gen@gmail.com</span>
+            </li>
 
-              <Flex as="li" align="center" gap="2">
+            <li className="flex items-center space-x-2">
+              <i className="flex-shrink-0">
                 <PersonCircleIcon />
-                <Text as="p" size="3" variant="gray">
-                  Адиль Ажиев, сооснователь проекта, тел.:{' '}
-                  <span style={{whiteSpace: 'nowrap'}}>+7 747 690 78 57</span>
-                </Text>
-              </Flex>
+              </i>
+              <span>
+                Адиль Ажиев, сооснователь проекта, тел.:{' '}
+                <span className="whitespace-nowrap">+7 747 690 78 57</span>
+              </span>
+            </li>
 
-              <Flex as="li" align="center" gap="2">
+            <li className="flex items-center space-x-2">
+              <i className="flex-shrink-0">
                 <PersonCircleIcon />
-                <Text as="p" size="3" variant="gray">
-                  Анель Молдахметова, координатор проекта, тел. :{' '}
-                  <span style={{whiteSpace: 'nowrap'}}>+7 707 121 04 83</span>
-                </Text>
-              </Flex>
-            </Flex>
-          </Flex>
+              </i>
+              <span>
+                Анель Молдахметова, координатор проекта, тел.:{' '}
+                <span className="whitespace-nowrap">+7 707 121 04 83</span>
+              </span>
+            </li>
+          </ul>
+        </div>
 
-          <Flex direction="column" gap="3">
-            <Heading as="h6" css={{fontSize: '$3', textTransform: 'uppercase'}}>
-              Наши соцсети
-            </Heading>
+        <div>
+          <span className="footer-title">Наши соцсети</span>
+          <a
+            className="link link-hover"
+            href="https://www.facebook.com/ArchcodeAlmaty/">
+            Facebook
+          </a>
+          <a
+            className="link link-hover"
+            href="https://www.instagram.com/archcode_almaty/">
+            Instagram
+          </a>
+        </div>
 
-            <Flex as="ul" direction="column" gap="2">
-              <Text as="li" size="3">
-                <Link href="https://www.facebook.com/ArchcodeAlmaty/">
-                  Facebook
-                </Link>
-              </Text>
-
-              <Text as="li" size="3">
-                <Link href="https://www.instagram.com/archcode_almaty/">
-                  Instagram
-                </Link>
-              </Text>
-            </Flex>
-          </Flex>
-
-          <Flex
-            direction={{'@initial': 'row', '@bp2': 'column'}}
-            align={{'@initial': 'center', '@bp2': 'start'}}
-            gap="4">
-            <Box as={RemixLink} css={{flexShrink: 0}} to="/">
-              <ArchcodeLogo />
-            </Box>
-
-            <Flex direction="column">
-              <Text as="p" size="2" variant="gray">
-                © 2021 Архкод Алматы
-              </Text>
-
-              <Text as="p" size="2" variant="gray">
-                Все права защищены
-              </Text>
-
-              <Text as="p" size="2" variant="gray" css={{mt: '$3'}}>
-                При использовании материалов сайта обязательна ссылка на
-                источник
-              </Text>
-            </Flex>
-          </Flex>
-        </Grid>
-      </Container>
-    </Flex>
+        <div className="space-y-4">
+          <RemixLink className="flex-shrink-0" to="/">
+            <ArchcodeLogo />
+          </RemixLink>
+          <p>
+            © 2021 Архкод Алматы
+            <br />
+            Все права защищены
+            <br />
+            <br />
+            При использовании материалов сайта обязательна ссылка на источник
+          </p>
+        </div>
+      </div>
+    </footer>
   )
 }
 

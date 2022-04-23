@@ -2,9 +2,9 @@ import useSize from '@react-hook/size'
 import {motion, useAnimation} from 'framer-motion'
 import React from 'react'
 import bgIntroSrc from '~/assets/game/bg-intro.png'
-import {Image} from '~/lib'
 import {Options, Say, Title} from './commands'
-import {SceneBackgroundComponentProps, SceneContainer} from './components'
+import type {SceneBackgroundComponentProps} from './components'
+import {SceneContainer} from './components'
 
 export const assets = [bgIntroSrc]
 
@@ -77,13 +77,12 @@ function Background({
   }, [completedPercent, containerSize, controls, imgSize])
 
   return (
-    <Image
+    <motion.img
       ref={imgRef}
-      as={motion.img}
+      className="w-full"
       src={bgIntroSrc}
       initial={{y: 0}}
       animate={controls}
-      css={{width: '100%'}}
     />
   )
 }

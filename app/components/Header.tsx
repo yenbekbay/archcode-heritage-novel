@@ -1,6 +1,6 @@
-import {NavLink as RemixNavLink} from 'remix'
-import {Box, Container, Flex, Link} from '~/lib'
-import {ArchcodeLogo} from './ArchcodeLogo'
+import {NavLink as RemixNavLink} from '@remix-run/react'
+import {List as ListIcon} from 'phosphor-react'
+import {ArchcodeLogo} from './atoms'
 
 const LINKS: {to: string; label: string}[] = [
   {
@@ -23,27 +23,48 @@ const LINKS: {to: string; label: string}[] = [
 
 export function Header() {
   return (
-    <Container as="header">
-      <Flex justify="between" gap="4" css={{py: '$4'}}>
-        <Box as={RemixNavLink} css={{flexShrink: 0}} to="/">
-          <ArchcodeLogo />
-        </Box>
+    <header className="container mx-auto">
+      <div className="navbar p-4">
+        <div className="flex-1">
+          <RemixNavLink className="flex-shrink-0" to="/">
+            <ArchcodeLogo />
+          </RemixNavLink>
+        </div>
 
-        <Flex as="nav" align="center" gap="4">
-          {LINKS.map((l) => (
-            <Link
-              key={l.to}
-              as={RemixNavLink}
-              css={{textTransform: 'uppercase'}}
-              style={({isActive}: any) =>
-                isActive ? {textDecoration: 'underline'} : {}
-              }
-              to={l.to}>
-              {l.label}
-            </Link>
-          ))}
-        </Flex>
-      </Flex>
-    </Container>
+        <div className="flex-none">
+          <div className="dropdown-end dropdown">
+            <label tabIndex={0} className="btn btn-ghost text-xl lg:hidden">
+              <ListIcon />
+            </label>
+
+            <ul
+              tabIndex={0}
+              className="dropdown-content menu rounded-box menu-compact mt-3 w-52 bg-base-100 p-2 shadow-md">
+              {LINKS.map((l) => (
+                <li key={l.to}>
+                  <RemixNavLink
+                    className={({isActive}) => (isActive ? 'active' : '')}
+                    to={l.to}>
+                    {l.label}
+                  </RemixNavLink>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <ul className="menu menu-horizontal hidden p-0 lg:flex">
+            {LINKS.map((l) => (
+              <li key={l.to}>
+                <RemixNavLink
+                  className={({isActive}) => (isActive ? 'active' : '')}
+                  to={l.to}>
+                  {l.label}
+                </RemixNavLink>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </header>
   )
 }

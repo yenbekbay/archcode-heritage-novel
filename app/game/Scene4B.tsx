@@ -1,8 +1,8 @@
 import bgBldg1FenceSrc from '~/assets/game/bg-bldg-1-fence.png'
 import redhead8Src from '~/assets/game/redhead-8.png'
-import {Image} from '~/lib'
 import {Say} from './commands'
-import {SceneBackgroundComponentProps, SceneContainer} from './components'
+import type {SceneBackgroundComponentProps} from './components'
+import {SceneContainer} from './components'
 
 export const assets = [bgBldg1FenceSrc, redhead8Src]
 
@@ -27,7 +27,7 @@ export function Scene4B() {
           },
         ]}
         foregroundSrc={redhead8Src}
-        foregroundCss={{width: '90%', bottom: 0}}>
+        foregroundStyle={{width: '90%', bottom: 0}}>
         Что я могу?
       </Say>
     </SceneContainer>
@@ -36,9 +36,9 @@ export function Scene4B() {
 
 function Background(_props: SceneBackgroundComponentProps) {
   return (
-    <Image
+    <img
       src={bgBldg1FenceSrc}
-      css={{flex: 0, minHeight: '100%', objectFit: 'cover'}}
+      className="flex-shrink-1 min-h-full flex-grow-0 basis-0 object-cover"
     />
   )
 }

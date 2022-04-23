@@ -1,6 +1,5 @@
 import useSize from '@react-hook/size'
 import React from 'react'
-import {Box, Flex} from '~/lib'
 
 export interface MobileDeviceChromeProps {
   children?: React.ReactNode
@@ -10,19 +9,15 @@ export function MobileDeviceChrome({children}: MobileDeviceChromeProps) {
   const containerRef = React.useRef<HTMLDivElement>(null)
   const containerSize = useSize(containerRef)
   return (
-    <Flex
-      direction="column"
-      justify="center"
-      align="center"
-      css={{width: '100%', height: '100%', padding: '$4'}}>
-      <Flex ref={containerRef} css={{height: '100%'}} direction="column">
+    <div className="flex h-full w-full flex-col items-center justify-center p-8">
+      <div ref={containerRef} className="flex h-full flex-col">
         {containerSize[1] !== 0 && (
           <MobileDeviceChromeFrame height={containerSize[1]}>
             {children}
           </MobileDeviceChromeFrame>
         )}
-      </Flex>
-    </Flex>
+      </div>
+    </div>
   )
 }
 
@@ -39,15 +34,9 @@ function MobileDeviceChromeFrame({
 }: MobileDeviceChromeFrameProps) {
   const ratio = height / 451
   return (
-    <Box css={{position: 'relative', width: ratio * 212, height: height}}>
-      <Box
-        as="svg"
-        css={{
-          position: 'absolute',
-          inset: 0,
-          zIndex: 1,
-          pointerEvents: 'none',
-        }}
+    <div className="relative" style={{width: ratio * 212, height: height}}>
+      <svg
+        className="pointer-events-none absolute inset-0 z-10"
         width={ratio * 212}
         height={height}
         viewBox="0 0 212 451"
@@ -104,22 +93,19 @@ function MobileDeviceChromeFrame({
           strokeLinecap="round"
           strokeLinejoin="round"
         />
-      </Box>
+      </svg>
 
-      <Flex
-        css={{
-          position: 'absolute',
+      <div
+        className="absolute flex flex-col overflow-hidden bg-base-100"
+        style={{
           top: ratio * 32,
           right: ratio * 9,
           bottom: ratio * 17,
           left: ratio * 9,
           borderRadius: ratio * 16,
-          overflow: 'hidden',
-          backgroundColor: '$background',
-        }}
-        direction="column">
+        }}>
         {children}
-      </Flex>
-    </Box>
+      </div>
+    </div>
   )
 }

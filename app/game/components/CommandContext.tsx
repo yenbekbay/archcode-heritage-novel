@@ -1,6 +1,6 @@
 import React from 'react'
-import {useSceneContext} from '.'
-import {CommandT} from './SceneContext'
+import type {CommandT} from './SceneContext'
+import {useSceneContext} from './SceneContext'
 
 export interface CommandContextValue {
   frame: number

@@ -1,35 +1,29 @@
-import {AnimationControls, motion} from 'framer-motion'
-import {CSS, Flex, Image} from '~/lib'
-import {CommandViewVariants} from './CommandContainer'
+import type {AnimationControls} from 'framer-motion'
+import {motion} from 'framer-motion'
+import React from 'react'
+import type {CommandViewVariants} from './CommandContainer'
 
 export interface ForegroundViewProps {
   src?: string
-  css?: CSS
+  style?: React.CSSProperties
   variants: CommandViewVariants
   controls: AnimationControls
 }
 
 export function ForegroundView({
   src,
-  css,
+  style,
   variants,
   controls,
 }: ForegroundViewProps) {
   return (
-    <Flex
-      as={motion.div}
-      css={{position: 'absolute', inset: 0}}
+    <motion.div
+      className="absolute inset-0 flex"
       variants={variants}
       initial="initial"
       animate={controls}
       custom={0}>
-      <Image
-        css={{
-          position: 'absolute',
-          ...css,
-        }}
-        src={src}
-      />
-    </Flex>
+      <img className="absolute max-w-none" style={style} src={src} />
+    </motion.div>
   )
 }

@@ -1,14 +1,11 @@
-import {
-  AnimatePresence,
-  useAnimation,
-  usePresence,
-  Variant,
-} from 'framer-motion'
+import type {Variant} from 'framer-motion'
+import {AnimatePresence, useAnimation, usePresence} from 'framer-motion'
 import type {AnimationControls} from 'framer-motion/types/animation/types'
 import React from 'react'
-import {Flex, useLatestRef} from '~/lib'
+import {useLatestRef} from '~/lib'
 import {useCommandContext, useRegisterCommand} from './CommandContext'
-import {CommandT, useSceneContext} from './SceneContext'
+import type {CommandT} from './SceneContext'
+import {useSceneContext} from './SceneContext'
 
 export interface CommandContainerProps {
   children: (controls: AnimationControls) => React.ReactNode
@@ -133,10 +130,8 @@ export function CommandView({
   )
 
   return (
-    <Flex
-      css={{position: 'absolute', inset: 0, zIndex: frame}}
-      direction="column">
+    <div className="absolute inset-0 flex flex-col" style={{zIndex: frame}}>
       {children(controls)}
-    </Flex>
+    </div>
   )
 }

@@ -1,21 +1,17 @@
-import {CSS} from '~/lib'
-import {
-  CommandContainer,
-  CommandContainerProps,
-  CommandViewVariants,
-  ForegroundView,
-} from '../components'
+import React from 'react'
+import type {CommandContainerProps, CommandViewVariants} from '../components'
+import {CommandContainer, ForegroundView} from '../components'
 
 export interface ForegroundProps
   extends Partial<Omit<CommandContainerProps, 'children'>> {
   src: string
-  css?: CSS
+  style?: React.CSSProperties
   variants?: CommandViewVariants
 }
 
 export function Foreground({
   src,
-  css,
+  style,
   variants = {
     initial: {opacity: 0},
     mount: {
@@ -34,7 +30,7 @@ export function Foreground({
       {(controls) => (
         <ForegroundView
           src={src}
-          css={css}
+          style={style}
           variants={variants}
           controls={controls}
         />

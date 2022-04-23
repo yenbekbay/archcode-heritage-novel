@@ -1,5 +1,6 @@
 import React from 'react'
-import {CommandContext, CommandContextValue} from './CommandContext'
+import type {CommandContextValue} from './CommandContext'
+import {CommandContext} from './CommandContext'
 import {useSceneContext} from './SceneContext'
 
 export interface CommandProps {

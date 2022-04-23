@@ -1,7 +1,7 @@
 import React from 'react'
 import {useLatestRef} from '~/lib'
+import type {CommandT} from '../components'
 import {
-  CommandT,
   useCommandContext,
   useRegisterCommand,
   useSceneContext,

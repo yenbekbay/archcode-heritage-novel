@@ -1,12 +1,21 @@
 {
+  "[ignore]": {
+    "editor.defaultFormatter": null
+  },
+  "[properties]": {
+    "editor.defaultFormatter": null
+  },
+  "css.validate": false,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.insertSpaces": true,
-  "editor.rulers": [80],
-  "editor.tabSize": 2,
   "editor.quickSuggestions": {
     "strings": true
   },
-  "css.validate": false,
+  "editor.rulers": [80],
+  "editor.tabSize": 2,
+  "files.associations": {
+    "*.css": "tailwindcss"
+  },
   "javascript.format.enable": false,
   "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": false,
   "javascript.preferences.quoteStyle": "single",
@@ -19,11 +28,5 @@
   "typescript.preferences.quoteStyle": "single",
   "typescript.preferences.useAliasesForRenames": true,
   "typescript.tsc.autoDetect": "off",
-  "typescript.tsdk": "./node_modules/typescript/lib",
-  "[properties]": {
-    "editor.defaultFormatter": null
-  },
-  "[ignore]": {
-    "editor.defaultFormatter": null
-  }
+  "typescript.tsdk": "./node_modules/typescript/lib"
 }

@@ -1,61 +1,45 @@
+import {useNavigate} from '@remix-run/react'
 import loadAsset from 'load-asset'
 import {ArrowLeft as ArrowLeftIcon, X as XIcon} from 'phosphor-react'
 import React from 'react'
-import {MetaFunction, useNavigate} from 'remix'
 import {MobileDeviceChrome} from '~/components'
 import {assets, MyGame} from '~/game'
-import {GameInstance} from '~/game/components'
-import {
-  Box,
-  Flex,
-  Heading,
-  IconButton,
-  Media,
-  Progress,
-  ProgressIndicator,
-  Text,
-  useResult,
-} from '~/lib'
-
-// https://remix.run/api/conventions#meta
-export const meta: MetaFunction = () => {
-  return {
-    title: 'Снести нельзя оставить!',
-    description: 'Сохраняем архитектурную идентичность Алматы',
-  }
-}
+import type {GameInstance} from '~/game/components'
+import {Media, useResult} from '~/lib'
 
 export default function Interactive() {
   const navigate = useNavigate()
   const gameRef = React.useRef<GameInstance>(null)
   return (
-    <Flex css={{height: '100vh'}}>
-      <Flex
-        css={{position: 'absolute', top: '$3', left: '$3', zIndex: 1000}}
-        gap="2">
-        <IconButton variant="raised" onClick={() => navigate('/')}>
+    <div className="h-screen">
+      <div className="absolute top-4 left-4 z-10 flex space-x-2">
+        <button
+          className="btn btn-ghost btn-circle bg-white text-xl shadow-md"
+          onClick={() => navigate('/')}>
           <XIcon />
-        </IconButton>
+        </button>
 
-        <IconButton variant="raised" onClick={() => gameRef.current?.goBack()}>
+        <button
+          className="btn btn-ghost btn-circle bg-white text-xl shadow-md"
+          onClick={() => gameRef.current?.goBack()}>
           <ArrowLeftIcon />
-        </IconButton>
-      </Flex>
+        </button>
+      </div>
 
-      <Box as={Media} css={{width: '100%', height: '100%'}} at="sm">
+      <Media className="h-full w-full" at="sm">
         <WithAssets>
           <MyGame ref={gameRef} />
         </WithAssets>
-      </Box>
+      </Media>
 
-      <Box as={Media} css={{width: '100%', height: '100%'}} greaterThan="sm">
+      <Media className="h-full w-full" greaterThan="sm">
         <MobileDeviceChrome>
           <WithAssets>
             <MyGame ref={gameRef} />
           </WithAssets>
         </MobileDeviceChrome>
-      </Box>
-    </Flex>
+      </Media>
+    </div>
   )
 }
 
@@ -86,47 +70,30 @@ function WithAssets({children}: WithAssetsProps) {
 
   if (res.status === 'loading') {
     return (
-      <Flex
-        css={{width: '100%', height: '100%', padding: '$4'}}
-        direction="column"
-        justify="center"
-        align="center"
-        gap="2">
-        <Text>Загрузка…</Text>
-
-        <Progress value={progress * 100}>
-          <ProgressIndicator style={{width: `${progress * 100}%`}} />
-        </Progress>
-      </Flex>
+      <div className="prose flex h-full w-full flex-col items-center justify-center space-y-2 p-8">
+        <span>Загрузка…</span>
+        <progress
+          className="progress w-full"
+          value={progress * 100}
+          max={100}
+        />
+      </div>
     )
   }
   if (res.status === 'failure') {
     return (
-      <Flex
-        css={{width: '100%', height: '100%', padding: '$4'}}
-        direction="column"
-        justify="center"
-        align="center"
-        gap="2">
-        <Heading>Что-то пошло не так!</Heading>
+      <div className="prose flex h-full w-full flex-col items-center justify-center space-y-2 p-8">
+        <h1>Что-то пошло не так!</h1>
 
-        <Text
-          as="pre"
-          variant="red"
-          css={{
-            padding: '$3',
-            backgroundColor: '$redA3',
-            fontFamily: '$mono',
-            whiteSpace: 'pre-line',
-          }}>
+        <pre className="alert alert-error whitespace-pre-line font-mono">
           {res.error.message}
-        </Text>
+        </pre>
 
-        <Text as="p">
+        <p>
           Мы уже в курсе этой ошибки, и постараемся её исправить как можно
           скорее.
-        </Text>
-      </Flex>
+        </p>
+      </div>
     )
   }
   return <>{children}</>

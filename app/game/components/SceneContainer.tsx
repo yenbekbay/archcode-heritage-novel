@@ -1,11 +1,11 @@
 import useSize from '@react-hook/size'
 import React from 'react'
 import flattenChildren from 'react-keyed-flatten-children'
-import {Flex, useLatestRef, useSearchParam, useStableCallback} from '~/lib'
-import {SceneContextValue} from '.'
+import {useLatestRef, useSearchParam, useStableCallback} from '~/lib'
 import {Command} from './Command'
 import {useSceneId} from './Scene'
-import {CommandT, SceneContext} from './SceneContext'
+import type {CommandT, SceneContextValue} from './SceneContext'
+import {SceneContext} from './SceneContext'
 
 export interface SceneBackgroundComponentProps {
   containerSize: [number, number]
@@ -56,9 +56,9 @@ export function SceneContainer({
   )
   return (
     <SceneContext.Provider value={ctx}>
-      <Flex
+      <div
         ref={containerRef}
-        css={{flex: 1, position: 'relative'}}
+        className="relative flex-1"
         tabIndex={-1}
         onClick={() => {
           const command = commandMap.get(activeFrame)
@@ -67,12 +67,12 @@ export function SceneContainer({
           }
         }}>
         {BackgroundComponent && (
-          <Flex direction="column" css={{position: 'absolute', inset: 0}}>
+          <div className="absolute inset-0 flex flex-col">
             <BackgroundComponent
               containerSize={containerSize}
               completedPercent={(activeFrame + 1) / children.length}
             />
-          </Flex>
+          </div>
         )}
 
         {children.map((child, idx) => (
@@ -80,7 +80,7 @@ export function SceneContainer({
             {child}
           </Command>
         ))}
-      </Flex>
+      </div>
     </SceneContext.Provider>
   )
 }

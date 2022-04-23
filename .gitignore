@@ -2,9 +2,13 @@
 node_modules
 
 .cache
+.env
+.eslintcache
 .vercel
 .output
-.eslintcache
 
-public/build
-api/_build
+/build/
+/public/build
+/api/index.js
+/api/index.js.map
+/app/tailwind.css

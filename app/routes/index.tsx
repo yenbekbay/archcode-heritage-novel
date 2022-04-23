@@ -1,27 +1,17 @@
-import {MetaFunction} from 'remix'
 import {Hero} from '~/components'
-import {Container, Flex, Section, Separator} from '~/lib'
-
-// https://remix.run/api/conventions#meta
-export const meta: MetaFunction = () => {
-  return {
-    title: 'Снести нельзя оставить!',
-    description: 'Сохраняем архитектурную идентичность Алматы',
-  }
-}
 
 export default function Home() {
   return (
-    <Flex direction="column">
+    <div className="flex flex-col">
       <Hero />
 
-      <Flex justify="center" css={{py: '$4'}}>
-        <Separator size="2" />
-      </Flex>
+      <div className="flex flex-col py-8">
+        <div className="divider mx-auto w-64" />
+      </div>
 
-      <Section>
-        <Container>TODO: Главная</Container>
-      </Section>
-    </Flex>
+      <section>
+        <div className="container hero mx-auto">TODO: Главная</div>
+      </section>
+    </div>
   )
 }

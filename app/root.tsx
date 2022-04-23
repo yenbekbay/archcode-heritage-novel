@@ -1,8 +1,6 @@
-import normalizeStylesUrl from 'modern-normalize/modern-normalize.css'
-import React from 'react'
+import type {LinksFunction, MetaFunction} from '@remix-run/node'
 import {
   Links,
-  LinksFunction,
   LiveReload,
   Meta,
   Outlet,
@@ -10,37 +8,31 @@ import {
   ScrollRestoration,
   useCatch,
   useLocation,
-} from 'remix'
-import {Footer, GradientBackground, Header} from '~/components'
-import {
-  Box,
-  Container,
-  Flex,
-  globalStyles,
-  globalStylesUrl,
-  Heading,
-  MediaContextProvider,
-  mediaStyle,
-  Section,
-  Text,
-} from '~/lib'
+} from '@remix-run/react'
+import React from 'react'
+import {Footer, Header} from '~/components'
+import {MediaContextProvider, mediaStyle} from '~/lib'
+import tailwindStylesUrl from '~/tailwind.css'
 
-// https://remix.run/api/app#links
+export const meta: MetaFunction = () => ({
+  charset: 'utf-8',
+  description: 'Сохраняем архитектурную идентичность Алматы',
+  viewport: 'width=device-width,initial-scale=1',
+})
+
 export const links: LinksFunction = () => {
   return [
     {
       rel: 'stylesheet',
-      href: normalizeStylesUrl,
+      href: tailwindStylesUrl,
     },
     {
       rel: 'stylesheet',
-      href: globalStylesUrl,
+      href: 'https://rsms.me/inter/inter.css',
     },
   ]
 }
 
-// https://remix.run/api/conventions#default-export
-// https://remix.run/api/conventions#route-filenames
 export default function App() {
   return (
     <Document>
@@ -57,30 +49,22 @@ export function ErrorBoundary({error}: {error: Error}) {
   return (
     <Document title="Ошибка!">
       <Layout>
-        <Section>
-          <Container>
-            <Flex direction="column" gap="2">
-              <Heading>Что-то пошло не так!</Heading>
+        <section>
+          <div className="container mx-auto px-4 py-16">
+            <div className="prose mx-auto flex flex-col space-y-2">
+              <h1>Что-то пошло не так!</h1>
 
-              <Text
-                as="pre"
-                variant="red"
-                css={{
-                  padding: '$3',
-                  backgroundColor: '$redA3',
-                  fontFamily: '$mono',
-                  whiteSpace: 'pre-line',
-                }}>
+              <pre className="alert alert-error whitespace-pre-line font-mono">
                 {error.message}
-              </Text>
+              </pre>
 
-              <Text as="p">
+              <p>
                 Мы уже в курсе этой ошибки, и постараемся её исправить как можно
                 скорее.
-              </Text>
-            </Flex>
-          </Container>
-        </Section>
+              </p>
+            </div>
+          </div>
+        </section>
       </Layout>
     </Document>
   )
@@ -88,8 +72,7 @@ export function ErrorBoundary({error}: {error: Error}) {
 
 // https://remix.run/docs/en/v1/api/conventions#catchboundary
 export function CatchBoundary() {
-  let caught = useCatch()
-
+  const caught = useCatch()
   let message
   switch (caught.status) {
     case 401:
@@ -110,74 +93,58 @@ export function CatchBoundary() {
     default:
       throw new Error(caught.data || caught.statusText)
   }
-
   return (
     <Document title={`${caught.status} ${caught.statusText}`}>
       <Layout>
-        <Section>
-          <Container>
-            <Flex direction="column" gap="2">
-              <Heading>
+        <section>
+          <div className="container mx-auto px-4 py-16">
+            <div className="prose mx-auto flex flex-col space-y-2">
+              <h1>
                 {caught.status}: {caught.statusText}
-              </Heading>
+              </h1>
 
-              <Text as="p">{message}</Text>
-            </Flex>
-          </Container>
-        </Section>
+              <p>{message}</p>
+            </div>
+          </div>
+        </section>
       </Layout>
     </Document>
   )
 }
 
-const FONT_INTER =
-  'https://fonts.googleapis.com/css?family=Inter:400,500,600,700&display=swap'
-
 function Document({
   children,
-  title,
+  title = 'Снести нельзя оставить!',
 }: {
   children: React.ReactNode
   title?: string
 }) {
-  globalStyles()
   return (
     <html lang="en">
       <head>
-        <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width,initial-scale=1" />
         <Meta />
-
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
-        />
-        <link href={FONT_INTER} rel="preload" as="style" />
-        <link href={FONT_INTER} rel="stylesheet" media="all" />
         <Links />
 
+        <title>{title}</title>
         <style id="fresnel" dangerouslySetInnerHTML={{__html: mediaStyle}} />
-
-        {title ? <title>{title}</title> : null}
       </head>
 
       <body>
         <MediaContextProvider>{children}</MediaContextProvider>
         <ScrollRestoration />
         <Scripts />
-        {process.env.NODE_ENV === 'development' && <LiveReload />}
+        <LiveReload />
       </body>
     </html>
   )
 }
 
 function Layout({children}: {children: React.ReactNode}) {
-  let location = useLocation()
+  const location = useLocation()
   const isInteractive = location.pathname.includes('/interactive')
   return (
-    <Box css={{position: 'relative'}}>
-      <GradientBackground />
+    <div className="relative min-h-screen">
+      <div className="bg-gradient absolute inset-0 -z-10" />
 
       {isInteractive ? (
         children
@@ -188,6 +155,6 @@ function Layout({children}: {children: React.ReactNode}) {
           <Footer />
         </>
       )}
-    </Box>
+    </div>
   )
 }

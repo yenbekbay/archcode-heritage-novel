@@ -4,13 +4,9 @@ import bgBldg1StaticSrc from '~/assets/game/bg-bldg-1.png'
 import fenceSrc from '~/assets/game/fence.png'
 import redhead2Src from '~/assets/game/redhead-2.png'
 import redhead3Src from '~/assets/game/redhead-3.png'
-import {Box, Image} from '~/lib'
 import {Blank, Options, Say, Title} from './commands'
-import {
-  SceneBackgroundComponentProps,
-  SceneContainer,
-  useSceneContext,
-} from './components'
+import type {SceneBackgroundComponentProps} from './components'
+import {SceneContainer, useSceneContext} from './components'
 
 export const assets = [
   bgBldg1GifSrc,
@@ -26,7 +22,7 @@ export function Scene3A() {
       <Say
         large
         foregroundSrc={redhead2Src}
-        foregroundCss={{
+        foregroundStyle={{
           width: '90%',
           bottom: 0,
           filter: 'drop-shadow(40px 40px 5px rgba(0, 0, 0, .35))',
@@ -38,7 +34,7 @@ export function Scene3A() {
       <Say
         large
         foregroundSrc={redhead3Src}
-        foregroundCss={{
+        foregroundStyle={{
           width: '90%',
           bottom: 0,
           filter: 'drop-shadow(40px 40px 5px rgba(0, 0, 0, .35))',
@@ -70,29 +66,25 @@ function Background(_props: SceneBackgroundComponentProps) {
   const {activeFrame} = useSceneContext()
   return (
     <>
-      <Image
+      <img
         src={activeFrame < 2 ? bgBldg1StaticSrc : bgBldg1GifSrc}
-        css={{flex: 1, minHeight: '100%', objectFit: 'cover'}}
+        className="min-h-full flex-1 object-cover"
       />
 
       <AnimatePresence>
         {activeFrame < 2 && (
-          <Box
-            as={motion.div}
-            css={{position: 'absolute', inset: 0}}
+          <motion.div
+            className="absolute inset-0"
             exit={{
               x: '-400%',
               transition: {delay: 0.5, duration: 2},
             }}>
-            <Image
+            <img
               src={fenceSrc}
-              css={{
-                position: 'absolute',
-                height: '100%',
-                transform: 'translate(-50%) scale(1.15)',
-              }}
+              className="absolute h-full max-w-none"
+              style={{transform: 'translate(-50%) scale(1.15)'}}
             />
-          </Box>
+          </motion.div>
         )}
       </AnimatePresence>
     </>

@@ -1,5 +1,6 @@
 import React from 'react'
-import {Game, GameInstance, Scene} from './components'
+import type {GameInstance} from './components'
+import {Game, Scene} from './components'
 import {Scene1, assets as scene1Assets} from './Scene1'
 import {Scene2, assets as scene3Assets} from './Scene2'
 import {Scene3A, assets as scene3AAssets} from './Scene3A'
@@ -22,46 +23,47 @@ export const assets = [
   ...scene5CAssets,
 ]
 
-export const MyGame = React.forwardRef(
-  (_props, forwardedRef: React.ForwardedRef<GameInstance>) => {
-    return (
-      <Game ref={forwardedRef} initialSceneId="1">
-        <Scene id="1">
-          <Scene1 />
-        </Scene>
+export const MyGame = React.forwardRef(function MyGame(
+  _props,
+  forwardedRef: React.ForwardedRef<GameInstance>,
+) {
+  return (
+    <Game ref={forwardedRef} initialSceneId="1">
+      <Scene id="1">
+        <Scene1 />
+      </Scene>
 
-        <Scene id="2">
-          <Scene2 />
-        </Scene>
+      <Scene id="2">
+        <Scene2 />
+      </Scene>
 
-        <Scene id="3A">
-          <Scene3A />
-        </Scene>
+      <Scene id="3A">
+        <Scene3A />
+      </Scene>
 
-        <Scene id="3B">
-          <Scene3B />
-        </Scene>
+      <Scene id="3B">
+        <Scene3B />
+      </Scene>
 
-        <Scene id="4A">
-          <Scene4A />
-        </Scene>
+      <Scene id="4A">
+        <Scene4A />
+      </Scene>
 
-        <Scene id="4B">
-          <Scene4B />
-        </Scene>
+      <Scene id="4B">
+        <Scene4B />
+      </Scene>
 
-        <Scene id="5A">
-          <Scene5A />
-        </Scene>
+      <Scene id="5A">
+        <Scene5A />
+      </Scene>
 
-        <Scene id="5B">
-          <Scene5B />
-        </Scene>
+      <Scene id="5B">
+        <Scene5B />
+      </Scene>
 
-        <Scene id="5C">
-          <Scene5C />
-        </Scene>
-      </Game>
-    )
-  },
-)
+      <Scene id="5C">
+        <Scene5C />
+      </Scene>
+    </Game>
+  )
+})

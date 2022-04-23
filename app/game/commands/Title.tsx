@@ -1,10 +1,6 @@
 import {motion} from 'framer-motion'
-import {Flex, Text} from '~/lib'
-import {
-  CommandContainer,
-  CommandContainerProps,
-  CommandViewVariants,
-} from '../components'
+import type {CommandContainerProps, CommandViewVariants} from '../components'
+import {CommandContainer} from '../components'
 
 export interface TitleProps
   extends Partial<Omit<CommandContainerProps, 'children'>> {
@@ -30,27 +26,16 @@ export function Title({
   return (
     <CommandContainer skippable {...restProps}>
       {(controls) => (
-        <Flex
-          css={{flex: 1, padding: '$4'}}
-          direction="column"
-          justify="center">
-          <Text
-            as={motion.span}
-            css={{
-              color: '$red10',
-              textAlign: 'center',
-              textShadow: '0 1px $colors$slate12',
-              fontFamily: '$calligraph',
-              fontWeight: 700,
-              lineHeight: 1,
-            }}
-            size="7"
+        <div className="flex flex-1 flex-col justify-center p-8">
+          <motion.span
+            className="text-center font-calligraph text-5xl font-semibold text-red-500"
+            style={{textShadow: '0 1px hsl(206, 24.0%, 9.0%)'}}
             variants={variants}
             initial="initial"
             animate={controls}>
             {children}
-          </Text>
-        </Flex>
+          </motion.span>
+        </div>
       )}
     </CommandContainer>
   )
