@@ -8,7 +8,7 @@ import {SceneContainer} from './components'
 
 export const assets = [bgIntroSrc]
 
-export function Scene1() {
+export function SceneIntro() {
   return (
     <SceneContainer BackgroundComponent={Background}>
       <Say transitory>
@@ -46,7 +46,7 @@ export function Scene1() {
         optionsBottom={[
           {
             label: 'Выбрать персонажа',
-            onClick: (ctx) => ctx.goToScene('2'),
+            onClick: (ctx) => ctx.goToScene('Activist1'),
           },
         ]}
       />

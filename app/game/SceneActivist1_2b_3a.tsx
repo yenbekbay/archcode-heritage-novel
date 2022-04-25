@@ -15,7 +15,7 @@ export const assets = [
   redhead7Src,
 ]
 
-export function Scene4A() {
+export function SceneActivist1_2b_3a() {
   return (
     <SceneContainer BackgroundComponent={Background}>
       <Say
@@ -96,7 +96,7 @@ export function Scene4A() {
         optionsTop={[
           {
             label: 'Что я ещё могу сделать?',
-            onClick: (ctx) => ctx.goToScene('4B'),
+            onClick: (ctx) => ctx.goToScene('Activist1_2b_3b'),
           },
           {
             label: 'Я сделала всё что было в моих силах',
@@ -116,7 +116,7 @@ export function Scene4A() {
         optionsBottom={[
           {
             label: 'Начать заново',
-            onClick: (ctx) => ctx.goToScene('1'),
+            onClick: (ctx) => ctx.goToScene('Intro'),
           },
         ]}
       />

@@ -6,7 +6,7 @@ import {GameContext} from './GameContext'
 import {Scene} from './Scene'
 
 export interface GameProps {
-  initialSceneId: string
+  initialSceneId: SceneId
   children?: React.ReactElement[] | React.ReactElement
 }
 
@@ -48,7 +48,7 @@ export const Game = React.forwardRef(function Game(
   )
 })
 
-function useActiveSceneId(initialSceneId: string) {
+function useActiveSceneId(initialSceneId: SceneId) {
   const [_activeFrameId, goToFrameId] = useSearchParam<string>(
     'f',
     `${initialSceneId}_${0}`,

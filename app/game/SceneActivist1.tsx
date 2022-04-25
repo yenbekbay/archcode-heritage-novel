@@ -8,7 +8,7 @@ import {SceneContainer, useSceneContext} from './components'
 
 export const assets = [bgMapGifSrc, bgMapStaticSrc, fenceSrc, redhead1Src]
 
-export function Scene2() {
+export function SceneActivist1() {
   return (
     <SceneContainer BackgroundComponent={Background}>
       <Say large transitory>
@@ -40,11 +40,11 @@ export function Scene2() {
         optionsBottom={[
           {
             label: 'Пройти мимо',
-            onClick: (ctx) => ctx.goToScene('3A'),
+            onClick: (ctx) => ctx.goToScene('Activist1_2a'),
           },
           {
             label: 'Посмотреть',
-            onClick: (ctx) => ctx.goToScene('3B'),
+            onClick: (ctx) => ctx.goToScene('Activist1_2b'),
           },
         ]}
         foregroundSrc={redhead1Src}

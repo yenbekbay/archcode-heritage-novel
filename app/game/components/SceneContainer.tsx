@@ -85,7 +85,7 @@ export function SceneContainer({
   )
 }
 
-function useActiveFrame(sceneId: string) {
+function useActiveFrame(sceneId: SceneId) {
   const [_activeFrameId, goToFrameId] = useSearchParam<string>(
     'f',
     `${sceneId}_${0}`,

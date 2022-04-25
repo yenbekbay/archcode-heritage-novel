@@ -16,7 +16,7 @@ export const assets = [
   redhead4Src,
 ]
 
-export function Scene3B() {
+export function SceneActivist1_2b() {
   return (
     <SceneContainer BackgroundComponent={Background}>
       <Say
@@ -39,11 +39,11 @@ export function Scene3B() {
         optionsBottom={[
           {
             label: 'Как-то печально всё это',
-            onClick: (ctx) => ctx.goToScene('4A'),
+            onClick: (ctx) => ctx.goToScene('Activist1_2b_3a'),
           },
           {
             label: 'Что я могу сделать?',
-            onClick: (ctx) => ctx.goToScene('4B'),
+            onClick: (ctx) => ctx.goToScene('Activist1_2b_3b'),
           },
         ]}
         foregroundSrc={redhead2Src}

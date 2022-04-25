@@ -17,7 +17,7 @@ export const assets = [
   sillhouetteSrc,
 ]
 
-export function Scene5C() {
+export function SceneActivist1_2b_3b_4c() {
   return (
     <SceneContainer BackgroundComponent={Background}>
       <Blank duration={3000} />
@@ -98,7 +98,7 @@ export function Scene5C() {
         optionsBottom={[
           {
             label: 'Начать заново',
-            onClick: (ctx) => ctx.goToScene('1'),
+            onClick: (ctx) => ctx.goToScene('Intro'),
           },
         ]}
       />

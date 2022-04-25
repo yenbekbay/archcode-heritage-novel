@@ -8,7 +8,7 @@ export interface CommandT {
 }
 
 export interface SceneContextValue {
-  sceneId: string
+  sceneId: SceneId
   getCommand: (frame: number) => CommandT | undefined
   registerCommand: (frame: number, command: CommandT) => void
   activeFrame: number

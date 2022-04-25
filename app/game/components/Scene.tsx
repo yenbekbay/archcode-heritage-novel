@@ -1,9 +1,9 @@
 import React from 'react'
 
-export const SceneIdContext = React.createContext<string | null>(null)
+export const SceneIdContext = React.createContext<SceneId | null>(null)
 
 export interface SceneProps {
-  id: string
+  id: SceneId
   children?: React.ReactNode
 }
 

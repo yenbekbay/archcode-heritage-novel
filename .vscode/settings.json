@@ -13,6 +13,7 @@
   },
   "editor.rulers": [80],
   "editor.tabSize": 2,
+  "explorer.sortOrderLexicographicOptions": "unicode",
   "files.associations": {
     "*.css": "tailwindcss"
   },

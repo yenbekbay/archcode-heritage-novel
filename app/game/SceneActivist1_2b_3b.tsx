@@ -6,7 +6,7 @@ import {SceneContainer} from './components'
 
 export const assets = [bgBldg1FenceSrc, redhead8Src]
 
-export function Scene4B() {
+export function SceneActivist1_2b_3b() {
   return (
     <SceneContainer BackgroundComponent={Background}>
       <Say
@@ -15,15 +15,15 @@ export function Scene4B() {
         optionsBottom={[
           {
             label: 'Разберусь сама',
-            onClick: (ctx) => ctx.goToScene('5A'),
+            onClick: (ctx) => ctx.goToScene('Activist1_2b_3b_4a'),
           },
           {
             label: 'Объединиться в команду',
-            onClick: (ctx) => ctx.goToScene('5B'),
+            onClick: (ctx) => ctx.goToScene('Activist1_2b_3b_4b'),
           },
           {
             label: 'Обратиться в организации',
-            onClick: (ctx) => ctx.goToScene('5C'),
+            onClick: (ctx) => ctx.goToScene('Activist1_2b_3b_4c'),
           },
         ]}
         foregroundSrc={redhead8Src}

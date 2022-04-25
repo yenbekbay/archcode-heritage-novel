@@ -16,7 +16,7 @@ export const assets = [
   redhead3Src,
 ]
 
-export function Scene3A() {
+export function SceneActivist1_2a() {
   return (
     <SceneContainer BackgroundComponent={Background}>
       <Say
@@ -54,7 +54,7 @@ export function Scene3A() {
         optionsBottom={[
           {
             label: 'Начать заново',
-            onClick: (ctx) => ctx.goToScene('1'),
+            onClick: (ctx) => ctx.goToScene('Intro'),
           },
         ]}
       />

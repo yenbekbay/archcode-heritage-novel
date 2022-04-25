@@ -37,7 +37,7 @@ export const assets = [
   redhead18Src,
 ]
 
-export function Scene5B() {
+export function SceneActivist1_2b_3b_4b() {
   return (
     <SceneContainer BackgroundComponent={Background}>
       <Blank duration={3000} />
@@ -379,7 +379,7 @@ export function Scene5B() {
         optionsBottom={[
           {
             label: 'Позвонить в Архкод',
-            onClick: (ctx) => ctx.goToScene('5C'),
+            onClick: (ctx) => ctx.goToScene('Activist1_2b_3b_4c'),
           },
         ]}
       />

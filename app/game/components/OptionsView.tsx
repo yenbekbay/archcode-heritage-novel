@@ -8,9 +8,9 @@ import {useSceneContext} from './SceneContext'
 import clsx from 'clsx'
 
 interface OptionContext {
-  sceneId: string
+  sceneId: SceneId
   frame: number
-  goToScene: (sceneId: string) => void
+  goToScene: (sceneId: SceneId) => void
   goToFrame: (frame: number) => void
   goToNextFrame: () => void
 }

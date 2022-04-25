@@ -501,7 +501,7 @@ var mediaStyle = AppMedia.createMediaStyle();
 var { Media, MediaContextProvider } = AppMedia;
 
 // app/tailwind.css
-var tailwind_default = "/build/_assets/tailwind-2TCVSA3L.css";
+var tailwind_default = "/build/_assets/tailwind-RIZ5UKLF.css";
 
 // route:/Users/yenbekbay/Code/yenbekbay/archcode-heritage-novel/app/root.tsx
 var meta = () => ({
@@ -924,13 +924,17 @@ function useActiveFrame(sceneId) {
   return [activeFrame, goToFrame];
 }
 
-// app/game/Scene1.tsx
-var import_size3 = __toESM(require("@react-hook/size"));
-var import_framer_motion6 = require("framer-motion");
-var import_react26 = __toESM(require("react"));
+// app/assets/game/bg-map.gif
+var bg_map_default = "/build/_assets/bg-map-3L4JZHFP.gif";
 
-// app/assets/game/bg-intro.png
-var bg_intro_default = "/build/_assets/bg-intro-F5CMTD6E.png";
+// app/assets/game/bg-map.png
+var bg_map_default2 = "/build/_assets/bg-map-22JKO47O.png";
+
+// app/assets/game/fence.png
+var fence_default = "/build/_assets/fence-CMBV3KRH.png";
+
+// app/assets/game/redhead-1.png
+var redhead_1_default = "/build/_assets/redhead-1-COFSCI5Y.png";
 
 // app/game/commands/Blank.tsx
 var import_react22 = __toESM(require("react"));
@@ -1158,80 +1162,11 @@ function Title(_a) {
   }, children)));
 }
 
-// app/game/Scene1.tsx
-var assets = [bg_intro_default];
-function Scene1() {
-  return /* @__PURE__ */ import_react26.default.createElement(SceneContainer, {
-    BackgroundComponent: Background
-  }, /* @__PURE__ */ import_react26.default.createElement(Say, {
-    transitory: true
-  }, "\u0412 \u0433\u043E\u0440\u043E\u0434\u0435, \u0441 \u0446\u0432\u0435\u0442\u0443\u0449\u0438\u043C\u0438 \u044F\u0431\u043B\u043E\u043D\u044F\u043C\u0438 \u0438 \u0436\u0443\u0440\u0447\u0430\u0449\u0438\u043C\u0438 \u0430\u0440\u044B\u043A\u0430\u043C\u0438, \u0433\u0434\u0435 \u0432\u043E\u0437\u0432\u044B\u0448\u0430\u043B\u043E\u0441\u044C \u0437\u0434\u0430\u043D\u0438\u0435 \u0441 \u0438\u0437\u043E\u0433\u043D\u0443\u0442\u043E\u0439 \u0437\u043E\u043B\u043E\u0442\u043E\u0439 \u043A\u0440\u044B\u0448\u0435\u0439 \u0438 \u0441\u0442\u0443\u0447\u0430\u043B\u0438 \u043E\u0431 \u0440\u0435\u043B\u044C\u0441\u044B \u0442\u0440\u0430\u043C\u0432\u0430\u0438, \u043D\u0430 \u0446\u0435\u043D\u0442\u0440\u0430\u043B\u044C\u043D\u043E\u0439 \u043F\u043B\u043E\u0449\u0430\u0434\u0438 \u0447\u0442\u043E-\u0442\u043E \u0441\u0442\u0440\u043E\u0438\u043B \u0441\u0442\u0430\u0440\u0438\u043A, \u0430 \u043F\u0435\u0440\u0435\u0434 \u043D\u0438\u043C \u0442\u0430\u0431\u043B\u0438\u0447\u043A\u0430: \u201C\u042F \u0432\u0435\u0440\u043D\u0443 \u0433\u043E\u043B\u0443\u0431\u043E\u0435 \u043D\u0435\u0431\u043E\u201D"), /* @__PURE__ */ import_react26.default.createElement(Say, {
-    transitory: true
-  }, "\u0415\u0433\u043E \u0441\u0447\u0438\u0442\u0430\u043B\u0438 \u0433\u043E\u0440\u043E\u0434\u0441\u043A\u0438\u043C \u0441\u0443\u043C\u0430\u0441\u0448\u0435\u0434\u0448\u0438\u043C, \u0432\u0435\u0434\u044C \u043D\u0435\u0431\u043E \u0432\u0441\u0435\u0433\u0434\u0430 \u0431\u044B\u043B\u043E \u0441\u0435\u0440\u043E\u0435, \u043D\u043E \u043D\u0438\u043A\u0442\u043E \u0435\u0433\u043E \u043D\u0435 \u0442\u0440\u043E\u0433\u0430\u043B, \u043F\u043E\u0442\u043E\u043C\u0443 \u0447\u0442\u043E \u0432\u0441\u0435\u043C \u0431\u044B\u043B\u043E \u0434\u0438\u043A\u043E \u0438\u043D\u0442\u0435\u0440\u0435\u0441\u043D\u043E, \u0447\u0442\u043E \u0436\u0435 \u043E\u043D \u0441\u0442\u0440\u043E\u0438\u0442. \u041A\u043E\u0433\u0434\u0430-\u0442\u043E \u043E\u043D \u0431\u044B\u043B \u0430\u0440\u0445\u0438\u0442\u0435\u043A\u0442\u043E\u0440\u043E\u043C, \u0438 \u043F\u043E \u043D\u0435\u0438\u0437\u0432\u0435\u0441\u0442\u043D\u043E\u0439 \u043F\u0440\u0438\u0447\u0438\u043D\u0435 \u043B\u0438\u0448\u0438\u043B\u0441\u044F \u0432\u0441\u0435\u0433\u043E, \u0447\u0442\u043E \u0443 \u043D\u0435\u0433\u043E \u0431\u044B\u043B\u043E. \u041E\u043D \u0443\u0432\u0435\u0440\u044F\u043B, \u0447\u0442\u043E \u043D\u0438\u043A\u0442\u043E \u043D\u0435 \u0432\u0438\u0434\u0438\u0442 \u043D\u0435\u0431\u0430 \u0438\u0437-\u0437\u0430 \u043F\u0440\u0438\u0437\u0440\u0430\u043A\u043E\u0432 \u0437\u0430\u0441\u0442\u044B\u0432\u0449\u0438\u0445 \u043D\u0430\u0434 \u0433\u043E\u0440\u043E\u0434\u043E\u043C."), /* @__PURE__ */ import_react26.default.createElement(Say, {
-    transitory: true
-  }, "\u0413\u043E\u0440\u043E\u0434 \u043F\u043E\u043A\u0430\u0437\u044B\u0432\u0430\u0435\u0442\u0441\u044F \u0441\u0432\u0435\u0440\u0445\u0443, \u0438 \u044D\u0442\u043E \u043E\u043A\u0430\u0437\u044B\u0432\u0430\u0435\u0442\u0441\u044F \u043F\u043B\u043E\u0442\u043D\u044B\u0439 \u0441\u043C\u043E\u0433 \u0438\u0437 \u043F\u0440\u0438\u0437\u0440\u0430\u043A\u043E\u0432 \u0441\u043D\u0435\u0441\u0435\u043D\u043D\u044B\u0445 \u0437\u0434\u0430\u043D\u0438\u0439. \u0412\u043E\u043A\u0440\u0443\u0433 \u043D\u0435\u0431\u043E \u043E\u0431\u044B\u0447\u043D\u043E\u0435. \u0418 \u0432\u043E\u0442 \u043D\u0430\u0441\u0442\u0430\u043B \u0434\u0435\u043D\u044C, \u043A\u043E\u0433\u0434\u0430 \u0441\u0442\u0430\u0440\u0438\u043A \u0437\u0430\u0432\u0435\u0440\u0448\u0438\u043B \u0441\u0442\u0440\u043E\u0435\u043D\u0438\u0435."), /* @__PURE__ */ import_react26.default.createElement(Say, {
-    large: true,
-    transitory: true
-  }, "\u201C\u042D\u0442\u043E \u043C\u0430\u0448\u0438\u043D\u0430 \u0432\u0440\u0435\u043C\u0435\u043D\u0438, \u043A\u043E\u0442\u043E\u0440\u0430\u044F \u0432\u0435\u0440\u043D\u0435\u0442 \u0432\u0430\u0441 \u0442\u0443\u0434\u0430, \u0433\u0434\u0435 \u043D\u0435\u0431\u043E \u0431\u044B\u043B\u043E \u0433\u043E\u043B\u0443\u0431\u044B\u043C. \u041D\u0430\u0448\u0435 \u043D\u0430\u0441\u0442\u043E\u044F\u0449\u0435\u0435 \u0432 \u0432\u0430\u0448\u0438\u0445 \u0440\u0443\u043A\u0430\u0445!\u201D - \u0431\u044B\u043B\u0438 \u0435\u0433\u043E \u043F\u043E\u0441\u043B\u0435\u0434\u043D\u0438\u0435 \u0441\u043B\u043E\u0432\u0430."), /* @__PURE__ */ import_react26.default.createElement(Title, {
-    transitory: true,
-    retained: true
-  }, "\u0421\u043D\u0435\u0441\u0442\u0438 \u043D\u0435\u043B\u044C\u0437\u044F \u043E\u0441\u0442\u0430\u0432\u0438\u0442\u044C"), /* @__PURE__ */ import_react26.default.createElement(Options, {
-    dark: true,
-    optionsBottom: [
-      {
-        label: "\u0412\u044B\u0431\u0440\u0430\u0442\u044C \u043F\u0435\u0440\u0441\u043E\u043D\u0430\u0436\u0430",
-        onClick: (ctx) => ctx.goToScene("2")
-      }
-    ]
-  }));
-}
-function Background({
-  containerSize,
-  completedPercent
-}) {
-  const controls = (0, import_framer_motion6.useAnimation)();
-  const imgRef = import_react26.default.useRef(null);
-  const imgSize = (0, import_size3.default)(imgRef);
-  import_react26.default.useLayoutEffect(() => {
-    if (containerSize[1] === 0 || imgSize[1] === 0) {
-      return;
-    }
-    controls.stop();
-    controls.start({
-      y: `calc(${containerSize[1] - imgSize[1]}px * ${completedPercent})`,
-      transition: {
-        duration: BACKGROUND_TRANSITION_DURATION_PER_PANEL / 1e3,
-        ease: "easeOut"
-      }
-    });
-  }, [completedPercent, containerSize, controls, imgSize]);
-  return /* @__PURE__ */ import_react26.default.createElement(import_framer_motion6.motion.img, {
-    ref: imgRef,
-    className: "w-full",
-    src: bg_intro_default,
-    initial: { y: 0 },
-    animate: controls
-  });
-}
-var BACKGROUND_TRANSITION_DURATION_PER_PANEL = 8e3;
-
-// app/assets/game/bg-map.gif
-var bg_map_default = "/build/_assets/bg-map-3L4JZHFP.gif";
-
-// app/assets/game/bg-map.png
-var bg_map_default2 = "/build/_assets/bg-map-22JKO47O.png";
-
-// app/assets/game/fence.png
-var fence_default = "/build/_assets/fence-CMBV3KRH.png";
-
-// app/assets/game/redhead-1.png
-var redhead_1_default = "/build/_assets/redhead-1-COFSCI5Y.png";
-
-// app/game/Scene2.tsx
-var assets2 = [bg_map_default, bg_map_default2, fence_default, redhead_1_default];
-function Scene2() {
+// app/game/SceneActivist1.tsx
+var assets = [bg_map_default, bg_map_default2, fence_default, redhead_1_default];
+function SceneActivist1() {
   return /* @__PURE__ */ React.createElement(SceneContainer, {
-    BackgroundComponent: Background2
+    BackgroundComponent: Background
   }, /* @__PURE__ */ React.createElement(Say, {
     large: true,
     transitory: true
@@ -1258,11 +1193,11 @@ function Scene2() {
     optionsBottom: [
       {
         label: "\u041F\u0440\u043E\u0439\u0442\u0438 \u043C\u0438\u043C\u043E",
-        onClick: (ctx) => ctx.goToScene("3A")
+        onClick: (ctx) => ctx.goToScene("Activist1_2a")
       },
       {
         label: "\u041F\u043E\u0441\u043C\u043E\u0442\u0440\u0435\u0442\u044C",
-        onClick: (ctx) => ctx.goToScene("3B")
+        onClick: (ctx) => ctx.goToScene("Activist1_2b")
       }
     ],
     foregroundSrc: redhead_1_default,
@@ -1273,7 +1208,7 @@ function Scene2() {
     }
   }, "\u042D\u0442\u043E \u0447\u0442\u043E \u0437\u0430 \u0437\u0430\u0431\u043E\u0440? \u0418 \u0447\u0442\u043E \u0437\u0430 \u043D\u0438\u043C?"));
 }
-function Background2(_props) {
+function Background(_props) {
   const { activeFrame } = useSceneContext();
   return /* @__PURE__ */ React.createElement("img", {
     src: activeFrame < 2 ? bg_map_default : bg_map_default2,
@@ -1281,8 +1216,8 @@ function Background2(_props) {
   });
 }
 
-// app/game/Scene3A.tsx
-var import_framer_motion7 = require("framer-motion");
+// app/game/SceneActivist1_2a.tsx
+var import_framer_motion6 = require("framer-motion");
 
 // app/assets/game/bg-bldg-1.gif
 var bg_bldg_1_default = "/build/_assets/bg-bldg-1-CPOB7WTB.gif";
@@ -1296,17 +1231,17 @@ var redhead_2_default = "/build/_assets/redhead-2-V5NR3EAJ.png";
 // app/assets/game/redhead-3.png
 var redhead_3_default = "/build/_assets/redhead-3-SODG5R2I.png";
 
-// app/game/Scene3A.tsx
-var assets3 = [
+// app/game/SceneActivist1_2a.tsx
+var assets2 = [
   bg_bldg_1_default,
   bg_bldg_1_default2,
   fence_default,
   redhead_2_default,
   redhead_3_default
 ];
-function Scene3A() {
+function SceneActivist1_2a() {
   return /* @__PURE__ */ React.createElement(SceneContainer, {
-    BackgroundComponent: Background3
+    BackgroundComponent: Background2
   }, /* @__PURE__ */ React.createElement(Say, {
     large: true,
     foregroundSrc: redhead_2_default,
@@ -1335,17 +1270,17 @@ function Scene3A() {
     optionsBottom: [
       {
         label: "\u041D\u0430\u0447\u0430\u0442\u044C \u0437\u0430\u043D\u043E\u0432\u043E",
-        onClick: (ctx) => ctx.goToScene("1")
+        onClick: (ctx) => ctx.goToScene("Intro")
       }
     ]
   }));
 }
-function Background3(_props) {
+function Background2(_props) {
   const { activeFrame } = useSceneContext();
   return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("img", {
     src: activeFrame < 2 ? bg_bldg_1_default2 : bg_bldg_1_default,
     className: "min-h-full flex-1 object-cover"
-  }), /* @__PURE__ */ React.createElement(import_framer_motion7.AnimatePresence, null, activeFrame < 2 && /* @__PURE__ */ React.createElement(import_framer_motion7.motion.div, {
+  }), /* @__PURE__ */ React.createElement(import_framer_motion6.AnimatePresence, null, activeFrame < 2 && /* @__PURE__ */ React.createElement(import_framer_motion6.motion.div, {
     className: "absolute inset-0",
     exit: {
       x: "-400%",
@@ -1358,23 +1293,23 @@ function Background3(_props) {
   }))));
 }
 
-// app/game/Scene3B.tsx
-var import_framer_motion8 = require("framer-motion");
+// app/game/SceneActivist1_2b.tsx
+var import_framer_motion7 = require("framer-motion");
 
 // app/assets/game/redhead-4.png
 var redhead_4_default = "/build/_assets/redhead-4-TBMVF6R6.png";
 
-// app/game/Scene3B.tsx
-var assets4 = [
+// app/game/SceneActivist1_2b.tsx
+var assets3 = [
   bg_bldg_1_default,
   bg_bldg_1_default2,
   fence_default,
   redhead_2_default,
   redhead_4_default
 ];
-function Scene3B() {
+function SceneActivist1_2b() {
   return /* @__PURE__ */ React.createElement(SceneContainer, {
-    BackgroundComponent: Background4
+    BackgroundComponent: Background3
   }, /* @__PURE__ */ React.createElement(Say, {
     large: true,
     foregroundSrc: redhead_4_default,
@@ -1392,23 +1327,23 @@ function Scene3B() {
     optionsBottom: [
       {
         label: "\u041A\u0430\u043A-\u0442\u043E \u043F\u0435\u0447\u0430\u043B\u044C\u043D\u043E \u0432\u0441\u0451 \u044D\u0442\u043E",
-        onClick: (ctx) => ctx.goToScene("4A")
+        onClick: (ctx) => ctx.goToScene("Activist1_2b_3a")
       },
       {
         label: "\u0427\u0442\u043E \u044F \u043C\u043E\u0433\u0443 \u0441\u0434\u0435\u043B\u0430\u0442\u044C?",
-        onClick: (ctx) => ctx.goToScene("4B")
+        onClick: (ctx) => ctx.goToScene("Activist1_2b_3b")
       }
     ],
     foregroundSrc: redhead_2_default,
     foregroundStyle: { width: "90%", bottom: 0 }
   }, "\u042D\u0442\u043E \u0447\u0442\u043E \u0437\u0430 \u043D\u043E\u0432\u043E\u0441\u0442\u0438?!?! \u0423\u043D\u0438\u0447\u0442\u043E\u0436\u0430\u044E\u0442 \u0438\u0441\u0442\u043E\u0440\u0438\u044E, \u0437\u043D\u0430\u0447\u0438\u0442?"));
 }
-function Background4(_props) {
+function Background3(_props) {
   const { activeFrame } = useSceneContext();
   return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("img", {
     src: activeFrame < 1 ? bg_bldg_1_default2 : bg_bldg_1_default,
     className: "min-h-full flex-1 object-cover"
-  }), /* @__PURE__ */ React.createElement(import_framer_motion8.AnimatePresence, null, activeFrame < 1 && /* @__PURE__ */ React.createElement(import_framer_motion8.motion.div, {
+  }), /* @__PURE__ */ React.createElement(import_framer_motion7.AnimatePresence, null, activeFrame < 1 && /* @__PURE__ */ React.createElement(import_framer_motion7.motion.div, {
     className: "absolute inset-0",
     exit: {
       x: "-400%",
@@ -1433,17 +1368,17 @@ var redhead_5_default = "/build/_assets/redhead-5-7FWQ5NCW.png";
 // app/assets/game/redhead-7.png
 var redhead_7_default = "/build/_assets/redhead-7-SODG5R2I.png";
 
-// app/game/Scene4A.tsx
-var assets5 = [
+// app/game/SceneActivist1_2b_3a.tsx
+var assets4 = [
   bg_bldg_1_fence_default,
   bg_phone_finger_default,
   redhead_2_default,
   redhead_5_default,
   redhead_7_default
 ];
-function Scene4A() {
+function SceneActivist1_2b_3a() {
   return /* @__PURE__ */ React.createElement(SceneContainer, {
-    BackgroundComponent: Background5
+    BackgroundComponent: Background4
   }, /* @__PURE__ */ React.createElement(Say, {
     large: true,
     foregroundSrc: redhead_5_default,
@@ -1508,7 +1443,7 @@ function Scene4A() {
     optionsTop: [
       {
         label: "\u0427\u0442\u043E \u044F \u0435\u0449\u0451 \u043C\u043E\u0433\u0443 \u0441\u0434\u0435\u043B\u0430\u0442\u044C?",
-        onClick: (ctx) => ctx.goToScene("4B")
+        onClick: (ctx) => ctx.goToScene("Activist1_2b_3b")
       },
       {
         label: "\u042F \u0441\u0434\u0435\u043B\u0430\u043B\u0430 \u0432\u0441\u0451 \u0447\u0442\u043E \u0431\u044B\u043B\u043E \u0432 \u043C\u043E\u0438\u0445 \u0441\u0438\u043B\u0430\u0445",
@@ -1525,12 +1460,12 @@ function Scene4A() {
     optionsBottom: [
       {
         label: "\u041D\u0430\u0447\u0430\u0442\u044C \u0437\u0430\u043D\u043E\u0432\u043E",
-        onClick: (ctx) => ctx.goToScene("1")
+        onClick: (ctx) => ctx.goToScene("Intro")
       }
     ]
   }));
 }
-function Background5(_props) {
+function Background4(_props) {
   return /* @__PURE__ */ React.createElement("img", {
     src: bg_bldg_1_fence_default,
     className: "flex-shrink-1 min-h-full flex-grow-0 basis-0 object-cover"
@@ -1540,33 +1475,33 @@ function Background5(_props) {
 // app/assets/game/redhead-8.png
 var redhead_8_default = "/build/_assets/redhead-8-G334QM45.png";
 
-// app/game/Scene4B.tsx
-var assets6 = [bg_bldg_1_fence_default, redhead_8_default];
-function Scene4B() {
+// app/game/SceneActivist1_2b_3b.tsx
+var assets5 = [bg_bldg_1_fence_default, redhead_8_default];
+function SceneActivist1_2b_3b() {
   return /* @__PURE__ */ React.createElement(SceneContainer, {
-    BackgroundComponent: Background6
+    BackgroundComponent: Background5
   }, /* @__PURE__ */ React.createElement(Say, {
     large: true,
     optionsDark: true,
     optionsBottom: [
       {
         label: "\u0420\u0430\u0437\u0431\u0435\u0440\u0443\u0441\u044C \u0441\u0430\u043C\u0430",
-        onClick: (ctx) => ctx.goToScene("5A")
+        onClick: (ctx) => ctx.goToScene("Activist1_2b_3b_4a")
       },
       {
         label: "\u041E\u0431\u044A\u0435\u0434\u0438\u043D\u0438\u0442\u044C\u0441\u044F \u0432 \u043A\u043E\u043C\u0430\u043D\u0434\u0443",
-        onClick: (ctx) => ctx.goToScene("5B")
+        onClick: (ctx) => ctx.goToScene("Activist1_2b_3b_4b")
       },
       {
         label: "\u041E\u0431\u0440\u0430\u0442\u0438\u0442\u044C\u0441\u044F \u0432 \u043E\u0440\u0433\u0430\u043D\u0438\u0437\u0430\u0446\u0438\u0438",
-        onClick: (ctx) => ctx.goToScene("5C")
+        onClick: (ctx) => ctx.goToScene("Activist1_2b_3b_4c")
       }
     ],
     foregroundSrc: redhead_8_default,
     foregroundStyle: { width: "90%", bottom: 0 }
   }, "\u0427\u0442\u043E \u044F \u043C\u043E\u0433\u0443?"));
 }
-function Background6(_props) {
+function Background5(_props) {
   return /* @__PURE__ */ React.createElement("img", {
     src: bg_bldg_1_fence_default,
     className: "flex-shrink-1 min-h-full flex-grow-0 basis-0 object-cover"
@@ -1609,8 +1544,8 @@ var redhead_12_default = "/build/_assets/redhead-12-3BPJQVXN.png";
 // app/assets/game/redhead-9.png
 var redhead_9_default = "/build/_assets/redhead-9-A6YCHU26.png";
 
-// app/game/Scene5A.tsx
-var assets7 = [
+// app/game/SceneActivist1_2b_3b_4a.tsx
+var assets6 = [
   apt_entrance_default,
   apt_kitchen_default,
   apt_outside_window_default,
@@ -1624,9 +1559,9 @@ var assets7 = [
   redhead_11_default,
   redhead_12_default
 ];
-function Scene5A() {
+function SceneActivist1_2b_3b_4a() {
   return /* @__PURE__ */ React.createElement(SceneContainer, {
-    BackgroundComponent: Background7
+    BackgroundComponent: Background6
   }, /* @__PURE__ */ React.createElement(Blank, {
     duration: 3e3
   }), /* @__PURE__ */ React.createElement(Foreground, {
@@ -1765,12 +1700,12 @@ function Scene5A() {
     optionsBottom: [
       {
         label: "\u041F\u043E\u0437\u0432\u043E\u043D\u0438\u0442\u044C \u0432 \u0410\u0440\u0445\u043A\u043E\u0434",
-        onClick: (ctx) => ctx.goToScene("5C")
+        onClick: (ctx) => ctx.goToScene("Activist1_2b_3b_4c")
       }
     ]
   }));
 }
-function Background7(_props) {
+function Background6(_props) {
   return /* @__PURE__ */ React.createElement("img", {
     src: bg_courtyard_default,
     className: "flex-shrink-1 min-h-full flex-grow-0 basis-0 object-cover"
@@ -1798,8 +1733,8 @@ var redhead_17_default = "/build/_assets/redhead-17-L4WIV6T5.png";
 // app/assets/game/redhead-18.png
 var redhead_18_default = "/build/_assets/redhead-18-KCHPT3TZ.png";
 
-// app/game/Scene5B.tsx
-var assets8 = [
+// app/game/SceneActivist1_2b_3b_4b.tsx
+var assets7 = [
   apt_entrance_default,
   apt_kitchen_default,
   apt_outside_window_default,
@@ -1817,9 +1752,9 @@ var assets8 = [
   redhead_17_default,
   redhead_18_default
 ];
-function Scene5B() {
+function SceneActivist1_2b_3b_4b() {
   return /* @__PURE__ */ React.createElement(SceneContainer, {
-    BackgroundComponent: Background8
+    BackgroundComponent: Background7
   }, /* @__PURE__ */ React.createElement(Blank, {
     duration: 3e3
   }), /* @__PURE__ */ React.createElement(Foreground, {
@@ -2064,12 +1999,12 @@ function Scene5B() {
     optionsBottom: [
       {
         label: "\u041F\u043E\u0437\u0432\u043E\u043D\u0438\u0442\u044C \u0432 \u0410\u0440\u0445\u043A\u043E\u0434",
-        onClick: (ctx) => ctx.goToScene("5C")
+        onClick: (ctx) => ctx.goToScene("Activist1_2b_3b_4c")
       }
     ]
   }));
 }
-function Background8(_props) {
+function Background7(_props) {
   return /* @__PURE__ */ React.createElement("img", {
     src: bg_courtyard_default,
     className: "flex-shrink-1 min-h-full flex-grow-0 basis-0 object-cover"
@@ -2088,8 +2023,8 @@ var redhead_20_default = "/build/_assets/redhead-20-T63BMXFW.png";
 // app/assets/game/sillhouette.png
 var sillhouette_default = "/build/_assets/sillhouette-GGYKL2NI.png";
 
-// app/game/Scene5C.tsx
-var assets9 = [
+// app/game/SceneActivist1_2b_3b_4c.tsx
+var assets8 = [
   bg_archcode_office_default,
   bg_courtyard_default,
   bg_phone_hand_default,
@@ -2097,9 +2032,9 @@ var assets9 = [
   redhead_20_default,
   sillhouette_default
 ];
-function Scene5C() {
+function SceneActivist1_2b_3b_4c() {
   return /* @__PURE__ */ React.createElement(SceneContainer, {
-    BackgroundComponent: Background9
+    BackgroundComponent: Background8
   }, /* @__PURE__ */ React.createElement(Blank, {
     duration: 3e3
   }), /* @__PURE__ */ React.createElement(Say, {
@@ -2157,20 +2092,86 @@ function Scene5C() {
     optionsBottom: [
       {
         label: "\u041D\u0430\u0447\u0430\u0442\u044C \u0437\u0430\u043D\u043E\u0432\u043E",
-        onClick: (ctx) => ctx.goToScene("1")
+        onClick: (ctx) => ctx.goToScene("Intro")
       }
     ]
   }));
 }
-function Background9(_props) {
+function Background8(_props) {
   return /* @__PURE__ */ React.createElement("img", {
     src: bg_courtyard_default,
     className: "flex-shrink-1 min-h-full flex-grow-0 basis-0 object-cover"
   });
 }
 
+// app/game/SceneIntro.tsx
+var import_size3 = __toESM(require("@react-hook/size"));
+var import_framer_motion8 = require("framer-motion");
+var import_react26 = __toESM(require("react"));
+
+// app/assets/game/bg-intro.png
+var bg_intro_default = "/build/_assets/bg-intro-F5CMTD6E.png";
+
+// app/game/SceneIntro.tsx
+var assets9 = [bg_intro_default];
+function SceneIntro() {
+  return /* @__PURE__ */ import_react26.default.createElement(SceneContainer, {
+    BackgroundComponent: Background9
+  }, /* @__PURE__ */ import_react26.default.createElement(Say, {
+    transitory: true
+  }, "\u0412 \u0433\u043E\u0440\u043E\u0434\u0435, \u0441 \u0446\u0432\u0435\u0442\u0443\u0449\u0438\u043C\u0438 \u044F\u0431\u043B\u043E\u043D\u044F\u043C\u0438 \u0438 \u0436\u0443\u0440\u0447\u0430\u0449\u0438\u043C\u0438 \u0430\u0440\u044B\u043A\u0430\u043C\u0438, \u0433\u0434\u0435 \u0432\u043E\u0437\u0432\u044B\u0448\u0430\u043B\u043E\u0441\u044C \u0437\u0434\u0430\u043D\u0438\u0435 \u0441 \u0438\u0437\u043E\u0433\u043D\u0443\u0442\u043E\u0439 \u0437\u043E\u043B\u043E\u0442\u043E\u0439 \u043A\u0440\u044B\u0448\u0435\u0439 \u0438 \u0441\u0442\u0443\u0447\u0430\u043B\u0438 \u043E\u0431 \u0440\u0435\u043B\u044C\u0441\u044B \u0442\u0440\u0430\u043C\u0432\u0430\u0438, \u043D\u0430 \u0446\u0435\u043D\u0442\u0440\u0430\u043B\u044C\u043D\u043E\u0439 \u043F\u043B\u043E\u0449\u0430\u0434\u0438 \u0447\u0442\u043E-\u0442\u043E \u0441\u0442\u0440\u043E\u0438\u043B \u0441\u0442\u0430\u0440\u0438\u043A, \u0430 \u043F\u0435\u0440\u0435\u0434 \u043D\u0438\u043C \u0442\u0430\u0431\u043B\u0438\u0447\u043A\u0430: \u201C\u042F \u0432\u0435\u0440\u043D\u0443 \u0433\u043E\u043B\u0443\u0431\u043E\u0435 \u043D\u0435\u0431\u043E\u201D"), /* @__PURE__ */ import_react26.default.createElement(Say, {
+    transitory: true
+  }, "\u0415\u0433\u043E \u0441\u0447\u0438\u0442\u0430\u043B\u0438 \u0433\u043E\u0440\u043E\u0434\u0441\u043A\u0438\u043C \u0441\u0443\u043C\u0430\u0441\u0448\u0435\u0434\u0448\u0438\u043C, \u0432\u0435\u0434\u044C \u043D\u0435\u0431\u043E \u0432\u0441\u0435\u0433\u0434\u0430 \u0431\u044B\u043B\u043E \u0441\u0435\u0440\u043E\u0435, \u043D\u043E \u043D\u0438\u043A\u0442\u043E \u0435\u0433\u043E \u043D\u0435 \u0442\u0440\u043E\u0433\u0430\u043B, \u043F\u043E\u0442\u043E\u043C\u0443 \u0447\u0442\u043E \u0432\u0441\u0435\u043C \u0431\u044B\u043B\u043E \u0434\u0438\u043A\u043E \u0438\u043D\u0442\u0435\u0440\u0435\u0441\u043D\u043E, \u0447\u0442\u043E \u0436\u0435 \u043E\u043D \u0441\u0442\u0440\u043E\u0438\u0442. \u041A\u043E\u0433\u0434\u0430-\u0442\u043E \u043E\u043D \u0431\u044B\u043B \u0430\u0440\u0445\u0438\u0442\u0435\u043A\u0442\u043E\u0440\u043E\u043C, \u0438 \u043F\u043E \u043D\u0435\u0438\u0437\u0432\u0435\u0441\u0442\u043D\u043E\u0439 \u043F\u0440\u0438\u0447\u0438\u043D\u0435 \u043B\u0438\u0448\u0438\u043B\u0441\u044F \u0432\u0441\u0435\u0433\u043E, \u0447\u0442\u043E \u0443 \u043D\u0435\u0433\u043E \u0431\u044B\u043B\u043E. \u041E\u043D \u0443\u0432\u0435\u0440\u044F\u043B, \u0447\u0442\u043E \u043D\u0438\u043A\u0442\u043E \u043D\u0435 \u0432\u0438\u0434\u0438\u0442 \u043D\u0435\u0431\u0430 \u0438\u0437-\u0437\u0430 \u043F\u0440\u0438\u0437\u0440\u0430\u043A\u043E\u0432 \u0437\u0430\u0441\u0442\u044B\u0432\u0449\u0438\u0445 \u043D\u0430\u0434 \u0433\u043E\u0440\u043E\u0434\u043E\u043C."), /* @__PURE__ */ import_react26.default.createElement(Say, {
+    transitory: true
+  }, "\u0413\u043E\u0440\u043E\u0434 \u043F\u043E\u043A\u0430\u0437\u044B\u0432\u0430\u0435\u0442\u0441\u044F \u0441\u0432\u0435\u0440\u0445\u0443, \u0438 \u044D\u0442\u043E \u043E\u043A\u0430\u0437\u044B\u0432\u0430\u0435\u0442\u0441\u044F \u043F\u043B\u043E\u0442\u043D\u044B\u0439 \u0441\u043C\u043E\u0433 \u0438\u0437 \u043F\u0440\u0438\u0437\u0440\u0430\u043A\u043E\u0432 \u0441\u043D\u0435\u0441\u0435\u043D\u043D\u044B\u0445 \u0437\u0434\u0430\u043D\u0438\u0439. \u0412\u043E\u043A\u0440\u0443\u0433 \u043D\u0435\u0431\u043E \u043E\u0431\u044B\u0447\u043D\u043E\u0435. \u0418 \u0432\u043E\u0442 \u043D\u0430\u0441\u0442\u0430\u043B \u0434\u0435\u043D\u044C, \u043A\u043E\u0433\u0434\u0430 \u0441\u0442\u0430\u0440\u0438\u043A \u0437\u0430\u0432\u0435\u0440\u0448\u0438\u043B \u0441\u0442\u0440\u043E\u0435\u043D\u0438\u0435."), /* @__PURE__ */ import_react26.default.createElement(Say, {
+    large: true,
+    transitory: true
+  }, "\u201C\u042D\u0442\u043E \u043C\u0430\u0448\u0438\u043D\u0430 \u0432\u0440\u0435\u043C\u0435\u043D\u0438, \u043A\u043E\u0442\u043E\u0440\u0430\u044F \u0432\u0435\u0440\u043D\u0435\u0442 \u0432\u0430\u0441 \u0442\u0443\u0434\u0430, \u0433\u0434\u0435 \u043D\u0435\u0431\u043E \u0431\u044B\u043B\u043E \u0433\u043E\u043B\u0443\u0431\u044B\u043C. \u041D\u0430\u0448\u0435 \u043D\u0430\u0441\u0442\u043E\u044F\u0449\u0435\u0435 \u0432 \u0432\u0430\u0448\u0438\u0445 \u0440\u0443\u043A\u0430\u0445!\u201D - \u0431\u044B\u043B\u0438 \u0435\u0433\u043E \u043F\u043E\u0441\u043B\u0435\u0434\u043D\u0438\u0435 \u0441\u043B\u043E\u0432\u0430."), /* @__PURE__ */ import_react26.default.createElement(Title, {
+    transitory: true,
+    retained: true
+  }, "\u0421\u043D\u0435\u0441\u0442\u0438 \u043D\u0435\u043B\u044C\u0437\u044F \u043E\u0441\u0442\u0430\u0432\u0438\u0442\u044C"), /* @__PURE__ */ import_react26.default.createElement(Options, {
+    dark: true,
+    optionsBottom: [
+      {
+        label: "\u0412\u044B\u0431\u0440\u0430\u0442\u044C \u043F\u0435\u0440\u0441\u043E\u043D\u0430\u0436\u0430",
+        onClick: (ctx) => ctx.goToScene("Activist1")
+      }
+    ]
+  }));
+}
+function Background9({
+  containerSize,
+  completedPercent
+}) {
+  const controls = (0, import_framer_motion8.useAnimation)();
+  const imgRef = import_react26.default.useRef(null);
+  const imgSize = (0, import_size3.default)(imgRef);
+  import_react26.default.useLayoutEffect(() => {
+    if (containerSize[1] === 0 || imgSize[1] === 0) {
+      return;
+    }
+    controls.stop();
+    controls.start({
+      y: `calc(${containerSize[1] - imgSize[1]}px * ${completedPercent})`,
+      transition: {
+        duration: BACKGROUND_TRANSITION_DURATION_PER_PANEL / 1e3,
+        ease: "easeOut"
+      }
+    });
+  }, [completedPercent, containerSize, controls, imgSize]);
+  return /* @__PURE__ */ import_react26.default.createElement(import_framer_motion8.motion.img, {
+    ref: imgRef,
+    className: "w-full",
+    src: bg_intro_default,
+    initial: { y: 0 },
+    animate: controls
+  });
+}
+var BACKGROUND_TRANSITION_DURATION_PER_PANEL = 8e3;
+
 // app/game/MyGame.tsx
 var assets10 = [
+  ...assets9,
   ...assets,
   ...assets2,
   ...assets3,
@@ -2178,32 +2179,27 @@ var assets10 = [
   ...assets5,
   ...assets6,
   ...assets7,
-  ...assets8,
-  ...assets9
+  ...assets8
 ];
+var scenes = {
+  Intro: SceneIntro,
+  Activist1: SceneActivist1,
+  Activist1_2a: SceneActivist1_2a,
+  Activist1_2b: SceneActivist1_2b,
+  Activist1_2b_3a: SceneActivist1_2b_3a,
+  Activist1_2b_3b: SceneActivist1_2b_3b,
+  Activist1_2b_3b_4a: SceneActivist1_2b_3b_4a,
+  Activist1_2b_3b_4b: SceneActivist1_2b_3b_4b,
+  Activist1_2b_3b_4c: SceneActivist1_2b_3b_4c
+};
 var MyGame = import_react27.default.forwardRef(function MyGame2(_props, forwardedRef) {
   return /* @__PURE__ */ import_react27.default.createElement(Game, {
     ref: forwardedRef,
-    initialSceneId: "1"
-  }, /* @__PURE__ */ import_react27.default.createElement(Scene, {
-    id: "1"
-  }, /* @__PURE__ */ import_react27.default.createElement(Scene1, null)), /* @__PURE__ */ import_react27.default.createElement(Scene, {
-    id: "2"
-  }, /* @__PURE__ */ import_react27.default.createElement(Scene2, null)), /* @__PURE__ */ import_react27.default.createElement(Scene, {
-    id: "3A"
-  }, /* @__PURE__ */ import_react27.default.createElement(Scene3A, null)), /* @__PURE__ */ import_react27.default.createElement(Scene, {
-    id: "3B"
-  }, /* @__PURE__ */ import_react27.default.createElement(Scene3B, null)), /* @__PURE__ */ import_react27.default.createElement(Scene, {
-    id: "4A"
-  }, /* @__PURE__ */ import_react27.default.createElement(Scene4A, null)), /* @__PURE__ */ import_react27.default.createElement(Scene, {
-    id: "4B"
-  }, /* @__PURE__ */ import_react27.default.createElement(Scene4B, null)), /* @__PURE__ */ import_react27.default.createElement(Scene, {
-    id: "5A"
-  }, /* @__PURE__ */ import_react27.default.createElement(Scene5A, null)), /* @__PURE__ */ import_react27.default.createElement(Scene, {
-    id: "5B"
-  }, /* @__PURE__ */ import_react27.default.createElement(Scene5B, null)), /* @__PURE__ */ import_react27.default.createElement(Scene, {
-    id: "5C"
-  }, /* @__PURE__ */ import_react27.default.createElement(Scene5C, null)));
+    initialSceneId: "Intro"
+  }, Object.entries(scenes).map(([id, SceneComp]) => /* @__PURE__ */ import_react27.default.createElement(Scene, {
+    key: id,
+    id
+  }, /* @__PURE__ */ import_react27.default.createElement(SceneComp, null))));
 });
 
 // route:/Users/yenbekbay/Code/yenbekbay/archcode-heritage-novel/app/routes/interactive.tsx
@@ -2322,7 +2318,7 @@ function Home() {
 }
 
 // server-assets-manifest:@remix-run/dev/assets-manifest
-var assets_manifest_default = { "version": "c99ae367", "entry": { "module": "/build/entry.client-MLDC5SOZ.js", "imports": ["/build/_shared/chunk-D5KWPOU6.js", "/build/_shared/chunk-FMX3YC7F.js"] }, "routes": { "root": { "id": "root", "parentId": void 0, "path": "", "index": void 0, "caseSensitive": void 0, "module": "/build/root-52T7HKGF.js", "imports": ["/build/_shared/chunk-7HA4XT5H.js"], "hasAction": false, "hasLoader": false, "hasCatchBoundary": true, "hasErrorBoundary": true }, "routes/about": { "id": "routes/about", "parentId": "root", "path": "about", "index": void 0, "caseSensitive": void 0, "module": "/build/routes/about-3C3LICKZ.js", "imports": void 0, "hasAction": false, "hasLoader": false, "hasCatchBoundary": false, "hasErrorBoundary": false }, "routes/contact": { "id": "routes/contact", "parentId": "root", "path": "contact", "index": void 0, "caseSensitive": void 0, "module": "/build/routes/contact-LHAXH6KV.js", "imports": void 0, "hasAction": false, "hasLoader": false, "hasCatchBoundary": false, "hasErrorBoundary": false }, "routes/index": { "id": "routes/index", "parentId": "root", "path": void 0, "index": true, "caseSensitive": void 0, "module": "/build/routes/index-IE2MQ3WG.js", "imports": void 0, "hasAction": false, "hasLoader": false, "hasCatchBoundary": false, "hasErrorBoundary": false }, "routes/interactive": { "id": "routes/interactive", "parentId": "root", "path": "interactive", "index": void 0, "caseSensitive": void 0, "module": "/build/routes/interactive-34ZVP56Y.js", "imports": void 0, "hasAction": false, "hasLoader": false, "hasCatchBoundary": false, "hasErrorBoundary": false }, "routes/materials": { "id": "routes/materials", "parentId": "root", "path": "materials", "index": void 0, "caseSensitive": void 0, "module": "/build/routes/materials-SL7F4BGP.js", "imports": void 0, "hasAction": false, "hasLoader": false, "hasCatchBoundary": false, "hasErrorBoundary": false } }, "url": "/build/manifest-C99AE367.js" };
+var assets_manifest_default = { "version": "eec7b3ad", "entry": { "module": "/build/entry.client-MLDC5SOZ.js", "imports": ["/build/_shared/chunk-D5KWPOU6.js", "/build/_shared/chunk-FMX3YC7F.js"] }, "routes": { "root": { "id": "root", "parentId": void 0, "path": "", "index": void 0, "caseSensitive": void 0, "module": "/build/root-3LFT2YF7.js", "imports": ["/build/_shared/chunk-7HA4XT5H.js"], "hasAction": false, "hasLoader": false, "hasCatchBoundary": true, "hasErrorBoundary": true }, "routes/about": { "id": "routes/about", "parentId": "root", "path": "about", "index": void 0, "caseSensitive": void 0, "module": "/build/routes/about-3C3LICKZ.js", "imports": void 0, "hasAction": false, "hasLoader": false, "hasCatchBoundary": false, "hasErrorBoundary": false }, "routes/contact": { "id": "routes/contact", "parentId": "root", "path": "contact", "index": void 0, "caseSensitive": void 0, "module": "/build/routes/contact-LHAXH6KV.js", "imports": void 0, "hasAction": false, "hasLoader": false, "hasCatchBoundary": false, "hasErrorBoundary": false }, "routes/index": { "id": "routes/index", "parentId": "root", "path": void 0, "index": true, "caseSensitive": void 0, "module": "/build/routes/index-IE2MQ3WG.js", "imports": void 0, "hasAction": false, "hasLoader": false, "hasCatchBoundary": false, "hasErrorBoundary": false }, "routes/interactive": { "id": "routes/interactive", "parentId": "root", "path": "interactive", "index": void 0, "caseSensitive": void 0, "module": "/build/routes/interactive-GOCHCXDV.js", "imports": void 0, "hasAction": false, "hasLoader": false, "hasCatchBoundary": false, "hasErrorBoundary": false }, "routes/materials": { "id": "routes/materials", "parentId": "root", "path": "materials", "index": void 0, "caseSensitive": void 0, "module": "/build/routes/materials-SL7F4BGP.js", "imports": void 0, "hasAction": false, "hasLoader": false, "hasCatchBoundary": false, "hasErrorBoundary": false } }, "url": "/build/manifest-EEC7B3AD.js" };
 
 // server-entry-module:@remix-run/dev/server-build
 var entry = { module: entry_server_exports };
