@@ -85,7 +85,10 @@ export function Say({
                 textShadow: dark
                   ? '0 -1px rgba(0, 0, 0, 0.35), 0 2px hsl(206, 24.0%, 9.0%)'
                   : '0 1px hsl(209, 12.2%, 93.2%)',
-                textUnderlineOffset: large ? '6px' : '4px',
+                ...(href && {
+                  textDecoration: 'underline',
+                  textUnderlineOffset: large ? '6px' : '4px',
+                }),
                 ...textStyle,
               }}
               {...(href && {

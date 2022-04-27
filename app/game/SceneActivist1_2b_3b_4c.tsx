@@ -8,7 +8,7 @@ import {Blank, Foreground, Options, Say, Title} from './commands'
 import type {SceneBackgroundComponentProps} from './components'
 import {SceneContainer} from './components'
 
-export const assets = [
+export const sceneActivist1_2b_3b_4cAssets = [
   bgArchcodeOfficeSrc,
   bgCourtyardSrc,
   bgPhoneHandSrc,
@@ -95,7 +95,7 @@ export function SceneActivist1_2b_3b_4c() {
 
       <Options
         dark
-        optionsBottom={[
+        options={[
           {
             label: 'Начать заново',
             onClick: (ctx) => ctx.goToScene('Intro'),

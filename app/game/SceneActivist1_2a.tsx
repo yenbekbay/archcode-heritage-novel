@@ -8,7 +8,7 @@ import {Blank, Options, Say, Title} from './commands'
 import type {SceneBackgroundComponentProps} from './components'
 import {SceneContainer, useSceneContext} from './components'
 
-export const assets = [
+export const sceneActivist1_2aAssets = [
   bgBldg1GifSrc,
   bgBldg1StaticSrc,
   fenceSrc,
@@ -51,7 +51,7 @@ export function SceneActivist1_2a() {
 
       <Options
         dark
-        optionsBottom={[
+        options={[
           {
             label: 'Начать заново',
             onClick: (ctx) => ctx.goToScene('Intro'),

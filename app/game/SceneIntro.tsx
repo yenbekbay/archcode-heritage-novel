@@ -6,7 +6,7 @@ import {Options, Say, Title} from './commands'
 import type {SceneBackgroundComponentProps} from './components'
 import {SceneContainer} from './components'
 
-export const assets = [bgIntroSrc]
+export const introAssets = [bgIntroSrc]
 
 export function SceneIntro() {
   return (
@@ -43,10 +43,15 @@ export function SceneIntro() {
 
       <Options
         dark
-        optionsBottom={[
+        label="Выбрать персонажа"
+        options={[
           {
-            label: 'Выбрать персонажа',
+            label: 'Активист',
             onClick: (ctx) => ctx.goToScene('Activist1'),
+          },
+          {
+            label: 'Акимат',
+            onClick: (ctx) => ctx.goToScene('CityHall1'),
           },
         ]}
       />

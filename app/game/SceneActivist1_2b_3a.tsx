@@ -7,7 +7,7 @@ import {Options, Say, Title} from './commands'
 import type {SceneBackgroundComponentProps} from './components'
 import {SceneContainer} from './components'
 
-export const assets = [
+export const sceneActivist1_2b_3aAssets = [
   bgBldg1FenceSrc,
   bgPhoneFingerSrc,
   redhead2Src,
@@ -51,7 +51,7 @@ export function SceneActivist1_2b_3a() {
 
       <Options
         dark
-        optionsBottom={[
+        options={[
           {
             label: 'Загрузить мем',
             onClick: (ctx) => ctx.goToFrame(ctx.frame + 2),
@@ -68,7 +68,7 @@ export function SceneActivist1_2b_3a() {
 
       <Options
         dark
-        optionsBottom={[
+        options={[
           {
             label: 'Загрузить пост',
             onClick: (ctx) => ctx.goToFrame(ctx.frame + 1),
@@ -93,7 +93,8 @@ export function SceneActivist1_2b_3a() {
       </Say>
 
       <Options
-        optionsTop={[
+        placement="top"
+        options={[
           {
             label: 'Что я ещё могу сделать?',
             onClick: (ctx) => ctx.goToScene('Activist1_2b_3b'),
@@ -113,7 +114,7 @@ export function SceneActivist1_2b_3a() {
 
       <Options
         dark
-        optionsBottom={[
+        options={[
           {
             label: 'Начать заново',
             onClick: (ctx) => ctx.goToScene('Intro'),

@@ -8,7 +8,7 @@ import {Blank, Say} from './commands'
 import type {SceneBackgroundComponentProps} from './components'
 import {SceneContainer, useSceneContext} from './components'
 
-export const assets = [
+export const sceneActivist1_2bAssets = [
   bgBldg1GifSrc,
   bgBldg1StaticSrc,
   fenceSrc,

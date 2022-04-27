@@ -6,7 +6,12 @@ import {Foreground, Say} from './commands'
 import type {SceneBackgroundComponentProps} from './components'
 import {SceneContainer, useSceneContext} from './components'
 
-export const assets = [bgMapGifSrc, bgMapStaticSrc, fenceSrc, redhead1Src]
+export const sceneActivist1Assets = [
+  bgMapGifSrc,
+  bgMapStaticSrc,
+  fenceSrc,
+  redhead1Src,
+]
 
 export function SceneActivist1() {
   return (

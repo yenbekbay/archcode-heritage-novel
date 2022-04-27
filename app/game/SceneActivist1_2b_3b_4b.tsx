@@ -18,7 +18,7 @@ import {Blank, Foreground, Options, Say} from './commands'
 import type {SceneBackgroundComponentProps} from './components'
 import {SceneContainer} from './components'
 
-export const assets = [
+export const sceneActivist1_2b_3b_4bAssets = [
   aptEntranceSrc,
   aptKitchenSrc,
   aptOutsideWindowSrc,
@@ -376,7 +376,7 @@ export function SceneActivist1_2b_3b_4b() {
       </Say>
 
       <Options
-        optionsBottom={[
+        options={[
           {
             label: 'Позвонить в Архкод',
             onClick: (ctx) => ctx.goToScene('Activist1_2b_3b_4c'),

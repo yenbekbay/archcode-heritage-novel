@@ -4,7 +4,7 @@ import {Say} from './commands'
 import type {SceneBackgroundComponentProps} from './components'
 import {SceneContainer} from './components'
 
-export const assets = [bgBldg1FenceSrc, redhead8Src]
+export const sceneActivist1_2b_3bAssets = [bgBldg1FenceSrc, redhead8Src]
 
 export function SceneActivist1_2b_3b() {
   return (

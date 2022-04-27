@@ -24,6 +24,7 @@ export type OptionsPlacement = 'top' | 'bottom'
 
 export interface OptionsViewProps {
   options: Option[]
+  label?: string
   dark?: boolean
   placement?: OptionsPlacement
   variants: CommandViewVariants
@@ -32,6 +33,7 @@ export interface OptionsViewProps {
 
 export function OptionsView({
   options,
+  label,
   dark,
   placement = 'bottom',
   variants,
@@ -56,6 +58,22 @@ export function OptionsView({
         'absolute inset-0 flex flex-col items-center space-y-2 p-8 pt-20',
         placement === 'bottom' ? 'justify-end' : 'justify-start',
       )}>
+      {!!label && (
+        <motion.span
+          className="mb-2 whitespace-pre-wrap text-center font-calligraph text-lg"
+          style={{
+            color: dark ? '#fBf9e0' : 'hsl(206, 24.0%, 9.0%)',
+            textShadow: dark
+              ? '0 -1px rgba(0, 0, 0, 0.35), 0 2px hsl(206, 24.0%, 9.0%)'
+              : '0 1px hsl(209, 12.2%, 93.2%)',
+          }}
+          variants={variants}
+          initial="initial"
+          animate={controls}>
+          {label}
+        </motion.span>
+      )}
+
       {options.map((o, idx) => (
         <motion.div
           key={o.label}
