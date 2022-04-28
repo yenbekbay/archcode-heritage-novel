@@ -5,8 +5,8 @@ import {useSceneContext} from './SceneContext'
 export interface CommandContextValue {
   frame: number
   /** Is this the current frame? */
-  active: boolean
-  /** Is this frame still shown but not necessarily active? */
+  focused: boolean
+  /** Is this frame still shown but not necessarily focused? */
   visible: boolean
 }
 

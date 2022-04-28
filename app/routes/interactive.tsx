@@ -55,9 +55,7 @@ function WithAssets({children}: WithAssetsProps) {
   React.useEffect(() => {
     ;(async () => {
       try {
-        await loadAsset.all([...new Set(assets)], (info) =>
-          setProgress(info.progress),
-        )
+        await loadAsset.all([...assets], (info) => setProgress(info.progress))
         setRes({status: 'success', data: undefined})
       } catch {
         setRes({

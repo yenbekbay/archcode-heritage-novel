@@ -43,9 +43,9 @@ export function SceneActivist1_2a() {
         Поберегу нервы, семья ждет, пойду дома чай попью
       </Say>
 
-      <Blank duration={10000} />
+      <Blank durationMs={10000} />
 
-      <Title transitory retained>
+      <Title transitory lingers>
         Конец игры
       </Title>
 
@@ -63,16 +63,16 @@ export function SceneActivist1_2a() {
 }
 
 function Background(_props: SceneBackgroundComponentProps) {
-  const {activeFrame} = useSceneContext()
+  const {focusedFrame} = useSceneContext()
   return (
     <>
       <img
-        src={activeFrame < 2 ? bgBldg1StaticSrc : bgBldg1GifSrc}
+        src={focusedFrame < 2 ? bgBldg1StaticSrc : bgBldg1GifSrc}
         className="min-h-full flex-1 object-cover"
       />
 
       <AnimatePresence>
-        {activeFrame < 2 && (
+        {focusedFrame < 2 && (
           <motion.div
             className="absolute inset-0"
             exit={{

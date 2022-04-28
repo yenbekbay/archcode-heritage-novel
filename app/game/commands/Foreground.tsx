@@ -14,7 +14,7 @@ export function Foreground({
   style,
   variants = {
     initial: {opacity: 0},
-    mount: {
+    entrance: {
       opacity: 1,
       transition: {delay: 0.5, duration: 1},
     },
@@ -26,7 +26,7 @@ export function Foreground({
   ...restProps
 }: ForegroundProps) {
   return (
-    <CommandContainer duration={500} skippable {...restProps}>
+    <CommandContainer durationMs={500} skippable {...restProps}>
       {(controls) => (
         <ForegroundView
           src={src}

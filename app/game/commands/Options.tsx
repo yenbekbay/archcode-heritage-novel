@@ -27,7 +27,7 @@ export function Options({
   foregroundStyle,
   variants = {
     initial: {opacity: 0},
-    mount: (idx) => ({
+    entrance: (idx) => ({
       opacity: 1,
       transition: {delay: 0.5 + 0.02 * idx},
     }),

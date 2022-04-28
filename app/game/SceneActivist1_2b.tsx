@@ -31,7 +31,7 @@ export function SceneActivist1_2b() {
         Мутят что-то без доклада народу. Надо разобраться!
       </Say>
 
-      <Blank duration={10000} />
+      <Blank durationMs={10000} />
 
       <Say
         large
@@ -55,16 +55,16 @@ export function SceneActivist1_2b() {
 }
 
 function Background(_props: SceneBackgroundComponentProps) {
-  const {activeFrame} = useSceneContext()
+  const {focusedFrame} = useSceneContext()
   return (
     <>
       <img
-        src={activeFrame < 1 ? bgBldg1StaticSrc : bgBldg1GifSrc}
+        src={focusedFrame < 1 ? bgBldg1StaticSrc : bgBldg1GifSrc}
         className="min-h-full flex-1 object-cover"
       />
 
       <AnimatePresence>
-        {activeFrame < 1 && (
+        {focusedFrame < 1 && (
           <motion.div
             className="absolute inset-0"
             exit={{

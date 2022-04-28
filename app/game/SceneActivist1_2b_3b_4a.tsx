@@ -32,33 +32,33 @@ export const sceneActivist1_2b_3b_4aAssets = [
 export function SceneActivist1_2b_3b_4a() {
   return (
     <SceneContainer BackgroundComponent={Background}>
-      <Blank duration={3000} />
+      <Blank durationMs={3000} />
 
       <Foreground
         src={aptOutsideWindowSrc}
         style={{height: '100%', width: '100%', objectFit: 'cover'}}
-        duration={3000}
+        durationMs={3000}
         transitory
-        retained={1}
+        lingers={1}
       />
 
       <Foreground
         src={aptEntranceSrc}
         style={{height: '100%', width: '100%', objectFit: 'cover'}}
-        duration={3000}
+        durationMs={3000}
         transitory
-        retained={1}
+        lingers={1}
       />
 
       <Foreground
         src={bgLaptopAboveSrc}
         style={{height: '100%', width: '100%', objectFit: 'cover'}}
-        duration={3000}
+        durationMs={3000}
         transitory
-        retained={3}
+        lingers={3}
       />
 
-      <Say large dark duration={0} transitory retained={1}>
+      <Say large dark durationMs={0} transitory lingers={1}>
         Действовать надо последовательно
       </Say>
 
@@ -70,7 +70,7 @@ export function SceneActivist1_2b_3b_4a() {
         src={aptKitchenSrc}
         style={{height: '100%', width: '100%', objectFit: 'cover'}}
         transitory
-        retained
+        lingers
       />
 
       <Say
@@ -78,7 +78,7 @@ export function SceneActivist1_2b_3b_4a() {
         foregroundSrc={redhead9Src}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory
-        retained={1}>
+        lingers={1}>
         Узнать надо побольше...
       </Say>
 
@@ -201,7 +201,7 @@ export function SceneActivist1_2b_3b_4a() {
           transform: 'scale(2) translateY(30px)',
         }}
         transitory
-        retained={1}>
+        lingers={1}>
         Думаю, можно обратиться к ним
       </Say>
 

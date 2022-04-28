@@ -9,6 +9,7 @@ specifiers:
   '@radix-ui/react-progress': 0.1.4
   '@radix-ui/react-separator': 0.1.4
   '@react-hook/size': 2.1.2
+  '@react-hookz/web': 13.3.0
   '@remix-run/dev': 1.4.1
   '@remix-run/eslint-config': 1.4.1
   '@remix-run/node': 1.4.1
@@ -44,7 +45,6 @@ specifiers:
   tailwindcss: 3.0.23
   type-fest: 2.12.2
   typescript: 4.6.3
-  usehooks-ts: 2.5.1
 
 dependencies:
   '@artsy/fresnel': 3.5.0_react@17.0.2
@@ -52,6 +52,7 @@ dependencies:
   '@radix-ui/react-progress': 0.1.4_react@17.0.2
   '@radix-ui/react-separator': 0.1.4_react@17.0.2
   '@react-hook/size': 2.1.2_react@17.0.2
+  '@react-hookz/web': 13.3.0_react-dom@17.0.2+react@17.0.2
   '@remix-run/node': 1.4.1_react-dom@17.0.2+react@17.0.2
   '@remix-run/react': 1.4.1_react-dom@17.0.2+react@17.0.2
   '@remix-run/vercel': 1.4.1_c9cf72bae47d64b8493a569664aa2e2d
@@ -65,7 +66,6 @@ dependencies:
   react-keyed-flatten-children: 1.3.0_react@17.0.2
   remeda: 0.0.32
   type-fest: 2.12.2
-  usehooks-ts: 2.5.1_react@17.0.2
 
 devDependencies:
   '@remix-run/dev': 1.4.1_react-dom@17.0.2+react@17.0.2
@@ -974,6 +974,25 @@ packages:
       '@react-hook/passive-layout-effect': 1.2.1_react@17.0.2
       '@react-hook/resize-observer': 1.2.5_react@17.0.2
       react: 17.0.2
+    dev: false
+
+  /@react-hookz/deep-equal/1.0.1:
+    resolution: {integrity: sha512-6k/pU2jNlgYvKOy84vpCAZ8MGVwybvAdjzrh4UicCVOCPxz0LSBws1OE6O5TO4sPHaSw+yLfNzNK8RicGFc1Kw==}
+    dev: false
+
+  /@react-hookz/web/13.3.0_react-dom@17.0.2+react@17.0.2:
+    resolution: {integrity: sha512-KswgkmqBVVDo6UnBFfssrojmDisogxC4jGZmd976R8YHoS3zdQJxjqICpOBSRohbRyYhYS9Cprw7BuV/CZcMaw==}
+    peerDependencies:
+      js-cookie: ^3.0.1
+      react: ^16.8 || ^17 || ^18
+      react-dom: ^16.8 || ^17 || ^18
+    peerDependenciesMeta:
+      js-cookie:
+        optional: true
+    dependencies:
+      '@react-hookz/deep-equal': 1.0.1
+      react: 17.0.2
+      react-dom: 17.0.2_react@17.0.2
     dev: false
 
   /@remix-run/dev/1.4.1_react-dom@17.0.2+react@17.0.2:
@@ -7469,14 +7488,6 @@ packages:
     resolution: {integrity: sha512-cwESVXlO3url9YWlFW/TA9cshCEhtu7IKJ/p5soJ/gGpj7vbvFrAY/eIioQ6Dw23KjZhYgiIo8HOs1nQ2vr/oQ==}
     engines: {node: '>=0.10.0'}
     dev: true
-
-  /usehooks-ts/2.5.1_react@17.0.2:
-    resolution: {integrity: sha512-vGIl/r7SMey3Uwe/YykLTJ5AmrlBe02MwQxsUBxNWDmfegEdHXXQaJ2VoOEayKW85Zwr+NyIhfVG+xrQYjtXVg==}
-    peerDependencies:
-      react: '>=16.8.0'
-    dependencies:
-      react: 17.0.2
-    dev: false
 
   /util-deprecate/1.0.2:
     resolution: {integrity: sha1-RQ1Nyfpw3nMnYvvS1KKJgUGaDM8=}

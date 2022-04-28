@@ -37,7 +37,7 @@ export function SceneIntro() {
         Наше настоящее в ваших руках!” - были его последние слова.
       </Say>
 
-      <Title transitory retained>
+      <Title transitory lingers>
         Снести нельзя оставить
       </Title>
 
@@ -61,7 +61,7 @@ export function SceneIntro() {
 
 function Background({
   containerSize,
-  completedPercent,
+  enteredPercent,
 }: SceneBackgroundComponentProps) {
   const controls = useAnimation()
   const imgRef = React.useRef<HTMLImageElement>(null)
@@ -73,13 +73,13 @@ function Background({
 
     controls.stop()
     controls.start({
-      y: `calc(${containerSize[1] - imgSize[1]}px * ${completedPercent})`,
+      y: `calc(${containerSize[1] - imgSize[1]}px * ${enteredPercent})`,
       transition: {
         duration: BACKGROUND_TRANSITION_DURATION_PER_PANEL / 1000,
         ease: 'easeOut',
       },
     })
-  }, [completedPercent, containerSize, controls, imgSize])
+  }, [enteredPercent, containerSize, controls, imgSize])
 
   return (
     <motion.img

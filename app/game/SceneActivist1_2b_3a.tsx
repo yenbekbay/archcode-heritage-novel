@@ -108,7 +108,7 @@ export function SceneActivist1_2b_3a() {
         foregroundStyle={{width: '90%', bottom: 0}}
       />
 
-      <Title transitory retained>
+      <Title transitory lingers>
         Конец игры
       </Title>
 

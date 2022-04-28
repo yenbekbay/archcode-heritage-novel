@@ -14,12 +14,12 @@ export function Command({frame, children}: CommandProps) {
   const commandCtx = React.useMemo(
     (): CommandContextValue => ({
       frame,
-      active: sceneCtx.activeFrame === frame,
+      focused: sceneCtx.focusedFrame === frame,
       visible:
-        sceneCtx.activeFrame >= frame &&
-        sceneCtx.activeFrame <= frame + (command?.retainedFor ?? 0),
+        sceneCtx.focusedFrame >= frame &&
+        sceneCtx.focusedFrame <= frame + (command?.visibleExtra ?? 0),
     }),
-    [command?.retainedFor, frame, sceneCtx.activeFrame],
+    [command?.visibleExtra, frame, sceneCtx.focusedFrame],
   )
   return (
     <CommandContext.Provider value={commandCtx}>

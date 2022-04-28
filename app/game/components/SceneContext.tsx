@@ -2,16 +2,16 @@ import React from 'react'
 
 export interface CommandT {
   skippable: boolean
-  /** For how many frames is this command active */
-  retainedFor: number
-  complete: () => void
+  /** For how many extra frames is this command visible */
+  visibleExtra: number
+  enter: () => void
 }
 
 export interface SceneContextValue {
   sceneId: SceneId
   getCommand: (frame: number) => CommandT | undefined
   registerCommand: (frame: number, command: CommandT) => void
-  activeFrame: number
+  focusedFrame: number
   goToFrame: React.Dispatch<React.SetStateAction<number>>
   goToNextFrame: () => void
 }

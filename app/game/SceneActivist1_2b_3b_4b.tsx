@@ -40,29 +40,29 @@ export const sceneActivist1_2b_3b_4bAssets = [
 export function SceneActivist1_2b_3b_4b() {
   return (
     <SceneContainer BackgroundComponent={Background}>
-      <Blank duration={3000} />
+      <Blank durationMs={3000} />
 
       <Foreground
         src={aptOutsideWindowSrc}
         style={{height: '100%', width: '100%', objectFit: 'cover'}}
-        duration={3000}
+        durationMs={3000}
         transitory
-        retained={1}
+        lingers={1}
       />
 
       <Foreground
         src={aptEntranceSrc}
         style={{height: '100%', width: '100%', objectFit: 'cover'}}
-        duration={3000}
+        durationMs={3000}
         transitory
-        retained={1}
+        lingers={1}
       />
 
       <Foreground
         src={aptKitchenSrc}
         style={{height: '100%', width: '100%', objectFit: 'cover'}}
         transitory
-        retained={7}
+        lingers={7}
       />
 
       <Say
@@ -70,7 +70,7 @@ export function SceneActivist1_2b_3b_4b() {
         foregroundSrc={redhead14Src}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory
-        retained={1}>
+        lingers={1}>
         БЕСПРЕДЕЛ!
       </Say>
 
@@ -84,7 +84,7 @@ export function SceneActivist1_2b_3b_4b() {
           transform: 'scale(2) translate(-12px, 20px)',
         }}
         transitory
-        retained={1}>
+        lingers={1}>
         *рассылка в whatsapp
       </Say>
 
@@ -129,7 +129,7 @@ export function SceneActivist1_2b_3b_4b() {
           marginTop: -24,
         }}
         transitory
-        retained={1}>
+        lingers={1}>
         *whatsapp web
       </Say>
 
@@ -152,14 +152,14 @@ export function SceneActivist1_2b_3b_4b() {
         foregroundSrc={guyBSrc}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory
-        retained={2}>
+        lingers={2}>
         *встреча активистов
       </Say>
 
       <Foreground
         src={guyASrc}
         style={{width: '100%', bottom: 0, transform: 'translateX(-25%)'}}
-        retained={1}
+        lingers={1}
       />
 
       <Foreground
@@ -306,9 +306,9 @@ export function SceneActivist1_2b_3b_4b() {
           top: 120,
           transform: 'scale(2.5) translateX(-7%)',
         }}
-        duration={0}
+        durationMs={0}
         transitory
-        retained={1}>
+        lingers={1}>
         Вот!
       </Say>
 
@@ -349,9 +349,9 @@ export function SceneActivist1_2b_3b_4b() {
           top: 120,
           transform: 'scale(2.5) translateX(-7%)',
         }}
-        duration={0}
+        durationMs={0}
         transitory
-        retained={1}>
+        lingers={1}>
         Вот!
       </Say>
 

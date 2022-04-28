@@ -12,7 +12,7 @@ export function Title({
   children,
   variants = {
     initial: {opacity: 0},
-    mount: {
+    entrance: {
       opacity: 1,
       transition: {delay: 0.5, duration: 4},
     },

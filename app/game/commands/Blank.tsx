@@ -1,5 +1,5 @@
 import React from 'react'
-import {useLatestRef} from '~/lib'
+import {useSyncedRef} from '@react-hookz/web'
 import type {CommandT} from '../components'
 import {
   useCommandContext,
@@ -8,32 +8,32 @@ import {
 } from '../components'
 
 export interface BlankProps {
-  duration?: number
+  durationMs?: number
 }
 
-export function Blank({duration}: BlankProps) {
+export function Blank({durationMs}: BlankProps) {
   const {goToNextFrame} = useSceneContext()
-  const {active, visible} = useCommandContext()
+  const {focused, visible} = useCommandContext()
   useRegisterCommand(
     React.useMemo(
       (): CommandT => ({
         skippable: true,
-        retainedFor: 0,
-        complete: () => false,
+        visibleExtra: 0,
+        enter: () => false,
       }),
       [],
     ),
   )
 
-  const latestActiveRef = useLatestRef(active)
+  const latestFocusedRef = useSyncedRef(focused)
   React.useEffect(
     () => {
-      if (visible && duration != null) {
+      if (visible && durationMs != null) {
         setTimeout(() => {
-          if (latestActiveRef.current) {
+          if (latestFocusedRef.current) {
             goToNextFrame()
           }
-        }, duration)
+        }, durationMs)
       }
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps

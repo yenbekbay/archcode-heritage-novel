@@ -43,7 +43,7 @@ export function Header() {
               {LINKS.map((l) => (
                 <li key={l.to}>
                   <RemixNavLink
-                    className={({isActive}) => (isActive ? 'active' : '')}
+                    className={({isActive}) => (isActive ? 'focused' : '')}
                     to={l.to}>
                     {l.label}
                   </RemixNavLink>
@@ -56,7 +56,7 @@ export function Header() {
             {LINKS.map((l) => (
               <li key={l.to}>
                 <RemixNavLink
-                  className={({isActive}) => (isActive ? 'active' : '')}
+                  className={({isActive}) => (isActive ? 'focused' : '')}
                   to={l.to}>
                   {l.label}
                 </RemixNavLink>

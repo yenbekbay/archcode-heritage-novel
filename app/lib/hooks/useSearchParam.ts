@@ -1,7 +1,7 @@
-import {useLatestRef} from './useLatestRef'
 import JsonURL from '@jsonurl/jsonurl'
-import React from 'react'
 import {useSearchParams} from '@remix-run/react'
+import React from 'react'
+import {useSyncedRef} from '@react-hookz/web'
 
 export function useSearchParam<T>(key: string, defaultValue: T) {
   const [searchParams, setSearchParams] = useSearchParams()
@@ -14,8 +14,8 @@ export function useSearchParam<T>(key: string, defaultValue: T) {
     }
   }, [defaultValue, raw])
 
-  const latestRawRef = useLatestRef(raw)
-  const latestParsedRef = useLatestRef(parsed)
+  const latestRawRef = useSyncedRef(raw)
+  const latestParsedRef = useSyncedRef(parsed)
   const setValue = React.useCallback(
     (action: React.SetStateAction<T>) => {
       const newValue =

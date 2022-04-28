@@ -40,7 +40,7 @@ export function Say({
   foregroundStyle,
   variants = {
     initial: {opacity: 0},
-    mount: (idx) => ({
+    entrance: (idx) => ({
       opacity: 1,
       transition: {delay: 0.5 + 0.02 * idx},
     }),
@@ -55,7 +55,7 @@ export function Say({
   const TextComp = href ? 'a' : 'span'
   return (
     <CommandContainer
-      duration={3000 + chars.length * 20}
+      durationMs={3000 + chars.length * 20}
       skippable
       {...restProps}>
       {(controls) => (

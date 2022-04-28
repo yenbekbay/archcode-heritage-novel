@@ -20,7 +20,7 @@ export const sceneActivist1_2b_3b_4cAssets = [
 export function SceneActivist1_2b_3b_4c() {
   return (
     <SceneContainer BackgroundComponent={Background}>
-      <Blank duration={3000} />
+      <Blank durationMs={3000} />
 
       <Say
         large
@@ -33,9 +33,9 @@ export function SceneActivist1_2b_3b_4c() {
       <Foreground
         src={bgArchcodeOfficeSrc}
         style={{height: '100%', width: '100%', objectFit: 'cover'}}
-        duration={0}
+        durationMs={0}
         transitory
-        retained={1}
+        lingers={1}
       />
 
       <Say
@@ -57,9 +57,9 @@ export function SceneActivist1_2b_3b_4c() {
       <Foreground
         src={bgArchcodeOfficeSrc}
         style={{height: '100%', width: '100%', objectFit: 'cover'}}
-        duration={0}
+        durationMs={0}
         transitory
-        retained={1}
+        lingers={1}
       />
 
       <Say
@@ -89,7 +89,7 @@ export function SceneActivist1_2b_3b_4c() {
         Позвонить в Архкод
       </Say>
 
-      <Title transitory retained>
+      <Title transitory lingers>
         Конец игры
       </Title>
 

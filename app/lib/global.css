@@ -2,6 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'calligraph';
+  src: url('/fonts/calligraph.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 .bg-gradient {
   background: radial-gradient(
       circle at top left,
@@ -30,9 +37,6 @@
   }
 }
 
-@font-face {
-  font-family: 'calligraph';
-  src: url('/fonts/calligraph.otf') format('opentype');
-  font-weight: normal;
-  font-style: normal;
+.progress.rounded-none {
+  --rounded-box: 0;
 }

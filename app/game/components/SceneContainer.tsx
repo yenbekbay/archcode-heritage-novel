@@ -1,7 +1,8 @@
 import useSize from '@react-hook/size'
 import React from 'react'
 import flattenChildren from 'react-keyed-flatten-children'
-import {useLatestRef, useSearchParam, useStableCallback} from '~/lib'
+import {useSyncedRef} from '@react-hookz/web'
+import {useSearchParam, useStableCallback} from '~/lib'
 import {Command} from './Command'
 import {useSceneId} from './Scene'
 import type {CommandT, SceneContextValue} from './SceneContext'
@@ -10,7 +11,7 @@ import {SceneContext} from './SceneContext'
 export interface SceneBackgroundComponentProps {
   containerSize: [number, number]
   /** 0 to 1 */
-  completedPercent: number
+  enteredPercent: number
 }
 
 export interface SceneContainerProps {
@@ -30,11 +31,12 @@ export function SceneContainer({
     [childrenProp],
   )
   const [commandMap] = React.useState(() => new Map<number, CommandT>())
-  const [activeFrame, goToFrame] = useActiveFrame(sceneId)
+  const [focusedFrame, goToFrame] = useFocusedFrame(sceneId)
   const goToNextFrame = useStableCallback(() => {
-    const activeCommand = commandMap.get(activeFrame)
-    const completed = activeCommand?.complete() ?? false
-    if (!completed) {
+    const focusedCommand = commandMap.get(focusedFrame)
+    const entered = focusedCommand?.enter() ?? false
+    // Complete entrance animation before jumping to next frame
+    if (!entered) {
       goToFrame((prev) => Math.min(children.length - 1, prev + 1))
     }
   })
@@ -48,11 +50,11 @@ export function SceneContainer({
           commandMap.delete(frame)
         }
       },
-      activeFrame,
+      focusedFrame,
       goToFrame,
       goToNextFrame,
     }),
-    [activeFrame, commandMap, goToFrame, goToNextFrame, sceneId],
+    [focusedFrame, commandMap, goToFrame, goToNextFrame, sceneId],
   )
   return (
     <SceneContext.Provider value={ctx}>
@@ -61,7 +63,7 @@ export function SceneContainer({
         className="relative flex-1"
         tabIndex={-1}
         onClick={() => {
-          const command = commandMap.get(activeFrame)
+          const command = commandMap.get(focusedFrame)
           if (command?.skippable) {
             goToNextFrame()
           }
@@ -70,7 +72,7 @@ export function SceneContainer({
           <div className="absolute inset-0 flex flex-col">
             <BackgroundComponent
               containerSize={containerSize}
-              completedPercent={(activeFrame + 1) / children.length}
+              enteredPercent={(focusedFrame + 1) / children.length}
             />
           </div>
         )}
@@ -85,28 +87,28 @@ export function SceneContainer({
   )
 }
 
-function useActiveFrame(sceneId: SceneId) {
-  const [_activeFrameId, goToFrameId] = useSearchParam<string>(
+function useFocusedFrame(sceneId: SceneId) {
+  const [_focusedFrameId, goToFrameId] = useSearchParam<string>(
     'f',
     `${sceneId}_${0}`,
   )
 
-  const activeFrameId = String(_activeFrameId)
-  let activeFrame = Number(activeFrameId.replace(`${sceneId}_`, ''))
-  if (Number.isNaN(activeFrame)) {
-    activeFrame = 0
+  const focusedFrameId = String(_focusedFrameId)
+  let focusedFrame = Number(focusedFrameId.replace(`${sceneId}_`, ''))
+  if (Number.isNaN(focusedFrame)) {
+    focusedFrame = 0
   }
 
-  const latestActiveFrameIndexRef = useLatestRef(activeFrame)
+  const latestFocusedFrameIndexRef = useSyncedRef(focusedFrame)
   const goToFrame = React.useCallback(
     (action: React.SetStateAction<number>) => {
       const newValue =
         typeof action === 'function'
-          ? action(latestActiveFrameIndexRef.current)
+          ? action(latestFocusedFrameIndexRef.current)
           : action
       goToFrameId(`${sceneId}_${newValue}`)
     },
-    [latestActiveFrameIndexRef, sceneId, goToFrameId],
+    [latestFocusedFrameIndexRef, sceneId, goToFrameId],
   )
-  return [activeFrame, goToFrame] as const
+  return [focusedFrame, goToFrame] as const
 }

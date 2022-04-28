@@ -27,7 +27,7 @@ import {
 import {sceneCityHall1Assets, SceneCityHall1} from './SceneCityHall1'
 import {introAssets, SceneIntro} from './SceneIntro'
 
-export const assets = [
+export const assets = new Set([
   ...introAssets,
   ...sceneActivist1Assets,
   ...sceneActivist1_2aAssets,
@@ -38,7 +38,7 @@ export const assets = [
   ...sceneActivist1_2b_3b_4bAssets,
   ...sceneActivist1_2b_3b_4cAssets,
   ...sceneCityHall1Assets,
-]
+])
 
 export const scenes = {
   Intro: SceneIntro,

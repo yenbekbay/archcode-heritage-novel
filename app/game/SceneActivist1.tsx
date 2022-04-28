@@ -25,7 +25,7 @@ export function SceneActivist1() {
         style={{height: '100%', transform: 'translate(-50%) scale(1.15)'}}
         variants={{
           initial: {x: '250%', scale: 0.5, originY: 1},
-          mount: {
+          entrance: {
             x: 0,
             scale: 1,
             transition: {delay: 0.5, duration: 2},
@@ -36,7 +36,7 @@ export function SceneActivist1() {
           },
         }}
         transitory
-        retained
+        lingers
       />
 
       <Say
@@ -65,10 +65,10 @@ export function SceneActivist1() {
 }
 
 function Background(_props: SceneBackgroundComponentProps) {
-  const {activeFrame} = useSceneContext()
+  const {focusedFrame} = useSceneContext()
   return (
     <img
-      src={activeFrame < 2 ? bgMapGifSrc : bgMapStaticSrc}
+      src={focusedFrame < 2 ? bgMapGifSrc : bgMapStaticSrc}
       className="flex-shrink-1 min-h-full flex-grow-0 basis-0 object-cover "
     />
   )
