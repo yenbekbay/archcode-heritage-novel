@@ -1,5 +1,9 @@
 import {useSyncedRef} from '@react-hookz/web'
-import {ArrowLeft as ArrowLeftIcon, House as HouseIcon} from 'phosphor-react'
+import {
+  ArrowCounterClockwise as ArrowCounterClockwiseIcon,
+  ArrowLeft as ArrowLeftIcon,
+  House as HouseIcon,
+} from 'phosphor-react'
 import React from 'react'
 import flattenChildren from 'react-keyed-flatten-children'
 import {useSearchParam} from '~/lib'
@@ -25,10 +29,11 @@ export const Game = React.forwardRef(function Game(
   {assets, initialSceneId, onClose, children: childrenProp}: GameProps,
   forwardedRef: React.ForwardedRef<GameInstance>,
 ) {
-  const [focusedFrame, setFocusedFrame] = useFocusedFrame({
+  const initialFrame = {
     sceneId: initialSceneId,
     frameIndex: 0,
-  })
+  }
+  const [focusedFrame, setFocusedFrame] = useFocusedFrame(initialFrame)
   const [history] = React.useState<GameHistory>(() =>
     makeGameHistory(focusedFrame),
   )
@@ -58,10 +63,17 @@ export const Game = React.forwardRef(function Game(
     (): GameContextValue => ({
       focusedFrame,
       goToScene(sceneId) {
-        history.push({sceneId, frameIndex: 0})
+        if (sceneId !== focusedFrame.sceneId) {
+          history.push({sceneId, frameIndex: 0})
+        }
       },
       goToFrame(sceneId, frameIndex) {
-        history.push({sceneId, frameIndex})
+        if (
+          sceneId !== focusedFrame.sceneId ||
+          frameIndex !== focusedFrame.frameIndex
+        ) {
+          history.push({sceneId, frameIndex})
+        }
       },
     }),
     [focusedFrame, history],
@@ -71,7 +83,13 @@ export const Game = React.forwardRef(function Game(
     <GameContext.Provider value={ctx}>
       <div className="h-screen">
         <div className="navbar absolute z-10 p-4">
-          <div className="navbar-start">
+          <div className="navbar-start space-x-2">
+            <button
+              className="btn btn-ghost btn-circle bg-white text-xl shadow-md"
+              onClick={() => history.push(initialFrame)}>
+              <ArrowCounterClockwiseIcon />
+            </button>
+
             {history.canGoBack() && (
               <button
                 className="btn btn-ghost btn-circle bg-white text-xl shadow-md"
@@ -81,7 +99,7 @@ export const Game = React.forwardRef(function Game(
             )}
           </div>
 
-          <div className="navbar-end">
+          <div className="navbar-end space-x-2">
             {onClose && (
               <button
                 className="btn btn-ghost btn-circle bg-white text-xl shadow-md"
