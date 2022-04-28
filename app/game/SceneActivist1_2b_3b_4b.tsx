@@ -159,6 +159,7 @@ export function SceneActivist1_2b_3b_4b() {
       <Foreground
         src={guyASrc}
         style={{width: '100%', bottom: 0, transform: 'translateX(-25%)'}}
+        transitory
         lingers={1}
       />
 

@@ -24,7 +24,7 @@ export function SceneContainer({
   BackgroundComponent,
   children: childrenProp,
 }: SceneContainerProps) {
-  const {focusedFrame, goToFrame} = useGameContext()
+  const {focusedFrame, goToFrame, goBack, canGoBack} = useGameContext()
   const sceneId = useSceneId()
   const focusedFrameIndex =
     focusedFrame.sceneId === sceneId ? focusedFrame.frameIndex : 0
@@ -97,6 +97,15 @@ export function SceneContainer({
           }
         }}
         {...bindLongPress()}>
+        {canGoBack() && (
+          <div
+            className="absolute left-0 z-50 h-full w-16 cursor-pointer from-current to-transparent hover:bg-gradient-to-r"
+            style={{color: 'rgba(0, 0, 0, 0.35)'}}
+            tabIndex={-1}
+            onClick={() => goBack()}
+          />
+        )}
+
         {BackgroundComponent && (
           <div className="absolute inset-0 flex flex-col">
             <BackgroundComponent

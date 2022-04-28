@@ -1,30 +1,35 @@
-import type {Emitter} from 'mitt'
-import mitt from 'mitt'
 import type {Frame} from './frame-id'
 
-export type GameHistoryEvents = {
-  change: Frame[]
-}
-
-export interface GameHistory extends Emitter<GameHistoryEvents> {
-  push(frame: Frame): void
-  goBack(): boolean
+export interface GameHistory {
+  peek: () => Frame
+  push: (frame: Frame) => void
+  reset: (frame?: Frame) => void
+  goBack: () => boolean
   canGoBack: () => boolean
 }
 
-export function makeGameHistory(initialFrame: Frame): GameHistory {
-  const items = [initialFrame]
-  const events = mitt<GameHistoryEvents>()
+export function makeGameHistory({
+  initialFrame,
+  onChange,
+}: {
+  initialFrame: Frame
+  onChange?: (newFrames: Frame[]) => void
+}): GameHistory {
+  let items = [initialFrame]
   return {
-    ...events,
+    peek: () => items[items.length - 1],
     push: (frame) => {
-      items.push(frame)
-      events.emit('change', items)
+      items = [...items, frame]
+      onChange?.(items)
+    },
+    reset: (frame) => {
+      items = [frame ?? initialFrame]
+      onChange?.(items)
     },
     goBack: () => {
       if (items.length > 1) {
-        items.pop()
-        events.emit('change', items)
+        items = items.slice(0, -1)
+        onChange?.(items)
         return true
       }
       return false

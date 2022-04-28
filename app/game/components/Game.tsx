@@ -1,4 +1,4 @@
-import {useSyncedRef} from '@react-hookz/web'
+import {useUpdateEffect} from '@react-hookz/web'
 import {
   ArrowCounterClockwise as ArrowCounterClockwiseIcon,
   ArrowLeft as ArrowLeftIcon,
@@ -22,20 +22,23 @@ export interface GameProps {
   children?: React.ReactElement[] | React.ReactElement
 }
 
-export interface GameInstance
-  extends Pick<GameHistory, 'canGoBack' | 'goBack' | 'on' | 'off'> {}
-
-export const Game = React.forwardRef(function Game(
-  {assets, initialSceneId, onClose, children: childrenProp}: GameProps,
-  forwardedRef: React.ForwardedRef<GameInstance>,
-) {
-  const initialFrame = {
-    sceneId: initialSceneId,
-    frameIndex: 0,
-  }
-  const [focusedFrame, setFocusedFrame] = useFocusedFrame(initialFrame)
+export const Game = function Game({
+  assets,
+  initialSceneId,
+  onClose,
+  children: childrenProp,
+}: GameProps) {
+  const initialFrame: Frame = {sceneId: initialSceneId, frameIndex: 0}
+  const [storedFocusedFrameId, setStoredFocusedFrameId] =
+    useSearchParam<string>('f', makeFrameId(initialFrame))
+  const [focusedFrame, setFocusedFrame] = React.useState(
+    () => parseFrameId(storedFocusedFrameId) ?? initialFrame,
+  )
   const [history] = React.useState<GameHistory>(() =>
-    makeGameHistory(focusedFrame),
+    makeGameHistory({
+      initialFrame: focusedFrame,
+      onChange: (newFrames) => setFocusedFrame(newFrames[newFrames.length - 1]),
+    }),
   )
   const children = React.useMemo(
     () =>
@@ -45,19 +48,20 @@ export const Game = React.forwardRef(function Game(
     [childrenProp],
   )
 
-  React.useImperativeHandle(forwardedRef, (): GameInstance => history, [
-    history,
-  ])
+  useUpdateEffect(() => {
+    setStoredFocusedFrameId(makeFrameId(focusedFrame))
+  }, [focusedFrame])
 
-  React.useEffect(() => {
-    function handleChange(frames: Frame[]) {
-      setFocusedFrame(frames[frames.length - 1])
+  useUpdateEffect(() => {
+    const storedFocusedFrame = parseFrameId(storedFocusedFrameId)
+    if (
+      storedFocusedFrame &&
+      (storedFocusedFrame.sceneId !== focusedFrame.sceneId ||
+        storedFocusedFrame.frameIndex !== focusedFrame.frameIndex)
+    ) {
+      history.reset(storedFocusedFrame)
     }
-    history.on('change', handleChange)
-    return () => {
-      history.off('change', handleChange)
-    }
-  }, [setFocusedFrame, history])
+  }, [storedFocusedFrameId])
 
   const ctx = React.useMemo(
     (): GameContextValue => ({
@@ -75,6 +79,8 @@ export const Game = React.forwardRef(function Game(
           history.push({sceneId, frameIndex})
         }
       },
+      goBack: history.goBack,
+      canGoBack: history.canGoBack,
     }),
     [focusedFrame, history],
   )
@@ -122,25 +128,4 @@ export const Game = React.forwardRef(function Game(
       </div>
     </GameContext.Provider>
   )
-})
-
-export function useFocusedFrame(defaultFrame: Frame) {
-  const [focusedFrameId, setFocusedFrameId] = useSearchParam<string>(
-    'f',
-    makeFrameId(defaultFrame),
-  )
-  const focusedFrame = parseFrameId(focusedFrameId) ?? defaultFrame
-  const latestFocusedFrameRef = useSyncedRef(focusedFrame)
-  const setFocusedFrame = React.useCallback(
-    (action: React.SetStateAction<Frame>) =>
-      setFocusedFrameId(
-        makeFrameId(
-          typeof action === 'function'
-            ? action(latestFocusedFrameRef.current)
-            : action,
-        ),
-      ),
-    [latestFocusedFrameRef, setFocusedFrameId],
-  )
-  return [focusedFrame, setFocusedFrame] as const
 }

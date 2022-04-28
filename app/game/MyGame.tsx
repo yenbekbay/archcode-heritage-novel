@@ -1,5 +1,5 @@
 import React from 'react'
-import type {GameInstance, GameProps} from './components'
+import type {GameProps} from './components'
 import {Game, Scene} from './components'
 import {SceneActivist1, sceneActivist1Assets} from './SceneActivist1'
 import {SceneActivist1_2a, sceneActivist1_2aAssets} from './SceneActivist1_2a'
@@ -59,12 +59,11 @@ declare global {
   type SceneId = keyof typeof scenes
 }
 
-export const MyGame = React.forwardRef(function MyGame(
+export function MyGame(
   props: Omit<GameProps, 'assets' | 'initialSceneId' | 'children'>,
-  forwardedRef: React.ForwardedRef<GameInstance>,
 ) {
   return (
-    <Game ref={forwardedRef} assets={assets} initialSceneId="Intro" {...props}>
+    <Game assets={assets} initialSceneId="Intro" {...props}>
       {Object.entries(scenes).map(([id, SceneComp]) => (
         <Scene key={id} id={id as SceneId}>
           <SceneComp />
@@ -72,4 +71,4 @@ export const MyGame = React.forwardRef(function MyGame(
       ))}
     </Game>
   )
-})
+}

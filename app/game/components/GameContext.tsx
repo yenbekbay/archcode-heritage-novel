@@ -9,6 +9,8 @@ export interface GameContextValue {
   focusedFrame: Frame
   goToScene: (sceneId: SceneId) => void
   goToFrame: (sceneId: SceneId, frameIndex: number) => void
+  goBack: () => boolean
+  canGoBack: () => boolean
 }
 
 export const GameContext = React.createContext<GameContextValue | null>(null)
