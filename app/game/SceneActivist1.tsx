@@ -1,5 +1,5 @@
 import bgMapGifSrc from '~/assets/game/bg-map.gif'
-import bgMapStaticSrc from '~/assets/game/bg-map.png'
+import bgMapStaticSrc from '~/assets/game/bg-map.jpg'
 import fenceSrc from '~/assets/game/fence.png'
 import redhead1Src from '~/assets/game/redhead-1.png'
 import {Foreground, Say} from './commands'

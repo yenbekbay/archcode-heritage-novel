@@ -1,5 +1,5 @@
-import bgBldg1FenceSrc from '~/assets/game/bg-bldg-1-fence.png'
-import bgPhoneFingerSrc from '~/assets/game/bg-phone-finger.png'
+import bgBldg1FenceSrc from '~/assets/game/bg-bldg-1-fence.jpg'
+import bgPhoneFingerSrc from '~/assets/game/bg-phone-finger.jpg'
 import redhead2Src from '~/assets/game/redhead-2.png'
 import redhead5Src from '~/assets/game/redhead-5.png'
 import redhead7Src from '~/assets/game/redhead-7.png'

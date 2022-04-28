@@ -1,6 +1,6 @@
 import {AnimatePresence, motion} from 'framer-motion'
 import bgBldg1GifSrc from '~/assets/game/bg-bldg-1.gif'
-import bgBldg1StaticSrc from '~/assets/game/bg-bldg-1.png'
+import bgBldg1StaticSrc from '~/assets/game/bg-bldg-1.jpg'
 import fenceSrc from '~/assets/game/fence.png'
 import redhead2Src from '~/assets/game/redhead-2.png'
 import redhead4Src from '~/assets/game/redhead-4.png'

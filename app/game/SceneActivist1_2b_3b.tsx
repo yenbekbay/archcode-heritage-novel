@@ -1,4 +1,4 @@
-import bgBldg1FenceSrc from '~/assets/game/bg-bldg-1-fence.png'
+import bgBldg1FenceSrc from '~/assets/game/bg-bldg-1-fence.jpg'
 import redhead8Src from '~/assets/game/redhead-8.png'
 import {Say} from './commands'
 import type {SceneBackgroundComponentProps} from './components'
