@@ -11,6 +11,17 @@ export const introAssets = [bgIntroSrc]
 export function SceneIntro() {
   return (
     <SceneContainer BackgroundComponent={Background}>
+      <Options
+        large
+        placement="middle"
+        options={[
+          {
+            label: 'Начать',
+            onClick: (ctx) => ctx.skip(),
+          },
+        ]}
+      />
+
       <Say transitory>
         В городе, с цветущими яблонями и журчащими арыками, где возвышалось
         здание с изогнутой золотой крышей и стучали об рельсы трамваи, на

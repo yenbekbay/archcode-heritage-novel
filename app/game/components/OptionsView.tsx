@@ -20,11 +20,12 @@ export interface Option {
   onClick: (ctx: OptionContext) => void
 }
 
-export type OptionsPlacement = 'top' | 'bottom'
+export type OptionsPlacement = 'top' | 'middle' | 'bottom'
 
 export interface OptionsViewProps {
   options: Option[]
   label?: string
+  large?: boolean
   dark?: boolean
   placement?: OptionsPlacement
   variants: CommandViewVariants
@@ -34,6 +35,7 @@ export interface OptionsViewProps {
 export function OptionsView({
   options,
   label,
+  large,
   dark,
   placement = 'bottom',
   variants,
@@ -56,7 +58,11 @@ export function OptionsView({
     <div
       className={clsx(
         'absolute inset-0 flex flex-col items-center space-y-2 p-8 pt-20',
-        placement === 'bottom' ? 'justify-end' : 'justify-start',
+        {
+          top: 'justify-start',
+          middle: 'justify-center',
+          bottom: 'justify-end',
+        }[placement],
       )}>
       {!!label && (
         <motion.span
@@ -83,7 +89,10 @@ export function OptionsView({
           animate={controls}
           custom={idx}>
           <motion.div
-            className="btn btn-ghost btn-lg h-10 min-h-0 font-calligraph shadow-md"
+            className={clsx(
+              'btn btn-ghost min-h-0 font-calligraph shadow-md',
+              large ? 'btn-xl h-12 text-2xl' : 'text-md btn-lg h-10',
+            )}
             style={{
               color: dark ? 'white' : 'hsl(206, 24.0%, 9.0%)',
               backgroundColor: dark

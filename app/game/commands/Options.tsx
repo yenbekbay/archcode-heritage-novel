@@ -11,6 +11,7 @@ export interface OptionsProps
   extends Partial<Omit<CommandContainerProps, 'children'>> {
   options: Option[]
   label?: string
+  large?: boolean
   dark?: boolean
   placement?: OptionsPlacement
   foregroundSrc?: string
@@ -21,6 +22,7 @@ export interface OptionsProps
 export function Options({
   options,
   label,
+  large,
   dark,
   placement,
   foregroundSrc,
@@ -52,6 +54,7 @@ export function Options({
           )}
 
           <OptionsView
+            large={large}
             dark={dark}
             placement={placement}
             options={options}
