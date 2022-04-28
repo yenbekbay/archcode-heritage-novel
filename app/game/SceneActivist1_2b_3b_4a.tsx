@@ -1,6 +1,6 @@
-import aptEntranceSrc from '~/assets/game/apt-entrance.jpg'
-import aptKitchenSrc from '~/assets/game/apt-kitchen.jpg'
-import aptOutsideWindowSrc from '~/assets/game/apt-outside-window.jpg'
+import bgAptEntranceSrc from '~/assets/game/bg-apt-entrance.jpg'
+import bgAptKitchenSrc from '~/assets/game/bg-apt-kitchen.jpg'
+import bgAptOutsideWindowSrc from '~/assets/game/bg-apt-outside-window.jpg'
 import bgCourtyardSrc from '~/assets/game/bg-courtyard.jpg'
 import bgLaptopAboveSrc from '~/assets/game/bg-laptop-above.jpg'
 import bgLaptopHandsSrc from '~/assets/game/bg-laptop-hands.jpg'
@@ -15,9 +15,9 @@ import type {SceneBackgroundComponentProps} from './components'
 import {SceneContainer} from './components'
 
 export const sceneActivist1_2b_3b_4aAssets = [
-  aptEntranceSrc,
-  aptKitchenSrc,
-  aptOutsideWindowSrc,
+  bgAptEntranceSrc,
+  bgAptKitchenSrc,
+  bgAptOutsideWindowSrc,
   bgCourtyardSrc,
   bgLaptopAboveSrc,
   bgLaptopHandsSrc,
@@ -35,7 +35,7 @@ export function SceneActivist1_2b_3b_4a() {
       <Blank durationMs={3000} />
 
       <Foreground
-        src={aptOutsideWindowSrc}
+        src={bgAptOutsideWindowSrc}
         style={{height: '100%', width: '100%', objectFit: 'cover'}}
         durationMs={3000}
         transitory
@@ -43,7 +43,7 @@ export function SceneActivist1_2b_3b_4a() {
       />
 
       <Foreground
-        src={aptEntranceSrc}
+        src={bgAptEntranceSrc}
         style={{height: '100%', width: '100%', objectFit: 'cover'}}
         durationMs={3000}
         transitory
@@ -67,7 +67,7 @@ export function SceneActivist1_2b_3b_4a() {
       </Say>
 
       <Foreground
-        src={aptKitchenSrc}
+        src={bgAptKitchenSrc}
         style={{height: '100%', width: '100%', objectFit: 'cover'}}
         transitory
         lingers

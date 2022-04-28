@@ -1,6 +1,6 @@
-import aptEntranceSrc from '~/assets/game/apt-entrance.jpg'
-import aptKitchenSrc from '~/assets/game/apt-kitchen.jpg'
-import aptOutsideWindowSrc from '~/assets/game/apt-outside-window.jpg'
+import bgAptEntranceSrc from '~/assets/game/bg-apt-entrance.jpg'
+import bgAptKitchenSrc from '~/assets/game/bg-apt-kitchen.jpg'
+import bgAptOutsideWindowSrc from '~/assets/game/bg-apt-outside-window.jpg'
 import bgCourtyardSrc from '~/assets/game/bg-courtyard.jpg'
 import bgLaptopStandaloneSrc from '~/assets/game/bg-laptop-standalone.jpg'
 import bgPhoneFingerSrc from '~/assets/game/bg-phone-finger.jpg'
@@ -8,20 +8,20 @@ import bgPhoneHandSrc from '~/assets/game/bg-phone-hand.jpg'
 import guyASrc from '~/assets/game/guy-a.png'
 import guyBSrc from '~/assets/game/guy-b.png'
 import redhead1Src from '~/assets/game/redhead-1.png'
-import redhead5Src from '~/assets/game/redhead-5.png'
 import redhead14Src from '~/assets/game/redhead-14.png'
 import redhead15Src from '~/assets/game/redhead-15.png'
 import redhead16Src from '~/assets/game/redhead-16.png'
 import redhead17Src from '~/assets/game/redhead-17.png'
 import redhead18Src from '~/assets/game/redhead-18.png'
+import redhead5Src from '~/assets/game/redhead-5.png'
 import {Blank, Foreground, Options, Say} from './commands'
 import type {SceneBackgroundComponentProps} from './components'
 import {SceneContainer} from './components'
 
 export const sceneActivist1_2b_3b_4bAssets = [
-  aptEntranceSrc,
-  aptKitchenSrc,
-  aptOutsideWindowSrc,
+  bgAptEntranceSrc,
+  bgAptKitchenSrc,
+  bgAptOutsideWindowSrc,
   bgCourtyardSrc,
   bgLaptopStandaloneSrc,
   bgPhoneFingerSrc,
@@ -43,7 +43,7 @@ export function SceneActivist1_2b_3b_4b() {
       <Blank durationMs={3000} />
 
       <Foreground
-        src={aptOutsideWindowSrc}
+        src={bgAptOutsideWindowSrc}
         style={{height: '100%', width: '100%', objectFit: 'cover'}}
         durationMs={3000}
         transitory
@@ -51,7 +51,7 @@ export function SceneActivist1_2b_3b_4b() {
       />
 
       <Foreground
-        src={aptEntranceSrc}
+        src={bgAptEntranceSrc}
         style={{height: '100%', width: '100%', objectFit: 'cover'}}
         durationMs={3000}
         transitory
@@ -59,7 +59,7 @@ export function SceneActivist1_2b_3b_4b() {
       />
 
       <Foreground
-        src={aptKitchenSrc}
+        src={bgAptKitchenSrc}
         style={{height: '100%', width: '100%', objectFit: 'cover'}}
         transitory
         lingers={7}

@@ -119,7 +119,7 @@ export const CommandView = React.forwardRef(function CommandView(
       <AnimatePresence>
         {skippable && transitory && focused && (
           <motion.progress
-            className="progress absolute top-0 w-full rounded-none"
+            className="progress absolute top-0 z-50 w-full rounded-none"
             initial={{opacity: 0}}
             animate={{opacity: 1}}
             exit={{opacity: 0}}
