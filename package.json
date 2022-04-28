@@ -32,6 +32,7 @@
     "rules": {
       "prefer-const": "warn",
       "codegen/codegen": "warn",
+      "import/no-unresolved": "error",
       "jsx-a11y/alt-text": "off"
     },
     "ignorePatterns": [

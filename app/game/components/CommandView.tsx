@@ -1,4 +1,4 @@
-import {useIsMounted, useUpdateEffect} from '@react-hookz/web'
+import {useIsMounted} from '@react-hookz/web'
 import type {Variant} from 'framer-motion'
 import {AnimatePresence, motion, useAnimation, usePresence} from 'framer-motion'
 import type {AnimationControls} from 'framer-motion/types/animation/types'
