@@ -80,8 +80,8 @@ export const CommandView = React.forwardRef(function CommandView(
 
   React.useEffect(
     () => {
-      setCountdownProgress(0)
       if (skippable && transitory && entered && focused) {
+        setCountdownProgress(0)
         countdownTimerRef.current = setInterval(() => {
           if (isMounted()) {
             setCountdownProgress((prev) => prev + 1)
@@ -93,7 +93,7 @@ export const CommandView = React.forwardRef(function CommandView(
       }
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [entered],
+    [entered, focused],
   )
 
   React.useEffect(
