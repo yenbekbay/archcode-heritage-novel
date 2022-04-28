@@ -111,7 +111,7 @@ export function OptionsView({
               duration: 1,
               ease: 'easeInOut',
             }}
-            onClick={(event: React.MouseEvent) => {
+            onClick={(event) => {
               event.stopPropagation()
               o.onClick(ctx)
             }}>

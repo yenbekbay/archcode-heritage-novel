@@ -62,12 +62,12 @@ export const Game = React.forwardRef(function Game(
   const ctx = React.useMemo(
     (): GameContextValue => ({
       focusedFrame,
-      goToScene(sceneId) {
+      goToScene: (sceneId) => {
         if (sceneId !== focusedFrame.sceneId) {
           history.push({sceneId, frameIndex: 0})
         }
       },
-      goToFrame(sceneId, frameIndex) {
+      goToFrame: (sceneId, frameIndex) => {
         if (
           sceneId !== focusedFrame.sceneId ||
           frameIndex !== focusedFrame.frameIndex

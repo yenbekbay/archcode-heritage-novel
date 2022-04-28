@@ -5,6 +5,8 @@ export interface CommandT {
   /** For how many extra frames is this command visible */
   visibleExtra: number
   enter: () => void
+  pause: () => void
+  resume: () => void
 }
 
 export interface SceneContextValue {

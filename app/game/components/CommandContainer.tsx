@@ -39,9 +39,9 @@ export function CommandContainer({
           }
           return 0
         })(),
-        enter() {
-          return viewRef.current?.enter() ?? false
-        },
+        enter: () => viewRef.current?.enter() ?? false,
+        pause: () => viewRef.current?.pause(),
+        resume: () => viewRef.current?.resume(),
       }),
       [skippable, lingers],
     ),

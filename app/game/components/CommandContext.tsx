@@ -27,7 +27,8 @@ export function useCommandContext() {
 export function useRegisterCommand(command: CommandT) {
   const sceneCtx = useSceneContext()
   const {frameIndex} = useCommandContext()
-  React.useEffect(() => {
-    return sceneCtx.registerCommand(frameIndex, command)
-  }, [command, frameIndex, sceneCtx])
+  React.useEffect(
+    () => sceneCtx.registerCommand(frameIndex, command),
+    [command, frameIndex, sceneCtx],
+  )
 }

@@ -17,11 +17,11 @@ export function makeGameHistory(initialFrame: Frame): GameHistory {
   const events = mitt<GameHistoryEvents>()
   return {
     ...events,
-    push(frame) {
+    push: (frame) => {
       items.push(frame)
       events.emit('change', items)
     },
-    goBack() {
+    goBack: () => {
       if (items.length > 1) {
         items.pop()
         events.emit('change', items)
@@ -29,8 +29,6 @@ export function makeGameHistory(initialFrame: Frame): GameHistory {
       }
       return false
     },
-    canGoBack() {
-      return items.length > 1
-    },
+    canGoBack: () => items.length > 1,
   }
 }

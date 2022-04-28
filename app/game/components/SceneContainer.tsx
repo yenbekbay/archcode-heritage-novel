@@ -1,6 +1,7 @@
 import useSize from '@react-hook/size'
 import React from 'react'
 import flattenChildren from 'react-keyed-flatten-children'
+import {useLongPress} from 'use-long-press'
 import {useStableCallback} from '~/lib'
 import {Command} from './Command'
 import {useGameContext} from './GameContext'
@@ -47,25 +48,35 @@ export function SceneContainer({
   const ctx = React.useMemo(
     (): SceneContextValue => ({
       sceneId,
-      getCommand(frameIndex) {
-        return commandMap.get(frameIndex)
-      },
-      registerCommand(frameIndex, command) {
+      getCommand: (frameIndex) => commandMap.get(frameIndex),
+      registerCommand: (frameIndex, command) => {
         commandMap.set(frameIndex, command)
         return () => {
           commandMap.delete(frameIndex)
         }
       },
       focusedFrameIndex,
-      goToFrame(action) {
-        return goToFrame(
+      goToFrame: (action) =>
+        goToFrame(
           sceneId,
           typeof action === 'number' ? action : action(focusedFrameIndex),
-        )
-      },
+        ),
       skip,
     }),
     [focusedFrameIndex, commandMap, goToFrame, skip, sceneId],
+  )
+
+  const ignoreClickRef = React.useRef(false)
+  const bindLongPress = useLongPress(
+    () => {
+      commandMap.get(focusedFrameIndex)?.pause()
+      ignoreClickRef.current = true
+    },
+    {
+      onFinish: () => {
+        commandMap.get(focusedFrameIndex)?.resume()
+      },
+    },
   )
 
   return (
@@ -75,11 +86,17 @@ export function SceneContainer({
         className="relative flex-1"
         tabIndex={-1}
         onClick={() => {
+          if (ignoreClickRef.current) {
+            ignoreClickRef.current = false
+            return
+          }
+
           const command = commandMap.get(focusedFrameIndex)
           if (command?.skippable) {
             skip()
           }
-        }}>
+        }}
+        {...bindLongPress()}>
         {BackgroundComponent && (
           <div className="absolute inset-0 flex flex-col">
             <BackgroundComponent

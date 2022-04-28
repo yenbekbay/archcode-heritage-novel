@@ -21,6 +21,8 @@ export interface CommandViewProps {
 
 export interface CommandViewInstance {
   enter: () => void
+  pause: () => void
+  resume: () => void
 }
 
 export const CommandView = React.forwardRef(function CommandView(
@@ -40,10 +42,14 @@ export const CommandView = React.forwardRef(function CommandView(
   }, [])
 
   const controls = useAnimation()
+  const [countdownProgress, setCountdownProgress] = React.useState(0)
+  const countdownTimerRef = React.useRef<ReturnType<typeof setInterval>>()
+  const countdownPausedRef = React.useRef(false)
+
   React.useImperativeHandle(
     forwardedRef,
     (): CommandViewInstance => ({
-      enter() {
+      enter: () => {
         if (enteredRef.current) {
           return false
         }
@@ -53,12 +59,15 @@ export const CommandView = React.forwardRef(function CommandView(
         setEntered(true)
         return true
       },
+      pause: () => {
+        countdownPausedRef.current = true
+      },
+      resume: () => {
+        countdownPausedRef.current = false
+      },
     }),
     [controls, setEntered],
   )
-
-  const [countdownProgress, setCountdownProgress] = React.useState(0)
-  const countdownTimerRef = React.useRef<ReturnType<typeof setInterval>>()
 
   React.useEffect(
     () => {
@@ -83,6 +92,10 @@ export const CommandView = React.forwardRef(function CommandView(
       if (skippable && transitory && entered && focused) {
         setCountdownProgress(0)
         countdownTimerRef.current = setInterval(() => {
+          if (countdownPausedRef.current) {
+            return
+          }
+
           if (isMounted()) {
             setCountdownProgress((prev) => prev + 1)
           } else if (countdownTimerRef.current) {
