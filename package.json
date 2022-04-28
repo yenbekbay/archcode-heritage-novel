@@ -6,10 +6,10 @@
   "sideEffects": false,
   "scripts": {
     "build": "run-s --silent build:*",
-    "build:css": "pnpm generate:css -- --minify",
+    "build:css": "npm run generate:css -- --minify",
     "build:remix": "remix build",
     "dev": "run-p --silent dev:*",
-    "dev:css": "pnpm generate:css -- --watch",
+    "dev:css": "npm run generate:css -- --watch",
     "dev:remix": "remix dev",
     "generate:css": "npx tailwindcss -i ./app/lib/global.css -o ./app/tailwind.css",
     "lint": "eslint --ext .js,.ts,.tsx --cache .",
@@ -47,9 +47,9 @@
     "@radix-ui/react-separator": "0.1.4",
     "@react-hook/size": "2.1.2",
     "@react-hookz/web": "13.3.0",
-    "@remix-run/node": "1.4.1",
-    "@remix-run/react": "1.4.1",
-    "@remix-run/vercel": "1.4.1",
+    "@remix-run/node": "1.4.3",
+    "@remix-run/react": "1.4.3",
+    "@remix-run/vercel": "1.4.3",
     "@vercel/node": "1.14.1",
     "clsx": "1.1.1",
     "framer-motion": "6.3.2",
@@ -63,9 +63,9 @@
     "type-fest": "2.12.2"
   },
   "devDependencies": {
-    "@remix-run/dev": "1.4.1",
-    "@remix-run/eslint-config": "1.4.1",
-    "@remix-run/serve": "1.4.1",
+    "@remix-run/dev": "1.4.3",
+    "@remix-run/eslint-config": "1.4.3",
+    "@remix-run/serve": "1.4.3",
     "@tailwindcss/forms": "0.5.0",
     "@tailwindcss/typography": "0.5.2",
     "@trivago/prettier-plugin-sort-imports": "3.2.0",
@@ -88,10 +88,5 @@
   },
   "engines": {
     "node": ">=14"
-  },
-  "pnpm": {
-    "overrides": {
-      "@types/react": "17.0.37"
-    }
   }
 }
