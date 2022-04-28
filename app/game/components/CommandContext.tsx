@@ -3,10 +3,10 @@ import type {CommandT} from './SceneContext'
 import {useSceneContext} from './SceneContext'
 
 export interface CommandContextValue {
-  frame: number
-  /** Is this the current frame? */
+  frameIndex: number
+  /** Is this the current frameIndex? */
   focused: boolean
-  /** Is this frame still shown but not necessarily focused? */
+  /** Is this frameIndex still shown but not necessarily focused? */
   visible: boolean
 }
 
@@ -26,8 +26,8 @@ export function useCommandContext() {
 
 export function useRegisterCommand(command: CommandT) {
   const sceneCtx = useSceneContext()
-  const {frame} = useCommandContext()
+  const {frameIndex} = useCommandContext()
   React.useEffect(() => {
-    return sceneCtx.registerCommand(frame, command)
-  }, [command, frame, sceneCtx])
+    return sceneCtx.registerCommand(frameIndex, command)
+  }, [command, frameIndex, sceneCtx])
 }

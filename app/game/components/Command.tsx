@@ -4,22 +4,22 @@ import {CommandContext} from './CommandContext'
 import {useSceneContext} from './SceneContext'
 
 export interface CommandProps {
-  frame: number
+  frameIndex: number
   children: React.ReactNode
 }
 
-export function Command({frame, children}: CommandProps) {
+export function Command({frameIndex, children}: CommandProps) {
   const sceneCtx = useSceneContext()
-  const command = sceneCtx.getCommand(frame)
+  const command = sceneCtx.getCommand(frameIndex)
   const commandCtx = React.useMemo(
     (): CommandContextValue => ({
-      frame,
-      focused: sceneCtx.focusedFrame === frame,
+      frameIndex,
+      focused: sceneCtx.focusedFrameIndex === frameIndex,
       visible:
-        sceneCtx.focusedFrame >= frame &&
-        sceneCtx.focusedFrame <= frame + (command?.visibleExtra ?? 0),
+        sceneCtx.focusedFrameIndex >= frameIndex &&
+        sceneCtx.focusedFrameIndex <= frameIndex + (command?.visibleExtra ?? 0),
     }),
-    [command?.visibleExtra, frame, sceneCtx.focusedFrame],
+    [command?.visibleExtra, frameIndex, sceneCtx.focusedFrameIndex],
   )
   return (
     <CommandContext.Provider value={commandCtx}>

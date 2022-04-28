@@ -1,6 +1,6 @@
 import {NavLink as RemixNavLink} from '@remix-run/react'
 import {List as ListIcon} from 'phosphor-react'
-import {ArchcodeLogo} from './atoms'
+import archcodeLogoUrl from '~/assets/logo.png'
 
 const LINKS: {to: string; label: string}[] = [
   {
@@ -27,7 +27,11 @@ export function Header() {
       <div className="navbar p-4">
         <div className="flex-1">
           <RemixNavLink className="flex-shrink-0" to="/">
-            <ArchcodeLogo />
+            <img
+              style={{height: '3rem'}}
+              src={archcodeLogoUrl}
+              alt="Логотип Архкод"
+            />
           </RemixNavLink>
         </div>
 

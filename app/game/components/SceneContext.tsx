@@ -9,11 +9,11 @@ export interface CommandT {
 
 export interface SceneContextValue {
   sceneId: SceneId
-  getCommand: (frame: number) => CommandT | undefined
-  registerCommand: (frame: number, command: CommandT) => void
-  focusedFrame: number
+  getCommand: (frameIndex: number) => CommandT | undefined
+  registerCommand: (frameIndex: number, command: CommandT) => void
+  focusedFrameIndex: number
   goToFrame: React.Dispatch<React.SetStateAction<number>>
-  goToNextFrame: () => void
+  skip: () => void
 }
 
 export const SceneContext = React.createContext<SceneContextValue | null>(null)

@@ -5,10 +5,10 @@
   "license": "GPL-3.0",
   "sideEffects": false,
   "scripts": {
-    "build": "run-s build:*",
+    "build": "run-s --silent build:*",
     "build:css": "pnpm generate:css -- --minify",
     "build:remix": "remix build",
-    "dev": "run-p dev:*",
+    "dev": "run-p --silent dev:*",
     "dev:css": "pnpm generate:css -- --watch",
     "dev:remix": "remix dev",
     "generate:css": "npx tailwindcss -i ./app/lib/global.css -o ./app/tailwind.css",
@@ -20,32 +20,6 @@
   "lint-staged": {
     "**/*.{js,ts,tsx,json,yml,yaml}": "prettier --write",
     "**/*.{js,ts,tsx}": "eslint --fix"
-  },
-  "prettier": {
-    "arrowParens": "always",
-    "bracketSameLine": true,
-    "bracketSpacing": false,
-    "importOrder": [
-      "^[^./](.*)\\.fx$",
-      "^[./](.*)\\.fx$",
-      "<THIRD_PARTY_MODULES>",
-      "^[./]"
-    ],
-    "importOrderCaseInsensitive": true,
-    "importOrderSortSpecifiers": true,
-    "jsxSingleQuote": false,
-    "plugins": [
-      "@trivago/prettier-plugin-sort-imports",
-      "prettier-plugin-tailwindcss",
-      "prettier-plugin-packagejson"
-    ],
-    "printWidth": 80,
-    "quoteProps": "as-needed",
-    "semi": false,
-    "singleQuote": true,
-    "tabWidth": 2,
-    "trailingComma": "all",
-    "useTabs": false
   },
   "eslintConfig": {
     "plugins": [
@@ -79,6 +53,7 @@
     "clsx": "1.1.1",
     "framer-motion": "6.3.2",
     "load-asset": "1.2.0",
+    "mitt": "3.0.0",
     "phosphor-react": "1.4.1",
     "react": "17.0.2",
     "react-dom": "17.0.2",

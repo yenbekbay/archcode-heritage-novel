@@ -1,5 +1,5 @@
 import {Link as RemixLink} from '@remix-run/react'
-import {ArchcodeLogo} from './atoms'
+import archcodeLogoUrl from '~/assets/logo.png'
 
 export function Footer() {
   return (
@@ -57,7 +57,11 @@ export function Footer() {
 
         <div className="space-y-4">
           <RemixLink className="flex-shrink-0" to="/">
-            <ArchcodeLogo />
+            <img
+              style={{height: '3rem'}}
+              src={archcodeLogoUrl}
+              alt="Логотип Архкод"
+            />
           </RemixLink>
           <p>
             © 2021 Архкод Алматы

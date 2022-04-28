@@ -1,7 +1,7 @@
 import type {AnimationControls} from 'framer-motion'
 import {motion} from 'framer-motion'
 import React from 'react'
-import type {CommandViewVariants} from './CommandContainer'
+import type {CommandViewVariants} from './CommandView'
 
 export interface ForegroundViewProps {
   src?: string

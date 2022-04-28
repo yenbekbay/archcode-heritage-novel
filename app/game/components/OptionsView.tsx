@@ -1,18 +1,18 @@
+import clsx from 'clsx'
 import type {AnimationControls} from 'framer-motion'
 import {motion} from 'framer-motion'
 import React from 'react'
-import type {CommandViewVariants} from './CommandContainer'
 import {useCommandContext} from './CommandContext'
+import type {CommandViewVariants} from './CommandView'
 import {useGameContext} from './GameContext'
 import {useSceneContext} from './SceneContext'
-import clsx from 'clsx'
 
 interface OptionContext {
   sceneId: SceneId
-  frame: number
+  frameIndex: number
   goToScene: (sceneId: SceneId) => void
-  goToFrame: (frame: number) => void
-  goToNextFrame: () => void
+  goToFrame: (frameIndex: number) => void
+  skip: () => void
 }
 
 export interface Option {
@@ -40,17 +40,17 @@ export function OptionsView({
   controls,
 }: OptionsViewProps) {
   const {goToScene} = useGameContext()
-  const {sceneId, goToFrame, goToNextFrame} = useSceneContext()
-  const {frame} = useCommandContext()
+  const {sceneId, goToFrame, skip} = useSceneContext()
+  const {frameIndex} = useCommandContext()
   const ctx = React.useMemo(
     (): OptionContext => ({
       sceneId,
-      frame,
+      frameIndex,
       goToFrame,
       goToScene,
-      goToNextFrame,
+      skip,
     }),
-    [frame, goToFrame, goToNextFrame, goToScene, sceneId],
+    [frameIndex, goToFrame, skip, goToScene, sceneId],
   )
   return (
     <div

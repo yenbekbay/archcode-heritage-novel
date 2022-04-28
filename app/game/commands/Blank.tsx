@@ -12,7 +12,7 @@ export interface BlankProps {
 }
 
 export function Blank({durationMs}: BlankProps) {
-  const {goToNextFrame} = useSceneContext()
+  const {skip} = useSceneContext()
   const {focused, visible} = useCommandContext()
   useRegisterCommand(
     React.useMemo(
@@ -31,7 +31,7 @@ export function Blank({durationMs}: BlankProps) {
       if (visible && durationMs != null) {
         setTimeout(() => {
           if (latestFocusedRef.current) {
-            goToNextFrame()
+            skip()
           }
         }, durationMs)
       }

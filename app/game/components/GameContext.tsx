@@ -1,7 +1,14 @@
 import React from 'react'
 
+export interface Frame {
+  sceneId: SceneId
+  frameIndex: number
+}
+
 export interface GameContextValue {
-  goToScene: (id: string) => void
+  focusedFrame: Frame
+  goToScene: (sceneId: SceneId) => void
+  goToFrame: (sceneId: SceneId, frameIndex: number) => void
 }
 
 export const GameContext = React.createContext<GameContextValue | null>(null)

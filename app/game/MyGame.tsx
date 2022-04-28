@@ -1,44 +1,46 @@
 import React from 'react'
-import type {GameInstance} from './components'
+import type {GameInstance, GameProps} from './components'
 import {Game, Scene} from './components'
-import {sceneActivist1Assets, SceneActivist1} from './SceneActivist1'
-import {sceneActivist1_2aAssets, SceneActivist1_2a} from './SceneActivist1_2a'
-import {sceneActivist1_2bAssets, SceneActivist1_2b} from './SceneActivist1_2b'
+import {SceneActivist1, sceneActivist1Assets} from './SceneActivist1'
+import {SceneActivist1_2a, sceneActivist1_2aAssets} from './SceneActivist1_2a'
+import {SceneActivist1_2b, sceneActivist1_2bAssets} from './SceneActivist1_2b'
 import {
-  sceneActivist1_2b_3aAssets,
   SceneActivist1_2b_3a,
+  sceneActivist1_2b_3aAssets,
 } from './SceneActivist1_2b_3a'
 import {
-  sceneActivist1_2b_3bAssets,
   SceneActivist1_2b_3b,
+  sceneActivist1_2b_3bAssets,
 } from './SceneActivist1_2b_3b'
 import {
-  sceneActivist1_2b_3b_4aAssets,
   SceneActivist1_2b_3b_4a,
+  sceneActivist1_2b_3b_4aAssets,
 } from './SceneActivist1_2b_3b_4a'
 import {
-  sceneActivist1_2b_3b_4bAssets,
   SceneActivist1_2b_3b_4b,
+  sceneActivist1_2b_3b_4bAssets,
 } from './SceneActivist1_2b_3b_4b'
 import {
-  sceneActivist1_2b_3b_4cAssets,
   SceneActivist1_2b_3b_4c,
+  sceneActivist1_2b_3b_4cAssets,
 } from './SceneActivist1_2b_3b_4c'
-import {sceneCityHall1Assets, SceneCityHall1} from './SceneCityHall1'
+import {SceneCityHall1, sceneCityHall1Assets} from './SceneCityHall1'
 import {introAssets, SceneIntro} from './SceneIntro'
 
-export const assets = new Set([
-  ...introAssets,
-  ...sceneActivist1Assets,
-  ...sceneActivist1_2aAssets,
-  ...sceneActivist1_2bAssets,
-  ...sceneActivist1_2b_3aAssets,
-  ...sceneActivist1_2b_3bAssets,
-  ...sceneActivist1_2b_3b_4aAssets,
-  ...sceneActivist1_2b_3b_4bAssets,
-  ...sceneActivist1_2b_3b_4cAssets,
-  ...sceneCityHall1Assets,
-])
+export const assets = [
+  ...new Set([
+    ...introAssets,
+    ...sceneActivist1Assets,
+    ...sceneActivist1_2aAssets,
+    ...sceneActivist1_2bAssets,
+    ...sceneActivist1_2b_3aAssets,
+    ...sceneActivist1_2b_3bAssets,
+    ...sceneActivist1_2b_3b_4aAssets,
+    ...sceneActivist1_2b_3b_4bAssets,
+    ...sceneActivist1_2b_3b_4cAssets,
+    ...sceneCityHall1Assets,
+  ]),
+]
 
 export const scenes = {
   Intro: SceneIntro,
@@ -58,11 +60,11 @@ declare global {
 }
 
 export const MyGame = React.forwardRef(function MyGame(
-  _props,
+  props: Omit<GameProps, 'assets' | 'initialSceneId' | 'children'>,
   forwardedRef: React.ForwardedRef<GameInstance>,
 ) {
   return (
-    <Game ref={forwardedRef} initialSceneId="Intro">
+    <Game ref={forwardedRef} assets={assets} initialSceneId="Intro" {...props}>
       {Object.entries(scenes).map(([id, SceneComp]) => (
         <Scene key={id} id={id as SceneId}>
           <SceneComp />

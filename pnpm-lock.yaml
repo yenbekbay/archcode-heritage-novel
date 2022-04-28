@@ -32,6 +32,7 @@ specifiers:
   husky: 7.0.4
   lint-staged: 12.4.1
   load-asset: 1.2.0
+  mitt: 3.0.0
   npm-run-all: 4.1.5
   phosphor-react: 1.4.1
   postcss: 8.4.12
@@ -60,6 +61,7 @@ dependencies:
   clsx: 1.1.1
   framer-motion: 6.3.2_react-dom@17.0.2+react@17.0.2
   load-asset: 1.2.0
+  mitt: 3.0.0
   phosphor-react: 1.4.1_react@17.0.2
   react: 17.0.2
   react-dom: 17.0.2_react@17.0.2
@@ -5515,6 +5517,10 @@ packages:
       minipass: 3.1.6
       yallist: 4.0.0
     dev: true
+
+  /mitt/3.0.0:
+    resolution: {integrity: sha512-7dX2/10ITVyqh4aOSVI9gdape+t9l2/8QxHrFmUXu4EEUpdlxl6RudZUPZoc+zuY2hk1j7XxVroIVIan/pD/SQ==}
+    dev: false
 
   /mixin-deep/1.3.2:
     resolution: {integrity: sha512-WRoDn//mXBiJ1H40rqa3vH0toePwSsGb45iInWlTySa+Uu4k3tYUSxa2v1KqAiLtvlrSzaExqS1gtk96A9zvEA==}

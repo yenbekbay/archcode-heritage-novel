@@ -1,25 +1,37 @@
+import {useSyncedRef} from '@react-hookz/web'
+import {ArrowLeft as ArrowLeftIcon, House as HouseIcon} from 'phosphor-react'
 import React from 'react'
 import flattenChildren from 'react-keyed-flatten-children'
-import {useSyncedRef} from '@react-hookz/web'
 import {useSearchParam} from '~/lib'
-import type {GameContextValue} from './GameContext'
+import type {GameHistory} from '../utils'
+import {makeFrameId, makeGameHistory, parseFrameId} from '../utils'
+import type {Frame, GameContextValue} from './GameContext'
 import {GameContext} from './GameContext'
+import {MobileDeviceChrome} from './MobileDeviceChrome'
 import {Scene} from './Scene'
+import {WithAssets} from './WithAssets'
 
 export interface GameProps {
+  assets: string[]
   initialSceneId: SceneId
+  onClose?: () => void
   children?: React.ReactElement[] | React.ReactElement
 }
 
-export interface GameInstance {
-  goBack: () => void
-}
+export interface GameInstance
+  extends Pick<GameHistory, 'canGoBack' | 'goBack' | 'on' | 'off'> {}
 
 export const Game = React.forwardRef(function Game(
-  {initialSceneId, children: childrenProp}: GameProps,
+  {assets, initialSceneId, onClose, children: childrenProp}: GameProps,
   forwardedRef: React.ForwardedRef<GameInstance>,
 ) {
-  const [focusedSceneId, setFocusedSceneId] = useFocusedSceneId(initialSceneId)
+  const [focusedFrame, setFocusedFrame] = useFocusedFrame({
+    sceneId: initialSceneId,
+    frameIndex: 0,
+  })
+  const [history] = React.useState<GameHistory>(() =>
+    makeGameHistory(focusedFrame),
+  )
   const children = React.useMemo(
     () =>
       (flattenChildren(childrenProp) as React.ReactElement[]).filter(
@@ -27,48 +39,90 @@ export const Game = React.forwardRef(function Game(
       ),
     [childrenProp],
   )
+
+  React.useImperativeHandle(forwardedRef, (): GameInstance => history, [
+    history,
+  ])
+
+  React.useEffect(() => {
+    function handleChange(frames: Frame[]) {
+      setFocusedFrame(frames[frames.length - 1])
+    }
+    history.on('change', handleChange)
+    return () => {
+      history.off('change', handleChange)
+    }
+  }, [setFocusedFrame, history])
+
   const ctx = React.useMemo(
     (): GameContextValue => ({
-      goToScene: setFocusedSceneId,
+      focusedFrame,
+      goToScene(sceneId) {
+        history.push({sceneId, frameIndex: 0})
+      },
+      goToFrame(sceneId, frameIndex) {
+        history.push({sceneId, frameIndex})
+      },
     }),
-    [setFocusedSceneId],
+    [focusedFrame, history],
   )
-  React.useImperativeHandle(
-    forwardedRef,
-    (): GameInstance => ({
-      goBack: () => window.history.back(),
-    }),
-    [],
-  )
+
   return (
     <GameContext.Provider value={ctx}>
-      <div className="flex h-full w-full overflow-hidden bg-base-100">
-        {children.map((child) => focusedSceneId === child.props.id && child)}
+      <div className="h-screen">
+        <div className="navbar absolute z-10 p-4">
+          <div className="navbar-start">
+            {history.canGoBack() && (
+              <button
+                className="btn btn-ghost btn-circle bg-white text-xl shadow-md"
+                onClick={() => history.goBack()}>
+                <ArrowLeftIcon />
+              </button>
+            )}
+          </div>
+
+          <div className="navbar-end">
+            {onClose && (
+              <button
+                className="btn btn-ghost btn-circle bg-white text-xl shadow-md"
+                onClick={() => onClose()}>
+                <HouseIcon />
+              </button>
+            )}
+          </div>
+        </div>
+
+        <MobileDeviceChrome>
+          <WithAssets assets={assets}>
+            <div className="flex h-full w-full overflow-hidden bg-base-100">
+              {children.map(
+                (child) => focusedFrame.sceneId === child.props.id && child,
+              )}
+            </div>
+          </WithAssets>
+        </MobileDeviceChrome>
       </div>
     </GameContext.Provider>
   )
 })
 
-function useFocusedSceneId(initialSceneId: SceneId) {
-  const [_focusedFrameId, goToFrameId] = useSearchParam<string>(
+export function useFocusedFrame(defaultFrame: Frame) {
+  const [focusedFrameId, setFocusedFrameId] = useSearchParam<string>(
     'f',
-    `${initialSceneId}_${0}`,
+    makeFrameId(defaultFrame),
   )
-  const focusedFrameId = String(_focusedFrameId)
-  const focusedSceneId = focusedFrameId.includes('_')
-    ? focusedFrameId.split('_').slice(0, -1).join('_')
-    : focusedFrameId
-
-  const latestFocusedSceneIdRef = useSyncedRef(focusedSceneId)
-  const setFocusedSceneId = React.useCallback(
-    (action: React.SetStateAction<string>) => {
-      const newValue =
-        typeof action === 'function'
-          ? action(latestFocusedSceneIdRef.current)
-          : action
-      goToFrameId(`${newValue}_0`)
-    },
-    [latestFocusedSceneIdRef, goToFrameId],
+  const focusedFrame = parseFrameId(focusedFrameId) ?? defaultFrame
+  const latestFocusedFrameRef = useSyncedRef(focusedFrame)
+  const setFocusedFrame = React.useCallback(
+    (action: React.SetStateAction<Frame>) =>
+      setFocusedFrameId(
+        makeFrameId(
+          typeof action === 'function'
+            ? action(latestFocusedFrameRef.current)
+            : action,
+        ),
+      ),
+    [latestFocusedFrameRef, setFocusedFrameId],
   )
-  return [focusedSceneId, setFocusedSceneId] as const
+  return [focusedFrame, setFocusedFrame] as const
 }

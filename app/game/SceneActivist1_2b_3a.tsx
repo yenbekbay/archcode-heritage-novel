@@ -32,11 +32,11 @@ export function SceneActivist1_2b_3a() {
         optionsBottom={[
           {
             label: 'Создать мем',
-            onClick: (ctx) => ctx.goToFrame(ctx.frame + 1),
+            onClick: (ctx) => ctx.goToFrame(ctx.frameIndex + 1),
           },
           {
             label: 'Написать пост о том, как всё плохо',
-            onClick: (ctx) => ctx.goToFrame(ctx.frame + 2),
+            onClick: (ctx) => ctx.goToFrame(ctx.frameIndex + 2),
           },
         ]}
         foregroundSrc={bgPhoneFingerSrc}
@@ -54,7 +54,7 @@ export function SceneActivist1_2b_3a() {
         options={[
           {
             label: 'Загрузить мем',
-            onClick: (ctx) => ctx.goToFrame(ctx.frame + 2),
+            onClick: (ctx) => ctx.goToFrame(ctx.frameIndex + 2),
           },
         ]}
         foregroundSrc={bgPhoneFingerSrc}
@@ -71,7 +71,7 @@ export function SceneActivist1_2b_3a() {
         options={[
           {
             label: 'Загрузить пост',
-            onClick: (ctx) => ctx.goToFrame(ctx.frame + 1),
+            onClick: (ctx) => ctx.goToFrame(ctx.frameIndex + 1),
           },
         ]}
         foregroundSrc={bgPhoneFingerSrc}
@@ -101,7 +101,7 @@ export function SceneActivist1_2b_3a() {
           },
           {
             label: 'Я сделала всё что было в моих силах',
-            onClick: (ctx) => ctx.goToNextFrame(),
+            onClick: (ctx) => ctx.skip(),
           },
         ]}
         foregroundSrc={redhead2Src}

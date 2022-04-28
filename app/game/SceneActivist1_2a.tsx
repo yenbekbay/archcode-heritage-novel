@@ -63,7 +63,7 @@ export function SceneActivist1_2a() {
 }
 
 function Background(_props: SceneBackgroundComponentProps) {
-  const {focusedFrame} = useSceneContext()
+  const {focusedFrameIndex: focusedFrame} = useSceneContext()
   return (
     <>
       <img
