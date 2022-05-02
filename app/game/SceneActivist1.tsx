@@ -1,17 +1,8 @@
-import bgMapGifSrc from '~/assets/game/bg-map.gif'
-import bgMapStaticSrc from '~/assets/game/bg-map.jpg'
-import fenceSrc from '~/assets/game/fence.png'
+import {bgMapGif, bgMapJpg, fencePng} from '~/assets/game'
 import redhead1Src from '~/assets/game/redhead-1.png'
 import {Foreground, Say} from './commands'
 import type {SceneBackgroundComponentProps} from './components'
 import {SceneContainer, useSceneContext} from './components'
-
-export const sceneActivist1Assets = [
-  bgMapGifSrc,
-  bgMapStaticSrc,
-  fenceSrc,
-  redhead1Src,
-]
 
 export function SceneActivist1() {
   return (
@@ -21,7 +12,7 @@ export function SceneActivist1() {
       </Say>
 
       <Foreground
-        src={fenceSrc}
+        src={fencePng}
         style={{height: '100%', transform: 'translate(-50%) scale(1.15)'}}
         variants={{
           initial: {x: '250%', scale: 0.5, originY: 1},
@@ -42,7 +33,7 @@ export function SceneActivist1() {
       <Say
         large
         optionsDark
-        optionsBottom={[
+        options={[
           {
             label: 'Пройти мимо',
             onClick: (ctx) => ctx.goToScene('Activist1_2a'),
@@ -68,7 +59,7 @@ function Background(_props: SceneBackgroundComponentProps) {
   const {focusedFrameIndex: focusedFrame} = useSceneContext()
   return (
     <img
-      src={focusedFrame < 2 ? bgMapGifSrc : bgMapStaticSrc}
+      src={focusedFrame < 2 ? bgMapGif : bgMapJpg}
       className="flex-shrink-1 min-h-full flex-grow-0 basis-0 object-cover "
     />
   )

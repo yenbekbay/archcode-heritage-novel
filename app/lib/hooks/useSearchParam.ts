@@ -1,7 +1,7 @@
 import JsonURL from '@jsonurl/jsonurl'
+import {useSyncedRef} from '@react-hookz/web'
 import {useSearchParams} from '@remix-run/react'
 import React from 'react'
-import {useSyncedRef} from '@react-hookz/web'
 
 export function useSearchParam<T>(key: string, defaultValue: T) {
   const [searchParams, setSearchParams] = useSearchParams()

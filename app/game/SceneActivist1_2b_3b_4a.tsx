@@ -1,33 +1,19 @@
-import bgAptEntranceSrc from '~/assets/game/bg-apt-entrance.jpg'
-import bgAptKitchenSrc from '~/assets/game/bg-apt-kitchen.jpg'
-import bgAptOutsideWindowSrc from '~/assets/game/bg-apt-outside-window.jpg'
-import bgCourtyardSrc from '~/assets/game/bg-courtyard.jpg'
-import bgLaptopAboveSrc from '~/assets/game/bg-laptop-above.jpg'
-import bgLaptopHandsSrc from '~/assets/game/bg-laptop-hands.jpg'
-import bgLaptopStandaloneSrc from '~/assets/game/bg-laptop-standalone.jpg'
-import bgPhoneHandSrc from '~/assets/game/bg-phone-hand.jpg'
-import redhead10Src from '~/assets/game/redhead-10.png'
-import redhead11Src from '~/assets/game/redhead-11.png'
-import redhead12Src from '~/assets/game/redhead-12.png'
-import redhead9Src from '~/assets/game/redhead-9.png'
+import {
+  bgAptEntranceJpg,
+  bgAptKitchenJpg,
+  bgAptOutsideWindowJpg,
+  bgCourtyardJpg,
+  bgLaptopAboveJpg,
+  bgLaptopHandsJpg,
+  bgLaptopStandaloneJpg,
+  redhead10Png,
+  redhead11Png,
+  redhead12Png,
+  redhead9Png,
+} from '~/assets/game'
 import {Blank, Foreground, Options, Say} from './commands'
 import type {SceneBackgroundComponentProps} from './components'
 import {SceneContainer} from './components'
-
-export const sceneActivist1_2b_3b_4aAssets = [
-  bgAptEntranceSrc,
-  bgAptKitchenSrc,
-  bgAptOutsideWindowSrc,
-  bgCourtyardSrc,
-  bgLaptopAboveSrc,
-  bgLaptopHandsSrc,
-  bgLaptopStandaloneSrc,
-  bgPhoneHandSrc,
-  redhead9Src,
-  redhead10Src,
-  redhead11Src,
-  redhead12Src,
-]
 
 export function SceneActivist1_2b_3b_4a() {
   return (
@@ -35,7 +21,7 @@ export function SceneActivist1_2b_3b_4a() {
       <Blank durationMs={3000} />
 
       <Foreground
-        src={bgAptOutsideWindowSrc}
+        src={bgAptOutsideWindowJpg}
         style={{height: '100%', width: '100%', objectFit: 'cover'}}
         durationMs={3000}
         transitory
@@ -43,7 +29,7 @@ export function SceneActivist1_2b_3b_4a() {
       />
 
       <Foreground
-        src={bgAptEntranceSrc}
+        src={bgAptEntranceJpg}
         style={{height: '100%', width: '100%', objectFit: 'cover'}}
         durationMs={3000}
         transitory
@@ -51,7 +37,7 @@ export function SceneActivist1_2b_3b_4a() {
       />
 
       <Foreground
-        src={bgLaptopAboveSrc}
+        src={bgLaptopAboveJpg}
         style={{height: '100%', width: '100%', objectFit: 'cover'}}
         durationMs={3000}
         transitory
@@ -67,7 +53,7 @@ export function SceneActivist1_2b_3b_4a() {
       </Say>
 
       <Foreground
-        src={bgAptKitchenSrc}
+        src={bgAptKitchenJpg}
         style={{height: '100%', width: '100%', objectFit: 'cover'}}
         transitory
         lingers
@@ -75,7 +61,7 @@ export function SceneActivist1_2b_3b_4a() {
 
       <Say
         large
-        foregroundSrc={redhead9Src}
+        foregroundSrc={redhead9Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory
         lingers={1}>
@@ -89,7 +75,7 @@ export function SceneActivist1_2b_3b_4a() {
       <Say
         href="https://factcheck.kz/"
         large
-        foregroundSrc={bgLaptopHandsSrc}
+        foregroundSrc={bgLaptopHandsJpg}
         foregroundStyle={{
           height: '100%',
           width: '100%',
@@ -101,7 +87,7 @@ export function SceneActivist1_2b_3b_4a() {
 
       <Say
         large
-        foregroundSrc={redhead10Src}
+        foregroundSrc={redhead10Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
         А теперь как запилю пост, что весь город на уши встанет!!!
@@ -110,7 +96,7 @@ export function SceneActivist1_2b_3b_4a() {
       <Say
         href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
         large
-        foregroundSrc={bgLaptopHandsSrc}
+        foregroundSrc={bgLaptopHandsJpg}
         foregroundStyle={{
           height: '100%',
           width: '100%',
@@ -122,7 +108,7 @@ export function SceneActivist1_2b_3b_4a() {
 
       <Say
         large
-        foregroundSrc={redhead11Src}
+        foregroundSrc={redhead11Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
         Буду писать во все инстанции!
@@ -131,7 +117,7 @@ export function SceneActivist1_2b_3b_4a() {
       <Say
         href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
         large
-        foregroundSrc={bgLaptopHandsSrc}
+        foregroundSrc={bgLaptopHandsJpg}
         foregroundStyle={{
           height: '100%',
           width: '100%',
@@ -143,7 +129,7 @@ export function SceneActivist1_2b_3b_4a() {
 
       <Say
         large
-        foregroundSrc={redhead9Src}
+        foregroundSrc={redhead9Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
         Таксссссс, а слушания то будут??
@@ -152,7 +138,7 @@ export function SceneActivist1_2b_3b_4a() {
       <Say
         href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
         large
-        foregroundSrc={bgLaptopHandsSrc}
+        foregroundSrc={bgLaptopHandsJpg}
         foregroundStyle={{
           height: '100%',
           width: '100%',
@@ -164,7 +150,7 @@ export function SceneActivist1_2b_3b_4a() {
 
       <Say
         large
-        foregroundSrc={redhead12Src}
+        foregroundSrc={redhead12Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
         И вообще, если не будет диалога, я готова действовать!!!
@@ -172,7 +158,7 @@ export function SceneActivist1_2b_3b_4a() {
 
       <Say
         large
-        foregroundSrc={redhead11Src}
+        foregroundSrc={redhead11Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
         Устрою протест!!!
@@ -180,7 +166,7 @@ export function SceneActivist1_2b_3b_4a() {
 
       <Say
         href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-        foregroundSrc={bgLaptopHandsSrc}
+        foregroundSrc={bgLaptopHandsJpg}
         foregroundStyle={{
           height: '100%',
           width: '100%',
@@ -193,7 +179,7 @@ export function SceneActivist1_2b_3b_4a() {
       </Say>
 
       <Say
-        foregroundSrc={bgLaptopStandaloneSrc}
+        foregroundSrc={bgLaptopStandaloneJpg}
         foregroundStyle={{
           height: '100%',
           width: '100%',
@@ -224,7 +210,7 @@ export function SceneActivist1_2b_3b_4a() {
 function Background(_props: SceneBackgroundComponentProps) {
   return (
     <img
-      src={bgCourtyardSrc}
+      src={bgCourtyardJpg}
       className="flex-shrink-1 min-h-full flex-grow-0 basis-0 object-cover"
     />
   )

@@ -1,27 +1,21 @@
 import {AnimatePresence, motion} from 'framer-motion'
-import bgBldg1GifSrc from '~/assets/game/bg-bldg-1.gif'
-import bgBldg1StaticSrc from '~/assets/game/bg-bldg-1.jpg'
-import fenceSrc from '~/assets/game/fence.png'
-import redhead2Src from '~/assets/game/redhead-2.png'
-import redhead4Src from '~/assets/game/redhead-4.png'
+import {
+  bgBldg1Gif,
+  bgBldg1Jpg,
+  fencePng,
+  redhead2Png,
+  redhead4Png,
+} from '~/assets/game'
 import {Blank, Say} from './commands'
 import type {SceneBackgroundComponentProps} from './components'
 import {SceneContainer, useSceneContext} from './components'
-
-export const sceneActivist1_2bAssets = [
-  bgBldg1GifSrc,
-  bgBldg1StaticSrc,
-  fenceSrc,
-  redhead2Src,
-  redhead4Src,
-]
 
 export function SceneActivist1_2b() {
   return (
     <SceneContainer BackgroundComponent={Background}>
       <Say
         large
-        foregroundSrc={redhead4Src}
+        foregroundSrc={redhead4Png}
         foregroundStyle={{
           width: '90%',
           bottom: 0,
@@ -36,7 +30,7 @@ export function SceneActivist1_2b() {
       <Say
         large
         optionsDark
-        optionsBottom={[
+        options={[
           {
             label: 'Как-то печально всё это',
             onClick: (ctx) => ctx.goToScene('Activist1_2b_3a'),
@@ -46,7 +40,7 @@ export function SceneActivist1_2b() {
             onClick: (ctx) => ctx.goToScene('Activist1_2b_3b'),
           },
         ]}
-        foregroundSrc={redhead2Src}
+        foregroundSrc={redhead2Png}
         foregroundStyle={{width: '90%', bottom: 0}}>
         Это что за новости?!?! Уничтожают историю, значит?
       </Say>
@@ -59,7 +53,7 @@ function Background(_props: SceneBackgroundComponentProps) {
   return (
     <>
       <img
-        src={focusedFrame < 1 ? bgBldg1StaticSrc : bgBldg1GifSrc}
+        src={focusedFrame < 1 ? bgBldg1Jpg : bgBldg1Gif}
         className="min-h-full flex-1 object-cover"
       />
 
@@ -72,7 +66,7 @@ function Background(_props: SceneBackgroundComponentProps) {
               transition: {delay: 0.5, duration: 2},
             }}>
             <img
-              src={fenceSrc}
+              src={fencePng}
               className="absolute h-full max-w-none"
               style={{transform: 'translate(-50%) scale(1.15)'}}
             />

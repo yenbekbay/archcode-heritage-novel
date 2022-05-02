@@ -1,12 +1,10 @@
 import useSize from '@react-hook/size'
 import {motion, useAnimation} from 'framer-motion'
 import React from 'react'
-import bgIntroSrc from '~/assets/game/bg-intro.jpg'
+import {bgIntroJpg} from '~/assets/game'
 import {Options, Say, Title} from './commands'
 import type {SceneBackgroundComponentProps} from './components'
 import {SceneContainer} from './components'
-
-export const introAssets = [bgIntroSrc]
 
 export function SceneIntro() {
   return (
@@ -96,7 +94,7 @@ function Background({
     <motion.img
       ref={imgRef}
       className="w-full"
-      src={bgIntroSrc}
+      src={bgIntroJpg}
       initial={{y: 0}}
       animate={controls}
     />

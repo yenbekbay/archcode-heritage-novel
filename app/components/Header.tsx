@@ -36,7 +36,7 @@ export function Header() {
         </div>
 
         <div className="flex-none">
-          <div className="dropdown-end dropdown">
+          <div className="dropdown dropdown-end">
             <label tabIndex={0} className="btn btn-ghost text-xl lg:hidden">
               <ListIcon />
             </label>

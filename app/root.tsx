@@ -9,7 +9,6 @@ import {
   useCatch,
   useLocation,
 } from '@remix-run/react'
-import React from 'react'
 import {Footer, Header} from '~/components'
 import {MediaContextProvider, mediaStyle} from '~/lib'
 import tailwindStylesUrl from '~/tailwind.css'

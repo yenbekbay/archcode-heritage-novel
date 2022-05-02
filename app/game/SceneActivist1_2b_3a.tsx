@@ -1,26 +1,20 @@
-import bgBldg1FenceSrc from '~/assets/game/bg-bldg-1-fence.jpg'
-import bgPhoneFingerSrc from '~/assets/game/bg-phone-finger.jpg'
-import redhead2Src from '~/assets/game/redhead-2.png'
-import redhead5Src from '~/assets/game/redhead-5.png'
-import redhead7Src from '~/assets/game/redhead-7.png'
+import {
+  bgBldg1FenceJpg,
+  bgPhoneFingerJpg,
+  redhead2Png,
+  redhead5Png,
+  redhead7Png,
+} from '~/assets/game'
 import {Options, Say, Title} from './commands'
 import type {SceneBackgroundComponentProps} from './components'
 import {SceneContainer} from './components'
-
-export const sceneActivist1_2b_3aAssets = [
-  bgBldg1FenceSrc,
-  bgPhoneFingerSrc,
-  redhead2Src,
-  redhead5Src,
-  redhead7Src,
-]
 
 export function SceneActivist1_2b_3a() {
   return (
     <SceneContainer BackgroundComponent={Background}>
       <Say
         large
-        foregroundSrc={redhead5Src}
+        foregroundSrc={redhead5Png}
         foregroundStyle={{width: '90%', bottom: 0}}
         transitory>
         В моменты отчаяния всегда можно вылить свою боль в соц. сети
@@ -29,7 +23,7 @@ export function SceneActivist1_2b_3a() {
       <Say
         large
         optionsDark
-        optionsBottom={[
+        options={[
           {
             label: 'Создать мем',
             onClick: (ctx) => ctx.goToFrame(ctx.frameIndex + 1),
@@ -39,7 +33,7 @@ export function SceneActivist1_2b_3a() {
             onClick: (ctx) => ctx.goToFrame(ctx.frameIndex + 2),
           },
         ]}
-        foregroundSrc={bgPhoneFingerSrc}
+        foregroundSrc={bgPhoneFingerJpg}
         foregroundStyle={{
           width: '100%',
           height: '100%',
@@ -57,7 +51,7 @@ export function SceneActivist1_2b_3a() {
             onClick: (ctx) => ctx.goToFrame(ctx.frameIndex + 2),
           },
         ]}
-        foregroundSrc={bgPhoneFingerSrc}
+        foregroundSrc={bgPhoneFingerJpg}
         foregroundStyle={{
           width: '100%',
           height: '100%',
@@ -74,7 +68,7 @@ export function SceneActivist1_2b_3a() {
             onClick: (ctx) => ctx.goToFrame(ctx.frameIndex + 1),
           },
         ]}
-        foregroundSrc={bgPhoneFingerSrc}
+        foregroundSrc={bgPhoneFingerJpg}
         foregroundStyle={{
           width: '100%',
           height: '100%',
@@ -85,7 +79,7 @@ export function SceneActivist1_2b_3a() {
 
       <Say
         large
-        foregroundSrc={redhead7Src}
+        foregroundSrc={redhead7Png}
         foregroundStyle={{width: '90%', bottom: 0}}
         transitory>
         ПОЗДРАВЛЯЕМ!!! ВАШИ ПОСТЫ/МЕМЫ УВИДЕЛА ИЗВЕСТНАЯ АКТИВИСТКА ТИНА ШТУНЕР,
@@ -104,7 +98,7 @@ export function SceneActivist1_2b_3a() {
             onClick: (ctx) => ctx.skip(),
           },
         ]}
-        foregroundSrc={redhead2Src}
+        foregroundSrc={redhead2Png}
         foregroundStyle={{width: '90%', bottom: 0}}
       />
 
@@ -128,7 +122,7 @@ export function SceneActivist1_2b_3a() {
 function Background(_props: SceneBackgroundComponentProps) {
   return (
     <img
-      src={bgBldg1FenceSrc}
+      src={bgBldg1FenceJpg}
       className="flex-shrink-1 min-h-full flex-grow-0 basis-0 object-cover"
     />
   )

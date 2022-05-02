@@ -1,41 +1,24 @@
-import bgAptEntranceSrc from '~/assets/game/bg-apt-entrance.jpg'
-import bgAptKitchenSrc from '~/assets/game/bg-apt-kitchen.jpg'
-import bgAptOutsideWindowSrc from '~/assets/game/bg-apt-outside-window.jpg'
-import bgCourtyardSrc from '~/assets/game/bg-courtyard.jpg'
-import bgLaptopStandaloneSrc from '~/assets/game/bg-laptop-standalone.jpg'
-import bgPhoneFingerSrc from '~/assets/game/bg-phone-finger.jpg'
-import bgPhoneHandSrc from '~/assets/game/bg-phone-hand.jpg'
-import guyASrc from '~/assets/game/guy-a.png'
-import guyBSrc from '~/assets/game/guy-b.png'
-import redhead1Src from '~/assets/game/redhead-1.png'
-import redhead14Src from '~/assets/game/redhead-14.png'
-import redhead15Src from '~/assets/game/redhead-15.png'
-import redhead16Src from '~/assets/game/redhead-16.png'
-import redhead17Src from '~/assets/game/redhead-17.png'
-import redhead18Src from '~/assets/game/redhead-18.png'
-import redhead5Src from '~/assets/game/redhead-5.png'
+import {
+  bgAptEntranceJpg,
+  bgAptKitchenJpg,
+  bgAptOutsideWindowJpg,
+  bgCourtyardJpg,
+  bgLaptopStandaloneJpg,
+  bgPhoneFingerJpg,
+  bgPhoneHandJpg,
+  guyAPng,
+  guyBPng,
+  redhead14Png,
+  redhead15Png,
+  redhead16Png,
+  redhead17Png,
+  redhead18Png,
+  redhead1Png,
+  redhead5Png,
+} from '~/assets/game'
 import {Blank, Foreground, Options, Say} from './commands'
 import type {SceneBackgroundComponentProps} from './components'
 import {SceneContainer} from './components'
-
-export const sceneActivist1_2b_3b_4bAssets = [
-  bgAptEntranceSrc,
-  bgAptKitchenSrc,
-  bgAptOutsideWindowSrc,
-  bgCourtyardSrc,
-  bgLaptopStandaloneSrc,
-  bgPhoneFingerSrc,
-  bgPhoneHandSrc,
-  guyASrc,
-  guyBSrc,
-  redhead1Src,
-  redhead5Src,
-  redhead14Src,
-  redhead15Src,
-  redhead16Src,
-  redhead17Src,
-  redhead18Src,
-]
 
 export function SceneActivist1_2b_3b_4b() {
   return (
@@ -43,7 +26,7 @@ export function SceneActivist1_2b_3b_4b() {
       <Blank durationMs={3000} />
 
       <Foreground
-        src={bgAptOutsideWindowSrc}
+        src={bgAptOutsideWindowJpg}
         style={{height: '100%', width: '100%', objectFit: 'cover'}}
         durationMs={3000}
         transitory
@@ -51,7 +34,7 @@ export function SceneActivist1_2b_3b_4b() {
       />
 
       <Foreground
-        src={bgAptEntranceSrc}
+        src={bgAptEntranceJpg}
         style={{height: '100%', width: '100%', objectFit: 'cover'}}
         durationMs={3000}
         transitory
@@ -59,7 +42,7 @@ export function SceneActivist1_2b_3b_4b() {
       />
 
       <Foreground
-        src={bgAptKitchenSrc}
+        src={bgAptKitchenJpg}
         style={{height: '100%', width: '100%', objectFit: 'cover'}}
         transitory
         lingers={7}
@@ -67,7 +50,7 @@ export function SceneActivist1_2b_3b_4b() {
 
       <Say
         large
-        foregroundSrc={redhead14Src}
+        foregroundSrc={redhead14Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory
         lingers={1}>
@@ -76,7 +59,7 @@ export function SceneActivist1_2b_3b_4b() {
 
       <Say
         dark
-        foregroundSrc={bgPhoneHandSrc}
+        foregroundSrc={bgPhoneHandJpg}
         foregroundStyle={{
           height: '100%',
           width: '100%',
@@ -103,7 +86,7 @@ export function SceneActivist1_2b_3b_4b() {
 
       <Say
         large
-        foregroundSrc={redhead15Src}
+        foregroundSrc={redhead15Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
         Ты представляешь, что происходит ??
@@ -111,14 +94,14 @@ export function SceneActivist1_2b_3b_4b() {
 
       <Say
         large
-        foregroundSrc={redhead16Src}
+        foregroundSrc={redhead16Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
         {'*pop up\n\nзвуки уведомлений'}
       </Say>
 
       <Say
-        foregroundSrc={bgLaptopStandaloneSrc}
+        foregroundSrc={bgLaptopStandaloneJpg}
         foregroundStyle={{
           height: '100%',
           width: '100%',
@@ -149,7 +132,7 @@ export function SceneActivist1_2b_3b_4b() {
 
       <Say
         large
-        foregroundSrc={guyBSrc}
+        foregroundSrc={guyBPng}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory
         lingers={2}>
@@ -157,14 +140,14 @@ export function SceneActivist1_2b_3b_4b() {
       </Say>
 
       <Foreground
-        src={guyASrc}
+        src={guyAPng}
         style={{width: '100%', bottom: 0, transform: 'translateX(-25%)'}}
         transitory
         lingers={1}
       />
 
       <Foreground
-        src={redhead17Src}
+        src={redhead17Png}
         style={{
           width: '100%',
           bottom: 0,
@@ -173,7 +156,7 @@ export function SceneActivist1_2b_3b_4b() {
       />
 
       <Say
-        foregroundSrc={guyASrc}
+        foregroundSrc={guyAPng}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
         {
@@ -190,7 +173,7 @@ export function SceneActivist1_2b_3b_4b() {
           transform: 'rotate(-6deg)',
           transformOrigin: 'top',
         }}
-        foregroundSrc={bgPhoneHandSrc}
+        foregroundSrc={bgPhoneHandJpg}
         foregroundStyle={{
           height: '100%',
           width: '100%',
@@ -201,7 +184,7 @@ export function SceneActivist1_2b_3b_4b() {
       </Say>
 
       <Say
-        foregroundSrc={redhead5Src}
+        foregroundSrc={redhead5Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
         {
@@ -218,7 +201,7 @@ export function SceneActivist1_2b_3b_4b() {
           transform: 'rotate(-6deg)',
           transformOrigin: 'top',
         }}
-        foregroundSrc={bgPhoneHandSrc}
+        foregroundSrc={bgPhoneHandJpg}
         foregroundStyle={{
           height: '100%',
           width: '100%',
@@ -229,7 +212,7 @@ export function SceneActivist1_2b_3b_4b() {
       </Say>
 
       <Say
-        foregroundSrc={guyBSrc}
+        foregroundSrc={guyBPng}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
         {
@@ -246,7 +229,7 @@ export function SceneActivist1_2b_3b_4b() {
           transform: 'rotate(-6deg)',
           transformOrigin: 'top',
         }}
-        foregroundSrc={bgPhoneHandSrc}
+        foregroundSrc={bgPhoneHandJpg}
         foregroundStyle={{
           height: '100%',
           width: '100%',
@@ -258,7 +241,7 @@ export function SceneActivist1_2b_3b_4b() {
 
       <Say
         large
-        foregroundSrc={guyASrc}
+        foregroundSrc={guyAPng}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
         Еще мы должны участвовать в общественных слушаниях...
@@ -273,7 +256,7 @@ export function SceneActivist1_2b_3b_4b() {
           transform: 'rotate(-6deg)',
           transformOrigin: 'top',
         }}
-        foregroundSrc={bgPhoneHandSrc}
+        foregroundSrc={bgPhoneHandJpg}
         foregroundStyle={{
           height: '100%',
           width: '100%',
@@ -285,7 +268,7 @@ export function SceneActivist1_2b_3b_4b() {
 
       <Say
         large
-        foregroundSrc={redhead1Src}
+        foregroundSrc={redhead1Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
         Будем писать во все инстанции!!!
@@ -293,7 +276,7 @@ export function SceneActivist1_2b_3b_4b() {
 
       <Say
         large
-        foregroundSrc={guyASrc}
+        foregroundSrc={guyAPng}
         foregroundStyle={{width: '100%', bottom: 0, transform: 'scaleX(-1)'}}
         transitory>
         А куда можно написать?
@@ -301,7 +284,7 @@ export function SceneActivist1_2b_3b_4b() {
 
       <Say
         dark
-        foregroundSrc={bgPhoneFingerSrc}
+        foregroundSrc={bgPhoneFingerJpg}
         foregroundStyle={{
           width: '100%',
           top: 120,
@@ -327,7 +310,7 @@ export function SceneActivist1_2b_3b_4b() {
 
       <Say
         large
-        foregroundSrc={redhead18Src}
+        foregroundSrc={redhead18Png}
         foregroundStyle={{width: '100%', bottom: 0, transform: 'scaleX(-1)'}}
         transitory>
         А если не будет дельных ответов, просто устроим протестную акцию!
@@ -335,7 +318,7 @@ export function SceneActivist1_2b_3b_4b() {
 
       <Say
         large
-        foregroundSrc={guyBSrc}
+        foregroundSrc={guyBPng}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
         А я тут новости читал. Есть группа Архкод, вроде как наследием
@@ -344,7 +327,7 @@ export function SceneActivist1_2b_3b_4b() {
 
       <Say
         dark
-        foregroundSrc={bgPhoneFingerSrc}
+        foregroundSrc={bgPhoneFingerJpg}
         foregroundStyle={{
           width: '100%',
           top: 120,
@@ -370,7 +353,7 @@ export function SceneActivist1_2b_3b_4b() {
 
       <Say
         large
-        foregroundSrc={guyASrc}
+        foregroundSrc={guyAPng}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
         Да, давайте позвоним им
@@ -391,7 +374,7 @@ export function SceneActivist1_2b_3b_4b() {
 function Background(_props: SceneBackgroundComponentProps) {
   return (
     <img
-      src={bgCourtyardSrc}
+      src={bgCourtyardJpg}
       className="flex-shrink-1 min-h-full flex-grow-0 basis-0 object-cover"
     />
   )

@@ -1,10 +1,8 @@
+import {redhead8Png} from '~/assets/game'
 import bgBldg1FenceSrc from '~/assets/game/bg-bldg-1-fence.jpg'
-import redhead8Src from '~/assets/game/redhead-8.png'
 import {Say} from './commands'
 import type {SceneBackgroundComponentProps} from './components'
 import {SceneContainer} from './components'
-
-export const sceneActivist1_2b_3bAssets = [bgBldg1FenceSrc, redhead8Src]
 
 export function SceneActivist1_2b_3b() {
   return (
@@ -12,7 +10,7 @@ export function SceneActivist1_2b_3b() {
       <Say
         large
         optionsDark
-        optionsBottom={[
+        options={[
           {
             label: 'Разберусь сама',
             onClick: (ctx) => ctx.goToScene('Activist1_2b_3b_4a'),
@@ -26,7 +24,7 @@ export function SceneActivist1_2b_3b() {
             onClick: (ctx) => ctx.goToScene('Activist1_2b_3b_4c'),
           },
         ]}
-        foregroundSrc={redhead8Src}
+        foregroundSrc={redhead8Png}
         foregroundStyle={{width: '90%', bottom: 0}}>
         Что я могу?
       </Say>

@@ -1,27 +1,21 @@
 import {AnimatePresence, motion} from 'framer-motion'
-import bgBldg1GifSrc from '~/assets/game/bg-bldg-1.gif'
-import bgBldg1StaticSrc from '~/assets/game/bg-bldg-1.jpg'
-import fenceSrc from '~/assets/game/fence.png'
-import redhead2Src from '~/assets/game/redhead-2.png'
-import redhead3Src from '~/assets/game/redhead-3.png'
+import {
+  bgBldg1Gif,
+  bgBldg1Jpg,
+  fencePng,
+  redhead2Png,
+  redhead3Png,
+} from '~/assets/game'
 import {Blank, Options, Say, Title} from './commands'
 import type {SceneBackgroundComponentProps} from './components'
 import {SceneContainer, useSceneContext} from './components'
-
-export const sceneActivist1_2aAssets = [
-  bgBldg1GifSrc,
-  bgBldg1StaticSrc,
-  fenceSrc,
-  redhead2Src,
-  redhead3Src,
-]
 
 export function SceneActivist1_2a() {
   return (
     <SceneContainer BackgroundComponent={Background}>
       <Say
         large
-        foregroundSrc={redhead2Src}
+        foregroundSrc={redhead2Png}
         foregroundStyle={{
           width: '90%',
           bottom: 0,
@@ -33,7 +27,7 @@ export function SceneActivist1_2a() {
 
       <Say
         large
-        foregroundSrc={redhead3Src}
+        foregroundSrc={redhead3Png}
         foregroundStyle={{
           width: '90%',
           bottom: 0,
@@ -67,7 +61,7 @@ function Background(_props: SceneBackgroundComponentProps) {
   return (
     <>
       <img
-        src={focusedFrame < 2 ? bgBldg1StaticSrc : bgBldg1GifSrc}
+        src={focusedFrame < 2 ? bgBldg1Jpg : bgBldg1Gif}
         className="min-h-full flex-1 object-cover"
       />
 
@@ -80,7 +74,7 @@ function Background(_props: SceneBackgroundComponentProps) {
               transition: {delay: 0.5, duration: 2},
             }}>
             <img
-              src={fenceSrc}
+              src={fencePng}
               className="absolute h-full max-w-none"
               style={{transform: 'translate(-50%) scale(1.15)'}}
             />

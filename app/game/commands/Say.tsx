@@ -1,6 +1,5 @@
 import clsx from 'clsx'
 import {motion} from 'framer-motion'
-import React from 'react'
 import type {
   CommandContainerProps,
   CommandViewVariants,
@@ -17,8 +16,7 @@ export interface SayProps
   dark?: boolean
   style?: React.CSSProperties
   textStyle?: React.CSSProperties
-  optionsTop?: Option[]
-  optionsBottom?: Option[]
+  options?: Option[]
   optionsDark?: boolean
   foregroundSrc?: string
   foregroundStyle?: React.CSSProperties
@@ -33,8 +31,7 @@ export function Say({
   dark,
   style,
   textStyle,
-  optionsTop,
-  optionsBottom,
+  options,
   optionsDark,
   foregroundSrc,
   foregroundStyle,
@@ -109,21 +106,11 @@ export function Say({
             </TextComp>
           </div>
 
-          {optionsTop && (
-            <OptionsView
-              dark={optionsDark}
-              placement="top"
-              options={optionsTop}
-              variants={variants}
-              controls={controls}
-            />
-          )}
-
-          {optionsBottom && (
+          {options && (
             <OptionsView
               dark={optionsDark}
               placement="bottom"
-              options={optionsBottom}
+              options={options}
               variants={variants}
               controls={controls}
             />

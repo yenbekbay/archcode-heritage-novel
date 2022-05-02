@@ -1,19 +1,13 @@
-import bgCityHallOfficeSrc from '~/assets/game/bg-city-hall-office.jpg'
-import bgCityHallOutsideSrc from '~/assets/game/bg-city-hall-outside.jpg'
-import bgCityHallSignSrc from '~/assets/game/bg-city-hall-sign.jpg'
-import bgMayorDeskSrc from '~/assets/game/bg-mayor-desk.jpg'
-import mayor1Src from '~/assets/game/mayor-1.png'
-import {Blank, Foreground, Say} from './commands'
+import {
+  bgCityHallOfficeJpg,
+  bgCityHallOutsideJpg,
+  bgCityHallSignJpg,
+  bgMayorDeskJpg,
+  mayor1Png,
+} from '~/assets/game'
+import {Blank, Foreground, Options, Say} from './commands'
 import type {SceneBackgroundComponentProps} from './components'
 import {SceneContainer} from './components'
-
-export const sceneCityHall1Assets = [
-  bgCityHallOutsideSrc,
-  bgCityHallSignSrc,
-  bgCityHallOfficeSrc,
-  bgMayorDeskSrc,
-  mayor1Src,
-]
 
 export function SceneCityHall1() {
   return (
@@ -21,7 +15,7 @@ export function SceneCityHall1() {
       <Blank durationMs={3000} />
 
       <Foreground
-        src={bgCityHallSignSrc}
+        src={bgCityHallSignJpg}
         style={{height: '100%', width: '100%', objectFit: 'cover'}}
         durationMs={3000}
         transitory
@@ -29,7 +23,7 @@ export function SceneCityHall1() {
       />
 
       <Foreground
-        src={bgCityHallOfficeSrc}
+        src={bgCityHallOfficeJpg}
         style={{height: '100%', width: '100%', objectFit: 'cover'}}
         durationMs={3000}
         transitory
@@ -38,18 +32,37 @@ export function SceneCityHall1() {
 
       <Say
         large
-        foregroundSrc={mayor1Src}
+        foregroundSrc={mayor1Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
         -Так-с…Что у нас на повестке дня?
       </Say>
 
       <Foreground
-        src={bgMayorDeskSrc}
+        src={bgMayorDeskJpg}
         style={{height: '100%', width: '100%', objectFit: 'cover'}}
         durationMs={3000}
         transitory
         lingers={1}
+      />
+
+      <Options
+        dark
+        options={[
+          {
+            label: 'Проекты девелопера',
+            onClick: (ctx) => ctx.goToScene('CityHall1_2a'),
+          },
+          {
+            label: 'Отдел памятников',
+            onClick: () => {},
+          },
+          {
+            label: 'Государственные программы',
+            onClick: () => {},
+          },
+        ]}
+        transitory
       />
     </SceneContainer>
   )
@@ -58,7 +71,7 @@ export function SceneCityHall1() {
 function Background(_props: SceneBackgroundComponentProps) {
   return (
     <img
-      src={bgCityHallOutsideSrc}
+      src={bgCityHallOutsideJpg}
       className="flex-shrink-1 min-h-full flex-grow-0 basis-0 object-cover"
     />
   )

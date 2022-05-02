@@ -1,4 +1,3 @@
-import React from 'react'
 import type {CommandContainerProps, CommandViewVariants} from '../components'
 import {CommandContainer, ForegroundView} from '../components'
 

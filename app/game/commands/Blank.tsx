@@ -1,4 +1,3 @@
-import React from 'react'
 import {CommandContainer} from '../components'
 
 export interface BlankProps {
