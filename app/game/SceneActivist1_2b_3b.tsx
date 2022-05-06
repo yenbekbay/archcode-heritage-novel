@@ -8,7 +8,7 @@ export function SceneActivist1_2b_3b() {
   return (
     <SceneContainer BackgroundComponent={Background}>
       <Say
-        large
+        size="lg"
         optionsDark
         options={[
           {

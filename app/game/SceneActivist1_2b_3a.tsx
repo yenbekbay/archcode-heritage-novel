@@ -13,7 +13,7 @@ export function SceneActivist1_2b_3a() {
   return (
     <SceneContainer BackgroundComponent={Background}>
       <Say
-        large
+        size="lg"
         foregroundSrc={redhead5Png}
         foregroundStyle={{width: '90%', bottom: 0}}
         transitory>
@@ -21,7 +21,7 @@ export function SceneActivist1_2b_3a() {
       </Say>
 
       <Say
-        large
+        size="lg"
         optionsDark
         options={[
           {
@@ -78,7 +78,7 @@ export function SceneActivist1_2b_3a() {
       />
 
       <Say
-        large
+        size="lg"
         foregroundSrc={redhead7Png}
         foregroundStyle={{width: '90%', bottom: 0}}
         transitory>

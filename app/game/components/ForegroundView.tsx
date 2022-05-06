@@ -3,7 +3,7 @@ import {motion} from 'framer-motion'
 import type {CommandViewVariants} from './CommandView'
 
 export interface ForegroundViewProps {
-  src?: string
+  src: string
   style?: React.CSSProperties
   variants: CommandViewVariants
   controls: AnimationControls

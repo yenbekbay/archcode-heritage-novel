@@ -18,7 +18,7 @@ import {SceneContainer} from './components'
 export function SceneActivist1_2b_3b_4a() {
   return (
     <SceneContainer BackgroundComponent={Background}>
-      <Blank durationMs={3000} />
+      <Blank durationMs={3000} transitory />
 
       <Foreground
         src={bgAptOutsideWindowJpg}
@@ -44,11 +44,11 @@ export function SceneActivist1_2b_3b_4a() {
         lingers={3}
       />
 
-      <Say large dark durationMs={0} transitory lingers={1}>
+      <Say size="lg" dark durationMs={0} transitory lingers={1}>
         Действовать надо последовательно
       </Say>
 
-      <Say large bottom dark transitory>
+      <Say size="lg" placement="bottom" dark transitory>
         Для начала узнаю, кто здесь - заинтересованные стороны
       </Say>
 
@@ -60,7 +60,7 @@ export function SceneActivist1_2b_3b_4a() {
       />
 
       <Say
-        large
+        size="lg"
         foregroundSrc={redhead9Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory
@@ -68,13 +68,13 @@ export function SceneActivist1_2b_3b_4a() {
         Узнать надо побольше...
       </Say>
 
-      <Say large bottom dark>
+      <Say size="lg" placement="bottom" dark>
         И не только почитать новости, а проверить, правду ли говорят
       </Say>
 
       <Say
         href="https://factcheck.kz/"
-        large
+        size="lg"
         foregroundSrc={bgLaptopHandsJpg}
         foregroundStyle={{
           height: '100%',
@@ -86,7 +86,7 @@ export function SceneActivist1_2b_3b_4a() {
       </Say>
 
       <Say
-        large
+        size="lg"
         foregroundSrc={redhead10Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
@@ -95,7 +95,7 @@ export function SceneActivist1_2b_3b_4a() {
 
       <Say
         href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-        large
+        size="lg"
         foregroundSrc={bgLaptopHandsJpg}
         foregroundStyle={{
           height: '100%',
@@ -107,7 +107,7 @@ export function SceneActivist1_2b_3b_4a() {
       </Say>
 
       <Say
-        large
+        size="lg"
         foregroundSrc={redhead11Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
@@ -116,7 +116,7 @@ export function SceneActivist1_2b_3b_4a() {
 
       <Say
         href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-        large
+        size="lg"
         foregroundSrc={bgLaptopHandsJpg}
         foregroundStyle={{
           height: '100%',
@@ -128,7 +128,7 @@ export function SceneActivist1_2b_3b_4a() {
       </Say>
 
       <Say
-        large
+        size="lg"
         foregroundSrc={redhead9Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
@@ -137,7 +137,7 @@ export function SceneActivist1_2b_3b_4a() {
 
       <Say
         href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-        large
+        size="lg"
         foregroundSrc={bgLaptopHandsJpg}
         foregroundStyle={{
           height: '100%',
@@ -149,7 +149,7 @@ export function SceneActivist1_2b_3b_4a() {
       </Say>
 
       <Say
-        large
+        size="lg"
         foregroundSrc={redhead12Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
@@ -157,7 +157,7 @@ export function SceneActivist1_2b_3b_4a() {
       </Say>
 
       <Say
-        large
+        size="lg"
         foregroundSrc={redhead11Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
@@ -191,7 +191,7 @@ export function SceneActivist1_2b_3b_4a() {
         Думаю, можно обратиться к ним
       </Say>
 
-      <Say href="https://archcode.kz" large textStyle={{marginTop: 64}}>
+      <Say href="https://archcode.kz" size="lg" textStyle={{marginTop: 64}}>
         сайт Архкода
       </Say>
 

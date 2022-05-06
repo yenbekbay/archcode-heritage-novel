@@ -1,6 +1,6 @@
 import {AnimatePresence, motion} from 'framer-motion'
 import {
-  bgBldg1Gif,
+  bgBldg1FenceGif,
   bgBldg1Jpg,
   fencePng,
   redhead2Png,
@@ -14,7 +14,7 @@ export function SceneActivist1_2a() {
   return (
     <SceneContainer BackgroundComponent={Background}>
       <Say
-        large
+        size="lg"
         foregroundSrc={redhead2Png}
         foregroundStyle={{
           width: '90%',
@@ -26,7 +26,7 @@ export function SceneActivist1_2a() {
       </Say>
 
       <Say
-        large
+        size="lg"
         foregroundSrc={redhead3Png}
         foregroundStyle={{
           width: '90%',
@@ -37,7 +37,7 @@ export function SceneActivist1_2a() {
         Поберегу нервы, семья ждет, пойду дома чай попью
       </Say>
 
-      <Blank durationMs={10000} />
+      <Blank durationMs={10000} transitory />
 
       <Title transitory lingers>
         Конец игры
@@ -57,16 +57,16 @@ export function SceneActivist1_2a() {
 }
 
 function Background(_props: SceneBackgroundComponentProps) {
-  const {focusedFrameIndex: focusedFrame} = useSceneContext()
+  const {focusedFrameIndex} = useSceneContext()
   return (
     <>
       <img
-        src={focusedFrame < 2 ? bgBldg1Jpg : bgBldg1Gif}
+        src={focusedFrameIndex < 2 ? bgBldg1Jpg : bgBldg1FenceGif}
         className="min-h-full flex-1 object-cover"
       />
 
       <AnimatePresence>
-        {focusedFrame < 2 && (
+        {focusedFrameIndex < 2 && (
           <motion.div
             className="absolute inset-0"
             exit={{

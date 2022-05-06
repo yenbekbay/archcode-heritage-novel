@@ -1,6 +1,6 @@
 import {AnimatePresence, motion} from 'framer-motion'
 import {
-  bgBldg1Gif,
+  bgBldg1FenceGif,
   bgBldg1Jpg,
   fencePng,
   redhead2Png,
@@ -14,7 +14,7 @@ export function SceneActivist1_2b() {
   return (
     <SceneContainer BackgroundComponent={Background}>
       <Say
-        large
+        size="lg"
         foregroundSrc={redhead4Png}
         foregroundStyle={{
           width: '90%',
@@ -25,10 +25,10 @@ export function SceneActivist1_2b() {
         Мутят что-то без доклада народу. Надо разобраться!
       </Say>
 
-      <Blank durationMs={10000} />
+      <Blank durationMs={10000} transitory />
 
       <Say
-        large
+        size="lg"
         optionsDark
         options={[
           {
@@ -49,16 +49,16 @@ export function SceneActivist1_2b() {
 }
 
 function Background(_props: SceneBackgroundComponentProps) {
-  const {focusedFrameIndex: focusedFrame} = useSceneContext()
+  const {focusedFrameIndex} = useSceneContext()
   return (
     <>
       <img
-        src={focusedFrame < 1 ? bgBldg1Jpg : bgBldg1Gif}
+        src={focusedFrameIndex < 1 ? bgBldg1Jpg : bgBldg1FenceGif}
         className="min-h-full flex-1 object-cover"
       />
 
       <AnimatePresence>
-        {focusedFrame < 1 && (
+        {focusedFrameIndex < 1 && (
           <motion.div
             className="absolute inset-0"
             exit={{

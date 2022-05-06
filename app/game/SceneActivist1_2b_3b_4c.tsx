@@ -12,10 +12,10 @@ import {SceneContainer} from './components'
 export function SceneActivist1_2b_3b_4c() {
   return (
     <SceneContainer BackgroundComponent={Background}>
-      <Blank durationMs={3000} />
+      <Blank durationMs={3000} transitory />
 
       <Say
-        large
+        size="lg"
         foregroundSrc={redhead19Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
@@ -31,7 +31,7 @@ export function SceneActivist1_2b_3b_4c() {
       />
 
       <Say
-        large
+        size="lg"
         foregroundSrc={sillhouettePng}
         foregroundStyle={{width: '90%', bottom: 0}}
         transitory>
@@ -55,7 +55,7 @@ export function SceneActivist1_2b_3b_4c() {
       />
 
       <Say
-        large
+        size="lg"
         foregroundSrc={sillhouettePng}
         foregroundStyle={{width: '90%', bottom: 0}}
         transitory>
@@ -64,7 +64,7 @@ export function SceneActivist1_2b_3b_4c() {
 
       <Say
         href="tel://+77071210483"
-        large
+        size="lg"
         textStyle={{
           marginTop: 64,
           width: 220,

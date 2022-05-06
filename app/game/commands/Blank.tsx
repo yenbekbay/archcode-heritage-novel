@@ -2,11 +2,12 @@ import {CommandContainer} from '../components'
 
 export interface BlankProps {
   durationMs?: number
+  transitory?: boolean
 }
 
-export function Blank({durationMs}: BlankProps) {
+export function Blank({durationMs, transitory}: BlankProps) {
   return (
-    <CommandContainer durationMs={durationMs} skippable transitory>
+    <CommandContainer durationMs={durationMs} transitory={transitory} skippable>
       {() => null}
     </CommandContainer>
   )

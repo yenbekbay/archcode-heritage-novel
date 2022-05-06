@@ -100,7 +100,7 @@ export function SceneContainer({
         {canGoBack() && (
           <div
             className="absolute left-0 z-50 h-full w-16 cursor-pointer from-current to-transparent hover:bg-gradient-to-r"
-            style={{color: 'rgba(0, 0, 0, 0.35)'}}
+            style={{color: 'rgba(0, 0, 0, .35)'}}
             tabIndex={-1}
             onClick={() => goBack()}
           />

@@ -11,8 +11,9 @@ export interface SayProps
   extends Partial<Omit<CommandContainerProps, 'children'>> {
   children: string
   href?: string
-  large?: boolean
-  bottom?: boolean
+  tag?: string
+  size?: 'md' | 'lg' | 'xl'
+  placement?: 'top' | 'middle' | 'bottom'
   dark?: boolean
   style?: React.CSSProperties
   textStyle?: React.CSSProperties
@@ -26,8 +27,9 @@ export interface SayProps
 export function Say({
   children,
   href,
-  large,
-  bottom,
+  tag,
+  size = 'md',
+  placement = 'top',
   dark,
   style,
   textStyle,
@@ -49,7 +51,7 @@ export function Say({
   ...restProps
 }: SayProps) {
   const chars = children.split('')
-  const TextComp = href ? 'a' : 'span'
+  const TextComp = href ? motion.a : motion.span
   return (
     <CommandContainer
       durationMs={3000 + chars.length * 20}
@@ -69,22 +71,44 @@ export function Say({
           <div
             className={clsx(
               'absolute inset-0 flex flex-col items-center p-8 pt-20',
-              bottom ? 'justify-end' : 'justify-start',
+              {
+                top: 'justify-start',
+                middle: 'justify-center',
+                bottom: 'justify-end',
+              }[placement],
             )}
             style={style}>
+            {tag && (
+              <motion.span
+                className="text-md mb-1 whitespace-pre-wrap rounded-md px-1 text-center font-calligraph"
+                style={{
+                  color: '#fBf9e0',
+                  background: 'rgba(165, 123, 85, .75)',
+                }}
+                variants={variants}
+                initial="initial"
+                animate={controls}>
+                {tag}
+              </motion.span>
+            )}
+
             <TextComp
               className={clsx(
                 'whitespace-pre-wrap text-center font-calligraph',
-                large ? 'text-xl' : 'text-md',
+                {
+                  md: 'text-md',
+                  lg: 'text-xl',
+                  xl: 'text-3xl',
+                }[size],
               )}
               style={{
                 color: dark ? '#fBf9e0' : 'hsl(206, 24.0%, 9.0%)',
                 textShadow: dark
-                  ? '0 -1px rgba(0, 0, 0, 0.35), 0 2px hsl(206, 24.0%, 9.0%)'
-                  : '0 1px hsl(209, 12.2%, 93.2%)',
+                  ? '0 -1px rgba(0, 0, 0, .35), 0 2px hsl(206, 24.0%, 9.0%), 0 0 4px rgba(0, 0, 0), 0 0 4px rgba(0, 0, 0), 0 0 4px rgba(0, 0, 0)'
+                  : '0 1px hsl(209, 12.2%, 93.2%), 0 0 4px rgba(255, 255, 255), 0 0 4px rgba(255, 255, 255), 0 0 4px rgba(255, 255, 255)',
                 ...(href && {
                   textDecoration: 'underline',
-                  textUnderlineOffset: large ? '6px' : '4px',
+                  textUnderlineOffset: size ? '6px' : '4px',
                 }),
                 ...textStyle,
               }}
@@ -92,7 +116,10 @@ export function Say({
                 href,
                 target: '_blank',
                 rel: 'noopener noreferrer',
-              })}>
+              })}
+              variants={variants}
+              initial="initial"
+              animate={controls}>
               {chars.map((char, idx) => (
                 <motion.span
                   key={`${char}_${idx}`}
@@ -109,7 +136,6 @@ export function Say({
           {options && (
             <OptionsView
               dark={optionsDark}
-              placement="bottom"
               options={options}
               variants={variants}
               controls={controls}

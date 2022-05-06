@@ -7,7 +7,7 @@ import {SceneContainer, useSceneContext} from './components'
 export function SceneActivist1() {
   return (
     <SceneContainer BackgroundComponent={Background}>
-      <Say large transitory>
+      <Say size="lg" transitory>
         Забор в этом городе появился новый
       </Say>
 
@@ -31,7 +31,7 @@ export function SceneActivist1() {
       />
 
       <Say
-        large
+        size="lg"
         optionsDark
         options={[
           {
@@ -56,10 +56,10 @@ export function SceneActivist1() {
 }
 
 function Background(_props: SceneBackgroundComponentProps) {
-  const {focusedFrameIndex: focusedFrame} = useSceneContext()
+  const {focusedFrameIndex} = useSceneContext()
   return (
     <img
-      src={focusedFrame < 2 ? bgMapGif : bgMapJpg}
+      src={focusedFrameIndex < 2 ? bgMapGif : bgMapJpg}
       className="flex-shrink-1 min-h-full flex-grow-0 basis-0 object-cover "
     />
   )

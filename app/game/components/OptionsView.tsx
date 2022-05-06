@@ -70,8 +70,8 @@ export function OptionsView({
           style={{
             color: dark ? '#fBf9e0' : 'hsl(206, 24.0%, 9.0%)',
             textShadow: dark
-              ? '0 -1px rgba(0, 0, 0, 0.35), 0 2px hsl(206, 24.0%, 9.0%)'
-              : '0 1px hsl(209, 12.2%, 93.2%)',
+              ? '0 -1px rgba(0, 0, 0, .35), 0 2px hsl(206, 24.0%, 9.0%), 0 0 4px rgba(0, 0, 0), 0 0 4px rgba(0, 0, 0), 0 0 4px rgba(0, 0, 0)'
+              : '0 1px hsl(209, 12.2%, 93.2%), 0 0 4px rgba(255, 255, 255), 0 0 4px rgba(255, 255, 255), 0 0 4px rgba(255, 255, 255)',
           }}
           variants={variants}
           initial="initial"
@@ -90,14 +90,14 @@ export function OptionsView({
           custom={idx}>
           <motion.div
             className={clsx(
-              'btn btn-ghost min-h-0 font-calligraph shadow-md',
-              large ? 'btn-xl h-12 text-2xl' : 'text-md btn-lg h-10',
+              'btn btn-ghost h-auto min-h-0 py-1 font-calligraph shadow-md',
+              large ? 'btn-xl text-2xl' : 'text-md btn-lg',
             )}
             style={{
               color: dark ? 'white' : 'hsl(206, 24.0%, 9.0%)',
               backgroundColor: dark
-                ? 'hsla(0, 0%, 0%, .2)'
-                : 'hsla(0, 100%, 100%, .2)',
+                ? 'rgba(0, 0, 0, .35)'
+                : 'rgba(255, 255, 255, .5)',
               textShadow: dark
                 ? '0 1px hsl(206, 24.0%, 9.0%)'
                 : '0 1px hsl(209, 12.2%, 93.2%)',

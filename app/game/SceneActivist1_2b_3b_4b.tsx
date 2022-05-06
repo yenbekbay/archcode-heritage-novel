@@ -6,8 +6,8 @@ import {
   bgLaptopStandaloneJpg,
   bgPhoneFingerJpg,
   bgPhoneHandJpg,
-  guyAPng,
-  guyBPng,
+  activistAPng,
+  activistBPng,
   redhead14Png,
   redhead15Png,
   redhead16Png,
@@ -23,7 +23,7 @@ import {SceneContainer} from './components'
 export function SceneActivist1_2b_3b_4b() {
   return (
     <SceneContainer BackgroundComponent={Background}>
-      <Blank durationMs={3000} />
+      <Blank durationMs={3000} transitory />
 
       <Foreground
         src={bgAptOutsideWindowJpg}
@@ -49,7 +49,7 @@ export function SceneActivist1_2b_3b_4b() {
       />
 
       <Say
-        large
+        size="lg"
         foregroundSrc={redhead14Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory
@@ -85,7 +85,7 @@ export function SceneActivist1_2b_3b_4b() {
       </Say>
 
       <Say
-        large
+        size="lg"
         foregroundSrc={redhead15Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
@@ -93,7 +93,7 @@ export function SceneActivist1_2b_3b_4b() {
       </Say>
 
       <Say
-        large
+        size="lg"
         foregroundSrc={redhead16Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
@@ -131,8 +131,8 @@ export function SceneActivist1_2b_3b_4b() {
       </Say>
 
       <Say
-        large
-        foregroundSrc={guyBPng}
+        size="lg"
+        foregroundSrc={activistBPng}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory
         lingers={2}>
@@ -140,7 +140,7 @@ export function SceneActivist1_2b_3b_4b() {
       </Say>
 
       <Foreground
-        src={guyAPng}
+        src={activistAPng}
         style={{width: '100%', bottom: 0, transform: 'translateX(-25%)'}}
         transitory
         lingers={1}
@@ -156,7 +156,7 @@ export function SceneActivist1_2b_3b_4b() {
       />
 
       <Say
-        foregroundSrc={guyAPng}
+        foregroundSrc={activistAPng}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
         {
@@ -166,7 +166,7 @@ export function SceneActivist1_2b_3b_4b() {
 
       <Say
         href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-        large
+        size="lg"
         textStyle={{
           marginTop: 64,
           width: 220,
@@ -194,7 +194,7 @@ export function SceneActivist1_2b_3b_4b() {
 
       <Say
         href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-        large
+        size="lg"
         textStyle={{
           marginTop: 64,
           width: 220,
@@ -212,7 +212,7 @@ export function SceneActivist1_2b_3b_4b() {
       </Say>
 
       <Say
-        foregroundSrc={guyBPng}
+        foregroundSrc={activistBPng}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
         {
@@ -222,7 +222,7 @@ export function SceneActivist1_2b_3b_4b() {
 
       <Say
         href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-        large
+        size="lg"
         textStyle={{
           marginTop: 64,
           width: 220,
@@ -240,8 +240,8 @@ export function SceneActivist1_2b_3b_4b() {
       </Say>
 
       <Say
-        large
-        foregroundSrc={guyAPng}
+        size="lg"
+        foregroundSrc={activistAPng}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
         Еще мы должны участвовать в общественных слушаниях...
@@ -249,7 +249,7 @@ export function SceneActivist1_2b_3b_4b() {
 
       <Say
         href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-        large
+        size="lg"
         textStyle={{
           marginTop: 64,
           width: 220,
@@ -267,7 +267,7 @@ export function SceneActivist1_2b_3b_4b() {
       </Say>
 
       <Say
-        large
+        size="lg"
         foregroundSrc={redhead1Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
@@ -275,8 +275,8 @@ export function SceneActivist1_2b_3b_4b() {
       </Say>
 
       <Say
-        large
-        foregroundSrc={guyAPng}
+        size="lg"
+        foregroundSrc={activistAPng}
         foregroundStyle={{width: '100%', bottom: 0, transform: 'scaleX(-1)'}}
         transitory>
         А куда можно написать?
@@ -309,7 +309,7 @@ export function SceneActivist1_2b_3b_4b() {
       </Say>
 
       <Say
-        large
+        size="lg"
         foregroundSrc={redhead18Png}
         foregroundStyle={{width: '100%', bottom: 0, transform: 'scaleX(-1)'}}
         transitory>
@@ -317,8 +317,8 @@ export function SceneActivist1_2b_3b_4b() {
       </Say>
 
       <Say
-        large
-        foregroundSrc={guyBPng}
+        size="lg"
+        foregroundSrc={activistBPng}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
         А я тут новости читал. Есть группа Архкод, вроде как наследием
@@ -341,7 +341,7 @@ export function SceneActivist1_2b_3b_4b() {
 
       <Say
         href="https://archcode.kz"
-        large
+        size="lg"
         textStyle={{
           marginTop: 80,
           width: 190,
@@ -352,8 +352,8 @@ export function SceneActivist1_2b_3b_4b() {
       </Say>
 
       <Say
-        large
-        foregroundSrc={guyAPng}
+        size="lg"
+        foregroundSrc={activistAPng}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
         Да, давайте позвоним им

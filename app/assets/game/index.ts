@@ -1,11 +1,18 @@
 // codegen:start {preset: barrel, include: "./*.{jpg,png,gif}", import: default}
+import activistAPng from './activist-a.png'
+import activistBPng from './activist-b.png'
+import angryCrowd1Png from './angry-crowd-1.png'
+import angryCrowd2Png from './angry-crowd-2.png'
+import assistant1Png from './assistant-1.png'
+import assistant2Png from './assistant-2.png'
 import bgAptEntranceJpg from './bg-apt-entrance.jpg'
 import bgAptKitchenJpg from './bg-apt-kitchen.jpg'
 import bgAptOutsideWindowJpg from './bg-apt-outside-window.jpg'
 import bgArchcodeOfficeJpg from './bg-archcode-office.jpg'
+import bgBldg1FenceGif from './bg-bldg-1-fence.gif'
 import bgBldg1FenceJpg from './bg-bldg-1-fence.jpg'
-import bgBldg1Gif from './bg-bldg-1.gif'
 import bgBldg1Jpg from './bg-bldg-1.jpg'
+import bgCityHallConferenceRoomJpg from './bg-city-hall-conference-room.jpg'
 import bgCityHallOfficeJpg from './bg-city-hall-office.jpg'
 import bgCityHallOutsideJpg from './bg-city-hall-outside.jpg'
 import bgCityHallSignJpg from './bg-city-hall-sign.jpg'
@@ -16,13 +23,27 @@ import bgLaptopHandsJpg from './bg-laptop-hands.jpg'
 import bgLaptopStandaloneJpg from './bg-laptop-standalone.jpg'
 import bgMapGif from './bg-map.gif'
 import bgMapJpg from './bg-map.jpg'
+import bgMayorDeskAJpg from './bg-mayor-desk-a.jpg'
 import bgMayorDeskJpg from './bg-mayor-desk.jpg'
+import bgMayorDoorJpg from './bg-mayor-door.jpg'
+import bgMayorDoorwayJpg from './bg-mayor-doorway.jpg'
 import bgPhoneFingerJpg from './bg-phone-finger.jpg'
 import bgPhoneHandJpg from './bg-phone-hand.jpg'
+import bgZheltoksanAfterJpg from './bg-zheltoksan-after.jpg'
+import bgZheltoksanBeforeFenceGif from './bg-zheltoksan-before-fence.gif'
+import bgZheltoksanBeforeFenceJpg from './bg-zheltoksan-before-fence.jpg'
+import bgZheltoksanBeforeJpg from './bg-zheltoksan-before.jpg'
+import developerRepPng from './developer-rep.png'
+import expert1Png from './expert-1.png'
+import expert2Png from './expert-2.png'
+import expert3Png from './expert-3.png'
 import fencePng from './fence.png'
-import guyAPng from './guy-a.png'
-import guyBPng from './guy-b.png'
+import journalist1Png from './journalist-1.png'
+import letterPng from './letter.png'
 import mayor1Png from './mayor-1.png'
+import mayor2Png from './mayor-2.png'
+import mayor3Png from './mayor-3.png'
+import mayor4Png from './mayor-4.png'
 import redhead1Png from './redhead-1.png'
 import redhead10Png from './redhead-10.png'
 import redhead11Png from './redhead-11.png'
@@ -43,16 +64,26 @@ import redhead6Png from './redhead-6.png'
 import redhead7Png from './redhead-7.png'
 import redhead8Png from './redhead-8.png'
 import redhead9Png from './redhead-9.png'
+import sabit1Png from './sabit-1.png'
 import sillhouettePng from './sillhouette.png'
+import stampApprovedPng from './stamp-approved.png'
+import stampRejectedPng from './stamp-rejected.png'
 
 export {
+  activistAPng,
+  activistBPng,
+  angryCrowd1Png,
+  angryCrowd2Png,
+  assistant1Png,
+  assistant2Png,
   bgAptEntranceJpg,
   bgAptKitchenJpg,
   bgAptOutsideWindowJpg,
   bgArchcodeOfficeJpg,
+  bgBldg1FenceGif,
   bgBldg1FenceJpg,
-  bgBldg1Gif,
   bgBldg1Jpg,
+  bgCityHallConferenceRoomJpg,
   bgCityHallOfficeJpg,
   bgCityHallOutsideJpg,
   bgCityHallSignJpg,
@@ -63,13 +94,27 @@ export {
   bgLaptopStandaloneJpg,
   bgMapGif,
   bgMapJpg,
+  bgMayorDeskAJpg,
   bgMayorDeskJpg,
+  bgMayorDoorJpg,
+  bgMayorDoorwayJpg,
   bgPhoneFingerJpg,
   bgPhoneHandJpg,
+  bgZheltoksanAfterJpg,
+  bgZheltoksanBeforeFenceGif,
+  bgZheltoksanBeforeFenceJpg,
+  bgZheltoksanBeforeJpg,
+  developerRepPng,
+  expert1Png,
+  expert2Png,
+  expert3Png,
   fencePng,
-  guyAPng,
-  guyBPng,
+  journalist1Png,
+  letterPng,
   mayor1Png,
+  mayor2Png,
+  mayor3Png,
+  mayor4Png,
   redhead1Png,
   redhead10Png,
   redhead11Png,
@@ -90,6 +135,9 @@ export {
   redhead7Png,
   redhead8Png,
   redhead9Png,
+  sabit1Png,
   sillhouettePng,
+  stampApprovedPng,
+  stampRejectedPng,
 }
 // codegen:end

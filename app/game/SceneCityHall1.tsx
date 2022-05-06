@@ -12,7 +12,7 @@ import {SceneContainer} from './components'
 export function SceneCityHall1() {
   return (
     <SceneContainer BackgroundComponent={Background}>
-      <Blank durationMs={3000} />
+      <Blank durationMs={3000} transitory />
 
       <Foreground
         src={bgCityHallSignJpg}
@@ -31,7 +31,7 @@ export function SceneCityHall1() {
       />
 
       <Say
-        large
+        size="lg"
         foregroundSrc={mayor1Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
@@ -55,11 +55,11 @@ export function SceneCityHall1() {
           },
           {
             label: 'Отдел памятников',
-            onClick: () => {},
+            onClick: () => alert('Не готово'),
           },
           {
             label: 'Государственные программы',
-            onClick: () => {},
+            onClick: () => alert('Не готово'),
           },
         ]}
         transitory
