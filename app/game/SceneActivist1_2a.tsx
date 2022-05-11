@@ -22,7 +22,7 @@ export function SceneActivist1_2a() {
           filter: 'drop-shadow(40px 40px 5px rgba(0, 0, 0, .35))',
         }}
         transitory>
-        Скорее всего, ничего особенного. Очередное...да не важно
+        Скорее всего, ничего особенного. Очередное…да не важно
       </Say>
 
       <Say

@@ -34,7 +34,7 @@ export function SceneCityHall1_2a_3a() {
         optionsDark
         foregroundSrc={mayor2Png}
         foregroundStyle={{width: '100%', bottom: 0}}>
-        Хммм...
+        Хммм…
       </Say>
     </SceneContainer>
   )

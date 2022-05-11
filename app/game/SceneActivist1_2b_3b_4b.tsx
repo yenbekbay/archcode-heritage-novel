@@ -244,7 +244,7 @@ export function SceneActivist1_2b_3b_4b() {
         foregroundSrc={activistAPng}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
-        Еще мы должны участвовать в общественных слушаниях...
+        Еще мы должны участвовать в общественных слушаниях…
       </Say>
 
       <Say

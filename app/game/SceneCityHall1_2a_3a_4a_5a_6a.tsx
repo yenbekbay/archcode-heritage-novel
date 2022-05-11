@@ -12,7 +12,8 @@ export function SceneCityHall1_2a_3a_4a_5a_6a() {
     <SceneContainer BackgroundComponent={Background}>
       <Say
         foregroundSrc={mayor3Png}
-        foregroundStyle={{width: '100%', bottom: 0}}>
+        foregroundStyle={{width: '100%', bottom: 0}}
+        transitory>
         Выявлен ряд нарушений! Девелопер должен пересмотреть проект
       </Say>
 

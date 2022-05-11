@@ -65,7 +65,7 @@ export function SceneActivist1_2b_3b_4a() {
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory
         lingers={1}>
-        Узнать надо побольше...
+        Узнать надо побольше…
       </Say>
 
       <Say size="lg" placement="bottom" dark>

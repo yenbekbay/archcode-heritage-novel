@@ -118,8 +118,7 @@ export function SceneCityHall1_2a_3a_4a() {
           },
         ]}
         foregroundSrc={mayor2Png}
-        foregroundStyle={{width: '100%', bottom: 0}}
-        transitory>
+        foregroundStyle={{width: '100%', bottom: 0}}>
         Что делать с проектом?
       </Say>
     </SceneContainer>

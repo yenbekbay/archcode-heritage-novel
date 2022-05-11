@@ -90,17 +90,17 @@ export function OptionsView({
           custom={idx}>
           <motion.div
             className={clsx(
-              'btn btn-ghost h-auto min-h-0 py-1 font-calligraph shadow-md',
+              'btn btn-ghost h-auto min-h-0 py-1 font-calligraph leading-6 shadow-md',
               large ? 'btn-xl text-2xl' : 'text-md btn-lg',
             )}
             style={{
               color: dark ? 'white' : 'hsl(206, 24.0%, 9.0%)',
               backgroundColor: dark
-                ? 'rgba(0, 0, 0, .35)'
-                : 'rgba(255, 255, 255, .5)',
+                ? 'rgba(0, 0, 0, .25)'
+                : 'rgba(255, 255, 255, .25)',
               textShadow: dark
-                ? '0 1px hsl(206, 24.0%, 9.0%)'
-                : '0 1px hsl(209, 12.2%, 93.2%)',
+                ? '0 -1px rgba(0, 0, 0, .35), 0 2px hsl(206, 24.0%, 9.0%), 0 0 4px rgba(0, 0, 0), 0 0 4px rgba(0, 0, 0), 0 0 4px rgba(0, 0, 0)'
+                : '0 1px hsl(209, 12.2%, 93.2%), 0 0 4px rgba(255, 255, 255), 0 0 4px rgba(255, 255, 255), 0 0 4px rgba(255, 255, 255)',
               boxShadow: '0 2px rgba(0, 0, 0, .35)',
             }}
             animate={{y: -8}}
