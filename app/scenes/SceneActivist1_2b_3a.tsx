@@ -5,9 +5,8 @@ import {
   redhead5Png,
   redhead7Png,
 } from '~/assets/game'
-import {Options, Say, Title} from './commands'
-import type {SceneBackgroundComponentProps} from './components'
-import {SceneContainer} from './components'
+import type {SceneBackgroundComponentProps} from '~/lib'
+import {Options, Say, SceneContainer, Title} from '~/lib'
 
 export function SceneActivist1_2b_3a() {
   return (

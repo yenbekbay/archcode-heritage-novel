@@ -6,9 +6,8 @@ import {
   mayor2Png,
   stampApprovedPng,
 } from '~/assets/game'
-import {Foreground, Say} from './commands'
-import type {SceneBackgroundComponentProps} from './components'
-import {SceneContainer} from './components'
+import type {SceneBackgroundComponentProps} from '~/lib'
+import {Foreground, Say, SceneContainer} from '~/lib'
 
 export function SceneCityHall1_2a_3a_4a_5a_6b_7a() {
   return (

@@ -1,16 +1,42 @@
 import {
   bgCityHallConferenceRoomJpg,
   journalist1Png,
+  letterPng,
   mayor2Png,
   sabit1Png,
+  stampRejectedPng,
 } from '~/assets/game'
-import {Say} from './commands'
-import type {SceneBackgroundComponentProps} from './components'
-import {SceneContainer} from './components'
+import type {SceneBackgroundComponentProps} from '~/lib'
+import {Foreground, Say, SceneContainer} from '~/lib'
 
-export function SceneCityHall1_2a_3a_4b_5b() {
+export function SceneCityHall1_2a_3a_4a_5a() {
   return (
     <SceneContainer BackgroundComponent={Background}>
+      <Foreground
+        src={letterPng}
+        style={{
+          height: '100%',
+          width: '100%',
+          objectFit: 'cover',
+          backgroundColor: '#e7dbab',
+          transform: 'scale(2.5)',
+          transformOrigin: '50% 35%',
+        }}
+        transitory
+        lingers={1}
+      />
+
+      <Foreground
+        src={stampRejectedPng}
+        style={{
+          height: '100%',
+          width: '100%',
+          objectFit: 'cover',
+          transform: 'translateY(-15%)',
+        }}
+        transitory
+      />
+
       <Say transitory>
         Встреча с руководителем управления архитектуры и градостроительства
         Сабитом Гадырбаевым
@@ -46,8 +72,7 @@ export function SceneCityHall1_2a_3a_4b_5b() {
       <Say
         tag="Сабит:"
         foregroundSrc={sabit1Png}
-        foregroundStyle={{width: '100%', bottom: 0}}
-        transitory>
+        foregroundStyle={{width: '100%', bottom: 0}}>
         Там вверху стоят коринфские ордера, на третьем этаже деревянная лепнина.
         Да там такое намешали!
       </Say>

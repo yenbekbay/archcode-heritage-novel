@@ -1,9 +1,5 @@
 import React from 'react'
-
-export interface Frame {
-  sceneId: SceneId
-  frameIndex: number
-}
+import type {Frame} from '../utils'
 
 export interface GameContextValue {
   focusedFrame: Frame

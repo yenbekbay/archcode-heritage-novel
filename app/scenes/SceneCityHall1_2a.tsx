@@ -1,7 +1,6 @@
 import {bgMayorDeskAJpg} from '~/assets/game'
-import {Say} from './commands'
-import type {SceneBackgroundComponentProps} from './components'
-import {SceneContainer} from './components'
+import type {SceneBackgroundComponentProps} from '~/lib'
+import {Say, SceneContainer} from '~/lib'
 
 export function SceneCityHall1_2a() {
   return (

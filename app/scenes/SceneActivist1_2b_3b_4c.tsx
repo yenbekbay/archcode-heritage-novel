@@ -5,9 +5,8 @@ import {
   redhead19Png,
   sillhouettePng,
 } from '~/assets/game'
-import {Blank, Foreground, Options, Say, Title} from './commands'
-import type {SceneBackgroundComponentProps} from './components'
-import {SceneContainer} from './components'
+import type {SceneBackgroundComponentProps} from '~/lib'
+import {Blank, Foreground, Options, Say, SceneContainer, Title} from '~/lib'
 
 export function SceneActivist1_2b_3b_4c() {
   return (

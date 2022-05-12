@@ -2,9 +2,8 @@ import useSize from '@react-hook/size'
 import {motion, useAnimation} from 'framer-motion'
 import React from 'react'
 import {bgIntroJpg} from '~/assets/game'
-import {Options, Say, Title} from './commands'
-import type {SceneBackgroundComponentProps} from './components'
-import {SceneContainer} from './components'
+import type {SceneBackgroundComponentProps} from '~/lib'
+import {Options, Say, SceneContainer, Title} from '~/lib'
 
 export function SceneIntro() {
   return (

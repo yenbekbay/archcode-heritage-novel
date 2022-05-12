@@ -6,9 +6,15 @@ import {
   redhead2Png,
   redhead3Png,
 } from '~/assets/game'
-import {Blank, Options, Say, Title} from './commands'
-import type {SceneBackgroundComponentProps} from './components'
-import {SceneContainer, useSceneContext} from './components'
+import type {SceneBackgroundComponentProps} from '~/lib'
+import {
+  Blank,
+  Options,
+  Say,
+  SceneContainer,
+  Title,
+  useSceneContext,
+} from '~/lib'
 
 export function SceneActivist1_2a() {
   return (

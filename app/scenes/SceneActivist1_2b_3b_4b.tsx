@@ -1,4 +1,6 @@
 import {
+  activistAPng,
+  activistBPng,
   bgAptEntranceJpg,
   bgAptKitchenJpg,
   bgAptOutsideWindowJpg,
@@ -6,8 +8,6 @@ import {
   bgLaptopStandaloneJpg,
   bgPhoneFingerJpg,
   bgPhoneHandJpg,
-  activistAPng,
-  activistBPng,
   redhead14Png,
   redhead15Png,
   redhead16Png,
@@ -16,9 +16,8 @@ import {
   redhead1Png,
   redhead5Png,
 } from '~/assets/game'
-import {Blank, Foreground, Options, Say} from './commands'
-import type {SceneBackgroundComponentProps} from './components'
-import {SceneContainer} from './components'
+import type {SceneBackgroundComponentProps} from '~/lib'
+import {Blank, Foreground, Options, Say, SceneContainer} from '~/lib'
 
 export function SceneActivist1_2b_3b_4b() {
   return (

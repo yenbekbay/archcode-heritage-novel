@@ -1,6 +1,3 @@
-import * as assets from '~/assets/game'
-import type {GameProps} from './components'
-import {Game, Scene} from './components'
 import {SceneActivist1} from './SceneActivist1'
 import {SceneActivist1_2a} from './SceneActivist1_2a'
 import {SceneActivist1_2b} from './SceneActivist1_2b'
@@ -47,18 +44,4 @@ export const scenes = {
 
 declare global {
   type SceneId = keyof typeof scenes
-}
-
-export function MyGame(
-  props: Omit<GameProps, 'assets' | 'initialSceneId' | 'children'>,
-) {
-  return (
-    <Game assets={Object.values(assets)} initialSceneId="Intro" {...props}>
-      {Object.entries(scenes).map(([id, SceneComp]) => (
-        <Scene key={id} id={id as SceneId}>
-          <SceneComp />
-        </Scene>
-      ))}
-    </Game>
-  )
 }

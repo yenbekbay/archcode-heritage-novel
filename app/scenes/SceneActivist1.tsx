@@ -1,8 +1,6 @@
-import {bgMapGif, bgMapJpg, fencePng} from '~/assets/game'
-import redhead1Src from '~/assets/game/redhead-1.png'
-import {Foreground, Say} from './commands'
-import type {SceneBackgroundComponentProps} from './components'
-import {SceneContainer, useSceneContext} from './components'
+import {bgMapGif, bgMapJpg, fencePng, redhead1Png} from '~/assets/game'
+import type {SceneBackgroundComponentProps} from '~/lib'
+import {Foreground, Say, SceneContainer, useSceneContext} from '~/lib'
 
 export function SceneActivist1() {
   return (
@@ -43,7 +41,7 @@ export function SceneActivist1() {
             onClick: (ctx) => ctx.goToScene('Activist1_2b'),
           },
         ]}
-        foregroundSrc={redhead1Src}
+        foregroundSrc={redhead1Png}
         foregroundStyle={{
           width: '90%',
           bottom: 0,

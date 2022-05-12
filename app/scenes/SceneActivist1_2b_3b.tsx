@@ -1,8 +1,7 @@
 import {redhead8Png} from '~/assets/game'
 import bgBldg1FenceSrc from '~/assets/game/bg-bldg-1-fence.jpg'
-import {Say} from './commands'
-import type {SceneBackgroundComponentProps} from './components'
-import {SceneContainer} from './components'
+import type {SceneBackgroundComponentProps} from '~/lib'
+import {Say, SceneContainer} from '~/lib'
 
 export function SceneActivist1_2b_3b() {
   return (
