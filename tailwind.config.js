@@ -12,11 +12,21 @@ module.exports = {
         sans: ['Inter var', ...defaultTheme.fontFamily.sans],
         calligraph: ['calligraph'],
       },
+      keyframes: {
+        'slide-up': {
+          '0%': {opacity: 0, transform: 'translateY(10px)'},
+          '100%': {opacity: 1, transform: 'translateY(0)'},
+        },
+      },
+      animation: {
+        'slide-up': 'slide-up 0.6s cubic-bezier(0.16, 1, 0.3, 1)',
+      },
     },
   },
   plugins: [
     require('@tailwindcss/forms'),
     require('@tailwindcss/typography'),
+    require('tailwindcss-radix')(),
     require('daisyui'),
   ],
   daisyui: {

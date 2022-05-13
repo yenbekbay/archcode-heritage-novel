@@ -1,11 +1,14 @@
+import * as PopoverPrimitive from '@radix-ui/react-popover'
 import {useUpdateEffect} from '@react-hookz/web'
 import {
   ArrowCounterClockwise as ArrowCounterClockwiseIcon,
   ArrowLeft as ArrowLeftIcon,
+  CaretRight as CaretRightIcon,
   House as HouseIcon,
+  Wrench as WrenchIcon,
+  X as XIcon,
 } from 'phosphor-react'
 import React from 'react'
-import flattenChildren from 'react-keyed-flatten-children'
 import {useSearchParam} from '~/lib'
 import type {Frame, GameHistory} from '../utils'
 import {makeFrameId, makeGameHistory, parseFrameId} from '../utils'
@@ -17,16 +20,16 @@ import {WithAssets} from './WithAssets'
 
 export interface GameProps {
   assets: string[]
+  scenes: Record<string, React.ComponentType>
   initialSceneId: SceneId
   onClose?: () => void
-  children?: React.ReactElement[] | React.ReactElement
 }
 
 export const Game = function Game({
   assets,
+  scenes,
   initialSceneId,
   onClose,
-  children: childrenProp,
 }: GameProps) {
   const initialFrame: Frame = {sceneId: initialSceneId, frameIndex: 0}
   const [storedFocusedFrameId, setStoredFocusedFrameId] =
@@ -39,13 +42,6 @@ export const Game = function Game({
       initialFrame: focusedFrame,
       onChange: (newFrames) => setFocusedFrame(newFrames[newFrames.length - 1]),
     }),
-  )
-  const children = React.useMemo(
-    () =>
-      (flattenChildren(childrenProp) as React.ReactElement[]).filter(
-        (el) => el.type === Scene,
-      ),
-    [childrenProp],
   )
 
   useUpdateEffect(() => {
@@ -116,11 +112,55 @@ export const Game = function Game({
           </div>
         </div>
 
+        {process.env.NODE_ENV === 'development' && (
+          <div className="absolute bottom-4 right-4">
+            <PopoverPrimitive.Root>
+              <PopoverPrimitive.Trigger asChild>
+                <button className="btn btn-ghost btn-circle bg-white text-xl shadow-md">
+                  <WrenchIcon />
+                </button>
+              </PopoverPrimitive.Trigger>
+
+              <PopoverPrimitive.Content
+                align="center"
+                sideOffset={4}
+                className="no-animation w-72 rounded-lg bg-white p-2 shadow-md radix-side-top:animate-slide-up">
+                <div className="navbar">
+                  <div className="prose navbar-start">
+                    <h4>Go to scene</h4>
+                  </div>
+
+                  <div className="navbar-end">
+                    <PopoverPrimitive.Close className="btn btn-ghost btn-circle btn-sm">
+                      <XIcon />
+                    </PopoverPrimitive.Close>
+                  </div>
+                </div>
+
+                {Object.keys(scenes).map((sceneId) => (
+                  <button
+                    key={sceneId}
+                    className="btn btn-ghost btn-sm btn-block justify-between normal-case"
+                    onClick={() => ctx.goToScene(sceneId as SceneId)}>
+                    {sceneId}
+                    <CaretRightIcon />
+                  </button>
+                ))}
+              </PopoverPrimitive.Content>
+            </PopoverPrimitive.Root>
+          </div>
+        )}
+
         <MobileDeviceChrome>
           <WithAssets assets={assets}>
             <div className="flex h-full w-full overflow-hidden bg-base-100">
-              {children.map(
-                (child) => focusedFrame.sceneId === child.props.id && child,
+              {Object.entries(scenes).map(
+                ([sceneId, SceneComp]) =>
+                  sceneId === focusedFrame.sceneId && (
+                    <Scene key={sceneId} id={sceneId}>
+                      <SceneComp />
+                    </Scene>
+                  ),
               )}
             </div>
           </WithAssets>
