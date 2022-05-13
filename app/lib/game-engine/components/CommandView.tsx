@@ -1,9 +1,10 @@
-import {useIsMounted} from '@react-hookz/web'
+import {useIsMounted, useSyncedRef} from '@react-hookz/web'
 import type {Variant} from 'framer-motion'
 import {AnimatePresence, motion, useAnimation, usePresence} from 'framer-motion'
 import type {AnimationControls} from 'framer-motion/types/animation/types'
 import React from 'react'
 import {useCommandContext} from './CommandContext'
+import {useGameContext} from './GameContext'
 import {useSceneContext} from './SceneContext'
 
 export type CommandViewVariants = {
@@ -29,6 +30,7 @@ export const CommandView = React.forwardRef(function CommandView(
   {children, durationMs, skippable, transitory}: CommandViewProps,
   forwardedRef: React.ForwardedRef<CommandViewInstance>,
 ) {
+  const {paused: gamePaused} = useGameContext()
   const {skip} = useSceneContext()
   const {frameIndex, focused} = useCommandContext()
   const [isPresent, safeToRemove] = usePresence()
@@ -45,6 +47,7 @@ export const CommandView = React.forwardRef(function CommandView(
   const [countdownProgress, setCountdownProgress] = React.useState(0)
   const countdownTimerRef = React.useRef<ReturnType<typeof setInterval>>()
   const countdownPausedRef = React.useRef(false)
+  const gamePausedRef = useSyncedRef(gamePaused)
 
   React.useImperativeHandle(
     forwardedRef,
@@ -92,7 +95,7 @@ export const CommandView = React.forwardRef(function CommandView(
       if (skippable && transitory && entered && focused) {
         setCountdownProgress(0)
         countdownTimerRef.current = setInterval(() => {
-          if (countdownPausedRef.current) {
+          if (countdownPausedRef.current || gamePausedRef.current) {
             return
           }
 

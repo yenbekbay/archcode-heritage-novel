@@ -37,6 +37,7 @@ export const Game = function Game({
   const [focusedFrame, setFocusedFrame] = React.useState(
     () => parseFrameId(storedFocusedFrameId) ?? initialFrame,
   )
+  const [paused, setPaused] = useSearchParam<boolean>('paused', false)
   const [history] = React.useState<GameHistory>(() =>
     makeGameHistory({
       initialFrame: focusedFrame,
@@ -62,6 +63,7 @@ export const Game = function Game({
   const ctx = React.useMemo(
     (): GameContextValue => ({
       focusedFrame,
+      paused,
       goToScene: (sceneId) => {
         if (sceneId !== focusedFrame.sceneId) {
           history.push({sceneId, frameIndex: 0})
@@ -78,7 +80,7 @@ export const Game = function Game({
       goBack: history.goBack,
       canGoBack: history.canGoBack,
     }),
-    [focusedFrame, history],
+    [focusedFrame, history, paused],
   )
 
   return (
@@ -113,7 +115,7 @@ export const Game = function Game({
         </div>
 
         {process.env.NODE_ENV === 'development' && (
-          <div className="absolute bottom-4 right-4">
+          <div className="absolute bottom-4 right-4 z-10">
             <PopoverPrimitive.Root>
               <PopoverPrimitive.Trigger asChild>
                 <button className="btn btn-ghost btn-circle bg-white text-xl shadow-md">
@@ -123,13 +125,12 @@ export const Game = function Game({
 
               <PopoverPrimitive.Content
                 align="center"
+                side="top"
                 sideOffset={4}
-                className="no-animation w-72 rounded-lg bg-white p-2 shadow-md radix-side-top:animate-slide-up">
+                className="no-animation flex w-72 flex-col overflow-hidden rounded-lg bg-white p-2 shadow-md radix-side-top:animate-slide-up"
+                style={{maxHeight: 'calc(100vh - calc(4rem + 8px))'}}>
                 <div className="navbar">
-                  <div className="prose navbar-start">
-                    <h4>Go to scene</h4>
-                  </div>
-
+                  <div className="navbar-start"></div>
                   <div className="navbar-end">
                     <PopoverPrimitive.Close className="btn btn-ghost btn-circle btn-sm">
                       <XIcon />
@@ -137,15 +138,29 @@ export const Game = function Game({
                   </div>
                 </div>
 
-                {Object.keys(scenes).map((sceneId) => (
+                <div className="space-y-4 overflow-y-auto">
                   <button
-                    key={sceneId}
-                    className="btn btn-ghost btn-sm btn-block justify-between normal-case"
-                    onClick={() => ctx.goToScene(sceneId as SceneId)}>
-                    {sceneId}
-                    <CaretRightIcon />
+                    className="btn btn-outline btn-sm btn-block"
+                    onClick={() => setPaused(!paused)}>
+                    {paused ? 'Resume' : 'Pause'}
                   </button>
-                ))}
+
+                  <div>
+                    <div className="prose p-2">
+                      <h4>Go to scene</h4>
+                    </div>
+
+                    {Object.keys(scenes).map((sceneId) => (
+                      <button
+                        key={sceneId}
+                        className="btn btn-ghost btn-sm btn-block justify-between normal-case"
+                        onClick={() => ctx.goToScene(sceneId as SceneId)}>
+                        {sceneId}
+                        <CaretRightIcon />
+                      </button>
+                    ))}
+                  </div>
+                </div>
               </PopoverPrimitive.Content>
             </PopoverPrimitive.Root>
           </div>

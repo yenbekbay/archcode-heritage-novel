@@ -3,6 +3,7 @@ import type {Frame} from '../utils'
 
 export interface GameContextValue {
   focusedFrame: Frame
+  paused: boolean
   goToScene: (sceneId: SceneId) => void
   goToFrame: (sceneId: SceneId, frameIndex: number) => void
   goBack: () => boolean
