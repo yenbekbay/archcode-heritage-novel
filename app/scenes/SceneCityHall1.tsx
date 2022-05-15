@@ -49,14 +49,44 @@ export function SceneCityHall1() {
         choices={[
           {
             label: 'Проекты девелопера',
+            frame: {
+              viewport: [1080, 1920],
+              rect: {
+                x: 580,
+                y: 680,
+                width: 420,
+                height: 500,
+                transform: 'rotate(13deg)',
+              },
+            },
             onClick: (ctx) => ctx.goToScene('CityHall1_2a'),
           },
           {
             label: 'Отдел памятников',
+            frame: {
+              viewport: [1080, 1920],
+              rect: {
+                x: -20,
+                y: 1000,
+                width: 400,
+                height: 500,
+                transform: 'rotate(-17deg)',
+              },
+            },
             onClick: () => alert('Не готово'),
           },
           {
             label: 'Государственные программы',
+            frame: {
+              viewport: [1080, 1920],
+              rect: {
+                x: 580,
+                y: 1320,
+                width: 400,
+                height: 500,
+                transform: 'rotate(13deg)',
+              },
+            },
             onClick: () => alert('Не готово'),
           },
         ]}

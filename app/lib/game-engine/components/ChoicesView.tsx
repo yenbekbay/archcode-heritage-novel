@@ -2,6 +2,8 @@ import clsx from 'clsx'
 import type {AnimationControls} from 'framer-motion'
 import {motion} from 'framer-motion'
 import React from 'react'
+import type {Frame} from '../utils'
+import {styleForFrame} from '../utils'
 import {useCommandContext} from './CommandContext'
 import type {CommandViewVariants} from './CommandView'
 import {useGameContext} from './GameContext'
@@ -17,6 +19,7 @@ interface ChoiceContext {
 
 export interface Choice {
   label: string
+  frame?: Frame
   onClick: (ctx: ChoiceContext) => void
 }
 
@@ -42,7 +45,7 @@ export function ChoicesView({
   controls,
 }: ChoicesViewProps) {
   const {goToScene} = useGameContext()
-  const {sceneId, goToStatement, skip} = useSceneContext()
+  const {sceneId, containerSize, goToStatement, skip} = useSceneContext()
   const {statementIndex} = useCommandContext()
   const ctx = React.useMemo(
     (): ChoiceContext => ({
@@ -80,43 +83,69 @@ export function ChoicesView({
         </motion.span>
       )}
 
-      {choices.map((o, idx) => (
+      {choices.map((c, idx) => (
         <motion.div
-          key={o.label}
+          key={c.label}
           className="flex flex-col"
           variants={variants}
           initial="initial"
           animate={controls}
           custom={idx}>
-          <motion.div
-            className={clsx(
-              'btn btn-ghost h-auto min-h-0 py-1 font-calligraph leading-6 shadow-md',
-              large ? 'btn-xl text-2xl' : 'text-md btn-lg',
-            )}
-            style={{
-              color: dark ? 'white' : 'hsl(206, 24.0%, 9.0%)',
-              backgroundColor: dark
-                ? 'rgba(0, 0, 0, .25)'
-                : 'rgba(255, 255, 255, .25)',
-              textShadow: dark
-                ? '0 -1px rgba(0, 0, 0, .35), 0 2px hsl(206, 24.0%, 9.0%), 0 0 4px rgba(0, 0, 0), 0 0 4px rgba(0, 0, 0), 0 0 4px rgba(0, 0, 0)'
-                : '0 1px hsl(209, 12.2%, 93.2%), 0 0 4px rgba(255, 255, 255), 0 0 4px rgba(255, 255, 255), 0 0 4px rgba(255, 255, 255)',
-              boxShadow: '0 2px rgba(0, 0, 0, .35)',
-            }}
-            animate={{y: -8}}
-            transition={{
-              repeat: Infinity,
-              repeatType: 'reverse',
-              delay: 0.05 * idx,
-              duration: 1,
-              ease: 'easeInOut',
-            }}
-            onClick={(event) => {
-              event.stopPropagation()
-              o.onClick(ctx)
-            }}>
-            {o.label}
-          </motion.div>
+          {c.frame ? (
+            <motion.div
+              className="btn btn-ghost border"
+              aria-label={c.label}
+              style={{
+                borderColor: dark ? 'white' : 'hsl(206, 24.0%, 9.0%)',
+                backgroundColor: dark
+                  ? 'rgba(0, 0, 0, .5)'
+                  : 'rgba(255, 255, 255, .5)',
+                boxShadow: '0 2px rgba(0, 0, 0, .35)',
+                ...styleForFrame({containerSize}, c.frame),
+              }}
+              animate={{opacity: 0}}
+              transition={{
+                repeat: Infinity,
+                repeatType: 'reverse',
+                duration: 1,
+                ease: 'easeInOut',
+              }}
+              onClick={(event) => {
+                event.stopPropagation()
+                c.onClick(ctx)
+              }}
+            />
+          ) : (
+            <motion.div
+              className={clsx(
+                'btn btn-ghost h-auto min-h-0 py-1 font-calligraph leading-6 shadow-md',
+                large ? 'btn-xl text-2xl' : 'text-md btn-lg',
+              )}
+              style={{
+                color: dark ? 'white' : 'hsl(206, 24.0%, 9.0%)',
+                backgroundColor: dark
+                  ? 'rgba(0, 0, 0, .25)'
+                  : 'rgba(255, 255, 255, .25)',
+                textShadow: dark
+                  ? '0 -1px rgba(0, 0, 0, .35), 0 2px hsl(206, 24.0%, 9.0%), 0 0 4px rgba(0, 0, 0), 0 0 4px rgba(0, 0, 0), 0 0 4px rgba(0, 0, 0)'
+                  : '0 1px hsl(209, 12.2%, 93.2%), 0 0 4px rgba(255, 255, 255), 0 0 4px rgba(255, 255, 255), 0 0 4px rgba(255, 255, 255)',
+                boxShadow: '0 2px rgba(0, 0, 0, .35)',
+              }}
+              animate={{y: -8}}
+              transition={{
+                repeat: Infinity,
+                repeatType: 'reverse',
+                delay: 0.05 * idx,
+                duration: 1,
+                ease: 'easeInOut',
+              }}
+              onClick={(event) => {
+                event.stopPropagation()
+                c.onClick(ctx)
+              }}>
+              {c.label}
+            </motion.div>
+          )}
         </motion.div>
       ))}
     </div>

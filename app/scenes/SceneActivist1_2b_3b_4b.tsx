@@ -76,13 +76,10 @@ export function SceneActivist1_2b_3b_4b() {
             y: 400,
             x: 260,
             width: 540,
+            transform: 'rotate(-6deg)',
           },
         }}
-        textStyle={{
-          transform: 'rotate(-6deg)',
-          transformOrigin: 'top',
-          textAlign: 'right',
-        }}>
+        textStyle={{textAlign: 'right'}}>
         {
           'Беспредел!\n\nСносят Фурманова, 00. Присоединяйтесь, чтобы вместе действовать в защиту истории!'
         }
@@ -183,11 +180,8 @@ export function SceneActivist1_2b_3b_4b() {
             y: 400,
             x: 260,
             width: 540,
+            transform: 'rotate(-6deg)',
           },
-        }}
-        textStyle={{
-          transform: 'rotate(-6deg)',
-          transformOrigin: 'top',
         }}
         foregroundSrc={bgPhoneHandJpg}
         foregroundStyle={{
@@ -217,11 +211,8 @@ export function SceneActivist1_2b_3b_4b() {
             y: 400,
             x: 260,
             width: 540,
+            transform: 'rotate(-6deg)',
           },
-        }}
-        textStyle={{
-          transform: 'rotate(-6deg)',
-          transformOrigin: 'top',
         }}
         foregroundSrc={bgPhoneHandJpg}
         foregroundStyle={{
@@ -251,11 +242,8 @@ export function SceneActivist1_2b_3b_4b() {
             y: 400,
             x: 260,
             width: 540,
+            transform: 'rotate(-6deg)',
           },
-        }}
-        textStyle={{
-          transform: 'rotate(-6deg)',
-          transformOrigin: 'top',
         }}
         foregroundSrc={bgPhoneHandJpg}
         foregroundStyle={{
@@ -284,11 +272,8 @@ export function SceneActivist1_2b_3b_4b() {
             y: 400,
             x: 260,
             width: 540,
+            transform: 'rotate(-6deg)',
           },
-        }}
-        textStyle={{
-          transform: 'rotate(-6deg)',
-          transformOrigin: 'top',
         }}
         foregroundSrc={bgPhoneHandJpg}
         foregroundStyle={{
@@ -338,11 +323,8 @@ export function SceneActivist1_2b_3b_4b() {
             y: 400,
             x: 280,
             width: 520,
+            transform: 'rotate(9deg) translateX(16px)',
           },
-        }}
-        textStyle={{
-          transform: 'rotate(9deg) translateX(16px)',
-          transformOrigin: 'top',
         }}>
         *ссылка на примеры писем по разным ситуациям. Проверить информацию из
         СМИ *Ссылка *23 на инструкцию по факт чеку
@@ -388,11 +370,8 @@ export function SceneActivist1_2b_3b_4b() {
             y: 400,
             x: 280,
             width: 520,
+            transform: 'rotate(9deg) translateX(16px)',
           },
-        }}
-        textStyle={{
-          transform: 'rotate(9deg) translateX(16px)',
-          transformOrigin: 'top',
         }}>
         сайт Архкода
       </Say>

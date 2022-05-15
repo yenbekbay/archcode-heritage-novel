@@ -1,4 +1,4 @@
-import type {Statement} from './statement-id'
+import type {Statement} from './statement'
 
 export interface GameHistory {
   peek: () => Statement

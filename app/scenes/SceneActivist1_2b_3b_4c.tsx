@@ -69,11 +69,8 @@ export function SceneActivist1_2b_3b_4c() {
             y: 400,
             x: 260,
             width: 540,
+            transform: 'rotate(-6deg)',
           },
-        }}
-        textStyle={{
-          transform: 'rotate(-6deg)',
-          transformOrigin: 'top',
         }}
         foregroundSrc={bgPhoneHandJpg}
         foregroundStyle={{
