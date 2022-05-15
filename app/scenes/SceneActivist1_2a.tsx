@@ -9,7 +9,7 @@ import {
 import type {SceneBackgroundComponentProps} from '~/lib'
 import {
   Blank,
-  Options,
+  Choices,
   Say,
   SceneContainer,
   Title,
@@ -49,9 +49,9 @@ export function SceneActivist1_2a() {
         Конец игры
       </Title>
 
-      <Options
+      <Choices
         dark
-        options={[
+        choices={[
           {
             label: 'Начать заново',
             onClick: (ctx) => ctx.goToScene('Intro'),

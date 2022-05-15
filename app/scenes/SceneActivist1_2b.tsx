@@ -28,8 +28,8 @@ export function SceneActivist1_2b() {
 
       <Say
         size="lg"
-        optionsDark
-        options={[
+        choicesDark
+        choices={[
           {
             label: 'Как-то печально всё это',
             onClick: (ctx) => ctx.goToScene('Activist1_2b_3a'),

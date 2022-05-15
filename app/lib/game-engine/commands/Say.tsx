@@ -4,12 +4,12 @@ import {cover} from 'intrinsic-scale'
 import type {
   CommandContainerProps,
   CommandViewVariants,
-  Option,
+  Choice,
 } from '../components'
 import {
   CommandContainer,
   ForegroundView,
-  OptionsView,
+  ChoicesView,
   useSceneContext,
 } from '../components'
 
@@ -32,8 +32,8 @@ export interface SayProps
       height?: number
     }
   }
-  options?: Option[]
-  optionsDark?: boolean
+  choices?: Choice[]
+  choicesDark?: boolean
   foregroundSrc?: string
   foregroundStyle?: React.CSSProperties
   variants?: CommandViewVariants
@@ -49,8 +49,8 @@ export function Say({
   style,
   textStyle,
   textFrame,
-  options,
-  optionsDark,
+  choices,
+  choicesDark,
   foregroundSrc,
   foregroundStyle,
   variants = {
@@ -182,10 +182,10 @@ export function Say({
             </TextComp>
           </div>
 
-          {options && (
-            <OptionsView
-              dark={optionsDark}
-              options={options}
+          {choices && (
+            <ChoicesView
+              dark={choicesDark}
+              choices={choices}
               variants={variants}
               controls={controls}
             />

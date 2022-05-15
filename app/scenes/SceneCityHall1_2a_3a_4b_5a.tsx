@@ -7,14 +7,14 @@ import {
   bgZheltoksanBeforeFenceGif,
   bgZheltoksanBeforeJpg,
 } from '~/assets/game'
-import {Foreground, Options, Say, SceneContainer, Title} from '~/lib'
+import {Foreground, Choices, Say, SceneContainer, Title} from '~/lib'
 
 export function SceneCityHall1_2a_3a_4b_5a() {
   return (
     <SceneContainer background={bgCityHallOfficeJpg}>
       <Say
         size="lg"
-        optionsDark
+        choicesDark
         foregroundSrc={bgPhoneFingerJpg}
         foregroundStyle={{
           width: '100%',
@@ -80,9 +80,9 @@ export function SceneCityHall1_2a_3a_4b_5a() {
         Конец игры
       </Title>
 
-      <Options
+      <Choices
         dark
-        options={[
+        choices={[
           {
             label: 'Начать заново',
             onClick: (ctx) => ctx.goToScene('Intro'),

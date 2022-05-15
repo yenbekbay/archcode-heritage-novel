@@ -105,7 +105,7 @@ export function SceneCityHall1_2a_3a_4a() {
 
       <Say
         size="lg"
-        options={[
+        choices={[
           {
             label: 'Не одобрять',
             onClick: (ctx) => ctx.goToScene('CityHall1_2a_3a_4a_5a'),

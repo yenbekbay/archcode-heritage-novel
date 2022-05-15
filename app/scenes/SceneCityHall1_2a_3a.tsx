@@ -19,7 +19,7 @@ export function SceneCityHall1_2a_3a() {
 
       <Say
         size="xl"
-        options={[
+        choices={[
           {
             label: 'Нужна экспертиза',
             onClick: (ctx) => ctx.goToScene('CityHall1_2a_3a_4a'),
@@ -29,7 +29,7 @@ export function SceneCityHall1_2a_3a() {
             onClick: (ctx) => ctx.goToScene('CityHall1_2a_3a_4b'),
           },
         ]}
-        optionsDark
+        choicesDark
         foregroundSrc={mayor2Png}
         foregroundStyle={{width: '100%', bottom: 0}}>
         Хммм…

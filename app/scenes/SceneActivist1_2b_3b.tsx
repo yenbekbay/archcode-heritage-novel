@@ -7,8 +7,8 @@ export function SceneActivist1_2b_3b() {
     <SceneContainer background={bgBldg1FenceSrc}>
       <Say
         size="lg"
-        optionsDark
-        options={[
+        choicesDark
+        choices={[
           {
             label: 'Разберусь сама',
             onClick: (ctx) => ctx.goToScene('Activist1_2b_3b_4a'),

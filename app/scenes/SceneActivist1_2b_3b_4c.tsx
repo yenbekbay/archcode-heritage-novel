@@ -5,7 +5,7 @@ import {
   redhead19Png,
   sillhouettePng,
 } from '~/assets/game'
-import {Blank, Foreground, Options, Say, SceneContainer, Title} from '~/lib'
+import {Blank, Foreground, Choices, Say, SceneContainer, Title} from '~/lib'
 
 export function SceneActivist1_2b_3b_4c() {
   return (
@@ -89,9 +89,9 @@ export function SceneActivist1_2b_3b_4c() {
         Конец игры
       </Title>
 
-      <Options
+      <Choices
         dark
-        options={[
+        choices={[
           {
             label: 'Начать заново',
             onClick: (ctx) => ctx.goToScene('Intro'),

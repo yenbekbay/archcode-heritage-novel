@@ -7,7 +7,7 @@ import type {CommandViewVariants} from './CommandView'
 import {useGameContext} from './GameContext'
 import {useSceneContext} from './SceneContext'
 
-interface OptionContext {
+interface ChoiceContext {
   sceneId: SceneId
   frameIndex: number
   goToScene: (sceneId: SceneId) => void
@@ -15,37 +15,37 @@ interface OptionContext {
   skip: () => void
 }
 
-export interface Option {
+export interface Choice {
   label: string
-  onClick: (ctx: OptionContext) => void
+  onClick: (ctx: ChoiceContext) => void
 }
 
-export type OptionsPlacement = 'top' | 'middle' | 'bottom'
+export type ChoicesPlacement = 'top' | 'middle' | 'bottom'
 
-export interface OptionsViewProps {
-  options: Option[]
+export interface ChoicesViewProps {
+  choices: Choice[]
   label?: string
   large?: boolean
   dark?: boolean
-  placement?: OptionsPlacement
+  placement?: ChoicesPlacement
   variants: CommandViewVariants
   controls: AnimationControls
 }
 
-export function OptionsView({
-  options,
+export function ChoicesView({
+  choices,
   label,
   large,
   dark,
   placement = 'bottom',
   variants,
   controls,
-}: OptionsViewProps) {
+}: ChoicesViewProps) {
   const {goToScene} = useGameContext()
   const {sceneId, goToFrame, skip} = useSceneContext()
   const {frameIndex} = useCommandContext()
   const ctx = React.useMemo(
-    (): OptionContext => ({
+    (): ChoiceContext => ({
       sceneId,
       frameIndex,
       goToFrame,
@@ -80,7 +80,7 @@ export function OptionsView({
         </motion.span>
       )}
 
-      {options.map((o, idx) => (
+      {choices.map((o, idx) => (
         <motion.div
           key={o.label}
           className="flex flex-col"

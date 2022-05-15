@@ -140,7 +140,7 @@ export function SceneCityHall1_2a_3a_4a_5a() {
       </Say>
 
       <Say
-        options={[
+        choices={[
           {
             label: 'Учесть мнение',
             onClick: (ctx) => ctx.goToScene('CityHall1_2a_3a_4a_5a_6a'),

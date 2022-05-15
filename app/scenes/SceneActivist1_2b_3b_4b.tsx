@@ -16,7 +16,7 @@ import {
   redhead1Png,
   redhead5Png,
 } from '~/assets/game'
-import {Blank, Foreground, Options, Say, SceneContainer} from '~/lib'
+import {Blank, Foreground, Choices, Say, SceneContainer} from '~/lib'
 
 export function SceneActivist1_2b_3b_4b() {
   return (
@@ -405,8 +405,8 @@ export function SceneActivist1_2b_3b_4b() {
         Да, давайте позвоним им
       </Say>
 
-      <Options
-        options={[
+      <Choices
+        choices={[
           {
             label: 'Позвонить в Архкод',
             onClick: (ctx) => ctx.goToScene('Activist1_2b_3b_4c'),

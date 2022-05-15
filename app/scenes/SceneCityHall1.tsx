@@ -5,7 +5,7 @@ import {
   bgMayorDeskJpg,
   mayor1Png,
 } from '~/assets/game'
-import {Blank, Foreground, Options, Say, SceneContainer} from '~/lib'
+import {Blank, Foreground, Choices, Say, SceneContainer} from '~/lib'
 
 export function SceneCityHall1() {
   return (
@@ -44,9 +44,9 @@ export function SceneCityHall1() {
         lingers={1}
       />
 
-      <Options
+      <Choices
         dark
-        options={[
+        choices={[
           {
             label: 'Проекты девелопера',
             onClick: (ctx) => ctx.goToScene('CityHall1_2a'),

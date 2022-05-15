@@ -5,7 +5,7 @@ import {
   redhead5Png,
   redhead7Png,
 } from '~/assets/game'
-import {Options, Say, SceneContainer, Title} from '~/lib'
+import {Choices, Say, SceneContainer, Title} from '~/lib'
 
 export function SceneActivist1_2b_3a() {
   return (
@@ -20,8 +20,8 @@ export function SceneActivist1_2b_3a() {
 
       <Say
         size="lg"
-        optionsDark
-        options={[
+        choicesDark
+        choices={[
           {
             label: 'Создать мем',
             onClick: (ctx) => ctx.goToFrame(ctx.frameIndex + 1),
@@ -41,9 +41,9 @@ export function SceneActivist1_2b_3a() {
         Варианты отчаяния:
       </Say>
 
-      <Options
+      <Choices
         dark
-        options={[
+        choices={[
           {
             label: 'Загрузить мем',
             onClick: (ctx) => ctx.goToFrame(ctx.frameIndex + 2),
@@ -58,9 +58,9 @@ export function SceneActivist1_2b_3a() {
         }}
       />
 
-      <Options
+      <Choices
         dark
-        options={[
+        choices={[
           {
             label: 'Загрузить пост',
             onClick: (ctx) => ctx.goToFrame(ctx.frameIndex + 1),
@@ -84,9 +84,9 @@ export function SceneActivist1_2b_3a() {
         И ТЕПЕРЬ ОНА БУДЕТ ДОБИВАТЬСЯ СПРАВЕДЛИВОСТИ
       </Say>
 
-      <Options
+      <Choices
         placement="top"
-        options={[
+        choices={[
           {
             label: 'Что я ещё могу сделать?',
             onClick: (ctx) => ctx.goToScene('Activist1_2b_3b'),
@@ -104,9 +104,9 @@ export function SceneActivist1_2b_3a() {
         Конец игры
       </Title>
 
-      <Options
+      <Choices
         dark
-        options={[
+        choices={[
           {
             label: 'Начать заново',
             onClick: (ctx) => ctx.goToScene('Intro'),

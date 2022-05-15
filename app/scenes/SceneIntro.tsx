@@ -3,15 +3,15 @@ import {motion, useAnimation} from 'framer-motion'
 import React from 'react'
 import {bgIntroJpg} from '~/assets/game'
 import type {SceneBackgroundComponentProps} from '~/lib'
-import {Options, Say, SceneContainer, Title} from '~/lib'
+import {Choices, Say, SceneContainer, Title} from '~/lib'
 
 export function SceneIntro() {
   return (
     <SceneContainer background={Background}>
-      <Options
+      <Choices
         large
         placement="middle"
-        options={[
+        choices={[
           {
             label: 'Начать',
             onClick: (ctx) => ctx.skip(),
@@ -49,10 +49,10 @@ export function SceneIntro() {
         Снести нельзя оставить
       </Title>
 
-      <Options
+      <Choices
         dark
         label="Выбрать персонажа"
-        options={[
+        choices={[
           {
             label: 'Активист',
             onClick: (ctx) => ctx.goToScene('Activist1'),

@@ -3,7 +3,7 @@ import {
   bgZheltoksanBeforeJpg,
   mayor3Png,
 } from '~/assets/game'
-import {Foreground, Options, Say, SceneContainer, Title} from '~/lib'
+import {Foreground, Choices, Say, SceneContainer, Title} from '~/lib'
 
 export function SceneCityHall1_2a_3a_4a_5a_6a() {
   return (
@@ -32,9 +32,9 @@ export function SceneCityHall1_2a_3a_4a_5a_6a() {
         Конец игры
       </Title>
 
-      <Options
+      <Choices
         dark
-        options={[
+        choices={[
           {
             label: 'Начать заново',
             onClick: (ctx) => ctx.goToScene('Intro'),

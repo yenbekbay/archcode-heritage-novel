@@ -27,7 +27,7 @@ export function SceneCityHall1_2a_3a_4b() {
 
       <Say
         size="xl"
-        options={[
+        choices={[
           {
             label: 'Попросить помощи у блоггеров',
             onClick: (ctx) => ctx.goToScene('CityHall1_2a_3a_4b_5a'),

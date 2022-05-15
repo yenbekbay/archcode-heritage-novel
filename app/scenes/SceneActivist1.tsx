@@ -30,8 +30,8 @@ export function SceneActivist1() {
 
       <Say
         size="lg"
-        optionsDark
-        options={[
+        choicesDark
+        choices={[
           {
             label: 'Пройти мимо',
             onClick: (ctx) => ctx.goToScene('Activist1_2a'),
