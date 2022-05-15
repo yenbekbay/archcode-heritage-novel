@@ -1,29 +1,29 @@
-import type {Frame} from './frame-id'
+import type {Statement} from './statement-id'
 
 export interface GameHistory {
-  peek: () => Frame
-  push: (frame: Frame) => void
-  reset: (frame?: Frame) => void
+  peek: () => Statement
+  push: (statement: Statement) => void
+  reset: (statement?: Statement) => void
   goBack: () => boolean
   canGoBack: () => boolean
 }
 
 export function makeGameHistory({
-  initialFrame,
+  initialStatement,
   onChange,
 }: {
-  initialFrame: Frame
-  onChange?: (newFrames: Frame[]) => void
+  initialStatement: Statement
+  onChange?: (newStatements: Statement[]) => void
 }): GameHistory {
-  let items = [initialFrame]
+  let items = [initialStatement]
   return {
     peek: () => items[items.length - 1],
-    push: (frame) => {
-      items = [...items, frame]
+    push: (statement) => {
+      items = [...items, statement]
       onChange?.(items)
     },
-    reset: (frame) => {
-      items = [frame ?? initialFrame]
+    reset: (statement) => {
+      items = [statement ?? initialStatement]
       onChange?.(items)
     },
     goBack: () => {

@@ -24,11 +24,11 @@ export function SceneActivist1_2b_3a() {
         choices={[
           {
             label: 'Создать мем',
-            onClick: (ctx) => ctx.goToFrame(ctx.frameIndex + 1),
+            onClick: (ctx) => ctx.goToStatement(ctx.statementIndex + 1),
           },
           {
             label: 'Написать пост о том, как всё плохо',
-            onClick: (ctx) => ctx.goToFrame(ctx.frameIndex + 2),
+            onClick: (ctx) => ctx.goToStatement(ctx.statementIndex + 2),
           },
         ]}
         foregroundSrc={bgPhoneFingerJpg}
@@ -46,7 +46,7 @@ export function SceneActivist1_2b_3a() {
         choices={[
           {
             label: 'Загрузить мем',
-            onClick: (ctx) => ctx.goToFrame(ctx.frameIndex + 2),
+            onClick: (ctx) => ctx.goToStatement(ctx.statementIndex + 2),
           },
         ]}
         foregroundSrc={bgPhoneFingerJpg}
@@ -63,7 +63,7 @@ export function SceneActivist1_2b_3a() {
         choices={[
           {
             label: 'Загрузить пост',
-            onClick: (ctx) => ctx.goToFrame(ctx.frameIndex + 1),
+            onClick: (ctx) => ctx.goToStatement(ctx.statementIndex + 1),
           },
         ]}
         foregroundSrc={bgPhoneFingerJpg}

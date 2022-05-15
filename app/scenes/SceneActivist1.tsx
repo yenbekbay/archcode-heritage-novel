@@ -54,10 +54,10 @@ export function SceneActivist1() {
 }
 
 function Background(_props: SceneBackgroundComponentProps) {
-  const {focusedFrameIndex} = useSceneContext()
+  const {focusedStatementIndex} = useSceneContext()
   return (
     <img
-      src={focusedFrameIndex < 2 ? bgMapGif : bgMapJpg}
+      src={focusedStatementIndex < 2 ? bgMapGif : bgMapJpg}
       className="h-full w-full object-cover"
     />
   )

@@ -9,9 +9,9 @@ import {useSceneContext} from './SceneContext'
 
 interface ChoiceContext {
   sceneId: SceneId
-  frameIndex: number
+  statementIndex: number
   goToScene: (sceneId: SceneId) => void
-  goToFrame: (frameIndex: number) => void
+  goToStatement: (statementIndex: number) => void
   skip: () => void
 }
 
@@ -42,17 +42,17 @@ export function ChoicesView({
   controls,
 }: ChoicesViewProps) {
   const {goToScene} = useGameContext()
-  const {sceneId, goToFrame, skip} = useSceneContext()
-  const {frameIndex} = useCommandContext()
+  const {sceneId, goToStatement, skip} = useSceneContext()
+  const {statementIndex} = useCommandContext()
   const ctx = React.useMemo(
     (): ChoiceContext => ({
       sceneId,
-      frameIndex,
-      goToFrame,
+      statementIndex,
+      goToStatement,
       goToScene,
       skip,
     }),
-    [frameIndex, goToFrame, skip, goToScene, sceneId],
+    [statementIndex, goToStatement, skip, goToScene, sceneId],
   )
   return (
     <div

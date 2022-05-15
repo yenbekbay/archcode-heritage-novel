@@ -48,16 +48,16 @@ export function SceneActivist1_2b() {
 }
 
 function Background(_props: SceneBackgroundComponentProps) {
-  const {focusedFrameIndex} = useSceneContext()
+  const {focusedStatementIndex} = useSceneContext()
   return (
     <>
       <img
-        src={focusedFrameIndex < 1 ? bgBldg1Jpg : bgBldg1FenceGif}
+        src={focusedStatementIndex < 1 ? bgBldg1Jpg : bgBldg1FenceGif}
         className="min-h-full flex-1 object-cover"
       />
 
       <AnimatePresence>
-        {focusedFrameIndex < 1 && (
+        {focusedStatementIndex < 1 && (
           <motion.div
             className="absolute inset-0"
             exit={{

@@ -24,10 +24,10 @@ export function SceneContainer({
   background,
   children: childrenProp,
 }: SceneContainerProps) {
-  const {focusedFrame, goToFrame, goBack, canGoBack} = useGameContext()
+  const {focusedStatement, goToStatement, goBack, canGoBack} = useGameContext()
   const sceneId = useSceneId()
-  const focusedFrameIndex =
-    focusedFrame.sceneId === sceneId ? focusedFrame.frameIndex : 0
+  const focusedStatementIndex =
+    focusedStatement.sceneId === sceneId ? focusedStatement.statementIndex : 0
 
   const [commandMap] = React.useState(() => new Map<number, CommandT>())
   const containerRef = React.useRef<HTMLDivElement>(null)
@@ -38,44 +38,54 @@ export function SceneContainer({
     [childrenProp],
   )
   const skip = useStableCallback(() => {
-    const focusedCommand = commandMap.get(focusedFrameIndex)
+    const focusedCommand = commandMap.get(focusedStatementIndex)
     const entered = focusedCommand?.enter() ?? false
-    // Complete entrance animation before jumping to next frameIndex
+    // Complete entrance animation before jumping to next statementIndex
     if (!entered) {
-      goToFrame(sceneId, Math.min(children.length - 1, focusedFrameIndex + 1))
+      goToStatement(
+        sceneId,
+        Math.min(children.length - 1, focusedStatementIndex + 1),
+      )
     }
   })
   const ctx = React.useMemo(
     (): SceneContextValue => ({
       sceneId,
       containerSize,
-      registerCommand: (frameIndex, command) => {
-        commandMap.set(frameIndex, command)
+      registerCommand: (statementIndex, command) => {
+        commandMap.set(statementIndex, command)
         return () => {
-          commandMap.delete(frameIndex)
+          commandMap.delete(statementIndex)
         }
       },
-      getCommand: (frameIndex) => commandMap.get(frameIndex),
-      focusedFrameIndex,
-      goToFrame: (action) =>
-        goToFrame(
+      getCommand: (statementIndex) => commandMap.get(statementIndex),
+      focusedStatementIndex,
+      goToStatement: (action) =>
+        goToStatement(
           sceneId,
-          typeof action === 'number' ? action : action(focusedFrameIndex),
+          typeof action === 'number' ? action : action(focusedStatementIndex),
         ),
       skip,
     }),
-    [containerSize, sceneId, focusedFrameIndex, skip, commandMap, goToFrame],
+    [
+      containerSize,
+      sceneId,
+      focusedStatementIndex,
+      skip,
+      commandMap,
+      goToStatement,
+    ],
   )
 
   const ignoreClickRef = React.useRef(false)
   const bindLongPress = useLongPress(
     () => {
-      commandMap.get(focusedFrameIndex)?.pause()
+      commandMap.get(focusedStatementIndex)?.pause()
       ignoreClickRef.current = true
     },
     {
       onFinish: () => {
-        commandMap.get(focusedFrameIndex)?.resume()
+        commandMap.get(focusedStatementIndex)?.resume()
       },
     },
   )
@@ -92,7 +102,7 @@ export function SceneContainer({
             return
           }
 
-          const command = commandMap.get(focusedFrameIndex)
+          const command = commandMap.get(focusedStatementIndex)
           if (command?.skippable) {
             skip()
           }
@@ -115,7 +125,7 @@ export function SceneContainer({
             return (
               <BackgroundComp
                 containerSize={containerSize}
-                enteredPercent={(focusedFrameIndex + 1) / children.length}
+                enteredPercent={(focusedStatementIndex + 1) / children.length}
               />
             )
           })()
@@ -123,7 +133,7 @@ export function SceneContainer({
 
         {containerSize[0] !== 0 &&
           children.map((child, idx) => (
-            <Command key={child.key} frameIndex={idx}>
+            <Command key={child.key} statementIndex={idx}>
               {child}
             </Command>
           ))}

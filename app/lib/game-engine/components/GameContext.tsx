@@ -1,11 +1,11 @@
 import React from 'react'
-import type {Frame} from '../utils'
+import type {Statement} from '../utils'
 
 export interface GameContextValue {
-  focusedFrame: Frame
+  focusedStatement: Statement
   paused: boolean
   goToScene: (sceneId: SceneId) => void
-  goToFrame: (sceneId: SceneId, frameIndex: number) => void
+  goToStatement: (sceneId: SceneId, statementIndex: number) => void
   goBack: () => boolean
   canGoBack: () => boolean
 }

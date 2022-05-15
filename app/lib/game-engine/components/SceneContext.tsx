@@ -2,7 +2,7 @@ import React from 'react'
 
 export interface CommandT {
   skippable: boolean
-  /** For how many extra frames is this command visible */
+  /** For how many extra statements is this command visible */
   visibleExtra: number
   enter: () => void
   pause: () => void
@@ -12,10 +12,10 @@ export interface CommandT {
 export interface SceneContextValue {
   sceneId: SceneId
   containerSize: [number, number]
-  registerCommand: (frameIndex: number, command: CommandT) => void
-  getCommand: (frameIndex: number) => CommandT | undefined
-  focusedFrameIndex: number
-  goToFrame: React.Dispatch<React.SetStateAction<number>>
+  registerCommand: (statementIndex: number, command: CommandT) => void
+  getCommand: (statementIndex: number) => CommandT | undefined
+  focusedStatementIndex: number
+  goToStatement: React.Dispatch<React.SetStateAction<number>>
   skip: () => void
 }
 

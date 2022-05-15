@@ -10,8 +10,8 @@ import {
 } from 'phosphor-react'
 import React from 'react'
 import {useSearchParam} from '~/lib'
-import type {Frame, GameHistory} from '../utils'
-import {makeFrameId, makeGameHistory, parseFrameId} from '../utils'
+import type {Statement, GameHistory} from '../utils'
+import {makeStatementId, makeGameHistory, parseStatementId} from '../utils'
 import type {GameContextValue} from './GameContext'
 import {GameContext} from './GameContext'
 import {MobileDeviceChrome} from './MobileDeviceChrome'
@@ -31,56 +31,61 @@ export const Game = function Game({
   initialSceneId,
   onClose,
 }: GameProps) {
-  const initialFrame: Frame = {sceneId: initialSceneId, frameIndex: 0}
-  const [storedFocusedFrameId, setStoredFocusedFrameId] =
-    useSearchParam<string>('f', makeFrameId(initialFrame))
-  const [focusedFrame, setFocusedFrame] = React.useState(
-    () => parseFrameId(storedFocusedFrameId) ?? initialFrame,
+  const initialStatement: Statement = {
+    sceneId: initialSceneId,
+    statementIndex: 0,
+  }
+  const [storedFocusedStatementId, setStoredFocusedStatementId] =
+    useSearchParam<string>('f', makeStatementId(initialStatement))
+  const [focusedStatement, setFocusedStatement] = React.useState(
+    () => parseStatementId(storedFocusedStatementId) ?? initialStatement,
   )
   const [paused, setPaused] = useSearchParam<boolean>('paused', false)
   const [history] = React.useState<GameHistory>(() =>
     makeGameHistory({
-      initialFrame: focusedFrame,
-      onChange: (newFrames) => setFocusedFrame(newFrames[newFrames.length - 1]),
+      initialStatement: focusedStatement,
+      onChange: (newStatements) =>
+        setFocusedStatement(newStatements[newStatements.length - 1]),
     }),
   )
 
   useUpdateEffect(() => {
-    setStoredFocusedFrameId(makeFrameId(focusedFrame))
-  }, [focusedFrame])
+    setStoredFocusedStatementId(makeStatementId(focusedStatement))
+  }, [focusedStatement])
 
   useUpdateEffect(() => {
-    const storedFocusedFrame = parseFrameId(storedFocusedFrameId)
+    const storedFocusedStatement = parseStatementId(storedFocusedStatementId)
     if (
-      storedFocusedFrame &&
-      (storedFocusedFrame.sceneId !== focusedFrame.sceneId ||
-        storedFocusedFrame.frameIndex !== focusedFrame.frameIndex)
+      storedFocusedStatement &&
+      (storedFocusedStatement.sceneId !== focusedStatement.sceneId ||
+        storedFocusedStatement.statementIndex !==
+          focusedStatement.statementIndex)
     ) {
-      history.reset(storedFocusedFrame)
+      history.reset(storedFocusedStatement)
     }
-  }, [storedFocusedFrameId])
+  }, [storedFocusedStatementId])
 
   const ctx = React.useMemo(
     (): GameContextValue => ({
-      focusedFrame,
+      focusedStatement,
       paused,
       goToScene: (sceneId) => {
-        if (sceneId !== focusedFrame.sceneId) {
-          history.push({sceneId, frameIndex: 0})
+        if (sceneId !== focusedStatement.sceneId) {
+          history.push({sceneId, statementIndex: 0})
         }
       },
-      goToFrame: (sceneId, frameIndex) => {
+      goToStatement: (sceneId, statementIndex) => {
         if (
-          sceneId !== focusedFrame.sceneId ||
-          frameIndex !== focusedFrame.frameIndex
+          sceneId !== focusedStatement.sceneId ||
+          statementIndex !== focusedStatement.statementIndex
         ) {
-          history.push({sceneId, frameIndex})
+          history.push({sceneId, statementIndex})
         }
       },
       goBack: history.goBack,
       canGoBack: history.canGoBack,
     }),
-    [focusedFrame, history, paused],
+    [focusedStatement, history, paused],
   )
 
   return (
@@ -90,7 +95,7 @@ export const Game = function Game({
           <div className="navbar-start space-x-2">
             <button
               className="btn btn-ghost btn-circle bg-white text-xl shadow-md"
-              onClick={() => history.push(initialFrame)}>
+              onClick={() => history.push(initialStatement)}>
               <ArrowCounterClockwiseIcon />
             </button>
 
@@ -171,7 +176,7 @@ export const Game = function Game({
             <div className="flex h-full w-full overflow-hidden bg-base-100">
               {Object.entries(scenes).map(
                 ([sceneId, SceneComp]) =>
-                  sceneId === focusedFrame.sceneId && (
+                  sceneId === focusedStatement.sceneId && (
                     <Scene key={sceneId} id={sceneId}>
                       <SceneComp />
                     </Scene>
