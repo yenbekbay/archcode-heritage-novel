@@ -48,13 +48,14 @@ export function SceneContainer({
   const ctx = React.useMemo(
     (): SceneContextValue => ({
       sceneId,
-      getCommand: (frameIndex) => commandMap.get(frameIndex),
+      containerSize,
       registerCommand: (frameIndex, command) => {
         commandMap.set(frameIndex, command)
         return () => {
           commandMap.delete(frameIndex)
         }
       },
+      getCommand: (frameIndex) => commandMap.get(frameIndex),
       focusedFrameIndex,
       goToFrame: (action) =>
         goToFrame(
@@ -63,7 +64,7 @@ export function SceneContainer({
         ),
       skip,
     }),
-    [focusedFrameIndex, commandMap, goToFrame, skip, sceneId],
+    [containerSize, sceneId, focusedFrameIndex, skip, commandMap, goToFrame],
   )
 
   const ignoreClickRef = React.useRef(false)
@@ -117,13 +118,15 @@ export function SceneContainer({
                 enteredPercent={(focusedFrameIndex + 1) / children.length}
               />
             )
+          })()
         )}
 
-        {children.map((child, idx) => (
-          <Command key={child.key} frameIndex={idx}>
-            {child}
-          </Command>
-        ))}
+        {containerSize[0] !== 0 &&
+          children.map((child, idx) => (
+            <Command key={child.key} frameIndex={idx}>
+              {child}
+            </Command>
+          ))}
       </div>
     </SceneContext.Provider>
   )

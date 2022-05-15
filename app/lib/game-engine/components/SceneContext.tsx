@@ -11,8 +11,9 @@ export interface CommandT {
 
 export interface SceneContextValue {
   sceneId: SceneId
-  getCommand: (frameIndex: number) => CommandT | undefined
+  containerSize: [number, number]
   registerCommand: (frameIndex: number, command: CommandT) => void
+  getCommand: (frameIndex: number) => CommandT | undefined
   focusedFrameIndex: number
   goToFrame: React.Dispatch<React.SetStateAction<number>>
   skip: () => void

@@ -1,11 +1,17 @@
 import clsx from 'clsx'
 import {motion} from 'framer-motion'
+import {cover} from 'intrinsic-scale'
 import type {
   CommandContainerProps,
   CommandViewVariants,
   Option,
 } from '../components'
-import {CommandContainer, ForegroundView, OptionsView} from '../components'
+import {
+  CommandContainer,
+  ForegroundView,
+  OptionsView,
+  useSceneContext,
+} from '../components'
 
 export interface SayProps
   extends Partial<Omit<CommandContainerProps, 'children'>> {
@@ -17,6 +23,15 @@ export interface SayProps
   dark?: boolean
   style?: React.CSSProperties
   textStyle?: React.CSSProperties
+  textFrame?: {
+    viewport: [number, number]
+    rect: {
+      y: number
+      x: number
+      width?: number
+      height?: number
+    }
+  }
   options?: Option[]
   optionsDark?: boolean
   foregroundSrc?: string
@@ -33,6 +48,7 @@ export function Say({
   dark,
   style,
   textStyle,
+  textFrame,
   options,
   optionsDark,
   foregroundSrc,
@@ -50,6 +66,23 @@ export function Say({
   },
   ...restProps
 }: SayProps) {
+  const {containerSize} = useSceneContext()
+  let backgroundXScale = 1
+  let backgroundYScale = 1
+  let backgroundOffset = {x: 0, y: 0}
+  if (textFrame) {
+    const backgroundResizeInfo = cover(
+      containerSize[0],
+      containerSize[1],
+      textFrame.viewport[0],
+      textFrame.viewport[1],
+    )
+    backgroundXScale = backgroundResizeInfo.width / textFrame.viewport[0]
+    backgroundYScale = backgroundResizeInfo.height / textFrame.viewport[1]
+    backgroundOffset = backgroundResizeInfo
+      ? {x: backgroundResizeInfo.x, y: backgroundResizeInfo.y}
+      : {x: 0, y: 0}
+  }
   const chars = children.split('')
   const TextComp = href ? motion.a : motion.span
   return (
@@ -111,6 +144,18 @@ export function Say({
                   textUnderlineOffset: size ? '6px' : '4px',
                 }),
                 ...textStyle,
+                ...(textFrame && {
+                  position: 'absolute',
+                  left:
+                    textFrame.rect.x * backgroundXScale + backgroundOffset.x,
+                  top: textFrame.rect.y * backgroundYScale + backgroundOffset.y,
+                  ...(textFrame.rect.width && {
+                    width: textFrame.rect.width * backgroundXScale,
+                  }),
+                  ...(textFrame.rect.height && {
+                    height: textFrame.rect.height * backgroundYScale,
+                  }),
+                }),
               }}
               {...(href && {
                 href,
@@ -123,6 +168,10 @@ export function Say({
               {chars.map((char, idx) => (
                 <motion.span
                   key={`${char}_${idx}`}
+                  style={{
+                    // Scale font size according to container size
+                    fontSize: `${containerSize[0] / REFERENCE_SIZE[0]}em`,
+                  }}
                   variants={variants}
                   initial="initial"
                   animate={controls}
@@ -146,3 +195,5 @@ export function Say({
     </CommandContainer>
   )
 }
+
+const REFERENCE_SIZE = [375, 667] as const

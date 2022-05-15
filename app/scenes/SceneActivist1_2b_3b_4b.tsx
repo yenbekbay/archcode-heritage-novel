@@ -70,9 +70,15 @@ export function SceneActivist1_2b_3b_4b() {
       </Say>
 
       <Say
+        textFrame={{
+          viewport: [1080, 1920],
+          rect: {
+            y: 400,
+            x: 260,
+            width: 540,
+          },
+        }}
         textStyle={{
-          marginTop: 80,
-          width: 190,
           transform: 'rotate(-6deg)',
           transformOrigin: 'top',
           textAlign: 'right',
@@ -115,9 +121,15 @@ export function SceneActivist1_2b_3b_4b() {
       </Say>
 
       <Say
+        textFrame={{
+          viewport: [1080, 1920],
+          rect: {
+            y: 420,
+            x: 140,
+            width: 800,
+          },
+        }}
         textStyle={{
-          marginTop: 72,
-          width: 280,
           fontSize: '$2',
           textAlign: 'left',
         }}>
@@ -165,9 +177,15 @@ export function SceneActivist1_2b_3b_4b() {
       <Say
         href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
         size="lg"
+        textFrame={{
+          viewport: [1080, 1920],
+          rect: {
+            y: 400,
+            x: 260,
+            width: 540,
+          },
+        }}
         textStyle={{
-          marginTop: 64,
-          width: 220,
           transform: 'rotate(-6deg)',
           transformOrigin: 'top',
         }}
@@ -193,9 +211,15 @@ export function SceneActivist1_2b_3b_4b() {
       <Say
         href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
         size="lg"
+        textFrame={{
+          viewport: [1080, 1920],
+          rect: {
+            y: 400,
+            x: 260,
+            width: 540,
+          },
+        }}
         textStyle={{
-          marginTop: 64,
-          width: 220,
           transform: 'rotate(-6deg)',
           transformOrigin: 'top',
         }}
@@ -221,9 +245,15 @@ export function SceneActivist1_2b_3b_4b() {
       <Say
         href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
         size="lg"
+        textFrame={{
+          viewport: [1080, 1920],
+          rect: {
+            y: 400,
+            x: 260,
+            width: 540,
+          },
+        }}
         textStyle={{
-          marginTop: 64,
-          width: 220,
           transform: 'rotate(-6deg)',
           transformOrigin: 'top',
         }}
@@ -248,9 +278,15 @@ export function SceneActivist1_2b_3b_4b() {
       <Say
         href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
         size="lg"
+        textFrame={{
+          viewport: [1080, 1920],
+          rect: {
+            y: 400,
+            x: 260,
+            width: 540,
+          },
+        }}
         textStyle={{
-          marginTop: 64,
-          width: 220,
           transform: 'rotate(-6deg)',
           transformOrigin: 'top',
         }}
@@ -296,9 +332,15 @@ export function SceneActivist1_2b_3b_4b() {
 
       <Say
         href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+        textFrame={{
+          viewport: [1080, 1920],
+          rect: {
+            y: 400,
+            x: 280,
+            width: 520,
+          },
+        }}
         textStyle={{
-          marginTop: 80,
-          width: 190,
           transform: 'rotate(9deg) translateX(16px)',
           transformOrigin: 'top',
         }}>
@@ -340,9 +382,15 @@ export function SceneActivist1_2b_3b_4b() {
       <Say
         href="https://archcode.kz"
         size="lg"
+        textFrame={{
+          viewport: [1080, 1920],
+          rect: {
+            y: 400,
+            x: 280,
+            width: 520,
+          },
+        }}
         textStyle={{
-          marginTop: 80,
-          width: 190,
           transform: 'rotate(9deg) translateX(16px)',
           transformOrigin: 'top',
         }}>
