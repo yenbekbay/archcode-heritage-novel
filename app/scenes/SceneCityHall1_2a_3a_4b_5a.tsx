@@ -7,12 +7,11 @@ import {
   bgZheltoksanBeforeFenceGif,
   bgZheltoksanBeforeJpg,
 } from '~/assets/game'
-import type {SceneBackgroundComponentProps} from '~/lib'
 import {Foreground, Options, Say, SceneContainer, Title} from '~/lib'
 
 export function SceneCityHall1_2a_3a_4b_5a() {
   return (
-    <SceneContainer BackgroundComponent={Background}>
+    <SceneContainer background={bgCityHallOfficeJpg}>
       <Say
         size="lg"
         optionsDark
@@ -91,14 +90,5 @@ export function SceneCityHall1_2a_3a_4b_5a() {
         ]}
       />
     </SceneContainer>
-  )
-}
-
-function Background(_props: SceneBackgroundComponentProps) {
-  return (
-    <img
-      src={bgCityHallOfficeJpg}
-      className="flex-shrink-1 min-h-full flex-grow-0 basis-0 object-cover"
-    />
   )
 }

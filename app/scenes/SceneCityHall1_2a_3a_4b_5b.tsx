@@ -4,12 +4,11 @@ import {
   mayor2Png,
   sabit1Png,
 } from '~/assets/game'
-import type {SceneBackgroundComponentProps} from '~/lib'
 import {Say, SceneContainer} from '~/lib'
 
 export function SceneCityHall1_2a_3a_4b_5b() {
   return (
-    <SceneContainer BackgroundComponent={Background}>
+    <SceneContainer background={bgCityHallConferenceRoomJpg}>
       <Say transitory>
         Встреча с руководителем управления архитектуры и градостроительства
         Сабитом Гадырбаевым
@@ -130,14 +129,5 @@ export function SceneCityHall1_2a_3a_4b_5b() {
         Что делать с мнением общественности?
       </Say>
     </SceneContainer>
-  )
-}
-
-function Background(_props: SceneBackgroundComponentProps) {
-  return (
-    <img
-      src={bgCityHallConferenceRoomJpg}
-      className="flex-shrink-1 min-h-full flex-grow-0 basis-0 object-cover"
-    />
   )
 }

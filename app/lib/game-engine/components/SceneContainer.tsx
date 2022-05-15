@@ -16,12 +16,12 @@ export interface SceneBackgroundComponentProps {
 }
 
 export interface SceneContainerProps {
-  BackgroundComponent?: React.ComponentType<SceneBackgroundComponentProps>
+  background: string | React.ComponentType<SceneBackgroundComponentProps>
   children?: React.ReactElement[] | React.ReactElement
 }
 
 export function SceneContainer({
-  BackgroundComponent,
+  background,
   children: childrenProp,
 }: SceneContainerProps) {
   const {focusedFrame, goToFrame, goBack, canGoBack} = useGameContext()
@@ -106,13 +106,17 @@ export function SceneContainer({
           />
         )}
 
-        {BackgroundComponent && (
-          <div className="absolute inset-0 flex flex-col">
-            <BackgroundComponent
-              containerSize={containerSize}
-              enteredPercent={(focusedFrameIndex + 1) / children.length}
-            />
-          </div>
+        {typeof background === 'string' ? (
+          <img src={background} className="h-full w-full object-cover" />
+        ) : (
+          (() => {
+            const BackgroundComp = background
+            return (
+              <BackgroundComp
+                containerSize={containerSize}
+                enteredPercent={(focusedFrameIndex + 1) / children.length}
+              />
+            )
         )}
 
         {children.map((child, idx) => (

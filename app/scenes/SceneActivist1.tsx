@@ -4,7 +4,7 @@ import {Foreground, Say, SceneContainer, useSceneContext} from '~/lib'
 
 export function SceneActivist1() {
   return (
-    <SceneContainer BackgroundComponent={Background}>
+    <SceneContainer background={Background}>
       <Say size="lg" transitory>
         Забор в этом городе появился новый
       </Say>
@@ -58,7 +58,7 @@ function Background(_props: SceneBackgroundComponentProps) {
   return (
     <img
       src={focusedFrameIndex < 2 ? bgMapGif : bgMapJpg}
-      className="flex-shrink-1 min-h-full flex-grow-0 basis-0 object-cover "
+      className="h-full w-full object-cover"
     />
   )
 }

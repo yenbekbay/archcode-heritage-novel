@@ -3,12 +3,11 @@ import {
   developerRepPng,
   mayor2Png,
 } from '~/assets/game'
-import type {SceneBackgroundComponentProps} from '~/lib'
 import {Say, SceneContainer} from '~/lib'
 
 export function SceneCityHall1_2a_3a() {
   return (
-    <SceneContainer BackgroundComponent={Background}>
+    <SceneContainer background={bgCityHallConferenceRoomJpg}>
       <Say
         tag="Девелопер:"
         foregroundSrc={developerRepPng}
@@ -36,14 +35,5 @@ export function SceneCityHall1_2a_3a() {
         Хммм…
       </Say>
     </SceneContainer>
-  )
-}
-
-function Background(_props: SceneBackgroundComponentProps) {
-  return (
-    <img
-      src={bgCityHallConferenceRoomJpg}
-      className="flex-shrink-1 min-h-full flex-grow-0 basis-0 object-cover"
-    />
   )
 }

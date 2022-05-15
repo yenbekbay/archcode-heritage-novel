@@ -5,12 +5,11 @@ import {
   redhead19Png,
   sillhouettePng,
 } from '~/assets/game'
-import type {SceneBackgroundComponentProps} from '~/lib'
 import {Blank, Foreground, Options, Say, SceneContainer, Title} from '~/lib'
 
 export function SceneActivist1_2b_3b_4c() {
   return (
-    <SceneContainer BackgroundComponent={Background}>
+    <SceneContainer background={bgCourtyardJpg}>
       <Blank durationMs={3000} transitory />
 
       <Say
@@ -64,9 +63,15 @@ export function SceneActivist1_2b_3b_4c() {
       <Say
         href="tel://+77071210483"
         size="lg"
+        textFrame={{
+          viewport: [1080, 1920],
+          rect: {
+            y: 400,
+            x: 260,
+            width: 540,
+          },
+        }}
         textStyle={{
-          marginTop: 64,
-          width: 220,
           transform: 'rotate(-6deg)',
           transformOrigin: 'top',
         }}
@@ -94,14 +99,5 @@ export function SceneActivist1_2b_3b_4c() {
         ]}
       />
     </SceneContainer>
-  )
-}
-
-function Background(_props: SceneBackgroundComponentProps) {
-  return (
-    <img
-      src={bgCourtyardJpg}
-      className="flex-shrink-1 min-h-full flex-grow-0 basis-0 object-cover"
-    />
   )
 }

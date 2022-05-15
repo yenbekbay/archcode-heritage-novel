@@ -6,12 +6,11 @@ import {
   mayor2Png,
   stampApprovedPng,
 } from '~/assets/game'
-import type {SceneBackgroundComponentProps} from '~/lib'
 import {Foreground, Say, SceneContainer} from '~/lib'
 
 export function SceneCityHall1_2a_3a_4a_5a_6b_7a() {
   return (
-    <SceneContainer BackgroundComponent={Background}>
+    <SceneContainer background={bgCityHallOfficeJpg}>
       <Foreground
         src={letterPng}
         style={{
@@ -69,14 +68,5 @@ export function SceneCityHall1_2a_3a_4a_5a_6b_7a() {
         Что делать?
       </Say>
     </SceneContainer>
-  )
-}
-
-function Background(_props: SceneBackgroundComponentProps) {
-  return (
-    <img
-      src={bgCityHallOfficeJpg}
-      className="flex-shrink-1 min-h-full flex-grow-0 basis-0 object-cover"
-    />
   )
 }

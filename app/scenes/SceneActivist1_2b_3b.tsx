@@ -1,11 +1,10 @@
 import {redhead8Png} from '~/assets/game'
 import bgBldg1FenceSrc from '~/assets/game/bg-bldg-1-fence.jpg'
-import type {SceneBackgroundComponentProps} from '~/lib'
 import {Say, SceneContainer} from '~/lib'
 
 export function SceneActivist1_2b_3b() {
   return (
-    <SceneContainer BackgroundComponent={Background}>
+    <SceneContainer background={bgBldg1FenceSrc}>
       <Say
         size="lg"
         optionsDark
@@ -28,14 +27,5 @@ export function SceneActivist1_2b_3b() {
         Что я могу?
       </Say>
     </SceneContainer>
-  )
-}
-
-function Background(_props: SceneBackgroundComponentProps) {
-  return (
-    <img
-      src={bgBldg1FenceSrc}
-      className="flex-shrink-1 min-h-full flex-grow-0 basis-0 object-cover"
-    />
   )
 }

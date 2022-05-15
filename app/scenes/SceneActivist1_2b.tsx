@@ -11,7 +11,7 @@ import {Blank, Say, SceneContainer, useSceneContext} from '~/lib'
 
 export function SceneActivist1_2b() {
   return (
-    <SceneContainer BackgroundComponent={Background}>
+    <SceneContainer background={Background}>
       <Say
         size="lg"
         foregroundSrc={redhead4Png}

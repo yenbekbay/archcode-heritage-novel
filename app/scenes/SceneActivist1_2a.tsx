@@ -18,7 +18,7 @@ import {
 
 export function SceneActivist1_2a() {
   return (
-    <SceneContainer BackgroundComponent={Background}>
+    <SceneContainer background={Background}>
       <Say
         size="lg"
         foregroundSrc={redhead2Png}

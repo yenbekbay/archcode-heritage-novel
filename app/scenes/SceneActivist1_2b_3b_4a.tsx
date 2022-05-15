@@ -11,12 +11,11 @@ import {
   redhead12Png,
   redhead9Png,
 } from '~/assets/game'
-import type {SceneBackgroundComponentProps} from '~/lib'
 import {Blank, Foreground, Options, Say, SceneContainer} from '~/lib'
 
 export function SceneActivist1_2b_3b_4a() {
   return (
-    <SceneContainer BackgroundComponent={Background}>
+    <SceneContainer background={bgCourtyardJpg}>
       <Blank durationMs={3000} transitory />
 
       <Foreground
@@ -203,14 +202,5 @@ export function SceneActivist1_2b_3b_4a() {
         ]}
       />
     </SceneContainer>
-  )
-}
-
-function Background(_props: SceneBackgroundComponentProps) {
-  return (
-    <img
-      src={bgCourtyardJpg}
-      className="flex-shrink-1 min-h-full flex-grow-0 basis-0 object-cover"
-    />
   )
 }

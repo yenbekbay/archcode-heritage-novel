@@ -7,7 +7,7 @@ import {Options, Say, SceneContainer, Title} from '~/lib'
 
 export function SceneIntro() {
   return (
-    <SceneContainer BackgroundComponent={Background}>
+    <SceneContainer background={Background}>
       <Options
         large
         placement="middle"

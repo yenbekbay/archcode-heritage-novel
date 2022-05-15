@@ -4,12 +4,11 @@ import {
   bgZheltoksanBeforeJpg,
   mayor4Png,
 } from '~/assets/game'
-import type {SceneBackgroundComponentProps} from '~/lib'
 import {Foreground, Say, SceneContainer} from '~/lib'
 
 export function SceneCityHall1_2a_3a_4b() {
   return (
-    <SceneContainer BackgroundComponent={Background}>
+    <SceneContainer background={bgZheltoksanBeforeJpg}>
       <Say
         size="lg"
         foregroundSrc={angryCrowd1Png}
@@ -43,14 +42,5 @@ export function SceneCityHall1_2a_3a_4b() {
         Что делать?
       </Say>
     </SceneContainer>
-  )
-}
-
-function Background(_props: SceneBackgroundComponentProps) {
-  return (
-    <img
-      src={bgZheltoksanBeforeJpg}
-      className="flex-shrink-1 min-h-full flex-grow-0 basis-0 object-cover"
-    />
   )
 }

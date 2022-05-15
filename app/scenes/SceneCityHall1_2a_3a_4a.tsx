@@ -11,12 +11,11 @@ import {
   expert3Png,
   mayor2Png,
 } from '~/assets/game'
-import type {SceneBackgroundComponentProps} from '~/lib'
 import {Foreground, Say, SceneContainer} from '~/lib'
 
 export function SceneCityHall1_2a_3a_4a() {
   return (
-    <SceneContainer BackgroundComponent={Background}>
+    <SceneContainer background={bgCityHallOutsideJpg}>
       <Say size="xl" placement="middle" dark transitory>
         Экспертиза
       </Say>
@@ -121,14 +120,5 @@ export function SceneCityHall1_2a_3a_4a() {
         Что делать с проектом?
       </Say>
     </SceneContainer>
-  )
-}
-
-function Background(_props: SceneBackgroundComponentProps) {
-  return (
-    <img
-      src={bgCityHallOutsideJpg}
-      className="flex-shrink-1 min-h-full flex-grow-0 basis-0 object-cover"
-    />
   )
 }

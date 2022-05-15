@@ -5,12 +5,11 @@ import {
   bgMayorDeskJpg,
   mayor1Png,
 } from '~/assets/game'
-import type {SceneBackgroundComponentProps} from '~/lib'
 import {Blank, Foreground, Options, Say, SceneContainer} from '~/lib'
 
 export function SceneCityHall1() {
   return (
-    <SceneContainer BackgroundComponent={Background}>
+    <SceneContainer background={bgCityHallOutsideJpg}>
       <Blank durationMs={3000} transitory />
 
       <Foreground
@@ -64,14 +63,5 @@ export function SceneCityHall1() {
         transitory
       />
     </SceneContainer>
-  )
-}
-
-function Background(_props: SceneBackgroundComponentProps) {
-  return (
-    <img
-      src={bgCityHallOutsideJpg}
-      className="flex-shrink-1 min-h-full flex-grow-0 basis-0 object-cover"
-    />
   )
 }
