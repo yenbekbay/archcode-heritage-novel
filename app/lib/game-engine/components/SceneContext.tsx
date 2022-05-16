@@ -1,6 +1,6 @@
 import React from 'react'
 
-export interface CommandT {
+export interface Statement {
   skippable: boolean
   /** For how many extra statements is this command visible */
   visibleExtra: number
@@ -12,8 +12,8 @@ export interface CommandT {
 export interface SceneContextValue {
   sceneId: SceneId
   containerSize: [number, number]
-  registerCommand: (statementIndex: number, command: CommandT) => void
-  getCommand: (statementIndex: number) => CommandT | undefined
+  registerStatement: (statementIndex: number, statement: Statement) => void
+  getStatement: (statementIndex: number) => Statement | undefined
   focusedStatementIndex: number
   goToStatement: React.Dispatch<React.SetStateAction<number>>
   skip: () => void

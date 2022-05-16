@@ -10,8 +10,8 @@ import {
 } from 'phosphor-react'
 import React from 'react'
 import {useSearchParam} from '~/lib'
-import type {Statement, GameHistory} from '../utils'
-import {makeStatementId, makeGameHistory, parseStatementId} from '../utils'
+import type {GameLocation, GameHistory} from '../utils'
+import {makeGameLocationId, makeGameHistory, parseGameLocation} from '../utils'
 import type {GameContextValue} from './GameContext'
 import {GameContext} from './GameContext'
 import {MobileDeviceChrome} from './MobileDeviceChrome'
@@ -31,53 +31,52 @@ export const Game = function Game({
   initialSceneId,
   onClose,
 }: GameProps) {
-  const initialStatement: Statement = {
+  const initialLocation: GameLocation = {
     sceneId: initialSceneId,
     statementIndex: 0,
   }
-  const [storedFocusedStatementId, setStoredFocusedStatementId] =
-    useSearchParam<string>('f', makeStatementId(initialStatement))
-  const [focusedStatement, setFocusedStatement] = React.useState(
-    () => parseStatementId(storedFocusedStatementId) ?? initialStatement,
+  const [storedFocusedLocationId, setStoredFocusedLocationId] =
+    useSearchParam<string>('location', makeGameLocationId(initialLocation))
+  const [focusedLocation, setFocusedLocation] = React.useState(
+    () => parseGameLocation(storedFocusedLocationId) ?? initialLocation,
   )
   const [paused, setPaused] = useSearchParam<boolean>('paused', false)
   const [history] = React.useState<GameHistory>(() =>
     makeGameHistory({
-      initialStatement: focusedStatement,
-      onChange: (newStatements) =>
-        setFocusedStatement(newStatements[newStatements.length - 1]),
+      initialLocation: focusedLocation,
+      onChange: (newLocations) =>
+        setFocusedLocation(newLocations[newLocations.length - 1]),
     }),
   )
 
   useUpdateEffect(() => {
-    setStoredFocusedStatementId(makeStatementId(focusedStatement))
-  }, [focusedStatement])
+    setStoredFocusedLocationId(makeGameLocationId(focusedLocation))
+  }, [focusedLocation])
 
   useUpdateEffect(() => {
-    const storedFocusedStatement = parseStatementId(storedFocusedStatementId)
+    const storedFocusedLocation = parseGameLocation(storedFocusedLocationId)
     if (
-      storedFocusedStatement &&
-      (storedFocusedStatement.sceneId !== focusedStatement.sceneId ||
-        storedFocusedStatement.statementIndex !==
-          focusedStatement.statementIndex)
+      storedFocusedLocation &&
+      (storedFocusedLocation.sceneId !== focusedLocation.sceneId ||
+        storedFocusedLocation.statementIndex !== focusedLocation.statementIndex)
     ) {
-      history.reset(storedFocusedStatement)
+      history.reset(storedFocusedLocation)
     }
-  }, [storedFocusedStatementId])
+  }, [storedFocusedLocationId])
 
   const ctx = React.useMemo(
     (): GameContextValue => ({
-      focusedStatement,
+      focusedLocation,
       paused,
       goToScene: (sceneId) => {
-        if (sceneId !== focusedStatement.sceneId) {
+        if (sceneId !== focusedLocation.sceneId) {
           history.push({sceneId, statementIndex: 0})
         }
       },
-      goToStatement: (sceneId, statementIndex) => {
+      goToLocation: (sceneId, statementIndex) => {
         if (
-          sceneId !== focusedStatement.sceneId ||
-          statementIndex !== focusedStatement.statementIndex
+          sceneId !== focusedLocation.sceneId ||
+          statementIndex !== focusedLocation.statementIndex
         ) {
           history.push({sceneId, statementIndex})
         }
@@ -85,7 +84,7 @@ export const Game = function Game({
       goBack: history.goBack,
       canGoBack: history.canGoBack,
     }),
-    [focusedStatement, history, paused],
+    [focusedLocation, history, paused],
   )
 
   return (
@@ -95,7 +94,7 @@ export const Game = function Game({
           <div className="navbar-start space-x-2">
             <button
               className="btn btn-ghost btn-circle bg-white text-xl shadow-md"
-              onClick={() => history.push(initialStatement)}>
+              onClick={() => history.push(initialLocation)}>
               <ArrowCounterClockwiseIcon />
             </button>
 
@@ -176,7 +175,7 @@ export const Game = function Game({
             <div className="flex h-full w-full overflow-hidden bg-base-100">
               {Object.entries(scenes).map(
                 ([sceneId, SceneComp]) =>
-                  sceneId === focusedStatement.sceneId && (
+                  sceneId === focusedLocation.sceneId && (
                     <Scene key={sceneId} id={sceneId}>
                       <SceneComp />
                     </Scene>

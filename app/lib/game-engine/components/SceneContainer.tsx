@@ -6,7 +6,7 @@ import {useStableCallback} from '~/lib'
 import {Command} from './Command'
 import {useGameContext} from './GameContext'
 import {useSceneId} from './Scene'
-import type {CommandT, SceneContextValue} from './SceneContext'
+import type {SceneContextValue, Statement} from './SceneContext'
 import {SceneContext} from './SceneContext'
 
 export interface SceneBackgroundComponentProps {
@@ -24,12 +24,12 @@ export function SceneContainer({
   background,
   children: childrenProp,
 }: SceneContainerProps) {
-  const {focusedStatement, goToStatement, goBack, canGoBack} = useGameContext()
+  const {focusedLocation, goToLocation, goBack, canGoBack} = useGameContext()
   const sceneId = useSceneId()
   const focusedStatementIndex =
-    focusedStatement.sceneId === sceneId ? focusedStatement.statementIndex : 0
+    focusedLocation.sceneId === sceneId ? focusedLocation.statementIndex : 0
 
-  const [commandMap] = React.useState(() => new Map<number, CommandT>())
+  const [commandMap] = React.useState(() => new Map<number, Statement>())
   const containerRef = React.useRef<HTMLDivElement>(null)
   const containerSize = useSize(containerRef)
 
@@ -42,7 +42,7 @@ export function SceneContainer({
     const entered = focusedCommand?.enter() ?? false
     // Complete entrance animation before jumping to next statementIndex
     if (!entered) {
-      goToStatement(
+      goToLocation(
         sceneId,
         Math.min(children.length - 1, focusedStatementIndex + 1),
       )
@@ -52,16 +52,16 @@ export function SceneContainer({
     (): SceneContextValue => ({
       sceneId,
       containerSize,
-      registerCommand: (statementIndex, command) => {
-        commandMap.set(statementIndex, command)
+      registerStatement: (statementIndex, statement) => {
+        commandMap.set(statementIndex, statement)
         return () => {
           commandMap.delete(statementIndex)
         }
       },
-      getCommand: (statementIndex) => commandMap.get(statementIndex),
+      getStatement: (statementIndex) => commandMap.get(statementIndex),
       focusedStatementIndex,
       goToStatement: (action) =>
-        goToStatement(
+        goToLocation(
           sceneId,
           typeof action === 'number' ? action : action(focusedStatementIndex),
         ),
@@ -73,7 +73,7 @@ export function SceneContainer({
       focusedStatementIndex,
       skip,
       commandMap,
-      goToStatement,
+      goToLocation,
     ],
   )
 

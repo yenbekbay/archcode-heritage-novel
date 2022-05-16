@@ -10,7 +10,7 @@ export interface CommandProps {
 
 export function Command({statementIndex, children}: CommandProps) {
   const sceneCtx = useSceneContext()
-  const command = sceneCtx.getCommand(statementIndex)
+  const command = sceneCtx.getStatement(statementIndex)
   const commandCtx = React.useMemo(
     (): CommandContextValue => ({
       statementIndex,
@@ -20,7 +20,7 @@ export function Command({statementIndex, children}: CommandProps) {
         sceneCtx.focusedStatementIndex <=
           statementIndex + (command?.visibleExtra ?? 0),
     }),
-    [command?.visibleExtra, statementIndex, sceneCtx.focusedStatementIndex],
+    [command?.visibleExtra, sceneCtx.focusedStatementIndex, statementIndex],
   )
   return (
     <CommandContext.Provider value={commandCtx}>

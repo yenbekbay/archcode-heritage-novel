@@ -1,5 +1,5 @@
 import React from 'react'
-import type {CommandT} from './SceneContext'
+import type {Statement} from './SceneContext'
 import {useSceneContext} from './SceneContext'
 
 export interface CommandContextValue {
@@ -24,11 +24,11 @@ export function useCommandContext() {
   return ctx
 }
 
-export function useRegisterCommand(command: CommandT) {
+export function useRegisterStatement(command: Statement) {
   const sceneCtx = useSceneContext()
   const {statementIndex} = useCommandContext()
   React.useEffect(
-    () => sceneCtx.registerCommand(statementIndex, command),
+    () => sceneCtx.registerStatement(statementIndex, command),
     [command, statementIndex, sceneCtx],
   )
 }

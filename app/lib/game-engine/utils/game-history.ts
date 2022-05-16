@@ -1,29 +1,29 @@
-import type {Statement} from './statement'
+import type {GameLocation} from './game-location'
 
 export interface GameHistory {
-  peek: () => Statement
-  push: (statement: Statement) => void
-  reset: (statement?: Statement) => void
+  peek: () => GameLocation
+  push: (location: GameLocation) => void
+  reset: (location?: GameLocation) => void
   goBack: () => boolean
   canGoBack: () => boolean
 }
 
 export function makeGameHistory({
-  initialStatement,
+  initialLocation,
   onChange,
 }: {
-  initialStatement: Statement
-  onChange?: (newStatements: Statement[]) => void
+  initialLocation: GameLocation
+  onChange?: (newLocations: GameLocation[]) => void
 }): GameHistory {
-  let items = [initialStatement]
+  let items = [initialLocation]
   return {
     peek: () => items[items.length - 1],
-    push: (statement) => {
-      items = [...items, statement]
+    push: (location) => {
+      items = [...items, location]
       onChange?.(items)
     },
-    reset: (statement) => {
-      items = [statement ?? initialStatement]
+    reset: (location) => {
+      items = [location ?? initialLocation]
       onChange?.(items)
     },
     goBack: () => {

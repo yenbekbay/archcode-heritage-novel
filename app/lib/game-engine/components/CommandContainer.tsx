@@ -1,10 +1,10 @@
 import {AnimatePresence} from 'framer-motion'
 import type {AnimationControls} from 'framer-motion/types/animation/types'
 import React from 'react'
-import {useCommandContext, useRegisterCommand} from './CommandContext'
+import {useCommandContext, useRegisterStatement} from './CommandContext'
 import type {CommandViewInstance} from './CommandView'
 import {CommandView} from './CommandView'
-import type {CommandT} from './SceneContext'
+import type {Statement} from './SceneContext'
 
 export interface CommandContainerProps {
   children: (controls: AnimationControls) => React.ReactNode
@@ -26,9 +26,9 @@ export function CommandContainer({
   const {visible} = useCommandContext()
 
   const viewRef = React.useRef<CommandViewInstance>(null)
-  useRegisterCommand(
+  useRegisterStatement(
     React.useMemo(
-      (): CommandT => ({
+      (): Statement => ({
         skippable,
         visibleExtra: (() => {
           if (typeof lingers === 'number') {
