@@ -2,35 +2,33 @@ import clsx from 'clsx'
 import type {AnimationControls} from 'framer-motion'
 import {motion} from 'framer-motion'
 import React from 'react'
+import {useCommandContext, useGameContext, useSceneContext} from '../contexts'
 import type {Frame} from '../utils'
 import {styleForFrame} from '../utils'
-import {useCommandContext} from './CommandContext'
 import type {CommandViewVariants} from './CommandView'
-import {useGameContext} from './GameContext'
-import {useSceneContext} from './SceneContext'
 
-interface ChoiceContext {
+interface ChoiceContext<TStatementLabel extends string = string> {
   sceneId: SceneId
   statementIndex: number
   goToScene: (sceneId: SceneId) => void
-  goToStatement: (statementIndex: number) => void
+  goToStatement: (statementLabel: TStatementLabel) => void
   skip: () => void
 }
 
-export interface Choice {
+export interface Choice<TStatementLabel extends string> {
   label: string
   frame?: Frame
-  onClick: (ctx: ChoiceContext) => void
+  onClick: (ctx: ChoiceContext<TStatementLabel>) => void
 }
 
 export type ChoicesPlacement = 'top' | 'middle' | 'bottom'
 
-export interface ChoicesViewProps {
-  choices: Choice[]
+export interface ChoicesViewProps<TStatementLabel extends string = string> {
+  choices: Choice<TStatementLabel>[]
   label?: string
-  large?: boolean
-  dark?: boolean
+  size?: 'md' | 'lg'
   placement?: ChoicesPlacement
+  variant?: 'default' | 'dark'
   variants: CommandViewVariants
   controls: AnimationControls
 }
@@ -38,9 +36,9 @@ export interface ChoicesViewProps {
 export function ChoicesView({
   choices,
   label,
-  large,
-  dark,
+  size = 'md',
   placement = 'bottom',
+  variant,
   variants,
   controls,
 }: ChoicesViewProps) {
@@ -71,10 +69,11 @@ export function ChoicesView({
         <motion.span
           className="mb-2 whitespace-pre-wrap text-center font-calligraph text-lg"
           style={{
-            color: dark ? '#fBf9e0' : 'hsl(206, 24.0%, 9.0%)',
-            textShadow: dark
-              ? '0 -1px rgba(0, 0, 0, .35), 0 2px hsl(206, 24.0%, 9.0%), 0 0 4px rgba(0, 0, 0), 0 0 4px rgba(0, 0, 0), 0 0 4px rgba(0, 0, 0)'
-              : '0 1px hsl(209, 12.2%, 93.2%), 0 0 4px rgba(255, 255, 255), 0 0 4px rgba(255, 255, 255), 0 0 4px rgba(255, 255, 255)',
+            color: variant === 'dark' ? '#fBf9e0' : 'hsl(206, 24.0%, 9.0%)',
+            textShadow:
+              variant === 'dark'
+                ? '0 -1px rgba(0, 0, 0, .35), 0 2px hsl(206, 24.0%, 9.0%), 0 0 4px rgba(0, 0, 0), 0 0 4px rgba(0, 0, 0), 0 0 4px rgba(0, 0, 0)'
+                : '0 1px hsl(209, 12.2%, 93.2%), 0 0 4px rgba(255, 255, 255), 0 0 4px rgba(255, 255, 255), 0 0 4px rgba(255, 255, 255)',
           }}
           variants={variants}
           initial="initial"
@@ -96,10 +95,12 @@ export function ChoicesView({
               className="btn btn-ghost border"
               aria-label={c.label}
               style={{
-                borderColor: dark ? 'white' : 'hsl(206, 24.0%, 9.0%)',
-                backgroundColor: dark
-                  ? 'rgba(0, 0, 0, .5)'
-                  : 'rgba(255, 255, 255, .5)',
+                borderColor:
+                  variant === 'dark' ? 'white' : 'hsl(206, 24.0%, 9.0%)',
+                backgroundColor:
+                  variant === 'dark'
+                    ? 'rgba(0, 0, 0, .5)'
+                    : 'rgba(255, 255, 255, .5)',
                 boxShadow: '0 2px rgba(0, 0, 0, .35)',
                 ...styleForFrame({containerSize}, c.frame),
               }}
@@ -119,16 +120,21 @@ export function ChoicesView({
             <motion.div
               className={clsx(
                 'btn btn-ghost h-auto min-h-0 py-1 font-calligraph leading-6 shadow-md',
-                large ? 'btn-xl text-2xl' : 'text-md btn-lg',
+                {
+                  md: 'text-md btn-lg',
+                  lg: 'btn-xl text-2xl',
+                }[size],
               )}
               style={{
-                color: dark ? 'white' : 'hsl(206, 24.0%, 9.0%)',
-                backgroundColor: dark
-                  ? 'rgba(0, 0, 0, .25)'
-                  : 'rgba(255, 255, 255, .25)',
-                textShadow: dark
-                  ? '0 -1px rgba(0, 0, 0, .35), 0 2px hsl(206, 24.0%, 9.0%), 0 0 4px rgba(0, 0, 0), 0 0 4px rgba(0, 0, 0), 0 0 4px rgba(0, 0, 0)'
-                  : '0 1px hsl(209, 12.2%, 93.2%), 0 0 4px rgba(255, 255, 255), 0 0 4px rgba(255, 255, 255), 0 0 4px rgba(255, 255, 255)',
+                color: variant === 'dark' ? 'white' : 'hsl(206, 24.0%, 9.0%)',
+                backgroundColor:
+                  variant === 'dark'
+                    ? 'rgba(0, 0, 0, .25)'
+                    : 'rgba(255, 255, 255, .25)',
+                textShadow:
+                  variant === 'dark'
+                    ? '0 -1px rgba(0, 0, 0, .35), 0 2px hsl(206, 24.0%, 9.0%), 0 0 4px rgba(0, 0, 0), 0 0 4px rgba(0, 0, 0), 0 0 4px rgba(0, 0, 0)'
+                    : '0 1px hsl(209, 12.2%, 93.2%), 0 0 4px rgba(255, 255, 255), 0 0 4px rgba(255, 255, 255), 0 0 4px rgba(255, 255, 255)',
                 boxShadow: '0 2px rgba(0, 0, 0, .35)',
               }}
               animate={{y: -8}}

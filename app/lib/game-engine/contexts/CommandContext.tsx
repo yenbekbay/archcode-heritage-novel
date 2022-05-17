@@ -4,6 +4,7 @@ import {useSceneContext} from './SceneContext'
 
 export interface CommandContextValue {
   statementIndex: number
+  statementLabel: string | null
   /** Is this the current statementIndex? */
   focused: boolean
   /** Is this statementIndex still shown but not necessarily focused? */
@@ -24,11 +25,18 @@ export function useCommandContext() {
   return ctx
 }
 
-export function useRegisterStatement(command: Statement) {
+export function useRegisterStatement(
+  statement: Omit<Statement, 'index' | 'label'>,
+) {
   const sceneCtx = useSceneContext()
-  const {statementIndex} = useCommandContext()
+  const {statementIndex, statementLabel} = useCommandContext()
   React.useEffect(
-    () => sceneCtx.registerStatement(statementIndex, command),
-    [command, statementIndex, sceneCtx],
+    () =>
+      sceneCtx.registerStatement({
+        ...statement,
+        index: statementIndex,
+        label: statementLabel,
+      }),
+    [statement, statementIndex, sceneCtx, statementLabel],
   )
 }

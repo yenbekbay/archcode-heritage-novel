@@ -1,15 +1,17 @@
 import {bgMapGif, bgMapJpg, fencePng, redhead1Png} from '~/assets/game'
 import type {SceneBackgroundComponentProps} from '~/lib'
-import {Foreground, Say, SceneContainer, useSceneContext} from '~/lib'
+import {makeScene} from '~/lib'
+
+const Scene = makeScene()
 
 export function SceneActivist1() {
   return (
-    <SceneContainer background={Background}>
-      <Say size="lg" transitory>
+    <Scene.Container background={Background}>
+      <Scene.Say size="lg" transitory>
         Забор в этом городе появился новый
-      </Say>
+      </Scene.Say>
 
-      <Foreground
+      <Scene.Foreground
         src={fencePng}
         style={{height: '100%', transform: 'translate(-50%) scale(1.15)'}}
         variants={{
@@ -28,9 +30,22 @@ export function SceneActivist1() {
         lingers
       />
 
-      <Say
+      <Scene.Say
         size="lg"
-        choicesDark
+        foregroundSrc={redhead1Png}
+        foregroundStyle={{
+          width: '90%',
+          bottom: 0,
+          filter: 'drop-shadow(40px 40px 5px rgba(0, 0, 0, .35))',
+        }}
+        transitory
+        durationMs={0}
+        lingers={1}>
+        Это что за забор? И что за ним?
+      </Scene.Say>
+
+      <Scene.Choices
+        variant="dark"
         choices={[
           {
             label: 'Пройти мимо',
@@ -41,20 +56,13 @@ export function SceneActivist1() {
             onClick: (ctx) => ctx.goToScene('Activist1_2b'),
           },
         ]}
-        foregroundSrc={redhead1Png}
-        foregroundStyle={{
-          width: '90%',
-          bottom: 0,
-          filter: 'drop-shadow(40px 40px 5px rgba(0, 0, 0, .35))',
-        }}>
-        Это что за забор? И что за ним?
-      </Say>
-    </SceneContainer>
+      />
+    </Scene.Container>
   )
 }
 
 function Background(_props: SceneBackgroundComponentProps) {
-  const {focusedStatementIndex} = useSceneContext()
+  const {focusedStatementIndex} = Scene.useSceneContext()
   return (
     <img
       src={focusedStatementIndex < 2 ? bgMapGif : bgMapJpg}

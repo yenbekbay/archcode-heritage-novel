@@ -2,12 +2,12 @@ import React from 'react'
 
 export const SceneIdContext = React.createContext<SceneId | null>(null)
 
-export interface SceneProps {
+export interface SceneIdProviderProps {
   id: SceneId
   children?: React.ReactNode
 }
 
-export function Scene({id, children}: SceneProps) {
+export function SceneIdProvider({id, children}: SceneIdProviderProps) {
   return (
     <SceneIdContext.Provider value={id}>{children}</SceneIdContext.Provider>
   )

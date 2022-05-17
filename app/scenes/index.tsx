@@ -3,9 +3,7 @@ import {SceneActivist1_2a} from './SceneActivist1_2a'
 import {SceneActivist1_2b} from './SceneActivist1_2b'
 import {SceneActivist1_2b_3a} from './SceneActivist1_2b_3a'
 import {SceneActivist1_2b_3b} from './SceneActivist1_2b_3b'
-import {SceneActivist1_2b_3b_4a} from './SceneActivist1_2b_3b_4a'
-import {SceneActivist1_2b_3b_4b} from './SceneActivist1_2b_3b_4b'
-import {SceneActivist1_2b_3b_4c} from './SceneActivist1_2b_3b_4c'
+import {SceneActivist1_2b_3c} from './SceneActivist1_2b_3c'
 import {SceneCityHall1} from './SceneCityHall1'
 import {SceneCityHall1_2a} from './SceneCityHall1_2a'
 import {SceneCityHall1_2a_3a} from './SceneCityHall1_2a_3a'
@@ -26,9 +24,7 @@ export const scenes = {
   Activist1_2b: SceneActivist1_2b,
   Activist1_2b_3a: SceneActivist1_2b_3a,
   Activist1_2b_3b: SceneActivist1_2b_3b,
-  Activist1_2b_3b_4a: SceneActivist1_2b_3b_4a,
-  Activist1_2b_3b_4b: SceneActivist1_2b_3b_4b,
-  Activist1_2b_3b_4c: SceneActivist1_2b_3b_4c,
+  Activist1_2b_3c: SceneActivist1_2b_3c,
   CityHall1: SceneCityHall1,
   CityHall1_2a: SceneCityHall1_2a,
   CityHall1_2a_3a: SceneCityHall1_2a_3a,

@@ -3,9 +3,7 @@ import type {Variant} from 'framer-motion'
 import {AnimatePresence, motion, useAnimation, usePresence} from 'framer-motion'
 import type {AnimationControls} from 'framer-motion/types/animation/types'
 import React from 'react'
-import {useCommandContext} from './CommandContext'
-import {useGameContext} from './GameContext'
-import {useSceneContext} from './SceneContext'
+import {useCommandContext, useGameContext, useSceneContext} from '../contexts'
 
 export type CommandViewVariants = {
   initial: Variant

@@ -4,20 +4,22 @@ import {
   bgZheltoksanBeforeJpg,
   mayor4Png,
 } from '~/assets/game'
-import {Foreground, Say, SceneContainer} from '~/lib'
+import {makeScene} from '~/lib'
+
+const Scene = makeScene()
 
 export function SceneCityHall1_2a_3a_4b() {
   return (
-    <SceneContainer background={bgZheltoksanBeforeJpg}>
-      <Say
+    <Scene.Container background={bgZheltoksanBeforeJpg}>
+      <Scene.Say
         size="lg"
         foregroundSrc={angryCrowd1Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
         Общественность возмущена
-      </Say>
+      </Scene.Say>
 
-      <Foreground
+      <Scene.Foreground
         src={bgCityHallOfficeJpg}
         style={{height: '100%', width: '100%', objectFit: 'cover'}}
         durationMs={0}
@@ -25,8 +27,17 @@ export function SceneCityHall1_2a_3a_4b() {
         lingers={2}
       />
 
-      <Say
+      <Scene.Say
         size="xl"
+        foregroundSrc={mayor4Png}
+        foregroundStyle={{width: '100%', bottom: 0}}
+        transitory
+        durationMs={0}
+        lingers={1}>
+        Что делать?
+      </Scene.Say>
+
+      <Scene.Choices
         choices={[
           {
             label: 'Попросить помощи у блоггеров',
@@ -37,10 +48,7 @@ export function SceneCityHall1_2a_3a_4b() {
             onClick: (ctx) => ctx.goToScene('CityHall1_2a_3a_4b_5b'),
           },
         ]}
-        foregroundSrc={mayor4Png}
-        foregroundStyle={{width: '100%', bottom: 0}}>
-        Что делать?
-      </Say>
-    </SceneContainer>
+      />
+    </Scene.Container>
   )
 }

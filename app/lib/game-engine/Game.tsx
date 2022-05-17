@@ -9,14 +9,12 @@ import {
   X as XIcon,
 } from 'phosphor-react'
 import React from 'react'
-import {useSearchParam} from '~/lib'
-import type {GameLocation, GameHistory} from '../utils'
-import {makeGameLocationId, makeGameHistory, parseGameLocation} from '../utils'
-import type {GameContextValue} from './GameContext'
-import {GameContext} from './GameContext'
-import {MobileDeviceChrome} from './MobileDeviceChrome'
-import {Scene} from './Scene'
-import {WithAssets} from './WithAssets'
+import {useSearchParam} from '../hooks'
+import {MobileDeviceChrome, WithAssets} from './components'
+import type {GameContextValue} from './contexts'
+import {GameContext, SceneIdProvider} from './contexts'
+import type {GameHistory, GameLocation} from './utils'
+import {makeGameHistory, makeGameLocationId, parseGameLocation} from './utils'
 
 export interface GameProps {
   assets: string[]
@@ -25,12 +23,7 @@ export interface GameProps {
   onClose?: () => void
 }
 
-export const Game = function Game({
-  assets,
-  scenes,
-  initialSceneId,
-  onClose,
-}: GameProps) {
+export function Game({assets, scenes, initialSceneId, onClose}: GameProps) {
   const initialLocation: GameLocation = {
     sceneId: initialSceneId,
     statementIndex: 0,
@@ -176,9 +169,9 @@ export const Game = function Game({
               {Object.entries(scenes).map(
                 ([sceneId, SceneComp]) =>
                   sceneId === focusedLocation.sceneId && (
-                    <Scene key={sceneId} id={sceneId}>
+                    <SceneIdProvider key={sceneId} id={sceneId}>
                       <SceneComp />
-                    </Scene>
+                    </SceneIdProvider>
                   ),
               )}
             </div>

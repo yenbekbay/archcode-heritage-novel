@@ -2,12 +2,10 @@ import useSize from '@react-hook/size'
 import React from 'react'
 import flattenChildren from 'react-keyed-flatten-children'
 import {useLongPress} from 'use-long-press'
-import {useStableCallback} from '~/lib'
+import {useStableCallback} from '../../hooks'
+import type {SceneContextValue, Statement} from '../contexts'
+import {SceneContext, useGameContext, useSceneId} from '../contexts'
 import {Command} from './Command'
-import {useGameContext} from './GameContext'
-import {useSceneId} from './Scene'
-import type {SceneContextValue, Statement} from './SceneContext'
-import {SceneContext} from './SceneContext'
 
 export interface SceneBackgroundComponentProps {
   containerSize: [number, number]
@@ -29,22 +27,23 @@ export function SceneContainer({
   const focusedStatementIndex =
     focusedLocation.sceneId === sceneId ? focusedLocation.statementIndex : 0
 
-  const [commandMap] = React.useState(() => new Map<number, Statement>())
+  const [statementByIndex] = React.useState(() => new Map<number, Statement>())
+  const [statementByLabel] = React.useState(() => new Map<string, Statement>())
   const containerRef = React.useRef<HTMLDivElement>(null)
   const containerSize = useSize(containerRef)
 
-  const children = React.useMemo(
-    () => flattenChildren(childrenProp) as React.ReactElement[],
+  const statements = React.useMemo(
+    () => unwrapStatements(childrenProp),
     [childrenProp],
   )
   const skip = useStableCallback(() => {
-    const focusedCommand = commandMap.get(focusedStatementIndex)
+    const focusedCommand = statementByIndex.get(focusedStatementIndex)
     const entered = focusedCommand?.enter() ?? false
     // Complete entrance animation before jumping to next statementIndex
     if (!entered) {
       goToLocation(
         sceneId,
-        Math.min(children.length - 1, focusedStatementIndex + 1),
+        Math.min(statements.length - 1, focusedStatementIndex + 1),
       )
     }
   })
@@ -52,27 +51,39 @@ export function SceneContainer({
     (): SceneContextValue => ({
       sceneId,
       containerSize,
-      registerStatement: (statementIndex, statement) => {
-        commandMap.set(statementIndex, statement)
+      registerStatement: (statement) => {
+        statementByIndex.set(statement.index, statement)
+        if (statement.label) {
+          if (statementByLabel.has(statement.label)) {
+            throw new Error(`Duplicate statement label: ${statement.label}`)
+          }
+          statementByLabel.set(statement.label, statement)
+        }
         return () => {
-          commandMap.delete(statementIndex)
+          statementByIndex.delete(statement.index)
+          if (statement.label) {
+            statementByLabel.delete(statement.label)
+          }
         }
       },
-      getStatement: (statementIndex) => commandMap.get(statementIndex),
+      getStatement: (statementIndex) => statementByIndex.get(statementIndex),
       focusedStatementIndex,
-      goToStatement: (action) =>
-        goToLocation(
-          sceneId,
-          typeof action === 'number' ? action : action(focusedStatementIndex),
-        ),
+      goToStatement: (statementLabel) => {
+        const statement = statementByLabel.get(statementLabel)
+        if (!statement) {
+          throw new Error(`Unknown statement label: ${statementLabel}`)
+        }
+        goToLocation(sceneId, statement?.index)
+      },
       skip,
     }),
     [
-      containerSize,
       sceneId,
+      containerSize,
       focusedStatementIndex,
       skip,
-      commandMap,
+      statementByIndex,
+      statementByLabel,
       goToLocation,
     ],
   )
@@ -80,12 +91,12 @@ export function SceneContainer({
   const ignoreClickRef = React.useRef(false)
   const bindLongPress = useLongPress(
     () => {
-      commandMap.get(focusedStatementIndex)?.pause()
+      statementByIndex.get(focusedStatementIndex)?.pause()
       ignoreClickRef.current = true
     },
     {
       onFinish: () => {
-        commandMap.get(focusedStatementIndex)?.resume()
+        statementByIndex.get(focusedStatementIndex)?.resume()
       },
     },
   )
@@ -102,7 +113,7 @@ export function SceneContainer({
             return
           }
 
-          const command = commandMap.get(focusedStatementIndex)
+          const command = statementByIndex.get(focusedStatementIndex)
           if (command?.skippable) {
             skip()
           }
@@ -125,19 +136,59 @@ export function SceneContainer({
             return (
               <BackgroundComp
                 containerSize={containerSize}
-                enteredPercent={(focusedStatementIndex + 1) / children.length}
+                enteredPercent={(focusedStatementIndex + 1) / statements.length}
               />
             )
           })()
         )}
 
         {containerSize[0] !== 0 &&
-          children.map((child, idx) => (
-            <Command key={child.key} statementIndex={idx}>
+          statements.map((child, idx) => (
+            <Command
+              key={child.key}
+              statementIndex={idx}
+              statementLabel={
+                child.type === Label ? (child.props as LabelProps).label : null
+              }>
               {child}
             </Command>
           ))}
       </div>
     </SceneContext.Provider>
   )
+}
+
+// MARK: Label
+
+export interface LabelProps<TStatementLabel extends string = string> {
+  label: TStatementLabel
+  children: React.ReactNode
+}
+
+export function Label({children}: LabelProps) {
+  return <>{children}</>
+}
+
+// MARK: Helpers
+
+function unwrapStatements(children: React.ReactNode): React.ReactElement[] {
+  return flattenChildren(children)
+    .filter(React.isValidElement)
+    .flatMap((c) => {
+      if (c.type === Label) {
+        const props = c.props as LabelProps
+        const subchildren = unwrapStatements(props.children)
+        return [
+          <Label key={props.label} label={props.label}>
+            {subchildren[0]}
+          </Label>,
+          ...subchildren
+            .slice(1)
+            .map((el) =>
+              React.cloneElement(el, {key: `${props.label}.${el.key}`}),
+            ),
+        ]
+      }
+      return [c]
+    })
 }

@@ -1,16 +1,8 @@
 import clsx from 'clsx'
 import {motion} from 'framer-motion'
-import type {
-  Choice,
-  CommandContainerProps,
-  CommandViewVariants,
-} from '../components'
-import {
-  ChoicesView,
-  CommandContainer,
-  ForegroundView,
-  useSceneContext,
-} from '../components'
+import type {CommandContainerProps, CommandViewVariants} from '../components'
+import {CommandContainer, ForegroundView} from '../components'
+import {useSceneContext} from '../contexts'
 import type {Frame} from '../utils'
 import {styleForFrame} from '../utils'
 
@@ -21,12 +13,10 @@ export interface SayProps
   tag?: string
   size?: 'md' | 'lg' | 'xl'
   placement?: 'top' | 'middle' | 'bottom'
-  dark?: boolean
+  variant?: 'default' | 'dark'
   style?: React.CSSProperties
   textStyle?: React.CSSProperties
   textFrame?: Frame
-  choices?: Choice[]
-  choicesDark?: boolean
   foregroundSrc?: string
   foregroundStyle?: React.CSSProperties
   variants?: CommandViewVariants
@@ -38,12 +28,10 @@ export function Say({
   tag,
   size = 'md',
   placement = 'top',
-  dark,
+  variant,
   style,
   textStyle,
   textFrame,
-  choices,
-  choicesDark,
   foregroundSrc,
   foregroundStyle,
   variants = {
@@ -112,10 +100,11 @@ export function Say({
                 }[size],
               )}
               style={{
-                color: dark ? '#fBf9e0' : 'hsl(206, 24.0%, 9.0%)',
-                textShadow: dark
-                  ? '0 -1px rgba(0, 0, 0, .35), 0 2px hsl(206, 24.0%, 9.0%), 0 0 4px rgba(0, 0, 0), 0 0 4px rgba(0, 0, 0), 0 0 4px rgba(0, 0, 0)'
-                  : '0 1px hsl(209, 12.2%, 93.2%), 0 0 4px rgba(255, 255, 255), 0 0 4px rgba(255, 255, 255), 0 0 4px rgba(255, 255, 255)',
+                color: variant === 'dark' ? '#fBf9e0' : 'hsl(206, 24.0%, 9.0%)',
+                textShadow:
+                  variant === 'dark'
+                    ? '0 -1px rgba(0, 0, 0, .35), 0 2px hsl(206, 24.0%, 9.0%), 0 0 4px rgba(0, 0, 0), 0 0 4px rgba(0, 0, 0), 0 0 4px rgba(0, 0, 0)'
+                    : '0 1px hsl(209, 12.2%, 93.2%), 0 0 4px rgba(255, 255, 255), 0 0 4px rgba(255, 255, 255), 0 0 4px rgba(255, 255, 255)',
                 ...(href && {
                   textDecoration: 'underline',
                   textUnderlineOffset: size ? '6px' : '4px',
@@ -147,15 +136,6 @@ export function Say({
               ))}
             </TextComp>
           </div>
-
-          {choices && (
-            <ChoicesView
-              dark={choicesDark}
-              choices={choices}
-              variants={variants}
-              controls={controls}
-            />
-          )}
         </>
       )}
     </CommandContainer>

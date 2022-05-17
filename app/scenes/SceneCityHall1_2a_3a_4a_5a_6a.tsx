@@ -3,19 +3,21 @@ import {
   bgZheltoksanBeforeJpg,
   mayor3Png,
 } from '~/assets/game'
-import {Foreground, Choices, Say, SceneContainer, Title} from '~/lib'
+import {makeScene} from '~/lib'
+
+const Scene = makeScene()
 
 export function SceneCityHall1_2a_3a_4a_5a_6a() {
   return (
-    <SceneContainer background={bgCityHallConferenceRoomJpg}>
-      <Say
+    <Scene.Container background={bgCityHallConferenceRoomJpg}>
+      <Scene.Say
         foregroundSrc={mayor3Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
         Выявлен ряд нарушений! Девелопер должен пересмотреть проект
-      </Say>
+      </Scene.Say>
 
-      <Foreground
+      <Scene.Foreground
         src={bgZheltoksanBeforeJpg}
         style={{height: '100%', width: '100%', objectFit: 'cover'}}
         durationMs={0}
@@ -23,17 +25,17 @@ export function SceneCityHall1_2a_3a_4a_5a_6a() {
         lingers
       />
 
-      <Say transitory>
+      <Scene.Say transitory>
         Поздравляем! Вы защищаете наследие! К тому же, при дальнейшем внесении
         здания в список памятников, оно может стать активом
-      </Say>
+      </Scene.Say>
 
-      <Title transitory lingers>
+      <Scene.Title transitory lingers>
         Конец игры
-      </Title>
+      </Scene.Title>
 
-      <Choices
-        dark
+      <Scene.Choices
+        variant="dark"
         choices={[
           {
             label: 'Начать заново',
@@ -41,6 +43,6 @@ export function SceneCityHall1_2a_3a_4a_5a_6a() {
           },
         ]}
       />
-    </SceneContainer>
+    </Scene.Container>
   )
 }

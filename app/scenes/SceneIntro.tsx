@@ -3,13 +3,15 @@ import {motion, useAnimation} from 'framer-motion'
 import React from 'react'
 import {bgIntroJpg} from '~/assets/game'
 import type {SceneBackgroundComponentProps} from '~/lib'
-import {Choices, Say, SceneContainer, Title} from '~/lib'
+import {makeScene} from '~/lib'
+
+const Scene = makeScene()
 
 export function SceneIntro() {
   return (
-    <SceneContainer background={Background}>
-      <Choices
-        large
+    <Scene.Container background={Background}>
+      <Scene.Choices
+        size="lg"
         placement="middle"
         choices={[
           {
@@ -19,38 +21,38 @@ export function SceneIntro() {
         ]}
       />
 
-      <Say transitory>
+      <Scene.Say transitory>
         В городе, с цветущими яблонями и журчащими арыками, где возвышалось
         здание с изогнутой золотой крышей и стучали об рельсы трамваи, на
         центральной площади что-то строил старик, а перед ним табличка: “Я верну
         голубое небо”
-      </Say>
+      </Scene.Say>
 
-      <Say transitory>
+      <Scene.Say transitory>
         Его считали городским сумасшедшим, ведь небо всегда было серое, но никто
         его не трогал, потому что всем было дико интересно, что же он строит.
         Когда-то он был архитектором, и по неизвестной причине лишился всего,
         что у него было. Он уверял, что никто не видит неба из-за призраков
         застывщих над городом.
-      </Say>
+      </Scene.Say>
 
-      <Say transitory>
+      <Scene.Say transitory>
         Город показывается сверху, и это оказывается плотный смог из призраков
         снесенных зданий. Вокруг небо обычное. И вот настал день, когда старик
         завершил строение.
-      </Say>
+      </Scene.Say>
 
-      <Say size="lg" transitory>
+      <Scene.Say size="lg" transitory>
         “Это машина времени, которая вернет вас туда, где небо было голубым.
         Наше настоящее в ваших руках!” - были его последние слова.
-      </Say>
+      </Scene.Say>
 
-      <Title transitory lingers>
+      <Scene.Title transitory lingers>
         Снести нельзя оставить
-      </Title>
+      </Scene.Title>
 
-      <Choices
-        dark
+      <Scene.Choices
+        variant="dark"
         label="Выбрать персонажа"
         choices={[
           {
@@ -63,7 +65,7 @@ export function SceneIntro() {
           },
         ]}
       />
-    </SceneContainer>
+    </Scene.Container>
   )
 }
 

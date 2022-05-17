@@ -1,6 +1,8 @@
 import React from 'react'
 
 export interface Statement {
+  index: number
+  label: string | null
   skippable: boolean
   /** For how many extra statements is this command visible */
   visibleExtra: number
@@ -9,13 +11,13 @@ export interface Statement {
   resume: () => void
 }
 
-export interface SceneContextValue {
+export interface SceneContextValue<TStatementLabel extends string = string> {
   sceneId: SceneId
   containerSize: [number, number]
-  registerStatement: (statementIndex: number, statement: Statement) => void
+  registerStatement: (statement: Statement) => void
   getStatement: (statementIndex: number) => Statement | undefined
   focusedStatementIndex: number
-  goToStatement: React.Dispatch<React.SetStateAction<number>>
+  goToStatement: (statementLabel: TStatementLabel) => void
   skip: () => void
 }
 

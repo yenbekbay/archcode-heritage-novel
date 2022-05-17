@@ -5,14 +5,16 @@ import {
   bgMayorDeskJpg,
   mayor1Png,
 } from '~/assets/game'
-import {Blank, Foreground, Choices, Say, SceneContainer} from '~/lib'
+import {makeScene} from '~/lib'
+
+const Scene = makeScene()
 
 export function SceneCityHall1() {
   return (
-    <SceneContainer background={bgCityHallOutsideJpg}>
-      <Blank durationMs={3000} transitory />
+    <Scene.Container background={bgCityHallOutsideJpg}>
+      <Scene.Blank durationMs={3000} transitory />
 
-      <Foreground
+      <Scene.Foreground
         src={bgCityHallSignJpg}
         style={{height: '100%', width: '100%', objectFit: 'cover'}}
         durationMs={3000}
@@ -20,7 +22,7 @@ export function SceneCityHall1() {
         lingers={1}
       />
 
-      <Foreground
+      <Scene.Foreground
         src={bgCityHallOfficeJpg}
         style={{height: '100%', width: '100%', objectFit: 'cover'}}
         durationMs={3000}
@@ -28,15 +30,15 @@ export function SceneCityHall1() {
         lingers={2}
       />
 
-      <Say
+      <Scene.Say
         size="lg"
         foregroundSrc={mayor1Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
         -Так-с…Что у нас на повестке дня?
-      </Say>
+      </Scene.Say>
 
-      <Foreground
+      <Scene.Foreground
         src={bgMayorDeskJpg}
         style={{height: '100%', width: '100%', objectFit: 'cover'}}
         durationMs={3000}
@@ -44,8 +46,8 @@ export function SceneCityHall1() {
         lingers={1}
       />
 
-      <Choices
-        dark
+      <Scene.Choices
+        variant="dark"
         choices={[
           {
             label: 'Проекты девелопера',
@@ -92,6 +94,6 @@ export function SceneCityHall1() {
         ]}
         transitory
       />
-    </SceneContainer>
+    </Scene.Container>
   )
 }

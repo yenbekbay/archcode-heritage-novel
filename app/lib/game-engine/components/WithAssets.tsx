@@ -1,6 +1,6 @@
 import loadAsset from 'load-asset'
 import React from 'react'
-import {useResult} from '~/lib'
+import {useResult} from '../../hooks'
 
 export interface WithAssetsProps {
   assets: string[]

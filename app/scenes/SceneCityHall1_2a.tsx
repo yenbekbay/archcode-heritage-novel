@@ -1,20 +1,23 @@
 import {bgMayorDeskAJpg} from '~/assets/game'
-import {Say, SceneContainer} from '~/lib'
+import {makeScene} from '~/lib'
+
+const Scene = makeScene()
 
 export function SceneCityHall1_2a() {
   return (
-    <SceneContainer background={bgMayorDeskAJpg}>
-      <Say
-        size="xl"
-        dark
+    <Scene.Container background={bgMayorDeskAJpg}>
+      <Scene.Say size="xl" variant="dark" transitory durationMs={0} lingers={1}>
+        Выберите проект
+      </Scene.Say>
+
+      <Scene.Choices
         choices={[
           {
             label: 'Желтоксан',
             onClick: (ctx) => ctx.goToScene('CityHall1_2a_3a'),
           },
-        ]}>
-        Выберите проект
-      </Say>
-    </SceneContainer>
+        ]}
+      />
+    </Scene.Container>
   )
 }

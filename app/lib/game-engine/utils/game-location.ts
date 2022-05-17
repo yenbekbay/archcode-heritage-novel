@@ -4,15 +4,13 @@ export interface GameLocation {
 }
 
 export function makeGameLocationId(location: GameLocation) {
-  return `${location.sceneId}_${location.statementIndex}`
+  return `${location.sceneId}-${location.statementIndex}`
 }
 
 export function parseGameLocation(locationId: string): GameLocation | null {
-  if (typeof locationId === 'string' && locationId.includes('_')) {
-    const sceneId = locationId.split('_').slice(0, -1).join('_') as SceneId
-    const _statementIndex = Number(locationId.split('_').slice(-1)[0]!)
-    const statementIndex = Number.isNaN(_statementIndex) ? 0 : _statementIndex
-    return {sceneId, statementIndex}
-  }
-  return null
+  const [_sceneId, __statementIndex] = locationId.split('-')
+  const sceneId = _sceneId as SceneId
+  const _statementIndex = Number(__statementIndex)
+  const statementIndex = Number.isNaN(_statementIndex) ? 0 : _statementIndex
+  return {sceneId, statementIndex}
 }

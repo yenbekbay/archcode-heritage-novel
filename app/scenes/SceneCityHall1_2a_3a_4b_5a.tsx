@@ -7,26 +7,27 @@ import {
   bgZheltoksanBeforeFenceGif,
   bgZheltoksanBeforeJpg,
 } from '~/assets/game'
-import {Foreground, Choices, Say, SceneContainer, Title} from '~/lib'
+import {makeScene} from '~/lib'
+
+const Scene = makeScene()
 
 export function SceneCityHall1_2a_3a_4b_5a() {
   return (
-    <SceneContainer background={bgCityHallOfficeJpg}>
-      <Say
+    <Scene.Container background={bgCityHallOfficeJpg}>
+      <Scene.Say
         size="lg"
-        choicesDark
         foregroundSrc={bgPhoneFingerJpg}
         foregroundStyle={{
           width: '100%',
           height: '100%',
           objectFit: 'cover',
-          transform: 'scale(1.25)',
+          transform: 'scale(1.5)',
         }}
         lingers={1}>
         “Ребята, напишите, что реконструкция крутая”
-      </Say>
+      </Scene.Say>
 
-      <Foreground
+      <Scene.Foreground
         src={bgZheltoksanBeforeJpg}
         style={{height: '100%', width: '100%', objectFit: 'cover'}}
         durationMs={0}
@@ -34,23 +35,23 @@ export function SceneCityHall1_2a_3a_4b_5a() {
         lingers
       />
 
-      <Say
+      <Scene.Say
         size="lg"
         foregroundSrc={angryCrowd1Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
         {`-Надувательство\n\n-Бред собачий`}
-      </Say>
+      </Scene.Say>
 
-      <Say
+      <Scene.Say
         size="lg"
         foregroundSrc={angryCrowd2Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
         -Продажные чуваки
-      </Say>
+      </Scene.Say>
 
-      <Foreground
+      <Scene.Foreground
         src={bgZheltoksanBeforeFenceGif}
         style={{height: '100%', width: '100%', objectFit: 'cover'}}
         durationMs={6000}
@@ -58,7 +59,7 @@ export function SceneCityHall1_2a_3a_4b_5a() {
         transitory
       />
 
-      <Foreground
+      <Scene.Foreground
         src={bgZheltoksanAfterJpg}
         style={{height: '100%', width: '100%', objectFit: 'cover'}}
         durationMs={0}
@@ -66,22 +67,22 @@ export function SceneCityHall1_2a_3a_4b_5a() {
         transitory
       />
 
-      <Say size="lg" transitory>
+      <Scene.Say size="lg" transitory>
         Вы успешно реконструировали Желтоксан 115
-      </Say>
+      </Scene.Say>
 
-      <Say transitory>
+      <Scene.Say transitory>
         Здание утратило первоначальный облик и больше не представляет
         исторической ценности. Теперь Вам будет сложнее работать с
         общественностью
-      </Say>
+      </Scene.Say>
 
-      <Title transitory lingers>
+      <Scene.Title transitory lingers>
         Конец игры
-      </Title>
+      </Scene.Title>
 
-      <Choices
-        dark
+      <Scene.Choices
+        variant="dark"
         choices={[
           {
             label: 'Начать заново',
@@ -89,6 +90,6 @@ export function SceneCityHall1_2a_3a_4b_5a() {
           },
         ]}
       />
-    </SceneContainer>
+    </Scene.Container>
   )
 }

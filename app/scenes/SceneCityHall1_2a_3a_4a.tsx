@@ -11,58 +11,60 @@ import {
   expert3Png,
   mayor2Png,
 } from '~/assets/game'
-import {Foreground, Say, SceneContainer} from '~/lib'
+import {makeScene} from '~/lib'
+
+const Scene = makeScene()
 
 export function SceneCityHall1_2a_3a_4a() {
   return (
-    <SceneContainer background={bgCityHallOutsideJpg}>
-      <Say size="xl" placement="middle" dark transitory>
+    <Scene.Container background={bgCityHallOutsideJpg}>
+      <Scene.Say size="xl" placement="middle" variant="dark" transitory>
         Экспертиза
-      </Say>
+      </Scene.Say>
 
-      <Foreground
+      <Scene.Foreground
         src={bgCityHallConferenceRoomJpg}
         style={{height: '100%', width: '100%', objectFit: 'cover'}}
         transitory
         lingers
       />
 
-      <Say
+      <Scene.Say
         tag="Эксперт:"
         size="lg"
         foregroundSrc={expert1Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
         Вижу нарушения…
-      </Say>
+      </Scene.Say>
 
-      <Say
+      <Scene.Say
         tag="Эксперт:"
         size="lg"
         foregroundSrc={expert2Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
         Ещё одно! Ещё нарушение!!!
-      </Say>
+      </Scene.Say>
 
-      <Foreground
+      <Scene.Foreground
         src={expert3Png}
         style={{width: '100%', bottom: 0}}
         durationMs={3000}
         transitory
       />
 
-      <Say
+      <Scene.Say
         size="lg"
-        dark
+        variant="dark"
         foregroundSrc={bgMayorDoorJpg}
         foregroundStyle={{height: '100%', width: '100%', objectFit: 'cover'}}
         transitory
         lingers={1}>
         *тук-тук
-      </Say>
+      </Scene.Say>
 
-      <Foreground
+      <Scene.Foreground
         src={bgMayorDoorwayJpg}
         style={{height: '100%', width: '100%', objectFit: 'cover'}}
         durationMs={0}
@@ -70,41 +72,50 @@ export function SceneCityHall1_2a_3a_4a() {
         lingers={3}
       />
 
-      <Say
+      <Scene.Say
         size="lg"
-        dark
+        variant="dark"
         foregroundSrc={assistant1Png}
         foregroundStyle={{height: '100%', width: '100%', objectFit: 'cover'}}
         transitory>
         Экспертиза выявила несколько нарушений
-      </Say>
+      </Scene.Say>
 
-      <Foreground
+      <Scene.Foreground
         src={assistant2Png}
         style={{height: '100%', width: '100%', objectFit: 'cover'}}
         transitory
         lingers={1}
       />
 
-      <Say
+      <Scene.Say
         size="lg"
-        dark
+        variant="dark"
         foregroundSrc={bgMayorDoorJpg}
         foregroundStyle={{height: '100%', width: '100%', objectFit: 'cover'}}
         transitory
         lingers={1}>
         *хдыщ
-      </Say>
+      </Scene.Say>
 
-      <Foreground
+      <Scene.Foreground
         src={bgCityHallOfficeJpg}
         style={{height: '100%', width: '100%', objectFit: 'cover'}}
         transitory
         lingers={2}
       />
 
-      <Say
+      <Scene.Say
         size="lg"
+        foregroundSrc={mayor2Png}
+        foregroundStyle={{width: '100%', bottom: 0}}
+        transitory
+        durationMs={0}
+        lingers={1}>
+        Что делать с проектом?
+      </Scene.Say>
+
+      <Scene.Choices
         choices={[
           {
             label: 'Не одобрять',
@@ -115,10 +126,7 @@ export function SceneCityHall1_2a_3a_4a() {
             onClick: () => alert('Не готово'),
           },
         ]}
-        foregroundSrc={mayor2Png}
-        foregroundStyle={{width: '100%', bottom: 0}}>
-        Что делать с проектом?
-      </Say>
-    </SceneContainer>
+      />
+    </Scene.Container>
   )
 }

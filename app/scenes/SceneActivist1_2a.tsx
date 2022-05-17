@@ -7,19 +7,14 @@ import {
   redhead3Png,
 } from '~/assets/game'
 import type {SceneBackgroundComponentProps} from '~/lib'
-import {
-  Blank,
-  Choices,
-  Say,
-  SceneContainer,
-  Title,
-  useSceneContext,
-} from '~/lib'
+import {makeScene} from '~/lib'
+
+const Scene = makeScene()
 
 export function SceneActivist1_2a() {
   return (
-    <SceneContainer background={Background}>
-      <Say
+    <Scene.Container background={Background}>
+      <Scene.Say
         size="lg"
         foregroundSrc={redhead2Png}
         foregroundStyle={{
@@ -29,9 +24,9 @@ export function SceneActivist1_2a() {
         }}
         transitory>
         Скорее всего, ничего особенного. Очередное…да не важно
-      </Say>
+      </Scene.Say>
 
-      <Say
+      <Scene.Say
         size="lg"
         foregroundSrc={redhead3Png}
         foregroundStyle={{
@@ -41,16 +36,16 @@ export function SceneActivist1_2a() {
         }}
         transitory>
         Поберегу нервы, семья ждет, пойду дома чай попью
-      </Say>
+      </Scene.Say>
 
-      <Blank durationMs={10000} transitory />
+      <Scene.Blank durationMs={10000} transitory />
 
-      <Title transitory lingers>
+      <Scene.Title transitory lingers>
         Конец игры
-      </Title>
+      </Scene.Title>
 
-      <Choices
-        dark
+      <Scene.Choices
+        variant="dark"
         choices={[
           {
             label: 'Начать заново',
@@ -58,12 +53,12 @@ export function SceneActivist1_2a() {
           },
         ]}
       />
-    </SceneContainer>
+    </Scene.Container>
   )
 }
 
 function Background(_props: SceneBackgroundComponentProps) {
-  const {focusedStatementIndex} = useSceneContext()
+  const {focusedStatementIndex} = Scene.useSceneContext()
   return (
     <>
       <img

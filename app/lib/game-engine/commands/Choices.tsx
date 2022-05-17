@@ -6,13 +6,13 @@ import type {
 } from '../components'
 import {CommandContainer, ForegroundView, ChoicesView} from '../components'
 
-export interface ChoicesProps
+export interface ChoicesProps<TStatementLabel extends string = string>
   extends Partial<Omit<CommandContainerProps, 'children'>> {
-  choices: Choice[]
+  choices: Choice<TStatementLabel>[]
   label?: string
-  large?: boolean
-  dark?: boolean
+  size?: 'md' | 'lg'
   placement?: ChoicesPlacement
+  variant?: 'default' | 'dark'
   foregroundSrc?: string
   foregroundStyle?: React.CSSProperties
   variants?: CommandViewVariants
@@ -21,9 +21,9 @@ export interface ChoicesProps
 export function Choices({
   choices,
   label,
-  large,
-  dark,
+  size,
   placement,
+  variant,
   foregroundSrc,
   foregroundStyle,
   variants = {
@@ -53,9 +53,9 @@ export function Choices({
           )}
 
           <ChoicesView
-            large={large}
-            dark={dark}
+            size={size}
             placement={placement}
+            variant={variant}
             choices={choices}
             label={label}
             variants={variants}

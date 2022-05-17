@@ -1,6 +1,6 @@
 import useSize from '@react-hook/size'
 import React from 'react'
-import {Media} from '~/lib'
+import {Media} from '../../Media'
 
 export interface MobileDeviceChromeProps {
   children?: React.ReactNode
