@@ -64,6 +64,7 @@ export function Game({assets, scenes, initialSceneId, onClose}: GameProps) {
       goToScene: (sceneId) => {
         if (sceneId !== focusedLocation.sceneId) {
           history.push({sceneId, statementIndex: 0})
+          setPaused(false)
         }
       },
       goToLocation: (sceneId, statementIndex) => {
@@ -72,12 +73,19 @@ export function Game({assets, scenes, initialSceneId, onClose}: GameProps) {
           statementIndex !== focusedLocation.statementIndex
         ) {
           history.push({sceneId, statementIndex})
+          setPaused(false)
         }
       },
-      goBack: history.goBack,
+      goBack: () => {
+        const ok = history.goBack()
+        if (ok) {
+          setPaused(true)
+        }
+        return ok
+      },
       canGoBack: history.canGoBack,
     }),
-    [focusedLocation, history, paused],
+    [focusedLocation, history, paused, setPaused],
   )
 
   return (

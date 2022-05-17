@@ -1,8 +1,8 @@
 import JsonURL from '@jsonurl/jsonurl'
-import {omit} from 'remeda'
 import {useSyncedRef} from '@react-hookz/web'
 import {useSearchParams} from '@remix-run/react'
 import React from 'react'
+import {omit} from 'remeda'
 
 export function useSearchParam<T>(key: string, defaultValue: T) {
   const [searchParams, setSearchParams] = useSearchParams()
@@ -15,9 +15,6 @@ export function useSearchParam<T>(key: string, defaultValue: T) {
     }
   }, [defaultValue, raw])
 
-  const latestSearchParamsRef = useSyncedRef(
-    Object.fromEntries(searchParams.entries()),
-  )
   const latestRawRef = useSyncedRef(raw)
   const latestParsedRef = useSyncedRef(parsed)
   const setValue = React.useCallback(
@@ -31,19 +28,16 @@ export function useSearchParam<T>(key: string, defaultValue: T) {
         return
       }
 
+      const latestSearchParams = Object.fromEntries(
+        new URLSearchParams(window.location.search).entries(),
+      )
       setSearchParams(
-        newSerializedValue === undefined
-          ? omit(latestSearchParamsRef.current, [key])
-          : {...latestSearchParamsRef.current, [key]: newSerializedValue},
+        newValue === defaultValue || newSerializedValue === undefined
+          ? omit(latestSearchParams, [key])
+          : {...latestSearchParams, [key]: newSerializedValue},
       )
     },
-    [
-      key,
-      latestParsedRef,
-      latestRawRef,
-      latestSearchParamsRef,
-      setSearchParams,
-    ],
+    [defaultValue, key, latestParsedRef, latestRawRef, setSearchParams],
   )
 
   return [parsed, setValue] as const
