@@ -4,7 +4,7 @@ import {makeScene} from '~/lib'
 
 const Scene = makeScene()
 
-export function SceneActivist1() {
+export function SceneActivist_0Juncture() {
   return (
     <Scene.Container background={Background}>
       <Scene.Say size="lg" transitory>
@@ -49,11 +49,11 @@ export function SceneActivist1() {
         choices={[
           {
             label: 'Пройти мимо',
-            onClick: (ctx) => ctx.goToScene('Activist1_2a'),
+            onClick: (ctx) => ctx.goToScene('Activist_WalkPast'),
           },
           {
             label: 'Посмотреть',
-            onClick: (ctx) => ctx.goToScene('Activist1_2b'),
+            onClick: (ctx) => ctx.goToScene('Activist_CheckOut'),
           },
         ]}
       />

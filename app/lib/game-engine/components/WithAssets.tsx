@@ -3,7 +3,7 @@ import React from 'react'
 import {useResult} from '../../hooks'
 
 export interface WithAssetsProps {
-  assets: string[]
+  assets: Record<string, string>
   children: React.ReactNode
 }
 
@@ -13,7 +13,9 @@ export function WithAssets({assets, children}: WithAssetsProps) {
   React.useEffect(() => {
     ;(async () => {
       try {
-        await loadAsset.all(assets, (info) => setProgress(info.progress))
+        await loadAsset.all(Object.values(assets), (info) =>
+          setProgress(info.progress),
+        )
         setRes({status: 'success', data: undefined})
       } catch {
         setRes({

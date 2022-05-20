@@ -9,7 +9,7 @@ import {makeScene} from '~/lib'
 
 const Scene = makeScene()
 
-export function SceneActivist1_2b_3c() {
+export function SceneActivist_CheckOut_Org() {
   return (
     <Scene.Container background={bgCourtyardJpg}>
       <Scene.Blank durationMs={3000} transitory />

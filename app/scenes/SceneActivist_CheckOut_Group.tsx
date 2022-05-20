@@ -20,7 +20,7 @@ import {makeScene} from '~/lib'
 
 const Scene = makeScene()
 
-export function SceneActivist1_2b_3b() {
+export function SceneActivist_CheckOut_Group() {
   return (
     <Scene.Container background={bgCourtyardJpg}>
       <Scene.Blank durationMs={3000} transitory />
@@ -392,7 +392,7 @@ export function SceneActivist1_2b_3b() {
         choices={[
           {
             label: 'Позвонить в Архкод',
-            onClick: (ctx) => ctx.goToScene('Activist1_2b_3c'),
+            onClick: (ctx) => ctx.goToScene('Activist_CheckOut_Org'),
           },
         ]}
       />

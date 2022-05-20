@@ -9,7 +9,7 @@ import {makeScene} from '~/lib'
 
 const Scene = makeScene()
 
-export function SceneCityHall1() {
+export function SceneCityHall_0Menu() {
   return (
     <Scene.Container background={bgCityHallOutsideJpg}>
       <Scene.Blank durationMs={3000} transitory />
@@ -61,7 +61,7 @@ export function SceneCityHall1() {
                 transform: 'rotate(13deg)',
               },
             },
-            onClick: (ctx) => ctx.goToScene('CityHall1_2a'),
+            onClick: (ctx) => ctx.goToScene('CityHall_1Projects'),
           },
           {
             label: 'Отдел памятников',

@@ -8,7 +8,7 @@ import {makeScene} from '~/lib'
 
 const Scene = makeScene()
 
-export function SceneCityHall1_2a_3a_4b() {
+export function SceneCityHall_ProjZheltoksan_Approve() {
   return (
     <Scene.Container background={bgZheltoksanBeforeJpg}>
       <Scene.Say
@@ -41,11 +41,13 @@ export function SceneCityHall1_2a_3a_4b() {
         choices={[
           {
             label: 'Попросить помощи у блоггеров',
-            onClick: (ctx) => ctx.goToScene('CityHall1_2a_3a_4b_5a'),
+            onClick: (ctx) =>
+              ctx.goToScene('CityHall_ProjZheltoksan_Approve_AskHelp'),
           },
           {
             label: 'Вступить в диалог',
-            onClick: (ctx) => ctx.goToScene('CityHall1_2a_3a_4b_5b'),
+            onClick: (ctx) =>
+              ctx.goToScene('CityHall_ProjZheltoksan_Approve_Debate'),
           },
         ]}
       />

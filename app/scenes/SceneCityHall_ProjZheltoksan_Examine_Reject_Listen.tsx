@@ -7,7 +7,7 @@ import {makeScene} from '~/lib'
 
 const Scene = makeScene()
 
-export function SceneCityHall1_2a_3a_4a_5a_6a() {
+export function SceneCityHall_ProjZheltoksan_Examine_Reject_Listen() {
   return (
     <Scene.Container background={bgCityHallConferenceRoomJpg}>
       <Scene.Say

@@ -14,7 +14,7 @@ import {makeScene} from '~/lib'
 
 const Scene = makeScene()
 
-export function SceneCityHall1_2a_3a_4a_5a_6b() {
+export function SceneCityHall_ProjZheltoksan_Examine_Reject_Ignore() {
   return (
     <Scene.Container background={bgCityHallConferenceRoomJpg}>
       <Scene.Foreground
@@ -144,11 +144,15 @@ export function SceneCityHall1_2a_3a_4a_5a_6b() {
         choices={[
           {
             label: 'Учесть мнение',
-            onClick: (ctx) => ctx.goToScene('CityHall1_2a_3a_4a_5a_6a'),
+            onClick: (ctx) =>
+              ctx.goToScene('CityHall_ProjZheltoksan_Examine_Reject_Listen'),
           },
           {
             label: 'Игнорировать',
-            onClick: (ctx) => ctx.goToScene('CityHall1_2a_3a_4a_5a_6b_7a'),
+            onClick: (ctx) =>
+              ctx.goToScene(
+                'CityHall_ProjZheltoksan_Examine_Reject_Ignore_Ignore',
+              ),
           },
         ]}
       />

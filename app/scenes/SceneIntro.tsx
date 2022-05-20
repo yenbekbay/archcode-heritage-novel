@@ -57,11 +57,11 @@ export function SceneIntro() {
         choices={[
           {
             label: 'Активист',
-            onClick: (ctx) => ctx.goToScene('Activist1'),
+            onClick: (ctx) => ctx.goToScene('Activist_0Juncture'),
           },
           {
             label: 'Акимат',
-            onClick: (ctx) => ctx.goToScene('CityHall1'),
+            onClick: (ctx) => ctx.goToScene('CityHall_0Menu'),
           },
         ]}
       />

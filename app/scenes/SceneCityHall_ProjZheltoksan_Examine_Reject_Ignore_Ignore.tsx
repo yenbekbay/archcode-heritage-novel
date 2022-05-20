@@ -10,7 +10,7 @@ import {makeScene} from '~/lib'
 
 const Scene = makeScene()
 
-export function SceneCityHall1_2a_3a_4a_5a_6b_7a() {
+export function SceneCityHall_ProjZheltoksan_Examine_Reject_Ignore_Ignore() {
   return (
     <Scene.Container background={bgCityHallOfficeJpg}>
       <Scene.Foreground

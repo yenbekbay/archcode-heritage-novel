@@ -17,7 +17,7 @@ import type {GameHistory, GameLocation} from './utils'
 import {makeGameHistory, makeGameLocationId, parseGameLocation} from './utils'
 
 export interface GameProps {
-  assets: string[]
+  assets: Record<string, string>
   scenes: Record<string, React.ComponentType>
   initialSceneId: SceneId
   onClose?: () => void
@@ -189,3 +189,25 @@ export function Game({assets, scenes, initialSceneId, onClose}: GameProps) {
     </GameContext.Provider>
   )
 }
+
+// MARK: Helpers
+
+export function prepareScenes<
+  TRawScenes extends Record<string, React.ComponentType>,
+>(_scenes: TRawScenes) {
+  const scenes = Object.fromEntries(
+    Object.entries(_scenes)
+      .filter(([exportName]) => exportName.startsWith('Scene'))
+      .map(([exportName, exportVal]) => [
+        exportName.replace(SCENE_PREFIX_RE, ''),
+        exportVal,
+      ]),
+  ) as {
+    [K in keyof typeof _scenes as K extends `Scene${infer TId}`
+      ? TId
+      : never]: typeof _scenes[K]
+  }
+  return scenes
+}
+
+const SCENE_PREFIX_RE = /^Scene/

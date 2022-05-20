@@ -7,7 +7,7 @@ import {makeScene} from '~/lib'
 
 const Scene = makeScene()
 
-export function SceneCityHall1_2a_3a() {
+export function SceneCityHall_ProjZheltoksan() {
   return (
     <Scene.Container background={bgCityHallConferenceRoomJpg}>
       <Scene.Say
@@ -34,11 +34,11 @@ export function SceneCityHall1_2a_3a() {
         choices={[
           {
             label: 'Нужна экспертиза',
-            onClick: (ctx) => ctx.goToScene('CityHall1_2a_3a_4a'),
+            onClick: (ctx) => ctx.goToScene('CityHall_ProjZheltoksan_Examine'),
           },
           {
             label: 'Одобрить',
-            onClick: (ctx) => ctx.goToScene('CityHall1_2a_3a_4b'),
+            onClick: (ctx) => ctx.goToScene('CityHall_ProjZheltoksan_Approve'),
           },
         ]}
       />

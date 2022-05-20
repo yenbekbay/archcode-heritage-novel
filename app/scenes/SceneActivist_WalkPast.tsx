@@ -11,7 +11,7 @@ import {makeScene} from '~/lib'
 
 const Scene = makeScene()
 
-export function SceneActivist1_2a() {
+export function SceneActivist_WalkPast() {
   return (
     <Scene.Container background={Background}>
       <Scene.Say

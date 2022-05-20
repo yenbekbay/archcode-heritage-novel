@@ -22,7 +22,7 @@ type StatementLabel =
 
 const Scene = makeScene<StatementLabel>()
 
-export function SceneActivist1_2b() {
+export function SceneActivist_CheckOut() {
   return (
     <Scene.Container background={Background}>
       <Scene.Say
@@ -118,15 +118,15 @@ export function SceneActivist1_2b() {
           choices={[
             {
               label: 'Разберусь сама',
-              onClick: (ctx) => ctx.goToScene('Activist1_2b_3a'),
+              onClick: (ctx) => ctx.goToScene('Activist_CheckOut_Self'),
             },
             {
               label: 'Объединиться в команду',
-              onClick: (ctx) => ctx.goToScene('Activist1_2b_3b'),
+              onClick: (ctx) => ctx.goToScene('Activist_CheckOut_Group'),
             },
             {
               label: 'Обратиться в организации',
-              onClick: (ctx) => ctx.goToScene('Activist1_2b_3c'),
+              onClick: (ctx) => ctx.goToScene('Activist_CheckOut_Org'),
             },
           ]}
         />
