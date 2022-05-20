@@ -1,12 +1,12 @@
 import {useNavigate} from '@remix-run/react'
 import * as assets from '~/assets/game'
-import {Game, prepareScenes} from '~/lib'
-import * as _scenes from '~/scenes'
+import {Game, prepareBranches} from '~/lib'
+import * as _branches from '~/branches'
 
-const scenes = prepareScenes(_scenes)
+const branches = prepareBranches(_branches)
 
 declare global {
-  type SceneId = keyof typeof scenes
+  type BranchId = keyof typeof branches
 }
 
 export default function Interactive() {
@@ -14,8 +14,8 @@ export default function Interactive() {
   return (
     <Game
       assets={assets}
-      scenes={scenes}
-      initialSceneId="Intro"
+      branches={branches}
+      initialBranchId="Intro"
       onClose={() => navigate('/')}
     />
   )

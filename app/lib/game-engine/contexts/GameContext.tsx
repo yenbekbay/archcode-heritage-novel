@@ -4,8 +4,8 @@ import type {GameLocation} from '../utils'
 export interface GameContextValue {
   focusedLocation: GameLocation
   paused: boolean
-  goToScene: (sceneId: SceneId) => void
-  goToLocation: (sceneId: SceneId, statementIndex: number) => void
+  goToBranch: (branchId: BranchId) => void
+  goToLocation: (branchId: BranchId, statementIndex: number) => void
   goBack: () => boolean
   canGoBack: () => boolean
 }

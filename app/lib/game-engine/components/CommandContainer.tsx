@@ -10,7 +10,7 @@ export interface CommandContainerProps {
   children: (controls: AnimationControls) => React.ReactNode
   durationMs?: number
   skippable?: boolean
-  /** Should scene automatically skip to next statementIndex after duration? */
+  /** Should branch automatically skip to next statementIndex after duration? */
   transitory?: boolean
   /** Should content still be shown after skipping to next statementIndex? */
   lingers?: boolean | number

@@ -3,23 +3,23 @@ import {
   developerRepPng,
   mayor2Png,
 } from '~/assets/game'
-import {makeScene} from '~/lib'
+import {makeBranch} from '~/lib'
 
-const Scene = makeScene()
+const Branch = makeBranch()
 
-export function SceneCityHall_ProjZheltoksan() {
+export function BranchCityHall_ProjZheltoksan() {
   return (
-    <Scene.Container background={bgCityHallConferenceRoomJpg}>
-      <Scene.Say
+    <Branch.Container background={bgCityHallConferenceRoomJpg}>
+      <Branch.Say
         tag="Девелопер:"
         foregroundSrc={developerRepPng}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
         Добрый день, я - представитель Bay Shatyr Group. Представляю вашему
         внимаюпроект KAISAR PLAZA
-      </Scene.Say>
+      </Branch.Say>
 
-      <Scene.Say
+      <Branch.Say
         size="xl"
         foregroundSrc={mayor2Png}
         foregroundStyle={{width: '100%', bottom: 0}}
@@ -27,21 +27,21 @@ export function SceneCityHall_ProjZheltoksan() {
         durationMs={0}
         lingers={1}>
         Хммм…
-      </Scene.Say>
+      </Branch.Say>
 
-      <Scene.Choices
+      <Branch.Choices
         variant="dark"
         choices={[
           {
             label: 'Нужна экспертиза',
-            onClick: (ctx) => ctx.goToScene('CityHall_ProjZheltoksan_Examine'),
+            onClick: (ctx) => ctx.goToBranch('CityHall_ProjZheltoksan_Examine'),
           },
           {
             label: 'Одобрить',
-            onClick: (ctx) => ctx.goToScene('CityHall_ProjZheltoksan_Approve'),
+            onClick: (ctx) => ctx.goToBranch('CityHall_ProjZheltoksan_Approve'),
           },
         ]}
       />
-    </Scene.Container>
+    </Branch.Container>
   )
 }

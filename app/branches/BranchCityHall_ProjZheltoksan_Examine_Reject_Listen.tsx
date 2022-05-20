@@ -3,21 +3,21 @@ import {
   bgZheltoksanBeforeJpg,
   mayor3Png,
 } from '~/assets/game'
-import {makeScene} from '~/lib'
+import {makeBranch} from '~/lib'
 
-const Scene = makeScene()
+const Branch = makeBranch()
 
-export function SceneCityHall_ProjZheltoksan_Examine_Reject_Listen() {
+export function BranchCityHall_ProjZheltoksan_Examine_Reject_Listen() {
   return (
-    <Scene.Container background={bgCityHallConferenceRoomJpg}>
-      <Scene.Say
+    <Branch.Container background={bgCityHallConferenceRoomJpg}>
+      <Branch.Say
         foregroundSrc={mayor3Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
         Выявлен ряд нарушений! Девелопер должен пересмотреть проект
-      </Scene.Say>
+      </Branch.Say>
 
-      <Scene.Foreground
+      <Branch.Foreground
         src={bgZheltoksanBeforeJpg}
         style={{height: '100%', width: '100%', objectFit: 'cover'}}
         durationMs={0}
@@ -25,24 +25,24 @@ export function SceneCityHall_ProjZheltoksan_Examine_Reject_Listen() {
         lingers
       />
 
-      <Scene.Say transitory>
+      <Branch.Say transitory>
         Поздравляем! Вы защищаете наследие! К тому же, при дальнейшем внесении
         здания в список памятников, оно может стать активом
-      </Scene.Say>
+      </Branch.Say>
 
-      <Scene.Title transitory lingers>
+      <Branch.Title transitory lingers>
         Конец игры
-      </Scene.Title>
+      </Branch.Title>
 
-      <Scene.Choices
+      <Branch.Choices
         variant="dark"
         choices={[
           {
             label: 'Начать заново',
-            onClick: (ctx) => ctx.goToScene('Intro'),
+            onClick: (ctx) => ctx.goToBranch('Intro'),
           },
         ]}
       />
-    </Scene.Container>
+    </Branch.Container>
   )
 }

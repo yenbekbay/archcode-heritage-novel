@@ -5,16 +5,16 @@ import {
   bgMayorDeskJpg,
   mayor1Png,
 } from '~/assets/game'
-import {makeScene} from '~/lib'
+import {makeBranch} from '~/lib'
 
-const Scene = makeScene()
+const Branch = makeBranch()
 
-export function SceneCityHall_0Menu() {
+export function BranchCityHall_0Menu() {
   return (
-    <Scene.Container background={bgCityHallOutsideJpg}>
-      <Scene.Blank durationMs={3000} transitory />
+    <Branch.Container background={bgCityHallOutsideJpg}>
+      <Branch.Blank durationMs={3000} transitory />
 
-      <Scene.Foreground
+      <Branch.Foreground
         src={bgCityHallSignJpg}
         style={{height: '100%', width: '100%', objectFit: 'cover'}}
         durationMs={3000}
@@ -22,7 +22,7 @@ export function SceneCityHall_0Menu() {
         lingers={1}
       />
 
-      <Scene.Foreground
+      <Branch.Foreground
         src={bgCityHallOfficeJpg}
         style={{height: '100%', width: '100%', objectFit: 'cover'}}
         durationMs={3000}
@@ -30,15 +30,15 @@ export function SceneCityHall_0Menu() {
         lingers={2}
       />
 
-      <Scene.Say
+      <Branch.Say
         size="lg"
         foregroundSrc={mayor1Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
         -Так-с…Что у нас на повестке дня?
-      </Scene.Say>
+      </Branch.Say>
 
-      <Scene.Foreground
+      <Branch.Foreground
         src={bgMayorDeskJpg}
         style={{height: '100%', width: '100%', objectFit: 'cover'}}
         durationMs={3000}
@@ -46,7 +46,7 @@ export function SceneCityHall_0Menu() {
         lingers={1}
       />
 
-      <Scene.Choices
+      <Branch.Choices
         variant="dark"
         choices={[
           {
@@ -61,7 +61,7 @@ export function SceneCityHall_0Menu() {
                 transform: 'rotate(13deg)',
               },
             },
-            onClick: (ctx) => ctx.goToScene('CityHall_1Projects'),
+            onClick: (ctx) => ctx.goToBranch('CityHall_1Projects'),
           },
           {
             label: 'Отдел памятников',
@@ -94,6 +94,6 @@ export function SceneCityHall_0Menu() {
         ]}
         transitory
       />
-    </Scene.Container>
+    </Branch.Container>
   )
 }

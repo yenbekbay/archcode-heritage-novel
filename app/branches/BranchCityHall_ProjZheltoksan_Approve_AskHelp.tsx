@@ -7,14 +7,14 @@ import {
   bgZheltoksanBeforeFenceGif,
   bgZheltoksanBeforeJpg,
 } from '~/assets/game'
-import {makeScene} from '~/lib'
+import {makeBranch} from '~/lib'
 
-const Scene = makeScene()
+const Branch = makeBranch()
 
-export function SceneCityHall_ProjZheltoksan_Approve_AskHelp() {
+export function BranchCityHall_ProjZheltoksan_Approve_AskHelp() {
   return (
-    <Scene.Container background={bgCityHallOfficeJpg}>
-      <Scene.Say
+    <Branch.Container background={bgCityHallOfficeJpg}>
+      <Branch.Say
         size="lg"
         foregroundSrc={bgPhoneFingerJpg}
         foregroundStyle={{
@@ -25,9 +25,9 @@ export function SceneCityHall_ProjZheltoksan_Approve_AskHelp() {
         }}
         lingers={1}>
         “Ребята, напишите, что реконструкция крутая”
-      </Scene.Say>
+      </Branch.Say>
 
-      <Scene.Foreground
+      <Branch.Foreground
         src={bgZheltoksanBeforeJpg}
         style={{height: '100%', width: '100%', objectFit: 'cover'}}
         durationMs={0}
@@ -35,23 +35,23 @@ export function SceneCityHall_ProjZheltoksan_Approve_AskHelp() {
         lingers
       />
 
-      <Scene.Say
+      <Branch.Say
         size="lg"
         foregroundSrc={angryCrowd1Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
         {`-Надувательство\n\n-Бред собачий`}
-      </Scene.Say>
+      </Branch.Say>
 
-      <Scene.Say
+      <Branch.Say
         size="lg"
         foregroundSrc={angryCrowd2Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
         -Продажные чуваки
-      </Scene.Say>
+      </Branch.Say>
 
-      <Scene.Foreground
+      <Branch.Foreground
         src={bgZheltoksanBeforeFenceGif}
         style={{height: '100%', width: '100%', objectFit: 'cover'}}
         durationMs={6000}
@@ -59,7 +59,7 @@ export function SceneCityHall_ProjZheltoksan_Approve_AskHelp() {
         transitory
       />
 
-      <Scene.Foreground
+      <Branch.Foreground
         src={bgZheltoksanAfterJpg}
         style={{height: '100%', width: '100%', objectFit: 'cover'}}
         durationMs={0}
@@ -67,29 +67,29 @@ export function SceneCityHall_ProjZheltoksan_Approve_AskHelp() {
         transitory
       />
 
-      <Scene.Say size="lg" transitory>
+      <Branch.Say size="lg" transitory>
         Вы успешно реконструировали Желтоксан 115
-      </Scene.Say>
+      </Branch.Say>
 
-      <Scene.Say transitory>
+      <Branch.Say transitory>
         Здание утратило первоначальный облик и больше не представляет
         исторической ценности. Теперь Вам будет сложнее работать с
         общественностью
-      </Scene.Say>
+      </Branch.Say>
 
-      <Scene.Title transitory lingers>
+      <Branch.Title transitory lingers>
         Конец игры
-      </Scene.Title>
+      </Branch.Title>
 
-      <Scene.Choices
+      <Branch.Choices
         variant="dark"
         choices={[
           {
             label: 'Начать заново',
-            onClick: (ctx) => ctx.goToScene('Intro'),
+            onClick: (ctx) => ctx.goToBranch('Intro'),
           },
         ]}
       />
-    </Scene.Container>
+    </Branch.Container>
   )
 }

@@ -4,22 +4,22 @@ import {
   bgZheltoksanBeforeJpg,
   mayor4Png,
 } from '~/assets/game'
-import {makeScene} from '~/lib'
+import {makeBranch} from '~/lib'
 
-const Scene = makeScene()
+const Branch = makeBranch()
 
-export function SceneCityHall_ProjZheltoksan_Approve() {
+export function BranchCityHall_ProjZheltoksan_Approve() {
   return (
-    <Scene.Container background={bgZheltoksanBeforeJpg}>
-      <Scene.Say
+    <Branch.Container background={bgZheltoksanBeforeJpg}>
+      <Branch.Say
         size="lg"
         foregroundSrc={angryCrowd1Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
         Общественность возмущена
-      </Scene.Say>
+      </Branch.Say>
 
-      <Scene.Foreground
+      <Branch.Foreground
         src={bgCityHallOfficeJpg}
         style={{height: '100%', width: '100%', objectFit: 'cover'}}
         durationMs={0}
@@ -27,7 +27,7 @@ export function SceneCityHall_ProjZheltoksan_Approve() {
         lingers={2}
       />
 
-      <Scene.Say
+      <Branch.Say
         size="xl"
         foregroundSrc={mayor4Png}
         foregroundStyle={{width: '100%', bottom: 0}}
@@ -35,22 +35,22 @@ export function SceneCityHall_ProjZheltoksan_Approve() {
         durationMs={0}
         lingers={1}>
         Что делать?
-      </Scene.Say>
+      </Branch.Say>
 
-      <Scene.Choices
+      <Branch.Choices
         choices={[
           {
             label: 'Попросить помощи у блоггеров',
             onClick: (ctx) =>
-              ctx.goToScene('CityHall_ProjZheltoksan_Approve_AskHelp'),
+              ctx.goToBranch('CityHall_ProjZheltoksan_Approve_AskHelp'),
           },
           {
             label: 'Вступить в диалог',
             onClick: (ctx) =>
-              ctx.goToScene('CityHall_ProjZheltoksan_Approve_Debate'),
+              ctx.goToBranch('CityHall_ProjZheltoksan_Approve_Debate'),
           },
         ]}
       />
-    </Scene.Container>
+    </Branch.Container>
   )
 }

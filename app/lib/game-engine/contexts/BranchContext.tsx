@@ -11,8 +11,8 @@ export interface Statement {
   resume: () => void
 }
 
-export interface SceneContextValue<TStatementLabel extends string = string> {
-  sceneId: SceneId
+export interface BranchContextValue<TStatementLabel extends string = string> {
+  branchId: BranchId
   containerSize: [number, number]
   registerStatement: (statement: Statement) => void
   getStatement: (statementIndex: number) => Statement | undefined
@@ -21,13 +21,15 @@ export interface SceneContextValue<TStatementLabel extends string = string> {
   skip: () => void
 }
 
-export const SceneContext = React.createContext<SceneContextValue | null>(null)
+export const BranchContext = React.createContext<BranchContextValue | null>(
+  null,
+)
 
-export function useSceneContext() {
-  const ctx = React.useContext(SceneContext)
+export function useBranchContext() {
+  const ctx = React.useContext(BranchContext)
   if (!ctx) {
     throw new Error(
-      '`useSceneContext` can only be used inside a SceneContainer component',
+      '`useBranchContext` can only be used inside a BranchContainer component',
     )
   }
   return ctx

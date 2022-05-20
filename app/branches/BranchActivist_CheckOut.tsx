@@ -10,8 +10,8 @@ import {
   redhead7Png,
   redhead8Png,
 } from '~/assets/game'
-import type {SceneBackgroundComponentProps} from '~/lib'
-import {makeScene} from '~/lib'
+import type {BranchBackgroundComponentProps} from '~/lib'
+import {makeBranch} from '~/lib'
 
 type StatementLabel =
   | 'act_social_media'
@@ -20,12 +20,12 @@ type StatementLabel =
   | 'social_media_publish_post'
   | 'social_media_acknowledged'
 
-const Scene = makeScene<StatementLabel>()
+const Branch = makeBranch<StatementLabel>()
 
-export function SceneActivist_CheckOut() {
+export function BranchActivist_CheckOut() {
   return (
-    <Scene.Container background={Background}>
-      <Scene.Say
+    <Branch.Container background={Background}>
+      <Branch.Say
         size="lg"
         foregroundSrc={redhead4Png}
         foregroundStyle={{
@@ -35,11 +35,11 @@ export function SceneActivist_CheckOut() {
         }}
         transitory>
         Мутят что-то без доклада народу. Надо разобраться!
-      </Scene.Say>
+      </Branch.Say>
 
-      <Scene.Blank durationMs={10000} transitory />
+      <Branch.Blank durationMs={10000} transitory />
 
-      <Scene.Say
+      <Branch.Say
         size="lg"
         foregroundSrc={redhead2Png}
         foregroundStyle={{width: '90%', bottom: 0}}
@@ -47,9 +47,9 @@ export function SceneActivist_CheckOut() {
         durationMs={0}
         lingers={1}>
         Это что за новости?!?! Уничтожают историю, значит?
-      </Scene.Say>
+      </Branch.Say>
 
-      <Scene.Choices
+      <Branch.Choices
         variant="dark"
         choices={[
           {
@@ -63,16 +63,16 @@ export function SceneActivist_CheckOut() {
         ]}
       />
 
-      <Scene.Label label="act_social_media">
-        <Scene.Say
+      <Branch.Label label="act_social_media">
+        <Branch.Say
           size="lg"
           foregroundSrc={redhead5Png}
           foregroundStyle={{width: '90%', bottom: 0}}
           transitory>
           В моменты отчаяния всегда можно вылить свою боль в соц. сети
-        </Scene.Say>
+        </Branch.Say>
 
-        <Scene.Say
+        <Branch.Say
           size="xl"
           foregroundSrc={bgPhoneFingerJpg}
           foregroundStyle={{
@@ -85,9 +85,9 @@ export function SceneActivist_CheckOut() {
           durationMs={0}
           lingers={1}>
           Варианты отчаяния:
-        </Scene.Say>
+        </Branch.Say>
 
-        <Scene.Choices
+        <Branch.Choices
           variant="dark"
           choices={[
             {
@@ -100,10 +100,10 @@ export function SceneActivist_CheckOut() {
             },
           ]}
         />
-      </Scene.Label>
+      </Branch.Label>
 
-      <Scene.Label label="act_etc">
-        <Scene.Say
+      <Branch.Label label="act_etc">
+        <Branch.Say
           size="xl"
           foregroundSrc={redhead8Png}
           foregroundStyle={{width: '90%', bottom: 0}}
@@ -111,29 +111,29 @@ export function SceneActivist_CheckOut() {
           durationMs={0}
           lingers={1}>
           Что я могу?
-        </Scene.Say>
+        </Branch.Say>
 
-        <Scene.Choices
+        <Branch.Choices
           variant="dark"
           choices={[
             {
               label: 'Разберусь сама',
-              onClick: (ctx) => ctx.goToScene('Activist_CheckOut_Self'),
+              onClick: (ctx) => ctx.goToBranch('Activist_CheckOut_Self'),
             },
             {
               label: 'Объединиться в команду',
-              onClick: (ctx) => ctx.goToScene('Activist_CheckOut_Group'),
+              onClick: (ctx) => ctx.goToBranch('Activist_CheckOut_Group'),
             },
             {
               label: 'Обратиться в организации',
-              onClick: (ctx) => ctx.goToScene('Activist_CheckOut_Org'),
+              onClick: (ctx) => ctx.goToBranch('Activist_CheckOut_Org'),
             },
           ]}
         />
-      </Scene.Label>
+      </Branch.Label>
 
-      <Scene.Label label="social_media_upload_meme">
-        <Scene.Choices
+      <Branch.Label label="social_media_upload_meme">
+        <Branch.Choices
           variant="dark"
           choices={[
             {
@@ -149,10 +149,10 @@ export function SceneActivist_CheckOut() {
             transform: 'scale(2) rotate(-9.5deg) translateX(-20px)',
           }}
         />
-      </Scene.Label>
+      </Branch.Label>
 
-      <Scene.Label label="social_media_publish_post">
-        <Scene.Choices
+      <Branch.Label label="social_media_publish_post">
+        <Branch.Choices
           variant="dark"
           choices={[
             {
@@ -168,20 +168,20 @@ export function SceneActivist_CheckOut() {
             transform: 'scale(2) rotate(-9.5deg) translateX(-20px)',
           }}
         />
-      </Scene.Label>
+      </Branch.Label>
 
-      <Scene.Label label="social_media_acknowledged">
-        <Scene.Say
+      <Branch.Label label="social_media_acknowledged">
+        <Branch.Say
           size="lg"
           foregroundSrc={redhead7Png}
           foregroundStyle={{width: '90%', bottom: 0}}
           transitory>
           ПОЗДРАВЛЯЕМ!!! ВАШИ ПОСТЫ/МЕМЫ УВИДЕЛА ИЗВЕСТНАЯ АКТИВИСТКА ТИНА
           ШТУНЕР, И ТЕПЕРЬ ОНА БУДЕТ ДОБИВАТЬСЯ СПРАВЕДЛИВОСТИ
-        </Scene.Say>
-      </Scene.Label>
+        </Branch.Say>
+      </Branch.Label>
 
-      <Scene.Choices
+      <Branch.Choices
         placement="top"
         choices={[
           {
@@ -197,25 +197,25 @@ export function SceneActivist_CheckOut() {
         foregroundStyle={{width: '90%', bottom: 0}}
       />
 
-      <Scene.Title transitory lingers>
+      <Branch.Title transitory lingers>
         Конец игры
-      </Scene.Title>
+      </Branch.Title>
 
-      <Scene.Choices
+      <Branch.Choices
         variant="dark"
         choices={[
           {
             label: 'Начать заново',
-            onClick: (ctx) => ctx.goToScene('Intro'),
+            onClick: (ctx) => ctx.goToBranch('Intro'),
           },
         ]}
       />
-    </Scene.Container>
+    </Branch.Container>
   )
 }
 
-function Background(_props: SceneBackgroundComponentProps) {
-  const {focusedStatementIndex} = Scene.useSceneContext()
+function Background(_props: BranchBackgroundComponentProps) {
+  const {focusedStatementIndex} = Branch.useBranchContext()
   return (
     <>
       <img

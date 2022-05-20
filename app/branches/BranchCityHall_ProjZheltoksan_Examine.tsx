@@ -11,50 +11,50 @@ import {
   expert3Png,
   mayor2Png,
 } from '~/assets/game'
-import {makeScene} from '~/lib'
+import {makeBranch} from '~/lib'
 
-const Scene = makeScene()
+const Branch = makeBranch()
 
-export function SceneCityHall_ProjZheltoksan_Examine() {
+export function BranchCityHall_ProjZheltoksan_Examine() {
   return (
-    <Scene.Container background={bgCityHallOutsideJpg}>
-      <Scene.Say size="xl" placement="middle" variant="dark" transitory>
+    <Branch.Container background={bgCityHallOutsideJpg}>
+      <Branch.Say size="xl" placement="middle" variant="dark" transitory>
         Экспертиза
-      </Scene.Say>
+      </Branch.Say>
 
-      <Scene.Foreground
+      <Branch.Foreground
         src={bgCityHallConferenceRoomJpg}
         style={{height: '100%', width: '100%', objectFit: 'cover'}}
         transitory
         lingers
       />
 
-      <Scene.Say
+      <Branch.Say
         tag="Эксперт:"
         size="lg"
         foregroundSrc={expert1Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
         Вижу нарушения…
-      </Scene.Say>
+      </Branch.Say>
 
-      <Scene.Say
+      <Branch.Say
         tag="Эксперт:"
         size="lg"
         foregroundSrc={expert2Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
         Ещё одно! Ещё нарушение!!!
-      </Scene.Say>
+      </Branch.Say>
 
-      <Scene.Foreground
+      <Branch.Foreground
         src={expert3Png}
         style={{width: '100%', bottom: 0}}
         durationMs={3000}
         transitory
       />
 
-      <Scene.Say
+      <Branch.Say
         size="lg"
         variant="dark"
         foregroundSrc={bgMayorDoorJpg}
@@ -62,9 +62,9 @@ export function SceneCityHall_ProjZheltoksan_Examine() {
         transitory
         lingers={1}>
         *тук-тук
-      </Scene.Say>
+      </Branch.Say>
 
-      <Scene.Foreground
+      <Branch.Foreground
         src={bgMayorDoorwayJpg}
         style={{height: '100%', width: '100%', objectFit: 'cover'}}
         durationMs={0}
@@ -72,23 +72,23 @@ export function SceneCityHall_ProjZheltoksan_Examine() {
         lingers={3}
       />
 
-      <Scene.Say
+      <Branch.Say
         size="lg"
         variant="dark"
         foregroundSrc={assistant1Png}
         foregroundStyle={{height: '100%', width: '100%', objectFit: 'cover'}}
         transitory>
         Экспертиза выявила несколько нарушений
-      </Scene.Say>
+      </Branch.Say>
 
-      <Scene.Foreground
+      <Branch.Foreground
         src={assistant2Png}
         style={{height: '100%', width: '100%', objectFit: 'cover'}}
         transitory
         lingers={1}
       />
 
-      <Scene.Say
+      <Branch.Say
         size="lg"
         variant="dark"
         foregroundSrc={bgMayorDoorJpg}
@@ -96,16 +96,16 @@ export function SceneCityHall_ProjZheltoksan_Examine() {
         transitory
         lingers={1}>
         *хдыщ
-      </Scene.Say>
+      </Branch.Say>
 
-      <Scene.Foreground
+      <Branch.Foreground
         src={bgCityHallOfficeJpg}
         style={{height: '100%', width: '100%', objectFit: 'cover'}}
         transitory
         lingers={2}
       />
 
-      <Scene.Say
+      <Branch.Say
         size="lg"
         foregroundSrc={mayor2Png}
         foregroundStyle={{width: '100%', bottom: 0}}
@@ -113,14 +113,14 @@ export function SceneCityHall_ProjZheltoksan_Examine() {
         durationMs={0}
         lingers={1}>
         Что делать с проектом?
-      </Scene.Say>
+      </Branch.Say>
 
-      <Scene.Choices
+      <Branch.Choices
         choices={[
           {
             label: 'Не одобрять',
             onClick: (ctx) =>
-              ctx.goToScene('CityHall_ProjZheltoksan_Examine_Reject'),
+              ctx.goToBranch('CityHall_ProjZheltoksan_Examine_Reject'),
           },
           {
             label: 'Одобрить',
@@ -128,6 +128,6 @@ export function SceneCityHall_ProjZheltoksan_Examine() {
           },
         ]}
       />
-    </Scene.Container>
+    </Branch.Container>
   )
 }

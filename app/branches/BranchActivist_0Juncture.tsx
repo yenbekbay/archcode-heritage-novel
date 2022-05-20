@@ -1,17 +1,17 @@
 import {bgMapGif, bgMapJpg, fencePng, redhead1Png} from '~/assets/game'
-import type {SceneBackgroundComponentProps} from '~/lib'
-import {makeScene} from '~/lib'
+import type {BranchBackgroundComponentProps} from '~/lib'
+import {makeBranch} from '~/lib'
 
-const Scene = makeScene()
+const Branch = makeBranch()
 
-export function SceneActivist_0Juncture() {
+export function BranchActivist_0Juncture() {
   return (
-    <Scene.Container background={Background}>
-      <Scene.Say size="lg" transitory>
+    <Branch.Container background={Background}>
+      <Branch.Say size="lg" transitory>
         Забор в этом городе появился новый
-      </Scene.Say>
+      </Branch.Say>
 
-      <Scene.Foreground
+      <Branch.Foreground
         src={fencePng}
         style={{height: '100%', transform: 'translate(-50%) scale(1.15)'}}
         variants={{
@@ -30,7 +30,7 @@ export function SceneActivist_0Juncture() {
         lingers
       />
 
-      <Scene.Say
+      <Branch.Say
         size="lg"
         foregroundSrc={redhead1Png}
         foregroundStyle={{
@@ -42,27 +42,27 @@ export function SceneActivist_0Juncture() {
         durationMs={0}
         lingers={1}>
         Это что за забор? И что за ним?
-      </Scene.Say>
+      </Branch.Say>
 
-      <Scene.Choices
+      <Branch.Choices
         variant="dark"
         choices={[
           {
             label: 'Пройти мимо',
-            onClick: (ctx) => ctx.goToScene('Activist_WalkPast'),
+            onClick: (ctx) => ctx.goToBranch('Activist_WalkPast'),
           },
           {
             label: 'Посмотреть',
-            onClick: (ctx) => ctx.goToScene('Activist_CheckOut'),
+            onClick: (ctx) => ctx.goToBranch('Activist_CheckOut'),
           },
         ]}
       />
-    </Scene.Container>
+    </Branch.Container>
   )
 }
 
-function Background(_props: SceneBackgroundComponentProps) {
-  const {focusedStatementIndex} = Scene.useSceneContext()
+function Background(_props: BranchBackgroundComponentProps) {
+  const {focusedStatementIndex} = Branch.useBranchContext()
   return (
     <img
       src={focusedStatementIndex < 2 ? bgMapGif : bgMapJpg}

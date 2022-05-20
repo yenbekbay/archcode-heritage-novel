@@ -2,7 +2,7 @@ import clsx from 'clsx'
 import {motion} from 'framer-motion'
 import type {CommandContainerProps, CommandViewVariants} from '../components'
 import {CommandContainer, ForegroundView} from '../components'
-import {useSceneContext} from '../contexts'
+import {useBranchContext} from '../contexts'
 import type {Frame} from '../utils'
 import {styleForFrame} from '../utils'
 
@@ -47,7 +47,7 @@ export function Say({
   },
   ...restProps
 }: SayProps) {
-  const {containerSize} = useSceneContext()
+  const {containerSize} = useBranchContext()
   const chars = children.split('')
   const TextComp = href ? motion.a : motion.span
   return (

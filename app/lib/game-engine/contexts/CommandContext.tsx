@@ -1,6 +1,6 @@
 import React from 'react'
-import type {Statement} from './SceneContext'
-import {useSceneContext} from './SceneContext'
+import type {Statement} from './BranchContext'
+import {useBranchContext} from './BranchContext'
 
 export interface CommandContextValue {
   statementIndex: number
@@ -28,15 +28,15 @@ export function useCommandContext() {
 export function useRegisterStatement(
   statement: Omit<Statement, 'index' | 'label'>,
 ) {
-  const sceneCtx = useSceneContext()
+  const branchCtx = useBranchContext()
   const {statementIndex, statementLabel} = useCommandContext()
   React.useEffect(
     () =>
-      sceneCtx.registerStatement({
+      branchCtx.registerStatement({
         ...statement,
         index: statementIndex,
         label: statementLabel,
       }),
-    [statement, statementIndex, sceneCtx, statementLabel],
+    [statement, statementIndex, branchCtx, statementLabel],
   )
 }

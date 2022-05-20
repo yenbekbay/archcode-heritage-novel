@@ -12,20 +12,20 @@ import React from 'react'
 import {useSearchParam} from '../hooks'
 import {MobileDeviceChrome, WithAssets} from './components'
 import type {GameContextValue} from './contexts'
-import {GameContext, SceneIdProvider} from './contexts'
+import {GameContext, BranchIdProvider} from './contexts'
 import type {GameHistory, GameLocation} from './utils'
 import {makeGameHistory, makeGameLocationId, parseGameLocation} from './utils'
 
 export interface GameProps {
   assets: Record<string, string>
-  scenes: Record<string, React.ComponentType>
-  initialSceneId: SceneId
+  branches: Record<string, React.ComponentType>
+  initialBranchId: BranchId
   onClose?: () => void
 }
 
-export function Game({assets, scenes, initialSceneId, onClose}: GameProps) {
+export function Game({assets, branches, initialBranchId, onClose}: GameProps) {
   const initialLocation: GameLocation = {
-    sceneId: initialSceneId,
+    branchId: initialBranchId,
     statementIndex: 0,
   }
   const [storedFocusedLocationId, setStoredFocusedLocationId] =
@@ -50,7 +50,7 @@ export function Game({assets, scenes, initialSceneId, onClose}: GameProps) {
     const storedFocusedLocation = parseGameLocation(storedFocusedLocationId)
     if (
       storedFocusedLocation &&
-      (storedFocusedLocation.sceneId !== focusedLocation.sceneId ||
+      (storedFocusedLocation.branchId !== focusedLocation.branchId ||
         storedFocusedLocation.statementIndex !== focusedLocation.statementIndex)
     ) {
       history.reset(storedFocusedLocation)
@@ -61,18 +61,18 @@ export function Game({assets, scenes, initialSceneId, onClose}: GameProps) {
     (): GameContextValue => ({
       focusedLocation,
       paused,
-      goToScene: (sceneId) => {
-        if (sceneId !== focusedLocation.sceneId) {
-          history.push({sceneId, statementIndex: 0})
+      goToBranch: (branchId) => {
+        if (branchId !== focusedLocation.branchId) {
+          history.push({branchId, statementIndex: 0})
           setPaused(false)
         }
       },
-      goToLocation: (sceneId, statementIndex) => {
+      goToLocation: (branchId, statementIndex) => {
         if (
-          sceneId !== focusedLocation.sceneId ||
+          branchId !== focusedLocation.branchId ||
           statementIndex !== focusedLocation.statementIndex
         ) {
-          history.push({sceneId, statementIndex})
+          history.push({branchId, statementIndex})
           setPaused(false)
         }
       },
@@ -152,15 +152,15 @@ export function Game({assets, scenes, initialSceneId, onClose}: GameProps) {
 
                   <div>
                     <div className="prose p-2">
-                      <h4>Go to scene</h4>
+                      <h4>Go to branch</h4>
                     </div>
 
-                    {Object.keys(scenes).map((sceneId) => (
+                    {Object.keys(branches).map((branchId) => (
                       <button
-                        key={sceneId}
+                        key={branchId}
                         className="btn btn-ghost btn-sm btn-block justify-between normal-case"
-                        onClick={() => ctx.goToScene(sceneId as SceneId)}>
-                        {sceneId}
+                        onClick={() => ctx.goToBranch(branchId as BranchId)}>
+                        {branchId}
                         <CaretRightIcon />
                       </button>
                     ))}
@@ -174,12 +174,12 @@ export function Game({assets, scenes, initialSceneId, onClose}: GameProps) {
         <MobileDeviceChrome>
           <WithAssets assets={assets}>
             <div className="flex h-full w-full overflow-hidden bg-base-100">
-              {Object.entries(scenes).map(
-                ([sceneId, SceneComp]) =>
-                  sceneId === focusedLocation.sceneId && (
-                    <SceneIdProvider key={sceneId} id={sceneId}>
-                      <SceneComp />
-                    </SceneIdProvider>
+              {Object.entries(branches).map(
+                ([branchId, BranchComp]) =>
+                  branchId === focusedLocation.branchId && (
+                    <BranchIdProvider key={branchId} id={branchId}>
+                      <BranchComp />
+                    </BranchIdProvider>
                   ),
               )}
             </div>
@@ -192,22 +192,22 @@ export function Game({assets, scenes, initialSceneId, onClose}: GameProps) {
 
 // MARK: Helpers
 
-export function prepareScenes<
-  TRawScenes extends Record<string, React.ComponentType>,
->(_scenes: TRawScenes) {
-  const scenes = Object.fromEntries(
-    Object.entries(_scenes)
-      .filter(([exportName]) => exportName.startsWith('Scene'))
+export function prepareBranches<
+  TRawBranches extends Record<string, React.ComponentType>,
+>(_branches: TRawBranches) {
+  const branches = Object.fromEntries(
+    Object.entries(_branches)
+      .filter(([exportName]) => exportName.startsWith('Branch'))
       .map(([exportName, exportVal]) => [
         exportName.replace(SCENE_PREFIX_RE, ''),
         exportVal,
       ]),
   ) as {
-    [K in keyof typeof _scenes as K extends `Scene${infer TId}`
+    [K in keyof typeof _branches as K extends `Branch${infer TId}`
       ? TId
-      : never]: typeof _scenes[K]
+      : never]: typeof _branches[K]
   }
-  return scenes
+  return branches
 }
 
-const SCENE_PREFIX_RE = /^Scene/
+const SCENE_PREFIX_RE = /^Branch/

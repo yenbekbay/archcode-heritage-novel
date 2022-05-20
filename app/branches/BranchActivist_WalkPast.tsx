@@ -6,15 +6,15 @@ import {
   redhead2Png,
   redhead3Png,
 } from '~/assets/game'
-import type {SceneBackgroundComponentProps} from '~/lib'
-import {makeScene} from '~/lib'
+import type {BranchBackgroundComponentProps} from '~/lib'
+import {makeBranch} from '~/lib'
 
-const Scene = makeScene()
+const Branch = makeBranch()
 
-export function SceneActivist_WalkPast() {
+export function BranchActivist_WalkPast() {
   return (
-    <Scene.Container background={Background}>
-      <Scene.Say
+    <Branch.Container background={Background}>
+      <Branch.Say
         size="lg"
         foregroundSrc={redhead2Png}
         foregroundStyle={{
@@ -24,9 +24,9 @@ export function SceneActivist_WalkPast() {
         }}
         transitory>
         Скорее всего, ничего особенного. Очередное…да не важно
-      </Scene.Say>
+      </Branch.Say>
 
-      <Scene.Say
+      <Branch.Say
         size="lg"
         foregroundSrc={redhead3Png}
         foregroundStyle={{
@@ -36,29 +36,29 @@ export function SceneActivist_WalkPast() {
         }}
         transitory>
         Поберегу нервы, семья ждет, пойду дома чай попью
-      </Scene.Say>
+      </Branch.Say>
 
-      <Scene.Blank durationMs={10000} transitory />
+      <Branch.Blank durationMs={10000} transitory />
 
-      <Scene.Title transitory lingers>
+      <Branch.Title transitory lingers>
         Конец игры
-      </Scene.Title>
+      </Branch.Title>
 
-      <Scene.Choices
+      <Branch.Choices
         variant="dark"
         choices={[
           {
             label: 'Начать заново',
-            onClick: (ctx) => ctx.goToScene('Intro'),
+            onClick: (ctx) => ctx.goToBranch('Intro'),
           },
         ]}
       />
-    </Scene.Container>
+    </Branch.Container>
   )
 }
 
-function Background(_props: SceneBackgroundComponentProps) {
-  const {focusedStatementIndex} = Scene.useSceneContext()
+function Background(_props: BranchBackgroundComponentProps) {
+  const {focusedStatementIndex} = Branch.useBranchContext()
   return (
     <>
       <img

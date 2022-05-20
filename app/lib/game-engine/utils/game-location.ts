@@ -1,16 +1,16 @@
 export interface GameLocation {
-  sceneId: SceneId
+  branchId: BranchId
   statementIndex: number
 }
 
 export function makeGameLocationId(location: GameLocation) {
-  return `${location.sceneId}-${location.statementIndex}`
+  return `${location.branchId}-${location.statementIndex}`
 }
 
 export function parseGameLocation(locationId: string): GameLocation | null {
-  const [_sceneId, __statementIndex] = locationId.split('-')
-  const sceneId = _sceneId as SceneId
+  const [_branchId, __statementIndex] = locationId.split('-')
+  const branchId = _branchId as BranchId
   const _statementIndex = Number(__statementIndex)
   const statementIndex = Number.isNaN(_statementIndex) ? 0 : _statementIndex
-  return {sceneId, statementIndex}
+  return {branchId, statementIndex}
 }

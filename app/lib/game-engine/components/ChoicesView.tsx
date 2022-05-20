@@ -2,15 +2,15 @@ import clsx from 'clsx'
 import type {AnimationControls} from 'framer-motion'
 import {motion} from 'framer-motion'
 import React from 'react'
-import {useCommandContext, useGameContext, useSceneContext} from '../contexts'
+import {useCommandContext, useGameContext, useBranchContext} from '../contexts'
 import type {Frame} from '../utils'
 import {styleForFrame} from '../utils'
 import type {CommandViewVariants} from './CommandView'
 
 interface ChoiceContext<TStatementLabel extends string = string> {
-  sceneId: SceneId
+  branchId: BranchId
   statementIndex: number
-  goToScene: (sceneId: SceneId) => void
+  goToBranch: (branchId: BranchId) => void
   goToStatement: (statementLabel: TStatementLabel) => void
   skip: () => void
 }
@@ -42,18 +42,18 @@ export function ChoicesView({
   variants,
   controls,
 }: ChoicesViewProps) {
-  const {goToScene} = useGameContext()
-  const {sceneId, containerSize, goToStatement, skip} = useSceneContext()
+  const {goToBranch} = useGameContext()
+  const {branchId, containerSize, goToStatement, skip} = useBranchContext()
   const {statementIndex} = useCommandContext()
   const ctx = React.useMemo(
     (): ChoiceContext => ({
-      sceneId,
+      branchId,
       statementIndex,
       goToStatement,
-      goToScene,
+      goToBranch,
       skip,
     }),
-    [statementIndex, goToStatement, skip, goToScene, sceneId],
+    [statementIndex, goToStatement, skip, goToBranch, branchId],
   )
   return (
     <div

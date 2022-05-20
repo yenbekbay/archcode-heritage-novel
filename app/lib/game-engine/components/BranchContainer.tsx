@@ -3,29 +3,29 @@ import React from 'react'
 import flattenChildren from 'react-keyed-flatten-children'
 import {useLongPress} from 'use-long-press'
 import {useStableCallback} from '../../hooks'
-import type {SceneContextValue, Statement} from '../contexts'
-import {SceneContext, useGameContext, useSceneId} from '../contexts'
+import type {BranchContextValue, Statement} from '../contexts'
+import {BranchContext, useGameContext, useBranchId} from '../contexts'
 import {Command} from './Command'
 
-export interface SceneBackgroundComponentProps {
+export interface BranchBackgroundComponentProps {
   containerSize: [number, number]
   /** 0 to 1 */
   enteredPercent: number
 }
 
-export interface SceneContainerProps {
-  background: string | React.ComponentType<SceneBackgroundComponentProps>
+export interface BranchContainerProps {
+  background: string | React.ComponentType<BranchBackgroundComponentProps>
   children?: React.ReactElement[] | React.ReactElement
 }
 
-export function SceneContainer({
+export function BranchContainer({
   background,
   children: childrenProp,
-}: SceneContainerProps) {
+}: BranchContainerProps) {
   const {focusedLocation, goToLocation, goBack, canGoBack} = useGameContext()
-  const sceneId = useSceneId()
+  const branchId = useBranchId()
   const focusedStatementIndex =
-    focusedLocation.sceneId === sceneId ? focusedLocation.statementIndex : 0
+    focusedLocation.branchId === branchId ? focusedLocation.statementIndex : 0
 
   const [statementByIndex] = React.useState(() => new Map<number, Statement>())
   const [statementByLabel] = React.useState(() => new Map<string, Statement>())
@@ -42,14 +42,14 @@ export function SceneContainer({
     // Complete entrance animation before jumping to next statementIndex
     if (!entered) {
       goToLocation(
-        sceneId,
+        branchId,
         Math.min(statements.length - 1, focusedStatementIndex + 1),
       )
     }
   })
   const ctx = React.useMemo(
-    (): SceneContextValue => ({
-      sceneId,
+    (): BranchContextValue => ({
+      branchId,
       containerSize,
       registerStatement: (statement) => {
         statementByIndex.set(statement.index, statement)
@@ -73,12 +73,12 @@ export function SceneContainer({
         if (!statement) {
           throw new Error(`Unknown statement label: ${statementLabel}`)
         }
-        goToLocation(sceneId, statement?.index)
+        goToLocation(branchId, statement?.index)
       },
       skip,
     }),
     [
-      sceneId,
+      branchId,
       containerSize,
       focusedStatementIndex,
       skip,
@@ -102,7 +102,7 @@ export function SceneContainer({
   )
 
   return (
-    <SceneContext.Provider value={ctx}>
+    <BranchContext.Provider value={ctx}>
       <div
         ref={containerRef}
         className="relative flex-1"
@@ -157,7 +157,7 @@ export function SceneContainer({
             </Command>
           ))}
       </div>
-    </SceneContext.Provider>
+    </BranchContext.Provider>
   )
 }
 

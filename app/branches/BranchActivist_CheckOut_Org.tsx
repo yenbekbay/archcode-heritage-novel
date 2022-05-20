@@ -5,24 +5,24 @@ import {
   redhead19Png,
   sillhouettePng,
 } from '~/assets/game'
-import {makeScene} from '~/lib'
+import {makeBranch} from '~/lib'
 
-const Scene = makeScene()
+const Branch = makeBranch()
 
-export function SceneActivist_CheckOut_Org() {
+export function BranchActivist_CheckOut_Org() {
   return (
-    <Scene.Container background={bgCourtyardJpg}>
-      <Scene.Blank durationMs={3000} transitory />
+    <Branch.Container background={bgCourtyardJpg}>
+      <Branch.Blank durationMs={3000} transitory />
 
-      <Scene.Say
+      <Branch.Say
         size="lg"
         foregroundSrc={redhead19Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
         Алло, здравствуйте, это Архкод?
-      </Scene.Say>
+      </Branch.Say>
 
-      <Scene.Foreground
+      <Branch.Foreground
         src={bgArchcodeOfficeJpg}
         style={{height: '100%', width: '100%', objectFit: 'cover'}}
         durationMs={0}
@@ -30,23 +30,23 @@ export function SceneActivist_CheckOut_Org() {
         lingers={1}
       />
 
-      <Scene.Say
+      <Branch.Say
         size="lg"
         foregroundSrc={sillhouettePng}
         foregroundStyle={{width: '90%', bottom: 0}}
         transitory>
         Здравствуйте, да, я вас слушаю.
-      </Scene.Say>
+      </Branch.Say>
 
-      <Scene.Say
+      <Branch.Say
         foregroundSrc={redhead19Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
         Непонятно, что творится! Забор там! Здание снесут! Унчтожат!
         Испоганят!!! Что делать???
-      </Scene.Say>
+      </Branch.Say>
 
-      <Scene.Foreground
+      <Branch.Foreground
         src={bgArchcodeOfficeJpg}
         style={{height: '100%', width: '100%', objectFit: 'cover'}}
         durationMs={0}
@@ -54,15 +54,15 @@ export function SceneActivist_CheckOut_Org() {
         lingers={1}
       />
 
-      <Scene.Say
+      <Branch.Say
         size="lg"
         foregroundSrc={sillhouettePng}
         foregroundStyle={{width: '90%', bottom: 0}}
         transitory>
         Без паники. Приходите, поделимся опытом
-      </Scene.Say>
+      </Branch.Say>
 
-      <Scene.Say
+      <Branch.Say
         href="tel://+77071210483"
         size="lg"
         textFrame={{
@@ -82,21 +82,21 @@ export function SceneActivist_CheckOut_Org() {
           transform: 'scale(2.25) translateX(-15px)',
         }}>
         Позвонить в Архкод
-      </Scene.Say>
+      </Branch.Say>
 
-      <Scene.Title transitory lingers>
+      <Branch.Title transitory lingers>
         Конец игры
-      </Scene.Title>
+      </Branch.Title>
 
-      <Scene.Choices
+      <Branch.Choices
         variant="dark"
         choices={[
           {
             label: 'Начать заново',
-            onClick: (ctx) => ctx.goToScene('Intro'),
+            onClick: (ctx) => ctx.goToBranch('Intro'),
           },
         ]}
       />
-    </Scene.Container>
+    </Branch.Container>
   )
 }

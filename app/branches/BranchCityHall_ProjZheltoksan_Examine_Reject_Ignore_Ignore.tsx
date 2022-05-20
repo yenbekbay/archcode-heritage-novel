@@ -6,14 +6,14 @@ import {
   mayor2Png,
   stampApprovedPng,
 } from '~/assets/game'
-import {makeScene} from '~/lib'
+import {makeBranch} from '~/lib'
 
-const Scene = makeScene()
+const Branch = makeBranch()
 
-export function SceneCityHall_ProjZheltoksan_Examine_Reject_Ignore_Ignore() {
+export function BranchCityHall_ProjZheltoksan_Examine_Reject_Ignore_Ignore() {
   return (
-    <Scene.Container background={bgCityHallOfficeJpg}>
-      <Scene.Foreground
+    <Branch.Container background={bgCityHallOfficeJpg}>
+      <Branch.Foreground
         src={letterPng}
         style={{
           height: '100%',
@@ -27,7 +27,7 @@ export function SceneCityHall_ProjZheltoksan_Examine_Reject_Ignore_Ignore() {
         lingers={1}
       />
 
-      <Scene.Foreground
+      <Branch.Foreground
         src={stampApprovedPng}
         style={{
           height: '100%',
@@ -38,7 +38,7 @@ export function SceneCityHall_ProjZheltoksan_Examine_Reject_Ignore_Ignore() {
         transitory
       />
 
-      <Scene.Foreground
+      <Branch.Foreground
         src={bgZheltoksanBeforeJpg}
         style={{height: '100%', width: '100%', objectFit: 'cover'}}
         durationMs={0}
@@ -46,15 +46,15 @@ export function SceneCityHall_ProjZheltoksan_Examine_Reject_Ignore_Ignore() {
         lingers
       />
 
-      <Scene.Say
+      <Branch.Say
         size="lg"
         foregroundSrc={angryCrowd1Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
         Массовый протест
-      </Scene.Say>
+      </Branch.Say>
 
-      <Scene.Say
+      <Branch.Say
         size="xl"
         foregroundSrc={mayor2Png}
         foregroundStyle={{width: '100%', bottom: 0}}
@@ -62,9 +62,9 @@ export function SceneCityHall_ProjZheltoksan_Examine_Reject_Ignore_Ignore() {
         durationMs={0}
         lingers={1}>
         Что делать?
-      </Scene.Say>
+      </Branch.Say>
 
-      <Scene.Choices
+      <Branch.Choices
         choices={[
           {
             label: 'Учесть мнение',
@@ -76,6 +76,6 @@ export function SceneCityHall_ProjZheltoksan_Examine_Reject_Ignore_Ignore() {
           },
         ]}
       />
-    </Scene.Container>
+    </Branch.Container>
   )
 }

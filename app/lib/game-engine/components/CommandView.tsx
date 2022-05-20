@@ -3,7 +3,7 @@ import type {Variant} from 'framer-motion'
 import {AnimatePresence, motion, useAnimation, usePresence} from 'framer-motion'
 import type {AnimationControls} from 'framer-motion/types/animation/types'
 import React from 'react'
-import {useCommandContext, useGameContext, useSceneContext} from '../contexts'
+import {useCommandContext, useGameContext, useBranchContext} from '../contexts'
 
 export type CommandViewVariants = {
   initial: Variant
@@ -29,7 +29,7 @@ export const CommandView = React.forwardRef(function CommandView(
   forwardedRef: React.ForwardedRef<CommandViewInstance>,
 ) {
   const {paused: gamePaused} = useGameContext()
-  const {skip} = useSceneContext()
+  const {skip} = useBranchContext()
   const {statementIndex, focused} = useCommandContext()
   const [isPresent, safeToRemove] = usePresence()
   const isMounted = useIsMounted()

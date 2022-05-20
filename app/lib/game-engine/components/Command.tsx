@@ -1,6 +1,6 @@
 import React from 'react'
 import type {CommandContextValue} from '../contexts'
-import {CommandContext, useSceneContext} from '../contexts'
+import {CommandContext, useBranchContext} from '../contexts'
 
 export interface CommandProps {
   statementIndex: number
@@ -13,21 +13,21 @@ export function Command({
   statementLabel,
   children,
 }: CommandProps) {
-  const sceneCtx = useSceneContext()
-  const command = sceneCtx.getStatement(statementIndex)
+  const branchCtx = useBranchContext()
+  const command = branchCtx.getStatement(statementIndex)
   const commandCtx = React.useMemo(
     (): CommandContextValue => ({
       statementIndex,
       statementLabel: statementLabel ?? null,
-      focused: sceneCtx.focusedStatementIndex === statementIndex,
+      focused: branchCtx.focusedStatementIndex === statementIndex,
       visible:
-        sceneCtx.focusedStatementIndex >= statementIndex &&
-        sceneCtx.focusedStatementIndex <=
+        branchCtx.focusedStatementIndex >= statementIndex &&
+        branchCtx.focusedStatementIndex <=
           statementIndex + (command?.visibleExtra ?? 0),
     }),
     [
       command?.visibleExtra,
-      sceneCtx.focusedStatementIndex,
+      branchCtx.focusedStatementIndex,
       statementIndex,
       statementLabel,
     ],
