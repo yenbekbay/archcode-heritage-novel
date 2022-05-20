@@ -15,7 +15,7 @@ import {makeBranch} from '~/lib'
 
 const Branch = makeBranch()
 
-export function BranchActivist_CheckOut_Self() {
+export function BranchActivist_CheckOut_Act_Self() {
   return (
     <Branch.Container background={bgCourtyardJpg}>
       <Branch.Blank durationMs={3000} transitory />
@@ -207,7 +207,7 @@ export function BranchActivist_CheckOut_Self() {
         choices={[
           {
             label: 'Позвонить в Архкод',
-            onClick: (ctx) => ctx.goToBranch('Activist_CheckOut_Org'),
+            onClick: (ctx) => ctx.goToBranch('Activist_CheckOut_Act_Org'),
           },
         ]}
       />

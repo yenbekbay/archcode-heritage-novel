@@ -132,8 +132,11 @@ export function Game({assets, branches, initialBranchId, onClose}: GameProps) {
                 align="center"
                 side="top"
                 sideOffset={4}
-                className="no-animation flex w-72 flex-col overflow-hidden rounded-lg bg-white p-2 shadow-md radix-side-top:animate-slide-up"
-                style={{maxHeight: 'calc(100vh - calc(4rem + 8px))'}}>
+                className="no-animation flex flex-col overflow-hidden rounded-lg bg-white p-2 shadow-md radix-side-top:animate-slide-up"
+                style={{
+                  width: '30rem',
+                  maxHeight: 'calc(100vh - calc(4rem + 8px))',
+                }}>
                 <div className="navbar">
                   <div className="navbar-start"></div>
                   <div className="navbar-end">

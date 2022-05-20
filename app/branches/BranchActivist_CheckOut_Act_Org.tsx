@@ -9,7 +9,7 @@ import {makeBranch} from '~/lib'
 
 const Branch = makeBranch()
 
-export function BranchActivist_CheckOut_Org() {
+export function BranchActivist_CheckOut_Act_Org() {
   return (
     <Branch.Container background={bgCourtyardJpg}>
       <Branch.Blank durationMs={3000} transitory />
