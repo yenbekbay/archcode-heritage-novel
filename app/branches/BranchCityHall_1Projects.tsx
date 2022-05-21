@@ -1,11 +1,11 @@
 import {bgMayorDeskAJpg} from '~/assets/game'
-import {makeBranch} from '~/lib'
+import {makeStrictBranch} from '~/lib'
 
-const Branch = makeBranch()
+const Branch = makeStrictBranch()
 
 export function BranchCityHall_1Projects() {
   return (
-    <Branch.Container background={bgMayorDeskAJpg}>
+    <Branch.Root background={bgMayorDeskAJpg}>
       <Branch.Say
         size="xl"
         variant="dark"
@@ -23,6 +23,6 @@ export function BranchCityHall_1Projects() {
           },
         ]}
       />
-    </Branch.Container>
+    </Branch.Root>
   )
 }

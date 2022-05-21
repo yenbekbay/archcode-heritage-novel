@@ -6,13 +6,13 @@ import {
   sabit1Png,
   stampRejectedPng,
 } from '~/assets/game'
-import {makeBranch} from '~/lib'
+import {makeStrictBranch} from '~/lib'
 
-const Branch = makeBranch()
+const Branch = makeStrictBranch()
 
 export function BranchCityHall_ProjZheltoksan_Examine_Reject() {
   return (
-    <Branch.Container background={bgCityHallConferenceRoomJpg}>
+    <Branch.Root background={bgCityHallConferenceRoomJpg}>
       <Branch.Foreground
         src={letterPng}
         style={{
@@ -165,6 +165,6 @@ export function BranchCityHall_ProjZheltoksan_Examine_Reject() {
           },
         ]}
       />
-    </Branch.Container>
+    </Branch.Root>
   )
 }

@@ -11,7 +11,7 @@
     "dev": "run-p --silent dev:*",
     "dev:css": "npm run generate:css -- --watch",
     "dev:remix": "remix dev",
-    "generate:css": "tailwindcss -i ./app/lib/global.css -o ./app/tailwind.css",
+    "generate:css": "tailwindcss -i ./app/lib/global.css -o ./app/__generated__/tailwind.css",
     "lint": "eslint --ext .js,.ts,.tsx --cache .",
     "prepare": "husky install",
     "start": "remix-serve build",

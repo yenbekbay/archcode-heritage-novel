@@ -1,13 +1,10 @@
-import type {
-  CommandContainerProps,
-  CommandViewVariants,
-  Choice,
-  ChoicesPlacement,
-} from '../components'
-import {CommandContainer, ForegroundView, ChoicesView} from '../components'
+import type {CommandProps, CommandViewVariants} from '../components'
+import {Command} from '../components'
+import type {Choice, ChoicesPlacement} from './internal'
+import {ChoicesView, ForegroundView} from './internal'
 
 export interface ChoicesProps<TStatementLabel extends string = string>
-  extends Partial<Omit<CommandContainerProps, 'children'>> {
+  extends Partial<Omit<CommandProps, 'children'>> {
   choices: Choice<TStatementLabel>[]
   label?: string
   size?: 'md' | 'lg'
@@ -40,7 +37,7 @@ export function Choices({
   ...restProps
 }: ChoicesProps) {
   return (
-    <CommandContainer {...restProps}>
+    <Command {...restProps}>
       {(controls) => (
         <>
           {foregroundSrc && (
@@ -63,6 +60,6 @@ export function Choices({
           />
         </>
       )}
-    </CommandContainer>
+    </Command>
   )
 }

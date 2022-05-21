@@ -1,4 +1,4 @@
-import {CommandContainer} from '../components'
+import {Command} from '../components'
 
 export interface BlankProps {
   durationMs?: number
@@ -7,8 +7,8 @@ export interface BlankProps {
 
 export function Blank({durationMs, transitory}: BlankProps) {
   return (
-    <CommandContainer durationMs={durationMs} transitory={transitory} skippable>
+    <Command durationMs={durationMs} transitory={transitory} skippable>
       {() => null}
-    </CommandContainer>
+    </Command>
   )
 }

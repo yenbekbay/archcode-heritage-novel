@@ -3,13 +3,13 @@ import {
   bgZheltoksanBeforeJpg,
   mayor3Png,
 } from '~/assets/game'
-import {makeBranch} from '~/lib'
+import {makeStrictBranch} from '~/lib'
 
-const Branch = makeBranch()
+const Branch = makeStrictBranch()
 
 export function BranchCityHall_ProjZheltoksan_Examine_Reject_Listen() {
   return (
-    <Branch.Container background={bgCityHallConferenceRoomJpg}>
+    <Branch.Root background={bgCityHallConferenceRoomJpg}>
       <Branch.Say
         foregroundSrc={mayor3Png}
         foregroundStyle={{width: '100%', bottom: 0}}
@@ -43,6 +43,6 @@ export function BranchCityHall_ProjZheltoksan_Examine_Reject_Listen() {
           },
         ]}
       />
-    </Branch.Container>
+    </Branch.Root>
   )
 }

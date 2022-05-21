@@ -1,9 +1,8 @@
 import {motion} from 'framer-motion'
-import type {CommandContainerProps, CommandViewVariants} from '../components'
-import {CommandContainer} from '../components'
+import type {CommandProps, CommandViewVariants} from '../components'
+import {Command} from '../components'
 
-export interface TitleProps
-  extends Partial<Omit<CommandContainerProps, 'children'>> {
+export interface TitleProps extends Partial<Omit<CommandProps, 'children'>> {
   children: string
   variants?: CommandViewVariants
 }
@@ -24,7 +23,7 @@ export function Title({
   ...restProps
 }: TitleProps) {
   return (
-    <CommandContainer skippable {...restProps}>
+    <Command skippable {...restProps}>
       {(controls) => (
         <div className="flex flex-1 flex-col justify-center p-8">
           <motion.span
@@ -37,6 +36,6 @@ export function Title({
           </motion.span>
         </div>
       )}
-    </CommandContainer>
+    </Command>
   )
 }

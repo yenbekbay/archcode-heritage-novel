@@ -1,13 +1,12 @@
 import clsx from 'clsx'
 import {motion} from 'framer-motion'
-import type {CommandContainerProps, CommandViewVariants} from '../components'
-import {CommandContainer, ForegroundView} from '../components'
+import type {CommandProps, CommandViewVariants} from '../components'
+import {Command} from '../components'
 import {useBranchContext} from '../contexts'
-import type {Frame} from '../utils'
-import {styleForFrame} from '../utils'
+import type {Frame} from './internal'
+import {ForegroundView, styleForFrame} from './internal'
 
-export interface SayProps
-  extends Partial<Omit<CommandContainerProps, 'children'>> {
+export interface SayProps extends Partial<Omit<CommandProps, 'children'>> {
   children: string
   href?: string
   tag?: string
@@ -51,10 +50,7 @@ export function Say({
   const chars = children.split('')
   const TextComp = href ? motion.a : motion.span
   return (
-    <CommandContainer
-      durationMs={3000 + chars.length * 20}
-      skippable
-      {...restProps}>
+    <Command durationMs={3000 + chars.length * 20} skippable {...restProps}>
       {(controls) => (
         <>
           {foregroundSrc && (
@@ -138,7 +134,7 @@ export function Say({
           </div>
         </>
       )}
-    </CommandContainer>
+    </Command>
   )
 }
 

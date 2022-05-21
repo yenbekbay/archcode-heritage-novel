@@ -7,13 +7,13 @@ import {
   redhead4Png,
 } from '~/assets/game'
 import type {BranchBackgroundComponentProps} from '~/lib'
-import {makeBranch} from '~/lib'
+import {makeStrictBranch} from '~/lib'
 
-const Branch = makeBranch()
+const Branch = makeStrictBranch()
 
 export function BranchActivist_CheckOut() {
   return (
-    <Branch.Container background={Background}>
+    <Branch.Root background={Background}>
       <Branch.Say
         size="lg"
         foregroundSrc={redhead4Png}
@@ -51,7 +51,7 @@ export function BranchActivist_CheckOut() {
           },
         ]}
       />
-    </Branch.Container>
+    </Branch.Root>
   )
 }
 

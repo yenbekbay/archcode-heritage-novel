@@ -3,13 +3,13 @@ import {motion, useAnimation} from 'framer-motion'
 import React from 'react'
 import {bgIntroJpg} from '~/assets/game'
 import type {BranchBackgroundComponentProps} from '~/lib'
-import {makeBranch} from '~/lib'
+import {makeStrictBranch} from '~/lib'
 
-const Branch = makeBranch()
+const Branch = makeStrictBranch()
 
 export function BranchIntro() {
   return (
-    <Branch.Container background={Background}>
+    <Branch.Root background={Background}>
       <Branch.Choices
         size="lg"
         placement="middle"
@@ -65,7 +65,7 @@ export function BranchIntro() {
           },
         ]}
       />
-    </Branch.Container>
+    </Branch.Root>
   )
 }
 

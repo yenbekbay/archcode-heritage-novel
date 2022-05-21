@@ -1,6 +1,6 @@
 import useSize from '@react-hook/size'
 import React from 'react'
-import {Media} from '../../Media'
+import {Media} from '../../../Media'
 
 export interface MobileDeviceChromeProps {
   children?: React.ReactNode
@@ -43,7 +43,7 @@ function MobileDeviceChromeFrame({
 }: MobileDeviceChromeFrameProps) {
   const ratio = height / 451
   return (
-    <div className="relative" style={{width: ratio * 212, height: height}}>
+    <div className="relative" style={{width: ratio * 212, height}}>
       <svg
         className="pointer-events-none absolute inset-0 z-10"
         width={ratio * 212}

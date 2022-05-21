@@ -4,13 +4,13 @@ import {
   bgZheltoksanBeforeJpg,
   mayor4Png,
 } from '~/assets/game'
-import {makeBranch} from '~/lib'
+import {makeStrictBranch} from '~/lib'
 
-const Branch = makeBranch()
+const Branch = makeStrictBranch()
 
 export function BranchCityHall_ProjZheltoksan_Approve() {
   return (
-    <Branch.Container background={bgZheltoksanBeforeJpg}>
+    <Branch.Root background={bgZheltoksanBeforeJpg}>
       <Branch.Say
         size="lg"
         foregroundSrc={angryCrowd1Png}
@@ -51,6 +51,6 @@ export function BranchCityHall_ProjZheltoksan_Approve() {
           },
         ]}
       />
-    </Branch.Container>
+    </Branch.Root>
   )
 }

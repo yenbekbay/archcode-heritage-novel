@@ -11,7 +11,7 @@ import {
 } from '@remix-run/react'
 import {Footer, Header} from '~/components'
 import {MediaContextProvider, mediaStyle} from '~/lib'
-import tailwindStylesUrl from '~/tailwind.css'
+import tailwindStylesUrl from '~/__generated__/tailwind.css'
 
 export const meta: MetaFunction = () => ({
   charset: 'utf-8',

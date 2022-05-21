@@ -11,13 +11,13 @@ import {
   expert3Png,
   mayor2Png,
 } from '~/assets/game'
-import {makeBranch} from '~/lib'
+import {makeStrictBranch} from '~/lib'
 
-const Branch = makeBranch()
+const Branch = makeStrictBranch()
 
 export function BranchCityHall_ProjZheltoksan_Examine() {
   return (
-    <Branch.Container background={bgCityHallOutsideJpg}>
+    <Branch.Root background={bgCityHallOutsideJpg}>
       <Branch.Say size="xl" placement="middle" variant="dark" transitory>
         Экспертиза
       </Branch.Say>
@@ -128,6 +128,6 @@ export function BranchCityHall_ProjZheltoksan_Examine() {
           },
         ]}
       />
-    </Branch.Container>
+    </Branch.Root>
   )
 }

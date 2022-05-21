@@ -5,13 +5,13 @@ import {
   redhead19Png,
   sillhouettePng,
 } from '~/assets/game'
-import {makeBranch} from '~/lib'
+import {makeStrictBranch} from '~/lib'
 
-const Branch = makeBranch()
+const Branch = makeStrictBranch()
 
 export function BranchActivist_CheckOut_Act_Org() {
   return (
-    <Branch.Container background={bgCourtyardJpg}>
+    <Branch.Root background={bgCourtyardJpg}>
       <Branch.Blank durationMs={3000} transitory />
 
       <Branch.Say
@@ -97,6 +97,6 @@ export function BranchActivist_CheckOut_Act_Org() {
           },
         ]}
       />
-    </Branch.Container>
+    </Branch.Root>
   )
 }

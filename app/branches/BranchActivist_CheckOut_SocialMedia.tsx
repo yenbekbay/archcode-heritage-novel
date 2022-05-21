@@ -5,15 +5,15 @@ import {
   redhead5Png,
   redhead7Png,
 } from '~/assets/game'
-import {makeBranch} from '~/lib'
+import {makeStrictBranch} from '~/lib'
 
 type StatementLabel = 'upload_meme' | 'publish_post' | 'acknowledged'
 
-const Branch = makeBranch<StatementLabel>()
+const Branch = makeStrictBranch<StatementLabel>()
 
 export function BranchActivist_CheckOut_SocialMedia() {
   return (
-    <Branch.Container background={bgBldg1Jpg}>
+    <Branch.Root background={bgBldg1Jpg}>
       <Branch.Say
         size="lg"
         foregroundSrc={redhead5Png}
@@ -129,6 +129,6 @@ export function BranchActivist_CheckOut_SocialMedia() {
           },
         ]}
       />
-    </Branch.Container>
+    </Branch.Root>
   )
 }

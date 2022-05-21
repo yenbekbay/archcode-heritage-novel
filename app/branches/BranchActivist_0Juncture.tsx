@@ -1,12 +1,12 @@
 import {bgMapGif, bgMapJpg, fencePng, redhead1Png} from '~/assets/game'
 import type {BranchBackgroundComponentProps} from '~/lib'
-import {makeBranch} from '~/lib'
+import {makeStrictBranch} from '~/lib'
 
-const Branch = makeBranch()
+const Branch = makeStrictBranch()
 
 export function BranchActivist_0Juncture() {
   return (
-    <Branch.Container background={Background}>
+    <Branch.Root background={Background}>
       <Branch.Say size="lg" transitory>
         Забор в этом городе появился новый
       </Branch.Say>
@@ -57,7 +57,7 @@ export function BranchActivist_0Juncture() {
           },
         ]}
       />
-    </Branch.Container>
+    </Branch.Root>
   )
 }
 

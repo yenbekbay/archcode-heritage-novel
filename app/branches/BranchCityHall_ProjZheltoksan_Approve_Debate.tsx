@@ -4,13 +4,13 @@ import {
   mayor2Png,
   sabit1Png,
 } from '~/assets/game'
-import {makeBranch} from '~/lib'
+import {makeStrictBranch} from '~/lib'
 
-const Branch = makeBranch()
+const Branch = makeStrictBranch()
 
 export function BranchCityHall_ProjZheltoksan_Approve_Debate() {
   return (
-    <Branch.Container background={bgCityHallConferenceRoomJpg}>
+    <Branch.Root background={bgCityHallConferenceRoomJpg}>
       <Branch.Say transitory>
         Встреча с руководителем управления архитектуры и градостроительства
         Сабитом Гадырбаевым
@@ -139,6 +139,6 @@ export function BranchCityHall_ProjZheltoksan_Approve_Debate() {
           },
         ]}
       />
-    </Branch.Container>
+    </Branch.Root>
   )
 }

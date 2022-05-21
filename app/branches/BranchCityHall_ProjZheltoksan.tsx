@@ -3,13 +3,13 @@ import {
   developerRepPng,
   mayor2Png,
 } from '~/assets/game'
-import {makeBranch} from '~/lib'
+import {makeStrictBranch} from '~/lib'
 
-const Branch = makeBranch()
+const Branch = makeStrictBranch()
 
 export function BranchCityHall_ProjZheltoksan() {
   return (
-    <Branch.Container background={bgCityHallConferenceRoomJpg}>
+    <Branch.Root background={bgCityHallConferenceRoomJpg}>
       <Branch.Say
         tag="Девелопер:"
         foregroundSrc={developerRepPng}
@@ -42,6 +42,6 @@ export function BranchCityHall_ProjZheltoksan() {
           },
         ]}
       />
-    </Branch.Container>
+    </Branch.Root>
   )
 }

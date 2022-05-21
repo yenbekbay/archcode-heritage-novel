@@ -7,13 +7,13 @@ import {
   redhead3Png,
 } from '~/assets/game'
 import type {BranchBackgroundComponentProps} from '~/lib'
-import {makeBranch} from '~/lib'
+import {makeStrictBranch} from '~/lib'
 
-const Branch = makeBranch()
+const Branch = makeStrictBranch()
 
 export function BranchActivist_WalkPast() {
   return (
-    <Branch.Container background={Background}>
+    <Branch.Root background={Background}>
       <Branch.Say
         size="lg"
         foregroundSrc={redhead2Png}
@@ -53,7 +53,7 @@ export function BranchActivist_WalkPast() {
           },
         ]}
       />
-    </Branch.Container>
+    </Branch.Root>
   )
 }
 

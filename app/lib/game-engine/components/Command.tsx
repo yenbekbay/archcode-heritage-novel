@@ -1,40 +1,213 @@
+import {useIsMounted, useSyncedRef} from '@react-hookz/web'
+import type {Variant} from 'framer-motion'
+import {AnimatePresence, motion, useAnimation, usePresence} from 'framer-motion'
+import type {AnimationControls} from 'framer-motion/types/animation/types'
 import React from 'react'
-import type {CommandContextValue} from '../contexts'
-import {CommandContext, useBranchContext} from '../contexts'
+import type {Statement} from '../contexts'
+import {
+  useBranchContext,
+  useGameContext,
+  useRegisterStatement,
+  useStatementContext,
+} from '../contexts'
+
+export type CommandViewVariants = {
+  initial: Variant
+  entrance: Variant
+  exit: Variant
+}
 
 export interface CommandProps {
-  statementIndex: number
-  statementLabel?: string | null
-  children: React.ReactNode
+  children: (controls: AnimationControls) => React.ReactNode
+  durationMs?: number
+  skippable?: boolean
+  /** Should branch automatically skip to next statementIndex after duration? */
+  transitory?: boolean
+  /** Should content still be shown after skipping to next statementIndex? */
+  lingers?: boolean | number
 }
 
 export function Command({
-  statementIndex,
-  statementLabel,
   children,
+  durationMs = 0,
+  skippable = false,
+  transitory = false,
+  lingers = false,
 }: CommandProps) {
-  const branchCtx = useBranchContext()
-  const command = branchCtx.getStatement(statementIndex)
-  const commandCtx = React.useMemo(
-    (): CommandContextValue => ({
-      statementIndex,
-      statementLabel: statementLabel ?? null,
-      focused: branchCtx.focusedStatementIndex === statementIndex,
-      visible:
-        branchCtx.focusedStatementIndex >= statementIndex &&
-        branchCtx.focusedStatementIndex <=
-          statementIndex + (command?.visibleExtra ?? 0),
-    }),
-    [
-      command?.visibleExtra,
-      branchCtx.focusedStatementIndex,
-      statementIndex,
-      statementLabel,
-    ],
+  const {visible} = useStatementContext()
+
+  const viewRef = React.useRef<CommandViewInstance>(null)
+  useRegisterStatement(
+    React.useMemo(
+      (): Omit<Statement, 'index' | 'label'> => ({
+        skippable,
+        visibleExtra: (() => {
+          if (typeof lingers === 'number') {
+            return Math.max(0, lingers)
+          }
+          if (lingers === true) {
+            return Number.MAX_SAFE_INTEGER
+          }
+          return 0
+        })(),
+        enter: () => viewRef.current?.enter() ?? false,
+        pause: () => viewRef.current?.pause(),
+        resume: () => viewRef.current?.resume(),
+      }),
+      [skippable, lingers],
+    ),
   )
+
   return (
-    <CommandContext.Provider value={commandCtx}>
-      {children}
-    </CommandContext.Provider>
+    <AnimatePresence>
+      {visible && (
+        <CommandView
+          ref={viewRef}
+          durationMs={durationMs}
+          skippable={skippable}
+          transitory={transitory}>
+          {children}
+        </CommandView>
+      )}
+    </AnimatePresence>
   )
 }
+
+// MARK: CommandView
+
+interface CommandViewProps {
+  children: (controls: AnimationControls) => React.ReactNode
+  durationMs: number
+  skippable: boolean
+  transitory: boolean
+}
+
+interface CommandViewInstance {
+  enter: () => void
+  pause: () => void
+  resume: () => void
+}
+
+const CommandView = React.forwardRef(function CommandView(
+  {children, durationMs, skippable, transitory}: CommandViewProps,
+  forwardedRef: React.ForwardedRef<CommandViewInstance>,
+) {
+  const {paused: gamePaused} = useGameContext()
+  const {skip} = useBranchContext()
+  const {statementIndex, focused} = useStatementContext()
+  const [isPresent, safeToRemove] = usePresence()
+  const isMounted = useIsMounted()
+
+  const enteredRef = React.useRef(false)
+  const [entered, _setEntered] = React.useState(false)
+  const setEntered = React.useCallback((newEntered: boolean) => {
+    enteredRef.current = newEntered
+    _setEntered(newEntered)
+  }, [])
+
+  const controls = useAnimation()
+  const [countdownProgress, setCountdownProgress] = React.useState(0)
+  const countdownTimerRef = React.useRef<ReturnType<typeof setInterval>>()
+  const countdownPausedRef = React.useRef(false)
+  const gamePausedRef = useSyncedRef(gamePaused)
+
+  React.useImperativeHandle(
+    forwardedRef,
+    (): CommandViewInstance => ({
+      enter: () => {
+        if (enteredRef.current) {
+          return false
+        }
+
+        controls.stop()
+        controls.set('entrance')
+        setEntered(true)
+        return true
+      },
+      pause: () => {
+        countdownPausedRef.current = true
+      },
+      resume: () => {
+        countdownPausedRef.current = false
+      },
+    }),
+    [controls, setEntered],
+  )
+
+  React.useEffect(
+    () => {
+      if (isPresent) {
+        setEntered(false)
+        requestAnimationFrame(() =>
+          requestAnimationFrame(() =>
+            controls.start('entrance').then(() => setEntered(true)),
+          ),
+        )
+      } else {
+        controls.start('exit').then(() => safeToRemove?.())
+      }
+      return controls.stop
+    },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [isPresent],
+  )
+
+  React.useEffect(
+    () => {
+      if (skippable && transitory && entered && focused) {
+        setCountdownProgress(0)
+        countdownTimerRef.current = setInterval(() => {
+          if (countdownPausedRef.current || gamePausedRef.current) {
+            return
+          }
+
+          if (isMounted()) {
+            setCountdownProgress((prev) => prev + 1)
+          } else if (countdownTimerRef.current) {
+            clearInterval(countdownTimerRef.current)
+            countdownTimerRef.current = undefined
+          }
+        }, durationMs / 100)
+      }
+    },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [entered, focused],
+  )
+
+  React.useEffect(
+    () => {
+      if (countdownProgress === 100) {
+        if (countdownTimerRef.current) {
+          clearInterval(countdownTimerRef.current)
+          countdownTimerRef.current = undefined
+        }
+        if (focused) {
+          skip()
+        }
+      }
+    },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [countdownProgress],
+  )
+
+  return (
+    <div
+      className="absolute inset-0 flex flex-col"
+      style={{zIndex: statementIndex}}>
+      <AnimatePresence>
+        {skippable && transitory && focused && (
+          <motion.progress
+            className="progress absolute top-0 z-50 w-full rounded-none"
+            initial={{opacity: 0}}
+            animate={{opacity: 1}}
+            exit={{opacity: 0}}
+            value={countdownProgress}
+            max={100}
+          />
+        )}
+      </AnimatePresence>
+
+      {children(controls)}
+    </div>
+  )
+})

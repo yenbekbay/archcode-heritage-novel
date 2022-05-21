@@ -1,2 +1,3 @@
-export * from './Game'
-export * from './Branch'
+export * from './commands'
+export * from './components'
+export * from './strict-branch'

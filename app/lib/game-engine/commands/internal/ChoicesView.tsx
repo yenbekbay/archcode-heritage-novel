@@ -2,10 +2,14 @@ import clsx from 'clsx'
 import type {AnimationControls} from 'framer-motion'
 import {motion} from 'framer-motion'
 import React from 'react'
-import {useCommandContext, useGameContext, useBranchContext} from '../contexts'
-import type {Frame} from '../utils'
-import {styleForFrame} from '../utils'
-import type {CommandViewVariants} from './CommandView'
+import type {CommandViewVariants} from '../../components'
+import {
+  useBranchContext,
+  useGameContext,
+  useStatementContext,
+} from '../../contexts'
+import type {Frame} from './frame'
+import {styleForFrame} from './frame'
 
 interface ChoiceContext<TStatementLabel extends string = string> {
   branchId: BranchId
@@ -44,7 +48,7 @@ export function ChoicesView({
 }: ChoicesViewProps) {
   const {goToBranch} = useGameContext()
   const {branchId, containerSize, goToStatement, skip} = useBranchContext()
-  const {statementIndex} = useCommandContext()
+  const {statementIndex} = useStatementContext()
   const ctx = React.useMemo(
     (): ChoiceContext => ({
       branchId,

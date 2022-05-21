@@ -5,13 +5,13 @@ import {
   bgMayorDeskJpg,
   mayor1Png,
 } from '~/assets/game'
-import {makeBranch} from '~/lib'
+import {makeStrictBranch} from '~/lib'
 
-const Branch = makeBranch()
+const Branch = makeStrictBranch()
 
 export function BranchCityHall_0Menu() {
   return (
-    <Branch.Container background={bgCityHallOutsideJpg}>
+    <Branch.Root background={bgCityHallOutsideJpg}>
       <Branch.Blank durationMs={3000} transitory />
 
       <Branch.Foreground
@@ -94,6 +94,6 @@ export function BranchCityHall_0Menu() {
         ]}
         transitory
       />
-    </Branch.Container>
+    </Branch.Root>
   )
 }

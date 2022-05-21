@@ -1,8 +1,9 @@
-import type {CommandContainerProps, CommandViewVariants} from '../components'
-import {CommandContainer, ForegroundView} from '../components'
+import type {CommandProps, CommandViewVariants} from '../components'
+import {Command} from '../components'
+import {ForegroundView} from './internal'
 
 export interface ForegroundProps
-  extends Partial<Omit<CommandContainerProps, 'children'>> {
+  extends Partial<Omit<CommandProps, 'children'>> {
   src: string
   style?: React.CSSProperties
   variants?: CommandViewVariants
@@ -25,7 +26,7 @@ export function Foreground({
   ...restProps
 }: ForegroundProps) {
   return (
-    <CommandContainer durationMs={500} skippable {...restProps}>
+    <Command durationMs={500} skippable {...restProps}>
       {(controls) => (
         <ForegroundView
           src={src}
@@ -34,6 +35,6 @@ export function Foreground({
           controls={controls}
         />
       )}
-    </CommandContainer>
+    </Command>
   )
 }

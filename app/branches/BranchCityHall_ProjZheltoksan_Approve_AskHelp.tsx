@@ -7,13 +7,13 @@ import {
   bgZheltoksanBeforeFenceGif,
   bgZheltoksanBeforeJpg,
 } from '~/assets/game'
-import {makeBranch} from '~/lib'
+import {makeStrictBranch} from '~/lib'
 
-const Branch = makeBranch()
+const Branch = makeStrictBranch()
 
 export function BranchCityHall_ProjZheltoksan_Approve_AskHelp() {
   return (
-    <Branch.Container background={bgCityHallOfficeJpg}>
+    <Branch.Root background={bgCityHallOfficeJpg}>
       <Branch.Say
         size="lg"
         foregroundSrc={bgPhoneFingerJpg}
@@ -90,6 +90,6 @@ export function BranchCityHall_ProjZheltoksan_Approve_AskHelp() {
           },
         ]}
       />
-    </Branch.Container>
+    </Branch.Root>
   )
 }
