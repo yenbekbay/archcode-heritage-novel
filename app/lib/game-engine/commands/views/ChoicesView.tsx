@@ -2,7 +2,10 @@ import clsx from 'clsx'
 import type {AnimationControls} from 'framer-motion'
 import {motion} from 'framer-motion'
 import React from 'react'
-import type {CommandViewVariants} from '../../components'
+import type {
+  CommandViewAnimation,
+  CommandViewColorScheme,
+} from '../../components'
 import {
   useBranchContext,
   useGameContext,
@@ -32,8 +35,8 @@ export interface ChoicesViewProps<TStatementLabel extends string = string> {
   label?: string
   size?: 'md' | 'lg'
   placement?: ChoicesPlacement
-  variant?: 'default' | 'dark'
-  variants: CommandViewVariants
+  scheme?: CommandViewColorScheme
+  animation: CommandViewAnimation
   controls: AnimationControls
 }
 
@@ -42,8 +45,8 @@ export function ChoicesView({
   label,
   size = 'md',
   placement = 'bottom',
-  variant,
-  variants,
+  scheme,
+  animation,
   controls,
 }: ChoicesViewProps) {
   const {goToBranch} = useGameContext()
@@ -71,15 +74,11 @@ export function ChoicesView({
       )}>
       {!!label && (
         <motion.span
-          className="mb-2 whitespace-pre-wrap text-center font-calligraph text-lg"
-          style={{
-            color: variant === 'dark' ? '#fBf9e0' : 'hsl(206, 24.0%, 9.0%)',
-            textShadow:
-              variant === 'dark'
-                ? '0 -1px rgba(0, 0, 0, .35), 0 2px hsl(206, 24.0%, 9.0%), 0 0 4px rgba(0, 0, 0), 0 0 4px rgba(0, 0, 0), 0 0 4px rgba(0, 0, 0)'
-                : '0 1px hsl(209, 12.2%, 93.2%), 0 0 4px rgba(255, 255, 255), 0 0 4px rgba(255, 255, 255), 0 0 4px rgba(255, 255, 255)',
-          }}
-          variants={variants}
+          className={clsx(
+            'GameEngine-text mb-2 whitespace-pre-wrap text-center font-calligraph text-lg',
+            scheme === 'dark' && 'GameEngine-text--dark',
+          )}
+          variants={animation}
           initial="initial"
           animate={controls}>
           {label}
@@ -90,24 +89,18 @@ export function ChoicesView({
         <motion.div
           key={c.label}
           className="flex flex-col"
-          variants={variants}
+          variants={animation}
           initial="initial"
           animate={controls}
           custom={idx}>
           {c.frame ? (
             <motion.div
-              className="btn btn-ghost border"
+              className={clsx(
+                'GameEngine-surface btn btn-ghost border',
+                scheme === 'dark' && 'GameEngine-surface--dark',
+              )}
               aria-label={c.label}
-              style={{
-                borderColor:
-                  variant === 'dark' ? 'white' : 'hsl(206, 24.0%, 9.0%)',
-                backgroundColor:
-                  variant === 'dark'
-                    ? 'rgba(0, 0, 0, .5)'
-                    : 'rgba(255, 255, 255, .5)',
-                boxShadow: '0 2px rgba(0, 0, 0, .35)',
-                ...styleForFrame({containerSize}, c.frame),
-              }}
+              style={styleForFrame({containerSize}, c.frame)}
               animate={{opacity: 0}}
               transition={{
                 repeat: Infinity,
@@ -115,6 +108,7 @@ export function ChoicesView({
                 duration: 1,
                 ease: 'easeInOut',
               }}
+              tabIndex={-1}
               onClick={(event) => {
                 event.stopPropagation()
                 c.onClick(ctx)
@@ -123,24 +117,13 @@ export function ChoicesView({
           ) : (
             <motion.div
               className={clsx(
-                'btn btn-ghost h-auto min-h-0 py-1 font-calligraph leading-6 shadow-md',
+                'GameEngine-button btn btn-ghost h-auto min-h-0 py-1 font-calligraph leading-6 shadow-md',
+                scheme === 'dark' && 'GameEngine-button--dark',
                 {
                   md: 'text-md btn-lg',
                   lg: 'btn-xl text-2xl',
                 }[size],
               )}
-              style={{
-                color: variant === 'dark' ? 'white' : 'hsl(206, 24.0%, 9.0%)',
-                backgroundColor:
-                  variant === 'dark'
-                    ? 'rgba(0, 0, 0, .25)'
-                    : 'rgba(255, 255, 255, .25)',
-                textShadow:
-                  variant === 'dark'
-                    ? '0 -1px rgba(0, 0, 0, .35), 0 2px hsl(206, 24.0%, 9.0%), 0 0 4px rgba(0, 0, 0), 0 0 4px rgba(0, 0, 0), 0 0 4px rgba(0, 0, 0)'
-                    : '0 1px hsl(209, 12.2%, 93.2%), 0 0 4px rgba(255, 255, 255), 0 0 4px rgba(255, 255, 255), 0 0 4px rgba(255, 255, 255)',
-                boxShadow: '0 2px rgba(0, 0, 0, .35)',
-              }}
               animate={{y: -8}}
               transition={{
                 repeat: Infinity,

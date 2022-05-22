@@ -14,7 +14,7 @@ export function BranchActivist_0Juncture() {
       <Branch.Foreground
         src={fencePng}
         style={{height: '100%', transform: 'translate(-50%) scale(1.15)'}}
-        variants={{
+        animation={{
           initial: {x: '250%', scale: 0.5, originY: 1},
           entrance: {
             x: 0,
@@ -45,7 +45,7 @@ export function BranchActivist_0Juncture() {
       </Branch.Say>
 
       <Branch.Choices
-        variant="dark"
+        scheme="dark"
         choices={[
           {
             label: 'Пройти мимо',

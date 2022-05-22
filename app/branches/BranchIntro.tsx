@@ -52,7 +52,7 @@ export function BranchIntro() {
       </Branch.Title>
 
       <Branch.Choices
-        variant="dark"
+        scheme="dark"
         label="Выбрать персонажа"
         choices={[
           {

@@ -1,7 +1,11 @@
-import type {CommandProps, CommandViewVariants} from '../components'
+import type {
+  CommandProps,
+  CommandViewAnimation,
+  CommandViewColorScheme,
+} from '../components'
 import {Command} from '../components'
-import type {Choice, ChoicesPlacement} from './internal'
-import {ChoicesView, ForegroundView} from './internal'
+import type {Choice, ChoicesPlacement} from './views'
+import {ChoicesView, ForegroundView} from './views'
 
 export interface ChoicesProps<TStatementLabel extends string = string>
   extends Partial<Omit<CommandProps, 'children'>> {
@@ -9,10 +13,11 @@ export interface ChoicesProps<TStatementLabel extends string = string>
   label?: string
   size?: 'md' | 'lg'
   placement?: ChoicesPlacement
-  variant?: 'default' | 'dark'
+  scheme?: CommandViewColorScheme
+  animation?: CommandViewAnimation
   foregroundSrc?: string
   foregroundStyle?: React.CSSProperties
-  variants?: CommandViewVariants
+  foregroundAnimation?: CommandViewAnimation
 }
 
 export function Choices({
@@ -20,10 +25,8 @@ export function Choices({
   label,
   size,
   placement,
-  variant,
-  foregroundSrc,
-  foregroundStyle,
-  variants = {
+  scheme,
+  animation = {
     initial: {opacity: 0},
     entrance: (idx) => ({
       opacity: 1,
@@ -34,6 +37,9 @@ export function Choices({
       transition: {duration: 0.5, ease: 'easeOut'},
     },
   },
+  foregroundSrc,
+  foregroundStyle,
+  foregroundAnimation,
   ...restProps
 }: ChoicesProps) {
   return (
@@ -44,7 +50,7 @@ export function Choices({
             <ForegroundView
               src={foregroundSrc}
               style={foregroundStyle}
-              variants={variants}
+              animation={foregroundAnimation}
               controls={controls}
             />
           )}
@@ -52,10 +58,10 @@ export function Choices({
           <ChoicesView
             size={size}
             placement={placement}
-            variant={variant}
+            scheme={scheme}
             choices={choices}
             label={label}
-            variants={variants}
+            animation={animation}
             controls={controls}
           />
         </>

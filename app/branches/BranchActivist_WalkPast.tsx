@@ -45,7 +45,7 @@ export function BranchActivist_WalkPast() {
       </Branch.Title>
 
       <Branch.Choices
-        variant="dark"
+        scheme="dark"
         choices={[
           {
             label: 'Начать заново',

@@ -1,10 +1,14 @@
 import clsx from 'clsx'
 import {motion} from 'framer-motion'
-import type {CommandProps, CommandViewVariants} from '../components'
+import type {
+  CommandProps,
+  CommandViewAnimation,
+  CommandViewColorScheme,
+} from '../components'
 import {Command} from '../components'
 import {useBranchContext} from '../contexts'
-import type {Frame} from './internal'
-import {ForegroundView, styleForFrame} from './internal'
+import type {Frame} from './views'
+import {ForegroundView, styleForFrame} from './views'
 
 export interface SayProps extends Partial<Omit<CommandProps, 'children'>> {
   children: string
@@ -12,13 +16,14 @@ export interface SayProps extends Partial<Omit<CommandProps, 'children'>> {
   tag?: string
   size?: 'md' | 'lg' | 'xl'
   placement?: 'top' | 'middle' | 'bottom'
-  variant?: 'default' | 'dark'
+  scheme?: CommandViewColorScheme
   style?: React.CSSProperties
   textStyle?: React.CSSProperties
   textFrame?: Frame
+  animation?: CommandViewAnimation
   foregroundSrc?: string
   foregroundStyle?: React.CSSProperties
-  variants?: CommandViewVariants
+  foregroundAnimation?: CommandViewAnimation
 }
 
 export function Say({
@@ -27,13 +32,11 @@ export function Say({
   tag,
   size = 'md',
   placement = 'top',
-  variant,
+  scheme,
   style,
   textStyle,
   textFrame,
-  foregroundSrc,
-  foregroundStyle,
-  variants = {
+  animation = {
     initial: {opacity: 0},
     entrance: (idx) => ({
       opacity: 1,
@@ -44,6 +47,9 @@ export function Say({
       transition: {duration: 0.5, ease: 'easeOut'},
     },
   },
+  foregroundSrc,
+  foregroundStyle,
+  foregroundAnimation,
   ...restProps
 }: SayProps) {
   const {containerSize} = useBranchContext()
@@ -57,7 +63,7 @@ export function Say({
             <ForegroundView
               src={foregroundSrc}
               style={foregroundStyle}
-              variants={variants}
+              animation={foregroundAnimation}
               controls={controls}
             />
           )}
@@ -74,12 +80,8 @@ export function Say({
             style={style}>
             {tag && (
               <motion.span
-                className="text-md mb-1 whitespace-pre-wrap rounded-md px-1 text-center font-calligraph"
-                style={{
-                  color: '#fBf9e0',
-                  background: 'rgba(165, 123, 85, .75)',
-                }}
-                variants={variants}
+                className="text-md GameEngine-tag mb-1 whitespace-pre-wrap rounded-md px-1 text-center font-calligraph"
+                variants={animation}
                 initial="initial"
                 animate={controls}>
                 {tag}
@@ -88,7 +90,8 @@ export function Say({
 
             <TextComp
               className={clsx(
-                'whitespace-pre-wrap text-center font-calligraph',
+                'GameEngine-text whitespace-pre-wrap text-center font-calligraph',
+                scheme === 'dark' && 'GameEngine-text--dark',
                 {
                   md: 'text-md',
                   lg: 'text-xl',
@@ -96,11 +99,6 @@ export function Say({
                 }[size],
               )}
               style={{
-                color: variant === 'dark' ? '#fBf9e0' : 'hsl(206, 24.0%, 9.0%)',
-                textShadow:
-                  variant === 'dark'
-                    ? '0 -1px rgba(0, 0, 0, .35), 0 2px hsl(206, 24.0%, 9.0%), 0 0 4px rgba(0, 0, 0), 0 0 4px rgba(0, 0, 0), 0 0 4px rgba(0, 0, 0)'
-                    : '0 1px hsl(209, 12.2%, 93.2%), 0 0 4px rgba(255, 255, 255), 0 0 4px rgba(255, 255, 255), 0 0 4px rgba(255, 255, 255)',
                 ...(href && {
                   textDecoration: 'underline',
                   textUnderlineOffset: size ? '6px' : '4px',
@@ -112,8 +110,9 @@ export function Say({
                 href,
                 target: '_blank',
                 rel: 'noopener noreferrer',
+                onClick: (event) => event.stopPropagation(),
               })}
-              variants={variants}
+              variants={animation}
               initial="initial"
               animate={controls}>
               {chars.map((char, idx) => (
@@ -123,7 +122,7 @@ export function Say({
                     // Scale font size according to container size
                     fontSize: `${containerSize[0] / REFERENCE_SIZE[0]}em`,
                   }}
-                  variants={variants}
+                  variants={animation}
                   initial="initial"
                   animate={controls}
                   custom={idx}>

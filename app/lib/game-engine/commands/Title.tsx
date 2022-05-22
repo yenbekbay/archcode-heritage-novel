@@ -1,15 +1,15 @@
 import {motion} from 'framer-motion'
-import type {CommandProps, CommandViewVariants} from '../components'
+import type {CommandProps, CommandViewAnimation} from '../components'
 import {Command} from '../components'
 
 export interface TitleProps extends Partial<Omit<CommandProps, 'children'>> {
   children: string
-  variants?: CommandViewVariants
+  animation?: CommandViewAnimation
 }
 
 export function Title({
   children,
-  variants = {
+  animation = {
     initial: {opacity: 0},
     entrance: {
       opacity: 1,
@@ -27,9 +27,8 @@ export function Title({
       {(controls) => (
         <div className="flex flex-1 flex-col justify-center p-8">
           <motion.span
-            className="text-center font-calligraph text-5xl font-semibold text-red-500"
-            style={{textShadow: '0 1px hsl(206, 24.0%, 9.0%)'}}
-            variants={variants}
+            className="GameEngine-title text-center font-calligraph text-5xl font-semibold"
+            variants={animation}
             initial="initial"
             animate={controls}>
             {children}

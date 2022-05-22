@@ -89,7 +89,7 @@ export function BranchActivist_CheckOut_Act_Org() {
       </Branch.Title>
 
       <Branch.Choices
-        variant="dark"
+        scheme="dark"
         choices={[
           {
             label: 'Начать заново',

@@ -58,7 +58,7 @@ export function BranchActivist_CheckOut_Act_Group() {
       </Branch.Say>
 
       <Branch.Say
-        variant="dark"
+        scheme="dark"
         foregroundSrc={bgPhoneHandJpg}
         foregroundStyle={{
           height: '100%',
@@ -306,7 +306,7 @@ export function BranchActivist_CheckOut_Act_Group() {
       </Branch.Say>
 
       <Branch.Say
-        variant="dark"
+        scheme="dark"
         foregroundSrc={bgPhoneFingerJpg}
         foregroundStyle={{
           width: '100%',
@@ -352,7 +352,7 @@ export function BranchActivist_CheckOut_Act_Group() {
       </Branch.Say>
 
       <Branch.Say
-        variant="dark"
+        scheme="dark"
         foregroundSrc={bgPhoneFingerJpg}
         foregroundStyle={{
           width: '100%',

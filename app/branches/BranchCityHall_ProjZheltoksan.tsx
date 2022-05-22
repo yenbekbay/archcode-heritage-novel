@@ -30,7 +30,7 @@ export function BranchCityHall_ProjZheltoksan() {
       </Branch.Say>
 
       <Branch.Choices
-        variant="dark"
+        scheme="dark"
         choices={[
           {
             label: 'Нужна экспертиза',

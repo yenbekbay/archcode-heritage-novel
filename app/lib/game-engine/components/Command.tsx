@@ -11,7 +11,9 @@ import {
   useStatementContext,
 } from '../contexts'
 
-export type CommandViewVariants = {
+export type CommandViewColorScheme = 'default' | 'dark'
+
+export type CommandViewAnimation = {
   initial: Variant
   entrance: Variant
   exit: Variant
@@ -21,9 +23,9 @@ export interface CommandProps {
   children: (controls: AnimationControls) => React.ReactNode
   durationMs?: number
   skippable?: boolean
-  /** Should branch automatically skip to next statementIndex after duration? */
+  /** Should branch automatically skip to next statement after duration? */
   transitory?: boolean
-  /** Should content still be shown after skipping to next statementIndex? */
+  /** Should content still be shown after skipping to next statement? */
   lingers?: boolean | number
 }
 
@@ -192,7 +194,7 @@ const CommandView = React.forwardRef(function CommandView(
 
   return (
     <div
-      className="absolute inset-0 flex flex-col"
+      className="game-command absolute inset-0 flex flex-col"
       style={{zIndex: statementIndex}}>
       <AnimatePresence>
         {skippable && transitory && focused && (

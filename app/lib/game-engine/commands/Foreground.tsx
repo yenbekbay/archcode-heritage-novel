@@ -1,18 +1,18 @@
-import type {CommandProps, CommandViewVariants} from '../components'
+import type {CommandProps, CommandViewAnimation} from '../components'
 import {Command} from '../components'
-import {ForegroundView} from './internal'
+import {ForegroundView} from './views'
 
 export interface ForegroundProps
   extends Partial<Omit<CommandProps, 'children'>> {
   src: string
   style?: React.CSSProperties
-  variants?: CommandViewVariants
+  animation?: CommandViewAnimation
 }
 
 export function Foreground({
   src,
   style,
-  variants = {
+  animation = {
     initial: {opacity: 0},
     entrance: {
       opacity: 1,
@@ -31,7 +31,7 @@ export function Foreground({
         <ForegroundView
           src={src}
           style={style}
-          variants={variants}
+          animation={animation}
           controls={controls}
         />
       )}

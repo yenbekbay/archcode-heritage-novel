@@ -82,7 +82,7 @@ export function BranchCityHall_ProjZheltoksan_Approve_AskHelp() {
       </Branch.Title>
 
       <Branch.Choices
-        variant="dark"
+        scheme="dark"
         choices={[
           {
             label: 'Начать заново',

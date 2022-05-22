@@ -101,25 +101,3 @@ export function useGameContext() {
   }
   return ctx
 }
-
-// MARK: Helpers
-
-export function prepareBranches<
-  TRawBranches extends Record<string, React.ComponentType>,
->(_branches: TRawBranches) {
-  const branches = Object.fromEntries(
-    Object.entries(_branches)
-      .filter(([exportName]) => exportName.startsWith('Branch'))
-      .map(([exportName, exportVal]) => [
-        exportName.replace(SCENE_PREFIX_RE, ''),
-        exportVal,
-      ]),
-  ) as {
-    [K in keyof typeof _branches as K extends `Branch${infer TId}`
-      ? TId
-      : never]: typeof _branches[K]
-  }
-  return branches
-}
-
-const SCENE_PREFIX_RE = /^Branch/

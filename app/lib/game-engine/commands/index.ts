@@ -4,4 +4,5 @@ export * from './Choices'
 export * from './Foreground'
 export * from './Say'
 export * from './Title'
+export * from './views/index'
 // codegen:end

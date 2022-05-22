@@ -17,7 +17,7 @@ export function BranchActivist_CheckOut_Act() {
       </Branch.Say>
 
       <Branch.Choices
-        variant="dark"
+        scheme="dark"
         choices={[
           {
             label: 'Разберусь сама',

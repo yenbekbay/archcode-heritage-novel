@@ -44,16 +44,11 @@ export function BranchActivist_CheckOut_Act_Self() {
         lingers={3}
       />
 
-      <Branch.Say
-        size="lg"
-        variant="dark"
-        durationMs={0}
-        transitory
-        lingers={1}>
+      <Branch.Say size="lg" scheme="dark" durationMs={0} transitory lingers={1}>
         Действовать надо последовательно
       </Branch.Say>
 
-      <Branch.Say size="lg" placement="bottom" variant="dark" transitory>
+      <Branch.Say size="lg" placement="bottom" scheme="dark" transitory>
         Для начала узнаю, кто здесь - заинтересованные стороны
       </Branch.Say>
 
@@ -73,7 +68,7 @@ export function BranchActivist_CheckOut_Act_Self() {
         Узнать надо побольше…
       </Branch.Say>
 
-      <Branch.Say size="lg" placement="bottom" variant="dark">
+      <Branch.Say size="lg" placement="bottom" scheme="dark">
         И не только почитать новости, а проверить, правду ли говорят
       </Branch.Say>
 

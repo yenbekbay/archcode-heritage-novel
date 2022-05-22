@@ -109,7 +109,7 @@ function GameView({assets, branches, initialBranchId, onClose}: GameViewProps) {
 
                 <div>
                   <div className="prose p-2">
-                    <h4>Go to branch</h4>
+                    <span className="text-lg font-semibold">Go to branch</span>
                   </div>
 
                   {Object.keys(branches).map((branchId) => (
@@ -155,7 +155,7 @@ export function prepareBranches<
     Object.entries(_branches)
       .filter(([exportName]) => exportName.startsWith('Branch'))
       .map(([exportName, exportVal]) => [
-        exportName.replace(SCENE_PREFIX_RE, ''),
+        exportName.replace(BRANCH_PREFIX_RE, ''),
         exportVal,
       ]),
   ) as {
@@ -166,4 +166,4 @@ export function prepareBranches<
   return branches
 }
 
-const SCENE_PREFIX_RE = /^Branch/
+const BRANCH_PREFIX_RE = /^Branch/

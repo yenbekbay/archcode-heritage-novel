@@ -1,10 +1,12 @@
 import {
   bgBldg1Jpg,
   bgPhoneFingerJpg,
+  bgPhoneHandJpg,
   redhead2Png,
   redhead5Png,
   redhead7Png,
 } from '~/assets/game'
+import {UploadMeme} from '~/commands'
 import {makeStrictBranch} from '~/lib'
 
 type StatementLabel = 'upload_meme' | 'publish_post' | 'acknowledged'
@@ -38,7 +40,7 @@ export function BranchActivist_CheckOut_SocialMedia() {
       </Branch.Say>
 
       <Branch.Choices
-        variant="dark"
+        scheme="dark"
         choices={[
           {
             label: 'Создать мем',
@@ -52,8 +54,27 @@ export function BranchActivist_CheckOut_SocialMedia() {
       />
 
       <Branch.Label label="upload_meme">
+        <UploadMeme
+          frame={{
+            viewport: [1080, 1920],
+            rect: {
+              x: 200,
+              y: 180,
+              width: 680,
+              height: 1500,
+            },
+          }}
+          foregroundSrc={bgPhoneHandJpg}
+          foregroundStyle={{
+            height: '100%',
+            width: '100%',
+            objectFit: 'cover',
+            transform: 'scale(2.5) rotate(5deg) translateX(-6%) translateY(3%)',
+          }}
+        />
+
         <Branch.Choices
-          variant="dark"
+          scheme="dark"
           choices={[
             {
               label: 'Загрузить мем',
@@ -72,7 +93,7 @@ export function BranchActivist_CheckOut_SocialMedia() {
 
       <Branch.Label label="publish_post">
         <Branch.Choices
-          variant="dark"
+          scheme="dark"
           choices={[
             {
               label: 'Загрузить пост',
@@ -121,7 +142,7 @@ export function BranchActivist_CheckOut_SocialMedia() {
       </Branch.Title>
 
       <Branch.Choices
-        variant="dark"
+        scheme="dark"
         choices={[
           {
             label: 'Начать заново',

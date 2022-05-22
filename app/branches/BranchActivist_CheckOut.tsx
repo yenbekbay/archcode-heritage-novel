@@ -39,7 +39,7 @@ export function BranchActivist_CheckOut() {
       </Branch.Say>
 
       <Branch.Choices
-        variant="dark"
+        scheme="dark"
         choices={[
           {
             label: 'Как-то печально всё это',

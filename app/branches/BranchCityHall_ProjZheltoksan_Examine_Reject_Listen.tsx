@@ -35,7 +35,7 @@ export function BranchCityHall_ProjZheltoksan_Examine_Reject_Listen() {
       </Branch.Title>
 
       <Branch.Choices
-        variant="dark"
+        scheme="dark"
         choices={[
           {
             label: 'Начать заново',

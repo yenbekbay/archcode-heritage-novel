@@ -47,7 +47,7 @@ export function BranchCityHall_0Menu() {
       />
 
       <Branch.Choices
-        variant="dark"
+        scheme="dark"
         choices={[
           {
             label: 'Проекты девелопера',

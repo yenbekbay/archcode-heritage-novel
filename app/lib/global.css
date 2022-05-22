@@ -40,3 +40,54 @@
 .progress.rounded-none {
   --rounded-box: 0;
 }
+
+.GameEngine-text {
+  color: rgb(17, 24, 28);
+  text-shadow: 0 1px rgb(236, 238, 240), 0 0 4px rgba(255, 255, 255),
+    0 0 4px rgba(255, 255, 255), 0 0 4px rgba(255, 255, 255);
+}
+
+.GameEngine-text--dark {
+  color: rgb(251, 249, 223);
+  text-shadow: 0 -1px rgba(0, 0, 0, 0.35), 0 2px rgb(17, 24, 28),
+    0 0 4px rgba(0, 0, 0), 0 0 4px rgba(0, 0, 0), 0 0 4px rgba(0, 0, 0);
+}
+
+.GameEngine-title {
+  color: rgb(239, 68, 68);
+  text-shadow: 0 -1px rgba(0, 0, 0, 0.35), 0 2px rgb(17, 24, 28),
+    0 0 4px rgba(0, 0, 0), 0 0 4px rgba(0, 0, 0), 0 0 4px rgba(0, 0, 0);
+}
+
+.GameEngine-tag {
+  color: rgb(251, 249, 223);
+  background-color: rgba(165, 123, 85, 0.75);
+}
+
+.GameEngine-button {
+  color: rgb(17, 24, 28);
+  background-color: rgba(255, 255, 255, 0.25);
+  text-shadow: 0 1px rgb(236, 238, 240), 0 0 4px rgba(255, 255, 255),
+    0 0 4px rgba(255, 255, 255), 0 0 4px rgba(255, 255, 255);
+  box-shadow: 0 2px rgba(0, 0, 0, 0.35);
+}
+
+.GameEngine-button--dark {
+  color: rgb(251, 249, 223);
+  background-color: rgba(0, 0, 0, 0.25);
+  text-shadow: 0 -1px rgba(0, 0, 0, 0.35), 0 2px rgb(17, 24, 28),
+    0 0 4px rgba(0, 0, 0), 0 0 4px rgba(0, 0, 0), 0 0 4px rgba(0, 0, 0);
+  box-shadow: 0 2px rgba(0, 0, 0, 0.35);
+}
+
+.GameEngine-surface {
+  border-color: rgb(17, 24, 28);
+  background-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 2px rgba(0, 0, 0, 0.35);
+}
+
+.GameEngine-surface--dark {
+  border-color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+  box-shadow: 0 2px rgba(0, 0, 0, 0.35);
+}
