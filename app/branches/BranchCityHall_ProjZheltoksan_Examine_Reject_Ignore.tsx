@@ -28,7 +28,7 @@ export function BranchCityHall_ProjZheltoksan_Examine_Reject_Ignore() {
           transformOrigin: '50% 35%',
         }}
         transitory
-        lingers={1}
+        lingers={2}
       />
 
       <Branch.Foreground
@@ -40,6 +40,7 @@ export function BranchCityHall_ProjZheltoksan_Examine_Reject_Ignore() {
           transform: 'translateY(-15%)',
         }}
         transitory
+        lingers={1}
       />
 
       <Branch.Foreground

@@ -2,7 +2,9 @@ import {
   angryCrowd1Png,
   bgCityHallOfficeJpg,
   bgZheltoksanBeforeJpg,
+  letterPng,
   mayor4Png,
+  stampApprovedPng,
 } from '~/assets/game'
 import {makeStrictBranch} from '~/lib'
 
@@ -10,7 +12,41 @@ const Branch = makeStrictBranch()
 
 export function BranchCityHall_ProjZheltoksan_Approve() {
   return (
-    <Branch.Root background={bgZheltoksanBeforeJpg}>
+    <Branch.Root background={bgCityHallOfficeJpg}>
+      <Branch.Foreground
+        src={letterPng}
+        style={{
+          height: '100%',
+          width: '100%',
+          objectFit: 'cover',
+          backgroundColor: '#e7dbab',
+          transform: 'scale(2.5)',
+          transformOrigin: '50% 35%',
+        }}
+        transitory
+        lingers={2}
+      />
+
+      <Branch.Foreground
+        src={stampApprovedPng}
+        style={{
+          height: '100%',
+          width: '100%',
+          objectFit: 'cover',
+          transform: 'translateY(-15%)',
+        }}
+        transitory
+        lingers={1}
+      />
+
+      <Branch.Foreground
+        src={bgZheltoksanBeforeJpg}
+        style={{height: '100%', width: '100%', objectFit: 'cover'}}
+        durationMs={0}
+        transitory
+        lingers={1}
+      />
+
       <Branch.Say
         size="lg"
         foregroundSrc={angryCrowd1Png}
@@ -18,14 +54,6 @@ export function BranchCityHall_ProjZheltoksan_Approve() {
         transitory>
         Общественность возмущена
       </Branch.Say>
-
-      <Branch.Foreground
-        src={bgCityHallOfficeJpg}
-        style={{height: '100%', width: '100%', objectFit: 'cover'}}
-        durationMs={0}
-        transitory
-        lingers={2}
-      />
 
       <Branch.Say
         size="xl"

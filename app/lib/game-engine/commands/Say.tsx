@@ -56,7 +56,7 @@ export function Say({
   const chars = children.split('')
   const TextComp = href ? motion.a : motion.span
   return (
-    <Command durationMs={3000 + chars.length * 20} skippable {...restProps}>
+    <Command durationMs={3000 + chars.length * 40} skippable {...restProps}>
       {(controls) => (
         <>
           {foregroundSrc && (

@@ -21,7 +21,7 @@ export function PostBuilder({scheme, onDone}: PostBuilderProps) {
     onValidSubmit: async (event) => {
       event.preventDefault()
       setSubmitting(true)
-      // TODO
+      // FIXME
       setSubmitting(false)
       onDone()
     },

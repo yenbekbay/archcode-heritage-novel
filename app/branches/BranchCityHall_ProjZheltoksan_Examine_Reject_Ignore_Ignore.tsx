@@ -3,7 +3,7 @@ import {
   bgCityHallOfficeJpg,
   bgZheltoksanBeforeJpg,
   letterPng,
-  mayor2Png,
+  mayor4Png,
   stampApprovedPng,
 } from '~/assets/game'
 import {makeStrictBranch} from '~/lib'
@@ -24,7 +24,7 @@ export function BranchCityHall_ProjZheltoksan_Examine_Reject_Ignore_Ignore() {
           transformOrigin: '50% 35%',
         }}
         transitory
-        lingers={1}
+        lingers={2}
       />
 
       <Branch.Foreground
@@ -36,6 +36,7 @@ export function BranchCityHall_ProjZheltoksan_Examine_Reject_Ignore_Ignore() {
           transform: 'translateY(-15%)',
         }}
         transitory
+        lingers={1}
       />
 
       <Branch.Foreground
@@ -43,7 +44,7 @@ export function BranchCityHall_ProjZheltoksan_Examine_Reject_Ignore_Ignore() {
         style={{height: '100%', width: '100%', objectFit: 'cover'}}
         durationMs={0}
         transitory
-        lingers
+        lingers={1}
       />
 
       <Branch.Say
@@ -56,7 +57,7 @@ export function BranchCityHall_ProjZheltoksan_Examine_Reject_Ignore_Ignore() {
 
       <Branch.Say
         size="xl"
-        foregroundSrc={mayor2Png}
+        foregroundSrc={mayor4Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory
         durationMs={0}
@@ -68,11 +69,17 @@ export function BranchCityHall_ProjZheltoksan_Examine_Reject_Ignore_Ignore() {
         choices={[
           {
             label: 'Учесть мнение',
-            onClick: (ctx) => alert('Не готово'),
+            onClick: (ctx) =>
+              ctx.goToBranch(
+                'CityHall_ProjZheltoksan_Examine_Reject_Ignore_Ignore_Listen',
+              ),
           },
           {
             label: 'Игнорировать',
-            onClick: (ctx) => alert('Не готово'),
+            onClick: (ctx) =>
+              ctx.goToBranch(
+                'CityHall_ProjZheltoksan_Examine_Reject_Ignore_Ignore_Ignore',
+              ),
           },
         ]}
       />

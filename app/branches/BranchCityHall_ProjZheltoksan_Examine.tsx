@@ -124,7 +124,7 @@ export function BranchCityHall_ProjZheltoksan_Examine() {
           },
           {
             label: 'Одобрить',
-            onClick: () => alert('Не готово'),
+            onClick: (ctx) => ctx.goToBranch('CityHall_ProjZheltoksan_Approve'),
           },
         ]}
       />
