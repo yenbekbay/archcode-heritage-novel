@@ -6,17 +6,11 @@ import type {
   CommandViewAnimation,
   CommandViewColorScheme,
 } from '../../components'
-import {
-  useBranchContext,
-  useGameContext,
-  useStatementContext,
-} from '../../contexts'
+import {useBranchContext, useGameContext} from '../../contexts'
 import type {Frame} from './frame'
 import {styleForFrame} from './frame'
 
 interface ChoiceContext<TStatementLabel extends string = string> {
-  branchId: BranchId
-  statementIndex: number
   goToBranch: (branchId: BranchId) => void
   goToStatement: (statementLabel: TStatementLabel) => void
   skip: () => void
@@ -50,17 +44,14 @@ export function ChoicesView({
   controls,
 }: ChoicesViewProps) {
   const {goToBranch} = useGameContext()
-  const {branchId, containerSize, goToStatement, skip} = useBranchContext()
-  const {statementIndex} = useStatementContext()
+  const {containerSize, goToStatement, skip} = useBranchContext()
   const ctx = React.useMemo(
     (): ChoiceContext => ({
-      branchId,
-      statementIndex,
       goToStatement,
       goToBranch,
       skip,
     }),
-    [statementIndex, goToStatement, skip, goToBranch, branchId],
+    [goToStatement, skip, goToBranch],
   )
   return (
     <div
@@ -115,29 +106,22 @@ export function ChoicesView({
               }}
             />
           ) : (
-            <motion.div
+            <button
               className={clsx(
-                'GameEngine-button btn btn-ghost h-auto min-h-0 py-1 font-calligraph leading-6 shadow-md',
+                'GameEngine-button btn btn-ghost h-auto min-h-0 animate-bounce-gentle py-1 font-calligraph leading-6 shadow-md',
                 scheme === 'dark' && 'GameEngine-button--dark',
                 {
                   md: 'text-md btn-lg',
                   lg: 'btn-xl text-2xl',
                 }[size],
               )}
-              animate={{y: -8}}
-              transition={{
-                repeat: Infinity,
-                repeatType: 'reverse',
-                delay: 0.05 * idx,
-                duration: 1,
-                ease: 'easeInOut',
-              }}
+              style={{animationDelay: `calc(0.05 * ${idx}s)`}}
               onClick={(event) => {
                 event.stopPropagation()
                 c.onClick(ctx)
               }}>
               {c.label}
-            </motion.div>
+            </button>
           )}
         </motion.div>
       ))}

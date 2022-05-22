@@ -74,7 +74,7 @@ function GameView({assets, branches, initialBranchId, onClose}: GameViewProps) {
       </div>
 
       {process.env.NODE_ENV === 'development' && (
-        <div className="absolute bottom-4 right-4 z-10">
+        <div className="absolute bottom-4 right-4 z-50">
           <PopoverPrimitive.Root>
             <PopoverPrimitive.Trigger asChild>
               <button className="btn btn-ghost btn-circle bg-white text-xl shadow-md">
@@ -88,7 +88,7 @@ function GameView({assets, branches, initialBranchId, onClose}: GameViewProps) {
               sideOffset={4}
               className="no-animation flex flex-col overflow-hidden rounded-lg bg-white p-2 shadow-md radix-side-top:animate-slide-up"
               style={{
-                width: '30rem',
+                width: 'min(calc(100vw - 2rem), 30rem)',
                 maxHeight: 'calc(100vh - calc(4rem + 8px))',
               }}>
               <div className="navbar">
@@ -117,8 +117,13 @@ function GameView({assets, branches, initialBranchId, onClose}: GameViewProps) {
                       key={branchId}
                       className="btn btn-ghost btn-sm btn-block justify-between normal-case"
                       onClick={() => goToBranch(branchId as BranchId)}>
-                      {branchId}
-                      <CaretRightIcon />
+                      <span className="flex w-full flex-row items-center justify-between space-x-1">
+                        <span className="flex-1 overflow-hidden text-ellipsis whitespace-nowrap text-left">
+                          {branchId}
+                        </span>
+
+                        <CaretRightIcon />
+                      </span>
                     </button>
                   ))}
                 </div>

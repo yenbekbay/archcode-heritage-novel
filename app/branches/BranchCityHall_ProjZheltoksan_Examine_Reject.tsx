@@ -73,7 +73,8 @@ export function BranchCityHall_ProjZheltoksan_Examine_Reject() {
       <Branch.Say
         tag="Сабит:"
         foregroundSrc={sabit1Png}
-        foregroundStyle={{width: '100%', bottom: 0}}>
+        foregroundStyle={{width: '100%', bottom: 0}}
+        transitory>
         Там вверху стоят коринфские ордера, на третьем этаже деревянная лепнина.
         Да там такое намешали!
       </Branch.Say>

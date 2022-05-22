@@ -55,6 +55,7 @@ export function BranchActivist_CheckOut_SocialMedia() {
 
       <Branch.Label label="upload_meme">
         <UploadMeme
+          onDone={(ctx) => ctx.goToStatement('acknowledged')}
           frame={{
             viewport: [1080, 1920],
             rect: {
@@ -70,23 +71,6 @@ export function BranchActivist_CheckOut_SocialMedia() {
             width: '100%',
             objectFit: 'cover',
             transform: 'scale(2.5) rotate(5deg) translateX(-6%) translateY(3%)',
-          }}
-        />
-
-        <Branch.Choices
-          scheme="dark"
-          choices={[
-            {
-              label: 'Загрузить мем',
-              onClick: (ctx) => ctx.goToStatement('acknowledged'),
-            },
-          ]}
-          foregroundSrc={bgPhoneFingerJpg}
-          foregroundStyle={{
-            width: '100%',
-            height: '100%',
-            objectFit: 'cover',
-            transform: 'scale(2) rotate(-9.5deg) translateX(-20px)',
           }}
         />
       </Branch.Label>

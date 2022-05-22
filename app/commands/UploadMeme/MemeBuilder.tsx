@@ -10,9 +10,10 @@ import type {CommandViewColorScheme} from '~/lib'
 
 export interface MemeBuilderProps {
   scheme?: CommandViewColorScheme
+  onDone: () => void
 }
 
-export function MemeBuilder({scheme}: MemeBuilderProps) {
+export function MemeBuilder({scheme, onDone}: MemeBuilderProps) {
   const [activeTemplateId, setActiveTemplateId] = React.useState<string | null>(
     null,
   )
@@ -63,14 +64,33 @@ export function MemeBuilder({scheme}: MemeBuilderProps) {
           <span className="text-lg font-semibold">{activeTemplate.name}</span>
 
           {previewUrl ? (
-            <button
-              className={clsx(
-                'GameEngine-button btn btn-outline font-calligraph',
-                scheme === 'dark' && 'GameEngine-button--dark',
-              )}
-              onClick={() => alert('Не готово')}>
-              Сохранить
-            </button>
+            <div className="flex flex-col space-y-2">
+              <button
+                className={clsx(
+                  'GameEngine-button btn btn-outline font-calligraph',
+                  scheme === 'dark' && 'GameEngine-button--dark',
+                )}
+                onClick={() =>
+                  navigator.share({
+                    title: 'Снести нельзя оставить!',
+                    url: previewUrl,
+                  })
+                }>
+                Поделиться
+              </button>
+
+              <button
+                className={clsx(
+                  'GameEngine-button btn btn-outline font-calligraph',
+                  scheme === 'dark' && 'GameEngine-button--dark',
+                )}
+                onClick={() => {
+                  // TODO
+                  onDone()
+                }}>
+                Сохранить
+              </button>
+            </div>
           ) : (
             <MemeBuilderForm
               scheme={scheme}
