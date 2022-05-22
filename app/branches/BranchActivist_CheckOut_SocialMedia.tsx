@@ -6,7 +6,7 @@ import {
   redhead5Png,
   redhead7Png,
 } from '~/assets/game'
-import {UploadMeme} from '~/commands'
+import {UploadMeme, UploadPost} from '~/commands'
 import {makeStrictBranch} from '~/lib'
 
 type StatementLabel = 'upload_meme' | 'publish_post' | 'acknowledged'
@@ -76,20 +76,23 @@ export function BranchActivist_CheckOut_SocialMedia() {
       </Branch.Label>
 
       <Branch.Label label="publish_post">
-        <Branch.Choices
-          scheme="dark"
-          choices={[
-            {
-              label: 'Загрузить пост',
-              onClick: (ctx) => ctx.goToStatement('acknowledged'),
+        <UploadPost
+          onDone={(ctx) => ctx.goToStatement('acknowledged')}
+          frame={{
+            viewport: [1080, 1920],
+            rect: {
+              x: 200,
+              y: 220,
+              width: 680,
+              height: 1500,
             },
-          ]}
-          foregroundSrc={bgPhoneFingerJpg}
+          }}
+          foregroundSrc={bgPhoneHandJpg}
           foregroundStyle={{
-            width: '100%',
             height: '100%',
+            width: '100%',
             objectFit: 'cover',
-            transform: 'scale(2) rotate(-9.5deg) translateX(-20px)',
+            transform: 'scale(2.5) rotate(5deg) translateX(-6%) translateY(3%)',
           }}
         />
       </Branch.Label>
