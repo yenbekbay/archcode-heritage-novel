@@ -44,7 +44,7 @@ export function BranchIntro() {
 
       <Branch.Say size="lg" transitory>
         “Это машина времени, которая вернет вас туда, где небо было голубым.
-        Наше настоящее в ваших руках!” - были его последние слова.
+        Наше настоящее в ваших руках!” — были его последние слова.
       </Branch.Say>
 
       <Branch.Title transitory lingers>

@@ -14,7 +14,7 @@ export function BranchCityHall_ProjZheltoksan_Examine_Reject_Listen() {
         foregroundSrc={mayor3Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
-        Выявлен ряд нарушений! Девелопер должен пересмотреть проект
+        —Выявлен ряд нарушений! Девелопер должен пересмотреть проект
       </Branch.Say>
 
       <Branch.Foreground

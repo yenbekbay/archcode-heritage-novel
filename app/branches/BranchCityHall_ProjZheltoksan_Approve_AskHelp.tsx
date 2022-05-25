@@ -40,7 +40,7 @@ export function BranchCityHall_ProjZheltoksan_Approve_AskHelp() {
         foregroundSrc={angryCrowd1Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
-        {`-Надувательство\n\n-Бред собачий`}
+        {`—Надувательство\n\n—Бред собачий`}
       </Branch.Say>
 
       <Branch.Say
@@ -48,7 +48,7 @@ export function BranchCityHall_ProjZheltoksan_Approve_AskHelp() {
         foregroundSrc={angryCrowd2Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
-        -Продажные чуваки
+        —Продажные чуваки
       </Branch.Say>
 
       <Branch.Foreground

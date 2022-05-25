@@ -19,7 +19,7 @@ export function BranchActivist_CheckOut_Act_Org() {
         foregroundSrc={redhead19Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
-        Алло, здравствуйте, это Архкод?
+        —Алло, здравствуйте, это Архкод?
       </Branch.Say>
 
       <Branch.Foreground
@@ -35,14 +35,14 @@ export function BranchActivist_CheckOut_Act_Org() {
         foregroundSrc={sillhouettePng}
         foregroundStyle={{width: '90%', bottom: 0}}
         transitory>
-        Здравствуйте, да, я вас слушаю.
+        —Здравствуйте, да, я вас слушаю.
       </Branch.Say>
 
       <Branch.Say
         foregroundSrc={redhead19Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
-        Непонятно, что творится! Забор там! Здание снесут! Унчтожат!
+        —Непонятно, что творится! Забор там! Здание снесут! Унчтожат!
         Испоганят!!! Что делать???
       </Branch.Say>
 
@@ -59,7 +59,7 @@ export function BranchActivist_CheckOut_Act_Org() {
         foregroundSrc={sillhouettePng}
         foregroundStyle={{width: '90%', bottom: 0}}
         transitory>
-        Без паники. Приходите, поделимся опытом
+        —Без паники. Приходите, поделимся опытом
       </Branch.Say>
 
       <Branch.Say

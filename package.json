@@ -78,6 +78,7 @@
     "@tailwindcss/typography": "0.5.2",
     "@trivago/prettier-plugin-sort-imports": "3.2.0",
     "@types/intrinsic-scale": "3.0.0",
+    "@types/prettier": "2.6.3",
     "@types/react": "17.0.37",
     "@types/react-dom": "17.0.11",
     "@types/tailwindcss": "3.0.10",

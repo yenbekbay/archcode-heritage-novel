@@ -21,7 +21,7 @@ export function BranchCityHall_ProjZheltoksan_Approve_Debate() {
         foregroundSrc={sabit1Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
-        По сохранению исторического наследия я на 200% с вами согласен. Но по
+        —По сохранению исторического наследия я на 200% с вами согласен. Но по
         этому зданию, чтобы его непременно сохранить, я бы так не упирался
       </Branch.Say>
 
@@ -30,7 +30,7 @@ export function BranchCityHall_ProjZheltoksan_Approve_Debate() {
         foregroundSrc={sabit1Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
-        Вы помните фасад этого здания. Его переделывали 6 раз. Каждый министр
+        —Вы помните фасад этого здания. Его переделывали 6 раз. Каждый министр
         приходил и «вкладывал» в это здание свое архитектурное видение
       </Branch.Say>
 
@@ -39,8 +39,8 @@ export function BranchCityHall_ProjZheltoksan_Approve_Debate() {
         foregroundSrc={sabit1Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
-        Раньше оно было желтым, а сейчас это сине-зеленый базар. Скажите, что мы
-        бережем?
+        —Раньше оно было желтым, а сейчас это сине-зеленый базар. Скажите, что
+        мы бережем?
       </Branch.Say>
 
       <Branch.Say
@@ -48,8 +48,8 @@ export function BranchCityHall_ProjZheltoksan_Approve_Debate() {
         foregroundSrc={sabit1Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
-        Там вверху стоят коринфские ордера, на третьем этаже деревянная лепнина.
-        Да там такое намешали!
+        —Там вверху стоят коринфские ордера, на третьем этаже деревянная
+        лепнина. Да там такое намешали!
       </Branch.Say>
 
       <Branch.Say
@@ -57,7 +57,7 @@ export function BranchCityHall_ProjZheltoksan_Approve_Debate() {
         foregroundSrc={sabit1Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
-        Этого вообще нельзя допускать! Для чего его беречь, если в нем нет
+        —Этого вообще нельзя допускать! Для чего его беречь, если в нем нет
         единого архитектурного стиля?!
       </Branch.Say>
 
@@ -66,7 +66,7 @@ export function BranchCityHall_ProjZheltoksan_Approve_Debate() {
         foregroundSrc={journalist1Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
-        Здание находится напротив памятника истории и культуры - бывшего здания
+        —Здание находится напротив памятника истории и культуры - бывшего здания
         гостиницы «Иссык» («Дом делегатов», ныне офис компании Zepter) и,
         возможно, входит в зону регулируемой застройки
       </Branch.Say>
@@ -76,7 +76,7 @@ export function BranchCityHall_ProjZheltoksan_Approve_Debate() {
         foregroundSrc={journalist1Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
-        Таким образом, снос здания бывшего Госплана может привести к нарушению
+        —Таким образом, снос здания бывшего Госплана может привести к нарушению
         архитектурной композиции…
       </Branch.Say>
 
@@ -85,8 +85,8 @@ export function BranchCityHall_ProjZheltoksan_Approve_Debate() {
         foregroundSrc={sabit1Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
-        Никто еще ничего не сносит. У владельцев есть намерение. И они приносили
-        нам 4 проекта, которые мы отклонили
+        —Никто еще ничего не сносит. У владельцев есть намерение. И они
+        приносили нам 4 проекта, которые мы отклонили
       </Branch.Say>
 
       <Branch.Say
@@ -94,8 +94,8 @@ export function BranchCityHall_ProjZheltoksan_Approve_Debate() {
         foregroundSrc={sabit1Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
-        Они предлагали построить 9-этажное здание в стиле модерн, торговый центр
-        и другие проекты
+        —Они предлагали построить 9-этажное здание в стиле модерн, торговый
+        центр и другие проекты
       </Branch.Say>
 
       <Branch.Say
@@ -103,7 +103,7 @@ export function BranchCityHall_ProjZheltoksan_Approve_Debate() {
         foregroundSrc={sabit1Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
-        В этом районе историческая застройка, и мы сказали, чтобы они
+        —В этом районе историческая застройка, и мы сказали, чтобы они
         подготовили проект в неоклассическом стиле
       </Branch.Say>
 
@@ -112,7 +112,7 @@ export function BranchCityHall_ProjZheltoksan_Approve_Debate() {
         foregroundSrc={sabit1Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
-        Сейчас они готовят новый проект. На этом мы остановились
+        —Сейчас они готовят новый проект. На этом мы остановились
       </Branch.Say>
 
       <Branch.Say

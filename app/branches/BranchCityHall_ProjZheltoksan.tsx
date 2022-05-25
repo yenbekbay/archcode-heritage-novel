@@ -15,7 +15,7 @@ export function BranchCityHall_ProjZheltoksan() {
         foregroundSrc={developerRepPng}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
-        Добрый день, я - представитель Bay Shatyr Group. Представляю вашему
+        —Добрый день, я — представитель Bay Shatyr Group. Представляю вашему
         внимаюпроект KAISAR PLAZA
       </Branch.Say>
 
@@ -26,7 +26,7 @@ export function BranchCityHall_ProjZheltoksan() {
         transitory
         durationMs={0}
         lingers={1}>
-        Хммм…
+        —Хммм…
       </Branch.Say>
 
       <Branch.Choices

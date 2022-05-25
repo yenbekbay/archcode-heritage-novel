@@ -108,7 +108,7 @@ export function MemeBuilder({scheme, onDone}: MemeBuilderProps) {
         <img
           key={t.id}
           className={clsx(
-            'GameEngine-surface h-auto w-full animate-pulse object-contain',
+            'GameEngine-surface h-auto w-full animate-pulse cursor-pointer object-contain',
             scheme === 'dark' && 'GameEngine-surface--dark',
           )}
           src={t.url}

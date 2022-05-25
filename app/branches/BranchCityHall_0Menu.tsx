@@ -35,7 +35,7 @@ export function BranchCityHall_0Menu() {
         foregroundSrc={mayor1Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
-        -Так-с…Что у нас на повестке дня?
+        Так-с…Что у нас на повестке дня?
       </Branch.Say>
 
       <Branch.Foreground

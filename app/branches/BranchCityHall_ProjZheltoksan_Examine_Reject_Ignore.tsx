@@ -68,7 +68,7 @@ export function BranchCityHall_ProjZheltoksan_Examine_Reject_Ignore() {
         foregroundSrc={developerRepPng}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
-        Добрый день, я - представитель Bay Shatyr Group. В рамках проекта будет
+        —Добрый день, я — представитель Bay Shatyr Group. В рамках проекта будет
         построено девятиэтажное здание
       </Branch.Say>
 
@@ -77,7 +77,7 @@ export function BranchCityHall_ProjZheltoksan_Examine_Reject_Ignore() {
         foregroundSrc={developerRepPng}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
-        Под галереей на последнем этаже подразумевается ресторан. Подземный
+        —Под галереей на последнем этаже подразумевается ресторан. Подземный
         3-уровневый паркинг на 490 авто
       </Branch.Say>
 
@@ -86,7 +86,7 @@ export function BranchCityHall_ProjZheltoksan_Examine_Reject_Ignore() {
         foregroundSrc={redhead12Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
-        Но ведь это создаёт огромную нагрузку на транспортную инфраструктуру и
+        —Но ведь это создаёт огромную нагрузку на транспортную инфраструктуру и
         не только…
       </Branch.Say>
 
@@ -95,7 +95,7 @@ export function BranchCityHall_ProjZheltoksan_Examine_Reject_Ignore() {
         foregroundSrc={developerRepPng}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
-        Всё под контролем, беспокойств не будет. Всё рассчитано и одобрено
+        —Всё под контролем, беспокойств не будет. Всё рассчитано и одобрено
       </Branch.Say>
 
       <Branch.Say
@@ -103,7 +103,7 @@ export function BranchCityHall_ProjZheltoksan_Examine_Reject_Ignore() {
         foregroundSrc={redhead14Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
-        Судя по всему, предполагается вырубка всех существующих на территории
+        —Судя по всему, предполагается вырубка всех существующих на территории
         здания деревьев???
       </Branch.Say>
 
@@ -112,7 +112,7 @@ export function BranchCityHall_ProjZheltoksan_Examine_Reject_Ignore() {
         foregroundSrc={developerRepPng}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
-        Согласно правилам маслихата по озеленению, в качестве компенсации мы
+        —Согласно правилам маслихата по озеленению, в качестве компенсации мы
         обязуемся высадить соответствующее количество деревьев на землях общего
         пользования. Все по правилам, и придуманы они не нами
       </Branch.Say>
@@ -122,7 +122,7 @@ export function BranchCityHall_ProjZheltoksan_Examine_Reject_Ignore() {
         foregroundSrc={redhead13Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
-        А в целом то, здание, хоть и не является официально памятником, но это
+        —А в целом то, здание, хоть и не является официально памятником, но это
         история города! Его непременно нужно сохранить!!!
       </Branch.Say>
 

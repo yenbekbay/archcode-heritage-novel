@@ -54,7 +54,7 @@ export function BranchActivist_CheckOut_Act_Group() {
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory
         lingers={1}>
-        БЕСПРЕДЕЛ!
+        —БЕСПРЕДЕЛ!
       </Branch.Say>
 
       <Branch.Say
@@ -93,7 +93,7 @@ export function BranchActivist_CheckOut_Act_Group() {
         foregroundSrc={redhead15Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
-        Ты представляешь, что происходит ??
+        —Ты представляешь, что происходит ??
       </Branch.Say>
 
       <Branch.Say
@@ -135,9 +135,9 @@ export function BranchActivist_CheckOut_Act_Group() {
           textAlign: 'left',
         }}>
         {[
-          '-Здравствуйте! Меня тоже все это возмущает! Мы должны действовать сообща!',
-          '                            -Здравое дело! Я с вами!',
-          '-Готовы встретиться, назначайте время и место',
+          '—Здравствуйте! Меня тоже все это возмущает! Мы должны действовать сообща!',
+          '                            —Здравое дело! Я с вами!',
+          '—Готовы встретиться, назначайте время и место',
         ].join('\n\n')}
       </Branch.Say>
 
@@ -171,7 +171,7 @@ export function BranchActivist_CheckOut_Act_Group() {
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
         {
-          'Действовать надо последовательно…\n\nДля начала давайте узнаем, кто здесь - заинтересованные стороны'
+          '—Действовать надо последовательно…\n\nДля начала давайте узнаем, кто здесь - заинтересованные стороны'
         }
       </Branch.Say>
 
@@ -202,7 +202,7 @@ export function BranchActivist_CheckOut_Act_Group() {
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
         {
-          'И узнать надо побольше.\n\nИ не только почитать новости, а проверить, правду ли говорят'
+          '—И узнать надо побольше.\n\nИ не только почитать новости, а проверить, правду ли говорят'
         }
       </Branch.Say>
 
@@ -233,7 +233,7 @@ export function BranchActivist_CheckOut_Act_Group() {
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
         {
-          'Нужно как можно больше писать в соц.сети. \n\nЧем больше людей знают, тем сложнее что-то скрыть!'
+          '—Нужно как можно больше писать в соц.сети. \n\nЧем больше людей знают, тем сложнее что-то скрыть!'
         }
       </Branch.Say>
 
@@ -264,7 +264,7 @@ export function BranchActivist_CheckOut_Act_Group() {
         foregroundSrc={activistAPng}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
-        Еще мы должны участвовать в общественных слушаниях…
+        —Еще мы должны участвовать в общественных слушаниях…
       </Branch.Say>
 
       <Branch.Say
@@ -294,7 +294,7 @@ export function BranchActivist_CheckOut_Act_Group() {
         foregroundSrc={redhead1Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
-        Будем писать во все инстанции!!!
+        —Будем писать во все инстанции!!!
       </Branch.Say>
 
       <Branch.Say
@@ -302,7 +302,7 @@ export function BranchActivist_CheckOut_Act_Group() {
         foregroundSrc={activistAPng}
         foregroundStyle={{width: '100%', bottom: 0, transform: 'scaleX(-1)'}}
         transitory>
-        А куда можно написать?
+        —А куда можно написать?
       </Branch.Say>
 
       <Branch.Say
@@ -316,7 +316,7 @@ export function BranchActivist_CheckOut_Act_Group() {
         transitory
         durationMs={0}
         lingers={1}>
-        Вот!
+        —Вот!
       </Branch.Say>
 
       <Branch.Say
@@ -339,7 +339,7 @@ export function BranchActivist_CheckOut_Act_Group() {
         foregroundSrc={redhead18Png}
         foregroundStyle={{width: '100%', bottom: 0, transform: 'scaleX(-1)'}}
         transitory>
-        А если не будет дельных ответов, просто устроим протестную акцию!
+        —А если не будет дельных ответов, просто устроим протестную акцию!
       </Branch.Say>
 
       <Branch.Say
@@ -347,7 +347,7 @@ export function BranchActivist_CheckOut_Act_Group() {
         foregroundSrc={activistBPng}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
-        А я тут новости читал. Есть группа Архкод, вроде как наследием
+        —А я тут новости читал. Есть группа Архкод, вроде как наследием
         занимается
       </Branch.Say>
 
@@ -362,7 +362,7 @@ export function BranchActivist_CheckOut_Act_Group() {
         transitory
         durationMs={0}
         lingers={1}>
-        Вот!
+        —Вот!
       </Branch.Say>
 
       <Branch.Say
@@ -385,7 +385,7 @@ export function BranchActivist_CheckOut_Act_Group() {
         foregroundSrc={activistAPng}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
-        Да, давайте позвоним им
+        —Да, давайте позвоним им
       </Branch.Say>
 
       <Branch.Choices

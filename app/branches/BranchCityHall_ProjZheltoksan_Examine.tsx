@@ -35,7 +35,7 @@ export function BranchCityHall_ProjZheltoksan_Examine() {
         foregroundSrc={expert1Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
-        Вижу нарушения…
+        —Вижу нарушения…
       </Branch.Say>
 
       <Branch.Say
@@ -44,7 +44,7 @@ export function BranchCityHall_ProjZheltoksan_Examine() {
         foregroundSrc={expert2Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
-        Ещё одно! Ещё нарушение!!!
+        —Ещё одно! Ещё нарушение!!!
       </Branch.Say>
 
       <Branch.Foreground
@@ -78,7 +78,7 @@ export function BranchCityHall_ProjZheltoksan_Examine() {
         foregroundSrc={assistant1Png}
         foregroundStyle={{height: '100%', width: '100%', objectFit: 'cover'}}
         transitory>
-        Экспертиза выявила несколько нарушений
+        —Экспертиза выявила несколько нарушений
       </Branch.Say>
 
       <Branch.Foreground
