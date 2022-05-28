@@ -1,6 +1,6 @@
 import {
   bgCityHallConferenceRoomJpg,
-  developerRepPng,
+  developerRepAPng,
   mayor2Png,
 } from '~/assets/game'
 import {makeStrictBranch} from '~/lib'
@@ -10,9 +10,11 @@ const Branch = makeStrictBranch()
 export function BranchCityHall_ProjZheltoksan() {
   return (
     <Branch.Root background={bgCityHallConferenceRoomJpg}>
+      <Branch.Blank durationMs={3000} transitory />
+
       <Branch.Say
         tag="Девелопер:"
-        foregroundSrc={developerRepPng}
+        foregroundSrc={developerRepAPng}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
         —Добрый день, я — представитель Bay Shatyr Group. Представляю вашему

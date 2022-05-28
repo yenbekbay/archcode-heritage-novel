@@ -80,6 +80,14 @@
   box-shadow: 0 2px rgba(0, 0, 0, 0.35);
 }
 
+.GameEngine-button--opaque {
+  background-color: rgba(255, 255, 255);
+}
+
+.GameEngine-button--opaque.GameEngine-button--dark {
+  background-color: rgb(157, 157, 137);
+}
+
 .GameEngine-surface {
   border-color: rgb(17, 24, 28);
   background-color: rgba(255, 255, 255, 0.5);

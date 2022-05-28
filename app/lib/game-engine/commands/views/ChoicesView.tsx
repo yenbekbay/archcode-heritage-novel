@@ -13,6 +13,7 @@ import {styleForFrame} from './frame'
 interface ChoiceContext<TStatementLabel extends string = string> {
   goToBranch: (branchId: BranchId) => void
   goToStatement: (statementLabel: TStatementLabel) => void
+  goToLocation: (branchId: BranchId, statementIndex: number) => void
   skip: () => void
 }
 
@@ -43,15 +44,16 @@ export function ChoicesView({
   animation,
   controls,
 }: ChoicesViewProps) {
-  const {goToBranch} = useGameContext()
+  const {goToBranch, goToLocation} = useGameContext()
   const {containerSize, goToStatement, skip} = useBranchContext()
   const ctx = React.useMemo(
     (): ChoiceContext => ({
       goToStatement,
       goToBranch,
+      goToLocation,
       skip,
     }),
-    [goToStatement, skip, goToBranch],
+    [goToBranch, goToLocation, goToStatement, skip],
   )
   return (
     <div

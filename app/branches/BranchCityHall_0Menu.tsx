@@ -1,5 +1,5 @@
 import {
-  bgCityHallOfficeJpg,
+  bgCityHallMayorOfficeJpg,
   bgCityHallOutsideJpg,
   bgCityHallSignJpg,
   bgMayorDeskJpg,
@@ -23,7 +23,7 @@ export function BranchCityHall_0Menu() {
       />
 
       <Branch.Foreground
-        src={bgCityHallOfficeJpg}
+        src={bgCityHallMayorOfficeJpg}
         style={{height: '100%', width: '100%', objectFit: 'cover'}}
         durationMs={3000}
         transitory
@@ -35,7 +35,7 @@ export function BranchCityHall_0Menu() {
         foregroundSrc={mayor1Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
-        Так-с…Что у нас на повестке дня?
+        —Так-с…Что у нас на повестке дня?
       </Branch.Say>
 
       <Branch.Foreground
@@ -61,7 +61,7 @@ export function BranchCityHall_0Menu() {
                 transform: 'rotate(13deg)',
               },
             },
-            onClick: (ctx) => ctx.goToBranch('CityHall_1Projects'),
+            onClick: (ctx) => ctx.goToBranch('CityHall_Menu_Projects'),
           },
           {
             label: 'Отдел памятников',
@@ -75,7 +75,7 @@ export function BranchCityHall_0Menu() {
                 transform: 'rotate(-17deg)',
               },
             },
-            onClick: () => alert('Не готово'),
+            onClick: (ctx) => ctx.goToBranch('CityHall_Menu_MonumentDept'),
           },
           {
             label: 'Государственные программы',
@@ -89,7 +89,7 @@ export function BranchCityHall_0Menu() {
                 transform: 'rotate(13deg)',
               },
             },
-            onClick: () => alert('Не готово'),
+            onClick: (ctx) => ctx.goToBranch('CityHall_Menu_GovPrograms'),
           },
         ]}
         transitory

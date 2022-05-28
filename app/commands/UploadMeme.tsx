@@ -1,4 +1,5 @@
 import clsx from 'clsx'
+import {motion} from 'framer-motion'
 import {ArrowLeft as ArrowLeftIcon} from 'phosphor-react'
 import React from 'react'
 import toast from 'react-hot-toast'
@@ -6,14 +7,93 @@ import {useZorm} from 'react-zorm'
 import type {Fetcher} from 'swr'
 import useSWR from 'swr'
 import {z} from 'zod'
-import type {CommandViewColorScheme} from '~/lib'
+import type {CommandViewAnimation, CommandViewColorScheme, Frame} from '~/lib'
+import {
+  Command,
+  ForegroundView,
+  styleForFrame,
+  useBranchContext,
+  useGameContext,
+} from '~/lib'
 
-export interface MemeBuilderProps {
+export interface UploadMemeProps {
+  onDone: (ctx: {
+    goToBranch: (branchId: BranchId) => void
+    goToStatement: (statementLabel: string) => void
+    skip: () => void
+  }) => void
+  frame?: Frame
+  scheme?: CommandViewColorScheme
+  foregroundSrc?: string
+  foregroundStyle?: React.CSSProperties
+  foregroundAnimation?: CommandViewAnimation
+}
+
+export function UploadMeme({
+  onDone,
+  frame,
+  scheme,
+  foregroundSrc,
+  foregroundStyle,
+  foregroundAnimation,
+}: UploadMemeProps) {
+  const {goToBranch} = useGameContext()
+  const {containerSize, goToStatement, skip} = useBranchContext()
+  return (
+    <Command>
+      {(controls) => (
+        <>
+          {foregroundSrc && (
+            <ForegroundView
+              src={foregroundSrc}
+              style={foregroundStyle}
+              animation={foregroundAnimation}
+              controls={controls}
+            />
+          )}
+
+          <motion.div
+            className={clsx(
+              'GameEngine-text absolute flex flex-col',
+              scheme === 'dark' && 'GameEngine-text--dark',
+              !frame && 'inset-0 p-8 pt-20',
+            )}
+            style={frame && styleForFrame({containerSize}, frame)}
+            variants={{
+              initial: {opacity: 0},
+              entrance: {
+                opacity: 1,
+                transition: {delay: 0.5, duration: 1},
+              },
+              exit: {
+                opacity: 0,
+                transition: {duration: 0.5, ease: 'easeOut'},
+              },
+            }}
+            initial="initial"
+            animate={controls}>
+            <MemeBuilder
+              scheme={scheme}
+              onDone={() => {
+                // FIXME: Persist the data
+                onDone({goToStatement, goToBranch, skip})
+              }}
+            />
+          </motion.div>
+        </>
+      )}
+    </Command>
+  )
+}
+
+// MARK: MemeBuilder
+
+interface MemeBuilderProps {
   scheme?: CommandViewColorScheme
   onDone: () => void
 }
 
-export function MemeBuilder({scheme, onDone}: MemeBuilderProps) {
+function MemeBuilder({scheme, onDone}: MemeBuilderProps) {
   const [activeTemplateId, setActiveTemplateId] = React.useState<string | null>(
     null,
   )

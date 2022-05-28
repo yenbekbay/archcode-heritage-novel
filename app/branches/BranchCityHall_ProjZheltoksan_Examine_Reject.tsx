@@ -1,9 +1,9 @@
 import {
   bgCityHallConferenceRoomJpg,
-  journalist1Png,
+  journalistPng,
   letterPng,
   mayor2Png,
-  sabit1Png,
+  sabitPng,
   stampRejectedPng,
 } from '~/assets/game'
 import {makeStrictBranch} from '~/lib'
@@ -45,7 +45,7 @@ export function BranchCityHall_ProjZheltoksan_Examine_Reject() {
 
       <Branch.Say
         tag="Сабит:"
-        foregroundSrc={sabit1Png}
+        foregroundSrc={sabitPng}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
         —По сохранению исторического наследия я на 200% с вами согласен. Но по
@@ -54,7 +54,7 @@ export function BranchCityHall_ProjZheltoksan_Examine_Reject() {
 
       <Branch.Say
         tag="Сабит:"
-        foregroundSrc={sabit1Png}
+        foregroundSrc={sabitPng}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
         —Вы помните фасад этого здания. Его переделывали 6 раз. Каждый министр
@@ -63,7 +63,7 @@ export function BranchCityHall_ProjZheltoksan_Examine_Reject() {
 
       <Branch.Say
         tag="Сабит:"
-        foregroundSrc={sabit1Png}
+        foregroundSrc={sabitPng}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
         —Раньше оно было желтым, а сейчас это сине-зеленый базар. Скажите, что
@@ -72,7 +72,7 @@ export function BranchCityHall_ProjZheltoksan_Examine_Reject() {
 
       <Branch.Say
         tag="Сабит:"
-        foregroundSrc={sabit1Png}
+        foregroundSrc={sabitPng}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
         —Там вверху стоят коринфские ордера, на третьем этаже деревянная
@@ -81,7 +81,7 @@ export function BranchCityHall_ProjZheltoksan_Examine_Reject() {
 
       <Branch.Say
         tag="Сабит:"
-        foregroundSrc={sabit1Png}
+        foregroundSrc={sabitPng}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
         —Этого вообще нельзя допускать! Для чего его беречь, если в нем нет
@@ -90,7 +90,7 @@ export function BranchCityHall_ProjZheltoksan_Examine_Reject() {
 
       <Branch.Say
         tag="Журналист:"
-        foregroundSrc={journalist1Png}
+        foregroundSrc={journalistPng}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
         —Здание находится напротив памятника истории и культуры — бывшего здания
@@ -100,7 +100,7 @@ export function BranchCityHall_ProjZheltoksan_Examine_Reject() {
 
       <Branch.Say
         tag="Журналист:"
-        foregroundSrc={journalist1Png}
+        foregroundSrc={journalistPng}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
         —Таким образом, снос здания бывшего Госплана может привести к нарушению
@@ -109,7 +109,7 @@ export function BranchCityHall_ProjZheltoksan_Examine_Reject() {
 
       <Branch.Say
         tag="Сабит:"
-        foregroundSrc={sabit1Png}
+        foregroundSrc={sabitPng}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
         —Никто еще ничего не сносит. У владельцев есть намерение. И они
@@ -118,7 +118,7 @@ export function BranchCityHall_ProjZheltoksan_Examine_Reject() {
 
       <Branch.Say
         tag="Сабит:"
-        foregroundSrc={sabit1Png}
+        foregroundSrc={sabitPng}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
         —Они предлагали построить 9-этажное здание в стиле модерн, торговый
@@ -127,7 +127,7 @@ export function BranchCityHall_ProjZheltoksan_Examine_Reject() {
 
       <Branch.Say
         tag="Сабит:"
-        foregroundSrc={sabit1Png}
+        foregroundSrc={sabitPng}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
         —В этом районе историческая застройка, и мы сказали, чтобы они
@@ -136,7 +136,7 @@ export function BranchCityHall_ProjZheltoksan_Examine_Reject() {
 
       <Branch.Say
         tag="Сабит:"
-        foregroundSrc={sabit1Png}
+        foregroundSrc={sabitPng}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
         —Сейчас они готовят новый проект. На этом мы остановились

@@ -256,7 +256,7 @@ export function BranchActivist_CheckOut_Act_Group() {
           objectFit: 'cover',
           transform: 'scale(2.25) translateX(-15px)',
         }}>
-        Ссылка *22 “как написать пост в соц.сети и быть услышанным.”
+        Ссылка*22 “как написать пост в соц.сети и быть услышанным.”
       </Branch.Say>
 
       <Branch.Say
@@ -286,7 +286,7 @@ export function BranchActivist_CheckOut_Act_Group() {
           objectFit: 'cover',
           transform: 'scale(2.25) translateX(-15px)',
         }}>
-        Ссылка *6 “Как участвовать в общественных слушаниях”
+        Ссылка*6 “Как участвовать в общественных слушаниях”
       </Branch.Say>
 
       <Branch.Say

@@ -194,7 +194,7 @@ const CommandView = React.forwardRef(function CommandView(
 
   return (
     <div
-      className="game-command absolute inset-0 flex flex-col"
+      className="absolute inset-0 flex flex-col"
       style={{zIndex: statementIndex}}>
       <AnimatePresence>
         {skippable && transitory && focused && (

@@ -103,7 +103,7 @@ export function BranchActivist_CheckOut_Act_Self() {
           objectFit: 'cover',
           transform: 'scale(2) translateY(30px)',
         }}>
-        Ссылка *22 “как написать пост в соц.сети и быть услышанным.”
+        Ссылка*22 “как написать пост в соц.сети и быть услышанным.”
       </Branch.Say>
 
       <Branch.Say

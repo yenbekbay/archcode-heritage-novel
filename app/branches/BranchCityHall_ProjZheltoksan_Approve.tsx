@@ -1,6 +1,6 @@
 import {
   angryCrowd1Png,
-  bgCityHallOfficeJpg,
+  bgCityHallMayorOfficeJpg,
   bgZheltoksanBeforeJpg,
   letterPng,
   mayor4Png,
@@ -12,7 +12,7 @@ const Branch = makeStrictBranch()
 
 export function BranchCityHall_ProjZheltoksan_Approve() {
   return (
-    <Branch.Root background={bgCityHallOfficeJpg}>
+    <Branch.Root background={bgCityHallMayorOfficeJpg}>
       <Branch.Foreground
         src={letterPng}
         style={{

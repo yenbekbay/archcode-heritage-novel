@@ -8,9 +8,9 @@ import {
   useBranchContext,
   useGameContext,
 } from '~/lib'
-import {MemeBuilder} from './MemeBuilder'
+import {TextForm} from './internal'
 
-export interface UploadMemeProps {
+export interface UploadPostProps {
   onDone: (ctx: {
     goToBranch: (branchId: BranchId) => void
     goToStatement: (statementLabel: string) => void
@@ -23,14 +23,14 @@ export interface UploadMemeProps {
   foregroundAnimation?: CommandViewAnimation
 }
 
-export function UploadMeme({
+export function UploadPost({
   onDone,
   frame,
   scheme,
   foregroundSrc,
   foregroundStyle,
   foregroundAnimation,
-}: UploadMemeProps) {
+}: UploadPostProps) {
   const {goToBranch} = useGameContext()
   const {containerSize, goToStatement, skip} = useBranchContext()
   return (
@@ -66,9 +66,15 @@ export function UploadMeme({
             }}
             initial="initial"
             animate={controls}>
-            <MemeBuilder
+            <TextForm
+              rows={10}
               scheme={scheme}
-              onDone={() => onDone({goToStatement, goToBranch, skip})}
+              inputLabel="Текст поста"
+              submitLabel="Опубликовать пост"
+              onSubmit={() => {
+                // FIXME: Persist the data
+                onDone({goToStatement, goToBranch, skip})
+              }}
             />
           </motion.div>
         </>

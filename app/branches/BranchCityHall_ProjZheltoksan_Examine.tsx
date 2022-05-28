@@ -2,7 +2,7 @@ import {
   assistant1Png,
   assistant2Png,
   bgCityHallConferenceRoomJpg,
-  bgCityHallOfficeJpg,
+  bgCityHallMayorOfficeJpg,
   bgCityHallOutsideJpg,
   bgMayorDoorJpg,
   bgMayorDoorwayJpg,
@@ -75,6 +75,7 @@ export function BranchCityHall_ProjZheltoksan_Examine() {
       <Branch.Say
         size="lg"
         scheme="dark"
+        tag="Помощник:"
         foregroundSrc={assistant1Png}
         foregroundStyle={{height: '100%', width: '100%', objectFit: 'cover'}}
         transitory>
@@ -99,7 +100,7 @@ export function BranchCityHall_ProjZheltoksan_Examine() {
       </Branch.Say>
 
       <Branch.Foreground
-        src={bgCityHallOfficeJpg}
+        src={bgCityHallMayorOfficeJpg}
         style={{height: '100%', width: '100%', objectFit: 'cover'}}
         transitory
         lingers={2}

@@ -1,7 +1,7 @@
 import {
   angryCrowd1Png,
   angryCrowd2Png,
-  bgCityHallOfficeJpg,
+  bgCityHallMayorOfficeJpg,
   bgPhoneFingerJpg,
   bgZheltoksanAfterJpg,
   bgZheltoksanBeforeFenceGif,
@@ -13,7 +13,7 @@ const Branch = makeStrictBranch()
 
 export function BranchCityHall_ProjZheltoksan_Approve_AskHelp() {
   return (
-    <Branch.Root background={bgCityHallOfficeJpg}>
+    <Branch.Root background={bgCityHallMayorOfficeJpg}>
       <Branch.Say
         size="lg"
         foregroundSrc={bgPhoneFingerJpg}
@@ -67,7 +67,7 @@ export function BranchCityHall_ProjZheltoksan_Approve_AskHelp() {
         transitory
       />
 
-      <Branch.Say size="lg" transitory>
+      <Branch.Say size="xl" transitory>
         Вы успешно реконструировали Желтоксан 115
       </Branch.Say>
 

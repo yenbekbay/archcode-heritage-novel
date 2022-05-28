@@ -1,22 +1,40 @@
 // codegen:start {preset: barrel, include: "./*.{jpg,png,gif}", import: default}
 import activistAPng from './activist-a.png'
 import activistBPng from './activist-b.png'
+import adyaPchelkinaPng from './adya-pchelkina.png'
 import angryCrowd1Png from './angry-crowd-1.png'
 import angryCrowd2Png from './angry-crowd-2.png'
+import archkot1Png from './archkot-1.png'
+import archkot2Png from './archkot-2.png'
+import archkot3Png from './archkot-3.png'
+import archkot4Png from './archkot-4.png'
 import assistant1Png from './assistant-1.png'
 import assistant2Png from './assistant-2.png'
+import assistant3Png from './assistant-3.png'
 import bgAptEntranceJpg from './bg-apt-entrance.jpg'
 import bgAptKitchenJpg from './bg-apt-kitchen.jpg'
 import bgAptOutsideWindowJpg from './bg-apt-outside-window.jpg'
 import bgArchcodeOfficeJpg from './bg-archcode-office.jpg'
+import bgAskAfterAltJpg from './bg-ask-after-alt.jpg'
+import bgAskAfterJpg from './bg-ask-after.jpg'
+import bgAskBeforeFenceGif from './bg-ask-before-fence.gif'
+import bgAskBeforeJpg from './bg-ask-before.jpg'
 import bgBldg1FenceGif from './bg-bldg-1-fence.gif'
 import bgBldg1FenceJpg from './bg-bldg-1-fence.jpg'
 import bgBldg1Jpg from './bg-bldg-1.jpg'
+import bgBusStop1Jpg from './bg-bus-stop-1.jpg'
+import bgBusStop2Jpg from './bg-bus-stop-2.jpg'
+import bgBusStop3Jpg from './bg-bus-stop-3.jpg'
+import bgBusStop4Jpg from './bg-bus-stop-4.jpg'
+import bgBusStop5Jpg from './bg-bus-stop-5.jpg'
+import bgBusStop6Jpg from './bg-bus-stop-6.jpg'
 import bgCityHallConferenceRoomJpg from './bg-city-hall-conference-room.jpg'
-import bgCityHallOfficeJpg from './bg-city-hall-office.jpg'
+import bgCityHallMayorOfficeJpg from './bg-city-hall-mayor-office.jpg'
 import bgCityHallOutsideJpg from './bg-city-hall-outside.jpg'
 import bgCityHallSignJpg from './bg-city-hall-sign.jpg'
 import bgCourtyardJpg from './bg-courtyard.jpg'
+import bgDeveloperHqInsidePng from './bg-developer-hq-inside.png'
+import bgDeveloperHqOutsideJpg from './bg-developer-hq-outside.jpg'
 import bgIntroJpg from './bg-intro.jpg'
 import bgLaptopAboveJpg from './bg-laptop-above.jpg'
 import bgLaptopHandsJpg from './bg-laptop-hands.jpg'
@@ -27,23 +45,44 @@ import bgMayorDeskAJpg from './bg-mayor-desk-a.jpg'
 import bgMayorDeskJpg from './bg-mayor-desk.jpg'
 import bgMayorDoorJpg from './bg-mayor-door.jpg'
 import bgMayorDoorwayJpg from './bg-mayor-doorway.jpg'
+import bgMonumentDeptDoorJpg from './bg-monument-dept-door.jpg'
+import bgMonumentDeptDoorwayJpg from './bg-monument-dept-doorway.jpg'
 import bgPhoneFingerJpg from './bg-phone-finger.jpg'
 import bgPhoneHandJpg from './bg-phone-hand.jpg'
 import bgZheltoksanAfterJpg from './bg-zheltoksan-after.jpg'
 import bgZheltoksanBeforeFenceGif from './bg-zheltoksan-before-fence.gif'
 import bgZheltoksanBeforeFenceJpg from './bg-zheltoksan-before-fence.jpg'
 import bgZheltoksanBeforeJpg from './bg-zheltoksan-before.jpg'
-import developerRepPng from './developer-rep.png'
+import developerRepAPng from './developer-rep-a.png'
+import developerRepB1Png from './developer-rep-b-1.png'
+import developerRepB2Png from './developer-rep-b-2.png'
+import developerRepB3Png from './developer-rep-b-3.png'
+import developerRepB4Png from './developer-rep-b-4.png'
+import developerRepB5Png from './developer-rep-b-5.png'
 import expert1Png from './expert-1.png'
 import expert2Png from './expert-2.png'
 import expert3Png from './expert-3.png'
 import fencePng from './fence.png'
-import journalist1Png from './journalist-1.png'
+import gorzhempoPng from './gorzhempo.png'
+import journalistPng from './journalist.png'
 import letterPng from './letter.png'
 import mayor1Png from './mayor-1.png'
+import mayor10Png from './mayor-10.png'
+import mayor11Png from './mayor-11.png'
+import mayor12Png from './mayor-12.png'
+import mayor13Png from './mayor-13.png'
+import mayor14Png from './mayor-14.png'
+import mayor15Png from './mayor-15.png'
 import mayor2Png from './mayor-2.png'
 import mayor3Png from './mayor-3.png'
 import mayor4Png from './mayor-4.png'
+import mayor5Png from './mayor-5.png'
+import mayor6Png from './mayor-6.png'
+import mayor7Png from './mayor-7.png'
+import mayor8Png from './mayor-8.png'
+import mayor9Png from './mayor-9.png'
+import monumentDeptStaff1Png from './monument-dept-staff-1.png'
+import monumentDeptStaff2Png from './monument-dept-staff-2.png'
 import redhead1Png from './redhead-1.png'
 import redhead10Png from './redhead-10.png'
 import redhead11Png from './redhead-11.png'
@@ -64,30 +103,49 @@ import redhead6Png from './redhead-6.png'
 import redhead7Png from './redhead-7.png'
 import redhead8Png from './redhead-8.png'
 import redhead9Png from './redhead-9.png'
-import sabit1Png from './sabit-1.png'
+import sabitPng from './sabit.png'
 import sillhouettePng from './sillhouette.png'
 import stampApprovedPng from './stamp-approved.png'
 import stampRejectedPng from './stamp-rejected.png'
+import tinaShtunerPng from './tina-shtuner.png'
 
 export {
   activistAPng,
   activistBPng,
+  adyaPchelkinaPng,
   angryCrowd1Png,
   angryCrowd2Png,
+  archkot1Png,
+  archkot2Png,
+  archkot3Png,
+  archkot4Png,
   assistant1Png,
   assistant2Png,
+  assistant3Png,
   bgAptEntranceJpg,
   bgAptKitchenJpg,
   bgAptOutsideWindowJpg,
   bgArchcodeOfficeJpg,
+  bgAskAfterAltJpg,
+  bgAskAfterJpg,
+  bgAskBeforeFenceGif,
+  bgAskBeforeJpg,
   bgBldg1FenceGif,
   bgBldg1FenceJpg,
   bgBldg1Jpg,
+  bgBusStop1Jpg,
+  bgBusStop2Jpg,
+  bgBusStop3Jpg,
+  bgBusStop4Jpg,
+  bgBusStop5Jpg,
+  bgBusStop6Jpg,
   bgCityHallConferenceRoomJpg,
-  bgCityHallOfficeJpg,
+  bgCityHallMayorOfficeJpg,
   bgCityHallOutsideJpg,
   bgCityHallSignJpg,
   bgCourtyardJpg,
+  bgDeveloperHqInsidePng,
+  bgDeveloperHqOutsideJpg,
   bgIntroJpg,
   bgLaptopAboveJpg,
   bgLaptopHandsJpg,
@@ -98,23 +156,44 @@ export {
   bgMayorDeskJpg,
   bgMayorDoorJpg,
   bgMayorDoorwayJpg,
+  bgMonumentDeptDoorJpg,
+  bgMonumentDeptDoorwayJpg,
   bgPhoneFingerJpg,
   bgPhoneHandJpg,
   bgZheltoksanAfterJpg,
   bgZheltoksanBeforeFenceGif,
   bgZheltoksanBeforeFenceJpg,
   bgZheltoksanBeforeJpg,
-  developerRepPng,
+  developerRepAPng,
+  developerRepB1Png,
+  developerRepB2Png,
+  developerRepB3Png,
+  developerRepB4Png,
+  developerRepB5Png,
   expert1Png,
   expert2Png,
   expert3Png,
   fencePng,
-  journalist1Png,
+  gorzhempoPng,
+  journalistPng,
   letterPng,
   mayor1Png,
+  mayor10Png,
+  mayor11Png,
+  mayor12Png,
+  mayor13Png,
+  mayor14Png,
+  mayor15Png,
   mayor2Png,
   mayor3Png,
   mayor4Png,
+  mayor5Png,
+  mayor6Png,
+  mayor7Png,
+  mayor8Png,
+  mayor9Png,
+  monumentDeptStaff1Png,
+  monumentDeptStaff2Png,
   redhead1Png,
   redhead10Png,
   redhead11Png,
@@ -135,9 +214,10 @@ export {
   redhead7Png,
   redhead8Png,
   redhead9Png,
-  sabit1Png,
+  sabitPng,
   sillhouettePng,
   stampApprovedPng,
   stampRejectedPng,
+  tinaShtunerPng,
 }
 // codegen:end

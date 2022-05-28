@@ -4,13 +4,23 @@ import {Spinner} from 'phosphor-react'
 import React from 'react'
 import {z} from 'zod'
 import type {CommandViewColorScheme} from '~/lib'
+import toast from 'react-hot-toast'
 
-export interface PostBuilderProps {
+export interface TextFormProps {
+  inputLabel: string
+  submitLabel: string
+  onSubmit: (body: string) => unknown | Promise<unknown>
+  rows?: number
   scheme?: CommandViewColorScheme
-  onDone: () => void
 }
 
-export function PostBuilder({scheme, onDone}: PostBuilderProps) {
+export function TextForm({
+  inputLabel,
+  submitLabel,
+  onSubmit,
+  rows = 2,
+  scheme,
+}: TextFormProps) {
   const [submitting, setSubmitting] = React.useState(false)
   const [FormSchema] = React.useState(() =>
     z.object({
@@ -21,9 +31,13 @@ export function PostBuilder({scheme, onDone}: PostBuilderProps) {
     onValidSubmit: async (event) => {
       event.preventDefault()
       setSubmitting(true)
-      // FIXME
-      setSubmitting(false)
-      onDone()
+      try {
+        await onSubmit(event.data.body)
+      } catch (err) {
+        toast.error('Что-то пошло не так. Попробуйте ещё раз')
+      } finally {
+        setSubmitting(false)
+      }
     },
   })
   return (
@@ -36,7 +50,7 @@ export function PostBuilder({scheme, onDone}: PostBuilderProps) {
         )}>
         <div className="flex flex-col space-y-2">
           <label className="text-sm font-bold" htmlFor="body">
-            Текст поста
+            {inputLabel}
           </label>
 
           <textarea
@@ -46,7 +60,7 @@ export function PostBuilder({scheme, onDone}: PostBuilderProps) {
             )}
             id="body"
             name="body"
-            rows={10}
+            rows={rows}
           />
 
           {zo.errors.body((err) => (
@@ -58,10 +72,10 @@ export function PostBuilder({scheme, onDone}: PostBuilderProps) {
           type="submit"
           disabled={zo.validation?.success === false}
           className={clsx(
-            'GameEngine-button btn btn-outline font-calligraph',
+            'GameEngine-button GameEngine-button--opaque btn btn-outline font-calligraph',
             scheme === 'dark' && 'GameEngine-button--dark',
           )}>
-          Опубликовать пост
+          {submitLabel}
         </button>
       </form>
 

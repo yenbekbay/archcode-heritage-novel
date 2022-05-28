@@ -26,7 +26,7 @@ export function BranchCityHall_ProjZheltoksan_Examine_Reject_Ignore_Ignore_Ignor
         transitory
       />
 
-      <Branch.Say size="lg" transitory>
+      <Branch.Say size="xl" transitory>
         Вы успешно реконструировали Желтоксан 115
       </Branch.Say>
 
