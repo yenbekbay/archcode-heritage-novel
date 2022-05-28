@@ -81,8 +81,7 @@ export function BranchCityHall_GovPrograms_Stop() {
       <Branch.Say
         href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
         foregroundSrc={archkot3Png}
-        foregroundStyle={{width: '100%', bottom: 0}}
-        transitory>
+        foregroundStyle={{width: '100%', bottom: 0}}>
         {'-Вот карта остановок.\n*ССЫЛКА\n-Они должны охраняться государством!'}
       </Branch.Say>
 

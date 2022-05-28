@@ -1,32 +1,32 @@
 import {
-  assistant3Png,
+  archkot2Png,
+  archkot3Png,
   bgAskAfterAltJpg,
   bgAskBeforeFenceGif,
   bgDeveloperHqInsidePng,
-  mayor1Png,
 } from '~/assets/game'
 import {makeStrictBranch} from '~/lib'
 
 const Branch = makeStrictBranch()
 
-export function BranchCityHall_ProjAsk_Approve_Debate_Intervene() {
+export function BranchCityHall_ProjAsk_Examine_Reject_Ignore() {
   return (
     <Branch.Root background={bgDeveloperHqInsidePng}>
       <Branch.Say
         size="lg"
-        tag="Работник акимата:"
-        foregroundSrc={assistant3Png}
+        tag="Архкот:"
+        foregroundSrc={archkot2Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
-        —Мы предоставим группу сотрудников для ведения мониторинга
+        —Мы предлагаем свою кандидатуру в качестве мониторинговой группы
       </Branch.Say>
 
       <Branch.Say
         size="lg"
-        foregroundSrc={mayor1Png}
+        foregroundSrc={archkot3Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
-        —Отлично, договоримся о серии встреч с девелопером
+        —Давайте договоримся о серии встреч с девелопером.
       </Branch.Say>
 
       <Branch.Say size="lg" transitory>
@@ -55,10 +55,7 @@ export function BranchCityHall_ProjAsk_Approve_Debate_Intervene() {
       </Branch.Say>
 
       <Branch.Say transitory>
-        ПОЗДРАВЛЯЕМ! Реставрация объекта завершена. У вашего отдела новые
-        перспективы Тема памятников двигается на городской, а затем и на
-        государственный уровень Вам удалось простроить схему взаимодействия с
-        общественностью в дальнейшем
+        Здание АСК может быть внесено в список памятников и стать новым активом
       </Branch.Say>
 
       <Branch.Title transitory lingers>

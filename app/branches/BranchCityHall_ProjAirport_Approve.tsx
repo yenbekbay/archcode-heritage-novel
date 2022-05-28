@@ -1,16 +1,15 @@
 import {
-  angryCrowd1Png,
-  bgAskBeforeJpg,
   bgCityHallMayorOfficeJpg,
   letterPng,
-  mayor4Png,
+  mayor2Png,
+  mayor3Png,
   stampApprovedPng,
 } from '~/assets/game'
 import {makeStrictBranch} from '~/lib'
 
 const Branch = makeStrictBranch()
 
-export function BranchCityHall_ProjAsk_Approve() {
+export function BranchCityHall_ProjAirport_Approve() {
   return (
     <Branch.Root background={bgCityHallMayorOfficeJpg}>
       <Branch.Foreground
@@ -39,42 +38,31 @@ export function BranchCityHall_ProjAsk_Approve() {
         lingers={1}
       />
 
-      <Branch.Foreground
-        src={bgAskBeforeJpg}
-        style={{height: '100%', width: '100%', objectFit: 'cover'}}
-        durationMs={0}
-        transitory
-        lingers={1}
-      />
-
-      <Branch.Say
-        size="lg"
-        foregroundSrc={angryCrowd1Png}
-        foregroundStyle={{width: '100%', bottom: 0}}
-        transitory>
-        Общественность возмущена
+      <Branch.Say size="lg" transitory>
+        Указ: Одобрить снос здания VIP терминала Аэропорта
       </Branch.Say>
 
       <Branch.Say
-        size="xl"
-        foregroundSrc={mayor4Png}
+        foregroundSrc={mayor2Png}
         foregroundStyle={{width: '100%', bottom: 0}}
-        transitory
-        durationMs={0}
-        lingers={1}>
-        Что делать?
+        transitory>
+        —Мнение общественности учитывать не обязательно. Сохранить старый
+        терминал — путь архаичного советского мышления
+      </Branch.Say>
+
+      <Branch.Say
+        foregroundSrc={mayor3Png}
+        foregroundStyle={{width: '100%', bottom: 0}}
+        transitory>
+        —Однако, по закону необходимо провести общественные слушания по проекту
       </Branch.Say>
 
       <Branch.Choices
         choices={[
           {
-            label: 'Попросить помощи у блоггеров',
+            label: 'Дальше',
             onClick: (ctx) =>
-              ctx.goToBranch('CityHall_ProjAsk_Approve_AskHelp'),
-          },
-          {
-            label: 'Вступить в диалог',
-            onClick: (ctx) => ctx.goToBranch('CityHall_ProjAsk_Examine_Reject'),
+              ctx.goToLocation('CityHall_ProjAirport_Examine_Reject', 4),
           },
         ]}
       />

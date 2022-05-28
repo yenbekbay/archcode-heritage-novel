@@ -2,6 +2,7 @@
 import activistAPng from './activist-a.png'
 import activistBPng from './activist-b.png'
 import adyaPchelkinaPng from './adya-pchelkina.png'
+import akordeevPng from './akordeev.png'
 import angryCrowd1Png from './angry-crowd-1.png'
 import angryCrowd2Png from './angry-crowd-2.png'
 import archkot1Png from './archkot-1.png'
@@ -11,6 +12,8 @@ import archkot4Png from './archkot-4.png'
 import assistant1Png from './assistant-1.png'
 import assistant2Png from './assistant-2.png'
 import assistant3Png from './assistant-3.png'
+import bgAirportFenceGif from './bg-airport-fence.gif'
+import bgAirportJpg from './bg-airport.jpg'
 import bgAptEntranceJpg from './bg-apt-entrance.jpg'
 import bgAptKitchenJpg from './bg-apt-kitchen.jpg'
 import bgAptOutsideWindowJpg from './bg-apt-outside-window.jpg'
@@ -59,6 +62,7 @@ import developerRepB2Png from './developer-rep-b-2.png'
 import developerRepB3Png from './developer-rep-b-3.png'
 import developerRepB4Png from './developer-rep-b-4.png'
 import developerRepB5Png from './developer-rep-b-5.png'
+import developerRepB6Png from './developer-rep-b-6.png'
 import expert1Png from './expert-1.png'
 import expert2Png from './expert-2.png'
 import expert3Png from './expert-3.png'
@@ -83,6 +87,7 @@ import mayor8Png from './mayor-8.png'
 import mayor9Png from './mayor-9.png'
 import monumentDeptStaff1Png from './monument-dept-staff-1.png'
 import monumentDeptStaff2Png from './monument-dept-staff-2.png'
+import portalPaperPng from './portal-paper.png'
 import redhead1Png from './redhead-1.png'
 import redhead10Png from './redhead-10.png'
 import redhead11Png from './redhead-11.png'
@@ -104,6 +109,7 @@ import redhead7Png from './redhead-7.png'
 import redhead8Png from './redhead-8.png'
 import redhead9Png from './redhead-9.png'
 import sabitPng from './sabit.png'
+import sharatMibutovPng from './sharat-mibutov.png'
 import sillhouettePng from './sillhouette.png'
 import stampApprovedPng from './stamp-approved.png'
 import stampRejectedPng from './stamp-rejected.png'
@@ -113,6 +119,7 @@ export {
   activistAPng,
   activistBPng,
   adyaPchelkinaPng,
+  akordeevPng,
   angryCrowd1Png,
   angryCrowd2Png,
   archkot1Png,
@@ -122,6 +129,8 @@ export {
   assistant1Png,
   assistant2Png,
   assistant3Png,
+  bgAirportFenceGif,
+  bgAirportJpg,
   bgAptEntranceJpg,
   bgAptKitchenJpg,
   bgAptOutsideWindowJpg,
@@ -170,6 +179,7 @@ export {
   developerRepB3Png,
   developerRepB4Png,
   developerRepB5Png,
+  developerRepB6Png,
   expert1Png,
   expert2Png,
   expert3Png,
@@ -194,6 +204,7 @@ export {
   mayor9Png,
   monumentDeptStaff1Png,
   monumentDeptStaff2Png,
+  portalPaperPng,
   redhead1Png,
   redhead10Png,
   redhead11Png,
@@ -215,6 +226,7 @@ export {
   redhead8Png,
   redhead9Png,
   sabitPng,
+  sharatMibutovPng,
   sillhouettePng,
   stampApprovedPng,
   stampRejectedPng,

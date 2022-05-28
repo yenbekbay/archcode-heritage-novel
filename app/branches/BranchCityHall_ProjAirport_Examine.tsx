@@ -15,7 +15,7 @@ import {makeStrictBranch} from '~/lib'
 
 const Branch = makeStrictBranch()
 
-export function BranchCityHall_ProjZheltoksan_Examine() {
+export function BranchCityHall_ProjAirport_Examine() {
   return (
     <Branch.Root background={bgCityHallOutsideJpg}>
       <Branch.Say size="xl" placement="middle" scheme="dark" transitory>
@@ -72,13 +72,13 @@ export function BranchCityHall_ProjZheltoksan_Examine() {
       />
 
       <Branch.Say
-        size="lg"
         scheme="dark"
         tag="Помощник:"
         foregroundSrc={assistant1Png}
         foregroundStyle={{height: '100%', width: '100%', objectFit: 'cover'}}
         transitory>
-        —Экспертиза выявила несколько нарушений
+        —В проекте нового терминала Аэропорта выявлены нарушения! Нельзя просто
+        взять и перенести памятник! Только если он разрушен на 70%…
       </Branch.Say>
 
       <Branch.Foreground
@@ -120,11 +120,11 @@ export function BranchCityHall_ProjZheltoksan_Examine() {
           {
             label: 'Не одобрять',
             onClick: (ctx) =>
-              ctx.goToBranch('CityHall_ProjZheltoksan_Examine_Reject'),
+              ctx.goToBranch('CityHall_ProjAirport_Examine_Reject'),
           },
           {
             label: 'Одобрить',
-            onClick: (ctx) => ctx.goToBranch('CityHall_ProjZheltoksan_Approve'),
+            onClick: (ctx) => ctx.goToBranch('CityHall_ProjAirport_Approve'),
           },
         ]}
       />

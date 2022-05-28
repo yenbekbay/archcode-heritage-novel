@@ -1,5 +1,6 @@
 import {
   bgCityHallConferenceRoomJpg,
+  bgCityHallMayorOfficeJpg,
   journalistPng,
   letterPng,
   mayor2Png,
@@ -12,7 +13,7 @@ const Branch = makeStrictBranch()
 
 export function BranchCityHall_ProjZheltoksan_Examine_Reject() {
   return (
-    <Branch.Root background={bgCityHallConferenceRoomJpg}>
+    <Branch.Root background={bgCityHallMayorOfficeJpg}>
       <Branch.Foreground
         src={letterPng}
         style={{
@@ -38,6 +39,13 @@ export function BranchCityHall_ProjZheltoksan_Examine_Reject() {
         transitory
       />
 
+      <Branch.Foreground
+        src={bgCityHallConferenceRoomJpg}
+        style={{height: '100%', width: '100%', objectFit: 'cover'}}
+        transitory
+        lingers
+      />
+
       <Branch.Say transitory>
         Встреча с руководителем управления архитектуры и градостроительства
         Сабитом Гадырбаевым
@@ -53,7 +61,6 @@ export function BranchCityHall_ProjZheltoksan_Examine_Reject() {
       </Branch.Say>
 
       <Branch.Say
-        tag="Сабит:"
         foregroundSrc={sabitPng}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
@@ -62,7 +69,6 @@ export function BranchCityHall_ProjZheltoksan_Examine_Reject() {
       </Branch.Say>
 
       <Branch.Say
-        tag="Сабит:"
         foregroundSrc={sabitPng}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
@@ -71,7 +77,6 @@ export function BranchCityHall_ProjZheltoksan_Examine_Reject() {
       </Branch.Say>
 
       <Branch.Say
-        tag="Сабит:"
         foregroundSrc={sabitPng}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
@@ -80,7 +85,6 @@ export function BranchCityHall_ProjZheltoksan_Examine_Reject() {
       </Branch.Say>
 
       <Branch.Say
-        tag="Сабит:"
         foregroundSrc={sabitPng}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
@@ -99,7 +103,6 @@ export function BranchCityHall_ProjZheltoksan_Examine_Reject() {
       </Branch.Say>
 
       <Branch.Say
-        tag="Журналист:"
         foregroundSrc={journalistPng}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
@@ -117,7 +120,6 @@ export function BranchCityHall_ProjZheltoksan_Examine_Reject() {
       </Branch.Say>
 
       <Branch.Say
-        tag="Сабит:"
         foregroundSrc={sabitPng}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
@@ -126,7 +128,6 @@ export function BranchCityHall_ProjZheltoksan_Examine_Reject() {
       </Branch.Say>
 
       <Branch.Say
-        tag="Сабит:"
         foregroundSrc={sabitPng}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
@@ -135,7 +136,6 @@ export function BranchCityHall_ProjZheltoksan_Examine_Reject() {
       </Branch.Say>
 
       <Branch.Say
-        tag="Сабит:"
         foregroundSrc={sabitPng}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>

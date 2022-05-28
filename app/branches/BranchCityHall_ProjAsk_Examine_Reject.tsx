@@ -20,7 +20,7 @@ import {makeStrictBranch} from '~/lib'
 
 const Branch = makeStrictBranch()
 
-export function BranchCityHall_ProjAsk_Approve_Debate() {
+export function BranchCityHall_ProjAsk_Examine_Reject() {
   return (
     <Branch.Root background={bgCityHallMayorOfficeJpg}>
       <Branch.Say
@@ -196,12 +196,12 @@ export function BranchCityHall_ProjAsk_Approve_Debate() {
           {
             label: 'Выдвинуть группу от акимата',
             onClick: (ctx) =>
-              ctx.goToBranch('CityHall_ProjAsk_Approve_Debate_Intervene'),
+              ctx.goToBranch('CityHall_ProjAsk_Examine_Reject_Intervene'),
           },
           {
             label: 'Проигнорировать',
             onClick: (ctx) =>
-              ctx.goToBranch('CityHall_ProjAsk_Approve_Debate_Ignore'),
+              ctx.goToBranch('CityHall_ProjAsk_Examine_Reject_Ignore'),
           },
         ]}
       />

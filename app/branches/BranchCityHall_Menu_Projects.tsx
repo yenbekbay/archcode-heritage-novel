@@ -18,8 +18,7 @@ export function BranchCityHall_Menu_Projects() {
           },
           {
             label: 'Аэропорт',
-            // FIXME
-            onClick: () => alert('Не готово'),
+            onClick: (ctx) => ctx.goToBranch('CityHall_ProjAirport'),
           },
           {
             label: 'АСК',

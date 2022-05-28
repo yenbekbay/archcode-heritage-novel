@@ -1,32 +1,32 @@
 import {
-  archkot2Png,
-  archkot3Png,
+  assistant3Png,
   bgAskAfterAltJpg,
   bgAskBeforeFenceGif,
   bgDeveloperHqInsidePng,
+  mayor1Png,
 } from '~/assets/game'
 import {makeStrictBranch} from '~/lib'
 
 const Branch = makeStrictBranch()
 
-export function BranchCityHall_ProjAsk_Approve_Debate_Ignore() {
+export function BranchCityHall_ProjAsk_Examine_Reject_Intervene() {
   return (
     <Branch.Root background={bgDeveloperHqInsidePng}>
       <Branch.Say
         size="lg"
-        tag="Архкот:"
-        foregroundSrc={archkot2Png}
+        tag="Работник акимата:"
+        foregroundSrc={assistant3Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
-        —Мы предлагаем свою кандидатуру в качестве мониторинговой группы
+        —Мы предоставим группу сотрудников для ведения мониторинга
       </Branch.Say>
 
       <Branch.Say
         size="lg"
-        foregroundSrc={archkot3Png}
+        foregroundSrc={mayor1Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
-        —Давайте договоримся о серии встреч с девелопером.
+        —Отлично, договоримся о серии встреч с девелопером
       </Branch.Say>
 
       <Branch.Say size="lg" transitory>
@@ -55,7 +55,10 @@ export function BranchCityHall_ProjAsk_Approve_Debate_Ignore() {
       </Branch.Say>
 
       <Branch.Say transitory>
-        Здание АСК может быть внесено в список памятников и стать новым активом
+        ПОЗДРАВЛЯЕМ! Реставрация объекта завершена. У вашего отдела новые
+        перспективы Тема памятников двигается на городской, а затем и на
+        государственный уровень Вам удалось простроить схему взаимодействия с
+        общественностью в дальнейшем
       </Branch.Say>
 
       <Branch.Title transitory lingers>

@@ -26,7 +26,6 @@ export function BranchCityHall_ProjZheltoksan_Approve_Debate() {
       </Branch.Say>
 
       <Branch.Say
-        tag="Сабит:"
         foregroundSrc={sabitPng}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
@@ -35,7 +34,6 @@ export function BranchCityHall_ProjZheltoksan_Approve_Debate() {
       </Branch.Say>
 
       <Branch.Say
-        tag="Сабит:"
         foregroundSrc={sabitPng}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
@@ -44,7 +42,6 @@ export function BranchCityHall_ProjZheltoksan_Approve_Debate() {
       </Branch.Say>
 
       <Branch.Say
-        tag="Сабит:"
         foregroundSrc={sabitPng}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
@@ -53,7 +50,6 @@ export function BranchCityHall_ProjZheltoksan_Approve_Debate() {
       </Branch.Say>
 
       <Branch.Say
-        tag="Сабит:"
         foregroundSrc={sabitPng}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
@@ -72,7 +68,6 @@ export function BranchCityHall_ProjZheltoksan_Approve_Debate() {
       </Branch.Say>
 
       <Branch.Say
-        tag="Журналист:"
         foregroundSrc={journalistPng}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
@@ -90,7 +85,6 @@ export function BranchCityHall_ProjZheltoksan_Approve_Debate() {
       </Branch.Say>
 
       <Branch.Say
-        tag="Сабит:"
         foregroundSrc={sabitPng}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
@@ -99,7 +93,6 @@ export function BranchCityHall_ProjZheltoksan_Approve_Debate() {
       </Branch.Say>
 
       <Branch.Say
-        tag="Сабит:"
         foregroundSrc={sabitPng}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
@@ -108,7 +101,6 @@ export function BranchCityHall_ProjZheltoksan_Approve_Debate() {
       </Branch.Say>
 
       <Branch.Say
-        tag="Сабит:"
         foregroundSrc={sabitPng}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>

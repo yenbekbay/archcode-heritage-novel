@@ -39,7 +39,6 @@ export function BranchCityHall_ProjAsk_Examine() {
       </Branch.Say>
 
       <Branch.Say
-        tag="Эксперт:"
         size="lg"
         foregroundSrc={expert2Png}
         foregroundStyle={{width: '100%', bottom: 0}}
@@ -120,7 +119,7 @@ export function BranchCityHall_ProjAsk_Examine() {
         choices={[
           {
             label: 'Не одобрять',
-            onClick: (ctx) => ctx.goToBranch('CityHall_ProjAsk_Approve_Debate'),
+            onClick: (ctx) => ctx.goToBranch('CityHall_ProjAsk_Examine_Reject'),
           },
           {
             label: 'Одобрить',

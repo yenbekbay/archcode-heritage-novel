@@ -73,7 +73,6 @@ export function BranchCityHall_ProjZheltoksan_Examine_Reject_Ignore() {
       </Branch.Say>
 
       <Branch.Say
-        tag="Девелопер:"
         foregroundSrc={developerRepAPng}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
