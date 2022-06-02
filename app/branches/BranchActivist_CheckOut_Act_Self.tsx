@@ -82,7 +82,7 @@ export function BranchActivist_CheckOut_Act_Self() {
           objectFit: 'cover',
           transform: 'scale(2) translateY(30px)',
         }}>
-        Ссылка*фактчек
+        *Ссылка фактчек
       </Branch.Say>
 
       <Branch.Say
@@ -103,7 +103,7 @@ export function BranchActivist_CheckOut_Act_Self() {
           objectFit: 'cover',
           transform: 'scale(2) translateY(30px)',
         }}>
-        Ссылка*22 “как написать пост в соц.сети и быть услышанным.”
+        *Ссылка 22 "как написать пост в соц.сети и быть услышанным"
       </Branch.Say>
 
       <Branch.Say
@@ -124,7 +124,7 @@ export function BranchActivist_CheckOut_Act_Self() {
           objectFit: 'cover',
           transform: 'scale(2) translateY(30px)',
         }}>
-        Ссылка : список “кому можно писать “ и Примеры официальных писем.
+        *Ссылка список "кому можно писать" и примеры официальных писем
       </Branch.Say>
 
       <Branch.Say

@@ -5,10 +5,22 @@ import adyaPchelkinaPng from './adya-pchelkina.png'
 import akordeevPng from './akordeev.png'
 import angryCrowd1Png from './angry-crowd-1.png'
 import angryCrowd2Png from './angry-crowd-2.png'
+import archbot1Png from './archbot-1.png'
+import archbot2Png from './archbot-2.png'
+import archbot3Png from './archbot-3.png'
 import archkot1Png from './archkot-1.png'
+import archkot10Png from './archkot-10.png'
+import archkot11Png from './archkot-11.png'
 import archkot2Png from './archkot-2.png'
 import archkot3Png from './archkot-3.png'
 import archkot4Png from './archkot-4.png'
+import archkot5Png from './archkot-5.png'
+import archkot6Png from './archkot-6.png'
+import archkot7Png from './archkot-7.png'
+import archkot8Png from './archkot-8.png'
+import archkot9Png from './archkot-9.png'
+import archtok1Png from './archtok-1.png'
+import archtok2Png from './archtok-2.png'
 import assistant1Png from './assistant-1.png'
 import assistant2Png from './assistant-2.png'
 import assistant3Png from './assistant-3.png'
@@ -22,9 +34,9 @@ import bgAskAfterAltJpg from './bg-ask-after-alt.jpg'
 import bgAskAfterJpg from './bg-ask-after.jpg'
 import bgAskBeforeFenceGif from './bg-ask-before-fence.gif'
 import bgAskBeforeJpg from './bg-ask-before.jpg'
-import bgBldg1FenceGif from './bg-bldg-1-fence.gif'
-import bgBldg1FenceJpg from './bg-bldg-1-fence.jpg'
-import bgBldg1Jpg from './bg-bldg-1.jpg'
+import bgBldgAFenceGif from './bg-bldg-a-fence.gif'
+import bgBldgAFenceJpg from './bg-bldg-a-fence.jpg'
+import bgBldgAJpg from './bg-bldg-a.jpg'
 import bgBusStop1Jpg from './bg-bus-stop-1.jpg'
 import bgBusStop2Jpg from './bg-bus-stop-2.jpg'
 import bgBusStop3Jpg from './bg-bus-stop-3.jpg'
@@ -122,10 +134,22 @@ export {
   akordeevPng,
   angryCrowd1Png,
   angryCrowd2Png,
+  archbot1Png,
+  archbot2Png,
+  archbot3Png,
   archkot1Png,
+  archkot10Png,
+  archkot11Png,
   archkot2Png,
   archkot3Png,
   archkot4Png,
+  archkot5Png,
+  archkot6Png,
+  archkot7Png,
+  archkot8Png,
+  archkot9Png,
+  archtok1Png,
+  archtok2Png,
   assistant1Png,
   assistant2Png,
   assistant3Png,
@@ -139,9 +163,9 @@ export {
   bgAskAfterJpg,
   bgAskBeforeFenceGif,
   bgAskBeforeJpg,
-  bgBldg1FenceGif,
-  bgBldg1FenceJpg,
-  bgBldg1Jpg,
+  bgBldgAFenceGif,
+  bgBldgAFenceJpg,
+  bgBldgAJpg,
   bgBusStop1Jpg,
   bgBusStop2Jpg,
   bgBusStop3Jpg,

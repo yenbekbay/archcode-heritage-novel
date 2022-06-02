@@ -1,53 +1,67 @@
 import {AnimatePresence, motion} from 'framer-motion'
 import {
-  bgBldgAFenceGif,
-  bgBldgAJpg,
+  archkot6Png,
+  archkot7Png,
+  bgAskAfterJpg,
+  bgAskBeforeFenceGif,
+  bgAskBeforeJpg,
   fencePng,
-  redhead2Png,
-  redhead4Png,
 } from '~/assets/game'
 import type {BranchBackgroundComponentProps} from '~/lib'
 import {makeStrictBranch} from '~/lib'
 
 const Branch = makeStrictBranch()
 
-export function BranchActivist_CheckOut() {
+export function BranchArchkot_ProjAsk_WalkPast() {
   return (
     <Branch.Root background={Background}>
       <Branch.Say
         size="lg"
-        foregroundSrc={redhead4Png}
+        foregroundSrc={archkot6Png}
         foregroundStyle={{
-          width: '90%',
+          width: '100%',
           bottom: 0,
           filter: 'drop-shadow(40px 40px 5px rgba(0, 0, 0, .35))',
         }}
         transitory>
-        —Мутят что-то без доклада народу. Надо разобраться!
+        —Не стоит зря терять времени, дедлайны горят, дома кот некормленный, да
+        сериал недосмотренный
       </Branch.Say>
 
-      <Branch.Blank durationMs={10000} transitory />
+      <Branch.Blank durationMs={6000} transitory />
+
+      <Branch.Foreground
+        src={bgAskAfterJpg}
+        style={{height: '100%', width: '100%', objectFit: 'cover'}}
+        transitory
+        lingers
+      />
+
+      <Branch.Foreground
+        src={bgAskAfterJpg}
+        style={{height: '100%', width: '100%', objectFit: 'cover'}}
+        transitory
+        lingers
+      />
 
       <Branch.Say
-        size="lg"
-        foregroundSrc={redhead2Png}
-        foregroundStyle={{width: '90%', bottom: 0}}
-        transitory
-        durationMs={0}
-        lingers={1}>
-        —Это что за новости?!?! Уничтожают историю, значит?
+        foregroundSrc={archkot7Png}
+        foregroundStyle={{width: '100%', bottom: 0}}
+        transitory>
+        Здание изменено до неузнаваемости, и теперь это уже не имеет отношения к
+        историко-культурному наследию
       </Branch.Say>
+
+      <Branch.Title transitory lingers>
+        Конец игры
+      </Branch.Title>
 
       <Branch.Choices
         scheme="dark"
         choices={[
           {
-            label: 'Как-то печально всё это',
-            onClick: (ctx) => ctx.goToBranch('Activist_CheckOut_SocialMedia'),
-          },
-          {
-            label: 'Что я могу сделать?',
-            onClick: (ctx) => ctx.goToBranch('Activist_CheckOut_Act'),
+            label: 'Начать заново',
+            onClick: (ctx) => ctx.goToBranch('Intro'),
           },
         ]}
       />
@@ -60,7 +74,7 @@ function Background(_props: BranchBackgroundComponentProps) {
   return (
     <>
       <img
-        src={focusedStatementIndex < 1 ? bgBldgAJpg : bgBldgAFenceGif}
+        src={focusedStatementIndex < 1 ? bgAskBeforeJpg : bgAskBeforeFenceGif}
         className="min-h-full flex-1 object-cover"
       />
 

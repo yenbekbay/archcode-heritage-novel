@@ -98,7 +98,7 @@ export function BranchCityHall_MonumentDept_Rant() {
         transitory
         durationMs={0}
         lingers={1}>
-        “Какие здания уже в реестре памятников?” Ссылка*РЕЕСТР
+        “Какие здания уже в реестре памятников?” *Ссылка РЕЕСТР
       </Branch.Say>
 
       <Branch.Say
@@ -113,7 +113,7 @@ export function BranchCityHall_MonumentDept_Rant() {
             width: 720,
           },
         }}>
-        “Какие здания хотел внести список аким Байбек. *Ссылка*2
+        “Какие здания хотел внести список аким Байбек. *Ссылка 2
       </Branch.Say>
 
       <Branch.Say size="xl" transitory durationMs={0} lingers={1}>

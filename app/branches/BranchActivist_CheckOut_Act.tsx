@@ -1,11 +1,11 @@
-import {bgBldg1Jpg, redhead8Png} from '~/assets/game'
+import {bgBldgAJpg, redhead8Png} from '~/assets/game'
 import {makeStrictBranch} from '~/lib'
 
 const Branch = makeStrictBranch()
 
 export function BranchActivist_CheckOut_Act() {
   return (
-    <Branch.Root background={bgBldg1Jpg}>
+    <Branch.Root background={bgBldgAJpg}>
       <Branch.Say
         size="xl"
         foregroundSrc={redhead8Png}

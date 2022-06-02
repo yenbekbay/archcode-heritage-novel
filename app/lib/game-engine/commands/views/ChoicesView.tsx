@@ -14,7 +14,7 @@ interface ChoiceContext<TStatementLabel extends string = string> {
   goToBranch: (branchId: BranchId) => void
   goToStatement: (statementLabel: TStatementLabel) => void
   goToLocation: (branchId: BranchId, statementIndex: number) => void
-  skip: () => void
+  skip: (plusIndex?: number) => void
 }
 
 export interface Choice<TStatementLabel extends string> {

@@ -60,6 +60,15 @@ export function BranchIntro() {
             onClick: (ctx) => ctx.goToBranch('Activist_0Juncture'),
           },
           {
+            label: 'АрхКот',
+            onClick: (ctx) => ctx.goToBranch('Archkot_0Juncture'),
+          },
+          {
+            label: 'Девелопер',
+            // FIXME
+            onClick: () => alert('Не готово'),
+          },
+          {
             label: 'Акимат',
             onClick: (ctx) => ctx.goToBranch('CityHall_0Menu'),
           },

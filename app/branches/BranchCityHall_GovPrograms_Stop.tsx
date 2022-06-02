@@ -49,7 +49,7 @@ export function BranchCityHall_GovPrograms_Stop() {
         foregroundSrc={assistant1Png}
         foregroundStyle={{height: '100%', width: '100%', objectFit: 'cover'}}
         transitory>
-        —Общественность и Архкот хотят встретиться
+        —Общественность и АрхКот хотят встретиться
       </Branch.Say>
 
       <Branch.Say
@@ -68,7 +68,7 @@ export function BranchCityHall_GovPrograms_Stop() {
       />
 
       <Branch.Say size="xl" transitory>
-        Встреча с Архкотом
+        Встреча с АрхКотом
       </Branch.Say>
 
       <Branch.Say

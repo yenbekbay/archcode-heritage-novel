@@ -14,7 +14,7 @@ export function BranchCityHall_ProjAsk_Examine_Reject_Ignore() {
     <Branch.Root background={bgDeveloperHqInsidePng}>
       <Branch.Say
         size="lg"
-        tag="Архкот:"
+        tag="АрхКот:"
         foregroundSrc={archkot2Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>

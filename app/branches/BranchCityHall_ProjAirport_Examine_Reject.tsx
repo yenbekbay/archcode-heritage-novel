@@ -111,7 +111,7 @@ export function BranchCityHall_ProjAirport_Examine_Reject() {
       </Branch.Say>
 
       <Branch.Say
-        tag="Архкот:"
+        tag="АрхКот:"
         foregroundSrc={archkot1Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>

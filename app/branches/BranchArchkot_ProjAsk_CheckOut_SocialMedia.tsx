@@ -1,10 +1,8 @@
 import {
-  bgBldgAJpg,
+  archkot2Png,
+  bgAskBeforeJpg,
   bgPhoneFingerJpg,
   bgPhoneHandJpg,
-  redhead2Png,
-  redhead5Png,
-  redhead7Png,
 } from '~/assets/game'
 import {UploadMeme, UploadPost} from '~/commands'
 import {makeStrictBranch} from '~/lib'
@@ -13,15 +11,15 @@ type StatementLabel = 'upload_meme' | 'publish_post' | 'acknowledged'
 
 const Branch = makeStrictBranch<StatementLabel>()
 
-export function BranchActivist_CheckOut_SocialMedia() {
+export function BranchArchkot_ProjAsk_CheckOut_SocialMedia() {
   return (
-    <Branch.Root background={bgBldgAJpg}>
+    <Branch.Root background={bgAskBeforeJpg}>
       <Branch.Say
         size="lg"
-        foregroundSrc={redhead5Png}
-        foregroundStyle={{width: '90%', bottom: 0}}
+        foregroundSrc={archkot2Png}
+        foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
-        В моменты отчаяния всегда можно вылить свою боль в соц. сети
+        Видимо, процесс уже запущен, что же
       </Branch.Say>
 
       <Branch.Say
@@ -36,7 +34,7 @@ export function BranchActivist_CheckOut_SocialMedia() {
         transitory
         durationMs={0}
         lingers={1}>
-        Варианты отчаяния:
+        Когда-нибудь у народа будут спрашивать, что делать
       </Branch.Say>
 
       <Branch.Choices
@@ -98,31 +96,11 @@ export function BranchActivist_CheckOut_SocialMedia() {
       </Branch.Label>
 
       <Branch.Label label="acknowledged">
-        <Branch.Say
-          size="lg"
-          foregroundSrc={redhead7Png}
-          foregroundStyle={{width: '90%', bottom: 0}}
-          transitory>
-          ПОЗДРАВЛЯЕМ!!! ВАШИ ПОСТЫ/МЕМЫ УВИДЕЛА ИЗВЕСТНАЯ АКТИВИСТКА ТИНА
-          ШТУНЕР, И ТЕПЕРЬ ОНА БУДЕТ ДОБИВАТЬСЯ СПРАВЕДЛИВОСТИ
+        <Branch.Say size="xl" transitory>
+          {/* FIXME */}
+          [PLACEHOLDER]
         </Branch.Say>
       </Branch.Label>
-
-      <Branch.Choices
-        placement="top"
-        choices={[
-          {
-            label: 'Что я ещё могу сделать?',
-            onClick: (ctx) => ctx.goToBranch('Activist_CheckOut_Act'),
-          },
-          {
-            label: 'Я сделала всё что было в моих силах',
-            onClick: (ctx) => ctx.skip(),
-          },
-        ]}
-        foregroundSrc={redhead2Png}
-        foregroundStyle={{width: '90%', bottom: 0}}
-      />
 
       <Branch.Title transitory lingers>
         Конец игры

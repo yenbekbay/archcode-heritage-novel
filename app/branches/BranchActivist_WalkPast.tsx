@@ -1,7 +1,7 @@
 import {AnimatePresence, motion} from 'framer-motion'
 import {
-  bgBldg1FenceGif,
-  bgBldg1Jpg,
+  bgBldgAFenceGif,
+  bgBldgAJpg,
   fencePng,
   redhead2Png,
   redhead3Png,
@@ -62,7 +62,7 @@ function Background(_props: BranchBackgroundComponentProps) {
   return (
     <>
       <img
-        src={focusedStatementIndex < 2 ? bgBldg1Jpg : bgBldg1FenceGif}
+        src={focusedStatementIndex < 2 ? bgBldgAJpg : bgBldgAFenceGif}
         className="min-h-full flex-1 object-cover"
       />
 

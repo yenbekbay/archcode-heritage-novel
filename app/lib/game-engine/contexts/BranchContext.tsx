@@ -22,7 +22,7 @@ export interface BranchContextValue<TStatementLabel extends string = string> {
   getStatement: (statementIndex: number) => Statement | undefined
   focusedStatementIndex: number
   goToStatement: (statementLabel: TStatementLabel) => void
-  skip: () => void
+  skip: (plusIndex?: number) => void
 }
 
 const BranchContext = React.createContext<BranchContextValue | null>(null)
@@ -42,14 +42,17 @@ export function BranchProvider({branchId, children}: BranchProviderProps) {
   const containerRef = React.useRef<HTMLDivElement>(null)
   const containerSize = useSize(containerRef)
 
-  const skip = useStableCallback(() => {
+  const skip = useStableCallback((plusIndex = 0) => {
     const focusedCommand = statementByIndex.get(focusedStatementIndex)
     const entered = focusedCommand?.enter() ?? false
-    // Complete entrance animation before jumping to next statementIndex
+    // Complete entrance animation before jumping to next statement
     if (!entered) {
       goToLocation(
         branchId,
-        Math.min(statementByIndex.size - 1, focusedStatementIndex + 1),
+        Math.min(
+          statementByIndex.size - 1,
+          focusedStatementIndex + 1 + plusIndex,
+        ),
       )
     }
   })

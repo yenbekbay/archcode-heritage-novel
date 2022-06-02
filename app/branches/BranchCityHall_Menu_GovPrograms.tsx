@@ -92,7 +92,7 @@ export function BranchCityHall_Menu_GovPrograms() {
         foregroundSrc={archkot1Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
-        *Архкот тоже здесь
+        *АрхКот тоже здесь
       </Branch.Say>
 
       <Branch.Say

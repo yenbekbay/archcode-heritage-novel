@@ -74,7 +74,7 @@ export function BranchCityHall_ProjAsk_Examine_Reject() {
 
       <Branch.Say
         size="lg"
-        tag="Архкот:"
+        tag="АрхКот:"
         foregroundSrc={archkot4Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
@@ -165,7 +165,7 @@ export function BranchCityHall_ProjAsk_Examine_Reject() {
 
       <Branch.Say
         size="lg"
-        tag="Архкот:"
+        tag="АрхКот:"
         foregroundSrc={archkot4Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
