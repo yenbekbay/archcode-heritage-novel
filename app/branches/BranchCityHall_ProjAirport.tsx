@@ -21,7 +21,6 @@ export function BranchCityHall_ProjAirport() {
       />
 
       <Branch.Say
-        size="lg"
         foregroundSrc={mayor1Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
@@ -29,7 +28,6 @@ export function BranchCityHall_ProjAirport() {
       </Branch.Say>
 
       <Branch.Say
-        size="xl"
         foregroundSrc={mayor4Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory

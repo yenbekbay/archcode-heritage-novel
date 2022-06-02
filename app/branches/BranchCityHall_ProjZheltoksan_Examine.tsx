@@ -18,7 +18,7 @@ const Branch = makeStrictBranch()
 export function BranchCityHall_ProjZheltoksan_Examine() {
   return (
     <Branch.Root background={bgCityHallOutsideJpg}>
-      <Branch.Say size="xl" placement="middle" scheme="dark" transitory>
+      <Branch.Say placement="middle" scheme="dark" transitory>
         Экспертиза
       </Branch.Say>
 
@@ -31,7 +31,6 @@ export function BranchCityHall_ProjZheltoksan_Examine() {
 
       <Branch.Say
         tag="Эксперт:"
-        size="lg"
         foregroundSrc={expert1Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
@@ -39,7 +38,6 @@ export function BranchCityHall_ProjZheltoksan_Examine() {
       </Branch.Say>
 
       <Branch.Say
-        size="lg"
         foregroundSrc={expert2Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
@@ -54,7 +52,6 @@ export function BranchCityHall_ProjZheltoksan_Examine() {
       />
 
       <Branch.Say
-        size="lg"
         scheme="dark"
         foregroundSrc={bgMayorDoorJpg}
         foregroundStyle={{height: '100%', width: '100%', objectFit: 'cover'}}
@@ -72,7 +69,6 @@ export function BranchCityHall_ProjZheltoksan_Examine() {
       />
 
       <Branch.Say
-        size="lg"
         scheme="dark"
         tag="Помощник:"
         foregroundSrc={assistant1Png}
@@ -89,7 +85,6 @@ export function BranchCityHall_ProjZheltoksan_Examine() {
       />
 
       <Branch.Say
-        size="lg"
         scheme="dark"
         foregroundSrc={bgMayorDoorJpg}
         foregroundStyle={{height: '100%', width: '100%', objectFit: 'cover'}}
@@ -106,7 +101,6 @@ export function BranchCityHall_ProjZheltoksan_Examine() {
       />
 
       <Branch.Say
-        size="lg"
         foregroundSrc={mayor2Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory

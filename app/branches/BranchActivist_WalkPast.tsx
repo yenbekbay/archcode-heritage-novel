@@ -15,7 +15,6 @@ export function BranchActivist_WalkPast() {
   return (
     <Branch.Root background={Background}>
       <Branch.Say
-        size="lg"
         foregroundSrc={redhead2Png}
         foregroundStyle={{
           width: '90%',
@@ -23,11 +22,10 @@ export function BranchActivist_WalkPast() {
           filter: 'drop-shadow(40px 40px 5px rgba(0, 0, 0, .35))',
         }}
         transitory>
-        —Скорее всего, ничего особенного. Очередное…да не важно
+        Скорее всего, ничего особенного. Очередное…да не важно
       </Branch.Say>
 
       <Branch.Say
-        size="lg"
         foregroundSrc={redhead3Png}
         foregroundStyle={{
           width: '90%',
@@ -35,7 +33,7 @@ export function BranchActivist_WalkPast() {
           filter: 'drop-shadow(40px 40px 5px rgba(0, 0, 0, .35))',
         }}
         transitory>
-        —Поберегу нервы, семья ждет, пойду дома чай попью
+        Поберегу нервы, семья ждет, пойду дома чай попью
       </Branch.Say>
 
       <Branch.Blank durationMs={10000} transitory />

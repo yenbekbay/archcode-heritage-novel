@@ -17,7 +17,6 @@ export function BranchActivist_CheckOut_SocialMedia() {
   return (
     <Branch.Root background={bgBldgAJpg}>
       <Branch.Say
-        size="lg"
         foregroundSrc={redhead5Png}
         foregroundStyle={{width: '90%', bottom: 0}}
         transitory>
@@ -25,7 +24,6 @@ export function BranchActivist_CheckOut_SocialMedia() {
       </Branch.Say>
 
       <Branch.Say
-        size="xl"
         foregroundSrc={bgPhoneFingerJpg}
         foregroundStyle={{
           width: '100%',
@@ -99,7 +97,6 @@ export function BranchActivist_CheckOut_SocialMedia() {
 
       <Branch.Label label="acknowledged">
         <Branch.Say
-          size="lg"
           foregroundSrc={redhead7Png}
           foregroundStyle={{width: '90%', bottom: 0}}
           transitory>

@@ -14,7 +14,6 @@ export interface SayProps extends Partial<Omit<CommandProps, 'children'>> {
   children: string
   href?: string
   tag?: string
-  size?: 'md' | 'lg' | 'xl'
   placement?: 'top' | 'middle' | 'bottom'
   scheme?: CommandViewColorScheme
   style?: React.CSSProperties
@@ -30,7 +29,6 @@ export function Say({
   children,
   href,
   tag,
-  size = 'md',
   placement = 'top',
   scheme,
   style,
@@ -55,6 +53,15 @@ export function Say({
   const {containerSize} = useBranchContext()
   const chars = children.split('')
   const TextComp = href ? motion.a : motion.span
+  const size: 'md' | 'lg' | 'xl' = (() => {
+    if (chars.length > 90) {
+      return 'md'
+    }
+    if (chars.length > 40) {
+      return 'lg'
+    }
+    return 'xl'
+  })()
   return (
     <Command durationMs={3000 + chars.length * 40} skippable {...restProps}>
       {(controls) => (

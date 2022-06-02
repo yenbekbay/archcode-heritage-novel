@@ -52,16 +52,13 @@ export function BranchCityHall_ProjZheltoksan_Examine_Reject_Ignore() {
       />
 
       <Branch.Say
-        size="lg"
         foregroundSrc={angryCrowd1Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
         Общественность возмущена
       </Branch.Say>
 
-      <Branch.Say size="lg" transitory>
-        Общественные слушания
-      </Branch.Say>
+      <Branch.Say transitory>Общественные слушания</Branch.Say>
 
       <Branch.Say
         tag="Девелопер:"
@@ -125,13 +122,12 @@ export function BranchCityHall_ProjZheltoksan_Examine_Reject_Ignore() {
         история города! Его непременно нужно сохранить!!!
       </Branch.Say>
 
-      <Branch.Say size="lg" transitory>
+      <Branch.Say transitory>
         Активисты решили бойкотировать слушания и покинуть конференц зал.
         Поднялся шум. Посыпались обоюдные оскорбления
       </Branch.Say>
 
       <Branch.Say
-        size="lg"
         foregroundSrc={mayor2Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory

@@ -11,7 +11,6 @@ export function BranchIntro() {
   return (
     <Branch.Root background={Background}>
       <Branch.Choices
-        size="lg"
         placement="middle"
         choices={[
           {
@@ -42,7 +41,7 @@ export function BranchIntro() {
         завершил строение.
       </Branch.Say>
 
-      <Branch.Say size="lg" transitory>
+      <Branch.Say transitory>
         “Это машина времени, которая вернет вас туда, где небо было голубым.
         Наше настоящее в ваших руках!” — были его последние слова.
       </Branch.Say>

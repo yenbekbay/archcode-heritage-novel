@@ -24,11 +24,10 @@ export function BranchCityHall_ProjAsk_Examine_Reject() {
   return (
     <Branch.Root background={bgCityHallMayorOfficeJpg}>
       <Branch.Say
-        size="lg"
         foregroundSrc={mayor3Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
-        —Проект нужно пересмотреть. устроить общественные слушания!
+        Проект нужно пересмотреть. устроить общественные слушания!
       </Branch.Say>
 
       <Branch.Foreground
@@ -73,7 +72,6 @@ export function BranchCityHall_ProjAsk_Examine_Reject() {
       />
 
       <Branch.Say
-        size="lg"
         tag="АрхКот:"
         foregroundSrc={archkot4Png}
         foregroundStyle={{width: '100%', bottom: 0}}
@@ -82,7 +80,6 @@ export function BranchCityHall_ProjAsk_Examine_Reject() {
       </Branch.Say>
 
       <Branch.Say
-        size="lg"
         tag="Девелопер:"
         foregroundSrc={developerRepB1Png}
         foregroundStyle={{width: '100%', bottom: 0}}
@@ -92,7 +89,6 @@ export function BranchCityHall_ProjAsk_Examine_Reject() {
       </Branch.Say>
 
       <Branch.Say
-        size="lg"
         foregroundSrc={developerRepB2Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
@@ -101,7 +97,6 @@ export function BranchCityHall_ProjAsk_Examine_Reject() {
       </Branch.Say>
 
       <Branch.Say
-        size="lg"
         foregroundSrc={developerRepB3Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
@@ -109,7 +104,6 @@ export function BranchCityHall_ProjAsk_Examine_Reject() {
       </Branch.Say>
 
       <Branch.Say
-        size="lg"
         tag="Горжемпо:"
         foregroundSrc={gorzhempoPng}
         foregroundStyle={{width: '100%', bottom: 0}}
@@ -119,7 +113,6 @@ export function BranchCityHall_ProjAsk_Examine_Reject() {
       </Branch.Say>
 
       <Branch.Say
-        size="lg"
         foregroundSrc={gorzhempoPng}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
@@ -128,7 +121,6 @@ export function BranchCityHall_ProjAsk_Examine_Reject() {
       </Branch.Say>
 
       <Branch.Say
-        size="lg"
         foregroundSrc={gorzhempoPng}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
@@ -136,7 +128,6 @@ export function BranchCityHall_ProjAsk_Examine_Reject() {
       </Branch.Say>
 
       <Branch.Say
-        size="lg"
         tag="Тина Штунер:"
         foregroundSrc={tinaShtunerPng}
         foregroundStyle={{width: '100%', bottom: 0}}
@@ -146,7 +137,6 @@ export function BranchCityHall_ProjAsk_Examine_Reject() {
       </Branch.Say>
 
       <Branch.Say
-        size="lg"
         tag="Адя Пчелкина:"
         foregroundSrc={adyaPchelkinaPng}
         foregroundStyle={{width: '100%', bottom: 0}}
@@ -155,7 +145,6 @@ export function BranchCityHall_ProjAsk_Examine_Reject() {
       </Branch.Say>
 
       <Branch.Say
-        size="xl"
         tag="Девелопер:"
         foregroundSrc={developerRepB4Png}
         foregroundStyle={{width: '100%', bottom: 0}}
@@ -164,7 +153,6 @@ export function BranchCityHall_ProjAsk_Examine_Reject() {
       </Branch.Say>
 
       <Branch.Say
-        size="lg"
         tag="АрхКот:"
         foregroundSrc={archkot4Png}
         foregroundStyle={{width: '100%', bottom: 0}}
@@ -173,7 +161,6 @@ export function BranchCityHall_ProjAsk_Examine_Reject() {
       </Branch.Say>
 
       <Branch.Say
-        size="xl"
         tag="Девелопер:"
         foregroundSrc={developerRepB5Png}
         foregroundStyle={{width: '100%', bottom: 0}}
@@ -182,7 +169,6 @@ export function BranchCityHall_ProjAsk_Examine_Reject() {
       </Branch.Say>
 
       <Branch.Say
-        size="xl"
         foregroundSrc={mayor2Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory

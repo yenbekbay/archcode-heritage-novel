@@ -38,7 +38,7 @@ export function BranchCityHall_ProjAirport_Approve() {
         lingers={1}
       />
 
-      <Branch.Say size="lg" transitory>
+      <Branch.Say transitory>
         Указ: Одобрить снос здания VIP терминала Аэропорта
       </Branch.Say>
 
@@ -46,7 +46,7 @@ export function BranchCityHall_ProjAirport_Approve() {
         foregroundSrc={mayor2Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
-        —Мнение общественности учитывать не обязательно. Сохранить старый
+        Мнение общественности учитывать не обязательно. Сохранить старый
         терминал — путь архаичного советского мышления
       </Branch.Say>
 
@@ -54,7 +54,7 @@ export function BranchCityHall_ProjAirport_Approve() {
         foregroundSrc={mayor3Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
-        —Однако, по закону необходимо провести общественные слушания по проекту
+        Однако, по закону необходимо провести общественные слушания по проекту
       </Branch.Say>
 
       <Branch.Choices

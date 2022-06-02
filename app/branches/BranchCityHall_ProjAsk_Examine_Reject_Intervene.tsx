@@ -13,7 +13,6 @@ export function BranchCityHall_ProjAsk_Examine_Reject_Intervene() {
   return (
     <Branch.Root background={bgDeveloperHqInsidePng}>
       <Branch.Say
-        size="lg"
         tag="Работник акимата:"
         foregroundSrc={assistant3Png}
         foregroundStyle={{width: '100%', bottom: 0}}
@@ -22,14 +21,13 @@ export function BranchCityHall_ProjAsk_Examine_Reject_Intervene() {
       </Branch.Say>
 
       <Branch.Say
-        size="lg"
         foregroundSrc={mayor1Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
         —Отлично, договоримся о серии встреч с девелопером
       </Branch.Say>
 
-      <Branch.Say size="lg" transitory>
+      <Branch.Say transitory>
         и прошли обсуждения, где обсуждали, реставрация ли, реконструкция ли, и
         какое стекло важнее
       </Branch.Say>
@@ -50,9 +48,7 @@ export function BranchCityHall_ProjAsk_Examine_Reject_Intervene() {
         transitory
       />
 
-      <Branch.Say size="xl" transitory>
-        Вы успешно реконструировали АСК
-      </Branch.Say>
+      <Branch.Say transitory>Вы успешно реконструировали АСК</Branch.Say>
 
       <Branch.Say transitory>
         ПОЗДРАВЛЯЕМ! Реставрация объекта завершена. У вашего отдела новые

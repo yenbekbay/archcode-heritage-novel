@@ -15,7 +15,6 @@ export function BranchArchkot_ProjAsk_CheckOut_SocialMedia() {
   return (
     <Branch.Root background={bgAskBeforeJpg}>
       <Branch.Say
-        size="lg"
         foregroundSrc={archkot2Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
@@ -23,7 +22,6 @@ export function BranchArchkot_ProjAsk_CheckOut_SocialMedia() {
       </Branch.Say>
 
       <Branch.Say
-        size="xl"
         foregroundSrc={bgPhoneFingerJpg}
         foregroundStyle={{
           width: '100%',
@@ -96,7 +94,7 @@ export function BranchArchkot_ProjAsk_CheckOut_SocialMedia() {
       </Branch.Label>
 
       <Branch.Label label="acknowledged">
-        <Branch.Say size="xl" transitory>
+        <Branch.Say transitory>
           {/* FIXME */}
           [PLACEHOLDER]
         </Branch.Say>

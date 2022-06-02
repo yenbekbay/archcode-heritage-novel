@@ -26,7 +26,6 @@ export function BranchCityHall_MonumentDept_Rant() {
       />
 
       <Branch.Say
-        size="lg"
         foregroundSrc={mayor8Png}
         foregroundStyle={{width: '100%', bottom: '-10%'}}
         transitory>
@@ -34,7 +33,6 @@ export function BranchCityHall_MonumentDept_Rant() {
       </Branch.Say>
 
       <Branch.Say
-        size="lg"
         foregroundSrc={mayor9Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
@@ -42,7 +40,6 @@ export function BranchCityHall_MonumentDept_Rant() {
       </Branch.Say>
 
       <Branch.Say
-        size="lg"
         foregroundSrc={mayor2Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
@@ -50,7 +47,6 @@ export function BranchCityHall_MonumentDept_Rant() {
       </Branch.Say>
 
       <Branch.Say
-        size="xl"
         foregroundSrc={mayor10Png}
         foregroundStyle={{width: '100%', bottom: 0, transform: 'scaleX(-1)'}}
         transitory>
@@ -58,7 +54,6 @@ export function BranchCityHall_MonumentDept_Rant() {
       </Branch.Say>
 
       <Branch.Say
-        size="xl"
         foregroundSrc={mayor10Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
@@ -79,14 +74,12 @@ export function BranchCityHall_MonumentDept_Rant() {
         lingers={5}
       />
 
-      <Branch.Say size="xl" transitory durationMs={0} lingers={2}>
+      <Branch.Say transitory durationMs={0} lingers={2}>
         Ну что, приступим к списку…
       </Branch.Say>
 
       <Branch.Say
         href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-        size="md"
-        textStyle={{textAlign: 'left'}}
         textFrame={{
           viewport: [1080, 1920],
           rect: {
@@ -95,6 +88,7 @@ export function BranchCityHall_MonumentDept_Rant() {
             width: 720,
           },
         }}
+        textStyle={{fontSize: 16, textAlign: 'left'}}
         transitory
         durationMs={0}
         lingers={1}>
@@ -103,8 +97,6 @@ export function BranchCityHall_MonumentDept_Rant() {
 
       <Branch.Say
         href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-        size="md"
-        textStyle={{textAlign: 'left'}}
         textFrame={{
           viewport: [1080, 1920],
           rect: {
@@ -112,11 +104,12 @@ export function BranchCityHall_MonumentDept_Rant() {
             y: 1500,
             width: 720,
           },
-        }}>
+        }}
+        textStyle={{fontSize: 16, textAlign: 'left'}}>
         “Какие здания хотел внести список аким Байбек. *Ссылка 2
       </Branch.Say>
 
-      <Branch.Say size="xl" transitory durationMs={0} lingers={1}>
+      <Branch.Say transitory durationMs={0} lingers={1}>
         Какие здания города надо бы добавить в этот список?
       </Branch.Say>
 
@@ -134,7 +127,6 @@ export function BranchCityHall_MonumentDept_Rant() {
       />
 
       <Branch.Say
-        size="lg"
         placement="bottom"
         foregroundSrc={mayor11Png}
         foregroundStyle={{width: '100%', bottom: 0}}
@@ -143,7 +135,6 @@ export function BranchCityHall_MonumentDept_Rant() {
       </Branch.Say>
 
       <Branch.Say
-        size="xl"
         foregroundSrc={mayor12Png}
         foregroundStyle={{width: '100%', bottom: '-12%'}}
         transitory

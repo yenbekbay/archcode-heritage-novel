@@ -16,11 +16,10 @@ export function BranchCityHall_Menu_MonumentDept() {
   return (
     <Branch.Root background={bgCityHallMayorOfficeJpg}>
       <Branch.Say
-        size="lg"
         foregroundSrc={mayor1Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
-        —Что у нас делает отдел памятников?
+        Что у нас делает отдел памятников?
       </Branch.Say>
 
       <Branch.Foreground
@@ -32,11 +31,10 @@ export function BranchCityHall_Menu_MonumentDept() {
       />
 
       <Branch.Say
-        size="lg"
         foregroundSrc={mayor5Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
-        —Посмотрим, что они тут делают…
+        Посмотрим, что они тут делают…
       </Branch.Say>
 
       <Branch.Foreground
@@ -62,13 +60,12 @@ export function BranchCityHall_Menu_MonumentDept() {
       />
 
       <Branch.Say
-        size="xl"
         foregroundSrc={mayor6Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory
         durationMs={0}
         lingers={1}>
-        -Я хочу…
+        Я хочу…
       </Branch.Say>
 
       <Branch.Choices

@@ -48,7 +48,6 @@ export function BranchCityHall_ProjZheltoksan_Examine_Reject_Ignore_Ignore() {
       />
 
       <Branch.Say
-        size="lg"
         foregroundSrc={angryCrowd1Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
@@ -56,7 +55,6 @@ export function BranchCityHall_ProjZheltoksan_Examine_Reject_Ignore_Ignore() {
       </Branch.Say>
 
       <Branch.Say
-        size="xl"
         foregroundSrc={mayor4Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory

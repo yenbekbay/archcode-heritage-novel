@@ -15,7 +15,6 @@ export function BranchActivist_CheckOut() {
   return (
     <Branch.Root background={Background}>
       <Branch.Say
-        size="lg"
         foregroundSrc={redhead4Png}
         foregroundStyle={{
           width: '90%',
@@ -23,19 +22,18 @@ export function BranchActivist_CheckOut() {
           filter: 'drop-shadow(40px 40px 5px rgba(0, 0, 0, .35))',
         }}
         transitory>
-        —Мутят что-то без доклада народу. Надо разобраться!
+        Мутят что-то без доклада народу. Надо разобраться!
       </Branch.Say>
 
       <Branch.Blank durationMs={10000} transitory />
 
       <Branch.Say
-        size="lg"
         foregroundSrc={redhead2Png}
         foregroundStyle={{width: '90%', bottom: 0}}
         transitory
         durationMs={0}
         lingers={1}>
-        —Это что за новости?!?! Уничтожают историю, значит?
+        Это что за новости?!?! Уничтожают историю, значит?
       </Branch.Say>
 
       <Branch.Choices

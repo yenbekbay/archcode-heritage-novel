@@ -49,7 +49,6 @@ export function BranchActivist_CheckOut_Act_Group() {
       />
 
       <Branch.Say
-        size="xl"
         foregroundSrc={redhead14Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory
@@ -65,6 +64,10 @@ export function BranchActivist_CheckOut_Act_Group() {
           width: '100%',
           objectFit: 'cover',
           transform: 'scale(2) translate(-12px, 20px)',
+        }}
+        textStyle={{
+          fontSize: 20,
+          marginTop: -24,
         }}
         transitory
         durationMs={0}
@@ -82,14 +85,13 @@ export function BranchActivist_CheckOut_Act_Group() {
             transform: 'rotate(-6deg)',
           },
         }}
-        textStyle={{textAlign: 'right'}}>
+        textStyle={{fontSize: 20, textAlign: 'right'}}>
         {
           'Беспредел!\n\nСносят Фурманова, 00. Присоединяйтесь, чтобы вместе действовать в защиту истории!'
         }
       </Branch.Say>
 
       <Branch.Say
-        size="lg"
         foregroundSrc={redhead15Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
@@ -97,7 +99,6 @@ export function BranchActivist_CheckOut_Act_Group() {
       </Branch.Say>
 
       <Branch.Say
-        size="lg"
         foregroundSrc={redhead16Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
@@ -113,6 +114,7 @@ export function BranchActivist_CheckOut_Act_Group() {
           transform: 'scale(2) translateY(75px)',
         }}
         textStyle={{
+          fontSize: 20,
           marginTop: -24,
         }}
         transitory
@@ -130,10 +132,7 @@ export function BranchActivist_CheckOut_Act_Group() {
             width: 800,
           },
         }}
-        textStyle={{
-          fontSize: '$2',
-          textAlign: 'left',
-        }}>
+        textStyle={{fontSize: 16, textAlign: 'left'}}>
         {[
           '—Здравствуйте! Меня тоже все это возмущает! Мы должны действовать сообща!',
           '                            —Здравое дело! Я с вами!',
@@ -142,7 +141,6 @@ export function BranchActivist_CheckOut_Act_Group() {
       </Branch.Say>
 
       <Branch.Say
-        size="lg"
         foregroundSrc={activistBPng}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory
@@ -177,7 +175,6 @@ export function BranchActivist_CheckOut_Act_Group() {
 
       <Branch.Say
         href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-        size="lg"
         textFrame={{
           viewport: [1080, 1920],
           rect: {
@@ -187,6 +184,7 @@ export function BranchActivist_CheckOut_Act_Group() {
             transform: 'rotate(-6deg)',
           },
         }}
+        textStyle={{fontSize: 24}}
         foregroundSrc={bgPhoneHandJpg}
         foregroundStyle={{
           height: '100%',
@@ -208,7 +206,6 @@ export function BranchActivist_CheckOut_Act_Group() {
 
       <Branch.Say
         href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-        size="lg"
         textFrame={{
           viewport: [1080, 1920],
           rect: {
@@ -218,6 +215,7 @@ export function BranchActivist_CheckOut_Act_Group() {
             transform: 'rotate(-6deg)',
           },
         }}
+        textStyle={{fontSize: 24}}
         foregroundSrc={bgPhoneHandJpg}
         foregroundStyle={{
           height: '100%',
@@ -239,7 +237,6 @@ export function BranchActivist_CheckOut_Act_Group() {
 
       <Branch.Say
         href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-        size="lg"
         textFrame={{
           viewport: [1080, 1920],
           rect: {
@@ -249,6 +246,7 @@ export function BranchActivist_CheckOut_Act_Group() {
             transform: 'rotate(-6deg)',
           },
         }}
+        textStyle={{fontSize: 24}}
         foregroundSrc={bgPhoneHandJpg}
         foregroundStyle={{
           height: '100%',
@@ -260,7 +258,6 @@ export function BranchActivist_CheckOut_Act_Group() {
       </Branch.Say>
 
       <Branch.Say
-        size="lg"
         foregroundSrc={activistAPng}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
@@ -269,7 +266,6 @@ export function BranchActivist_CheckOut_Act_Group() {
 
       <Branch.Say
         href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-        size="lg"
         textFrame={{
           viewport: [1080, 1920],
           rect: {
@@ -279,6 +275,7 @@ export function BranchActivist_CheckOut_Act_Group() {
             transform: 'rotate(-6deg)',
           },
         }}
+        textStyle={{fontSize: 24}}
         foregroundSrc={bgPhoneHandJpg}
         foregroundStyle={{
           height: '100%',
@@ -290,7 +287,6 @@ export function BranchActivist_CheckOut_Act_Group() {
       </Branch.Say>
 
       <Branch.Say
-        size="lg"
         foregroundSrc={redhead1Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
@@ -298,7 +294,6 @@ export function BranchActivist_CheckOut_Act_Group() {
       </Branch.Say>
 
       <Branch.Say
-        size="lg"
         foregroundSrc={activistAPng}
         foregroundStyle={{width: '100%', bottom: 0, transform: 'scaleX(-1)'}}
         transitory>
@@ -329,13 +324,13 @@ export function BranchActivist_CheckOut_Act_Group() {
             width: 520,
             transform: 'rotate(9deg) translateX(16px)',
           },
-        }}>
+        }}
+        textStyle={{fontSize: 20}}>
         *ссылка на примеры писем по разным ситуациям. Проверить информацию из
         СМИ *Ссылка *23 на инструкцию по факт чеку
       </Branch.Say>
 
       <Branch.Say
-        size="lg"
         foregroundSrc={redhead18Png}
         foregroundStyle={{width: '100%', bottom: 0, transform: 'scaleX(-1)'}}
         transitory>
@@ -343,7 +338,6 @@ export function BranchActivist_CheckOut_Act_Group() {
       </Branch.Say>
 
       <Branch.Say
-        size="lg"
         foregroundSrc={activistBPng}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
@@ -367,7 +361,6 @@ export function BranchActivist_CheckOut_Act_Group() {
 
       <Branch.Say
         href="https://archcode.kz"
-        size="lg"
         textFrame={{
           viewport: [1080, 1920],
           rect: {
@@ -376,12 +369,12 @@ export function BranchActivist_CheckOut_Act_Group() {
             width: 520,
             transform: 'rotate(9deg) translateX(16px)',
           },
-        }}>
+        }}
+        textStyle={{fontSize: 24}}>
         сайт Архкода
       </Branch.Say>
 
       <Branch.Say
-        size="lg"
         foregroundSrc={activistAPng}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>

@@ -11,7 +11,6 @@ export function BranchCityHall_GovPrograms_Stop_Agree() {
   return (
     <Branch.Root background={bgCityHallConferenceRoomJpg}>
       <Branch.Say
-        size="xl"
         foregroundSrc={mayor3Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
@@ -33,7 +32,7 @@ export function BranchCityHall_GovPrograms_Stop_Agree() {
         lingers
       />
 
-      <Branch.Say size="lg" transitory>
+      <Branch.Say transitory>
         Советские остановки стали достопримечательностью города!
       </Branch.Say>
 

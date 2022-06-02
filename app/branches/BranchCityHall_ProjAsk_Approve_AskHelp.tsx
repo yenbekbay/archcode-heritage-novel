@@ -15,7 +15,6 @@ export function BranchCityHall_ProjAsk_Approve_AskHelp() {
   return (
     <Branch.Root background={bgCityHallMayorOfficeJpg}>
       <Branch.Say
-        size="lg"
         foregroundSrc={bgPhoneFingerJpg}
         foregroundStyle={{
           width: '100%',
@@ -36,7 +35,6 @@ export function BranchCityHall_ProjAsk_Approve_AskHelp() {
       />
 
       <Branch.Say
-        size="lg"
         foregroundSrc={angryCrowd1Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
@@ -44,7 +42,6 @@ export function BranchCityHall_ProjAsk_Approve_AskHelp() {
       </Branch.Say>
 
       <Branch.Say
-        size="lg"
         foregroundSrc={angryCrowd2Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
@@ -67,9 +64,7 @@ export function BranchCityHall_ProjAsk_Approve_AskHelp() {
         transitory
       />
 
-      <Branch.Say size="xl" transitory>
-        Вы успешно реконструировали АСК
-      </Branch.Say>
+      <Branch.Say transitory>Вы успешно реконструировали АСК</Branch.Say>
 
       <Branch.Say transitory>
         Здание утратило первоначальный облик и больше не представляет

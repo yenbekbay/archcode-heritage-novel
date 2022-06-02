@@ -14,9 +14,7 @@ export function BranchCityHall_MonumentDept_Rant_Ok() {
         lingers
       />
 
-      <Branch.Say size="lg" transitory>
-        Состоялась комиссия. ПОЗДРАВЛЯЕМ!!!
-      </Branch.Say>
+      <Branch.Say transitory>Состоялась комиссия. ПОЗДРАВЛЯЕМ!!!</Branch.Say>
 
       <Branch.Say transitory>
         Здания внесены в список! Теперь они все — памятники и могут стать новым

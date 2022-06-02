@@ -25,7 +25,6 @@ export function BranchCityHall_GovPrograms_Stop() {
       />
 
       <Branch.Say
-        size="lg"
         scheme="dark"
         foregroundSrc={bgMayorDoorJpg}
         foregroundStyle={{height: '100%', width: '100%', objectFit: 'cover'}}
@@ -43,7 +42,6 @@ export function BranchCityHall_GovPrograms_Stop() {
       />
 
       <Branch.Say
-        size="lg"
         scheme="dark"
         tag="Помощник:"
         foregroundSrc={assistant1Png}
@@ -53,7 +51,6 @@ export function BranchCityHall_GovPrograms_Stop() {
       </Branch.Say>
 
       <Branch.Say
-        size="lg"
         foregroundSrc={mayor14Png}
         foregroundStyle={{width: '100%', bottom: '-12%'}}
         transitory>
@@ -67,9 +64,7 @@ export function BranchCityHall_GovPrograms_Stop() {
         lingers
       />
 
-      <Branch.Say size="xl" transitory>
-        Встреча с АрхКотом
-      </Branch.Say>
+      <Branch.Say transitory>Встреча с АрхКотом</Branch.Say>
 
       <Branch.Say
         foregroundSrc={archkot2Png}
@@ -86,7 +81,6 @@ export function BranchCityHall_GovPrograms_Stop() {
       </Branch.Say>
 
       <Branch.Say
-        size="xl"
         foregroundSrc={mayor2Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory

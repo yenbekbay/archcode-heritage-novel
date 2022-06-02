@@ -11,7 +11,7 @@ const Branch = makeStrictBranch()
 export function BranchCityHall_GovPrograms_Continue() {
   return (
     <Branch.Root background={bgBusStop4Jpg}>
-      <Branch.Say size="lg" transitory>
+      <Branch.Say transitory>
         Демонтаж продолжается, но идет медленно и проблемно из-за крепких
         конструкций
       </Branch.Say>
@@ -34,7 +34,6 @@ export function BranchCityHall_GovPrograms_Continue() {
       />
 
       <Branch.Say
-        size="xl"
         foregroundSrc={mayor2Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory

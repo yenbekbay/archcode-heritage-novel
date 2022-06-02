@@ -15,7 +15,6 @@ export function BranchArchkot_ProjAsk_CheckOut() {
   return (
     <Branch.Root background={Background}>
       <Branch.Say
-        size="lg"
         foregroundSrc={archkot1Png}
         foregroundStyle={{
           width: '100%',
@@ -23,36 +22,32 @@ export function BranchArchkot_ProjAsk_CheckOut() {
           filter: 'drop-shadow(40px 40px 5px rgba(0, 0, 0, .35))',
         }}
         transitory>
-        —Я не усну спокойно, не посмотрев, что за забором
+        Я не усну спокойно, не посмотрев, что за забором
       </Branch.Say>
 
       <Branch.Blank durationMs={3000} transitory />
 
       <Branch.Say
-        size="lg"
         foregroundSrc={archkot8Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
-        -Что за напасть! Здание аппаратно-студийного комплекса перестроить
-        решили
+        Что за напасть! Здание аппаратно-студийного комплекса перестроить решили
       </Branch.Say>
 
       <Branch.Say
-        size="lg"
         foregroundSrc={archkot2Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
-        -А я был здесь ребенком еще, у мамы на работе, мне по лестницам этим так
+        А я был здесь ребенком еще, у мамы на работе, мне по лестницам этим так
         бегать нравилось
       </Branch.Say>
 
       <Branch.Say
-        size="lg"
         foregroundSrc={archkot1Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory
         lingers={1}>
-        —Что можно сделать мне, простому АрхКоту?
+        Что можно сделать мне, простому АрхКоту?
       </Branch.Say>
 
       <Branch.Choices

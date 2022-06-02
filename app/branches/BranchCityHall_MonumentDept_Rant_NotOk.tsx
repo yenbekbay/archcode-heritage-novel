@@ -11,7 +11,6 @@ export function BranchCityHall_MonumentDept_Rant_NotOk() {
   return (
     <Branch.Root background={bgCityHallMayorOfficeJpg}>
       <Branch.Say
-        size="xl"
         foregroundSrc={mayor13Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>

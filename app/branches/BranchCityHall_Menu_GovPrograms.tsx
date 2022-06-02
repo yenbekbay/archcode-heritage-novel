@@ -24,7 +24,6 @@ export function BranchCityHall_Menu_GovPrograms() {
       <Branch.Blank durationMs={3000} transitory />
 
       <Branch.Say
-        size="lg"
         foregroundSrc={mayor3Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
@@ -47,9 +46,7 @@ export function BranchCityHall_Menu_GovPrograms() {
         lingers={2}
       />
 
-      <Branch.Say size="xl" transitory>
-        Начинается демонтаж…
-      </Branch.Say>
+      <Branch.Say transitory>Начинается демонтаж…</Branch.Say>
 
       <Branch.Foreground
         src={bgBusStop3Jpg}
@@ -59,9 +56,7 @@ export function BranchCityHall_Menu_GovPrograms() {
         lingers={2}
       />
 
-      <Branch.Say size="xl" transitory>
-        Проходит он тяжело
-      </Branch.Say>
+      <Branch.Say transitory>Проходит он тяжело</Branch.Say>
 
       <Branch.Foreground
         src={bgBusStop4Jpg}
@@ -71,9 +66,7 @@ export function BranchCityHall_Menu_GovPrograms() {
         lingers={4}
       />
 
-      <Branch.Say size="xl" transitory>
-        Конструкции мощные
-      </Branch.Say>
+      <Branch.Say transitory>Конструкции мощные</Branch.Say>
 
       <Branch.Foreground
         src={angryCrowd1Png}
@@ -83,12 +76,9 @@ export function BranchCityHall_Menu_GovPrograms() {
         lingers={2}
       />
 
-      <Branch.Say size="xl" transitory>
-        Общественность возмущена
-      </Branch.Say>
+      <Branch.Say transitory>Общественность возмущена</Branch.Say>
 
       <Branch.Say
-        size="xl"
         foregroundSrc={archkot1Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
@@ -96,7 +86,6 @@ export function BranchCityHall_Menu_GovPrograms() {
       </Branch.Say>
 
       <Branch.Say
-        size="lg"
         scheme="dark"
         foregroundSrc={bgMayorDoorJpg}
         foregroundStyle={{height: '100%', width: '100%', objectFit: 'cover'}}
@@ -120,7 +109,6 @@ export function BranchCityHall_Menu_GovPrograms() {
       />
 
       <Branch.Say
-        size="lg"
         scheme="dark"
         tag="Помощник:"
         foregroundSrc={assistant1Png}
@@ -130,7 +118,6 @@ export function BranchCityHall_Menu_GovPrograms() {
       </Branch.Say>
 
       <Branch.Say
-        size="lg"
         scheme="dark"
         foregroundSrc={bgMayorDoorJpg}
         foregroundStyle={{height: '100%', width: '100%', objectFit: 'cover'}}
@@ -148,7 +135,6 @@ export function BranchCityHall_Menu_GovPrograms() {
       />
 
       <Branch.Say
-        size="xl"
         foregroundSrc={mayor2Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory

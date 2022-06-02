@@ -44,12 +44,12 @@ export function BranchActivist_CheckOut_Act_Self() {
         lingers={3}
       />
 
-      <Branch.Say size="lg" scheme="dark" durationMs={0} transitory lingers={1}>
-        —Действовать надо последовательно
+      <Branch.Say scheme="dark" durationMs={0} transitory lingers={1}>
+        Действовать надо последовательно
       </Branch.Say>
 
-      <Branch.Say size="lg" placement="bottom" scheme="dark" transitory>
-        —Для начала узнаю, кто здесь — заинтересованные стороны
+      <Branch.Say placement="bottom" scheme="dark" transitory>
+        Для начала узнаю, кто здесь — заинтересованные стороны
       </Branch.Say>
 
       <Branch.Foreground
@@ -60,21 +60,19 @@ export function BranchActivist_CheckOut_Act_Self() {
       />
 
       <Branch.Say
-        size="lg"
         foregroundSrc={redhead9Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory
         lingers={1}>
-        —Узнать надо побольше…
+        Узнать надо побольше…
       </Branch.Say>
 
-      <Branch.Say size="lg" placement="bottom" scheme="dark">
-        —И не только почитать новости, а проверить, правду ли говорят
+      <Branch.Say placement="bottom" scheme="dark">
+        И не только почитать новости, а проверить, правду ли говорят
       </Branch.Say>
 
       <Branch.Say
         href="https://factcheck.kz/"
-        size="lg"
         foregroundSrc={bgLaptopHandsJpg}
         foregroundStyle={{
           height: '100%',
@@ -86,16 +84,14 @@ export function BranchActivist_CheckOut_Act_Self() {
       </Branch.Say>
 
       <Branch.Say
-        size="lg"
         foregroundSrc={redhead10Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
-        —А теперь как запилю пост, что весь город на уши встанет!!!
+        А теперь как запилю пост, что весь город на уши встанет!!!
       </Branch.Say>
 
       <Branch.Say
         href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-        size="lg"
         foregroundSrc={bgLaptopHandsJpg}
         foregroundStyle={{
           height: '100%',
@@ -107,16 +103,14 @@ export function BranchActivist_CheckOut_Act_Self() {
       </Branch.Say>
 
       <Branch.Say
-        size="lg"
         foregroundSrc={redhead11Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
-        —Буду писать во все инстанции!
+        Буду писать во все инстанции!
       </Branch.Say>
 
       <Branch.Say
         href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-        size="lg"
         foregroundSrc={bgLaptopHandsJpg}
         foregroundStyle={{
           height: '100%',
@@ -128,16 +122,14 @@ export function BranchActivist_CheckOut_Act_Self() {
       </Branch.Say>
 
       <Branch.Say
-        size="lg"
         foregroundSrc={redhead9Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
-        —Таксссссс, а слушания то будут??
+        Таксссссс, а слушания то будут??
       </Branch.Say>
 
       <Branch.Say
         href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-        size="lg"
         foregroundSrc={bgLaptopHandsJpg}
         foregroundStyle={{
           height: '100%',
@@ -149,19 +141,17 @@ export function BranchActivist_CheckOut_Act_Self() {
       </Branch.Say>
 
       <Branch.Say
-        size="lg"
         foregroundSrc={redhead12Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
-        —И вообще, если не будет диалога, я готова действовать!!!
+        И вообще, если не будет диалога, я готова действовать!!!
       </Branch.Say>
 
       <Branch.Say
-        size="lg"
         foregroundSrc={redhead11Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
-        —Устрою протест!!!
+        Устрою протест!!!
       </Branch.Say>
 
       <Branch.Say
@@ -188,13 +178,10 @@ export function BranchActivist_CheckOut_Act_Self() {
         }}
         transitory
         lingers={1}>
-        —Думаю, можно обратиться к ним
+        Думаю, можно обратиться к ним
       </Branch.Say>
 
-      <Branch.Say
-        href="https://archcode.kz"
-        size="lg"
-        textStyle={{marginTop: 64}}>
+      <Branch.Say href="https://archcode.kz" textStyle={{marginTop: 64}}>
         сайт Архкода
       </Branch.Say>
 

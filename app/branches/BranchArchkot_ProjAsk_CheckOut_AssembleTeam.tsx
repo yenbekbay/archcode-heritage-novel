@@ -20,7 +20,6 @@ export function BranchArchkot_ProjAsk_CheckOut_AssembleTeam() {
   return (
     <Branch.Root background={bgAskBeforeJpg}>
       <Branch.Say
-        size="lg"
         foregroundSrc={archkot8Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
@@ -28,7 +27,6 @@ export function BranchArchkot_ProjAsk_CheckOut_AssembleTeam() {
       </Branch.Say>
 
       <Branch.Say
-        size="lg"
         textFrame={{
           viewport: [1080, 1920],
           rect: {
@@ -38,6 +36,7 @@ export function BranchArchkot_ProjAsk_CheckOut_AssembleTeam() {
             transform: 'rotate(-6deg)',
           },
         }}
+        textStyle={{fontSize: 24}}
         foregroundSrc={bgPhoneHandJpg}
         foregroundStyle={{
           height: '100%',
@@ -58,7 +57,6 @@ export function BranchArchkot_ProjAsk_CheckOut_AssembleTeam() {
       />
 
       <Branch.Say
-        size="lg"
         tag="АрхКот:"
         foregroundSrc={archkot9Png}
         foregroundStyle={{width: '100%', bottom: 0}}
@@ -68,7 +66,6 @@ export function BranchArchkot_ProjAsk_CheckOut_AssembleTeam() {
       </Branch.Say>
 
       <Branch.Say
-        size="lg"
         tag="АрхТок:"
         foregroundSrc={archtok1Png}
         foregroundStyle={{width: '100%', bottom: 0}}
@@ -78,7 +75,6 @@ export function BranchArchkot_ProjAsk_CheckOut_AssembleTeam() {
       </Branch.Say>
 
       <Branch.Say
-        size="lg"
         tag="АрхБот:"
         foregroundSrc={archbot1Png}
         foregroundStyle={{width: '100%', bottom: 0}}
@@ -90,14 +86,12 @@ export function BranchArchkot_ProjAsk_CheckOut_AssembleTeam() {
       </Branch.Say>
 
       <Branch.Say
-        size="xl"
         placement="middle"
         href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
         *Ссылка РЕЕСТР
       </Branch.Say>
 
       <Branch.Say
-        size="lg"
         tag="АрхТок:"
         foregroundSrc={archtok2Png}
         foregroundStyle={{width: '100%', bottom: 0}}
@@ -128,12 +122,9 @@ export function BranchArchkot_ProjAsk_CheckOut_AssembleTeam() {
         lingers={1}
       />
 
-      <Branch.Say size="xl" transitory>
-        Здание АСК не является памятником
-      </Branch.Say>
+      <Branch.Say transitory>Здание АСК не является памятником</Branch.Say>
 
       <Branch.Say
-        size="xl"
         tag="АрхКот:"
         foregroundSrc={archkot10Png}
         foregroundStyle={{height: '100%', width: '100%', objectFit: 'cover'}}
@@ -142,7 +133,6 @@ export function BranchArchkot_ProjAsk_CheckOut_AssembleTeam() {
       </Branch.Say>
 
       <Branch.Say
-        size="xl"
         foregroundSrc={archkot11Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory
@@ -166,7 +156,6 @@ export function BranchArchkot_ProjAsk_CheckOut_AssembleTeam() {
       />
 
       <Branch.Say
-        size="lg"
         tag="АрхТок:"
         foregroundSrc={archtok1Png}
         foregroundStyle={{width: '100%', bottom: 0}}
@@ -176,7 +165,6 @@ export function BranchArchkot_ProjAsk_CheckOut_AssembleTeam() {
       </Branch.Say>
 
       <Branch.Say
-        size="lg"
         tag="АрхБот:"
         foregroundSrc={archbot2Png}
         foregroundStyle={{width: '100%', bottom: 0}}
@@ -186,7 +174,6 @@ export function BranchArchkot_ProjAsk_CheckOut_AssembleTeam() {
       </Branch.Say>
 
       <Branch.Say
-        size="lg"
         foregroundSrc={archbot3Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory
@@ -196,14 +183,12 @@ export function BranchArchkot_ProjAsk_CheckOut_AssembleTeam() {
       </Branch.Say>
 
       <Branch.Say
-        size="lg"
         placement="middle"
         href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
         *Cсылка cтатья "Список Байбека"
       </Branch.Say>
 
       <Branch.Say
-        size="lg"
         tag="АрхТок:"
         foregroundSrc={archtok2Png}
         foregroundStyle={{width: '100%', bottom: 0}}
@@ -212,7 +197,6 @@ export function BranchArchkot_ProjAsk_CheckOut_AssembleTeam() {
       </Branch.Say>
 
       <Branch.Say
-        size="lg"
         tag="АрхБот:"
         foregroundSrc={archbot1Png}
         foregroundStyle={{width: '100%', bottom: 0}}
@@ -224,7 +208,6 @@ export function BranchArchkot_ProjAsk_CheckOut_AssembleTeam() {
       </Branch.Say>
 
       <Branch.Say
-        size="lg"
         placement="middle"
         href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
         *Cсылка на закон
@@ -243,12 +226,12 @@ export function BranchArchkot_ProjAsk_CheckOut_AssembleTeam() {
         памятником, имеет все права настоящего памятника
       </Branch.Say>
 
-      <Branch.Say size="lg" transitory>
+      <Branch.Say transitory>
         Теперь, зная это, они будут действовать, чтобы сохранить здание, которое
         так дорого сердцам
       </Branch.Say>
 
-      <Branch.Say size="xl" transitory durationMs={0} lingers={1}>
+      <Branch.Say transitory durationMs={0} lingers={1}>
         Что делать?
       </Branch.Say>
 

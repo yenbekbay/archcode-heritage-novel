@@ -14,7 +14,6 @@ export function BranchCityHall_GovPrograms_Stop_Dismiss() {
   return (
     <Branch.Root background={bgCityHallConferenceRoomJpg}>
       <Branch.Say
-        size="xl"
         foregroundSrc={mayor9Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
@@ -22,7 +21,6 @@ export function BranchCityHall_GovPrograms_Stop_Dismiss() {
       </Branch.Say>
 
       <Branch.Say
-        size="xl"
         foregroundSrc={mayor15Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
@@ -30,7 +28,6 @@ export function BranchCityHall_GovPrograms_Stop_Dismiss() {
       </Branch.Say>
 
       <Branch.Say
-        size="xl"
         foregroundSrc={mayor3Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
@@ -44,9 +41,7 @@ export function BranchCityHall_GovPrograms_Stop_Dismiss() {
         lingers={2}
       />
 
-      <Branch.Say size="lg" transitory>
-        Вы успешно демонтировали остановку
-      </Branch.Say>
+      <Branch.Say transitory>Вы успешно демонтировали остановку</Branch.Say>
 
       <Branch.Foreground
         src={bgBusStop6Jpg}
@@ -55,7 +50,7 @@ export function BranchCityHall_GovPrograms_Stop_Dismiss() {
         lingers
       />
 
-      <Branch.Say size="lg" transitory>
+      <Branch.Say transitory>
         Советские остановки исчезли по всему городу…
       </Branch.Say>
 

@@ -108,7 +108,6 @@ export function BranchCityHall_ProjZheltoksan_Approve_Debate() {
       </Branch.Say>
 
       <Branch.Say
-        size="lg"
         foregroundSrc={mayor2Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory

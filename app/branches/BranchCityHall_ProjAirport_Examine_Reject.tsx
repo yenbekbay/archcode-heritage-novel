@@ -44,9 +44,7 @@ export function BranchCityHall_ProjAirport_Examine_Reject() {
         lingers={1}
       />
 
-      <Branch.Say size="lg" transitory>
-        Устроить общественное обсуждение
-      </Branch.Say>
+      <Branch.Say transitory>Устроить общественное обсуждение</Branch.Say>
 
       <Branch.Foreground
         src={bgCityHallOutsideJpg}
@@ -55,7 +53,7 @@ export function BranchCityHall_ProjAirport_Examine_Reject() {
         lingers={1}
       />
 
-      <Branch.Say size="xl" placement="middle" scheme="dark" transitory>
+      <Branch.Say placement="middle" scheme="dark" transitory>
         Общественные слушания
       </Branch.Say>
 
@@ -143,7 +141,6 @@ export function BranchCityHall_ProjAirport_Examine_Reject() {
       </Branch.Say>
 
       <Branch.Say
-        size="lg"
         foregroundSrc={mayor2Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory

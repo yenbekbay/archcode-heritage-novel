@@ -7,9 +7,7 @@ const Branch = makeStrictBranch()
 export function BranchArchkot_0Juncture() {
   return (
     <Branch.Root background={Background}>
-      <Branch.Say size="lg" transitory>
-        Забор в этом городе появился новый
-      </Branch.Say>
+      <Branch.Say transitory>Забор в этом городе появился новый</Branch.Say>
 
       <Branch.Foreground
         src={fencePng}
@@ -31,7 +29,6 @@ export function BranchArchkot_0Juncture() {
       />
 
       <Branch.Say
-        size="lg"
         foregroundSrc={archkot5Png}
         foregroundStyle={{
           width: '100%',

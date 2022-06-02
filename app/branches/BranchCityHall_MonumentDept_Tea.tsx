@@ -22,7 +22,6 @@ export function BranchCityHall_MonumentDept_Tea() {
       />
 
       <Branch.Say
-        size="lg"
         scheme="dark"
         foregroundSrc={bgMayorDoorJpg}
         foregroundStyle={{height: '100%', width: '100%', objectFit: 'cover'}}
@@ -40,7 +39,6 @@ export function BranchCityHall_MonumentDept_Tea() {
       />
 
       <Branch.Say
-        size="lg"
         scheme="dark"
         tag="Помощник:"
         foregroundSrc={assistant1Png}
@@ -50,7 +48,6 @@ export function BranchCityHall_MonumentDept_Tea() {
       </Branch.Say>
 
       <Branch.Say
-        size="xl"
         foregroundSrc={mayor2Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory
@@ -73,7 +70,7 @@ export function BranchCityHall_MonumentDept_Tea() {
         ]}
       />
 
-      <Branch.Say size="lg" transitory durationMs={0} lingers={1}>
+      <Branch.Say transitory durationMs={0} lingers={1}>
         Хотите продолжить работу с отделом памятников?
       </Branch.Say>
 
@@ -91,7 +88,6 @@ export function BranchCityHall_MonumentDept_Tea() {
       />
 
       <Branch.Say
-        size="lg"
         scheme="dark"
         foregroundSrc={bgMayorDoorJpg}
         foregroundStyle={{height: '100%', width: '100%', objectFit: 'cover'}}
@@ -109,7 +105,6 @@ export function BranchCityHall_MonumentDept_Tea() {
       />
 
       <Branch.Say
-        size="lg"
         scheme="dark"
         tag="Помощник:"
         foregroundSrc={assistant1Png}
@@ -120,7 +115,6 @@ export function BranchCityHall_MonumentDept_Tea() {
       </Branch.Say>
 
       <Branch.Say
-        size="xl"
         foregroundSrc={mayor2Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory
@@ -143,7 +137,7 @@ export function BranchCityHall_MonumentDept_Tea() {
         ]}
       />
 
-      <Branch.Say size="lg" transitory durationMs={0} lingers={1}>
+      <Branch.Say transitory durationMs={0} lingers={1}>
         Хотите продолжить работу с отделом памятников?
       </Branch.Say>
 
@@ -161,7 +155,6 @@ export function BranchCityHall_MonumentDept_Tea() {
       />
 
       <Branch.Say
-        size="lg"
         foregroundSrc={mayor2Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory

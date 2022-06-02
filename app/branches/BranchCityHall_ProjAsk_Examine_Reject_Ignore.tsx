@@ -13,7 +13,6 @@ export function BranchCityHall_ProjAsk_Examine_Reject_Ignore() {
   return (
     <Branch.Root background={bgDeveloperHqInsidePng}>
       <Branch.Say
-        size="lg"
         tag="АрхКот:"
         foregroundSrc={archkot2Png}
         foregroundStyle={{width: '100%', bottom: 0}}
@@ -22,14 +21,13 @@ export function BranchCityHall_ProjAsk_Examine_Reject_Ignore() {
       </Branch.Say>
 
       <Branch.Say
-        size="lg"
         foregroundSrc={archkot3Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
         —Давайте договоримся о серии встреч с девелопером.
       </Branch.Say>
 
-      <Branch.Say size="lg" transitory>
+      <Branch.Say transitory>
         и прошли обсуждения, где обсуждали, реставрация ли, реконструкция ли, и
         какое стекло важнее
       </Branch.Say>
@@ -50,9 +48,7 @@ export function BranchCityHall_ProjAsk_Examine_Reject_Ignore() {
         transitory
       />
 
-      <Branch.Say size="xl" transitory>
-        Вы успешно реконструировали АСК
-      </Branch.Say>
+      <Branch.Say transitory>Вы успешно реконструировали АСК</Branch.Say>
 
       <Branch.Say transitory>
         Здание АСК может быть внесено в список памятников и стать новым активом

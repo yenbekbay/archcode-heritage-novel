@@ -6,7 +6,7 @@ const Branch = makeStrictBranch()
 export function BranchCityHall_Menu_Projects() {
   return (
     <Branch.Root background={bgMayorDeskAJpg}>
-      <Branch.Say size="xl" scheme="dark" transitory durationMs={0} lingers={1}>
+      <Branch.Say scheme="dark" transitory durationMs={0} lingers={1}>
         Выберите проект
       </Branch.Say>
 

@@ -7,7 +7,6 @@ export function BranchActivist_CheckOut_Act() {
   return (
     <Branch.Root background={bgBldgAJpg}>
       <Branch.Say
-        size="xl"
         foregroundSrc={redhead8Png}
         foregroundStyle={{width: '90%', bottom: 0}}
         transitory

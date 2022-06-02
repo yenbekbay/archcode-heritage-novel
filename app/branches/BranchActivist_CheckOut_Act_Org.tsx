@@ -15,7 +15,6 @@ export function BranchActivist_CheckOut_Act_Org() {
       <Branch.Blank durationMs={3000} transitory />
 
       <Branch.Say
-        size="lg"
         foregroundSrc={redhead19Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
@@ -31,7 +30,6 @@ export function BranchActivist_CheckOut_Act_Org() {
       />
 
       <Branch.Say
-        size="lg"
         foregroundSrc={sillhouettePng}
         foregroundStyle={{width: '90%', bottom: 0}}
         transitory>
@@ -55,7 +53,6 @@ export function BranchActivist_CheckOut_Act_Org() {
       />
 
       <Branch.Say
-        size="lg"
         foregroundSrc={sillhouettePng}
         foregroundStyle={{width: '90%', bottom: 0}}
         transitory>
@@ -64,7 +61,6 @@ export function BranchActivist_CheckOut_Act_Org() {
 
       <Branch.Say
         href="tel://+77071210483"
-        size="lg"
         textFrame={{
           viewport: [1080, 1920],
           rect: {
@@ -74,6 +70,7 @@ export function BranchActivist_CheckOut_Act_Org() {
             transform: 'rotate(-6deg)',
           },
         }}
+        textStyle={{fontSize: 24}}
         foregroundSrc={bgPhoneHandJpg}
         foregroundStyle={{
           height: '100%',

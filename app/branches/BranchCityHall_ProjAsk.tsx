@@ -22,7 +22,6 @@ export function BranchCityHall_ProjAsk() {
       </Branch.Say>
 
       <Branch.Say
-        size="xl"
         foregroundSrc={mayor2Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory

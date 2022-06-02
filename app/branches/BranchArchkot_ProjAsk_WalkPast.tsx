@@ -16,7 +16,6 @@ export function BranchArchkot_ProjAsk_WalkPast() {
   return (
     <Branch.Root background={Background}>
       <Branch.Say
-        size="lg"
         foregroundSrc={archkot6Png}
         foregroundStyle={{
           width: '100%',
@@ -24,7 +23,7 @@ export function BranchArchkot_ProjAsk_WalkPast() {
           filter: 'drop-shadow(40px 40px 5px rgba(0, 0, 0, .35))',
         }}
         transitory>
-        —Не стоит зря терять времени, дедлайны горят, дома кот некормленный, да
+        Не стоит зря терять времени, дедлайны горят, дома кот некормленный, да
         сериал недосмотренный
       </Branch.Say>
 

@@ -13,9 +13,7 @@ export function BranchCityHall_GovPrograms_Continue_Continue() {
         lingers={2}
       />
 
-      <Branch.Say size="lg" transitory>
-        Вы успешно демонтировали остановку
-      </Branch.Say>
+      <Branch.Say transitory>Вы успешно демонтировали остановку</Branch.Say>
 
       <Branch.Foreground
         src={bgBusStop6Jpg}
@@ -24,7 +22,7 @@ export function BranchCityHall_GovPrograms_Continue_Continue() {
         lingers
       />
 
-      <Branch.Say size="lg" transitory>
+      <Branch.Say transitory>
         Советские остановки исчезли по всему городу…
       </Branch.Say>
 
