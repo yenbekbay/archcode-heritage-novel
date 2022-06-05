@@ -1,4 +1,5 @@
 import type {LinksFunction, MetaFunction} from '@remix-run/node'
+import {json} from '@remix-run/node'
 import {
   Links,
   LiveReload,
@@ -7,11 +8,24 @@ import {
   Scripts,
   ScrollRestoration,
   useCatch,
+  useLoaderData,
   useLocation,
 } from '@remix-run/react'
+import {Toaster} from 'react-hot-toast'
 import {Footer, Header} from '~/components'
 import {MediaContextProvider, mediaStyle} from '~/lib'
 import tailwindStylesUrl from '~/__generated__/tailwind.css'
+
+export async function loader() {
+  return json({
+    ENV: {
+      SUPABASE_URL: process.env.SUPABASE_URL,
+      SUPABASE_ANON_KEY: process.env.SUPABASE_ANON_KEY,
+      IMGFLIP_USERNAME: process.env.IMGFLIP_USERNAME,
+      IMGFLIP_PASSWORD: process.env.IMGFLIP_PASSWORD,
+    },
+  })
+}
 
 export const meta: MetaFunction = () => ({
   charset: 'utf-8',
@@ -127,10 +141,14 @@ function Document({
       </head>
 
       <body>
-        <MediaContextProvider>{children}</MediaContextProvider>
+        <MediaContextProvider>
+          {children}
+          <Toaster />
+        </MediaContextProvider>
         <ScrollRestoration />
         <Scripts />
         <LiveReload />
+        <Env />
       </body>
     </html>
   )
@@ -154,4 +172,26 @@ function Layout({children}: {children: React.ReactNode}) {
       )}
     </div>
   )
+}
+
+function Env() {
+  const data = useLoaderData()
+  return (
+    <script
+      dangerouslySetInnerHTML={{
+        __html: `window.ENV = ${JSON.stringify(data.ENV)}`,
+      }}
+    />
+  )
+}
+
+declare global {
+  interface Window {
+    ENV: {
+      SUPABASE_URL: string
+      SUPABASE_ANON_KEY: string
+      IMGFLIP_USERNAME: string
+      IMGFLIP_PASSWORD: string
+    }
+  }
 }

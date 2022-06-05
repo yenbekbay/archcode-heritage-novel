@@ -1,5 +1,5 @@
 // codegen:start {preset: barrel, include: "./{*.{ts,tsx},!(internal)/index.{ts,tsx}}"}
-export * from './SubmitMonuments'
-export * from './UploadMeme'
-export * from './UploadPost'
+export * from './MakeMeme'
+export * from './PublishPost'
+export * from './NominateMonument'
 // codegen:end

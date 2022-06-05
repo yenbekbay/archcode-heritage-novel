@@ -15,8 +15,11 @@ import {
   useBranchContext,
   useGameContext,
 } from '~/lib'
+import type {definitions} from '~/supabase'
+import {getSupabase} from '~/supabase'
+import {Spinner} from './internal'
 
-export interface UploadMemeProps {
+export interface MakeMemeProps {
   onDone: (ctx: {
     goToBranch: (branchId: BranchId) => void
     goToStatement: (statementLabel: string) => void
@@ -29,14 +32,14 @@ export interface UploadMemeProps {
   foregroundAnimation?: CommandViewAnimation
 }
 
-export function UploadMeme({
+export function MakeMeme({
   onDone,
   frame,
   scheme,
   foregroundSrc,
   foregroundStyle,
   foregroundAnimation,
-}: UploadMemeProps) {
+}: MakeMemeProps) {
   const {goToBranch} = useGameContext()
   const {containerSize, goToStatement, skip} = useBranchContext()
   return (
@@ -72,10 +75,12 @@ export function UploadMeme({
             }}
             initial="initial"
             animate={controls}>
-            <MemeBuilder
+            <MemeForm
               scheme={scheme}
-              onDone={() => {
-                // FIXME: Persist the data
+              onSubmit={async (url) => {
+                await getSupabase()
+                  .from<definitions['meme_submissions']>('meme_submissions')
+                  .insert({url})
                 onDone({goToStatement, goToBranch, skip})
               }}
             />
@@ -86,20 +91,20 @@ export function UploadMeme({
   )
 }
 
-// MARK: MemeBuilder
+// MARK: MemeForm
 
-interface MemeBuilderProps {
+interface MemeFormProps {
+  onSubmit: (url: string) => unknown | Promise<unknown>
   scheme?: CommandViewColorScheme
-  onDone: () => void
 }
 
-function MemeBuilder({scheme, onDone}: MemeBuilderProps) {
+function MemeForm({onSubmit, scheme}: MemeFormProps) {
   const [activeTemplateId, setActiveTemplateId] = React.useState<string | null>(
     null,
   )
   const [previewUrl, setPreviewUrl] = React.useState<string | null>(null)
-  const res = useSWR('memeTemplates', memeTemplatesFetcher)
-  const templates = res.data
+  const templatesRes = useSWR('memeTemplates', memeTemplatesFetcher)
+  const templates = templatesRes.data
   const templateById = React.useMemo(
     () =>
       templates ? Object.fromEntries(templates?.map((t) => [t.id, t])) : {},
@@ -144,38 +149,12 @@ function MemeBuilder({scheme, onDone}: MemeBuilderProps) {
           <span className="text-lg font-semibold">{activeTemplate.name}</span>
 
           {previewUrl ? (
-            <div className="flex flex-col space-y-2">
-              <button
-                className={clsx(
-                  'GameEngine-button btn btn-outline font-calligraph',
-                  scheme === 'dark' && 'GameEngine-button--dark',
-                )}
-                onClick={() =>
-                  navigator.share({
-                    title: 'Снести нельзя оставить!',
-                    url: previewUrl,
-                  })
-                }>
-                Поделиться
-              </button>
-
-              <button
-                className={clsx(
-                  'GameEngine-button btn btn-outline font-calligraph',
-                  scheme === 'dark' && 'GameEngine-button--dark',
-                )}
-                onClick={() => {
-                  // TODO
-                  onDone()
-                }}>
-                Сохранить
-              </button>
-            </div>
+            <MemePreview scheme={scheme} url={previewUrl} onSubmit={onSubmit} />
           ) : (
-            <MemeBuilderForm
+            <MemeTemplateForm
               scheme={scheme}
               template={activeTemplate}
-              onBuild={(url) => setPreviewUrl(url)}
+              onPreviewUrlChange={setPreviewUrl}
             />
           )}
         </div>
@@ -201,15 +180,78 @@ function MemeBuilder({scheme, onDone}: MemeBuilderProps) {
   )
 }
 
-// MARK: MemeBuilderForm
+// MARK: MemePreview
 
-interface MemeBuilderFormProps {
-  template: ImgFlipMemeTemplate
-  onBuild: (url: string) => void
+interface MemePreviewProps {
+  url: string
+  onSubmit: (url: string) => unknown | Promise<unknown>
   scheme?: CommandViewColorScheme
 }
 
-function MemeBuilderForm({template: t, onBuild, scheme}: MemeBuilderFormProps) {
+function MemePreview({url, onSubmit, scheme}: MemePreviewProps) {
+  const [submitting, setSubmitting] = React.useState(false)
+  return (
+    <div className="relative flex flex-col">
+      <div
+        className={clsx(
+          'flex flex-col space-y-2',
+          submitting && 'pointer-events-none opacity-50',
+        )}>
+        <button
+          className={clsx(
+            'GameEngine-button btn btn-outline font-calligraph',
+            scheme === 'dark' && 'GameEngine-button--dark',
+          )}
+          onClick={() =>
+            navigator.share({
+              title: 'Снести нельзя оставить!',
+              url,
+            })
+          }>
+          Поделиться
+        </button>
+
+        <button
+          className={clsx(
+            'GameEngine-button btn btn-outline font-calligraph',
+            scheme === 'dark' && 'GameEngine-button--dark',
+          )}
+          onClick={async () => {
+            setSubmitting(true)
+            try {
+              await onSubmit(url)
+            } catch (err) {
+              toast.error('Что-то пошло не так. Попробуйте ещё раз')
+            } finally {
+              setSubmitting(false)
+            }
+          }}>
+          Сохранить
+        </button>
+      </div>
+
+      {submitting && (
+        <div className="absolute inset-0 flex flex-col items-center justify-center">
+          <Spinner />
+        </div>
+      )}
+    </div>
+  )
+}
+
+// MARK: MemeTemplateForm
+
+interface MemeTemplateFormProps {
+  template: ImgFlipMemeTemplate
+  onPreviewUrlChange: (url: string) => void
+  scheme?: CommandViewColorScheme
+}
+
+function MemeTemplateForm({
+  template: t,
+  onPreviewUrlChange,
+  scheme,
+}: MemeTemplateFormProps) {
   const [submitting, setSubmitting] = React.useState(false)
   const [FormSchema] = React.useState(() =>
     z.object(
@@ -228,8 +270,8 @@ function MemeBuilderForm({template: t, onBuild, scheme}: MemeBuilderFormProps) {
       try {
         const formData = new FormData()
         formData.append('template_id', t.id)
-        formData.append('username', 'archcode_almaty')
-        formData.append('password', 'kqm.xhw0xtn9EUB7vgz')
+        formData.append('username', window.ENV.IMGFLIP_USERNAME)
+        formData.append('password', window.ENV.IMGFLIP_PASSWORD)
         for (const [idx, value] of Object.values(event.data).entries()) {
           formData.append(`boxes[${idx}][text]`, value)
         }
@@ -239,8 +281,9 @@ function MemeBuilderForm({template: t, onBuild, scheme}: MemeBuilderFormProps) {
         })
         const data = (await res.json()) as ImgFlipCaptionResponse
         if (data.success) {
-          onBuild(data.data.url)
+          onPreviewUrlChange(data.data.url)
         } else {
+          console.warn('Failed to caption image', data.error_message)
           toast.error('Что-то пошло не так. Попробуйте ещё раз')
         }
       } finally {
@@ -295,32 +338,6 @@ function MemeBuilderForm({template: t, onBuild, scheme}: MemeBuilderFormProps) {
         </div>
       )}
     </div>
-  )
-}
-
-// MARK: Spinner
-
-function Spinner() {
-  return (
-    <svg
-      className="h-5 w-5 animate-spin"
-      xmlns="http://www.w3.org/2000/svg"
-      fill="none"
-      viewBox="0 0 24 24">
-      <circle
-        className="opacity-25"
-        cx="12"
-        cy="12"
-        r="10"
-        stroke="currentColor"
-        strokeWidth="4"
-      />
-      <path
-        className="opacity-75"
-        fill="currentColor"
-        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-      />
-    </svg>
   )
 }
 

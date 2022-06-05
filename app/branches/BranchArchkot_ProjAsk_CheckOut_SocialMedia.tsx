@@ -4,10 +4,10 @@ import {
   bgPhoneFingerJpg,
   bgPhoneHandJpg,
 } from '~/assets/game'
-import {UploadMeme, UploadPost} from '~/commands'
+import {MakeMeme, PublishPost} from '~/commands'
 import {makeStrictBranch} from '~/lib'
 
-type StatementLabel = 'upload_meme' | 'publish_post' | 'acknowledged'
+type StatementLabel = 'make_meme' | 'publish_post' | 'acknowledged'
 
 const Branch = makeStrictBranch<StatementLabel>()
 
@@ -40,7 +40,7 @@ export function BranchArchkot_ProjAsk_CheckOut_SocialMedia() {
         choices={[
           {
             label: 'Создать мем',
-            onClick: (ctx) => ctx.goToStatement('upload_meme'),
+            onClick: (ctx) => ctx.goToStatement('make_meme'),
           },
           {
             label: 'Написать пост о том, как всё плохо',
@@ -49,8 +49,8 @@ export function BranchArchkot_ProjAsk_CheckOut_SocialMedia() {
         ]}
       />
 
-      <Branch.Label label="upload_meme">
-        <UploadMeme
+      <Branch.Label label="make_meme">
+        <MakeMeme
           onDone={(ctx) => ctx.goToStatement('acknowledged')}
           frame={{
             viewport: [1080, 1920],
@@ -72,7 +72,7 @@ export function BranchArchkot_ProjAsk_CheckOut_SocialMedia() {
       </Branch.Label>
 
       <Branch.Label label="publish_post">
-        <UploadPost
+        <PublishPost
           onDone={(ctx) => ctx.goToStatement('acknowledged')}
           frame={{
             viewport: [1080, 1920],

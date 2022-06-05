@@ -2,9 +2,11 @@ import clsx from 'clsx'
 import {motion} from 'framer-motion'
 import type {CommandViewColorScheme, Frame} from '~/lib'
 import {Command, styleForFrame, useBranchContext, useGameContext} from '~/lib'
+import type {definitions} from '~/supabase'
+import {getSupabase} from '~/supabase'
 import {TextForm} from './internal'
 
-export interface SubmitMonumentsProps {
+export interface NominateMonumentProps {
   onDone: (ctx: {
     goToBranch: (branchId: BranchId) => void
     goToStatement: (statementLabel: string) => void
@@ -14,7 +16,11 @@ export interface SubmitMonumentsProps {
   scheme?: CommandViewColorScheme
 }
 
-export function SubmitMonuments({onDone, frame, scheme}: SubmitMonumentsProps) {
+export function NominateMonument({
+  onDone,
+  frame,
+  scheme,
+}: NominateMonumentProps) {
   const {goToBranch} = useGameContext()
   const {containerSize, goToStatement, skip} = useBranchContext()
   return (
@@ -45,8 +51,12 @@ export function SubmitMonuments({onDone, frame, scheme}: SubmitMonumentsProps) {
             scheme={scheme}
             inputLabel="Названия зданий"
             submitLabel="Сохранить"
-            onSubmit={() => {
-              // FIXME: Persist the data
+            onSubmit={async (body) => {
+              await getSupabase()
+                .from<definitions['monument_nominations']>(
+                  'monument_nominations',
+                )
+                .insert({body})
               onDone({goToStatement, goToBranch, skip})
             }}
           />

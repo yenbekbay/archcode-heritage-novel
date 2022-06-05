@@ -8,9 +8,11 @@ import {
   useBranchContext,
   useGameContext,
 } from '~/lib'
+import type {definitions} from '~/supabase'
+import {getSupabase} from '~/supabase'
 import {TextForm} from './internal'
 
-export interface UploadPostProps {
+export interface PublishPostProps {
   onDone: (ctx: {
     goToBranch: (branchId: BranchId) => void
     goToStatement: (statementLabel: string) => void
@@ -23,14 +25,14 @@ export interface UploadPostProps {
   foregroundAnimation?: CommandViewAnimation
 }
 
-export function UploadPost({
+export function PublishPost({
   onDone,
   frame,
   scheme,
   foregroundSrc,
   foregroundStyle,
   foregroundAnimation,
-}: UploadPostProps) {
+}: PublishPostProps) {
   const {goToBranch} = useGameContext()
   const {containerSize, goToStatement, skip} = useBranchContext()
   return (
@@ -71,8 +73,10 @@ export function UploadPost({
               scheme={scheme}
               inputLabel="Текст поста"
               submitLabel="Опубликовать пост"
-              onSubmit={() => {
-                // FIXME: Persist the data
+              onSubmit={async (body) => {
+                await getSupabase()
+                  .from<definitions['post_submissions']>('post_submissions')
+                  .insert({body})
                 onDone({goToStatement, goToBranch, skip})
               }}
             />

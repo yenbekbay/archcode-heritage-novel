@@ -1,10 +1,10 @@
-import {useZorm} from 'react-zorm'
 import clsx from 'clsx'
-import {Spinner} from 'phosphor-react'
 import React from 'react'
+import toast from 'react-hot-toast'
+import {useZorm} from 'react-zorm'
 import {z} from 'zod'
 import type {CommandViewColorScheme} from '~/lib'
-import toast from 'react-hot-toast'
+import {Spinner} from './Spinner'
 
 export interface TextFormProps {
   inputLabel: string
@@ -27,7 +27,7 @@ export function TextForm({
       body: z.string().min(1, 'Пожалуйста, напишите что-нибудь'),
     }),
   )
-  const zo = useZorm('meme', FormSchema, {
+  const zo = useZorm('text', FormSchema, {
     onValidSubmit: async (event) => {
       event.preventDefault()
       setSubmitting(true)

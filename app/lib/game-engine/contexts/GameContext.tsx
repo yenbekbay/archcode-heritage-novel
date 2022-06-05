@@ -75,7 +75,6 @@ export function GameProvider({children, initialBranchId}: GameProviderProps) {
           branchId !== focusedLocation.branchId ||
           statementIndex !== focusedLocation.statementIndex
         ) {
-          console.log({statementIndex})
           history.push({branchId, statementIndex})
           setPaused(false)
         }
