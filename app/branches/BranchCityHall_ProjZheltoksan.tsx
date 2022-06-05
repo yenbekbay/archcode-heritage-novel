@@ -13,12 +13,12 @@ export function BranchCityHall_ProjZheltoksan() {
       <Branch.Blank durationMs={3000} transitory />
 
       <Branch.Say
-        tag="Девелопер:"
+        tag="Представитель:"
         foregroundSrc={developerRepAPng}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
         —Добрый день, я — представитель Bay Shatyr Group. Представляю вашему
-        внимаюпроект KAISAR PLAZA
+        внимаю проект KAISAR PLAZA
       </Branch.Say>
 
       <Branch.Say

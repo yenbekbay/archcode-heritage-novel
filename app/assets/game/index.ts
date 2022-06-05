@@ -75,6 +75,7 @@ import developerRepB3Png from './developer-rep-b-3.png'
 import developerRepB4Png from './developer-rep-b-4.png'
 import developerRepB5Png from './developer-rep-b-5.png'
 import developerRepB6Png from './developer-rep-b-6.png'
+import developerRepB7Png from './developer-rep-b-7.png'
 import expert1Png from './expert-1.png'
 import expert2Png from './expert-2.png'
 import expert3Png from './expert-3.png'
@@ -204,6 +205,7 @@ export {
   developerRepB4Png,
   developerRepB5Png,
   developerRepB6Png,
+  developerRepB7Png,
   expert1Png,
   expert2Png,
   expert3Png,

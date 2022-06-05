@@ -3,6 +3,9 @@ import {
   bgCityHallConferenceRoomJpg,
   bgZheltoksanBeforeJpg,
   developerRepAPng,
+  developerRepB1Png,
+  developerRepB6Png,
+  developerRepB7Png,
   letterPng,
   mayor2Png,
   redhead12Png,
@@ -61,7 +64,7 @@ export function BranchCityHall_ProjZheltoksan_Examine_Reject_Ignore() {
       <Branch.Say transitory>Общественные слушания</Branch.Say>
 
       <Branch.Say
-        tag="Девелопер:"
+        tag="Представитель:"
         foregroundSrc={developerRepAPng}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
@@ -70,7 +73,8 @@ export function BranchCityHall_ProjZheltoksan_Examine_Reject_Ignore() {
       </Branch.Say>
 
       <Branch.Say
-        foregroundSrc={developerRepAPng}
+        tag="Девелопер:"
+        foregroundSrc={developerRepB6Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
         —Под галереей на последнем этаже подразумевается ресторан. Подземный
@@ -88,7 +92,7 @@ export function BranchCityHall_ProjZheltoksan_Examine_Reject_Ignore() {
 
       <Branch.Say
         tag="Девелопер:"
-        foregroundSrc={developerRepAPng}
+        foregroundSrc={developerRepB1Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
         —Всё под контролем, беспокойств не будет. Всё рассчитано и одобрено
@@ -105,7 +109,7 @@ export function BranchCityHall_ProjZheltoksan_Examine_Reject_Ignore() {
 
       <Branch.Say
         tag="Девелопер:"
-        foregroundSrc={developerRepAPng}
+        foregroundSrc={developerRepB7Png}
         foregroundStyle={{width: '100%', bottom: 0}}
         transitory>
         —Согласно правилам маслихата по озеленению, в качестве компенсации мы
