@@ -36,7 +36,7 @@ export function Header() {
         </div>
 
         <div className="flex-none">
-          <div className="dropdown dropdown-end">
+          <div className="dropdown-end dropdown">
             <label tabIndex={0} className="btn btn-ghost text-xl lg:hidden">
               <ListIcon />
             </label>
@@ -47,7 +47,7 @@ export function Header() {
               {LINKS.map((l) => (
                 <li key={l.to}>
                   <RemixNavLink
-                    className={({isActive}) => (isActive ? 'focused' : '')}
+                    className={({isActive}) => (isActive ? 'active' : '')}
                     to={l.to}>
                     {l.label}
                   </RemixNavLink>
@@ -60,7 +60,7 @@ export function Header() {
             {LINKS.map((l) => (
               <li key={l.to}>
                 <RemixNavLink
-                  className={({isActive}) => (isActive ? 'focused' : '')}
+                  className={({isActive}) => (isActive ? 'active' : '')}
                   to={l.to}>
                   {l.label}
                 </RemixNavLink>
