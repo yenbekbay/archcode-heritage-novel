@@ -148,6 +148,7 @@ function Document({
         <ScrollRestoration />
         <Scripts />
         <LiveReload />
+        <GoatCounter />
         <Env />
       </body>
     </html>
@@ -171,6 +172,16 @@ function Layout({children}: {children: React.ReactNode}) {
         </>
       )}
     </div>
+  )
+}
+
+function GoatCounter() {
+  return (
+    <script
+      data-goatcounter="https://archcode-heritage-novel.goatcounter.com/count"
+      async
+      src="//gc.zgo.at/count.js"
+    />
   )
 }
 
