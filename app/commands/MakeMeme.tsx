@@ -77,10 +77,13 @@ export function MakeMeme({
             animate={controls}>
             <MemeForm
               scheme={scheme}
-              onSubmit={async (url) => {
+              onSubmit={async (values) => {
                 await getSupabase()
                   .from<definitions['meme_submissions']>('meme_submissions')
-                  .insert({url})
+                  .insert({
+                    url: values.url,
+                    name: values.name || undefined,
+                  })
                 onDone({goToStatement, goToBranch, skip})
               }}
             />
@@ -94,7 +97,7 @@ export function MakeMeme({
 // MARK: MemeForm
 
 interface MemeFormProps {
-  onSubmit: (url: string) => unknown | Promise<unknown>
+  onSubmit: (values: {url: string; name: string}) => unknown | Promise<unknown>
   scheme?: CommandViewColorScheme
 }
 
@@ -167,7 +170,7 @@ function MemeForm({onSubmit, scheme}: MemeFormProps) {
         <img
           key={t.id}
           className={clsx(
-            'GameEngine-surface h-auto w-full animate-pulse cursor-pointer object-contain',
+            'GameEngine-surface h-auto w-full cursor-pointer object-contain',
             scheme === 'dark' && 'GameEngine-surface--dark',
           )}
           src={t.url}
@@ -184,51 +187,64 @@ function MemeForm({onSubmit, scheme}: MemeFormProps) {
 
 interface MemePreviewProps {
   url: string
-  onSubmit: (url: string) => unknown | Promise<unknown>
+  onSubmit: (values: {url: string; name: string}) => unknown | Promise<unknown>
   scheme?: CommandViewColorScheme
 }
 
 function MemePreview({url, onSubmit, scheme}: MemePreviewProps) {
   const [submitting, setSubmitting] = React.useState(false)
+  const [FormSchema] = React.useState(() => z.object({name: z.string()}))
+  const zo = useZorm('meme-preview', FormSchema, {
+    onValidSubmit: async (event) => {
+      event.preventDefault()
+      setSubmitting(true)
+      try {
+        await onSubmit({url, name: event.data.name})
+      } catch (err) {
+        toast.error('Что-то пошло не так. Попробуйте ещё раз')
+      } finally {
+        setSubmitting(false)
+      }
+    },
+  })
   return (
     <div className="relative flex flex-col">
-      <div
+      <form
+        ref={zo.ref}
         className={clsx(
           'flex flex-col space-y-2',
           submitting && 'pointer-events-none opacity-50',
         )}>
-        <button
-          className={clsx(
-            'GameEngine-button btn btn-outline font-calligraph',
-            scheme === 'dark' && 'GameEngine-button--dark',
-          )}
-          onClick={() =>
-            navigator.share({
-              title: 'Снести нельзя оставить!',
-              url,
-            })
-          }>
-          Поделиться
-        </button>
+        <div className="flex flex-col space-y-2">
+          <label className="text-sm font-bold" htmlFor="name">
+            Ваше имя (необязательно)
+          </label>
+
+          <input
+            className={clsx(
+              'rounded-md focus:border-accent focus:ring-0',
+              zo.errors.name('border-error'),
+            )}
+            id="name"
+            name="name"
+            type="text"
+          />
+
+          {zo.errors.name((err) => (
+            <span className="text-sm text-error">{err.message}</span>
+          ))}
+        </div>
 
         <button
+          type="submit"
+          disabled={zo.validation?.success === false}
           className={clsx(
-            'GameEngine-button btn btn-outline font-calligraph',
+            'GameEngine-button GameEngine-button--opaque btn btn-outline font-calligraph',
             scheme === 'dark' && 'GameEngine-button--dark',
-          )}
-          onClick={async () => {
-            setSubmitting(true)
-            try {
-              await onSubmit(url)
-            } catch (err) {
-              toast.error('Что-то пошло не так. Попробуйте ещё раз')
-            } finally {
-              setSubmitting(false)
-            }
-          }}>
+          )}>
           Сохранить
         </button>
-      </div>
+      </form>
 
       {submitting && (
         <div className="absolute inset-0 flex flex-col items-center justify-center">
@@ -263,7 +279,7 @@ function MemeTemplateForm({
       ),
     ),
   )
-  const zo = useZorm('meme', FormSchema, {
+  const zo = useZorm('meme-template', FormSchema, {
     onValidSubmit: async (event) => {
       event.preventDefault()
       setSubmitting(true)
@@ -325,7 +341,7 @@ function MemeTemplateForm({
           type="submit"
           disabled={zo.validation?.success === false}
           className={clsx(
-            'GameEngine-button btn btn-outline font-calligraph',
+            'GameEngine-button GameEngine-button--opaque btn btn-outline font-calligraph',
             scheme === 'dark' && 'GameEngine-button--dark',
           )}>
           Создать мем

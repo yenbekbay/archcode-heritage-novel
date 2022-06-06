@@ -84,6 +84,10 @@
   background-color: rgba(255, 255, 255);
 }
 
+.GameEngine-button--opaque:hover {
+  text-shadow: none;
+}
+
 .GameEngine-button--opaque.GameEngine-button--dark {
   background-color: rgb(157, 157, 137);
 }

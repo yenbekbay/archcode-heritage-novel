@@ -19,6 +19,7 @@ export interface paths {
           id?: parameters["rowFilter.meme_submissions.id"];
           created_at?: parameters["rowFilter.meme_submissions.created_at"];
           url?: parameters["rowFilter.meme_submissions.url"];
+          name?: parameters["rowFilter.meme_submissions.name"];
           /** Filtering Columns */
           select?: parameters["select"];
           /** Ordering */
@@ -72,6 +73,7 @@ export interface paths {
           id?: parameters["rowFilter.meme_submissions.id"];
           created_at?: parameters["rowFilter.meme_submissions.created_at"];
           url?: parameters["rowFilter.meme_submissions.url"];
+          name?: parameters["rowFilter.meme_submissions.name"];
         };
         header: {
           /** Preference */
@@ -89,6 +91,7 @@ export interface paths {
           id?: parameters["rowFilter.meme_submissions.id"];
           created_at?: parameters["rowFilter.meme_submissions.created_at"];
           url?: parameters["rowFilter.meme_submissions.url"];
+          name?: parameters["rowFilter.meme_submissions.name"];
         };
         body: {
           /** meme_submissions */
@@ -112,6 +115,7 @@ export interface paths {
           id?: parameters["rowFilter.monument_nominations.id"];
           created_at?: parameters["rowFilter.monument_nominations.created_at"];
           body?: parameters["rowFilter.monument_nominations.body"];
+          name?: parameters["rowFilter.monument_nominations.name"];
           /** Filtering Columns */
           select?: parameters["select"];
           /** Ordering */
@@ -165,6 +169,7 @@ export interface paths {
           id?: parameters["rowFilter.monument_nominations.id"];
           created_at?: parameters["rowFilter.monument_nominations.created_at"];
           body?: parameters["rowFilter.monument_nominations.body"];
+          name?: parameters["rowFilter.monument_nominations.name"];
         };
         header: {
           /** Preference */
@@ -182,6 +187,7 @@ export interface paths {
           id?: parameters["rowFilter.monument_nominations.id"];
           created_at?: parameters["rowFilter.monument_nominations.created_at"];
           body?: parameters["rowFilter.monument_nominations.body"];
+          name?: parameters["rowFilter.monument_nominations.name"];
         };
         body: {
           /** monument_nominations */
@@ -205,6 +211,7 @@ export interface paths {
           id?: parameters["rowFilter.post_submissions.id"];
           created_at?: parameters["rowFilter.post_submissions.created_at"];
           body?: parameters["rowFilter.post_submissions.body"];
+          name?: parameters["rowFilter.post_submissions.name"];
           /** Filtering Columns */
           select?: parameters["select"];
           /** Ordering */
@@ -258,6 +265,7 @@ export interface paths {
           id?: parameters["rowFilter.post_submissions.id"];
           created_at?: parameters["rowFilter.post_submissions.created_at"];
           body?: parameters["rowFilter.post_submissions.body"];
+          name?: parameters["rowFilter.post_submissions.name"];
         };
         header: {
           /** Preference */
@@ -275,6 +283,7 @@ export interface paths {
           id?: parameters["rowFilter.post_submissions.id"];
           created_at?: parameters["rowFilter.post_submissions.created_at"];
           body?: parameters["rowFilter.post_submissions.body"];
+          name?: parameters["rowFilter.post_submissions.name"];
         };
         body: {
           /** post_submissions */
@@ -308,6 +317,8 @@ export interface definitions {
     created_at: string;
     /** Format: text */
     url: string;
+    /** Format: text */
+    name?: string;
   };
   monument_nominations: {
     /**
@@ -323,6 +334,8 @@ export interface definitions {
     created_at: string;
     /** Format: text */
     body: string;
+    /** Format: text */
+    name?: string;
   };
   post_submissions: {
     /**
@@ -338,6 +351,8 @@ export interface definitions {
     created_at: string;
     /** Format: text */
     body: string;
+    /** Format: text */
+    name?: string;
   };
 }
 
@@ -382,6 +397,8 @@ export interface parameters {
   "rowFilter.meme_submissions.created_at": string;
   /** Format: text */
   "rowFilter.meme_submissions.url": string;
+  /** Format: text */
+  "rowFilter.meme_submissions.name": string;
   /** @description monument_nominations */
   "body.monument_nominations": definitions["monument_nominations"];
   /** Format: bigint */
@@ -390,6 +407,8 @@ export interface parameters {
   "rowFilter.monument_nominations.created_at": string;
   /** Format: text */
   "rowFilter.monument_nominations.body": string;
+  /** Format: text */
+  "rowFilter.monument_nominations.name": string;
   /** @description post_submissions */
   "body.post_submissions": definitions["post_submissions"];
   /** Format: bigint */
@@ -398,6 +417,8 @@ export interface parameters {
   "rowFilter.post_submissions.created_at": string;
   /** Format: text */
   "rowFilter.post_submissions.body": string;
+  /** Format: text */
+  "rowFilter.post_submissions.name": string;
 }
 
 export interface operations {}

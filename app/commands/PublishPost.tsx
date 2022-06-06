@@ -73,10 +73,13 @@ export function PublishPost({
               scheme={scheme}
               inputLabel="Текст поста"
               submitLabel="Опубликовать пост"
-              onSubmit={async (body) => {
+              onSubmit={async (values) => {
                 await getSupabase()
                   .from<definitions['post_submissions']>('post_submissions')
-                  .insert({body})
+                  .insert({
+                    body: values.body,
+                    name: values.name || undefined,
+                  })
                 onDone({goToStatement, goToBranch, skip})
               }}
             />

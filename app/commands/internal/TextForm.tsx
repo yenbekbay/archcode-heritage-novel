@@ -9,7 +9,7 @@ import {Spinner} from './Spinner'
 export interface TextFormProps {
   inputLabel: string
   submitLabel: string
-  onSubmit: (body: string) => unknown | Promise<unknown>
+  onSubmit: (values: {body: string; name: string}) => unknown | Promise<unknown>
   rows?: number
   scheme?: CommandViewColorScheme
 }
@@ -25,6 +25,7 @@ export function TextForm({
   const [FormSchema] = React.useState(() =>
     z.object({
       body: z.string().min(1, 'Пожалуйста, напишите что-нибудь'),
+      name: z.string(),
     }),
   )
   const zo = useZorm('text', FormSchema, {
@@ -32,7 +33,7 @@ export function TextForm({
       event.preventDefault()
       setSubmitting(true)
       try {
-        await onSubmit(event.data.body)
+        await onSubmit(event.data)
       } catch (err) {
         toast.error('Что-то пошло не так. Попробуйте ещё раз')
       } finally {
@@ -41,7 +42,7 @@ export function TextForm({
     },
   })
   return (
-    <div className="relative flex flex-col">
+    <div className="relative flex flex-1 flex-col overflow-y-auto">
       <form
         ref={zo.ref}
         className={clsx(
@@ -64,6 +65,26 @@ export function TextForm({
           />
 
           {zo.errors.body((err) => (
+            <span className="text-sm text-error">{err.message}</span>
+          ))}
+        </div>
+
+        <div className="flex flex-col space-y-2">
+          <label className="text-sm font-bold" htmlFor="name">
+            Ваше имя (необязательно)
+          </label>
+
+          <input
+            className={clsx(
+              'rounded-md focus:border-accent focus:ring-0',
+              zo.errors.name('border-error'),
+            )}
+            id="name"
+            name="name"
+            type="text"
+          />
+
+          {zo.errors.name((err) => (
             <span className="text-sm text-error">{err.message}</span>
           ))}
         </div>

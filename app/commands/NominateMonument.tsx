@@ -51,12 +51,15 @@ export function NominateMonument({
             scheme={scheme}
             inputLabel="Названия зданий"
             submitLabel="Сохранить"
-            onSubmit={async (body) => {
+            onSubmit={async (values) => {
               await getSupabase()
                 .from<definitions['monument_nominations']>(
                   'monument_nominations',
                 )
-                .insert({body})
+                .insert({
+                  body: values.body,
+                  name: values.name || undefined,
+                })
               onDone({goToStatement, goToBranch, skip})
             }}
           />
