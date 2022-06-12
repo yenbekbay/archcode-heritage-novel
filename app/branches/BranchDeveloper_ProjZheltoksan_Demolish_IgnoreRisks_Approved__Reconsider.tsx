@@ -22,11 +22,15 @@ export function BranchDeveloper_ProjZheltoksan_Demolish_IgnoreRisks_Approved__Re
         игнорировать общественность
       </Say>
 
-      <Say tag="Архитектор:" image={{uri: architectPng, align: 'bottom'}}>
+      <Say
+        tag={{text: 'Архитектор:', color: '#B4AE68CC'}}
+        image={{uri: architectPng, align: 'bottom'}}>
         —Будем делать реставрацию объекта
       </Say>
 
-      <Say tag="Бот-билдер:" image={{uri: botBuilderPng, align: 'bottom'}}>
+      <Say
+        tag={{text: 'Бот-билдер:', color: '#53C7D5'}}
+        image={{uri: botBuilderPng, align: 'bottom'}}>
         {
           'Нужно подходить к вопросу грамотно. Что такое реставрация?\n\n[Ссылка*15](#)'
         }

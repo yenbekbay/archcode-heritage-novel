@@ -1,8 +1,8 @@
 import useSize from '@react-hook/size'
 import {motion, useAnimation} from 'framer-motion'
 import React from 'react'
-import {bgIntroJpg} from '~/assets/game'
-import {Branch, Command, Menu, Say, Title, useBranchContext} from '~/lib'
+import {bgIntroJpg, logoPng} from '~/assets/game'
+import {Branch, Command, Menu, Say, Show, Title, useBranchContext} from '~/lib'
 
 export function BranchIntro() {
   return (
@@ -45,11 +45,10 @@ export function BranchIntro() {
         Наше настоящее в ваших руках!” — были его последние слова.
       </Say>
 
-      <Title hide={-1}>Снести нельзя оставить</Title>
+      <Show src={{uri: logoPng, align: 'top', style: {top: '5rem'}}} hide={1} />
 
       <Menu
-        scheme="dark"
-        label="Выбрать персонажа"
+        label="Выберите персонажа"
         choices={[
           {
             label: 'Активист',

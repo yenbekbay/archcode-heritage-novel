@@ -25,11 +25,15 @@ export function BranchDeveloper_ProjZheltoksan_Preserve() {
         —Ну и вообще, красивое же. Обновим, и будет конфетка
       </Say>
 
-      <Say tag="Архитектор:" image={{uri: architectPng, align: 'bottom'}}>
+      <Say
+        tag={{text: 'Архитектор:', color: '#B4AE68CC'}}
+        image={{uri: architectPng, align: 'bottom'}}>
         Проект РЕСТАВРАЦИЯ!
       </Say>
 
-      <Say tag="Бот-билдер:" image={{uri: botBuilderPng, align: 'bottom'}}>
+      <Say
+        tag={{text: 'Бот-билдер:', color: '#53C7D5'}}
+        image={{uri: botBuilderPng, align: 'bottom'}}>
         {
           'Нужно подходить к вопросу грамотно. Что такое реставрация?\n\n[Ссылка*15](#)'
         }
@@ -45,12 +49,16 @@ export function BranchDeveloper_ProjZheltoksan_Preserve() {
         —Как ведется реставрация?
       </Say>
 
-      <Say tag="Архитектор:" image={{uri: architectPng, align: 'bottom'}}>
+      <Say
+        tag={{text: 'Архитектор:', color: '#B4AE68CC'}}
+        image={{uri: architectPng, align: 'bottom'}}>
         —Для начала получить бы паспорт объекта в отделе памятников, а после
         провести экспертизу состояния здания
       </Say>
 
-      <Say tag="Архитектор:" image={{uri: architectPng, align: 'bottom'}}>
+      <Say
+        tag={{text: 'Архитектор:', color: '#B4AE68CC'}}
+        image={{uri: architectPng, align: 'bottom'}}>
         —И в нашу рабочую группу проекта надо найти специалиста по реставрации
       </Say>
 
@@ -64,7 +72,9 @@ export function BranchDeveloper_ProjZheltoksan_Preserve() {
 
       <Scene src={bgDeveloperHqInsideJpg} />
 
-      <Say tag="Архитектор:" image={{uri: architectPng, align: 'bottom'}}>
+      <Say
+        tag={{text: 'Архитектор:', color: '#B4AE68CC'}}
+        image={{uri: architectPng, align: 'bottom'}}>
         —Проект готов
       </Say>
 
@@ -79,14 +89,14 @@ export function BranchDeveloper_ProjZheltoksan_Preserve() {
       <Scene src={bgDeveloperHqInsideJpg} />
 
       <Say
-        tag="Менеджер проекта:"
+        tag={{text: 'Менеджер проекта:', color: '#A57B55'}}
         image={{uri: developerRepAPng, align: 'bottom'}}>
         —Всем добрый день. Мы представляем наш проект по реставрации здания
         Желтоксан 115
       </Say>
 
       <Say
-        tag="Менеджер проекта:"
+        tag={{text: 'Менеджер проекта:', color: '#A57B55'}}
         image={{uri: developerRepAPng, align: 'bottom'}}>
         —Планируется деликатная реставрация с обновлением материалов максимально
         приближёнными к оригинальным

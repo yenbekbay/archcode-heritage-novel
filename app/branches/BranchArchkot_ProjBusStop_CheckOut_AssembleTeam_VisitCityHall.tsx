@@ -21,39 +21,48 @@ export function BranchArchkot_ProjBusStop_CheckOut_AssembleTeam_VisitCityHall() 
       <Scene src={bgMonumentDeptDoorJpg} />
       <Scene src={bgMonumentDeptDoorwayJpg} />
 
-      <Say tag="АрхКот:" image={{uri: archkot4Png, align: 'bottom'}}>
+      <Say
+        tag={{text: 'АрхКот:', color: '#B8AE71'}}
+        image={{uri: archkot4Png, align: 'bottom'}}>
         —Мы составили карту остановок!
       </Say>
 
       <Say
-        tag="Сотрудник:"
+        tag={{text: 'Сотрудник:', color: '#798275'}}
         image={{uri: monumentDeptStaff3Png, align: 'bottom'}}>
         —Да да… очень интересно
       </Say>
 
-      <Say tag="АрхКот:" image={{uri: archkot4Png, align: 'bottom'}}>
+      <Say
+        tag={{text: 'АрхКот:', color: '#B8AE71'}}
+        image={{uri: archkot4Png, align: 'bottom'}}>
         —Мы подготовили меморандум о прекращении демонтажа советских остановок
       </Say>
 
       <Say
-        tag="Сотрудник:"
+        tag={{text: 'Сотрудник:', color: '#798275'}}
         image={{uri: monumentDeptStaff3Png, align: 'bottom'}}>
         —Да да… очень интересно
       </Say>
 
-      <Say tag="АрхКот:" image={{uri: archkot13Png, align: 'bottom'}}>
+      <Say
+        tag={{text: 'АрхКот:', color: '#B8AE71'}}
+        image={{uri: archkot13Png, align: 'bottom'}}>
         —Сохраним остановки?!
       </Say>
 
       <Say
-        tag="Сотрудник:"
+        tag={{text: 'Сотрудник:', color: '#798275'}}
         image={{uri: monumentDeptStaff4Png, align: 'bottom'}}>
         —Да да… очень интересно
       </Say>
 
       <Scene src={bgArchcodeOfficeJpg} />
 
-      <Say tag="АрхТок:" image={{uri: archtok3Png, align: 'bottom'}} hide={1}>
+      <Say
+        tag={{text: 'АрхТок:', color: '#8D8C59'}}
+        image={{uri: archtok3Png, align: 'bottom'}}
+        hide={1}>
         —Как-то не очень обнадеживает встреча в акимате. Надо действовать самим…
       </Say>
 

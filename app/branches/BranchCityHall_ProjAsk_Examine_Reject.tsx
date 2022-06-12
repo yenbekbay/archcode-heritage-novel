@@ -58,56 +58,80 @@ export function BranchCityHall_ProjAsk_Examine_Reject() {
 
       <Scene src={bgDeveloperHqInsideJpg} />
 
-      <Say tag="АрхКот:" image={{uri: archkot4Png, align: 'bottom'}}>
+      <Say
+        tag={{text: 'АрхКот:', color: '#B8AE71'}}
+        image={{uri: archkot4Png, align: 'bottom'}}>
         —Это сейчас практически единственное здание, которое не было изменено
       </Say>
 
-      <Say tag="Девелопер:" image={{uri: developerRepB1Png, align: 'bottom'}}>
+      <Say
+        tag={{text: 'Девелопер:', color: '#A57B55'}}
+        image={{uri: developerRepB1Png, align: 'bottom'}}>
         —Внутри мы хотим создать современные, удобные помещёния, увеличить
         свободную площадь,
       </Say>
 
-      <Say tag="Девелопер:" image={{uri: developerRepB2Png, align: 'bottom'}}>
+      <Say
+        tag={{text: 'Девелопер:', color: '#A57B55'}}
+        image={{uri: developerRepB2Png, align: 'bottom'}}>
         —а ещё сделать open space — с учетом прозрачного фасада, будет больше
         света!
       </Say>
 
-      <Say tag="Девелопер:" image={{uri: developerRepB3Png, align: 'bottom'}}>
+      <Say
+        tag={{text: 'Девелопер:', color: '#A57B55'}}
+        image={{uri: developerRepB3Png, align: 'bottom'}}>
         —Стёкла на фасаде сделаем зеркальными!
       </Say>
 
-      <Say tag="Горжемпо:" image={{uri: gorzhempoPng, align: 'bottom'}}>
+      <Say
+        tag={{text: 'Горжемпо:', color: '#687065'}}
+        image={{uri: gorzhempoPng, align: 'bottom'}}>
         —В начале 80-х годов прошлого века я мечтал о зеркальном стекле,
         которого в СССР не было
       </Say>
 
-      <Say tag="Горжемпо:" image={{uri: gorzhempoPng, align: 'bottom'}}>
+      <Say
+        tag={{text: 'Горжемпо:', color: '#687065'}}
+        image={{uri: gorzhempoPng, align: 'bottom'}}>
         —Из-за дефицита материала в итоге при строительстве было использовано
         дымчатое стекло,
       </Say>
 
-      <Say tag="Горжемпо:" image={{uri: gorzhempoPng, align: 'bottom'}}>
+      <Say
+        tag={{text: 'Горжемпо:', color: '#687065'}}
+        image={{uri: gorzhempoPng, align: 'bottom'}}>
         —и в проекте, судя по рендерам, оно заменяется на зеркальное
       </Say>
 
-      <Say tag="Тина Штунер:" image={{uri: tinaShtunerPng, align: 'bottom'}}>
+      <Say
+        tag={{text: 'Тина Штунер:', color: '#687065'}}
+        image={{uri: tinaShtunerPng, align: 'bottom'}}>
         —Это уже исторический памятник, и сделать зеркальные окна — нарушение
         облика, к которому мы привыкли
       </Say>
 
-      <Say tag="Адя Пчелкина:" image={{uri: adyaPchelkinaPng, align: 'bottom'}}>
+      <Say
+        tag={{text: 'Адя Пчелкина:', color: '#687065'}}
+        image={{uri: adyaPchelkinaPng, align: 'bottom'}}>
         —Есть ли у Bay Shatyr Group лицензия на работу с памятниками?
       </Say>
 
-      <Say tag="Девелопер:" image={{uri: developerRepB4Png, align: 'bottom'}}>
+      <Say
+        tag={{text: 'Девелопер:', color: '#A57B55'}}
+        image={{uri: developerRepB4Png, align: 'bottom'}}>
         …
       </Say>
 
-      <Say tag="АрхКот:" image={{uri: archkot4Png, align: 'bottom'}}>
+      <Say
+        tag={{text: 'АрхКот:', color: '#B8AE71'}}
+        image={{uri: archkot4Png, align: 'bottom'}}>
         —Нужен кто-то, кто будет контролировать правильность процесса!
       </Say>
 
-      <Say tag="Девелопер:" image={{uri: developerRepB5Png, align: 'bottom'}}>
+      <Say
+        tag={{text: 'Девелопер:', color: '#A57B55'}}
+        image={{uri: developerRepB5Png, align: 'bottom'}}>
         …
       </Say>
 

@@ -72,7 +72,7 @@ export function BranchCityHall_MonumentDept_Rant() {
             width: 720,
           },
         }}
-        style_={{fontSize: 16, textAlign: 'left'}}
+        style={{fontSize: 16, textAlign: 'left'}}
         hide={1}>
         “Какие здания уже в реестре памятников?” [Ссылка РЕЕСТР](#)
       </Say>
@@ -86,7 +86,7 @@ export function BranchCityHall_MonumentDept_Rant() {
             width: 720,
           },
         }}
-        style_={{fontSize: 16, textAlign: 'left'}}>
+        style={{fontSize: 16, textAlign: 'left'}}>
         “Какие здания хотел внести список аким Байбек. [Ссылка 2](#)
       </Say>
 

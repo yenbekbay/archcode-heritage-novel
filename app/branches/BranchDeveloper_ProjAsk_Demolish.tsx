@@ -17,12 +17,14 @@ export function BranchDeveloper_ProjAsk_Demolish() {
       </Say>
 
       <Say
-        tag="Менеджер проекта:"
+        tag={{text: 'Менеджер проекта:', color: '#A57B55'}}
         image={{uri: developerRepAPng, align: 'bottom'}}>
         —В любом случае, необходимо взвесить риски
       </Say>
 
-      <Say tag="Бот-билдер:" image={{uri: botBuilderPng, align: 'bottom'}}>
+      <Say
+        tag={{text: 'Бот-билдер:', color: '#53C7D5'}}
+        image={{uri: botBuilderPng, align: 'bottom'}}>
         {'Возможные риски при изменении/сносе АСК:\n\n[Ссылка](#)'}
       </Say>
 

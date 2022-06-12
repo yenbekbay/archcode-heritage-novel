@@ -87,7 +87,7 @@ export function BranchActivist_CheckOut_Act_Self() {
       </Say>
 
       <Say image={{uri: redhead9Png, align: 'bottom'}}>
-        Таксссссс, а слушания то будут??
+        Таксссссс, а слушания-то будут??
       </Say>
 
       <Say

@@ -11,7 +11,9 @@ export function BranchDeveloper_ProjAsk_Demolish_IgnoreRisks_Approved_Ignore() {
     <Branch>
       <Scene src={bgDeveloperHqInsideJpg} />
 
-      <Say tag="Архкот:" image={{uri: archkot13Png, align: 'bottom'}}>
+      <Say
+        tag={{text: 'АрхКот:', color: '#B8AE71'}}
+        image={{uri: archkot13Png, align: 'bottom'}}>
         —Ну как же так…
       </Say>
 

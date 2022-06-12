@@ -36,7 +36,7 @@ export function BranchArchkot_ProjBusStop_CheckOut_AssembleTeam() {
             transform: 'rotate(-6deg)',
           },
         }}
-        style_={{fontSize: 24}}
+        style={{fontSize: 24}}
         image={{
           uri: bgPhoneHandJpg,
           style: {
@@ -51,26 +51,34 @@ export function BranchArchkot_ProjBusStop_CheckOut_AssembleTeam() {
 
       <Scene src={bgArchcodeOfficeJpg} />
 
-      <Say tag="АрхКот:" image={{uri: archkot13Png, align: 'bottom'}}>
+      <Say
+        tag={{text: 'АрхКот:', color: '#B8AE71'}}
+        image={{uri: archkot13Png, align: 'bottom'}}>
         —Коллеги, экстренное дело! Разбирают остановку «Казмеханобр». Нужно это
         остановить!
       </Say>
 
-      <Say tag="АрхКот:" image={{uri: archtok1Png, align: 'bottom'}}>
+      <Say
+        tag={{text: 'АрхКот:', color: '#B8AE71'}}
+        image={{uri: archtok1Png, align: 'bottom'}}>
         —Первое, что необходимо выяснить — это является ли здание памятником
         историко-культурного наследия
       </Say>
 
-      <Say tag="АрхБот:" image={{uri: archbot1Png, align: 'bottom'}}>
+      <Say
+        tag={{text: 'АрхБот:', color: '#65506D'}}
+        image={{uri: archbot1Png, align: 'bottom'}}>
         —Загляните в ГОСУДАРСТВЕННЫЙ РЕЕСТР ПАМЯТНИКОВ
       </Say>
 
-      <Say tag="АрхБот:" image={{uri: archbot1Png, align: 'bottom'}}>
+      <Say
+        tag={{text: 'АрхБот:', color: '#65506D'}}
+        image={{uri: archbot1Png, align: 'bottom'}}>
         {'—Там можно поискать нужное нам здание.\n\n[Ссылка РЕЕСТР](#)'}
       </Say>
 
       <Say
-        tag="АрхТок:"
+        tag={{text: 'АрхТок:', color: '#8D8C59'}}
         image={{uri: archtok2Png, align: 'bottom'}}
         menu={[
           {
@@ -92,7 +100,7 @@ export function BranchArchkot_ProjBusStop_CheckOut_AssembleTeam() {
       <Scene src={bgArchcodeOfficeJpg} />
 
       <Say
-        tag="АрхКот:"
+        tag={{text: 'АрхКот:', color: '#B8AE71'}}
         image={{
           uri: archkot10Png,
           style: {height: '100%', width: '100%', objectFit: 'cover'},
@@ -116,21 +124,29 @@ export function BranchArchkot_ProjBusStop_CheckOut_AssembleTeam() {
         Что делать?
       </Say>
 
-      <Say tag="АрхТок:" image={{uri: archtok1Png, align: 'bottom'}}>
+      <Say
+        tag={{text: 'АрхТок:', color: '#8D8C59'}}
+        image={{uri: archtok1Png, align: 'bottom'}}>
         —Как можно быстрей вязаться с ответственными за демонтаж!
       </Say>
 
-      <Say tag="АрхБот:" image={{uri: archbot1Png, align: 'bottom'}}>
+      <Say
+        tag={{text: 'АрхБот:', color: '#65506D'}}
+        image={{uri: archbot1Png, align: 'bottom'}}>
         {
           '—Я уже подготовил письмо в акимат:\n\n[Ссылка на письмо, отправленное в день демонтажа](#)'
         }
       </Say>
 
-      <Say tag="АрхТок:" image={{uri: archtok2Png, align: 'bottom'}}>
+      <Say
+        tag={{text: 'АрхТок:', color: '#8D8C59'}}
+        image={{uri: archtok2Png, align: 'bottom'}}>
         —Неплохо бы ещё подготовить статью, чтобы привлечь внимание
       </Say>
 
-      <Say tag="АрхБот:" image={{uri: archbot1Png, align: 'bottom'}}>
+      <Say
+        tag={{text: 'АрхБот:', color: '#65506D'}}
+        image={{uri: archbot1Png, align: 'bottom'}}>
         {'—Вуаля!:\n\n[Ссылка на статьи и посты о демонтаже Казмеханобра](#)'}
       </Say>
 
@@ -140,7 +156,9 @@ export function BranchArchkot_ProjBusStop_CheckOut_AssembleTeam() {
 
       <Scene src={bgArchcodeOfficeJpg} />
 
-      <Say tag="АрхКот:" image={{uri: archkot3Png, align: 'bottom'}}>
+      <Say
+        tag={{text: 'АрхКот:', color: '#B8AE71'}}
+        image={{uri: archkot3Png, align: 'bottom'}}>
         —Но остановка в ужасном виде. Необходимо ее реставрировать
       </Say>
 
@@ -168,13 +186,17 @@ export function BranchArchkot_ProjBusStop_CheckOut_AssembleTeam() {
         Что делать теперь?
       </Say>
 
-      <Say tag="АрхКот:" image={{uri: archkot2Png, align: 'bottom'}}>
+      <Say
+        tag={{text: 'АрхКот:', color: '#B8AE71'}}
+        image={{uri: archkot2Png, align: 'bottom'}}>
         {
           '—Надо довести дело до конца, ведь в городе ещё много уникальнейших остановок, которым грозит опасность\n\n[Ссылка с составленной картой остановок](#)'
         }
       </Say>
 
-      <Say tag="АрхКот:" image={{uri: archkot12Png, align: 'bottom'}}>
+      <Say
+        tag={{text: 'АрхКот:', color: '#B8AE71'}}
+        image={{uri: archkot12Png, align: 'bottom'}}>
         —Потрясающе! Чего только нет у нас в городе! Эти остановки необходимо
         внести в реестр памятников историкокультурного наследия!
       </Say>

@@ -10,7 +10,9 @@ export function BranchCityHall_ProjAsk() {
     <Branch>
       <Scene src={bgCityHallConferenceRoomJpg} />
 
-      <Say tag="Девелопер:" image={{uri: developerRepAPng, align: 'bottom'}}>
+      <Say
+        tag={{text: 'Девелопер:', color: '#A57B55'}}
+        image={{uri: developerRepAPng, align: 'bottom'}}>
         —Добрый день, я — представитель Bay Shatyr Group. Представляю вашему
         внимаюпроект АСК
       </Say>

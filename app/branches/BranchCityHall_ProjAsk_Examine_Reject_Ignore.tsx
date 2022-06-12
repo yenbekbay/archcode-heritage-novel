@@ -12,11 +12,15 @@ export function BranchCityHall_ProjAsk_Examine_Reject_Ignore() {
     <Branch>
       <Scene src={bgDeveloperHqInsideJpg} />
 
-      <Say tag="АрхКот:" image={{uri: archkot2Png, align: 'bottom'}}>
+      <Say
+        tag={{text: 'АрхКот:', color: '#B8AE71'}}
+        image={{uri: archkot2Png, align: 'bottom'}}>
         —Мы предлагаем свою кандидатуру в качестве мониторинговой группы
       </Say>
 
-      <Say tag="АрхКот:" image={{uri: archkot3Png, align: 'bottom'}}>
+      <Say
+        tag={{text: 'АрхКот:', color: '#B8AE71'}}
+        image={{uri: archkot3Png, align: 'bottom'}}>
         —Давайте договоримся о серии встреч с девелопером.
       </Say>
 
@@ -31,7 +35,8 @@ export function BranchCityHall_ProjAsk_Examine_Reject_Ignore() {
       <Say>Вы успешно реконструировали АСК</Say>
 
       <Say>
-        Здание АСК может быть внесено в список памятников и стать новым активом
+        Здание АСК может быть внесено в список памятников, стать новым активом.
+        Обновленное здание привлекает множество туристов
       </Say>
 
       <Title hide={-1}>Конец игры</Title>

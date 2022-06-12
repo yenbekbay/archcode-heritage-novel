@@ -18,13 +18,15 @@ export function BranchDeveloper_ProjAsk_Demolish_IgnoreRisks_Approved_Listen() {
       <Scene src={bgDeveloperHqOutsideJpg} />
 
       <Say>
-        Архток, Архбот и Архкот договорились с девелопером о том, что будут
+        АрхТок, АрхБот и АрхКот договорились с девелопером о том, что будут
         встречаться в процессе работы и обсуждать процесс стройки
       </Say>
 
       <Scene src={bgArchcodeOfficeJpg} />
 
-      <Say tag="АрхБот:" image={{uri: archbot1Png, align: 'bottom'}}>
+      <Say
+        tag={{text: 'АрхБот:', color: '#65506D'}}
+        image={{uri: archbot1Png, align: 'bottom'}}>
         {'А вот и протоколы встреч\n\n[Ссылки](#)'}
       </Say>
 

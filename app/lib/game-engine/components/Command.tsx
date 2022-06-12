@@ -24,6 +24,7 @@ export interface CommandProps {
   children: (controls: AnimationControls) => React.ReactNode
   behavior?: StatementBehavior
   hide?: number | ((statement: Statement) => boolean)
+  next?: number | string
   zIndex?: number | 'auto'
 }
 
@@ -32,6 +33,7 @@ export function Command({
   children,
   behavior = ['skippable_static'],
   hide = 0,
+  next = 1,
   zIndex = 'auto',
 }: CommandProps) {
   const {visible} = useStatementContext()
@@ -43,11 +45,12 @@ export function Command({
         command,
         behavior,
         hide,
+        next,
         enter: () => viewRef.current?.enter() ?? false,
         pause: () => viewRef.current?.pause(),
         resume: () => viewRef.current?.resume(),
       }),
-      [behavior, hide, command],
+      [behavior, command, hide, next],
     ),
   )
 

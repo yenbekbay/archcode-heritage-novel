@@ -36,15 +36,21 @@ export function BranchArchkot_ProjAirport_CheckOut_AssembleTeam_Bail() {
         hide={-1}
       />
 
-      <Say tag="АрхБот:" image={{uri: archbot1Png, align: 'bottom'}}>
+      <Say
+        tag={{text: 'АрхБот:', color: '#65506D'}}
+        image={{uri: archbot1Png, align: 'bottom'}}>
         {'—А могло бы быть вот так:\n\n[Ссылка на зарубежные примеры](#)'}
       </Say>
 
-      <Say tag="АрхТок:" image={{uri: archtok3Png, align: 'bottom'}}>
+      <Say
+        tag={{text: 'АрхТок:', color: '#8D8C59'}}
+        image={{uri: archtok3Png, align: 'bottom'}}>
         —Это больше не памятник. Надо выносить его из списка
       </Say>
 
-      <Say tag="АрхБот:" image={{uri: archbot1Png, align: 'bottom'}}>
+      <Say
+        tag={{text: 'АрхБот:', color: '#65506D'}}
+        image={{uri: archbot1Png, align: 'bottom'}}>
         {
           '—Правила вынесения объекта из списка памятников историко-культурного наследия выглядят так:\n\n[Ссылка 3](#)'
         }

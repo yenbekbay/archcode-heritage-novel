@@ -24,11 +24,15 @@ export function BranchCityHall_ProjAsk_Examine() {
 
       <Scene src={bgCityHallConferenceRoomJpg} />
 
-      <Say tag="Эксперт:" image={{uri: expert1Png, align: 'bottom'}}>
+      <Say
+        tag={{text: 'Эксперт:', color: '#687065'}}
+        image={{uri: expert1Png, align: 'bottom'}}>
         —Вижу нарушения…
       </Say>
 
-      <Say tag="Эксперт:" image={{uri: expert2Png, align: 'bottom'}}>
+      <Say
+        tag={{text: 'Эксперт:', color: '#687065'}}
+        image={{uri: expert2Png, align: 'bottom'}}>
         —Ещё одно! Ещё нарушение!!!
       </Say>
 
@@ -42,7 +46,7 @@ export function BranchCityHall_ProjAsk_Examine() {
 
       <Say
         scheme="dark"
-        tag="Помощник:"
+        tag={{text: 'Помощник:', color: '#687065'}}
         image={{
           uri: assistant1Png,
           style: {height: '100%', width: '100%', objectFit: 'cover'},

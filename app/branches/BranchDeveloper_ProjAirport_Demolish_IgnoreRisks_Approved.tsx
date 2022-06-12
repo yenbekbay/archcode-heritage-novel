@@ -50,7 +50,7 @@ export function BranchDeveloper_ProjAirport_Demolish_IgnoreRisks_Approved() {
       />
 
       <Say
-        tag="Аким:"
+        tag={{text: 'Аким:', color: '#687065'}}
         image={{uri: mayor7Png, align: 'bottom', style: {bottom: '-12%'}}}>
         —Я согласен с вашими решениями. Можете начинать стройку
       </Say>
@@ -89,26 +89,30 @@ export function BranchDeveloper_ProjAirport_Demolish_IgnoreRisks_Approved() {
 
       <Scene src={bgCityHallConferenceRoomJpg} />
 
-      <Say tag="Зам. акима:" image={{uri: assistant3Png, align: 'bottom'}}>
+      <Say
+        tag={{text: 'Зам. акима:', color: '#687065'}}
+        image={{uri: assistant3Png, align: 'bottom'}}>
         —То, что есть сейчас, утратило историческую ценность. Когда-то, в 50-е
         годы, оно было таким, да, но сейчас — нет
       </Say>
 
-      <Say tag="Зам. акима:" image={{uri: assistant3Png, align: 'bottom'}}>
+      <Say
+        tag={{text: 'Зам. акима:', color: '#687065'}}
+        image={{uri: assistant3Png, align: 'bottom'}}>
         —Нет никаких исторических элементов, есть стеклянные электронные двери.
         Там почти всё поменяли. Всё изменилось до неузнаваемости в худшую
         сторону. Никаким туристам здание неинтересно
       </Say>
 
       <Say
-        tag="Член Общ. совета Шарат Мибутов:"
+        tag={{text: 'Член Общ. совета Шарат Мибутов:', color: '#8E8379'}}
         image={{uri: sharatMibutovPng, align: 'bottom'}}>
         —То, что предложила турецкая фирма, выглядело не очень. То есть, это
         обычная квадратная коробка, без какой-либо связи с Казахстаном
       </Say>
 
       <Say
-        tag="Член Общ. совета Шарат Мибутов:"
+        tag={{text: 'Член Общ. совета Шарат Мибутов:', color: '#8E8379'}}
         image={{uri: sharatMibutovPng, align: 'bottom'}}>
         —Был выбран экономичный вариант, который рассчитан только на увеличение
         пропускной способности терминала и максимизацию прибыли инвесторов
@@ -121,19 +125,25 @@ export function BranchDeveloper_ProjAirport_Demolish_IgnoreRisks_Approved() {
         нагрузки и занимает огромную площадь
       </Say>
 
-      <Say tag="АрхКот:" image={{uri: archkot1Png, align: 'bottom'}}>
+      <Say
+        tag={{text: 'АрхКот:', color: '#B8AE71'}}
+        image={{uri: archkot1Png, align: 'bottom'}}>
         —Согласно закону об охране и использовании объектов историко-культурного
         наследия. Перемещёние и изменение памятника истории и культуры
         запрещаются
       </Say>
 
-      <Say tag="АрхКот:" image={{uri: archkot4Png, align: 'bottom'}}>
+      <Say
+        tag={{text: 'АрхКот:', color: '#B8AE71'}}
+        image={{uri: archkot4Png, align: 'bottom'}}>
         —Исключение допускается лишь в случаях разрушения более семидесяти
         процентов памятника истории и культуры либо утраты историко-культурной
         значимости
       </Say>
 
-      <Say tag="АрхКот:" image={{uri: archkot4Png, align: 'bottom'}}>
+      <Say
+        tag={{text: 'АрхКот:', color: '#B8AE71'}}
+        image={{uri: archkot4Png, align: 'bottom'}}>
         —или если его перемещёние и изменение повлекут улучшение условий его
         сохранения. Да и в общей сложности, это крайне дорогая процедура
       </Say>

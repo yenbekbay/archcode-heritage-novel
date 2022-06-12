@@ -40,9 +40,6 @@ import bgAskAfterAltJpg from './bg-ask-after-alt.jpg'
 import bgAskAfterJpg from './bg-ask-after.jpg'
 import bgAskBeforeFenceGif from './bg-ask-before-fence.gif'
 import bgAskBeforeJpg from './bg-ask-before.jpg'
-import bgBldgAFenceGif from './bg-bldg-a-fence.gif'
-import bgBldgAFenceJpg from './bg-bldg-a-fence.jpg'
-import bgBldgAJpg from './bg-bldg-a.jpg'
 import bgBusStop1Jpg from './bg-bus-stop-1.jpg'
 import bgBusStop2Jpg from './bg-bus-stop-2.jpg'
 import bgBusStop3Jpg from './bg-bus-stop-3.jpg'
@@ -70,6 +67,7 @@ import bgMonumentDeptDoorwayJpg from './bg-monument-dept-doorway.jpg'
 import bgPhoneFingerJpg from './bg-phone-finger.jpg'
 import bgPhoneHandJpg from './bg-phone-hand.jpg'
 import bgProjectsFolderJpg from './bg-projects-folder.jpg'
+import bgSolidJpg from './bg-solid.jpg'
 import bgZheltoksanAfterJpg from './bg-zheltoksan-after.jpg'
 import bgZheltoksanBeforeFenceGif from './bg-zheltoksan-before-fence.gif'
 import bgZheltoksanBeforeFenceJpg from './bg-zheltoksan-before-fence.jpg'
@@ -94,6 +92,7 @@ import fencePng from './fence.png'
 import gorzhempoPng from './gorzhempo.png'
 import journalistPng from './journalist.png'
 import letterPng from './letter.png'
+import logoPng from './logo.png'
 import mayor1Png from './mayor-1.png'
 import mayor10Png from './mayor-10.png'
 import mayor11Png from './mayor-11.png'
@@ -136,7 +135,6 @@ import redhead8Png from './redhead-8.png'
 import redhead9Png from './redhead-9.png'
 import sabitPng from './sabit.png'
 import sharatMibutovPng from './sharat-mibutov.png'
-import sillhouettePng from './sillhouette.png'
 import stampApprovedPng from './stamp-approved.png'
 import stampRejectedPng from './stamp-rejected.png'
 import tinaShtunerPng from './tina-shtuner.png'
@@ -183,9 +181,6 @@ export {
   bgAskAfterJpg,
   bgAskBeforeFenceGif,
   bgAskBeforeJpg,
-  bgBldgAFenceGif,
-  bgBldgAFenceJpg,
-  bgBldgAJpg,
   bgBusStop1Jpg,
   bgBusStop2Jpg,
   bgBusStop3Jpg,
@@ -213,6 +208,7 @@ export {
   bgPhoneFingerJpg,
   bgPhoneHandJpg,
   bgProjectsFolderJpg,
+  bgSolidJpg,
   bgZheltoksanAfterJpg,
   bgZheltoksanBeforeFenceGif,
   bgZheltoksanBeforeFenceJpg,
@@ -237,6 +233,7 @@ export {
   gorzhempoPng,
   journalistPng,
   letterPng,
+  logoPng,
   mayor1Png,
   mayor10Png,
   mayor11Png,
@@ -279,7 +276,6 @@ export {
   redhead9Png,
   sabitPng,
   sharatMibutovPng,
-  sillhouettePng,
   stampApprovedPng,
   stampRejectedPng,
   tinaShtunerPng,

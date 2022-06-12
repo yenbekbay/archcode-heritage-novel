@@ -52,7 +52,7 @@ export function BranchDeveloper_ProjZheltoksan_Demolish_IgnoreRisks_Approved() {
       />
 
       <Say
-        tag="Аким:"
+        tag={{text: 'Аким:', color: '#687065'}}
         image={{uri: mayor7Png, align: 'bottom', style: {bottom: '-12%'}}}>
         —Я согласен с вашими решениями. Можете начинать стройку
       </Say>
@@ -92,7 +92,7 @@ export function BranchDeveloper_ProjZheltoksan_Demolish_IgnoreRisks_Approved() {
       <Scene src={bgDeveloperHqInsideJpg} />
 
       <Say
-        tag="Менеджер проекта:"
+        tag={{text: 'Менеджер проекта:', color: '#A57B55'}}
         image={{uri: developerRepAPng, align: 'bottom'}}>
         —Добрый день, Мы — представители Bay Shatyr Group
       </Say>
@@ -103,7 +103,9 @@ export function BranchDeveloper_ProjZheltoksan_Demolish_IgnoreRisks_Approved() {
         на 490 авто
       </Say>
 
-      <Say tag="Активистка:" image={{uri: redhead13Png, align: 'bottom'}}>
+      <Say
+        tag={{text: 'Активистка:', color: '#C2653A'}}
+        image={{uri: redhead13Png, align: 'bottom'}}>
         —Но ведь это создаёт огромную нагрузку на транспортную инфраструктуру и
         не только…
       </Say>
@@ -129,7 +131,9 @@ export function BranchDeveloper_ProjZheltoksan_Demolish_IgnoreRisks_Approved() {
         Что ответить?
       </Say>
 
-      <Say tag="Активистка:" image={{uri: redhead12Png, align: 'bottom'}}>
+      <Say
+        tag={{text: 'Активистка:', color: '#C2653A'}}
+        image={{uri: redhead12Png, align: 'bottom'}}>
         —Судя по всему, предполагается вырубка всех существующих на территории
         здания деревьев???
       </Say>
@@ -155,7 +159,9 @@ export function BranchDeveloper_ProjZheltoksan_Demolish_IgnoreRisks_Approved() {
         Что ответить?
       </Say>
 
-      <Say tag="Активистка:" image={{uri: redhead12Png, align: 'bottom'}}>
+      <Say
+        tag={{text: 'Активистка:', color: '#C2653A'}}
+        image={{uri: redhead12Png, align: 'bottom'}}>
         —А в целом то, здание, хоть и не является официально памятником, но это
         история города! Его непременно нужно сохранить!!!
       </Say>

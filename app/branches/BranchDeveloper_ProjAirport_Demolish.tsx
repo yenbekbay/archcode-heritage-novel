@@ -16,7 +16,9 @@ export function BranchDeveloper_ProjAirport_Demolish() {
         Успех! Больше площади — больше успеха
       </Say>
 
-      <Say tag="Бот-билдер:" image={{uri: botBuilderPng, align: 'bottom'}}>
+      <Say
+        tag={{text: 'Бот-билдер:', color: '#53C7D5'}}
+        image={{uri: botBuilderPng, align: 'bottom'}}>
         —Но это же памятник
       </Say>
 
@@ -25,12 +27,14 @@ export function BranchDeveloper_ProjAirport_Demolish() {
       </Say>
 
       <Say
-        tag="Менеджер проекта:"
+        tag={{text: 'Менеджер проекта:', color: '#A57B55'}}
         image={{uri: developerRepAPng, align: 'bottom'}}>
         —В любом случае, необходимо взвесить риски
       </Say>
 
-      <Say tag="Бот-билдер:" image={{uri: botBuilderPng, align: 'bottom'}}>
+      <Say
+        tag={{text: 'Бот-билдер:', color: '#53C7D5'}}
+        image={{uri: botBuilderPng, align: 'bottom'}}>
         {
           '—Перенос памятника возможен, но при повреждении 70% здания, к тому же это чрезвычайно дорогое решение…-Кроме того, общественность скорее всего рада не будет…\n\n[Ссылка*15](#)'
         }

@@ -23,7 +23,7 @@ export function BranchDeveloper_ProjAirport_Demolish_IgnoreRisks_Approved_Ignore
             transform: 'rotate(-6deg)',
           },
         }}
-        style_={{fontSize: 24}}
+        style={{fontSize: 24}}
         image={{
           uri: bgPhoneHandJpg,
           style: {
@@ -40,7 +40,9 @@ export function BranchDeveloper_ProjAirport_Demolish_IgnoreRisks_Approved_Ignore
         —ЧТО СЛУЧИЛОСЬ??!
       </Say>
 
-      <Say tag="Бот-билдер:" image={{uri: botBuilderPng, align: 'bottom'}}>
+      <Say
+        tag={{text: 'Бот-билдер:', color: '#53C7D5'}}
+        image={{uri: botBuilderPng, align: 'bottom'}}>
         {
           'В результате слушаний была собрана рабочая группа по мониторингу проекта от общественности\n\n[Ссылка](#)'
         }

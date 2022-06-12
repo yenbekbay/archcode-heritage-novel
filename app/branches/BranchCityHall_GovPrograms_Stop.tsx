@@ -27,7 +27,7 @@ export function BranchCityHall_GovPrograms_Stop() {
 
       <Say
         scheme="dark"
-        tag="Помощник:"
+        tag={{text: 'Помощник:', color: '#687065'}}
         image={{
           uri: assistant1Png,
           style: {height: '100%', width: '100%', objectFit: 'cover'},

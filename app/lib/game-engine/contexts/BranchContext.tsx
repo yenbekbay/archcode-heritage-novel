@@ -15,6 +15,7 @@ export interface Statement {
   command: string
   behavior: StatementBehavior
   hide: number | ((statement: Statement) => boolean)
+  next: number | string
   enter: () => void
   pause: () => void
   resume: () => void
@@ -49,17 +50,24 @@ export function BranchProvider({branchId, children}: BranchProviderProps) {
   const containerSize = useSize(containerRef)
 
   const skip = useStableCallback((plusIndex = 0) => {
-    const focusedCommand = statementByIndex.get(focusedStatementIndex)
-    const entered = focusedCommand?.enter() ?? false
+    const focusedStatement = statementByIndex.get(focusedStatementIndex)
+    const entered = focusedStatement?.enter() ?? false
     // Complete entrance animation before jumping to next statement
     if (!entered) {
-      goToLocation(
-        branchId,
-        Math.min(
-          statementByIndex.size - 1,
-          focusedStatementIndex + 1 + plusIndex,
-        ),
-      )
+      const nextStatement =
+        typeof focusedStatement?.next === 'string'
+          ? statementByLabel.get(focusedStatement.next)
+          : statementByIndex.get(
+              Math.min(
+                statementByIndex.size - 1,
+                focusedStatementIndex +
+                  (focusedStatement?.next ?? 1) +
+                  plusIndex,
+              ),
+            )
+      if (nextStatement) {
+        goToLocation(branchId, nextStatement.index)
+      }
     }
   })
   const ctx = React.useMemo(

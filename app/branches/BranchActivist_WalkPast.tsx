@@ -1,5 +1,6 @@
 import {
-  bgBldgAFenceGif,
+  bgZheltoksanAfterJpg,
+  bgZheltoksanBeforeFenceGif,
   fencePng,
   redhead2Png,
   redhead3Png,
@@ -43,7 +44,16 @@ export function BranchActivist_WalkPast() {
         Поберегу нервы, семья ждет, пойду дома чай попью
       </Say>
 
-      <Scene src={bgBldgAFenceGif} durationMs={10000} />
+      <Scene src={bgZheltoksanBeforeFenceGif} durationMs={6000} />
+
+      <Say>Оказывается, за забором было здание госплана Желтоксан 115</Say>
+
+      <Scene src={bgZheltoksanAfterJpg} />
+
+      <Say>
+        Его снесли, а на его месте построили K-plaza, которая до сих пор
+        наполовину пуста
+      </Say>
 
       <Title hide={-1}>Конец игры</Title>
 

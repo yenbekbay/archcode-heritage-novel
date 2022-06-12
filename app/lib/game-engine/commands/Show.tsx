@@ -5,7 +5,8 @@ import {ImageView} from './views'
 
 export interface ShowSource extends Omit<ImageViewProps, 'controls'> {}
 
-export interface ShowProps extends Pick<CommandProps, 'hide' | 'zIndex'> {
+export interface ShowProps
+  extends Pick<CommandProps, 'hide' | 'next' | 'zIndex'> {
   src: string | ShowSource | (string | ShowSource)[]
   durationMs?: number
 }
@@ -14,6 +15,7 @@ export function Show({
   src: srcProp,
   durationMs = 1000,
   hide,
+  next,
   zIndex,
 }: ShowProps) {
   const normalizedSrcs = (Array.isArray(srcProp) ? srcProp : [srcProp]).map(
@@ -24,6 +26,7 @@ export function Show({
       name="Show"
       behavior={['skippable_timed', {durationMs}]}
       hide={hide}
+      next={next}
       zIndex={zIndex}>
       {(controls) => (
         <>

@@ -38,7 +38,9 @@ export function BranchDeveloper_ProjAirport_Demolish_IgnoreRisks_Rejected() {
         }}
       />
 
-      <Say tag="Аким:" image={{uri: mayor6Png, align: 'bottom'}}>
+      <Say
+        tag={{text: 'Аким:', color: '#687065'}}
+        image={{uri: mayor6Png, align: 'bottom'}}>
         —Я возмущён! Ведь здание представляет историческую ценность для города.
         Вам приходется разрабатывать новый проект и сохранить VIP терминал
       </Say>

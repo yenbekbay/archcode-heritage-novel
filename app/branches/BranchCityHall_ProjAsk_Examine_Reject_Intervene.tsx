@@ -13,12 +13,14 @@ export function BranchCityHall_ProjAsk_Examine_Reject_Intervene() {
       <Scene src={bgDeveloperHqInsideJpg} />
 
       <Say
-        tag="Работник акимата:"
+        tag={{text: 'Работник акимата:', color: '#687065'}}
         image={{uri: assistant3Png, align: 'bottom'}}>
         —Мы предоставим группу сотрудников для ведения мониторинга
       </Say>
 
-      <Say tag="Работник акимата:" image={{uri: mayor1Png, align: 'bottom'}}>
+      <Say
+        tag={{text: 'Работник акимата:', color: '#687065'}}
+        image={{uri: mayor1Png, align: 'bottom'}}>
         —Отлично, договоримся о серии встреч с девелопером
       </Say>
 
@@ -34,8 +36,8 @@ export function BranchCityHall_ProjAsk_Examine_Reject_Intervene() {
 
       <Say>
         ПОЗДРАВЛЯЕМ! Реставрация объекта завершена. У вашего отдела новые
-        перспективы Тема памятников двигается на городской, а затем и на
-        государственный уровень Вам удалось простроить схему взаимодействия с
+        перспективы. Тема памятников двигается на городской, а затем и на
+        государственный уровень. Вам удалось простроить схему взаимодействия с
         общественностью в дальнейшем
       </Say>
 

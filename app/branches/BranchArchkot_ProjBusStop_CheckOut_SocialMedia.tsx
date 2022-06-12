@@ -125,7 +125,9 @@ export function BranchArchkot_ProjBusStop_CheckOut_SocialMedia() {
         Была история, и нет истории. Зря Дядь Юра старался
       </Say>
 
-      <Say tag="АрхБот:" image={{uri: archbot1Png, align: 'bottom'}}>
+      <Say
+        tag={{text: 'АрхБот:', color: '#65506D'}}
+        image={{uri: archbot1Png, align: 'bottom'}}>
         {'—А могло бы быть вот так:\n\n[Ссылка на зарубежные примеры](#)'}
       </Say>
 

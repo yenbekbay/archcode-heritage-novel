@@ -26,7 +26,7 @@ export function BranchDeveloper_ProjAsk() {
             transform: 'rotate(-6deg)',
           },
         }}
-        style_={{fontSize: 24}}
+        style={{fontSize: 24}}
         image={{
           uri: bgPhoneHandJpg,
           style: {
@@ -51,23 +51,27 @@ export function BranchDeveloper_ProjAsk() {
       <Scene src={bgDeveloperHqInsideJpg} />
 
       <Say
-        tag="Менеджер проекта:"
+        tag={{text: 'Менеджер проекта:', color: '#A57B55'}}
         image={{uri: developerRepAPng, align: 'bottom'}}>
         —Нам необходимо взвесить все “за” и “против”
       </Say>
 
-      <Say tag="Архитектор:" image={{uri: architectPng, align: 'bottom'}}>
+      <Say
+        tag={{text: 'Архитектор:', color: '#B4AE68CC'}}
+        image={{uri: architectPng, align: 'bottom'}}>
         —Первое, что нам надо выяснить — это является ли АСК памятником
       </Say>
 
-      <Say tag="Бот-билдер:" image={{uri: botBuilderPng, align: 'bottom'}}>
+      <Say
+        tag={{text: 'Бот-билдер:', color: '#53C7D5'}}
+        image={{uri: botBuilderPng, align: 'bottom'}}>
         {
           'Ознакомьтесь со списком\n\n[Ссылка ГОСУДАРСТВЕННЫЙ РЕЕСТР ПАМЯТНИКОВ](#)'
         }
       </Say>
 
       <Say
-        tag="Бот-билдер:"
+        tag={{text: 'Бот-билдер:', color: '#53C7D5'}}
         image={{uri: botBuilderPng, align: 'bottom'}}
         menu={[
           {
@@ -88,18 +92,24 @@ export function BranchDeveloper_ProjAsk() {
 
       <Scene src={bgDeveloperHqInsideJpg} />
 
-      <Say tag="Бот-билдер:" image={{uri: botBuilderPng, align: 'bottom'}}>
+      <Say
+        tag={{text: 'Бот-билдер:', color: '#53C7D5'}}
+        image={{uri: botBuilderPng, align: 'bottom'}}>
         Аким Байбек подал заявку на внесение ряда зданий Алматы в число
         памятников историко- культурного наследия местного значения
       </Say>
 
-      <Say tag="Бот-билдер:" image={{uri: botBuilderPng, align: 'bottom'}}>
+      <Say
+        tag={{text: 'Бот-билдер:', color: '#53C7D5'}}
+        image={{uri: botBuilderPng, align: 'bottom'}}>
         {
           'На АСК распространяются те же правила, что и на действующие памятники\n\n[Ссылка *2 на список Байбека](#)'
         }
       </Say>
 
-      <Say tag="Архитектор:" image={{uri: architectPng, align: 'bottom'}}>
+      <Say
+        tag={{text: 'Архитектор:', color: '#B4AE68CC'}}
+        image={{uri: architectPng, align: 'bottom'}}>
         {
           '—У нас есть два варианта:\n\n№1: Сделаем деликатную реставрацию\n\n№2: А можем все перепланировать'
         }

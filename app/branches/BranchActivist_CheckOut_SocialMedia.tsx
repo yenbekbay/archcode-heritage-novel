@@ -1,7 +1,7 @@
 import {
-  bgBldgAJpg,
   bgPhoneFingerJpg,
   bgPhoneHandJpg,
+  bgZheltoksanBeforeFenceJpg,
   redhead2Png,
   redhead5Png,
   redhead7Png,
@@ -12,7 +12,7 @@ import {Branch, Label, Menu, Say, Scene, Title} from '~/lib'
 export function BranchActivist_CheckOut_SocialMedia() {
   return (
     <Branch>
-      <Scene src={bgBldgAJpg} />
+      <Scene src={bgZheltoksanBeforeFenceJpg} />
 
       <Say image={{uri: redhead5Png, align: 'bottom'}}>
         В моменты отчаяния всегда можно вылить свою боль в соц. сети

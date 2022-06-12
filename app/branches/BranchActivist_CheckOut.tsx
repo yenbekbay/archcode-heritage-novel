@@ -1,5 +1,5 @@
 import {
-  bgBldgAFenceGif,
+  bgZheltoksanBeforeFenceGif,
   fencePng,
   redhead2Png,
   redhead4Png,
@@ -33,7 +33,7 @@ export function BranchActivist_CheckOut() {
         Мутят что-то без доклада народу. Надо разобраться!
       </Say>
 
-      <Scene src={bgBldgAFenceGif} durationMs={10000} />
+      <Scene src={bgZheltoksanBeforeFenceGif} durationMs={10000} />
 
       <Say
         image={{uri: redhead2Png, align: 'bottom'}}

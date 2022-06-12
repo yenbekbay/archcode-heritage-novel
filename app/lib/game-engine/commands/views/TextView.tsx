@@ -16,9 +16,9 @@ export type TextPlacement = 'top' | 'middle' | 'bottom'
 export interface TextViewProps {
   groups: CharGroup[]
   controls: AnimationControls
-  tag?: string
+  tag?: string | {text: string; color?: string; style?: React.CSSProperties}
   placement?: TextPlacement
-  style_?: React.CSSProperties
+  style?: React.CSSProperties
   frame?: Frame
   scheme?: CommandViewColorScheme
 }
@@ -28,7 +28,7 @@ export function TextView({
   controls,
   tag,
   placement = 'top',
-  style_: style,
+  style,
   frame,
   scheme,
 }: TextViewProps) {
@@ -58,6 +58,14 @@ export function TextView({
         {tag && (
           <motion.span
             className="text-md GameEngine-tag mb-1 whitespace-pre-wrap rounded-md px-1 text-center font-calligraph"
+            style={{
+              ...(typeof tag === 'object' &&
+                tag.color && {
+                  backgroundColor: tag.color,
+                  color: 'white',
+                }),
+              ...(typeof tag === 'object' && tag.style),
+            }}
             variants={{
               initial: {opacity: 0},
               entrance: {
@@ -71,7 +79,7 @@ export function TextView({
             }}
             initial="initial"
             animate={controls}>
-            {tag}
+            {typeof tag === 'string' ? tag : tag.text}
           </motion.span>
         )}
 

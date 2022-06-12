@@ -1,9 +1,9 @@
 import {
+  archkot1Png,
   bgArchcodeOfficeJpg,
   bgCourtyardJpg,
   bgPhoneHandJpg,
   redhead19Png,
-  sillhouettePng,
 } from '~/assets/game'
 import {Branch, Menu, Say, Scene, Title} from '~/lib'
 
@@ -18,21 +18,23 @@ export function BranchActivist_CheckOut_Act_Org() {
 
       <Scene src={bgArchcodeOfficeJpg} />
 
-      <Say image={{uri: sillhouettePng, align: 'bottom'}}>
-        —Здравствуйте, да, я вас слушаю.
+      <Say image={{uri: archkot1Png, align: 'bottom'}}>
+        —Здравствуйте, да, я вас слушаю
       </Say>
 
       <Scene src={bgCourtyardJpg} />
 
       <Say image={{uri: redhead19Png, align: 'bottom'}}>
-        —Непонятно, что творится! Забор там! Здание снесут! Унчтожат!
+        —Непонятно, что творится! Забор там! Здание снесут! Уничтожат!
         Испоганят!!! Что делать???
       </Say>
 
       <Scene src={bgArchcodeOfficeJpg} />
 
-      <Say image={{uri: sillhouettePng, align: 'bottom'}}>
-        —Без паники. Приходите, поделимся опытом
+      <Say image={{uri: archkot1Png, align: 'bottom'}}>
+        {
+          '—Без паники. Приходите, поделимся опытом\n\n[Переход на телеграм бот](https://t.me/archcode_bot)'
+        }
       </Say>
 
       <Say
@@ -45,7 +47,7 @@ export function BranchActivist_CheckOut_Act_Org() {
             transform: 'rotate(-6deg)',
           },
         }}
-        style_={{fontSize: 24}}
+        style={{fontSize: 24}}
         image={{
           uri: bgPhoneHandJpg,
           style: {

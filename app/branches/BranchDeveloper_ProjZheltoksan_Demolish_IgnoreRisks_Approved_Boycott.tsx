@@ -11,13 +11,17 @@ export function BranchDeveloper_ProjZheltoksan_Demolish_IgnoreRisks_Approved_Boy
     <Branch>
       <Scene src={bgDeveloperHqInsideJpg} />
 
-      <Say tag="Активистка:" image={{uri: redhead11Png, align: 'bottom'}}>
+      <Say
+        tag={{text: 'Активистка:', color: '#C2653A'}}
+        image={{uri: redhead11Png, align: 'bottom'}}>
         —8 сентября вы получаете задание, 15-го числа его где-то утверждают, а
         сегодня вдруг идут слушания. Здесь вы говорите о документах, — говорите
         «потом вы можете остаться и посмотреть»
       </Say>
 
-      <Say tag="Активистка:" image={{uri: redhead11Png, align: 'bottom'}}>
+      <Say
+        tag={{text: 'Активистка:', color: '#C2653A'}}
+        image={{uri: redhead11Png, align: 'bottom'}}>
         —Мы хотим сейчас! Почему вы это не организовали? Вы могли вывести
         документы на большой экран, чтобы каждый из нас видел!
       </Say>

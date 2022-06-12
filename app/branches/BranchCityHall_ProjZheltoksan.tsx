@@ -11,7 +11,7 @@ export function BranchCityHall_ProjZheltoksan() {
       <Scene src={bgCityHallConferenceRoomJpg} />
 
       <Say
-        tag="Представитель:"
+        tag={{text: 'Представитель:', color: '#A57B55'}}
         image={{uri: developerRepAPng, align: 'bottom'}}>
         —Добрый день, я — представитель Bay Shatyr Group. Представляю вашему
         внимаю проект KAISAR PLAZA

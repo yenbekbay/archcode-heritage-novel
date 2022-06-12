@@ -30,7 +30,7 @@ export function BranchActivist_CheckOut_Act_Group() {
 
       <Say
         scheme="dark"
-        style_={{fontSize: 20, marginTop: -24}}
+        style={{fontSize: 20, marginTop: -24}}
         image={{
           uri: bgPhoneHandJpg,
           style: {
@@ -55,7 +55,7 @@ export function BranchActivist_CheckOut_Act_Group() {
             transform: 'rotate(-6deg)',
           },
         }}
-        style_={{fontSize: 20, textAlign: 'right'}}>
+        style={{fontSize: 20, textAlign: 'right'}}>
         {
           'Беспредел!\n\nСносят Фурманова, 00. Присоединяйтесь, чтобы вместе действовать в защиту истории!'
         }
@@ -70,7 +70,7 @@ export function BranchActivist_CheckOut_Act_Group() {
       </Say>
 
       <Say
-        style_={{fontSize: 20, marginTop: -24}}
+        style={{fontSize: 20, marginTop: -24}}
         image={{
           uri: bgLaptopStandaloneJpg,
           style: {
@@ -94,7 +94,7 @@ export function BranchActivist_CheckOut_Act_Group() {
             width: 800,
           },
         }}
-        style_={{fontSize: 16, textAlign: 'left'}}>
+        style={{fontSize: 16, textAlign: 'left'}}>
         {[
           '—Здравствуйте! Меня тоже всё это возмущает! Мы должны действовать сообща!',
           '                            —Здравое дело! Я с вами!',
@@ -141,7 +141,7 @@ export function BranchActivist_CheckOut_Act_Group() {
             transform: 'rotate(-6deg)',
           },
         }}
-        style_={{fontSize: 24}}
+        style={{fontSize: 24}}
         image={{
           uri: bgPhoneHandJpg,
           style: {
@@ -170,7 +170,7 @@ export function BranchActivist_CheckOut_Act_Group() {
             transform: 'rotate(-6deg)',
           },
         }}
-        style_={{fontSize: 24}}
+        style={{fontSize: 24}}
         image={{
           uri: bgPhoneHandJpg,
           style: {
@@ -199,7 +199,7 @@ export function BranchActivist_CheckOut_Act_Group() {
             transform: 'rotate(-6deg)',
           },
         }}
-        style_={{fontSize: 24}}
+        style={{fontSize: 24}}
         image={{
           uri: bgPhoneHandJpg,
           style: {
@@ -226,7 +226,7 @@ export function BranchActivist_CheckOut_Act_Group() {
             transform: 'rotate(-6deg)',
           },
         }}
-        style_={{fontSize: 24}}
+        style={{fontSize: 24}}
         image={{
           uri: bgPhoneHandJpg,
           style: {
@@ -277,7 +277,7 @@ export function BranchActivist_CheckOut_Act_Group() {
             transform: 'rotate(9deg) translateX(16px)',
           },
         }}
-        style_={{fontSize: 20}}>
+        style={{fontSize: 20}}>
         [*ссылка на примеры писем по разным ситуациям](#). Проверить информацию
         из СМИ [Ссылка *23 на инструкцию по факт чеку](#)
       </Say>
@@ -321,7 +321,7 @@ export function BranchActivist_CheckOut_Act_Group() {
             transform: 'rotate(9deg) translateX(16px)',
           },
         }}
-        style_={{fontSize: 24}}>
+        style={{fontSize: 24}}>
         [сайт Архкода](https://archcode.kz)
       </Say>
 

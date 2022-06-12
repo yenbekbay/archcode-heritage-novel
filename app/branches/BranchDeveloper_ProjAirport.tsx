@@ -26,7 +26,7 @@ export function BranchDeveloper_ProjAirport() {
             transform: 'rotate(-6deg)',
           },
         }}
-        style_={{fontSize: 24}}
+        style={{fontSize: 24}}
         image={{
           uri: bgPhoneHandJpg,
           style: {
@@ -51,23 +51,27 @@ export function BranchDeveloper_ProjAirport() {
       <Scene src={bgDeveloperHqInsideJpg} />
 
       <Say
-        tag="Менеджер проекта:"
+        tag={{text: 'Менеджер проекта:', color: '#A57B55'}}
         image={{uri: developerRepAPng, align: 'bottom'}}>
         —Нам необходимо взвесить все “за” и “против”
       </Say>
 
-      <Say tag="Архитектор:" image={{uri: architectPng, align: 'bottom'}}>
+      <Say
+        tag={{text: 'Архитектор:', color: '#B4AE68CC'}}
+        image={{uri: architectPng, align: 'bottom'}}>
         —Первое, что нам надо выяснить - это является ли VIP терминал памятником
       </Say>
 
-      <Say tag="Бот-билдер:" image={{uri: botBuilderPng, align: 'bottom'}}>
+      <Say
+        tag={{text: 'Бот-билдер:', color: '#53C7D5'}}
+        image={{uri: botBuilderPng, align: 'bottom'}}>
         {
           'Ознакомьтесь со списком\n\n[Ссылка ГОСУДАРСТВЕННЫЙ РЕЕСТР ПАМЯТНИКОВ](#)'
         }
       </Say>
 
       <Say
-        tag="Бот-билдер:"
+        tag={{text: 'Бот-билдер:', color: '#53C7D5'}}
         image={{uri: botBuilderPng, align: 'bottom'}}
         menu={[
           {
@@ -88,7 +92,9 @@ export function BranchDeveloper_ProjAirport() {
 
       <Scene src={bgDeveloperHqInsideJpg} />
 
-      <Say tag="Архитектор:" image={{uri: architectPng, align: 'bottom'}}>
+      <Say
+        tag={{text: 'Архитектор:', color: '#B4AE68CC'}}
+        image={{uri: architectPng, align: 'bottom'}}>
         {
           '—У нас есть два варианта:\n\n№1: Можем расположить здание нового терминала, обойдя памятник\n\nА можем всё снести, и возвести терминал ещё большей площади'
         }

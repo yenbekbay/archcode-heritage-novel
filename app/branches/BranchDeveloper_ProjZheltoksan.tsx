@@ -26,7 +26,7 @@ export function BranchDeveloper_ProjZheltoksan() {
             transform: 'rotate(-6deg)',
           },
         }}
-        style_={{fontSize: 24}}
+        style={{fontSize: 24}}
         image={{
           uri: bgPhoneHandJpg,
           style: {
@@ -51,24 +51,28 @@ export function BranchDeveloper_ProjZheltoksan() {
       <Scene src={bgDeveloperHqInsideJpg} />
 
       <Say
-        tag="Менеджер проекта:"
+        tag={{text: 'Менеджер проекта:', color: '#A57B55'}}
         image={{uri: developerRepAPng, align: 'bottom'}}>
         —Нам необходимо взвесить все “за” и “против”
       </Say>
 
-      <Say tag="Архитектор:" image={{uri: architectPng, align: 'bottom'}}>
+      <Say
+        tag={{text: 'Архитектор:', color: '#B4AE68CC'}}
+        image={{uri: architectPng, align: 'bottom'}}>
         —Первое, что нам надо выяснить — это является ли Желтоксан 115
         памятником
       </Say>
 
-      <Say tag="Бот-билдер:" image={{uri: botBuilderPng, align: 'bottom'}}>
+      <Say
+        tag={{text: 'Бот-билдер:', color: '#53C7D5'}}
+        image={{uri: botBuilderPng, align: 'bottom'}}>
         {
           'Ознакомьтесь со списком\n\n[Ссылка ГОСУДАРСТВЕННЫЙ РЕЕСТР ПАМЯТНИКОВ](#)'
         }
       </Say>
 
       <Say
-        tag="Бот-билдер:"
+        tag={{text: 'Бот-билдер:', color: '#53C7D5'}}
         image={{uri: botBuilderPng, align: 'bottom'}}
         menu={[
           {
@@ -90,7 +94,9 @@ export function BranchDeveloper_ProjZheltoksan() {
 
       <Scene src={bgDeveloperHqInsideJpg} />
 
-      <Say tag="Архитектор:" image={{uri: architectPng, align: 'bottom'}}>
+      <Say
+        tag={{text: 'Архитектор:', color: '#B4AE68CC'}}
+        image={{uri: architectPng, align: 'bottom'}}>
         {
           '—У нас есть два варианта:\n\n№1: Сохранить старое здание и отреставрировать его\n\n№2: А можем все снести, и построить новое!'
         }

@@ -1,10 +1,10 @@
-import {bgBldgAJpg, redhead8Png} from '~/assets/game'
+import {bgZheltoksanBeforeFenceJpg, redhead8Png} from '~/assets/game'
 import {Branch, Say, Scene} from '~/lib'
 
 export function BranchActivist_CheckOut_Act() {
   return (
     <Branch>
-      <Scene src={bgBldgAJpg} />
+      <Scene src={bgZheltoksanBeforeFenceJpg} />
 
       <Say
         image={{uri: redhead8Png, align: 'bottom'}}

@@ -19,7 +19,9 @@ export function BranchDeveloper_ProjAirport_Demolish_IgnoreRisks() {
 
       <Scene src={bgDeveloperHqInsideJpg} />
 
-      <Say tag="Архитектор:" image={{uri: architectPng, align: 'bottom'}}>
+      <Say
+        tag={{text: 'Архитектор:', color: '#B4AE68CC'}}
+        image={{uri: architectPng, align: 'bottom'}}>
         —Проект сноса готов!
       </Say>
 
