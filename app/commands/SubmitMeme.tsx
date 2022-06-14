@@ -1,3 +1,4 @@
+import {useLocalStorageValue} from '@react-hookz/web'
 import clsx from 'clsx'
 import {motion} from 'framer-motion'
 import {ArrowLeft as ArrowLeftIcon} from 'phosphor-react'
@@ -19,7 +20,7 @@ import type {definitions} from '~/supabase'
 import {getSupabase} from '~/supabase'
 import {Spinner} from './internal'
 
-export interface MakeMemeProps {
+export interface SubmitMemeProps {
   onDone: (ctx: {
     goToBranch: (branchId: BranchId) => void
     goToStatement: (statementLabel: string) => void
@@ -32,14 +33,14 @@ export interface MakeMemeProps {
   foregroundAnimation?: CommandViewAnimation
 }
 
-export function MakeMeme({
+export function SubmitMeme({
   onDone,
   frame,
   scheme,
   foregroundSrc,
   foregroundStyle,
   foregroundAnimation,
-}: MakeMemeProps) {
+}: SubmitMemeProps) {
   const {goToBranch} = useGameContext()
   const {containerSize, goToStatement, skip} = useBranchContext()
   return (
@@ -86,6 +87,7 @@ export function MakeMeme({
                   })
                 onDone({goToStatement, goToBranch, skip})
               }}
+              onSkip={() => onDone({goToStatement, goToBranch, skip})}
             />
           </motion.div>
         </>
@@ -96,16 +98,23 @@ export function MakeMeme({
 
 // MARK: MemeForm
 
+const kActiveTemplateId = `@MemeForm/activeTemplateId`
+const kPreviewUrl = `@MemeForm/previewUrl`
+
 interface MemeFormProps {
   onSubmit: (values: {url: string; name: string}) => unknown | Promise<unknown>
+  onSkip: () => void
   scheme?: CommandViewColorScheme
 }
 
-function MemeForm({onSubmit, scheme}: MemeFormProps) {
-  const [activeTemplateId, setActiveTemplateId] = React.useState<string | null>(
+function MemeForm({onSubmit, onSkip, scheme}: MemeFormProps) {
+  const [activeTemplateId, setActiveTemplateId] = useLocalStorageValue<
+    string | ''
+  >(kActiveTemplateId, null)
+  const [previewUrl, setPreviewUrl] = useLocalStorageValue<string | ''>(
+    kPreviewUrl,
     null,
   )
-  const [previewUrl, setPreviewUrl] = React.useState<string | null>(null)
   const templatesRes = useSWR('memeTemplates', memeTemplatesFetcher)
   const templates = templatesRes.data
   const templateById = React.useMemo(
@@ -132,9 +141,9 @@ function MemeForm({onSubmit, scheme}: MemeFormProps) {
               className="btn btn-ghost btn-circle bg-white text-xl shadow-md"
               onClick={() => {
                 if (previewUrl) {
-                  setPreviewUrl(null)
+                  setPreviewUrl('')
                 } else {
-                  setActiveTemplateId(null)
+                  setActiveTemplateId('')
                 }
               }}>
               <ArrowLeftIcon />
@@ -152,7 +161,12 @@ function MemeForm({onSubmit, scheme}: MemeFormProps) {
           <span className="text-lg font-semibold">{activeTemplate.name}</span>
 
           {previewUrl ? (
-            <MemePreview scheme={scheme} url={previewUrl} onSubmit={onSubmit} />
+            <MemePreview
+              scheme={scheme}
+              url={previewUrl}
+              onSubmit={onSubmit}
+              onSkip={onSkip}
+            />
           ) : (
             <MemeTemplateForm
               scheme={scheme}
@@ -188,10 +202,11 @@ function MemeForm({onSubmit, scheme}: MemeFormProps) {
 interface MemePreviewProps {
   url: string
   onSubmit: (values: {url: string; name: string}) => unknown | Promise<unknown>
+  onSkip: () => void
   scheme?: CommandViewColorScheme
 }
 
-function MemePreview({url, onSubmit, scheme}: MemePreviewProps) {
+function MemePreview({url, onSubmit, onSkip, scheme}: MemePreviewProps) {
   const [submitting, setSubmitting] = React.useState(false)
   const [FormSchema] = React.useState(() => z.object({name: z.string()}))
   const zo = useZorm('meme-preview', FormSchema, {
@@ -236,14 +251,29 @@ function MemePreview({url, onSubmit, scheme}: MemePreviewProps) {
         </div>
 
         <button
+          className={clsx(
+            'GameEngine-button btn btn-outline font-calligraph',
+            scheme === 'dark' && 'GameEngine-button--dark',
+          )}
+          onClick={() => onSkip()}>
+          Пропустить
+        </button>
+
+        <button
           type="submit"
           disabled={zo.validation?.success === false}
           className={clsx(
             'GameEngine-button GameEngine-button--opaque btn btn-outline font-calligraph',
             scheme === 'dark' && 'GameEngine-button--dark',
           )}>
-          Сохранить
+          Опубликовать мем
         </button>
+
+        <span className="prose text-xs">
+          Нажав на кнопку «Опубликовать мем», вы даёте нам разрешение
+          копировать, изменять, распространять и исполнять ваше произведение,
+          даже в коммерческих целях.
+        </span>
       </form>
 
       {submitting && (
@@ -344,7 +374,7 @@ function MemeTemplateForm({
             'GameEngine-button GameEngine-button--opaque btn btn-outline font-calligraph',
             scheme === 'dark' && 'GameEngine-button--dark',
           )}>
-          Создать мем
+          Посмотреть
         </button>
       </form>
 

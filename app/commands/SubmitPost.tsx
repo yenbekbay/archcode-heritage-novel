@@ -12,7 +12,7 @@ import type {definitions} from '~/supabase'
 import {getSupabase} from '~/supabase'
 import {TextForm} from './internal'
 
-export interface PublishPostProps {
+export interface SubmitPostProps {
   onDone: (ctx: {
     goToBranch: (branchId: BranchId) => void
     goToStatement: (statementLabel: string) => void
@@ -25,14 +25,14 @@ export interface PublishPostProps {
   foregroundAnimation?: CommandViewAnimation
 }
 
-export function PublishPost({
+export function SubmitPost({
   onDone,
   frame,
   scheme,
   foregroundSrc,
   foregroundStyle,
   foregroundAnimation,
-}: PublishPostProps) {
+}: SubmitPostProps) {
   const {goToBranch} = useGameContext()
   const {containerSize, goToStatement, skip} = useBranchContext()
   return (

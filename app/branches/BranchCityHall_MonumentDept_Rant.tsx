@@ -9,7 +9,7 @@ import {
   mayor8Png,
   mayor9Png,
 } from '~/assets/game'
-import {NominateMonument} from '~/commands'
+import {SubmitMonumentNomination} from '~/commands'
 import {makeStrictBranch} from '~/lib'
 
 const Branch = makeStrictBranch()
@@ -113,7 +113,7 @@ export function BranchCityHall_MonumentDept_Rant() {
         Какие здания города надо бы добавить в этот список?
       </Branch.Say>
 
-      <NominateMonument
+      <SubmitMonumentNomination
         onDone={(ctx) => ctx.skip()}
         frame={{
           viewport: [1080, 1920],

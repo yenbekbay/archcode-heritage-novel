@@ -6,7 +6,7 @@ import type {definitions} from '~/supabase'
 import {getSupabase} from '~/supabase'
 import {TextForm} from './internal'
 
-export interface NominateMonumentProps {
+export interface SubmitMonumentNominationProps {
   onDone: (ctx: {
     goToBranch: (branchId: BranchId) => void
     goToStatement: (statementLabel: string) => void
@@ -16,11 +16,11 @@ export interface NominateMonumentProps {
   scheme?: CommandViewColorScheme
 }
 
-export function NominateMonument({
+export function SubmitMonumentNomination({
   onDone,
   frame,
   scheme,
-}: NominateMonumentProps) {
+}: SubmitMonumentNominationProps) {
   const {goToBranch} = useGameContext()
   const {containerSize, goToStatement, skip} = useBranchContext()
   return (

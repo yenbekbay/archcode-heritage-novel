@@ -6,7 +6,7 @@ import {
   redhead5Png,
   redhead7Png,
 } from '~/assets/game'
-import {MakeMeme, PublishPost} from '~/commands'
+import {SubmitMeme, SubmitPost} from '~/commands'
 import {makeStrictBranch} from '~/lib'
 
 type StatementLabel = 'make_meme' | 'publish_post' | 'acknowledged'
@@ -52,7 +52,7 @@ export function BranchActivist_CheckOut_SocialMedia() {
       />
 
       <Branch.Label label="make_meme">
-        <MakeMeme
+        <SubmitMeme
           onDone={(ctx) => ctx.goToStatement('acknowledged')}
           frame={{
             viewport: [1080, 1920],
@@ -74,7 +74,7 @@ export function BranchActivist_CheckOut_SocialMedia() {
       </Branch.Label>
 
       <Branch.Label label="publish_post">
-        <PublishPost
+        <SubmitPost
           onDone={(ctx) => ctx.goToStatement('acknowledged')}
           frame={{
             viewport: [1080, 1920],
