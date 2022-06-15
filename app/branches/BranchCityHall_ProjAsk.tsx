@@ -3,36 +3,23 @@ import {
   developerRepAPng,
   mayor2Png,
 } from '~/assets/game'
-import {makeStrictBranch} from '~/lib'
-
-const Branch = makeStrictBranch()
+import {Branch, Say, Scene} from '~/lib'
 
 export function BranchCityHall_ProjAsk() {
   return (
-    <Branch.Root background={bgCityHallConferenceRoomJpg}>
-      <Branch.Blank durationMs={3000} transitory />
+    <Branch>
+      <Scene src={bgCityHallConferenceRoomJpg} />
 
-      <Branch.Say
+      <Say
         tag="Девелопер:"
-        foregroundSrc={developerRepAPng}
-        foregroundStyle={{width: '100%', bottom: 0}}
-        transitory>
+        image={{uri: developerRepAPng, style: {width: '100%', bottom: 0}}}>
         —Добрый день, я — представитель Bay Shatyr Group. Представляю вашему
         внимаюпроект АСК
-      </Branch.Say>
+      </Say>
 
-      <Branch.Say
-        foregroundSrc={mayor2Png}
-        foregroundStyle={{width: '100%', bottom: 0}}
-        transitory
-        durationMs={0}
-        lingers={1}>
-        —Хммм…
-      </Branch.Say>
-
-      <Branch.Choices
-        scheme="dark"
-        choices={[
+      <Say
+        image={{uri: mayor2Png, style: {width: '100%', bottom: 0}}}
+        menu={[
           {
             label: 'Нужна экспертиза',
             onClick: (ctx) => ctx.goToBranch('CityHall_ProjAsk_Examine'),
@@ -41,8 +28,9 @@ export function BranchCityHall_ProjAsk() {
             label: 'Одобрить',
             onClick: (ctx) => ctx.goToBranch('CityHall_ProjAsk_Approve'),
           },
-        ]}
-      />
-    </Branch.Root>
+        ]}>
+        —Хммм…
+      </Say>
+    </Branch>
   )
 }

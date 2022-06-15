@@ -3,38 +3,27 @@ import {
   bgCityHallOutsideJpg,
   mayor13Png,
 } from '~/assets/game'
-import {makeStrictBranch} from '~/lib'
-
-const Branch = makeStrictBranch()
+import {Branch, Menu, Say, Scene, Title} from '~/lib'
 
 export function BranchCityHall_MonumentDept_Rant_NotOk() {
   return (
-    <Branch.Root background={bgCityHallMayorOfficeJpg}>
-      <Branch.Say
-        foregroundSrc={mayor13Png}
-        foregroundStyle={{width: '100%', bottom: 0}}
-        transitory>
+    <Branch>
+      <Scene src={bgCityHallMayorOfficeJpg} />
+
+      <Say image={{uri: mayor13Png, style: {width: '100%', bottom: 0}}}>
         {'Хммм…\nЧто-то долго'}
-      </Branch.Say>
+      </Say>
 
-      <Branch.Foreground
-        src={bgCityHallOutsideJpg}
-        style={{height: '100%', width: '100%', objectFit: 'cover'}}
-        durationMs={0}
-        transitory
-        lingers
-      />
+      <Scene src={bgCityHallOutsideJpg} />
 
-      <Branch.Say transitory>
+      <Say>
         Срок Акима прошел, комиссия так и не состоялась. Новый аким обнуляет все
         действия предыдущего. Все ваши предложения отменяются.
-      </Branch.Say>
+      </Say>
 
-      <Branch.Title transitory lingers>
-        Конец игры
-      </Branch.Title>
+      <Title visibility="indefinite">Конец игры</Title>
 
-      <Branch.Choices
+      <Menu
         scheme="dark"
         choices={[
           {
@@ -43,6 +32,6 @@ export function BranchCityHall_MonumentDept_Rant_NotOk() {
           },
         ]}
       />
-    </Branch.Root>
+    </Branch>
   )
 }

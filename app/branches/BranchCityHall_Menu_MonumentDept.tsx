@@ -8,69 +8,35 @@ import {
   monumentDeptStaff1Png,
   monumentDeptStaff2Png,
 } from '~/assets/game'
-import {makeStrictBranch} from '~/lib'
-
-const Branch = makeStrictBranch()
+import {Branch, Say, Scene, Show} from '~/lib'
 
 export function BranchCityHall_Menu_MonumentDept() {
   return (
-    <Branch.Root background={bgCityHallMayorOfficeJpg}>
-      <Branch.Say
-        foregroundSrc={mayor1Png}
-        foregroundStyle={{width: '100%', bottom: 0}}
-        transitory>
+    <Branch>
+      <Scene src={bgCityHallMayorOfficeJpg} />
+
+      <Say image={{uri: mayor1Png, style: {width: '100%', bottom: 0}}}>
         Что у нас делает отдел памятников?
-      </Branch.Say>
+      </Say>
 
-      <Branch.Foreground
-        src={bgMonumentDeptDoorJpg}
-        style={{height: '100%', width: '100%', objectFit: 'cover'}}
-        durationMs={3000}
-        transitory
-        lingers={2}
-      />
+      <Scene src={bgMonumentDeptDoorJpg} />
 
-      <Branch.Say
-        foregroundSrc={mayor5Png}
-        foregroundStyle={{width: '100%', bottom: 0}}
-        transitory>
+      <Say image={{uri: mayor5Png, style: {width: '100%', bottom: 0}}}>
         Посмотрим, что они тут делают…
-      </Branch.Say>
+      </Say>
 
-      <Branch.Foreground
-        src={bgMonumentDeptDoorwayJpg}
-        style={{height: '100%', width: '100%', objectFit: 'cover'}}
-        durationMs={0}
-        transitory
-        lingers={2}
+      <Scene src={bgMonumentDeptDoorwayJpg} />
+
+      <Show
+        src={{uri: monumentDeptStaff1Png, style: {width: '100%', bottom: 0}}}
+      />
+      <Show
+        src={{uri: monumentDeptStaff2Png, style: {width: '100%', bottom: 0}}}
       />
 
-      <Branch.Foreground
-        src={monumentDeptStaff1Png}
-        style={{width: '100%', bottom: 0}}
-        durationMs={3000}
-        transitory
-      />
-
-      <Branch.Foreground
-        src={monumentDeptStaff2Png}
-        style={{width: '100%', bottom: 0}}
-        durationMs={3000}
-        transitory
-      />
-
-      <Branch.Say
-        foregroundSrc={mayor6Png}
-        foregroundStyle={{width: '100%', bottom: 0}}
-        transitory
-        durationMs={0}
-        lingers={1}>
-        Я хочу…
-      </Branch.Say>
-
-      <Branch.Choices
-        scheme="dark"
-        choices={[
+      <Say
+        image={{uri: mayor6Png, style: {width: '100%', bottom: 0}}}
+        menu={[
           {
             label: 'Чай!',
             onClick: (ctx) => ctx.goToBranch('CityHall_MonumentDept_Tea'),
@@ -79,8 +45,9 @@ export function BranchCityHall_Menu_MonumentDept() {
             label: 'Навести порядок',
             onClick: (ctx) => ctx.goToBranch('CityHall_MonumentDept_Rant'),
           },
-        ]}
-      />
-    </Branch.Root>
+        ]}>
+        Я хочу…
+      </Say>
+    </Branch>
   )
 }

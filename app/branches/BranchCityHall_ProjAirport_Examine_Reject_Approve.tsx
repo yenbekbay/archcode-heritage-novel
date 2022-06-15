@@ -4,75 +4,48 @@ import {
   bgCityHallMayorOfficeJpg,
   mayor4Png,
 } from '~/assets/game'
-import {makeStrictBranch} from '~/lib'
-
-const Branch = makeStrictBranch()
+import {Branch, Menu, Say, Scene, Title} from '~/lib'
 
 export function BranchCityHall_ProjAirport_Examine_Reject_Approve() {
   return (
-    <Branch.Root background={bgCityHallMayorOfficeJpg}>
-      <Branch.Say
-        foregroundSrc={mayor4Png}
-        foregroundStyle={{width: '100%', bottom: 0}}
-        transitory>
+    <Branch>
+      <Scene src={bgCityHallMayorOfficeJpg} />
+
+      <Say image={{uri: mayor4Png, style: {width: '100%', bottom: 0}}}>
         Тише едешь — дальше будешь, пусть строят как хотят!
-      </Branch.Say>
+      </Say>
 
-      <Branch.Foreground
-        src={bgCityHallConferenceRoomJpg}
-        style={{height: '100%', width: '100%', objectFit: 'cover'}}
-        transitory
-        lingers={2}
-      />
+      <Scene src={bgCityHallConferenceRoomJpg} />
 
-      <Branch.Say transitory>
+      <Say>
         В результате слушаний собралась рабочая группа по мониторингу проекта от
         общественности
-      </Branch.Say>
+      </Say>
 
-      <Branch.Foreground
-        src={bgAirportJpg}
-        style={{height: '100%', width: '100%', objectFit: 'cover'}}
-        durationMs={3000}
-        transitory
-        lingers
-      />
+      <Scene src={bgAirportJpg} />
 
-      <Branch.Say transitory lingers={1}>
+      <Say durationMs={0} visibility={1}>
         Рабочая группа от общественности отправила письмо в EBRD
-      </Branch.Say>
+      </Say>
 
-      <Branch.Say
-        href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-        placement="bottom">
-        *Ссылка на письмо
-      </Branch.Say>
+      <Say placement="bottom">
+        [*Ссылка на письмо](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
+      </Say>
 
-      <Branch.Foreground
-        src={bgCityHallConferenceRoomJpg}
-        style={{height: '100%', width: '100%', objectFit: 'cover'}}
-        transitory
-        lingers={2}
-      />
+      <Scene src={bgCityHallConferenceRoomJpg} />
 
-      <Branch.Say transitory>
-        А еще они организовали пресс конференцию
-      </Branch.Say>
+      <Say>А еще они организовали пресс конференцию</Say>
 
-      <Branch.Say transitory>
+      <Say>
         Возникли трудности, вы не можете продолжить реализацию проекта и
         вынуждены временно его заморозить
-      </Branch.Say>
+      </Say>
 
-      <Branch.Say transitory lingers>
-        Продолжение следует…
-      </Branch.Say>
+      <Say visibility="indefinite">Продолжение следует…</Say>
 
-      <Branch.Title transitory lingers>
-        Конец игры
-      </Branch.Title>
+      <Title visibility="indefinite">Конец игры</Title>
 
-      <Branch.Choices
+      <Menu
         scheme="dark"
         choices={[
           {
@@ -81,6 +54,6 @@ export function BranchCityHall_ProjAirport_Examine_Reject_Approve() {
           },
         ]}
       />
-    </Branch.Root>
+    </Branch>
   )
 }

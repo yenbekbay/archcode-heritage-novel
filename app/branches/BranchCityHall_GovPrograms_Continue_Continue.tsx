@@ -1,36 +1,21 @@
 import {bgBusStop4Jpg, bgBusStop5Jpg, bgBusStop6Jpg} from '~/assets/game'
-import {makeStrictBranch} from '~/lib'
-
-const Branch = makeStrictBranch()
+import {Branch, Menu, Say, Scene, Title} from '~/lib'
 
 export function BranchCityHall_GovPrograms_Continue_Continue() {
   return (
-    <Branch.Root background={bgBusStop4Jpg}>
-      <Branch.Foreground
-        src={bgBusStop5Jpg}
-        style={{height: '100%', width: '100%', objectFit: 'cover'}}
-        transitory
-        lingers={2}
-      />
+    <Branch>
+      <Scene src={bgBusStop4Jpg} />
+      <Scene src={bgBusStop5Jpg} />
 
-      <Branch.Say transitory>Вы успешно демонтировали остановку</Branch.Say>
+      <Say>Вы успешно демонтировали остановку</Say>
 
-      <Branch.Foreground
-        src={bgBusStop6Jpg}
-        style={{height: '100%', width: '100%', objectFit: 'cover'}}
-        transitory
-        lingers
-      />
+      <Scene src={bgBusStop6Jpg} />
 
-      <Branch.Say transitory>
-        Советские остановки исчезли по всему городу…
-      </Branch.Say>
+      <Say>Советские остановки исчезли по всему городу…</Say>
 
-      <Branch.Title transitory lingers>
-        Конец игры
-      </Branch.Title>
+      <Title visibility="indefinite">Конец игры</Title>
 
-      <Branch.Choices
+      <Menu
         scheme="dark"
         choices={[
           {
@@ -39,6 +24,6 @@ export function BranchCityHall_GovPrograms_Continue_Continue() {
           },
         ]}
       />
-    </Branch.Root>
+    </Branch>
   )
 }

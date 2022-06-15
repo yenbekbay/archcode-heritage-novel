@@ -13,178 +13,118 @@ import {
   gorzhempoPng,
   tinaShtunerPng,
 } from '~/assets/game'
-import {makeStrictBranch} from '~/lib'
-
-const Branch = makeStrictBranch()
+import {Branch, Menu, Say, Scene, Title} from '~/lib'
 
 export function BranchArchkot_ProjAsk_CheckOut_AssembleTeam_Debate() {
   return (
-    <Branch.Root background={bgDeveloperHqOutsideJpg}>
-      <Branch.Blank durationMs={3000} transitory />
+    <Branch>
+      <Scene src={bgDeveloperHqOutsideJpg} />
+      <Scene src={bgDeveloperHqInsidePng} />
 
-      <Branch.Foreground
-        src={bgDeveloperHqInsidePng}
-        style={{height: '100%', width: '100%', objectFit: 'cover'}}
-        durationMs={3000}
-        transitory
-        lingers
-      />
-
-      <Branch.Say
+      <Say
         tag="АрхКот:"
-        foregroundSrc={archkot4Png}
-        foregroundStyle={{width: '100%', bottom: 0}}
-        transitory>
+        image={{uri: archkot4Png, style: {width: '100%', bottom: 0}}}>
         —Это сейчас практически единственное здание, которое не было изменено
-      </Branch.Say>
+      </Say>
 
-      <Branch.Say
+      <Say
         tag="Девелопер:"
-        foregroundSrc={developerRepB1Png}
-        foregroundStyle={{width: '100%', bottom: 0}}
-        transitory>
+        image={{uri: developerRepB1Png, style: {width: '100%', bottom: 0}}}>
         —Внутри мы хотим создать современные, удобные помещения, увеличить
         свободную площадь,
-      </Branch.Say>
+      </Say>
 
-      <Branch.Say
-        foregroundSrc={developerRepB2Png}
-        foregroundStyle={{width: '100%', bottom: 0}}
-        transitory>
+      <Say image={{uri: developerRepB2Png, style: {width: '100%', bottom: 0}}}>
         а еще сделать open space — с учетом прозрачного фасада, будет больше
         света!
-      </Branch.Say>
+      </Say>
 
-      <Branch.Say
-        foregroundSrc={developerRepB3Png}
-        foregroundStyle={{width: '100%', bottom: 0}}
-        transitory>
+      <Say image={{uri: developerRepB3Png, style: {width: '100%', bottom: 0}}}>
         Стекла на фасаде сделаем зеркальными!
-      </Branch.Say>
+      </Say>
 
-      <Branch.Say
+      <Say
         tag="Горжемпо:"
-        foregroundSrc={gorzhempoPng}
-        foregroundStyle={{width: '100%', bottom: 0}}
-        transitory>
+        image={{uri: gorzhempoPng, style: {width: '100%', bottom: 0}}}>
         —В начале 80-х годов прошлого века я мечтал о зеркальном стекле,
         которого в СССР не было
-      </Branch.Say>
+      </Say>
 
-      <Branch.Say
-        foregroundSrc={gorzhempoPng}
-        foregroundStyle={{width: '100%', bottom: 0}}
-        transitory>
+      <Say image={{uri: gorzhempoPng, style: {width: '100%', bottom: 0}}}>
         Из-за дефицита материала в итоге при строительстве было использовано
         дымчатое стекло,
-      </Branch.Say>
+      </Say>
 
-      <Branch.Say
-        foregroundSrc={gorzhempoPng}
-        foregroundStyle={{width: '100%', bottom: 0}}
-        transitory>
+      <Say image={{uri: gorzhempoPng, style: {width: '100%', bottom: 0}}}>
         и в проекте, судя по рендерам, оно заменяется на зеркальное
-      </Branch.Say>
+      </Say>
 
-      <Branch.Say
+      <Say
         tag="Тина Штунер:"
-        foregroundSrc={tinaShtunerPng}
-        foregroundStyle={{width: '100%', bottom: 0}}
-        transitory>
+        image={{uri: tinaShtunerPng, style: {width: '100%', bottom: 0}}}>
         —Это уже исторический памятник, и сделать зеркальные окна — нарушение
         облика, к которому мы привыкли
-      </Branch.Say>
+      </Say>
 
-      <Branch.Say
+      <Say
         tag="Адя Пчелкина:"
-        foregroundSrc={adyaPchelkinaPng}
-        foregroundStyle={{width: '100%', bottom: 0}}
-        transitory>
+        image={{uri: adyaPchelkinaPng, style: {width: '100%', bottom: 0}}}>
         —Есть ли у Bay Shatyr Group лицензия на работу с памятниками?
-      </Branch.Say>
+      </Say>
 
-      <Branch.Say
+      <Say
         tag="Девелопер:"
-        foregroundSrc={developerRepB4Png}
-        foregroundStyle={{width: '100%', bottom: 0}}
-        transitory>
+        image={{uri: developerRepB4Png, style: {width: '100%', bottom: 0}}}>
         …
-      </Branch.Say>
+      </Say>
 
-      <Branch.Say
+      <Say
         tag="АрхКот:"
-        foregroundSrc={archkot4Png}
-        foregroundStyle={{width: '100%', bottom: 0}}
-        transitory>
+        image={{uri: archkot4Png, style: {width: '100%', bottom: 0}}}>
         —Нужен кто-то, кто будет контролировать правильность процесса!
-      </Branch.Say>
+      </Say>
 
-      <Branch.Say
+      <Say
         tag="Девелопер:"
-        foregroundSrc={developerRepB5Png}
-        foregroundStyle={{width: '100%', bottom: 0}}
-        transitory>
+        image={{uri: developerRepB5Png, style: {width: '100%', bottom: 0}}}>
         …
-      </Branch.Say>
+      </Say>
 
-      <Branch.Foreground
-        src={bgDeveloperHqOutsideJpg}
-        style={{height: '100%', width: '100%', objectFit: 'cover'}}
-        durationMs={0}
-        transitory
-        lingers
-      />
+      <Scene src={bgDeveloperHqOutsideJpg} />
 
-      <Branch.Say transitory>
+      <Say>
         А в результате договорились архток, архбот и архкот с девелопером, что
         будут встречаться в процессе работы и стройки процесс обсуждать
-      </Branch.Say>
+      </Say>
 
-      <Branch.Foreground
-        src={bgAskAfterAltJpg}
-        style={{height: '100%', width: '100%', objectFit: 'cover'}}
-        transitory
-        lingers
-      />
+      <Scene src={bgAskAfterAltJpg} />
 
-      <Branch.Say transitory>
+      <Say>
         Поздравляем! Облик здания сохранен! Не даром прошли все ваши и вот
         результат — деликатная реставрация объекта
-      </Branch.Say>
+      </Say>
 
-      <Branch.Say transitory>
+      <Say>
         Побегайте по лестницам у входа, почувствйте себя снова ребенком!
-      </Branch.Say>
+      </Say>
 
-      <Branch.Say
+      <Say
         tag="АрхБот:"
-        foregroundSrc={archbot3Png}
-        foregroundStyle={{width: '100%', bottom: 0}}
-        transitory>
+        image={{uri: archbot3Png, style: {width: '100%', bottom: 0}}}>
         Но вот памятником оно все же не стало…ушел аким, ушел и список…
-      </Branch.Say>
+      </Say>
 
-      <Branch.Say
+      <Say
         tag="АрхБот:"
-        foregroundSrc={archbot3Png}
-        foregroundStyle={{width: '100%', bottom: 0}}
-        transitory
-        durationMs={0}
-        lingers={1}>
-        Хотите узнать, что написали СМИ о состоявшейся реставрации АСК?
-      </Branch.Say>
+        image={{uri: archbot3Png, style: {width: '100%', bottom: 0}}}>
+        {
+          'Хотите узнать, что написали СМИ о состоявшейся реставрации АСК?\n\n[*Ссылка на статьи](https://www.youtube.com/watch?v=dQw4w9WgXcQ)'
+        }
+      </Say>
 
-      <Branch.Say
-        placement="middle"
-        href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
-        *Ссылка на статьи
-      </Branch.Say>
+      <Title visibility="indefinite">Конец игры</Title>
 
-      <Branch.Title transitory lingers>
-        Конец игры
-      </Branch.Title>
-
-      <Branch.Choices
+      <Menu
         scheme="dark"
         choices={[
           {
@@ -193,6 +133,6 @@ export function BranchArchkot_ProjAsk_CheckOut_AssembleTeam_Debate() {
           },
         ]}
       />
-    </Branch.Root>
+    </Branch>
   )
 }

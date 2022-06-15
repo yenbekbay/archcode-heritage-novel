@@ -1,4 +1,3 @@
-import {AnimatePresence, motion} from 'framer-motion'
 import {
   archkot1Png,
   archkot2Png,
@@ -6,53 +5,52 @@ import {
   bgAskBeforeJpg,
   fencePng,
 } from '~/assets/game'
-import type {BranchBackgroundComponentProps} from '~/lib'
-import {makeStrictBranch} from '~/lib'
-
-const Branch = makeStrictBranch()
+import {Branch, Say, Scene, Show} from '~/lib'
 
 export function BranchArchkot_ProjAsk_CheckOut() {
   return (
-    <Branch.Root background={Background}>
-      <Branch.Say
-        foregroundSrc={archkot1Png}
-        foregroundStyle={{
-          width: '100%',
-          bottom: 0,
-          filter: 'drop-shadow(40px 40px 5px rgba(0, 0, 0, .35))',
+    <Branch>
+      <Show
+        src={{
+          uri: fencePng,
+          style: {height: '100%', transform: 'translate(-50%) scale(1.15)'},
+          animation: {
+            initial: {},
+            entrance: {},
+            exit: {x: '-400%', transition: {duration: 2}},
+          },
         }}
-        transitory>
+        visibility={1}
+        zIndex={100}
+      />
+
+      <Say
+        image={{
+          uri: archkot1Png,
+          style: {
+            width: '100%',
+            bottom: 0,
+            filter: 'drop-shadow(40px 40px 5px rgba(0, 0, 0, .35))',
+          },
+        }}
+        zIndex={101}>
         Я не усну спокойно, не посмотрев, что за забором
-      </Branch.Say>
+      </Say>
 
-      <Branch.Blank durationMs={3000} transitory />
+      <Scene src={bgAskBeforeJpg} />
 
-      <Branch.Say
-        foregroundSrc={archkot8Png}
-        foregroundStyle={{width: '100%', bottom: 0}}
-        transitory>
+      <Say image={{uri: archkot8Png, style: {width: '100%', bottom: 0}}}>
         Что за напасть! Здание аппаратно-студийного комплекса перестроить решили
-      </Branch.Say>
+      </Say>
 
-      <Branch.Say
-        foregroundSrc={archkot2Png}
-        foregroundStyle={{width: '100%', bottom: 0}}
-        transitory>
+      <Say image={{uri: archkot2Png, style: {width: '100%', bottom: 0}}}>
         А я был здесь ребенком еще, у мамы на работе, мне по лестницам этим так
         бегать нравилось
-      </Branch.Say>
+      </Say>
 
-      <Branch.Say
-        foregroundSrc={archkot1Png}
-        foregroundStyle={{width: '100%', bottom: 0}}
-        transitory
-        lingers={1}>
-        Что можно сделать мне, простому АрхКоту?
-      </Branch.Say>
-
-      <Branch.Choices
-        scheme="dark"
-        choices={[
+      <Say
+        image={{uri: archkot1Png, style: {width: '100%', bottom: 0}}}
+        menu={[
           {
             label: 'Погрустить',
             onClick: (ctx) =>
@@ -63,34 +61,9 @@ export function BranchArchkot_ProjAsk_CheckOut() {
             onClick: (ctx) =>
               ctx.goToBranch('Archkot_ProjAsk_CheckOut_AssembleTeam'),
           },
-        ]}
-      />
-    </Branch.Root>
-  )
-}
-
-function Background(_props: BranchBackgroundComponentProps) {
-  const {focusedStatementIndex} = Branch.useBranchContext()
-  return (
-    <>
-      <img src={bgAskBeforeJpg} className="min-h-full flex-1 object-cover" />
-
-      <AnimatePresence>
-        {focusedStatementIndex < 1 && (
-          <motion.div
-            className="absolute inset-0"
-            exit={{
-              x: '-400%',
-              transition: {delay: 0.5, duration: 2},
-            }}>
-            <img
-              src={fencePng}
-              className="absolute h-full max-w-none"
-              style={{transform: 'translate(-50%) scale(1.15)'}}
-            />
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </>
+        ]}>
+        Что можно сделать мне, простому АрхКоту?
+      </Say>
+    </Branch>
   )
 }

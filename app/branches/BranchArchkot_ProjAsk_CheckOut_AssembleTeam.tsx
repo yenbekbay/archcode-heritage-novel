@@ -12,22 +12,19 @@ import {
   bgAskBeforeJpg,
   bgPhoneHandJpg,
 } from '~/assets/game'
-import {makeStrictBranch} from '~/lib'
-
-const Branch = makeStrictBranch()
+import {Branch, Say, Scene} from '~/lib'
 
 export function BranchArchkot_ProjAsk_CheckOut_AssembleTeam() {
   return (
-    <Branch.Root background={bgAskBeforeJpg}>
-      <Branch.Say
-        foregroundSrc={archkot8Png}
-        foregroundStyle={{width: '100%', bottom: 0}}
-        transitory>
-        Быстро! Быстро! Надо собрать команду и разобраться, что тут происходит!
-      </Branch.Say>
+    <Branch>
+      <Scene src={bgAskBeforeJpg} />
 
-      <Branch.Say
-        textFrame={{
+      <Say image={{uri: archkot8Png, style: {width: '100%', bottom: 0}}}>
+        Быстро! Быстро! Надо собрать команду и разобраться, что тут происходит!
+      </Say>
+
+      <Say
+        frame={{
           viewport: [1080, 1920],
           rect: {
             y: 400,
@@ -36,73 +33,47 @@ export function BranchArchkot_ProjAsk_CheckOut_AssembleTeam() {
             transform: 'rotate(-6deg)',
           },
         }}
-        textStyle={{fontSize: 24}}
-        foregroundSrc={bgPhoneHandJpg}
-        foregroundStyle={{
-          height: '100%',
-          width: '100%',
-          objectFit: 'cover',
-          transform: 'scale(2.25) translateX(-15px)',
-        }}
-        transitory>
+        style_={{fontSize: 24}}
+        image={{
+          uri: bgPhoneHandJpg,
+          style: {
+            height: '100%',
+            width: '100%',
+            objectFit: 'cover',
+            transform: 'scale(2.25) translateX(-15px)',
+          },
+        }}>
         Команда Архкод: срочно собираемся в офисе
-      </Branch.Say>
+      </Say>
 
-      <Branch.Foreground
-        src={bgArchcodeOfficeJpg}
-        style={{height: '100%', width: '100%', objectFit: 'cover'}}
-        durationMs={3000}
-        transitory
-        lingers
-      />
+      <Scene src={bgArchcodeOfficeJpg} />
 
-      <Branch.Say
+      <Say
         tag="АрхКот:"
-        foregroundSrc={archkot9Png}
-        foregroundStyle={{width: '100%', bottom: 0}}
-        transitory>
+        image={{uri: archkot9Png, style: {width: '100%', bottom: 0}}}>
         —В городе беда. Здание АСК обнесено забором, и никто ничего об этом не
         знает! Мы должны что-то делать
-      </Branch.Say>
+      </Say>
 
-      <Branch.Say
+      <Say
         tag="АрхТок:"
-        foregroundSrc={archtok1Png}
-        foregroundStyle={{width: '100%', bottom: 0}}
-        transitory>
+        image={{uri: archtok1Png, style: {width: '100%', bottom: 0}}}>
         —Первое, что необходимо выяснить — это является ли здание АСК памятником
         историко-культурного наследия
-      </Branch.Say>
+      </Say>
 
-      <Branch.Say
+      <Say
         tag="АрхБот:"
-        foregroundSrc={archbot1Png}
-        foregroundStyle={{width: '100%', bottom: 0}}
-        transitory
-        durationMs={0}
-        lingers={1}>
-        —Загляните в ГОСУДАРСТВЕННЫЙ РЕЕСТР ПАМЯТНИКОВ. Там можно поискать
-        нужное нам здание.
-      </Branch.Say>
+        image={{uri: archbot1Png, style: {width: '100%', bottom: 0}}}>
+        {
+          '—Загляните в ГОСУДАРСТВЕННЫЙ РЕЕСТР ПАМЯТНИКОВ. Там можно поискать нужное нам здание.\n\n[*Ссылка РЕЕСТР](https://www.youtube.com/watch?v=dQw4w9WgXcQ)'
+        }
+      </Say>
 
-      <Branch.Say
-        placement="middle"
-        href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
-        *Ссылка РЕЕСТР
-      </Branch.Say>
-
-      <Branch.Say
+      <Say
         tag="АрхТок:"
-        foregroundSrc={archtok2Png}
-        foregroundStyle={{width: '100%', bottom: 0}}
-        transitory
-        durationMs={0}
-        lingers={1}>
-        Является ли здание АСК памятником?
-      </Branch.Say>
-
-      <Branch.Choices
-        choices={[
+        image={{uri: archtok2Png, style: {width: '100%', bottom: 0}}}
+        menu={[
           {
             label: 'Да',
             onClick: (ctx) => ctx.skip(),
@@ -111,38 +82,28 @@ export function BranchArchkot_ProjAsk_CheckOut_AssembleTeam() {
             label: 'Нет',
             onClick: (ctx) => ctx.skip(2),
           },
-        ]}
-      />
+        ]}>
+        Является ли здание АСК памятником?
+      </Say>
 
-      <Branch.Foreground
-        src={bgAskBeforeJpg}
-        style={{height: '100%', width: '100%', objectFit: 'cover'}}
-        transitory
-        durationMs={0}
-        lingers={1}
-      />
+      <Scene src={bgAskBeforeJpg} />
 
-      <Branch.Say transitory>Здание АСК не является памятником</Branch.Say>
+      <Say>Здание АСК не является памятником</Say>
 
-      <Branch.Say
+      <Scene src={bgArchcodeOfficeJpg} />
+
+      <Say
         tag="АрхКот:"
-        foregroundSrc={archkot10Png}
-        foregroundStyle={{height: '100%', width: '100%', objectFit: 'cover'}}
-        transitory>
+        image={{
+          uri: archkot10Png,
+          style: {height: '100%', width: '100%', objectFit: 'cover'},
+        }}>
         —ЭТО НЕ ПАМЯТНИК!!!
-      </Branch.Say>
+      </Say>
 
-      <Branch.Say
-        foregroundSrc={archkot11Png}
-        foregroundStyle={{width: '100%', bottom: 0}}
-        transitory
-        durationMs={0}
-        lingers={1}>
-        Что делать?
-      </Branch.Say>
-
-      <Branch.Choices
-        choices={[
+      <Say
+        image={{uri: archkot11Png, style: {width: '100%', bottom: 0}}}
+        menu={[
           {
             label: 'Подумаю о дальнейших действиях',
             onClick: (ctx) => ctx.skip(),
@@ -152,91 +113,58 @@ export function BranchArchkot_ProjAsk_CheckOut_AssembleTeam() {
             onClick: (ctx) =>
               ctx.goToBranch('Archkot_ProjAsk_CheckOut_SocialMedia'),
           },
-        ]}
-      />
+        ]}>
+        Что делать?
+      </Say>
 
-      <Branch.Say
+      <Say
         tag="АрхТок:"
-        foregroundSrc={archtok1Png}
-        foregroundStyle={{width: '100%', bottom: 0}}
-        transitory>
+        image={{uri: archtok1Png, style: {width: '100%', bottom: 0}}}>
         —Надо вести мониторинг ситуации. Проверить информацию, которая есть в
         СМИ
-      </Branch.Say>
+      </Say>
 
-      <Branch.Say
+      <Say
         tag="АрхБот:"
-        foregroundSrc={archbot2Png}
-        foregroundStyle={{width: '100%', bottom: 0}}
-        transitory>
+        image={{uri: archbot2Png, style: {width: '100%', bottom: 0}}}>
         —Я проверил различные СМИ. В результате отслеживания статей в СМИ
         найдено то, что нужно
-      </Branch.Say>
+      </Say>
 
-      <Branch.Say
-        foregroundSrc={archbot3Png}
-        foregroundStyle={{width: '100%', bottom: 0}}
-        transitory
-        durationMs={0}
-        lingers={1}>
-        —Представляю вам документ, который я условно назвал “Список Байбека”
-      </Branch.Say>
+      <Say image={{uri: archbot3Png, style: {width: '100%', bottom: 0}}}>
+        {
+          '—Представляю вам документ, который я условно назвал “Список Байбека”\n\n[*Cсылка cтатья "Список Байбека"](https://www.youtube.com/watch?v=dQw4w9WgXcQ)'
+        }
+      </Say>
 
-      <Branch.Say
-        placement="middle"
-        href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
-        *Cсылка cтатья "Список Байбека"
-      </Branch.Say>
-
-      <Branch.Say
+      <Say
         tag="АрхТок:"
-        foregroundSrc={archtok2Png}
-        foregroundStyle={{width: '100%', bottom: 0}}
-        transitory>
+        image={{uri: archtok2Png, style: {width: '100%', bottom: 0}}}>
         —Значит, это не памятник, но и не совсем непамятник?
-      </Branch.Say>
+      </Say>
 
-      <Branch.Say
+      <Say
         tag="АрхБот:"
-        foregroundSrc={archbot1Png}
-        foregroundStyle={{width: '100%', bottom: 0}}
-        transitory
-        durationMs={0}
-        lingers={1}>
-        —Я нашел закон, в котором говорится о зданиях, которые заявлены, как
-        возможные памятники
-      </Branch.Say>
+        image={{uri: archbot1Png, style: {width: '100%', bottom: 0}}}>
+        {
+          '—Я нашел закон, в котором говорится о зданиях, которые заявлены, как возможные памятники\n\n[*Cсылка на закон](https://www.youtube.com/watch?v=dQw4w9WgXcQ)'
+        }
+      </Say>
 
-      <Branch.Say
-        placement="middle"
-        href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
-        *Cсылка на закон
-      </Branch.Say>
+      <Scene src={bgAskBeforeJpg} />
 
-      <Branch.Foreground
-        src={bgAskBeforeJpg}
-        style={{height: '100%', width: '100%', objectFit: 'cover'}}
-        transitory
-        durationMs={0}
-        lingers={4}
-      />
-
-      <Branch.Say transitory>
+      <Say>
         Выяснили АрхКот, АрхБот и АрхТок, что АСК, хоть и не является
         памятником, имеет все права настоящего памятника
-      </Branch.Say>
+      </Say>
 
-      <Branch.Say transitory>
+      <Say>
         Теперь, зная это, они будут действовать, чтобы сохранить здание, которое
         так дорого сердцам
-      </Branch.Say>
+      </Say>
 
-      <Branch.Say transitory durationMs={0} lingers={1}>
-        Что делать?
-      </Branch.Say>
-
-      <Branch.Choices
-        choices={[
+      <Say
+        menu={[
           {
             label: 'Инициировать открытое обсуждение',
             onClick: (ctx) =>
@@ -247,8 +175,9 @@ export function BranchArchkot_ProjAsk_CheckOut_AssembleTeam() {
             // FIXME
             onClick: () => alert('Не готово'),
           },
-        ]}
-      />
-    </Branch.Root>
+        ]}>
+        Что делать?
+      </Say>
+    </Branch>
   )
 }

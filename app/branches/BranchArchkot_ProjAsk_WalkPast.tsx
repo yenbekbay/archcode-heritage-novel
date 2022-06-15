@@ -1,61 +1,55 @@
-import {AnimatePresence, motion} from 'framer-motion'
 import {
   archkot6Png,
   archkot7Png,
   bgAskAfterJpg,
   bgAskBeforeFenceGif,
-  bgAskBeforeJpg,
   fencePng,
 } from '~/assets/game'
-import type {BranchBackgroundComponentProps} from '~/lib'
-import {makeStrictBranch} from '~/lib'
-
-const Branch = makeStrictBranch()
+import {Branch, Menu, Say, Scene, Show, Title} from '~/lib'
 
 export function BranchArchkot_ProjAsk_WalkPast() {
   return (
-    <Branch.Root background={Background}>
-      <Branch.Say
-        foregroundSrc={archkot6Png}
-        foregroundStyle={{
-          width: '100%',
-          bottom: 0,
-          filter: 'drop-shadow(40px 40px 5px rgba(0, 0, 0, .35))',
+    <Branch>
+      <Show
+        src={{
+          uri: fencePng,
+          style: {height: '100%', transform: 'translate(-50%) scale(1.15)'},
+          animation: {
+            initial: {},
+            entrance: {},
+            exit: {x: '-400%', transition: {duration: 2}},
+          },
         }}
-        transitory>
+        visibility={1}
+        zIndex={100}
+      />
+
+      <Say
+        image={{
+          uri: archkot6Png,
+          style: {
+            width: '100%',
+            bottom: 0,
+            filter: 'drop-shadow(40px 40px 5px rgba(0, 0, 0, .35))',
+          },
+        }}
+        zIndex={101}>
         Не стоит зря терять времени, дедлайны горят, дома кот некормленный, да
         сериал недосмотренный
-      </Branch.Say>
+      </Say>
 
-      <Branch.Blank durationMs={6000} transitory />
+      <Scene src={bgAskBeforeFenceGif} durationMs={6000} />
 
-      <Branch.Foreground
-        src={bgAskAfterJpg}
-        style={{height: '100%', width: '100%', objectFit: 'cover'}}
-        transitory
-        lingers
-      />
+      <Scene src={bgAskAfterJpg} />
 
-      <Branch.Foreground
-        src={bgAskAfterJpg}
-        style={{height: '100%', width: '100%', objectFit: 'cover'}}
-        transitory
-        lingers
-      />
-
-      <Branch.Say
-        foregroundSrc={archkot7Png}
-        foregroundStyle={{width: '100%', bottom: 0}}
-        transitory>
+      <Say image={{uri: archkot7Png, style: {width: '100%', bottom: 0}}}>
         Здание изменено до неузнаваемости, и теперь это уже не имеет отношения к
         историко-культурному наследию
-      </Branch.Say>
+      </Say>
 
-      <Branch.Title transitory lingers>
-        Конец игры
-      </Branch.Title>
+      <Title visibility="indefinite">Конец игры</Title>
 
-      <Branch.Choices
+      <Menu
         scheme="dark"
         choices={[
           {
@@ -64,35 +58,6 @@ export function BranchArchkot_ProjAsk_WalkPast() {
           },
         ]}
       />
-    </Branch.Root>
-  )
-}
-
-function Background(_props: BranchBackgroundComponentProps) {
-  const {focusedStatementIndex} = Branch.useBranchContext()
-  return (
-    <>
-      <img
-        src={focusedStatementIndex < 1 ? bgAskBeforeJpg : bgAskBeforeFenceGif}
-        className="min-h-full flex-1 object-cover"
-      />
-
-      <AnimatePresence>
-        {focusedStatementIndex < 1 && (
-          <motion.div
-            className="absolute inset-0"
-            exit={{
-              x: '-400%',
-              transition: {delay: 0.5, duration: 2},
-            }}>
-            <img
-              src={fencePng}
-              className="absolute h-full max-w-none"
-              style={{transform: 'translate(-50%) scale(1.15)'}}
-            />
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </>
+    </Branch>
   )
 }

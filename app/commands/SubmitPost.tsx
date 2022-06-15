@@ -1,9 +1,9 @@
 import clsx from 'clsx'
 import {motion} from 'framer-motion'
-import type {CommandViewAnimation, CommandViewColorScheme, Frame} from '~/lib'
+import type {CommandViewColorScheme, Frame, ImageViewProps} from '~/lib'
 import {
   Command,
-  ForegroundView,
+  ImageView,
   styleForFrame,
   useBranchContext,
   useGameContext,
@@ -18,35 +18,20 @@ export interface SubmitPostProps {
     goToStatement: (statementLabel: string) => void
     skip: () => void
   }) => void
-  frame?: Frame
   scheme?: CommandViewColorScheme
-  foregroundSrc?: string
-  foregroundStyle?: React.CSSProperties
-  foregroundAnimation?: CommandViewAnimation
+  frame?: Frame
+  image?: string | Omit<ImageViewProps, 'controls'>
 }
 
-export function SubmitPost({
-  onDone,
-  frame,
-  scheme,
-  foregroundSrc,
-  foregroundStyle,
-  foregroundAnimation,
-}: SubmitPostProps) {
+export function SubmitPost({onDone, frame, scheme, image}: SubmitPostProps) {
   const {goToBranch} = useGameContext()
   const {containerSize, goToStatement, skip} = useBranchContext()
+  const imageProps = typeof image === 'string' ? {uri: image} : image
   return (
-    <Command>
+    <Command behavior={['non_skippable']}>
       {(controls) => (
         <>
-          {foregroundSrc && (
-            <ForegroundView
-              src={foregroundSrc}
-              style={foregroundStyle}
-              animation={foregroundAnimation}
-              controls={controls}
-            />
-          )}
+          {imageProps && <ImageView controls={controls} {...imageProps} />}
 
           <motion.div
             className={clsx(

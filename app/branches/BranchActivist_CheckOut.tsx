@@ -1,44 +1,49 @@
-import {AnimatePresence, motion} from 'framer-motion'
 import {
   bgBldgAFenceGif,
-  bgBldgAJpg,
   fencePng,
   redhead2Png,
   redhead4Png,
 } from '~/assets/game'
-import type {BranchBackgroundComponentProps} from '~/lib'
-import {makeStrictBranch} from '~/lib'
-
-const Branch = makeStrictBranch()
+import {Branch, Say, Scene, Show} from '~/lib'
 
 export function BranchActivist_CheckOut() {
   return (
-    <Branch.Root background={Background}>
-      <Branch.Say
-        foregroundSrc={redhead4Png}
-        foregroundStyle={{
-          width: '90%',
-          bottom: 0,
-          filter: 'drop-shadow(40px 40px 5px rgba(0, 0, 0, .35))',
+    <Branch>
+      <Show
+        src={{
+          uri: fencePng,
+          style: {height: '100%', transform: 'translate(-50%) scale(1.15)'},
+          animation: {
+            initial: {},
+            entrance: {},
+            exit: {x: '-400%', transition: {duration: 2}},
+          },
         }}
-        transitory>
+        visibility={1}
+        zIndex={100}
+      />
+
+      <Say
+        image={{
+          uri: redhead4Png,
+          style: {
+            width: '100%',
+            bottom: 0,
+            filter: 'drop-shadow(40px 40px 5px rgba(0, 0, 0, .35))',
+          },
+        }}
+        zIndex={101}>
         Мутят что-то без доклада народу. Надо разобраться!
-      </Branch.Say>
+      </Say>
 
-      <Branch.Blank durationMs={10000} transitory />
+      <Scene src={bgBldgAFenceGif} durationMs={10000} />
 
-      <Branch.Say
-        foregroundSrc={redhead2Png}
-        foregroundStyle={{width: '90%', bottom: 0}}
-        transitory
-        durationMs={0}
-        lingers={1}>
-        Это что за новости?!?! Уничтожают историю, значит?
-      </Branch.Say>
-
-      <Branch.Choices
-        scheme="dark"
-        choices={[
+      <Say
+        image={{
+          uri: redhead2Png,
+          style: {width: '100%', bottom: 0},
+        }}
+        menu={[
           {
             label: 'Как-то печально всё это',
             onClick: (ctx) => ctx.goToBranch('Activist_CheckOut_SocialMedia'),
@@ -47,37 +52,9 @@ export function BranchActivist_CheckOut() {
             label: 'Что я могу сделать?',
             onClick: (ctx) => ctx.goToBranch('Activist_CheckOut_Act'),
           },
-        ]}
-      />
-    </Branch.Root>
-  )
-}
-
-function Background(_props: BranchBackgroundComponentProps) {
-  const {focusedStatementIndex} = Branch.useBranchContext()
-  return (
-    <>
-      <img
-        src={focusedStatementIndex < 1 ? bgBldgAJpg : bgBldgAFenceGif}
-        className="min-h-full flex-1 object-cover"
-      />
-
-      <AnimatePresence>
-        {focusedStatementIndex < 1 && (
-          <motion.div
-            className="absolute inset-0"
-            exit={{
-              x: '-400%',
-              transition: {delay: 0.5, duration: 2},
-            }}>
-            <img
-              src={fencePng}
-              className="absolute h-full max-w-none"
-              style={{transform: 'translate(-50%) scale(1.15)'}}
-            />
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </>
+        ]}>
+        Это что за новости?!?! Уничтожают историю, значит?
+      </Say>
+    </Branch>
   )
 }

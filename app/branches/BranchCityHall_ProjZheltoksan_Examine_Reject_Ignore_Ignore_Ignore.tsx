@@ -3,44 +3,26 @@ import {
   bgZheltoksanBeforeFenceGif,
   bgZheltoksanBeforeJpg,
 } from '~/assets/game'
-import {makeStrictBranch} from '~/lib'
-
-const Branch = makeStrictBranch()
+import {Branch, Menu, Say, Scene, Title} from '~/lib'
 
 export function BranchCityHall_ProjZheltoksan_Examine_Reject_Ignore_Ignore_Ignore() {
   return (
-    <Branch.Root background={bgZheltoksanBeforeJpg}>
-      <Branch.Foreground
-        src={bgZheltoksanBeforeFenceGif}
-        style={{height: '100%', width: '100%', objectFit: 'cover'}}
-        durationMs={6000}
-        lingers={1}
-        transitory
-      />
+    <Branch>
+      <Scene src={bgZheltoksanBeforeJpg} />
+      <Scene src={bgZheltoksanBeforeFenceGif} durationMs={6000} />
+      <Scene src={bgZheltoksanAfterJpg} />
 
-      <Branch.Foreground
-        src={bgZheltoksanAfterJpg}
-        style={{height: '100%', width: '100%', objectFit: 'cover'}}
-        durationMs={0}
-        lingers
-        transitory
-      />
+      <Say>Вы успешно реконструировали Желтоксан 115</Say>
 
-      <Branch.Say transitory>
-        Вы успешно реконструировали Желтоксан 115
-      </Branch.Say>
-
-      <Branch.Say transitory>
+      <Say>
         Здание утратило первоначальный облик и больше не представляет
         исторической ценности. Теперь Вам будет сложнее работать с
         общественностью
-      </Branch.Say>
+      </Say>
 
-      <Branch.Title transitory lingers>
-        Конец игры
-      </Branch.Title>
+      <Title visibility="indefinite">Конец игры</Title>
 
-      <Branch.Choices
+      <Menu
         scheme="dark"
         choices={[
           {
@@ -49,6 +31,6 @@ export function BranchCityHall_ProjZheltoksan_Examine_Reject_Ignore_Ignore_Ignor
           },
         ]}
       />
-    </Branch.Root>
+    </Branch>
   )
 }

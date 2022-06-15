@@ -10,88 +10,52 @@ import {
   mayor14Png,
   mayor2Png,
 } from '~/assets/game'
-import {makeStrictBranch} from '~/lib'
-
-const Branch = makeStrictBranch()
+import {Branch, Say, Scene, Show} from '~/lib'
 
 export function BranchCityHall_GovPrograms_Stop() {
   return (
-    <Branch.Root background={bgCityHallMayorOfficeJpg}>
-      <Branch.Foreground
-        src={mayor12Png}
-        style={{width: '100%', bottom: '-12%'}}
-        transitory
-        lingers={1}
-      />
+    <Branch>
+      <Scene src={bgCityHallMayorOfficeJpg} />
 
-      <Branch.Say
-        scheme="dark"
-        foregroundSrc={bgMayorDoorJpg}
-        foregroundStyle={{height: '100%', width: '100%', objectFit: 'cover'}}
-        transitory
-        lingers={1}>
-        *тук-тук
-      </Branch.Say>
+      <Show src={{uri: mayor12Png, style: {width: '100%', bottom: '-12%'}}} />
 
-      <Branch.Foreground
-        src={bgMayorDoorwayJpg}
-        style={{height: '100%', width: '100%', objectFit: 'cover'}}
-        transitory
-        durationMs={0}
-        lingers={1}
-      />
+      <Scene src={bgMayorDoorJpg} />
 
-      <Branch.Say
+      <Say scheme="dark">*тук-тук</Say>
+
+      <Scene src={bgMayorDoorwayJpg} />
+
+      <Say
         scheme="dark"
         tag="Помощник:"
-        foregroundSrc={assistant1Png}
-        foregroundStyle={{height: '100%', width: '100%', objectFit: 'cover'}}
-        transitory>
+        image={{
+          uri: assistant1Png,
+          style: {height: '100%', width: '100%', objectFit: 'cover'},
+        }}>
         —Общественность и АрхКот хотят встретиться
-      </Branch.Say>
+      </Say>
 
-      <Branch.Say
-        foregroundSrc={mayor14Png}
-        foregroundStyle={{width: '100%', bottom: '-12%'}}
-        transitory>
+      <Say image={{uri: mayor14Png, style: {width: '100%', bottom: '-12%'}}}>
         {'-Хммм…\nДавайте назначим встречу'}
-      </Branch.Say>
+      </Say>
 
-      <Branch.Foreground
-        src={bgCityHallConferenceRoomJpg}
-        style={{height: '100%', width: '100%', objectFit: 'cover'}}
-        transitory
-        lingers
-      />
+      <Scene src={bgCityHallConferenceRoomJpg} />
 
-      <Branch.Say transitory>Встреча с АрхКотом</Branch.Say>
+      <Say>Встреча с АрхКотом</Say>
 
-      <Branch.Say
-        foregroundSrc={archkot2Png}
-        foregroundStyle={{width: '100%', bottom: 0}}
-        transitory>
+      <Say image={{uri: archkot2Png, style: {width: '100%', bottom: 0}}}>
         -Мы провели исследование темы и инвентаризацию советских остановок
-      </Branch.Say>
+      </Say>
 
-      <Branch.Say
-        href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-        foregroundSrc={archkot3Png}
-        foregroundStyle={{width: '100%', bottom: 0}}>
-        {'-Вот карта остановок.\n*ССЫЛКА\n-Они должны охраняться государством!'}
-      </Branch.Say>
+      <Say image={{uri: archkot3Png, style: {width: '100%', bottom: 0}}}>
+        {
+          '-Вот карта остановок.\n[*ССЫЛКА](https://www.youtube.com/watch?v=dQw4w9WgXcQ)\n-Они должны охраняться государством!'
+        }
+      </Say>
 
-      <Branch.Say
-        foregroundSrc={mayor2Png}
-        foregroundStyle={{width: '100%', bottom: 0}}
-        transitory
-        durationMs={0}
-        lingers={1}>
-        -Я думаю…
-      </Branch.Say>
-
-      <Branch.Choices
-        scheme="dark"
-        choices={[
+      <Say
+        image={{uri: mayor2Png, style: {width: '100%', bottom: 0}}}
+        menu={[
           {
             label: 'Он прав!',
             onClick: (ctx) => ctx.goToBranch('CityHall_GovPrograms_Stop_Agree'),
@@ -101,8 +65,9 @@ export function BranchCityHall_GovPrograms_Stop() {
             onClick: (ctx) =>
               ctx.goToBranch('CityHall_GovPrograms_Stop_Dismiss'),
           },
-        ]}
-      />
-    </Branch.Root>
+        ]}>
+        -Я думаю…
+      </Say>
+    </Branch>
   )
 }

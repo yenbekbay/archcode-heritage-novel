@@ -1,43 +1,34 @@
 import {
+  archkot1Png,
   archkot2Png,
+  bgAskAfterJpg,
   bgAskBeforeJpg,
   bgPhoneFingerJpg,
   bgPhoneHandJpg,
 } from '~/assets/game'
 import {SubmitMeme, SubmitPost} from '~/commands'
-import {makeStrictBranch} from '~/lib'
-
-type StatementLabel = 'make_meme' | 'publish_post' | 'acknowledged'
-
-const Branch = makeStrictBranch<StatementLabel>()
+import {Branch, Label, Menu, Say, Scene, Title} from '~/lib'
 
 export function BranchArchkot_ProjAsk_CheckOut_SocialMedia() {
   return (
-    <Branch.Root background={bgAskBeforeJpg}>
-      <Branch.Say
-        foregroundSrc={archkot2Png}
-        foregroundStyle={{width: '100%', bottom: 0}}
-        transitory>
+    <Branch>
+      <Scene src={bgAskBeforeJpg} />
+
+      <Say image={{uri: archkot2Png, style: {width: '100%', bottom: 0}}}>
         Видимо, процесс уже запущен, что же
-      </Branch.Say>
+      </Say>
 
-      <Branch.Say
-        foregroundSrc={bgPhoneFingerJpg}
-        foregroundStyle={{
-          width: '100%',
-          height: '100%',
-          objectFit: 'cover',
-          transform: 'scale(1.5)',
+      <Say
+        image={{
+          uri: bgPhoneFingerJpg,
+          style: {
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+            transform: 'scale(1.5)',
+          },
         }}
-        transitory
-        durationMs={0}
-        lingers={1}>
-        Когда-нибудь у народа будут спрашивать, что делать
-      </Branch.Say>
-
-      <Branch.Choices
-        scheme="dark"
-        choices={[
+        menu={[
           {
             label: 'Создать мем',
             onClick: (ctx) => ctx.goToStatement('make_meme'),
@@ -46,10 +37,11 @@ export function BranchArchkot_ProjAsk_CheckOut_SocialMedia() {
             label: 'Написать пост о том, как всё плохо',
             onClick: (ctx) => ctx.goToStatement('publish_post'),
           },
-        ]}
-      />
+        ]}>
+        Когда-нибудь у народа будут спрашивать, что делать
+      </Say>
 
-      <Branch.Label label="make_meme">
+      <Label label="make_meme">
         <SubmitMeme
           onDone={(ctx) => ctx.goToStatement('acknowledged')}
           frame={{
@@ -61,17 +53,20 @@ export function BranchArchkot_ProjAsk_CheckOut_SocialMedia() {
               height: 1500,
             },
           }}
-          foregroundSrc={bgPhoneHandJpg}
-          foregroundStyle={{
-            height: '100%',
-            width: '100%',
-            objectFit: 'cover',
-            transform: 'scale(2.5) rotate(5deg) translateX(-6%) translateY(3%)',
+          image={{
+            uri: bgPhoneHandJpg,
+            style: {
+              height: '100%',
+              width: '100%',
+              objectFit: 'cover',
+              transform:
+                'scale(2.5) rotate(5deg) translateX(-6%) translateY(3%)',
+            },
           }}
         />
-      </Branch.Label>
+      </Label>
 
-      <Branch.Label label="publish_post">
+      <Label label="publish_post">
         <SubmitPost
           onDone={(ctx) => ctx.goToStatement('acknowledged')}
           frame={{
@@ -83,28 +78,47 @@ export function BranchArchkot_ProjAsk_CheckOut_SocialMedia() {
               height: 1500,
             },
           }}
-          foregroundSrc={bgPhoneHandJpg}
-          foregroundStyle={{
-            height: '100%',
-            width: '100%',
-            objectFit: 'cover',
-            transform: 'scale(2.5) rotate(5deg) translateX(-6%) translateY(3%)',
+          image={{
+            uri: bgPhoneHandJpg,
+            style: {
+              height: '100%',
+              width: '100%',
+              objectFit: 'cover',
+              transform:
+                'scale(2.5) rotate(5deg) translateX(-6%) translateY(3%)',
+            },
           }}
         />
-      </Branch.Label>
+      </Label>
 
-      <Branch.Label label="acknowledged">
-        <Branch.Say transitory>
-          {/* FIXME */}
-          [PLACEHOLDER]
-        </Branch.Say>
-      </Branch.Label>
+      <Label label="acknowledged">
+        <Say
+          image={{uri: archkot1Png, style: {width: '100%', bottom: 0}}}
+          menu={[
+            {
+              label: 'Собраться с командой Архкод',
+              onClick: (ctx) =>
+                ctx.goToBranch('Archkot_ProjAsk_CheckOut_AssembleTeam'),
+            },
+            {
+              label: 'Я сделал все, что было в моих силах',
+              onClick: (ctx) => ctx.skip(),
+            },
+          ]}>
+          Что делать дальше?
+        </Say>
+      </Label>
 
-      <Branch.Title transitory lingers>
-        Конец игры
-      </Branch.Title>
+      <Scene src={bgAskAfterJpg} />
 
-      <Branch.Choices
+      <Say>
+        Здание изменено до неузнаваемости, и теперь это уже не имеет отношения к
+        историко-культурному наследию
+      </Say>
+
+      <Title visibility="indefinite">Конец игры</Title>
+
+      <Menu
         scheme="dark"
         choices={[
           {
@@ -113,6 +127,6 @@ export function BranchArchkot_ProjAsk_CheckOut_SocialMedia() {
           },
         ]}
       />
-    </Branch.Root>
+    </Branch>
   )
 }

@@ -7,76 +7,50 @@ import {
   bgCityHallMayorOfficeJpg,
   bgPhoneFingerJpg,
 } from '~/assets/game'
-import {makeStrictBranch} from '~/lib'
-
-const Branch = makeStrictBranch()
+import {Branch, Menu, Say, Scene, Title} from '~/lib'
 
 export function BranchCityHall_ProjAsk_Approve_AskHelp() {
   return (
-    <Branch.Root background={bgCityHallMayorOfficeJpg}>
-      <Branch.Say
-        foregroundSrc={bgPhoneFingerJpg}
-        foregroundStyle={{
-          width: '100%',
-          height: '100%',
-          objectFit: 'cover',
-          transform: 'scale(1.5)',
-        }}
-        lingers={1}>
+    <Branch>
+      <Scene src={bgCityHallMayorOfficeJpg} />
+
+      <Say
+        image={{
+          uri: bgPhoneFingerJpg,
+          style: {
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+            transform: 'scale(1.5)',
+          },
+        }}>
         “Ребята, напишите, что реконструкция крутая”
-      </Branch.Say>
+      </Say>
 
-      <Branch.Foreground
-        src={bgAskBeforeJpg}
-        style={{height: '100%', width: '100%', objectFit: 'cover'}}
-        durationMs={0}
-        transitory
-        lingers
-      />
+      <Scene src={bgAskBeforeJpg} />
 
-      <Branch.Say
-        foregroundSrc={angryCrowd1Png}
-        foregroundStyle={{width: '100%', bottom: 0}}
-        transitory>
+      <Say image={{uri: angryCrowd1Png, style: {width: '100%', bottom: 0}}}>
         {`—Надувательство\n\n—Бред собачий`}
-      </Branch.Say>
+      </Say>
 
-      <Branch.Say
-        foregroundSrc={angryCrowd2Png}
-        foregroundStyle={{width: '100%', bottom: 0}}
-        transitory>
+      <Say image={{uri: angryCrowd2Png, style: {width: '100%', bottom: 0}}}>
         —Продажные чуваки
-      </Branch.Say>
+      </Say>
 
-      <Branch.Foreground
-        src={bgAskBeforeFenceGif}
-        style={{height: '100%', width: '100%', objectFit: 'cover'}}
-        durationMs={6000}
-        lingers={1}
-        transitory
-      />
+      <Scene src={bgAskBeforeFenceGif} durationMs={6000} />
+      <Scene src={bgAskAfterJpg} />
 
-      <Branch.Foreground
-        src={bgAskAfterJpg}
-        style={{height: '100%', width: '100%', objectFit: 'cover'}}
-        durationMs={0}
-        lingers
-        transitory
-      />
+      <Say>Вы успешно реконструировали АСК</Say>
 
-      <Branch.Say transitory>Вы успешно реконструировали АСК</Branch.Say>
-
-      <Branch.Say transitory>
+      <Say>
         Здание утратило первоначальный облик и больше не представляет
         исторической ценности. Теперь Вам будет сложнее работать с
         общественностью
-      </Branch.Say>
+      </Say>
 
-      <Branch.Title transitory lingers>
-        Конец игры
-      </Branch.Title>
+      <Title visibility="indefinite">Конец игры</Title>
 
-      <Branch.Choices
+      <Menu
         scheme="dark"
         choices={[
           {
@@ -85,6 +59,6 @@ export function BranchCityHall_ProjAsk_Approve_AskHelp() {
           },
         ]}
       />
-    </Branch.Root>
+    </Branch>
   )
 }

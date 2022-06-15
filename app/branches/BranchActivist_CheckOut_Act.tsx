@@ -1,23 +1,17 @@
 import {bgBldgAJpg, redhead8Png} from '~/assets/game'
-import {makeStrictBranch} from '~/lib'
-
-const Branch = makeStrictBranch()
+import {Branch, Say, Scene} from '~/lib'
 
 export function BranchActivist_CheckOut_Act() {
   return (
-    <Branch.Root background={bgBldgAJpg}>
-      <Branch.Say
-        foregroundSrc={redhead8Png}
-        foregroundStyle={{width: '90%', bottom: 0}}
-        transitory
-        durationMs={0}
-        lingers={1}>
-        Что я могу?
-      </Branch.Say>
+    <Branch>
+      <Scene src={bgBldgAJpg} />
 
-      <Branch.Choices
-        scheme="dark"
-        choices={[
+      <Say
+        image={{
+          uri: redhead8Png,
+          style: {width: '100%', bottom: 0},
+        }}
+        menu={[
           {
             label: 'Разберусь сама',
             onClick: (ctx) => ctx.goToBranch('Activist_CheckOut_Act_Self'),
@@ -30,8 +24,9 @@ export function BranchActivist_CheckOut_Act() {
             label: 'Обратиться в организации',
             onClick: (ctx) => ctx.goToBranch('Activist_CheckOut_Act_Org'),
           },
-        ]}
-      />
-    </Branch.Root>
+        ]}>
+        Что я могу?
+      </Say>
+    </Branch>
   )
 }

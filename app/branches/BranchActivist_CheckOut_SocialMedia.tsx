@@ -7,39 +7,28 @@ import {
   redhead7Png,
 } from '~/assets/game'
 import {SubmitMeme, SubmitPost} from '~/commands'
-import {makeStrictBranch} from '~/lib'
-
-type StatementLabel = 'make_meme' | 'publish_post' | 'acknowledged'
-
-const Branch = makeStrictBranch<StatementLabel>()
+import {Branch, Label, Menu, Say, Scene, Title} from '~/lib'
 
 export function BranchActivist_CheckOut_SocialMedia() {
   return (
-    <Branch.Root background={bgBldgAJpg}>
-      <Branch.Say
-        foregroundSrc={redhead5Png}
-        foregroundStyle={{width: '90%', bottom: 0}}
-        transitory>
+    <Branch>
+      <Scene src={bgBldgAJpg} />
+
+      <Say image={{uri: redhead5Png, style: {width: '100%', bottom: 0}}}>
         В моменты отчаяния всегда можно вылить свою боль в соц. сети
-      </Branch.Say>
+      </Say>
 
-      <Branch.Say
-        foregroundSrc={bgPhoneFingerJpg}
-        foregroundStyle={{
-          width: '100%',
-          height: '100%',
-          objectFit: 'cover',
-          transform: 'scale(1.5)',
+      <Say
+        image={{
+          uri: bgPhoneFingerJpg,
+          style: {
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+            transform: 'scale(1.5)',
+          },
         }}
-        transitory
-        durationMs={0}
-        lingers={1}>
-        Варианты отчаяния:
-      </Branch.Say>
-
-      <Branch.Choices
-        scheme="dark"
-        choices={[
+        menu={[
           {
             label: 'Создать мем',
             onClick: (ctx) => ctx.goToStatement('make_meme'),
@@ -48,10 +37,11 @@ export function BranchActivist_CheckOut_SocialMedia() {
             label: 'Написать пост о том, как всё плохо',
             onClick: (ctx) => ctx.goToStatement('publish_post'),
           },
-        ]}
-      />
+        ]}>
+        Варианты отчаяния:
+      </Say>
 
-      <Branch.Label label="make_meme">
+      <Label label="make_meme">
         <SubmitMeme
           onDone={(ctx) => ctx.goToStatement('acknowledged')}
           frame={{
@@ -63,17 +53,20 @@ export function BranchActivist_CheckOut_SocialMedia() {
               height: 1500,
             },
           }}
-          foregroundSrc={bgPhoneHandJpg}
-          foregroundStyle={{
-            height: '100%',
-            width: '100%',
-            objectFit: 'cover',
-            transform: 'scale(2.5) rotate(5deg) translateX(-6%) translateY(3%)',
+          image={{
+            uri: bgPhoneHandJpg,
+            style: {
+              height: '100%',
+              width: '100%',
+              objectFit: 'cover',
+              transform:
+                'scale(2.5) rotate(5deg) translateX(-6%) translateY(3%)',
+            },
           }}
         />
-      </Branch.Label>
+      </Label>
 
-      <Branch.Label label="publish_post">
+      <Label label="publish_post">
         <SubmitPost
           onDone={(ctx) => ctx.goToStatement('acknowledged')}
           frame={{
@@ -85,27 +78,27 @@ export function BranchActivist_CheckOut_SocialMedia() {
               height: 1500,
             },
           }}
-          foregroundSrc={bgPhoneHandJpg}
-          foregroundStyle={{
-            height: '100%',
-            width: '100%',
-            objectFit: 'cover',
-            transform: 'scale(2.5) rotate(5deg) translateX(-6%) translateY(3%)',
+          image={{
+            uri: bgPhoneHandJpg,
+            style: {
+              height: '100%',
+              width: '100%',
+              objectFit: 'cover',
+              transform:
+                'scale(2.5) rotate(5deg) translateX(-6%) translateY(3%)',
+            },
           }}
         />
-      </Branch.Label>
+      </Label>
 
-      <Branch.Label label="acknowledged">
-        <Branch.Say
-          foregroundSrc={redhead7Png}
-          foregroundStyle={{width: '90%', bottom: 0}}
-          transitory>
+      <Label label="acknowledged">
+        <Say image={{uri: redhead7Png, style: {width: '100%', bottom: 0}}}>
           ПОЗДРАВЛЯЕМ!!! ВАШИ ПОСТЫ/МЕМЫ УВИДЕЛА ИЗВЕСТНАЯ АКТИВИСТКА ТИНА
           ШТУНЕР, И ТЕПЕРЬ ОНА БУДЕТ ДОБИВАТЬСЯ СПРАВЕДЛИВОСТИ
-        </Branch.Say>
-      </Branch.Label>
+        </Say>
+      </Label>
 
-      <Branch.Choices
+      <Menu
         placement="top"
         choices={[
           {
@@ -117,15 +110,12 @@ export function BranchActivist_CheckOut_SocialMedia() {
             onClick: (ctx) => ctx.skip(),
           },
         ]}
-        foregroundSrc={redhead2Png}
-        foregroundStyle={{width: '90%', bottom: 0}}
+        image={{uri: redhead2Png, style: {width: '100%', bottom: 0}}}
       />
 
-      <Branch.Title transitory lingers>
-        Конец игры
-      </Branch.Title>
+      <Title visibility="indefinite">Конец игры</Title>
 
-      <Branch.Choices
+      <Menu
         scheme="dark"
         choices={[
           {
@@ -134,6 +124,6 @@ export function BranchActivist_CheckOut_SocialMedia() {
           },
         ]}
       />
-    </Branch.Root>
+    </Branch>
   )
 }

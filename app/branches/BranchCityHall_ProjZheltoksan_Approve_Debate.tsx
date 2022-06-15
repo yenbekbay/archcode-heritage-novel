@@ -4,120 +4,82 @@ import {
   mayor2Png,
   sabitPng,
 } from '~/assets/game'
-import {makeStrictBranch} from '~/lib'
-
-const Branch = makeStrictBranch()
+import {Branch, Say, Scene} from '~/lib'
 
 export function BranchCityHall_ProjZheltoksan_Approve_Debate() {
   return (
-    <Branch.Root background={bgCityHallConferenceRoomJpg}>
-      <Branch.Say transitory>
+    <Branch>
+      <Scene src={bgCityHallConferenceRoomJpg} />
+
+      <Say>
         Встреча с руководителем управления архитектуры и градостроительства
         Сабитом Гадырбаевым
-      </Branch.Say>
+      </Say>
 
-      <Branch.Say
+      <Say
         tag="Сабит:"
-        foregroundSrc={sabitPng}
-        foregroundStyle={{width: '100%', bottom: 0}}
-        transitory>
+        image={{uri: sabitPng, style: {width: '100%', bottom: 0}}}>
         —По сохранению исторического наследия я на 200% с вами согласен. Но по
         этому зданию, чтобы его непременно сохранить, я бы так не упирался
-      </Branch.Say>
+      </Say>
 
-      <Branch.Say
-        foregroundSrc={sabitPng}
-        foregroundStyle={{width: '100%', bottom: 0}}
-        transitory>
+      <Say image={{uri: sabitPng, style: {width: '100%', bottom: 0}}}>
         —Вы помните фасад этого здания. Его переделывали 6 раз. Каждый министр
         приходил и «вкладывал» в это здание свое архитектурное видение
-      </Branch.Say>
+      </Say>
 
-      <Branch.Say
-        foregroundSrc={sabitPng}
-        foregroundStyle={{width: '100%', bottom: 0}}
-        transitory>
+      <Say image={{uri: sabitPng, style: {width: '100%', bottom: 0}}}>
         —Раньше оно было желтым, а сейчас это сине-зеленый базар. Скажите, что
         мы бережем?
-      </Branch.Say>
+      </Say>
 
-      <Branch.Say
-        foregroundSrc={sabitPng}
-        foregroundStyle={{width: '100%', bottom: 0}}
-        transitory>
+      <Say image={{uri: sabitPng, style: {width: '100%', bottom: 0}}}>
         —Там вверху стоят коринфские ордера, на третьем этаже деревянная
         лепнина. Да там такое намешали!
-      </Branch.Say>
+      </Say>
 
-      <Branch.Say
-        foregroundSrc={sabitPng}
-        foregroundStyle={{width: '100%', bottom: 0}}
-        transitory>
+      <Say image={{uri: sabitPng, style: {width: '100%', bottom: 0}}}>
         —Этого вообще нельзя допускать! Для чего его беречь, если в нем нет
         единого архитектурного стиля?!
-      </Branch.Say>
+      </Say>
 
-      <Branch.Say
+      <Say
         tag="Журналист:"
-        foregroundSrc={journalistPng}
-        foregroundStyle={{width: '100%', bottom: 0}}
-        transitory>
+        image={{uri: journalistPng, style: {width: '100%', bottom: 0}}}>
         —Здание находится напротив памятника истории и культуры - бывшего здания
         гостиницы «Иссык» («Дом делегатов», ныне офис компании Zepter) и,
         возможно, входит в зону регулируемой застройки
-      </Branch.Say>
+      </Say>
 
-      <Branch.Say
-        foregroundSrc={journalistPng}
-        foregroundStyle={{width: '100%', bottom: 0}}
-        transitory>
+      <Say image={{uri: journalistPng, style: {width: '100%', bottom: 0}}}>
         —Таким образом, снос здания бывшего Госплана может привести к нарушению
         архитектурной композиции…
-      </Branch.Say>
+      </Say>
 
-      <Branch.Say
+      <Say
         tag="Сабит:"
-        foregroundSrc={sabitPng}
-        foregroundStyle={{width: '100%', bottom: 0}}
-        transitory>
+        image={{uri: sabitPng, style: {width: '100%', bottom: 0}}}>
         —Никто еще ничего не сносит. У владельцев есть намерение. И они
         приносили нам 4 проекта, которые мы отклонили
-      </Branch.Say>
+      </Say>
 
-      <Branch.Say
-        foregroundSrc={sabitPng}
-        foregroundStyle={{width: '100%', bottom: 0}}
-        transitory>
+      <Say image={{uri: sabitPng, style: {width: '100%', bottom: 0}}}>
         —Они предлагали построить 9-этажное здание в стиле модерн, торговый
         центр и другие проекты
-      </Branch.Say>
+      </Say>
 
-      <Branch.Say
-        foregroundSrc={sabitPng}
-        foregroundStyle={{width: '100%', bottom: 0}}
-        transitory>
+      <Say image={{uri: sabitPng, style: {width: '100%', bottom: 0}}}>
         —В этом районе историческая застройка, и мы сказали, чтобы они
         подготовили проект в неоклассическом стиле
-      </Branch.Say>
+      </Say>
 
-      <Branch.Say
-        foregroundSrc={sabitPng}
-        foregroundStyle={{width: '100%', bottom: 0}}
-        transitory>
+      <Say image={{uri: sabitPng, style: {width: '100%', bottom: 0}}}>
         —Сейчас они готовят новый проект. На этом мы остановились
-      </Branch.Say>
+      </Say>
 
-      <Branch.Say
-        foregroundSrc={mayor2Png}
-        foregroundStyle={{width: '100%', bottom: 0}}
-        transitory
-        durationMs={0}
-        lingers={1}>
-        Что делать с мнением общественности?
-      </Branch.Say>
-
-      <Branch.Choices
-        choices={[
+      <Say
+        image={{uri: mayor2Png, style: {width: '100%', bottom: 0}}}
+        menu={[
           {
             label: 'Учесть мнение',
             onClick: (ctx) =>
@@ -128,8 +90,9 @@ export function BranchCityHall_ProjZheltoksan_Approve_Debate() {
             onClick: (ctx) =>
               ctx.goToBranch('CityHall_ProjZheltoksan_Examine_Reject_Ignore'),
           },
-        ]}
-      />
-    </Branch.Root>
+        ]}>
+        Что делать с мнением общественности?
+      </Say>
+    </Branch>
   )
 }

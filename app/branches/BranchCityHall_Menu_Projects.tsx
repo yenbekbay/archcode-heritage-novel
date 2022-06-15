@@ -1,17 +1,14 @@
 import {bgMayorDeskAJpg} from '~/assets/game'
-import {makeStrictBranch} from '~/lib'
-
-const Branch = makeStrictBranch()
+import {Branch, Say, Scene} from '~/lib'
 
 export function BranchCityHall_Menu_Projects() {
   return (
-    <Branch.Root background={bgMayorDeskAJpg}>
-      <Branch.Say scheme="dark" transitory durationMs={0} lingers={1}>
-        Выберите проект
-      </Branch.Say>
+    <Branch>
+      <Scene src={bgMayorDeskAJpg} />
 
-      <Branch.Choices
-        choices={[
+      <Say
+        scheme="dark"
+        menu={[
           {
             label: 'Желтоксан',
             onClick: (ctx) => ctx.goToBranch('CityHall_ProjZheltoksan'),
@@ -24,8 +21,9 @@ export function BranchCityHall_Menu_Projects() {
             label: 'АСК',
             onClick: (ctx) => ctx.goToBranch('CityHall_ProjAsk'),
           },
-        ]}
-      />
-    </Branch.Root>
+        ]}>
+        Выберите проект
+      </Say>
+    </Branch>
   )
 }

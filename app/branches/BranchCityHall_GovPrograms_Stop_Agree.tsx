@@ -3,44 +3,29 @@ import {
   bgCityHallConferenceRoomJpg,
   mayor3Png,
 } from '~/assets/game'
-import {makeStrictBranch} from '~/lib'
-
-const Branch = makeStrictBranch()
+import {Branch, Menu, Say, Scene, Title} from '~/lib'
 
 export function BranchCityHall_GovPrograms_Stop_Agree() {
   return (
-    <Branch.Root background={bgCityHallConferenceRoomJpg}>
-      <Branch.Say
-        foregroundSrc={mayor3Png}
-        foregroundStyle={{width: '100%', bottom: 0}}
-        transitory>
-        —Спасибо, отличная работа!
-      </Branch.Say>
+    <Branch>
+      <Scene src={bgCityHallConferenceRoomJpg} />
 
-      <Branch.Say
-        foregroundSrc={mayor3Png}
-        foregroundStyle={{width: '100%', bottom: 0}}
-        transitory>
+      <Say image={{uri: mayor3Png, style: {width: '100%', bottom: 0}}}>
+        —Спасибо, отличная работа!
+      </Say>
+
+      <Say image={{uri: mayor3Png, style: {width: '100%', bottom: 0}}}>
         —Мы возьмем этот процесс под свой контроль и позаботимся о том, чтобы
         придать этим остановкам особый статус
-      </Branch.Say>
+      </Say>
 
-      <Branch.Foreground
-        src={bgBusStop1Jpg}
-        style={{height: '100%', width: '100%', objectFit: 'cover'}}
-        transitory
-        lingers
-      />
+      <Scene src={bgBusStop1Jpg} />
 
-      <Branch.Say transitory>
-        Советские остановки стали достопримечательностью города!
-      </Branch.Say>
+      <Say>Советские остановки стали достопримечательностью города!</Say>
 
-      <Branch.Title transitory lingers>
-        Конец игры
-      </Branch.Title>
+      <Title visibility="indefinite">Конец игры</Title>
 
-      <Branch.Choices
+      <Menu
         scheme="dark"
         choices={[
           {
@@ -49,6 +34,6 @@ export function BranchCityHall_GovPrograms_Stop_Agree() {
           },
         ]}
       />
-    </Branch.Root>
+    </Branch>
   )
 }

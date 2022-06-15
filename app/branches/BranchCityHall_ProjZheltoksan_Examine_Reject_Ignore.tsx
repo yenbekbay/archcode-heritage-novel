@@ -13,135 +13,105 @@ import {
   redhead14Png,
   stampApprovedPng,
 } from '~/assets/game'
-import {makeStrictBranch} from '~/lib'
-
-const Branch = makeStrictBranch()
+import {Branch, Say, Scene, Show} from '~/lib'
 
 export function BranchCityHall_ProjZheltoksan_Examine_Reject_Ignore() {
   return (
-    <Branch.Root background={bgCityHallConferenceRoomJpg}>
-      <Branch.Foreground
-        src={letterPng}
-        style={{
-          height: '100%',
-          width: '100%',
-          objectFit: 'cover',
-          backgroundColor: '#e7dbab',
-          transform: 'scale(2.5)',
-          transformOrigin: '50% 35%',
+    <Branch>
+      <Scene src={bgCityHallConferenceRoomJpg} />
+
+      <Show
+        src={{
+          uri: letterPng,
+          style: {
+            height: '100%',
+            width: '100%',
+            objectFit: 'cover',
+            backgroundColor: '#e7dbab',
+            transform: 'scale(2.5)',
+            transformOrigin: '50% 35%',
+          },
         }}
-        transitory
-        lingers={2}
+        visibility={2}
       />
 
-      <Branch.Foreground
-        src={stampApprovedPng}
-        style={{
-          height: '100%',
-          width: '100%',
-          objectFit: 'cover',
-          transform: 'translateY(-15%)',
+      <Show
+        src={{
+          uri: stampApprovedPng,
+          style: {
+            height: '100%',
+            width: '100%',
+            objectFit: 'cover',
+            transform: 'translateY(-15%)',
+          },
         }}
-        transitory
-        lingers={1}
       />
 
-      <Branch.Foreground
-        src={bgZheltoksanBeforeJpg}
-        style={{height: '100%', width: '100%', objectFit: 'cover'}}
-        durationMs={0}
-        transitory
-        lingers={1}
-      />
+      <Scene src={bgZheltoksanBeforeJpg} />
 
-      <Branch.Say
-        foregroundSrc={angryCrowd1Png}
-        foregroundStyle={{width: '100%', bottom: 0}}
-        transitory>
+      <Say image={{uri: angryCrowd1Png, style: {width: '100%', bottom: 0}}}>
         Общественность возмущена
-      </Branch.Say>
+      </Say>
 
-      <Branch.Say transitory>Общественные слушания</Branch.Say>
+      <Say>Общественные слушания</Say>
 
-      <Branch.Say
+      <Say
         tag="Представитель:"
-        foregroundSrc={developerRepAPng}
-        foregroundStyle={{width: '100%', bottom: 0}}
-        transitory>
+        image={{uri: developerRepAPng, style: {width: '100%', bottom: 0}}}>
         —Добрый день, я — представитель Bay Shatyr Group. В рамках проекта будет
         построено девятиэтажное здание
-      </Branch.Say>
+      </Say>
 
-      <Branch.Say
+      <Say
         tag="Девелопер:"
-        foregroundSrc={developerRepB6Png}
-        foregroundStyle={{width: '100%', bottom: 0}}
-        transitory>
+        image={{uri: developerRepB6Png, style: {width: '100%', bottom: 0}}}>
         —Под галереей на последнем этаже подразумевается ресторан. Подземный
         3-уровневый паркинг на 490 авто
-      </Branch.Say>
+      </Say>
 
-      <Branch.Say
+      <Say
         tag="Активистка:"
-        foregroundSrc={redhead12Png}
-        foregroundStyle={{width: '100%', bottom: 0}}
-        transitory>
+        image={{uri: redhead12Png, style: {width: '100%', bottom: 0}}}>
         —Но ведь это создаёт огромную нагрузку на транспортную инфраструктуру и
         не только…
-      </Branch.Say>
+      </Say>
 
-      <Branch.Say
+      <Say
         tag="Девелопер:"
-        foregroundSrc={developerRepB1Png}
-        foregroundStyle={{width: '100%', bottom: 0}}
-        transitory>
+        image={{uri: developerRepB1Png, style: {width: '100%', bottom: 0}}}>
         —Всё под контролем, беспокойств не будет. Всё рассчитано и одобрено
-      </Branch.Say>
+      </Say>
 
-      <Branch.Say
+      <Say
         tag="Активистка:"
-        foregroundSrc={redhead14Png}
-        foregroundStyle={{width: '100%', bottom: 0}}
-        transitory>
+        image={{uri: redhead14Png, style: {width: '100%', bottom: 0}}}>
         —Судя по всему, предполагается вырубка всех существующих на территории
         здания деревьев???
-      </Branch.Say>
+      </Say>
 
-      <Branch.Say
+      <Say
         tag="Девелопер:"
-        foregroundSrc={developerRepB7Png}
-        foregroundStyle={{width: '100%', bottom: 0}}
-        transitory>
+        image={{uri: developerRepB7Png, style: {width: '100%', bottom: 0}}}>
         —Согласно правилам маслихата по озеленению, в качестве компенсации мы
         обязуемся высадить соответствующее количество деревьев на землях общего
         пользования. Все по правилам, и придуманы они не нами
-      </Branch.Say>
+      </Say>
 
-      <Branch.Say
+      <Say
         tag="Активистка:"
-        foregroundSrc={redhead13Png}
-        foregroundStyle={{width: '100%', bottom: 0}}
-        transitory>
+        image={{uri: redhead13Png, style: {width: '100%', bottom: 0}}}>
         —А в целом то, здание, хоть и не является официально памятником, но это
         история города! Его непременно нужно сохранить!!!
-      </Branch.Say>
+      </Say>
 
-      <Branch.Say transitory>
+      <Say>
         Активисты решили бойкотировать слушания и покинуть конференц зал.
         Поднялся шум. Посыпались обоюдные оскорбления
-      </Branch.Say>
+      </Say>
 
-      <Branch.Say
-        foregroundSrc={mayor2Png}
-        foregroundStyle={{width: '100%', bottom: 0}}
-        transitory
-        durationMs={0}
-        lingers={1}>
-        Что делать с мнением общественности?
-      </Branch.Say>
-
-      <Branch.Choices
-        choices={[
+      <Say
+        image={{uri: mayor2Png, style: {width: '100%', bottom: 0}}}
+        menu={[
           {
             label: 'Учесть мнение',
             onClick: (ctx) =>
@@ -154,8 +124,9 @@ export function BranchCityHall_ProjZheltoksan_Examine_Reject_Ignore() {
                 'CityHall_ProjZheltoksan_Examine_Reject_Ignore_Ignore',
               ),
           },
-        ]}
-      />
-    </Branch.Root>
+        ]}>
+        Что делать с мнением общественности?
+      </Say>
+    </Branch>
   )
 }

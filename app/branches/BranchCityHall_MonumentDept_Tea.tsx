@@ -6,58 +6,34 @@ import {
   mayor2Png,
   mayor7Png,
 } from '~/assets/game'
-import {makeStrictBranch} from '~/lib'
-
-const Branch = makeStrictBranch()
+import {Branch, Say, Scene, Show} from '~/lib'
 
 export function BranchCityHall_MonumentDept_Tea() {
   return (
-    <Branch.Root background={bgCityHallMayorOfficeJpg}>
-      <Branch.Foreground
-        src={mayor7Png}
-        style={{width: '100%', bottom: '-12%'}}
-        durationMs={3000}
-        transitory
-        lingers={1}
-      />
+    <Branch>
+      <Scene src={bgCityHallMayorOfficeJpg} />
 
-      <Branch.Say
-        scheme="dark"
-        foregroundSrc={bgMayorDoorJpg}
-        foregroundStyle={{height: '100%', width: '100%', objectFit: 'cover'}}
-        transitory
-        lingers={1}>
-        *тук-тук
-      </Branch.Say>
+      <Show src={{uri: mayor7Png, style: {width: '100%', bottom: '-12%'}}} />
 
-      <Branch.Foreground
-        src={bgMayorDoorwayJpg}
-        style={{height: '100%', width: '100%', objectFit: 'cover'}}
-        durationMs={0}
-        transitory
-        lingers={1}
-      />
+      <Scene src={bgMayorDoorJpg} />
 
-      <Branch.Say
+      <Say scheme="dark">*тук-тук</Say>
+
+      <Scene src={bgMayorDoorwayJpg} />
+
+      <Say
         scheme="dark"
         tag="Помощник:"
-        foregroundSrc={assistant1Png}
-        foregroundStyle={{height: '100%', width: '100%', objectFit: 'cover'}}
-        transitory>
+        image={{
+          uri: assistant1Png,
+          style: {height: '100%', width: '100%', objectFit: 'cover'},
+        }}>
         —Поступила жалоба от жильцов ЖК на шум у стройки
-      </Branch.Say>
+      </Say>
 
-      <Branch.Say
-        foregroundSrc={mayor2Png}
-        foregroundStyle={{width: '100%', bottom: 0}}
-        transitory
-        durationMs={0}
-        lingers={1}>
-        И что?
-      </Branch.Say>
-
-      <Branch.Choices
-        choices={[
+      <Say
+        image={{uri: mayor2Png, style: {width: '100%', bottom: 0}}}
+        menu={[
           {
             label:
               'Понастроили жилье, где не должны были. Нечего теперь возмущаться.',
@@ -67,15 +43,12 @@ export function BranchCityHall_MonumentDept_Tea() {
             label: 'Выписать штраф за нарушение общественного спокойствия!',
             onClick: (ctx) => ctx.skip(),
           },
-        ]}
-      />
+        ]}>
+        И что?
+      </Say>
 
-      <Branch.Say transitory durationMs={0} lingers={1}>
-        Хотите продолжить работу с отделом памятников?
-      </Branch.Say>
-
-      <Branch.Choices
-        choices={[
+      <Say
+        menu={[
           {
             label: 'Да, продолжаю',
             onClick: (ctx) => ctx.skip(),
@@ -84,47 +57,30 @@ export function BranchCityHall_MonumentDept_Tea() {
             label: 'Нет, вернуться к выбору',
             onClick: (ctx) => ctx.goToLocation('CityHall_0Menu', 5),
           },
-        ]}
-      />
+        ]}>
+        Хотите продолжить работу с отделом памятников?
+      </Say>
 
-      <Branch.Say
-        scheme="dark"
-        foregroundSrc={bgMayorDoorJpg}
-        foregroundStyle={{height: '100%', width: '100%', objectFit: 'cover'}}
-        transitory
-        lingers={1}>
-        *тук-тук
-      </Branch.Say>
+      <Scene src={bgMayorDoorJpg} />
 
-      <Branch.Foreground
-        src={bgMayorDoorwayJpg}
-        style={{height: '100%', width: '100%', objectFit: 'cover'}}
-        durationMs={0}
-        transitory
-        lingers={1}
-      />
+      <Say scheme="dark">*тук-тук</Say>
 
-      <Branch.Say
+      <Scene src={bgMayorDoorwayJpg} />
+
+      <Say
         scheme="dark"
         tag="Помощник:"
-        foregroundSrc={assistant1Png}
-        foregroundStyle={{height: '100%', width: '100%', objectFit: 'cover'}}
-        transitory>
+        image={{
+          uri: assistant1Png,
+          style: {height: '100%', width: '100%', objectFit: 'cover'},
+        }}>
         —Новый проект предполагает снос Гостиницы Жетысу, которая является
         памятником
-      </Branch.Say>
+      </Say>
 
-      <Branch.Say
-        foregroundSrc={mayor2Png}
-        foregroundStyle={{width: '100%', bottom: 0}}
-        transitory
-        durationMs={0}
-        lingers={1}>
-        Хммм…
-      </Branch.Say>
-
-      <Branch.Choices
-        choices={[
+      <Say
+        image={{uri: mayor2Png, style: {width: '100%', bottom: 0}}}
+        menu={[
           {
             label: 'Не одобрять! Пусть меняют проект',
             // FIXME
@@ -134,15 +90,12 @@ export function BranchCityHall_MonumentDept_Tea() {
             label: 'Вынести здание из списка памятников!',
             onClick: (ctx) => ctx.skip(),
           },
-        ]}
-      />
+        ]}>
+        Хммм…
+      </Say>
 
-      <Branch.Say transitory durationMs={0} lingers={1}>
-        Хотите продолжить работу с отделом памятников?
-      </Branch.Say>
-
-      <Branch.Choices
-        choices={[
+      <Say
+        menu={[
           {
             label: 'Да, продолжаю',
             onClick: (ctx) => ctx.skip(),
@@ -151,26 +104,20 @@ export function BranchCityHall_MonumentDept_Tea() {
             label: 'Нет, вернуться к выбору',
             onClick: (ctx) => ctx.goToLocation('CityHall_0Menu', 5),
           },
-        ]}
-      />
+        ]}>
+        Хотите продолжить работу с отделом памятников?
+      </Say>
 
-      <Branch.Say
-        foregroundSrc={mayor2Png}
-        foregroundStyle={{width: '100%', bottom: 0}}
-        transitory
-        durationMs={0}
-        lingers={1}>
-        А почему это только я работаю! Пойду-ка наведу порядок
-      </Branch.Say>
-
-      <Branch.Choices
-        choices={[
+      <Say
+        image={{uri: mayor2Png, style: {width: '100%', bottom: 0}}}
+        menu={[
           {
             label: 'Дальше',
             onClick: (ctx) => ctx.goToBranch('CityHall_MonumentDept_Rant'),
           },
-        ]}
-      />
-    </Branch.Root>
+        ]}>
+        А почему это только я работаю! Пойду-ка наведу порядок
+      </Say>
+    </Branch>
   )
 }

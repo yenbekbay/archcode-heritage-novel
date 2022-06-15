@@ -11,106 +11,66 @@ import {
   expert3Png,
   mayor2Png,
 } from '~/assets/game'
-import {makeStrictBranch} from '~/lib'
-
-const Branch = makeStrictBranch()
+import {Branch, Say, Scene, Show} from '~/lib'
 
 export function BranchCityHall_ProjZheltoksan_Examine() {
   return (
-    <Branch.Root background={bgCityHallOutsideJpg}>
-      <Branch.Say placement="middle" scheme="dark" transitory>
+    <Branch>
+      <Scene src={bgCityHallOutsideJpg} />
+
+      <Say placement="middle" scheme="dark">
         Экспертиза
-      </Branch.Say>
+      </Say>
 
-      <Branch.Foreground
-        src={bgCityHallConferenceRoomJpg}
-        style={{height: '100%', width: '100%', objectFit: 'cover'}}
-        transitory
-        lingers
-      />
+      <Scene src={bgCityHallConferenceRoomJpg} />
 
-      <Branch.Say
+      <Say
         tag="Эксперт:"
-        foregroundSrc={expert1Png}
-        foregroundStyle={{width: '100%', bottom: 0}}
-        transitory>
+        image={{uri: expert1Png, style: {width: '100%', bottom: 0}}}>
         —Вижу нарушения…
-      </Branch.Say>
+      </Say>
 
-      <Branch.Say
-        foregroundSrc={expert2Png}
-        foregroundStyle={{width: '100%', bottom: 0}}
-        transitory>
+      <Say image={{uri: expert2Png, style: {width: '100%', bottom: 0}}}>
         —Ещё одно! Ещё нарушение!!!
-      </Branch.Say>
+      </Say>
 
-      <Branch.Foreground
-        src={expert3Png}
-        style={{width: '100%', bottom: 0}}
+      <Show
+        src={{uri: expert3Png, style: {width: '100%', bottom: 0}}}
         durationMs={3000}
-        transitory
       />
 
-      <Branch.Say
-        scheme="dark"
-        foregroundSrc={bgMayorDoorJpg}
-        foregroundStyle={{height: '100%', width: '100%', objectFit: 'cover'}}
-        transitory
-        lingers={1}>
-        *тук-тук
-      </Branch.Say>
+      <Scene src={bgMayorDoorJpg} />
 
-      <Branch.Foreground
-        src={bgMayorDoorwayJpg}
-        style={{height: '100%', width: '100%', objectFit: 'cover'}}
-        durationMs={0}
-        transitory
-        lingers={3}
-      />
+      <Say scheme="dark">*тук-тук</Say>
 
-      <Branch.Say
+      <Scene src={bgMayorDoorwayJpg} />
+
+      <Say
         scheme="dark"
         tag="Помощник:"
-        foregroundSrc={assistant1Png}
-        foregroundStyle={{height: '100%', width: '100%', objectFit: 'cover'}}
-        transitory>
+        image={{
+          uri: assistant1Png,
+          style: {height: '100%', width: '100%', objectFit: 'cover'},
+        }}>
         —Экспертиза выявила несколько нарушений
-      </Branch.Say>
+      </Say>
 
-      <Branch.Foreground
-        src={assistant2Png}
-        style={{height: '100%', width: '100%', objectFit: 'cover'}}
-        transitory
-        lingers={1}
+      <Show
+        src={{
+          uri: assistant2Png,
+          style: {height: '100%', width: '100%', objectFit: 'cover'},
+        }}
       />
 
-      <Branch.Say
-        scheme="dark"
-        foregroundSrc={bgMayorDoorJpg}
-        foregroundStyle={{height: '100%', width: '100%', objectFit: 'cover'}}
-        transitory
-        lingers={1}>
-        *хдыщ
-      </Branch.Say>
+      <Scene src={bgMayorDoorJpg} />
 
-      <Branch.Foreground
-        src={bgCityHallMayorOfficeJpg}
-        style={{height: '100%', width: '100%', objectFit: 'cover'}}
-        transitory
-        lingers={2}
-      />
+      <Say scheme="dark">*хдыщ</Say>
 
-      <Branch.Say
-        foregroundSrc={mayor2Png}
-        foregroundStyle={{width: '100%', bottom: 0}}
-        transitory
-        durationMs={0}
-        lingers={1}>
-        Что делать с проектом?
-      </Branch.Say>
+      <Scene src={bgCityHallMayorOfficeJpg} />
 
-      <Branch.Choices
-        choices={[
+      <Say
+        image={{uri: mayor2Png, style: {width: '100%', bottom: 0}}}
+        menu={[
           {
             label: 'Не одобрять',
             onClick: (ctx) =>
@@ -120,8 +80,9 @@ export function BranchCityHall_ProjZheltoksan_Examine() {
             label: 'Одобрить',
             onClick: (ctx) => ctx.goToBranch('CityHall_ProjZheltoksan_Approve'),
           },
-        ]}
-      />
-    </Branch.Root>
+        ]}>
+        Что делать с проектом?
+      </Say>
+    </Branch>
   )
 }

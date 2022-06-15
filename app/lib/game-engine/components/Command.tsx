@@ -3,7 +3,11 @@ import type {Variant} from 'framer-motion'
 import {AnimatePresence, motion, useAnimation, usePresence} from 'framer-motion'
 import type {AnimationControls} from 'framer-motion/types/animation/types'
 import React from 'react'
-import type {Statement} from '../contexts'
+import type {
+  Statement,
+  StatementBehavior,
+  StatementVisibility,
+} from '../contexts'
 import {
   useBranchContext,
   useGameContext,
@@ -21,20 +25,16 @@ export type CommandViewAnimation = {
 
 export interface CommandProps {
   children: (controls: AnimationControls) => React.ReactNode
-  durationMs?: number
-  skippable?: boolean
-  /** Should branch automatically skip to next statement after duration? */
-  transitory?: boolean
-  /** Should content still be shown after skipping to next statement? */
-  lingers?: boolean | number
+  behavior?: StatementBehavior
+  visibility?: StatementVisibility
+  zIndex?: number | 'auto'
 }
 
 export function Command({
   children,
-  durationMs = 0,
-  skippable = false,
-  transitory = false,
-  lingers = false,
+  behavior = ['skippable_static'],
+  visibility = 0,
+  zIndex = 'auto',
 }: CommandProps) {
   const {visible} = useStatementContext()
 
@@ -42,32 +42,20 @@ export function Command({
   useRegisterStatement(
     React.useMemo(
       (): Omit<Statement, 'index' | 'label'> => ({
-        skippable,
-        visibleExtra: (() => {
-          if (typeof lingers === 'number') {
-            return Math.max(0, lingers)
-          }
-          if (lingers === true) {
-            return Number.MAX_SAFE_INTEGER
-          }
-          return 0
-        })(),
+        behavior,
+        visibility,
         enter: () => viewRef.current?.enter() ?? false,
         pause: () => viewRef.current?.pause(),
         resume: () => viewRef.current?.resume(),
       }),
-      [skippable, lingers],
+      [behavior, visibility],
     ),
   )
 
   return (
     <AnimatePresence>
       {visible && (
-        <CommandView
-          ref={viewRef}
-          durationMs={durationMs}
-          skippable={skippable}
-          transitory={transitory}>
+        <CommandView ref={viewRef} behavior={behavior} zIndex={zIndex}>
           {children}
         </CommandView>
       )}
@@ -79,9 +67,8 @@ export function Command({
 
 interface CommandViewProps {
   children: (controls: AnimationControls) => React.ReactNode
-  durationMs: number
-  skippable: boolean
-  transitory: boolean
+  behavior: StatementBehavior
+  zIndex: 'auto' | number
 }
 
 interface CommandViewInstance {
@@ -91,7 +78,7 @@ interface CommandViewInstance {
 }
 
 const CommandView = React.forwardRef(function CommandView(
-  {children, durationMs, skippable, transitory}: CommandViewProps,
+  {children, behavior, zIndex}: CommandViewProps,
   forwardedRef: React.ForwardedRef<CommandViewInstance>,
 ) {
   const {paused: gamePaused} = useGameContext()
@@ -156,7 +143,7 @@ const CommandView = React.forwardRef(function CommandView(
 
   React.useEffect(
     () => {
-      if (skippable && transitory && entered && focused) {
+      if (behavior[0] === 'skippable_timed' && entered && focused) {
         setCountdownProgress(0)
         countdownTimerRef.current = setInterval(() => {
           if (countdownPausedRef.current || gamePausedRef.current) {
@@ -169,7 +156,7 @@ const CommandView = React.forwardRef(function CommandView(
             clearInterval(countdownTimerRef.current)
             countdownTimerRef.current = undefined
           }
-        }, durationMs / 100)
+        }, behavior[1].durationMs / 100)
       }
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -195,9 +182,9 @@ const CommandView = React.forwardRef(function CommandView(
   return (
     <div
       className="absolute inset-0 flex flex-col"
-      style={{zIndex: statementIndex}}>
+      style={{zIndex: zIndex === 'auto' ? statementIndex : zIndex}}>
       <AnimatePresence>
-        {skippable && transitory && focused && (
+        {behavior[0] === 'skippable_timed' && focused && (
           <motion.progress
             className="progress absolute top-0 z-50 w-full rounded-none"
             initial={{opacity: 0}}

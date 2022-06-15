@@ -4,6 +4,8 @@ import {
   ArrowLeft as ArrowLeftIcon,
   CaretRight as CaretRightIcon,
   House as HouseIcon,
+  Pause as PauseIcon,
+  Play as PlayIcon,
   Wrench as WrenchIcon,
   X as XIcon,
 } from 'phosphor-react'
@@ -45,7 +47,7 @@ function GameView({assets, branches, initialBranchId, onClose}: GameViewProps) {
     useGameContext()
   return (
     <div className="h-screen">
-      <div className="navbar absolute z-10 p-4">
+      <div className="navbar absolute z-50 p-4">
         <div className="navbar-start space-x-2">
           <button
             className="btn btn-ghost btn-circle bg-white text-xl shadow-md"
@@ -74,7 +76,13 @@ function GameView({assets, branches, initialBranchId, onClose}: GameViewProps) {
       </div>
 
       {process.env.NODE_ENV === 'development' && (
-        <div className="absolute bottom-4 right-4 z-50">
+        <div className="absolute bottom-4 right-4 z-50 space-x-2">
+          <button
+            className="btn btn-ghost btn-circle bg-white text-xl shadow-md"
+            onClick={() => setPaused(!paused)}>
+            {paused ? <PlayIcon /> : <PauseIcon />}
+          </button>
+
           <PopoverPrimitive.Root>
             <PopoverPrimitive.Trigger asChild>
               <button className="btn btn-ghost btn-circle bg-white text-xl shadow-md">
@@ -101,12 +109,6 @@ function GameView({assets, branches, initialBranchId, onClose}: GameViewProps) {
               </div>
 
               <div className="space-y-4 overflow-y-auto">
-                <button
-                  className="btn btn-outline btn-sm btn-block"
-                  onClick={() => setPaused(!paused)}>
-                  {paused ? 'Resume' : 'Pause'}
-                </button>
-
                 <div>
                   <div className="prose p-2">
                     <span className="text-lg font-semibold">Go to branch</span>

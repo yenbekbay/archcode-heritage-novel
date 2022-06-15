@@ -5,59 +5,53 @@ import {
   mayor3Png,
   stampApprovedPng,
 } from '~/assets/game'
-import {makeStrictBranch} from '~/lib'
-
-const Branch = makeStrictBranch()
+import {Branch, Menu, Say, Scene, Show} from '~/lib'
 
 export function BranchCityHall_ProjAirport_Approve() {
   return (
-    <Branch.Root background={bgCityHallMayorOfficeJpg}>
-      <Branch.Foreground
-        src={letterPng}
-        style={{
-          height: '100%',
-          width: '100%',
-          objectFit: 'cover',
-          backgroundColor: '#e7dbab',
-          transform: 'scale(2.5)',
-          transformOrigin: '50% 35%',
+    <Branch>
+      <Scene src={bgCityHallMayorOfficeJpg} />
+
+      <Show
+        src={{
+          uri: letterPng,
+          style: {
+            height: '100%',
+            width: '100%',
+            objectFit: 'cover',
+            backgroundColor: '#e7dbab',
+            transform: 'scale(2.5)',
+            transformOrigin: '50% 35%',
+          },
         }}
-        transitory
-        lingers={2}
+        visibility={2}
       />
 
-      <Branch.Foreground
-        src={stampApprovedPng}
-        style={{
-          height: '100%',
-          width: '100%',
-          objectFit: 'cover',
-          transform: 'translateY(-15%)',
+      <Show
+        src={{
+          uri: stampApprovedPng,
+          style: {
+            height: '100%',
+            width: '100%',
+            objectFit: 'cover',
+            transform: 'translateY(-15%)',
+          },
         }}
-        transitory
-        lingers={1}
+        visibility={1}
       />
 
-      <Branch.Say transitory>
-        Указ: Одобрить снос здания VIP терминала Аэропорта
-      </Branch.Say>
+      <Say>Указ: Одобрить снос здания VIP терминала Аэропорта</Say>
 
-      <Branch.Say
-        foregroundSrc={mayor2Png}
-        foregroundStyle={{width: '100%', bottom: 0}}
-        transitory>
+      <Say image={{uri: mayor2Png, style: {width: '100%', bottom: 0}}}>
         Мнение общественности учитывать не обязательно. Сохранить старый
         терминал — путь архаичного советского мышления
-      </Branch.Say>
+      </Say>
 
-      <Branch.Say
-        foregroundSrc={mayor3Png}
-        foregroundStyle={{width: '100%', bottom: 0}}
-        transitory>
+      <Say image={{uri: mayor3Png, style: {width: '100%', bottom: 0}}}>
         Однако, по закону необходимо провести общественные слушания по проекту
-      </Branch.Say>
+      </Say>
 
-      <Branch.Choices
+      <Menu
         choices={[
           {
             label: 'Дальше',
@@ -66,6 +60,6 @@ export function BranchCityHall_ProjAirport_Approve() {
           },
         ]}
       />
-    </Branch.Root>
+    </Branch>
   )
 }

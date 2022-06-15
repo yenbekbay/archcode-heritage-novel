@@ -5,60 +5,40 @@ import {
   bgAskBeforeFenceGif,
   bgDeveloperHqInsidePng,
 } from '~/assets/game'
-import {makeStrictBranch} from '~/lib'
-
-const Branch = makeStrictBranch()
+import {Branch, Menu, Say, Scene, Title} from '~/lib'
 
 export function BranchCityHall_ProjAsk_Examine_Reject_Ignore() {
   return (
-    <Branch.Root background={bgDeveloperHqInsidePng}>
-      <Branch.Say
+    <Branch>
+      <Scene src={bgDeveloperHqInsidePng} />
+
+      <Say
         tag="АрхКот:"
-        foregroundSrc={archkot2Png}
-        foregroundStyle={{width: '100%', bottom: 0}}
-        transitory>
+        image={{uri: archkot2Png, style: {width: '100%', bottom: 0}}}>
         —Мы предлагаем свою кандидатуру в качестве мониторинговой группы
-      </Branch.Say>
+      </Say>
 
-      <Branch.Say
-        foregroundSrc={archkot3Png}
-        foregroundStyle={{width: '100%', bottom: 0}}
-        transitory>
+      <Say image={{uri: archkot3Png, style: {width: '100%', bottom: 0}}}>
         —Давайте договоримся о серии встреч с девелопером.
-      </Branch.Say>
+      </Say>
 
-      <Branch.Say transitory>
+      <Say>
         и прошли обсуждения, где обсуждали, реставрация ли, реконструкция ли, и
         какое стекло важнее
-      </Branch.Say>
+      </Say>
 
-      <Branch.Foreground
-        src={bgAskBeforeFenceGif}
-        style={{height: '100%', width: '100%', objectFit: 'cover'}}
-        durationMs={6000}
-        lingers={1}
-        transitory
-      />
+      <Scene src={bgAskBeforeFenceGif} durationMs={6000} />
+      <Scene src={bgAskAfterAltJpg} />
 
-      <Branch.Foreground
-        src={bgAskAfterAltJpg}
-        style={{height: '100%', width: '100%', objectFit: 'cover'}}
-        durationMs={0}
-        lingers
-        transitory
-      />
+      <Say>Вы успешно реконструировали АСК</Say>
 
-      <Branch.Say transitory>Вы успешно реконструировали АСК</Branch.Say>
-
-      <Branch.Say transitory>
+      <Say>
         Здание АСК может быть внесено в список памятников и стать новым активом
-      </Branch.Say>
+      </Say>
 
-      <Branch.Title transitory lingers>
-        Конец игры
-      </Branch.Title>
+      <Title visibility="indefinite">Конец игры</Title>
 
-      <Branch.Choices
+      <Menu
         scheme="dark"
         choices={[
           {
@@ -67,6 +47,6 @@ export function BranchCityHall_ProjAsk_Examine_Reject_Ignore() {
           },
         ]}
       />
-    </Branch.Root>
+    </Branch>
   )
 }

@@ -10,44 +10,43 @@ import {useBranchContext, useGameContext} from '../../contexts'
 import type {Frame} from './frame'
 import {styleForFrame} from './frame'
 
-interface ChoiceContext<TStatementLabel extends string = string> {
+interface MenuContext {
   goToBranch: (branchId: BranchId) => void
-  goToStatement: (statementLabel: TStatementLabel) => void
+  goToStatement: (statementLabel: string) => void
   goToLocation: (branchId: BranchId, statementIndex: number) => void
   skip: (plusIndex?: number) => void
 }
 
-export interface Choice<TStatementLabel extends string> {
+export interface Choice {
   label: string
   frame?: Frame
-  onClick: (ctx: ChoiceContext<TStatementLabel>) => void
+  onClick: (ctx: MenuContext) => void
 }
 
-export type ChoicesPlacement = 'top' | 'middle' | 'bottom'
+export type MenuSize = 'md' | 'lg'
+export type MenuPlacement = 'top' | 'middle' | 'bottom'
 
-export interface ChoicesViewProps<TStatementLabel extends string = string> {
-  choices: Choice<TStatementLabel>[]
+export interface MenuViewProps {
+  choices: Choice[]
   label?: string
-  size?: 'md' | 'lg'
-  placement?: ChoicesPlacement
+  size?: MenuSize
+  placement?: MenuPlacement
   scheme?: CommandViewColorScheme
-  animation: CommandViewAnimation
   controls: AnimationControls
 }
 
-export function ChoicesView({
+export function MenuView({
   choices,
   label,
   size = 'md',
   placement = 'bottom',
   scheme,
-  animation,
   controls,
-}: ChoicesViewProps) {
+}: MenuViewProps) {
   const {goToBranch, goToLocation} = useGameContext()
   const {containerSize, goToStatement, skip} = useBranchContext()
   const ctx = React.useMemo(
-    (): ChoiceContext => ({
+    (): MenuContext => ({
       goToStatement,
       goToBranch,
       goToLocation,
@@ -71,9 +70,10 @@ export function ChoicesView({
             'GameEngine-text mb-2 whitespace-pre-wrap text-center font-calligraph text-lg',
             scheme === 'dark' && 'GameEngine-text--dark',
           )}
-          variants={animation}
+          variants={itemAnimation}
           initial="initial"
-          animate={controls}>
+          animate={controls}
+          custom={0}>
           {label}
         </motion.span>
       )}
@@ -82,10 +82,10 @@ export function ChoicesView({
         <motion.div
           key={c.label}
           className="flex flex-col"
-          variants={animation}
+          variants={itemAnimation}
           initial="initial"
           animate={controls}
-          custom={idx}>
+          custom={idx + 1}>
           {c.frame ? (
             <motion.div
               className={clsx(
@@ -129,4 +129,16 @@ export function ChoicesView({
       ))}
     </div>
   )
+}
+
+const itemAnimation: CommandViewAnimation = {
+  initial: {opacity: 0},
+  entrance: (idx) => ({
+    opacity: 1,
+    transition: {delay: 0.5 + 0.25 * idx},
+  }),
+  exit: {
+    opacity: 0,
+    transition: {duration: 0.5, ease: 'easeOut'},
+  },
 }

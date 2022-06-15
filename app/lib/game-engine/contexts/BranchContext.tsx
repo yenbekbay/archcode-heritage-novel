@@ -4,24 +4,31 @@ import {useLongPress} from 'use-long-press'
 import {useStableCallback} from '~/lib/hooks'
 import {useGameContext} from './GameContext'
 
+export type StatementBehavior =
+  | ['skippable_timed', {durationMs: number}]
+  | ['skippable_static']
+  | ['non_skippable']
+
+export type StatementVisibility = number | 'indefinite'
+
 export interface Statement {
   index: number
   label: string | null
-  skippable: boolean
-  /** For how many extra statements is this command visible */
-  visibleExtra: number
+  behavior: StatementBehavior
+  visibility: StatementVisibility
   enter: () => void
   pause: () => void
   resume: () => void
 }
 
-export interface BranchContextValue<TStatementLabel extends string = string> {
+export interface BranchContextValue {
   branchId: BranchId
   containerSize: [number, number]
   registerStatement: (statement: Statement) => void
   getStatement: (statementIndex: number) => Statement | undefined
+  getStatementCount: () => number
   focusedStatementIndex: number
-  goToStatement: (statementLabel: TStatementLabel) => void
+  goToStatement: (statementLabel: string) => void
   skip: (plusIndex?: number) => void
 }
 
@@ -76,6 +83,7 @@ export function BranchProvider({branchId, children}: BranchProviderProps) {
         }
       },
       getStatement: (statementIndex) => statementByIndex.get(statementIndex),
+      getStatementCount: () => statementByIndex.size,
       focusedStatementIndex,
       goToStatement: (statementLabel) => {
         const statement = statementByLabel.get(statementLabel)
@@ -114,7 +122,7 @@ export function BranchProvider({branchId, children}: BranchProviderProps) {
     <BranchContext.Provider value={ctx}>
       <div
         ref={containerRef}
-        className="relative flex-1"
+        className="relative flex-1 select-none"
         tabIndex={-1}
         onClick={() => {
           if (ignoreClickRef.current) {
@@ -123,7 +131,7 @@ export function BranchProvider({branchId, children}: BranchProviderProps) {
           }
 
           const command = statementByIndex.get(focusedStatementIndex)
-          if (command?.skippable) {
+          if (command?.behavior[0].startsWith('skippable')) {
             skip()
           }
         }}

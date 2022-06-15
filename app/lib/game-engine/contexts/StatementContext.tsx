@@ -26,23 +26,25 @@ export function StatementProvider({
 }: StatementProviderProps) {
   const branchCtx = useBranchContext()
   const statement = branchCtx.getStatement(statementIndex)
-  const ctx = React.useMemo(
-    (): StatementContextValue => ({
+  const ctx = React.useMemo((): StatementContextValue => {
+    const visibleExtra =
+      statement?.visibility === 'indefinite'
+        ? Number.MAX_SAFE_INTEGER
+        : Math.max(0, statement?.visibility ?? 0)
+    return {
       statementIndex,
       statementLabel: statementLabel ?? null,
       focused: branchCtx.focusedStatementIndex === statementIndex,
       visible:
         branchCtx.focusedStatementIndex >= statementIndex &&
-        branchCtx.focusedStatementIndex <=
-          statementIndex + (statement?.visibleExtra ?? 0),
-    }),
-    [
-      statement?.visibleExtra,
-      branchCtx.focusedStatementIndex,
-      statementIndex,
-      statementLabel,
-    ],
-  )
+        branchCtx.focusedStatementIndex <= statementIndex + visibleExtra,
+    }
+  }, [
+    statement?.visibility,
+    statementIndex,
+    statementLabel,
+    branchCtx.focusedStatementIndex,
+  ])
   return (
     <StatementContext.Provider value={ctx}>
       {children}

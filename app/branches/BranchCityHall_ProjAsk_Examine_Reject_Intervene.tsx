@@ -5,63 +5,43 @@ import {
   bgDeveloperHqInsidePng,
   mayor1Png,
 } from '~/assets/game'
-import {makeStrictBranch} from '~/lib'
-
-const Branch = makeStrictBranch()
+import {Branch, Menu, Say, Scene, Title} from '~/lib'
 
 export function BranchCityHall_ProjAsk_Examine_Reject_Intervene() {
   return (
-    <Branch.Root background={bgDeveloperHqInsidePng}>
-      <Branch.Say
+    <Branch>
+      <Scene src={bgDeveloperHqInsidePng} />
+
+      <Say
         tag="Работник акимата:"
-        foregroundSrc={assistant3Png}
-        foregroundStyle={{width: '100%', bottom: 0}}
-        transitory>
+        image={{uri: assistant3Png, style: {width: '100%', bottom: 0}}}>
         —Мы предоставим группу сотрудников для ведения мониторинга
-      </Branch.Say>
+      </Say>
 
-      <Branch.Say
-        foregroundSrc={mayor1Png}
-        foregroundStyle={{width: '100%', bottom: 0}}
-        transitory>
+      <Say image={{uri: mayor1Png, style: {width: '100%', bottom: 0}}}>
         —Отлично, договоримся о серии встреч с девелопером
-      </Branch.Say>
+      </Say>
 
-      <Branch.Say transitory>
+      <Say>
         и прошли обсуждения, где обсуждали, реставрация ли, реконструкция ли, и
         какое стекло важнее
-      </Branch.Say>
+      </Say>
 
-      <Branch.Foreground
-        src={bgAskBeforeFenceGif}
-        style={{height: '100%', width: '100%', objectFit: 'cover'}}
-        durationMs={6000}
-        lingers={1}
-        transitory
-      />
+      <Scene src={bgAskBeforeFenceGif} durationMs={6000} />
+      <Scene src={bgAskAfterAltJpg} />
 
-      <Branch.Foreground
-        src={bgAskAfterAltJpg}
-        style={{height: '100%', width: '100%', objectFit: 'cover'}}
-        durationMs={0}
-        lingers
-        transitory
-      />
+      <Say>Вы успешно реконструировали АСК</Say>
 
-      <Branch.Say transitory>Вы успешно реконструировали АСК</Branch.Say>
-
-      <Branch.Say transitory>
+      <Say>
         ПОЗДРАВЛЯЕМ! Реставрация объекта завершена. У вашего отдела новые
         перспективы Тема памятников двигается на городской, а затем и на
         государственный уровень Вам удалось простроить схему взаимодействия с
         общественностью в дальнейшем
-      </Branch.Say>
+      </Say>
 
-      <Branch.Title transitory lingers>
-        Конец игры
-      </Branch.Title>
+      <Title visibility="indefinite">Конец игры</Title>
 
-      <Branch.Choices
+      <Menu
         scheme="dark"
         choices={[
           {
@@ -70,6 +50,6 @@ export function BranchCityHall_ProjAsk_Examine_Reject_Intervene() {
           },
         ]}
       />
-    </Branch.Root>
+    </Branch>
   )
 }

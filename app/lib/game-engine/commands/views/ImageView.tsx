@@ -2,15 +2,15 @@ import type {AnimationControls} from 'framer-motion'
 import {motion} from 'framer-motion'
 import type {CommandViewAnimation} from '../../components'
 
-export interface ForegroundViewProps {
-  src: string
+export interface ImageViewProps {
+  uri: string
   style?: React.CSSProperties
   animation?: CommandViewAnimation
   controls: AnimationControls
 }
 
-export function ForegroundView({
-  src,
+export function ImageView({
+  uri,
   style,
   animation = {
     initial: {opacity: 0},
@@ -24,14 +24,14 @@ export function ForegroundView({
     },
   },
   controls,
-}: ForegroundViewProps) {
+}: ImageViewProps) {
   return (
     <motion.div
       className="absolute inset-0 flex"
       variants={animation}
       initial="initial"
       animate={controls}>
-      <img className="absolute max-w-none" style={style} src={src} />
+      <img className="absolute max-w-none" style={style} src={uri} />
     </motion.div>
   )
 }

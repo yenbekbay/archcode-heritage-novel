@@ -1,31 +1,22 @@
 import {bgCityHallMayorOfficeJpg, bgCityHallOutsideJpg} from '~/assets/game'
-import {makeStrictBranch} from '~/lib'
-
-const Branch = makeStrictBranch()
+import {Branch, Menu, Say, Scene, Title} from '~/lib'
 
 export function BranchCityHall_MonumentDept_Rant_Ok() {
   return (
-    <Branch.Root background={bgCityHallMayorOfficeJpg}>
-      <Branch.Foreground
-        src={bgCityHallOutsideJpg}
-        style={{height: '100%', width: '100%', objectFit: 'cover'}}
-        durationMs={0}
-        transitory
-        lingers
-      />
+    <Branch>
+      <Scene src={bgCityHallMayorOfficeJpg} />
+      <Scene src={bgCityHallOutsideJpg} />
 
-      <Branch.Say transitory>Состоялась комиссия. ПОЗДРАВЛЯЕМ!!!</Branch.Say>
+      <Say>Состоялась комиссия. ПОЗДРАВЛЯЕМ!!!</Say>
 
-      <Branch.Say transitory>
+      <Say>
         Здания внесены в список! Теперь они все — памятники и могут стать новым
         активом!
-      </Branch.Say>
+      </Say>
 
-      <Branch.Title transitory lingers>
-        Конец игры
-      </Branch.Title>
+      <Title visibility="indefinite">Конец игры</Title>
 
-      <Branch.Choices
+      <Menu
         scheme="dark"
         choices={[
           {
@@ -34,6 +25,6 @@ export function BranchCityHall_MonumentDept_Rant_Ok() {
           },
         ]}
       />
-    </Branch.Root>
+    </Branch>
   )
 }

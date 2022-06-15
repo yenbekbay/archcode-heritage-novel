@@ -5,63 +5,38 @@ import {
   redhead19Png,
   sillhouettePng,
 } from '~/assets/game'
-import {makeStrictBranch} from '~/lib'
-
-const Branch = makeStrictBranch()
+import {Branch, Menu, Say, Scene, Title} from '~/lib'
 
 export function BranchActivist_CheckOut_Act_Org() {
   return (
-    <Branch.Root background={bgCourtyardJpg}>
-      <Branch.Blank durationMs={3000} transitory />
+    <Branch>
+      <Scene src={bgCourtyardJpg} />
 
-      <Branch.Say
-        foregroundSrc={redhead19Png}
-        foregroundStyle={{width: '100%', bottom: 0}}
-        transitory>
+      <Say image={{uri: redhead19Png, style: {width: '100%', bottom: 0}}}>
         —Алло, здравствуйте, это Архкод?
-      </Branch.Say>
+      </Say>
 
-      <Branch.Foreground
-        src={bgArchcodeOfficeJpg}
-        style={{height: '100%', width: '100%', objectFit: 'cover'}}
-        durationMs={0}
-        transitory
-        lingers={1}
-      />
+      <Scene src={bgArchcodeOfficeJpg} />
 
-      <Branch.Say
-        foregroundSrc={sillhouettePng}
-        foregroundStyle={{width: '90%', bottom: 0}}
-        transitory>
+      <Say image={{uri: sillhouettePng, style: {width: '100%', bottom: 0}}}>
         —Здравствуйте, да, я вас слушаю.
-      </Branch.Say>
+      </Say>
 
-      <Branch.Say
-        foregroundSrc={redhead19Png}
-        foregroundStyle={{width: '100%', bottom: 0}}
-        transitory>
+      <Scene src={bgCourtyardJpg} />
+
+      <Say image={{uri: redhead19Png, style: {width: '100%', bottom: 0}}}>
         —Непонятно, что творится! Забор там! Здание снесут! Унчтожат!
         Испоганят!!! Что делать???
-      </Branch.Say>
+      </Say>
 
-      <Branch.Foreground
-        src={bgArchcodeOfficeJpg}
-        style={{height: '100%', width: '100%', objectFit: 'cover'}}
-        durationMs={0}
-        transitory
-        lingers={1}
-      />
+      <Scene src={bgArchcodeOfficeJpg} />
 
-      <Branch.Say
-        foregroundSrc={sillhouettePng}
-        foregroundStyle={{width: '90%', bottom: 0}}
-        transitory>
+      <Say image={{uri: sillhouettePng, style: {width: '100%', bottom: 0}}}>
         —Без паники. Приходите, поделимся опытом
-      </Branch.Say>
+      </Say>
 
-      <Branch.Say
-        href="tel://+77071210483"
-        textFrame={{
+      <Say
+        frame={{
           viewport: [1080, 1920],
           rect: {
             y: 400,
@@ -70,22 +45,22 @@ export function BranchActivist_CheckOut_Act_Org() {
             transform: 'rotate(-6deg)',
           },
         }}
-        textStyle={{fontSize: 24}}
-        foregroundSrc={bgPhoneHandJpg}
-        foregroundStyle={{
-          height: '100%',
-          width: '100%',
-          objectFit: 'cover',
-          transform: 'scale(2.25) translateX(-15px)',
+        style_={{fontSize: 24}}
+        image={{
+          uri: bgPhoneHandJpg,
+          style: {
+            height: '100%',
+            width: '100%',
+            objectFit: 'cover',
+            transform: 'scale(2.25) translateX(-15px)',
+          },
         }}>
-        Позвонить в Архкод
-      </Branch.Say>
+        [Позвонить в Архкод](tel://+77071210483)
+      </Say>
 
-      <Branch.Title transitory lingers>
-        Конец игры
-      </Branch.Title>
+      <Title visibility="indefinite">Конец игры</Title>
 
-      <Branch.Choices
+      <Menu
         scheme="dark"
         choices={[
           {
@@ -94,6 +69,6 @@ export function BranchActivist_CheckOut_Act_Org() {
           },
         ]}
       />
-    </Branch.Root>
+    </Branch>
   )
 }

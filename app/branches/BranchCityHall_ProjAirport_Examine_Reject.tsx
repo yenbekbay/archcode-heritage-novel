@@ -11,146 +11,109 @@ import {
   sharatMibutovPng,
   stampRejectedPng,
 } from '~/assets/game'
-import {makeStrictBranch} from '~/lib'
-
-const Branch = makeStrictBranch()
+import {Branch, Say, Scene, Show} from '~/lib'
 
 export function BranchCityHall_ProjAirport_Examine_Reject() {
   return (
-    <Branch.Root background={bgCityHallMayorOfficeJpg}>
-      <Branch.Foreground
-        src={letterPng}
-        style={{
-          height: '100%',
-          width: '100%',
-          objectFit: 'cover',
-          backgroundColor: '#e7dbab',
-          transform: 'scale(2.5)',
-          transformOrigin: '50% 35%',
+    <Branch>
+      <Scene src={bgCityHallMayorOfficeJpg} />
+
+      <Show
+        src={{
+          uri: letterPng,
+          style: {
+            height: '100%',
+            width: '100%',
+            objectFit: 'cover',
+            backgroundColor: '#e7dbab',
+            transform: 'scale(2.5)',
+            transformOrigin: '50% 35%',
+          },
         }}
-        transitory
-        lingers={2}
+        visibility={2}
       />
 
-      <Branch.Foreground
-        src={stampRejectedPng}
-        style={{
-          height: '100%',
-          width: '100%',
-          objectFit: 'cover',
-          transform: 'translateY(-15%)',
+      <Show
+        src={{
+          uri: stampRejectedPng,
+          style: {
+            height: '100%',
+            width: '100%',
+            objectFit: 'cover',
+            transform: 'translateY(-15%)',
+          },
         }}
-        transitory
-        lingers={1}
       />
 
-      <Branch.Say transitory>Устроить общественное обсуждение</Branch.Say>
+      <Say>Устроить общественное обсуждение</Say>
 
-      <Branch.Foreground
-        src={bgCityHallOutsideJpg}
-        style={{height: '100%', width: '100%', objectFit: 'cover'}}
-        transitory
-        lingers={1}
-      />
+      <Scene src={bgCityHallOutsideJpg} />
 
-      <Branch.Say placement="middle" scheme="dark" transitory>
+      <Say placement="middle" scheme="dark">
         Общественные слушания
-      </Branch.Say>
+      </Say>
 
-      <Branch.Foreground
-        src={bgCityHallConferenceRoomJpg}
-        style={{height: '100%', width: '100%', objectFit: 'cover'}}
-        transitory
-        lingers
-      />
+      <Scene src={bgCityHallConferenceRoomJpg} />
 
-      <Branch.Say
+      <Say
         tag="Зам. акима:"
-        foregroundSrc={assistant3Png}
-        foregroundStyle={{width: '100%', bottom: 0}}
-        transitory>
+        image={{uri: assistant3Png, style: {width: '100%', bottom: 0}}}>
         —То, что есть сейчас, утратило историческую ценность. Когда-то, в 50-е
         годы, оно было таким, да, но сейчас — нет
-      </Branch.Say>
+      </Say>
 
-      <Branch.Say
-        foregroundSrc={assistant3Png}
-        foregroundStyle={{width: '100%', bottom: 0}}
-        transitory>
+      <Say image={{uri: assistant3Png, style: {width: '100%', bottom: 0}}}>
         —Нет никаких исторических элементов, есть стеклянные электронные двери.
         Там почти всё поменяли. Всё изменилось до неузнаваемости в худшую
         сторону. Никаким туристам здание неинтересно
-      </Branch.Say>
+      </Say>
 
-      <Branch.Say
+      <Say
         tag="Член Общ. совета Шарат Мибутов:"
-        foregroundSrc={sharatMibutovPng}
-        foregroundStyle={{width: '100%', bottom: 0}}
-        transitory>
+        image={{uri: sharatMibutovPng, style: {width: '100%', bottom: 0}}}>
         —То, что предложила турецкая фирма, выглядело не очень. То есть, это
         обычная квадратная коробка, без какой-либо связи с Казахстаном
-      </Branch.Say>
+      </Say>
 
-      <Branch.Say
-        foregroundSrc={sharatMibutovPng}
-        foregroundStyle={{width: '100%', bottom: 0}}
-        transitory>
+      <Say image={{uri: sharatMibutovPng, style: {width: '100%', bottom: 0}}}>
         —Был выбран экономичный вариант, который рассчитан только на увеличение
         пропускной способности терминала и максимизацию прибыли инвесторов
-      </Branch.Say>
+      </Say>
 
-      <Branch.Say
+      <Say
         tag={'Вице президент “Аэропорт”\nА. Кордеев:'}
-        foregroundSrc={akordeevPng}
-        foregroundStyle={{width: '100%', bottom: 0}}
-        transitory>
+        image={{uri: akordeevPng, style: {width: '100%', bottom: 0}}}>
         —Я не считаю его великим памятником. Оно не несёт функциональной
         нагрузки и занимает огромную площадь
-      </Branch.Say>
+      </Say>
 
-      <Branch.Say
+      <Say
         tag="АрхКот:"
-        foregroundSrc={archkot1Png}
-        foregroundStyle={{width: '100%', bottom: 0}}
-        transitory>
+        image={{uri: archkot1Png, style: {width: '100%', bottom: 0}}}>
         —Согласно закону об охране и использовании объектов историко-культурного
         наследия. Перемещение и изменение памятника истории и культуры
         запрещаются
-      </Branch.Say>
+      </Say>
 
-      <Branch.Say
-        foregroundSrc={archkot4Png}
-        foregroundStyle={{width: '100%', bottom: 0}}
-        transitory>
+      <Say image={{uri: archkot4Png, style: {width: '100%', bottom: 0}}}>
         —Исключение допускается лишь в случаях разрушения более семидесяти
         процентов памятника истории и культуры либо утраты историко-культурной
         значимости
-      </Branch.Say>
+      </Say>
 
-      <Branch.Say
-        foregroundSrc={archkot4Png}
-        foregroundStyle={{width: '100%', bottom: 0}}
-        transitory>
+      <Say image={{uri: archkot4Png, style: {width: '100%', bottom: 0}}}>
         —или если его перемещение и изменение повлекут улучшение условий его
         сохранения. Да и в общей сложности, это крайне дорогая процедура
-      </Branch.Say>
+      </Say>
 
-      <Branch.Say transitory>
+      <Say>
         Слушания подошли к концу. Общественность не верит вашим словам, но
         теперь у вас собран целый альбом комментариев
-      </Branch.Say>
+      </Say>
 
-      <Branch.Say
-        foregroundSrc={mayor2Png}
-        foregroundStyle={{width: '100%', bottom: 0}}
-        transitory
-        durationMs={0}
-        lingers={1}>
-        Что делать с проектом?
-      </Branch.Say>
-
-      <Branch.Choices
-        choices={[
+      <Say
+        image={{uri: mayor2Png, style: {width: '100%', bottom: 0}}}
+        menu={[
           {
             label: 'Не одобрять',
             onClick: (ctx) =>
@@ -161,8 +124,9 @@ export function BranchCityHall_ProjAirport_Examine_Reject() {
             onClick: (ctx) =>
               ctx.goToBranch('CityHall_ProjAirport_Examine_Reject_Approve'),
           },
-        ]}
-      />
-    </Branch.Root>
+        ]}>
+        Что делать с проектом?
+      </Say>
+    </Branch>
   )
 }

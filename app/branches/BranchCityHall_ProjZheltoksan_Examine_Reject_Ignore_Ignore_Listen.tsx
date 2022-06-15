@@ -1,21 +1,19 @@
 import {bgZheltoksanBeforeJpg} from '~/assets/game'
-import {makeStrictBranch} from '~/lib'
-
-const Branch = makeStrictBranch()
+import {Branch, Menu, Say, Scene, Title} from '~/lib'
 
 export function BranchCityHall_ProjZheltoksan_Examine_Reject_Ignore_Ignore_Listen() {
   return (
-    <Branch.Root background={bgZheltoksanBeforeJpg}>
-      <Branch.Say transitory>
+    <Branch>
+      <Scene src={bgZheltoksanBeforeJpg} />
+
+      <Say>
         Поздравляем! Вы защищаете наследие! К тому же, при дальнейшем внесении
         здания в список памятников, оно может стать активом
-      </Branch.Say>
+      </Say>
 
-      <Branch.Title transitory lingers>
-        Конец игры
-      </Branch.Title>
+      <Title visibility="indefinite">Конец игры</Title>
 
-      <Branch.Choices
+      <Menu
         scheme="dark"
         choices={[
           {
@@ -24,6 +22,6 @@ export function BranchCityHall_ProjZheltoksan_Examine_Reject_Ignore_Ignore_Liste
           },
         ]}
       />
-    </Branch.Root>
+    </Branch>
   )
 }

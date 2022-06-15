@@ -10,77 +10,60 @@ import {
   mayor9Png,
 } from '~/assets/game'
 import {SubmitMonumentNomination} from '~/commands'
-import {makeStrictBranch} from '~/lib'
-
-const Branch = makeStrictBranch()
+import {Branch, Say, Scene, Show} from '~/lib'
 
 export function BranchCityHall_MonumentDept_Rant() {
   return (
-    <Branch.Root background={bgCityHallMayorOfficeJpg}>
-      <Branch.Foreground
-        src={bgMayorDoorwayJpg}
-        style={{height: '100%', width: '100%', objectFit: 'cover'}}
-        durationMs={0}
-        transitory
-        lingers={2}
-      />
+    <Branch>
+      <Scene src={bgCityHallMayorOfficeJpg} />
 
-      <Branch.Say
-        foregroundSrc={mayor8Png}
-        foregroundStyle={{width: '100%', bottom: '-10%'}}
-        transitory>
+      <Scene src={bgMayorDoorwayJpg} />
+
+      <Say image={{uri: mayor8Png, style: {width: '100%', bottom: '-10%'}}}>
         —БЫСТРО ВСЕМ ЗА РАБОТУ!!!
-      </Branch.Say>
+      </Say>
 
-      <Branch.Say
-        foregroundSrc={mayor9Png}
-        foregroundStyle={{width: '100%', bottom: 0}}
-        transitory>
+      <Say image={{uri: mayor9Png, style: {width: '100%', bottom: 0}}}>
         —Подготовить базу для внесения зданий в список
-      </Branch.Say>
+      </Say>
 
-      <Branch.Say
-        foregroundSrc={mayor2Png}
-        foregroundStyle={{width: '100%', bottom: 0}}
-        transitory>
+      <Say image={{uri: mayor2Png, style: {width: '100%', bottom: 0}}}>
         На самом деле много зданий, которые могут быть официальными памятниками…
-      </Branch.Say>
+      </Say>
 
-      <Branch.Say
-        foregroundSrc={mayor10Png}
-        foregroundStyle={{width: '100%', bottom: 0, transform: 'scaleX(-1)'}}
-        transitory>
+      <Say
+        image={{
+          uri: mayor10Png,
+          style: {width: '100%', bottom: 0, transform: 'scaleX(-1)'},
+        }}>
         Привлекут больше туристов
-      </Branch.Say>
+      </Say>
 
-      <Branch.Say
-        foregroundSrc={mayor10Png}
-        foregroundStyle={{width: '100%', bottom: 0}}
-        transitory>
+      <Say image={{uri: mayor10Png, style: {width: '100%', bottom: 0}}}>
         Да и ценность их вырастет
-      </Branch.Say>
+      </Say>
 
-      <Branch.Foreground
-        src={mayor1Png}
-        style={{
-          width: '100%',
-          height: '100%',
-          objectFit: 'cover',
-          transform: 'scale(1.5)',
-          transformOrigin: 'bottom',
+      <Show
+        src={{
+          uri: mayor1Png,
+          style: {
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+            transform: 'scale(1.5)',
+            transformOrigin: 'bottom',
+          },
         }}
-        transitory
         durationMs={0}
-        lingers={5}
+        visibility={5}
       />
 
-      <Branch.Say transitory durationMs={0} lingers={2}>
+      <Say durationMs={0} visibility={2}>
         Ну что, приступим к списку…
-      </Branch.Say>
+      </Say>
 
-      <Branch.Say
-        href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-        textFrame={{
+      <Say
+        frame={{
           viewport: [1080, 1920],
           rect: {
             x: 140,
@@ -88,16 +71,14 @@ export function BranchCityHall_MonumentDept_Rant() {
             width: 720,
           },
         }}
-        textStyle={{fontSize: 16, textAlign: 'left'}}
-        transitory
-        durationMs={0}
-        lingers={1}>
-        “Какие здания уже в реестре памятников?” *Ссылка РЕЕСТР
-      </Branch.Say>
+        style_={{fontSize: 16, textAlign: 'left'}}
+        visibility={1}>
+        “Какие здания уже в реестре памятников?” [*Ссылка
+        РЕЕСТР](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
+      </Say>
 
-      <Branch.Say
-        href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-        textFrame={{
+      <Say
+        frame={{
           viewport: [1080, 1920],
           rect: {
             x: 140,
@@ -105,13 +86,14 @@ export function BranchCityHall_MonumentDept_Rant() {
             width: 720,
           },
         }}
-        textStyle={{fontSize: 16, textAlign: 'left'}}>
-        “Какие здания хотел внести список аким Байбек. *Ссылка 2
-      </Branch.Say>
+        style_={{fontSize: 16, textAlign: 'left'}}>
+        “Какие здания хотел внести список аким Байбек. [*Ссылка
+        2](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
+      </Say>
 
-      <Branch.Say transitory durationMs={0} lingers={1}>
+      <Say durationMs={0} visibility={1}>
         Какие здания города надо бы добавить в этот список?
-      </Branch.Say>
+      </Say>
 
       <SubmitMonumentNomination
         onDone={(ctx) => ctx.skip()}
@@ -126,24 +108,15 @@ export function BranchCityHall_MonumentDept_Rant() {
         }}
       />
 
-      <Branch.Say
+      <Say
         placement="bottom"
-        foregroundSrc={mayor11Png}
-        foregroundStyle={{width: '100%', bottom: 0}}
-        transitory>
+        image={{uri: mayor11Png, style: {width: '100%', bottom: 0}}}>
         Попробую отправить запрос на внесение в список
-      </Branch.Say>
+      </Say>
 
-      <Branch.Say
-        foregroundSrc={mayor12Png}
-        foregroundStyle={{width: '100%', bottom: '-12%'}}
-        transitory
-        lingers={1}>
-        Подожду коммисию, а пока выпью чая
-      </Branch.Say>
-
-      <Branch.Choices
-        choices={[
+      <Say
+        image={{uri: mayor12Png, style: {width: '100%', bottom: '-12%'}}}
+        menu={[
           {
             label: 'Дальше',
             onClick: (ctx) => {
@@ -156,8 +129,9 @@ export function BranchCityHall_MonumentDept_Rant() {
               )
             },
           },
-        ]}
-      />
-    </Branch.Root>
+        ]}>
+        Подожду коммисию, а пока выпью чая
+      </Say>
+    </Branch>
   )
 }

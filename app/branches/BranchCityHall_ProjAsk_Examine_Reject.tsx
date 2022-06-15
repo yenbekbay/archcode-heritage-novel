@@ -16,169 +16,120 @@ import {
   stampRejectedPng,
   tinaShtunerPng,
 } from '~/assets/game'
-import {makeStrictBranch} from '~/lib'
-
-const Branch = makeStrictBranch()
+import {Branch, Say, Scene, Show} from '~/lib'
 
 export function BranchCityHall_ProjAsk_Examine_Reject() {
   return (
-    <Branch.Root background={bgCityHallMayorOfficeJpg}>
-      <Branch.Say
-        foregroundSrc={mayor3Png}
-        foregroundStyle={{width: '100%', bottom: 0}}
-        transitory>
+    <Branch>
+      <Scene src={bgCityHallMayorOfficeJpg} />
+
+      <Say image={{uri: mayor3Png, style: {width: '100%', bottom: 0}}}>
         Проект нужно пересмотреть. устроить общественные слушания!
-      </Branch.Say>
+      </Say>
 
-      <Branch.Foreground
-        src={letterPng}
-        style={{
-          height: '100%',
-          width: '100%',
-          objectFit: 'cover',
-          backgroundColor: '#e7dbab',
-          transform: 'scale(2.5)',
-          transformOrigin: '50% 35%',
+      <Show
+        src={{
+          uri: letterPng,
+          style: {
+            height: '100%',
+            width: '100%',
+            objectFit: 'cover',
+            backgroundColor: '#e7dbab',
+            transform: 'scale(2.5)',
+            transformOrigin: '50% 35%',
+          },
         }}
-        transitory
-        lingers={1}
+        visibility={1}
       />
 
-      <Branch.Foreground
-        src={stampRejectedPng}
-        style={{
-          height: '100%',
-          width: '100%',
-          objectFit: 'cover',
-          transform: 'translateY(-15%)',
+      <Show
+        src={{
+          uri: stampRejectedPng,
+          style: {
+            height: '100%',
+            width: '100%',
+            objectFit: 'cover',
+            transform: 'translateY(-15%)',
+          },
         }}
-        transitory
       />
 
-      <Branch.Foreground
-        src={bgDeveloperHqOutsideJpg}
-        style={{height: '100%', width: '100%', objectFit: 'cover'}}
-        durationMs={3000}
-        transitory
-        lingers={1}
-      />
+      <Scene src={bgDeveloperHqOutsideJpg} />
 
-      <Branch.Foreground
-        src={bgDeveloperHqInsidePng}
-        style={{height: '100%', width: '100%', objectFit: 'cover'}}
-        durationMs={3000}
-        transitory
-        lingers
-      />
+      <Scene src={bgDeveloperHqInsidePng} />
 
-      <Branch.Say
+      <Say
         tag="АрхКот:"
-        foregroundSrc={archkot4Png}
-        foregroundStyle={{width: '100%', bottom: 0}}
-        transitory>
+        image={{uri: archkot4Png, style: {width: '100%', bottom: 0}}}>
         —Это сейчас практически единственное здание, которое не было изменено
-      </Branch.Say>
+      </Say>
 
-      <Branch.Say
+      <Say
         tag="Девелопер:"
-        foregroundSrc={developerRepB1Png}
-        foregroundStyle={{width: '100%', bottom: 0}}
-        transitory>
+        image={{uri: developerRepB1Png, style: {width: '100%', bottom: 0}}}>
         —Внутри мы хотим создать современные, удобные помещения, увеличить
         свободную площадь,
-      </Branch.Say>
+      </Say>
 
-      <Branch.Say
-        foregroundSrc={developerRepB2Png}
-        foregroundStyle={{width: '100%', bottom: 0}}
-        transitory>
+      <Say image={{uri: developerRepB2Png, style: {width: '100%', bottom: 0}}}>
         а еще сделать open space — с учетом прозрачного фасада, будет больше
         света!
-      </Branch.Say>
+      </Say>
 
-      <Branch.Say
-        foregroundSrc={developerRepB3Png}
-        foregroundStyle={{width: '100%', bottom: 0}}
-        transitory>
+      <Say image={{uri: developerRepB3Png, style: {width: '100%', bottom: 0}}}>
         Стекла на фасаде сделаем зеркальными!
-      </Branch.Say>
+      </Say>
 
-      <Branch.Say
+      <Say
         tag="Горжемпо:"
-        foregroundSrc={gorzhempoPng}
-        foregroundStyle={{width: '100%', bottom: 0}}
-        transitory>
+        image={{uri: gorzhempoPng, style: {width: '100%', bottom: 0}}}>
         —В начале 80-х годов прошлого века я мечтал о зеркальном стекле,
         которого в СССР не было
-      </Branch.Say>
+      </Say>
 
-      <Branch.Say
-        foregroundSrc={gorzhempoPng}
-        foregroundStyle={{width: '100%', bottom: 0}}
-        transitory>
+      <Say image={{uri: gorzhempoPng, style: {width: '100%', bottom: 0}}}>
         Из-за дефицита материала в итоге при строительстве было использовано
         дымчатое стекло,
-      </Branch.Say>
+      </Say>
 
-      <Branch.Say
-        foregroundSrc={gorzhempoPng}
-        foregroundStyle={{width: '100%', bottom: 0}}
-        transitory>
+      <Say image={{uri: gorzhempoPng, style: {width: '100%', bottom: 0}}}>
         и в проекте, судя по рендерам, оно заменяется на зеркальное
-      </Branch.Say>
+      </Say>
 
-      <Branch.Say
+      <Say
         tag="Тина Штунер:"
-        foregroundSrc={tinaShtunerPng}
-        foregroundStyle={{width: '100%', bottom: 0}}
-        transitory>
+        image={{uri: tinaShtunerPng, style: {width: '100%', bottom: 0}}}>
         —Это уже исторический памятник, и сделать зеркальные окна — нарушение
         облика, к которому мы привыкли
-      </Branch.Say>
+      </Say>
 
-      <Branch.Say
+      <Say
         tag="Адя Пчелкина:"
-        foregroundSrc={adyaPchelkinaPng}
-        foregroundStyle={{width: '100%', bottom: 0}}
-        transitory>
+        image={{uri: adyaPchelkinaPng, style: {width: '100%', bottom: 0}}}>
         —Есть ли у Bay Shatyr Group лицензия на работу с памятниками?
-      </Branch.Say>
+      </Say>
 
-      <Branch.Say
+      <Say
         tag="Девелопер:"
-        foregroundSrc={developerRepB4Png}
-        foregroundStyle={{width: '100%', bottom: 0}}
-        transitory>
+        image={{uri: developerRepB4Png, style: {width: '100%', bottom: 0}}}>
         …
-      </Branch.Say>
+      </Say>
 
-      <Branch.Say
+      <Say
         tag="АрхКот:"
-        foregroundSrc={archkot4Png}
-        foregroundStyle={{width: '100%', bottom: 0}}
-        transitory>
+        image={{uri: archkot4Png, style: {width: '100%', bottom: 0}}}>
         —Нужен кто-то, кто будет контролировать правильность процесса!
-      </Branch.Say>
+      </Say>
 
-      <Branch.Say
+      <Say
         tag="Девелопер:"
-        foregroundSrc={developerRepB5Png}
-        foregroundStyle={{width: '100%', bottom: 0}}
-        transitory>
+        image={{uri: developerRepB5Png, style: {width: '100%', bottom: 0}}}>
         …
-      </Branch.Say>
+      </Say>
 
-      <Branch.Say
-        foregroundSrc={mayor2Png}
-        foregroundStyle={{width: '100%', bottom: 0}}
-        transitory
-        durationMs={0}
-        lingers={1}>
-        Что делать?
-      </Branch.Say>
-
-      <Branch.Choices
-        choices={[
+      <Say
+        image={{uri: mayor2Png, style: {width: '100%', bottom: 0}}}
+        menu={[
           {
             label: 'Выдвинуть группу от акимата',
             onClick: (ctx) =>
@@ -189,8 +140,9 @@ export function BranchCityHall_ProjAsk_Examine_Reject() {
             onClick: (ctx) =>
               ctx.goToBranch('CityHall_ProjAsk_Examine_Reject_Ignore'),
           },
-        ]}
-      />
-    </Branch.Root>
+        ]}>
+        Что делать?
+      </Say>
+    </Branch>
   )
 }

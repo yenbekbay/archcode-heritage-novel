@@ -5,47 +5,22 @@ import {
   bgMayorDeskJpg,
   mayor1Png,
 } from '~/assets/game'
-import {makeStrictBranch} from '~/lib'
-
-const Branch = makeStrictBranch()
+import {Branch, Menu, Say, Scene} from '~/lib'
 
 export function BranchCityHall_0Menu() {
   return (
-    <Branch.Root background={bgCityHallOutsideJpg}>
-      <Branch.Blank durationMs={3000} transitory />
+    <Branch>
+      <Scene src={bgCityHallOutsideJpg} />
+      <Scene src={bgCityHallSignJpg} />
+      <Scene src={bgCityHallMayorOfficeJpg} />
 
-      <Branch.Foreground
-        src={bgCityHallSignJpg}
-        style={{height: '100%', width: '100%', objectFit: 'cover'}}
-        durationMs={3000}
-        transitory
-        lingers={1}
-      />
-
-      <Branch.Foreground
-        src={bgCityHallMayorOfficeJpg}
-        style={{height: '100%', width: '100%', objectFit: 'cover'}}
-        durationMs={3000}
-        transitory
-        lingers={2}
-      />
-
-      <Branch.Say
-        foregroundSrc={mayor1Png}
-        foregroundStyle={{width: '100%', bottom: 0}}
-        transitory>
+      <Say image={{uri: mayor1Png, style: {width: '100%', bottom: 0}}}>
         Так-с…Что у нас на повестке дня?
-      </Branch.Say>
+      </Say>
 
-      <Branch.Foreground
-        src={bgMayorDeskJpg}
-        style={{height: '100%', width: '100%', objectFit: 'cover'}}
-        durationMs={3000}
-        transitory
-        lingers={1}
-      />
+      <Scene src={bgMayorDeskJpg} />
 
-      <Branch.Choices
+      <Menu
         scheme="dark"
         choices={[
           {
@@ -91,8 +66,7 @@ export function BranchCityHall_0Menu() {
             onClick: (ctx) => ctx.goToBranch('CityHall_Menu_GovPrograms'),
           },
         ]}
-        transitory
       />
-    </Branch.Root>
+    </Branch>
   )
 }

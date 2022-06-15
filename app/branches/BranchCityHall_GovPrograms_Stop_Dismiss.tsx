@@ -6,59 +6,36 @@ import {
   mayor3Png,
   mayor9Png,
 } from '~/assets/game'
-import {makeStrictBranch} from '~/lib'
-
-const Branch = makeStrictBranch()
+import {Branch, Menu, Say, Scene, Title} from '~/lib'
 
 export function BranchCityHall_GovPrograms_Stop_Dismiss() {
   return (
-    <Branch.Root background={bgCityHallConferenceRoomJpg}>
-      <Branch.Say
-        foregroundSrc={mayor9Png}
-        foregroundStyle={{width: '100%', bottom: 0}}
-        transitory>
+    <Branch>
+      <Scene src={bgCityHallConferenceRoomJpg} />
+
+      <Say image={{uri: mayor9Png, style: {width: '100%', bottom: 0}}}>
         —Никакой ценности эти остановки не имеют!
-      </Branch.Say>
+      </Say>
 
-      <Branch.Say
-        foregroundSrc={mayor15Png}
-        foregroundStyle={{width: '100%', bottom: 0}}
-        transitory>
+      <Say image={{uri: mayor15Png, style: {width: '100%', bottom: 0}}}>
         —Все это-пережитки советского прошлого!
-      </Branch.Say>
+      </Say>
 
-      <Branch.Say
-        foregroundSrc={mayor3Png}
-        foregroundStyle={{width: '100%', bottom: 0}}
-        transitory>
+      <Say image={{uri: mayor3Png, style: {width: '100%', bottom: 0}}}>
         —Не одобрять проект!
-      </Branch.Say>
+      </Say>
 
-      <Branch.Foreground
-        src={bgBusStop5Jpg}
-        style={{height: '100%', width: '100%', objectFit: 'cover'}}
-        transitory
-        lingers={2}
-      />
+      <Scene src={bgBusStop5Jpg} />
 
-      <Branch.Say transitory>Вы успешно демонтировали остановку</Branch.Say>
+      <Say>Вы успешно демонтировали остановку</Say>
 
-      <Branch.Foreground
-        src={bgBusStop6Jpg}
-        style={{height: '100%', width: '100%', objectFit: 'cover'}}
-        transitory
-        lingers
-      />
+      <Scene src={bgBusStop6Jpg} />
 
-      <Branch.Say transitory>
-        Советские остановки исчезли по всему городу…
-      </Branch.Say>
+      <Say>Советские остановки исчезли по всему городу…</Say>
 
-      <Branch.Title transitory lingers>
-        Конец игры
-      </Branch.Title>
+      <Title visibility="indefinite">Конец игры</Title>
 
-      <Branch.Choices
+      <Menu
         scheme="dark"
         choices={[
           {
@@ -67,6 +44,6 @@ export function BranchCityHall_GovPrograms_Stop_Dismiss() {
           },
         ]}
       />
-    </Branch.Root>
+    </Branch>
   )
 }

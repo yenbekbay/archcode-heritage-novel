@@ -45,7 +45,7 @@ function MobileDeviceChromeFrame({
   return (
     <div className="relative" style={{width: ratio * 212, height}}>
       <svg
-        className="pointer-events-none absolute inset-0 z-10"
+        className="pointer-events-none absolute inset-0 z-50"
         width={ratio * 212}
         height={height}
         viewBox="0 0 212 451"

@@ -6,65 +6,49 @@ import {
   mayor4Png,
   stampApprovedPng,
 } from '~/assets/game'
-import {makeStrictBranch} from '~/lib'
-
-const Branch = makeStrictBranch()
+import {Branch, Say, Scene, Show} from '~/lib'
 
 export function BranchCityHall_ProjZheltoksan_Examine_Reject_Ignore_Ignore() {
   return (
-    <Branch.Root background={bgCityHallMayorOfficeJpg}>
-      <Branch.Foreground
-        src={letterPng}
-        style={{
-          height: '100%',
-          width: '100%',
-          objectFit: 'cover',
-          backgroundColor: '#e7dbab',
-          transform: 'scale(2.5)',
-          transformOrigin: '50% 35%',
+    <Branch>
+      <Scene src={bgCityHallMayorOfficeJpg} />
+
+      <Show
+        src={{
+          uri: letterPng,
+          style: {
+            height: '100%',
+            width: '100%',
+            objectFit: 'cover',
+            backgroundColor: '#e7dbab',
+            transform: 'scale(2.5)',
+            transformOrigin: '50% 35%',
+          },
         }}
-        transitory
-        lingers={2}
+        visibility={2}
       />
 
-      <Branch.Foreground
-        src={stampApprovedPng}
-        style={{
-          height: '100%',
-          width: '100%',
-          objectFit: 'cover',
-          transform: 'translateY(-15%)',
+      <Show
+        src={{
+          uri: stampApprovedPng,
+          style: {
+            height: '100%',
+            width: '100%',
+            objectFit: 'cover',
+            transform: 'translateY(-15%)',
+          },
         }}
-        transitory
-        lingers={1}
       />
 
-      <Branch.Foreground
-        src={bgZheltoksanBeforeJpg}
-        style={{height: '100%', width: '100%', objectFit: 'cover'}}
-        durationMs={0}
-        transitory
-        lingers={1}
-      />
+      <Scene src={bgZheltoksanBeforeJpg} />
 
-      <Branch.Say
-        foregroundSrc={angryCrowd1Png}
-        foregroundStyle={{width: '100%', bottom: 0}}
-        transitory>
+      <Say image={{uri: angryCrowd1Png, style: {width: '100%', bottom: 0}}}>
         Массовый протест
-      </Branch.Say>
+      </Say>
 
-      <Branch.Say
-        foregroundSrc={mayor4Png}
-        foregroundStyle={{width: '100%', bottom: 0}}
-        transitory
-        durationMs={0}
-        lingers={1}>
-        Что делать?
-      </Branch.Say>
-
-      <Branch.Choices
-        choices={[
+      <Say
+        image={{uri: mayor4Png, style: {width: '100%', bottom: 0}}}
+        menu={[
           {
             label: 'Учесть мнение',
             onClick: (ctx) =>
@@ -79,8 +63,9 @@ export function BranchCityHall_ProjZheltoksan_Examine_Reject_Ignore_Ignore() {
                 'CityHall_ProjZheltoksan_Examine_Reject_Ignore_Ignore_Ignore',
               ),
           },
-        ]}
-      />
-    </Branch.Root>
+        ]}>
+        Что делать?
+      </Say>
+    </Branch>
   )
 }

@@ -8,10 +8,10 @@ import {useZorm} from 'react-zorm'
 import type {Fetcher} from 'swr'
 import useSWR from 'swr'
 import {z} from 'zod'
-import type {CommandViewAnimation, CommandViewColorScheme, Frame} from '~/lib'
+import type {CommandViewColorScheme, Frame, ImageViewProps} from '~/lib'
 import {
   Command,
-  ForegroundView,
+  ImageView,
   styleForFrame,
   useBranchContext,
   useGameContext,
@@ -26,35 +26,20 @@ export interface SubmitMemeProps {
     goToStatement: (statementLabel: string) => void
     skip: () => void
   }) => void
-  frame?: Frame
   scheme?: CommandViewColorScheme
-  foregroundSrc?: string
-  foregroundStyle?: React.CSSProperties
-  foregroundAnimation?: CommandViewAnimation
+  frame?: Frame
+  image?: string | Omit<ImageViewProps, 'controls'>
 }
 
-export function SubmitMeme({
-  onDone,
-  frame,
-  scheme,
-  foregroundSrc,
-  foregroundStyle,
-  foregroundAnimation,
-}: SubmitMemeProps) {
+export function SubmitMeme({onDone, frame, scheme, image}: SubmitMemeProps) {
   const {goToBranch} = useGameContext()
   const {containerSize, goToStatement, skip} = useBranchContext()
+  const imageProps = typeof image === 'string' ? {uri: image} : image
   return (
-    <Command>
+    <Command behavior={['non_skippable']}>
       {(controls) => (
         <>
-          {foregroundSrc && (
-            <ForegroundView
-              src={foregroundSrc}
-              style={foregroundStyle}
-              animation={foregroundAnimation}
-              controls={controls}
-            />
-          )}
+          {imageProps && <ImageView controls={controls} {...imageProps} />}
 
           <motion.div
             className={clsx(
@@ -164,8 +149,16 @@ function MemeForm({onSubmit, onSkip, scheme}: MemeFormProps) {
             <MemePreview
               scheme={scheme}
               url={previewUrl}
-              onSubmit={onSubmit}
-              onSkip={onSkip}
+              onSubmit={async (values) => {
+                await onSubmit(values)
+                localStorage.removeItem(kPreviewUrl)
+                localStorage.removeItem(kActiveTemplateId)
+              }}
+              onSkip={() => {
+                onSkip()
+                localStorage.removeItem(kPreviewUrl)
+                localStorage.removeItem(kActiveTemplateId)
+              }}
             />
           ) : (
             <MemeTemplateForm

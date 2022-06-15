@@ -24,7 +24,7 @@ export function SubmitMonumentNomination({
   const {goToBranch} = useGameContext()
   const {containerSize, goToStatement, skip} = useBranchContext()
   return (
-    <Command>
+    <Command behavior={['non_skippable']}>
       {(controls) => (
         <motion.div
           className={clsx(

@@ -11,188 +11,144 @@ import {
   redhead12Png,
   redhead9Png,
 } from '~/assets/game'
-import {makeStrictBranch} from '~/lib'
-
-const Branch = makeStrictBranch()
+import {Branch, Say, Scene} from '~/lib'
 
 export function BranchActivist_CheckOut_Act_Self() {
   return (
-    <Branch.Root background={bgCourtyardJpg}>
-      <Branch.Blank durationMs={3000} transitory />
+    <Branch>
+      <Scene src={bgCourtyardJpg} />
+      <Scene src={bgAptOutsideWindowJpg} />
+      <Scene src={bgAptEntranceJpg} />
+      <Scene src={bgLaptopAboveJpg} />
 
-      <Branch.Foreground
-        src={bgAptOutsideWindowJpg}
-        style={{height: '100%', width: '100%', objectFit: 'cover'}}
-        durationMs={3000}
-        transitory
-        lingers={1}
-      />
-
-      <Branch.Foreground
-        src={bgAptEntranceJpg}
-        style={{height: '100%', width: '100%', objectFit: 'cover'}}
-        durationMs={3000}
-        transitory
-        lingers={1}
-      />
-
-      <Branch.Foreground
-        src={bgLaptopAboveJpg}
-        style={{height: '100%', width: '100%', objectFit: 'cover'}}
-        durationMs={3000}
-        transitory
-        lingers={3}
-      />
-
-      <Branch.Say scheme="dark" durationMs={0} transitory lingers={1}>
+      <Say scheme="dark" visibility={1}>
         Действовать надо последовательно
-      </Branch.Say>
+      </Say>
 
-      <Branch.Say placement="bottom" scheme="dark" transitory>
+      <Say placement="bottom" scheme="dark">
         Для начала узнаю, кто здесь — заинтересованные стороны
-      </Branch.Say>
+      </Say>
 
-      <Branch.Foreground
-        src={bgAptKitchenJpg}
-        style={{height: '100%', width: '100%', objectFit: 'cover'}}
-        transitory
-        lingers
-      />
+      <Scene src={bgAptKitchenJpg} />
 
-      <Branch.Say
-        foregroundSrc={redhead9Png}
-        foregroundStyle={{width: '100%', bottom: 0}}
-        transitory
-        lingers={1}>
+      <Say
+        image={{uri: redhead9Png, style: {width: '100%', bottom: 0}}}
+        visibility={1}>
         Узнать надо побольше…
-      </Branch.Say>
+      </Say>
 
-      <Branch.Say placement="bottom" scheme="dark">
+      <Say placement="bottom" scheme="dark">
         И не только почитать новости, а проверить, правду ли говорят
-      </Branch.Say>
+      </Say>
 
-      <Branch.Say
-        href="https://factcheck.kz/"
-        foregroundSrc={bgLaptopHandsJpg}
-        foregroundStyle={{
-          height: '100%',
-          width: '100%',
-          objectFit: 'cover',
-          transform: 'scale(2) translateY(30px)',
+      <Say
+        image={{
+          uri: bgLaptopHandsJpg,
+          style: {
+            height: '100%',
+            width: '100%',
+            objectFit: 'cover',
+            transform: 'scale(2) translateY(30px)',
+          },
         }}>
-        *Ссылка фактчек
-      </Branch.Say>
+        [*Ссылка фактчек](https://factcheck.kz/)
+      </Say>
 
-      <Branch.Say
-        foregroundSrc={redhead10Png}
-        foregroundStyle={{width: '100%', bottom: 0}}
-        transitory>
+      <Say image={{uri: redhead10Png, style: {width: '100%', bottom: 0}}}>
         А теперь как запилю пост, что весь город на уши встанет!!!
-      </Branch.Say>
+      </Say>
 
-      <Branch.Say
-        href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-        foregroundSrc={bgLaptopHandsJpg}
-        foregroundStyle={{
-          height: '100%',
-          width: '100%',
-          objectFit: 'cover',
-          transform: 'scale(2) translateY(30px)',
+      <Say
+        image={{
+          uri: bgLaptopHandsJpg,
+          style: {
+            height: '100%',
+            width: '100%',
+            objectFit: 'cover',
+            transform: 'scale(2) translateY(30px)',
+          },
         }}>
-        *Ссылка 22 "как написать пост в соц.сети и быть услышанным"
-      </Branch.Say>
+        [*Ссылка 22 "как написать пост в соц.сети и быть
+        услышанным"](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
+      </Say>
 
-      <Branch.Say
-        foregroundSrc={redhead11Png}
-        foregroundStyle={{width: '100%', bottom: 0}}
-        transitory>
+      <Say image={{uri: redhead11Png, style: {width: '100%', bottom: 0}}}>
         Буду писать во все инстанции!
-      </Branch.Say>
+      </Say>
 
-      <Branch.Say
-        href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-        foregroundSrc={bgLaptopHandsJpg}
-        foregroundStyle={{
-          height: '100%',
-          width: '100%',
-          objectFit: 'cover',
-          transform: 'scale(2) translateY(30px)',
+      <Say
+        image={{
+          uri: bgLaptopHandsJpg,
+          style: {
+            height: '100%',
+            width: '100%',
+            objectFit: 'cover',
+            transform: 'scale(2) translateY(30px)',
+          },
         }}>
-        *Ссылка список "кому можно писать" и примеры официальных писем
-      </Branch.Say>
+        [*Ссылка список "кому можно писать" и примеры официальных
+        писем](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
+      </Say>
 
-      <Branch.Say
-        foregroundSrc={redhead9Png}
-        foregroundStyle={{width: '100%', bottom: 0}}
-        transitory>
+      <Say image={{uri: redhead9Png, style: {width: '100%', bottom: 0}}}>
         Таксссссс, а слушания то будут??
-      </Branch.Say>
+      </Say>
 
-      <Branch.Say
-        href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-        foregroundSrc={bgLaptopHandsJpg}
-        foregroundStyle={{
-          height: '100%',
-          width: '100%',
-          objectFit: 'cover',
-          transform: 'scale(2) translateY(30px)',
+      <Say
+        image={{
+          uri: bgLaptopHandsJpg,
+          style: {
+            height: '100%',
+            width: '100%',
+            objectFit: 'cover',
+            transform: 'scale(2) translateY(30px)',
+          },
         }}>
-        Новости, статьи и объявления о слушаниях
-      </Branch.Say>
+        [Новости, статьи и объявления о
+        слушаниях](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
+      </Say>
 
-      <Branch.Say
-        foregroundSrc={redhead12Png}
-        foregroundStyle={{width: '100%', bottom: 0}}
-        transitory>
+      <Say image={{uri: redhead12Png, style: {width: '100%', bottom: 0}}}>
         И вообще, если не будет диалога, я готова действовать!!!
-      </Branch.Say>
+      </Say>
 
-      <Branch.Say
-        foregroundSrc={redhead11Png}
-        foregroundStyle={{width: '100%', bottom: 0}}
-        transitory>
+      <Say image={{uri: redhead11Png, style: {width: '100%', bottom: 0}}}>
         Устрою протест!!!
-      </Branch.Say>
+      </Say>
 
-      <Branch.Say
-        href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-        foregroundSrc={bgLaptopHandsJpg}
-        foregroundStyle={{
-          height: '100%',
-          width: '100%',
-          objectFit: 'cover',
-          transform: 'scale(2) translateY(30px)',
+      <Say
+        image={{
+          uri: bgLaptopHandsJpg,
+          style: {
+            height: '100%',
+            width: '100%',
+            objectFit: 'cover',
+            transform: 'scale(2) translateY(30px)',
+          },
         }}>
-        *переход на СЦЕНЫ ( Примеры протестных акций: Акция женщины, обклеившей
-        свой дом фотографиями президента, Розовый фламинго Талдыколя, Художник в
-        ковше.
-      </Branch.Say>
+        [*переход на СЦЕНЫ](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
+        (Примеры протестных акций: Акция женщины, обклеившей свой дом
+        фотографиями президента, Розовый фламинго Талдыколя, Художник в ковше)
+      </Say>
 
-      <Branch.Say
-        foregroundSrc={bgLaptopStandaloneJpg}
-        foregroundStyle={{
-          height: '100%',
-          width: '100%',
-          objectFit: 'cover',
-          transform: 'scale(2) translateY(30px)',
+      <Say
+        image={{
+          uri: bgLaptopStandaloneJpg,
+          style: {
+            height: '100%',
+            width: '100%',
+            objectFit: 'cover',
+            transform: 'scale(2) translateY(30px)',
+          },
         }}
-        transitory
-        lingers={1}>
-        Думаю, можно обратиться к ним
-      </Branch.Say>
-
-      <Branch.Say href="https://archcode.kz" textStyle={{marginTop: 64}}>
-        сайт Архкода
-      </Branch.Say>
-
-      <Branch.Choices
-        choices={[
+        menu={[
           {
             label: 'Позвонить в Архкод',
             onClick: (ctx) => ctx.goToBranch('Activist_CheckOut_Act_Org'),
           },
-        ]}
-      />
-    </Branch.Root>
+        ]}>
+        {'Думаю, можно обратиться к ним\n[сайт Архкода](https://archcode.kz)'}
+      </Say>
+    </Branch>
   )
 }

@@ -2,15 +2,14 @@ import useSize from '@react-hook/size'
 import {motion, useAnimation} from 'framer-motion'
 import React from 'react'
 import {bgIntroJpg} from '~/assets/game'
-import type {BranchBackgroundComponentProps} from '~/lib'
-import {makeStrictBranch} from '~/lib'
-
-const Branch = makeStrictBranch()
+import {Branch, Command, Menu, Say, Title, useBranchContext} from '~/lib'
 
 export function BranchIntro() {
   return (
-    <Branch.Root background={Background}>
-      <Branch.Choices
+    <Branch>
+      <IntroScene />
+
+      <Menu
         placement="middle"
         choices={[
           {
@@ -20,37 +19,35 @@ export function BranchIntro() {
         ]}
       />
 
-      <Branch.Say transitory>
+      <Say>
         В городе, с цветущими яблонями и журчащими арыками, где возвышалось
         здание с изогнутой золотой крышей и стучали об рельсы трамваи, на
         центральной площади что-то строил старик, а перед ним табличка: “Я верну
         голубое небо”
-      </Branch.Say>
+      </Say>
 
-      <Branch.Say transitory>
+      <Say>
         Его считали городским сумасшедшим, ведь небо всегда было серое, но никто
         его не трогал, потому что всем было дико интересно, что же он строит.
         Когда-то он был архитектором, и по неизвестной причине лишился всего,
         что у него было. Он уверял, что никто не видит неба из-за призраков
         застывщих над городом.
-      </Branch.Say>
+      </Say>
 
-      <Branch.Say transitory>
+      <Say>
         Город показывается сверху, и это оказывается плотный смог из призраков
         снесенных зданий. Вокруг небо обычное. И вот настал день, когда старик
         завершил строение.
-      </Branch.Say>
+      </Say>
 
-      <Branch.Say transitory>
+      <Say>
         “Это машина времени, которая вернет вас туда, где небо было голубым.
         Наше настоящее в ваших руках!” — были его последние слова.
-      </Branch.Say>
+      </Say>
 
-      <Branch.Title transitory lingers>
-        Снести нельзя оставить
-      </Branch.Title>
+      <Title visibility="indefinite">Снести нельзя оставить</Title>
 
-      <Branch.Choices
+      <Menu
         scheme="dark"
         label="Выбрать персонажа"
         choices={[
@@ -73,14 +70,13 @@ export function BranchIntro() {
           },
         ]}
       />
-    </Branch.Root>
+    </Branch>
   )
 }
 
-function Background({
-  containerSize,
-  enteredPercent,
-}: BranchBackgroundComponentProps) {
+function IntroScene() {
+  const {containerSize, focusedStatementIndex, getStatementCount} =
+    useBranchContext()
   const controls = useAnimation()
   const imgRef = React.useRef<HTMLImageElement>(null)
   const imgSize = useSize(imgRef)
@@ -89,25 +85,38 @@ function Background({
       return
     }
 
+    const enteredPercent = (focusedStatementIndex + 1) / getStatementCount()
     controls.stop()
     controls.start({
       y: `calc(${containerSize[1] - imgSize[1]}px * ${enteredPercent})`,
       transition: {
-        duration: BACKGROUND_TRANSITION_DURATION_PER_PANEL / 1000,
+        duration: INTRO_SCENE_TRANSITION_DURATION_PER_STATEMENT / 1000,
         ease: 'easeOut',
       },
     })
-  }, [enteredPercent, containerSize, controls, imgSize])
+  }, [
+    containerSize,
+    controls,
+    imgSize,
+    focusedStatementIndex,
+    getStatementCount,
+  ])
 
   return (
-    <motion.img
-      ref={imgRef}
-      className="w-full"
-      src={bgIntroJpg}
-      initial={{y: 0}}
-      animate={controls}
-    />
+    <Command
+      behavior={['skippable_timed', {durationMs: 0}]}
+      visibility="indefinite">
+      {() => (
+        <motion.img
+          ref={imgRef}
+          className="w-full"
+          src={bgIntroJpg}
+          initial={{y: 0}}
+          animate={controls}
+        />
+      )}
+    </Command>
   )
 }
 
-const BACKGROUND_TRANSITION_DURATION_PER_PANEL = 8000
+const INTRO_SCENE_TRANSITION_DURATION_PER_STATEMENT = 8000
