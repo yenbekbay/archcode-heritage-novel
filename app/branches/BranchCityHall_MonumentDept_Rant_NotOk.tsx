@@ -21,7 +21,7 @@ export function BranchCityHall_MonumentDept_Rant_NotOk() {
         действия предыдущего. Все ваши предложения отменяются.
       </Say>
 
-      <Title visibility="indefinite">Конец игры</Title>
+      <Title hide={-1}>Конец игры</Title>
 
       <Menu
         scheme="dark"

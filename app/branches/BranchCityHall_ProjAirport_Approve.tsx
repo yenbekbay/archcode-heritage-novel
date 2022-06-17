@@ -24,7 +24,7 @@ export function BranchCityHall_ProjAirport_Approve() {
             transformOrigin: '50% 35%',
           },
         }}
-        visibility={2}
+        hide={2}
       />
 
       <Show
@@ -37,7 +37,7 @@ export function BranchCityHall_ProjAirport_Approve() {
             transform: 'translateY(-15%)',
           },
         }}
-        visibility={1}
+        hide={1}
       />
 
       <Say>Указ: Одобрить снос здания VIP терминала Аэропорта</Say>

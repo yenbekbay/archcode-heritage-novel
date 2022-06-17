@@ -24,7 +24,7 @@ export function BranchCityHall_ProjAirport_Examine_Reject_Approve() {
 
       <Scene src={bgAirportJpg} />
 
-      <Say durationMs={0} visibility={1}>
+      <Say durationMs={0} hide={1}>
         Рабочая группа от общественности отправила письмо в EBRD
       </Say>
 
@@ -41,9 +41,9 @@ export function BranchCityHall_ProjAirport_Examine_Reject_Approve() {
         вынуждены временно его заморозить
       </Say>
 
-      <Say visibility="indefinite">Продолжение следует…</Say>
+      <Say hide={-1}>Продолжение следует…</Say>
 
-      <Title visibility="indefinite">Конец игры</Title>
+      <Title hide={-1}>Конец игры</Title>
 
       <Menu
         scheme="dark"

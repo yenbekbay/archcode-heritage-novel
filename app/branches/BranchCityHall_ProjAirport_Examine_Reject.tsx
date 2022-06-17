@@ -30,7 +30,7 @@ export function BranchCityHall_ProjAirport_Examine_Reject() {
             transformOrigin: '50% 35%',
           },
         }}
-        visibility={2}
+        hide={2}
       />
 
       <Show

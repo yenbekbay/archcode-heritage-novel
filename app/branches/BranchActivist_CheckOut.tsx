@@ -19,7 +19,7 @@ export function BranchActivist_CheckOut() {
             exit: {x: '-400%', transition: {duration: 2}},
           },
         }}
-        visibility={1}
+        hide={1}
         zIndex={100}
       />
 

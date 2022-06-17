@@ -116,7 +116,7 @@ export function BranchArchkot_ProjAsk_CheckOut_SocialMedia() {
         историко-культурному наследию
       </Say>
 
-      <Title visibility="indefinite">Конец игры</Title>
+      <Title hide={-1}>Конец игры</Title>
 
       <Menu
         scheme="dark"

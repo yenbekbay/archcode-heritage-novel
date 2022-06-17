@@ -43,7 +43,7 @@ export function BranchActivist_CheckOut_Act_Group() {
           },
         }}
         durationMs={0}
-        visibility={1}>
+        hide={1}>
         *рассылка в whatsapp
       </Say>
 
@@ -83,7 +83,7 @@ export function BranchActivist_CheckOut_Act_Group() {
           },
         }}
         durationMs={0}
-        visibility={1}>
+        hide={1}>
         *whatsapp web
       </Say>
 
@@ -108,7 +108,7 @@ export function BranchActivist_CheckOut_Act_Group() {
 
       <Say
         image={{uri: activistBPng, style: {width: '100%', bottom: 0}}}
-        visibility={2}>
+        hide={2}>
         *встреча активистов
       </Say>
 
@@ -117,7 +117,7 @@ export function BranchActivist_CheckOut_Act_Group() {
           uri: activistAPng,
           style: {width: '100%', bottom: 0, transform: 'translateX(-25%)'},
         }}
-        visibility={1}
+        hide={1}
       />
 
       <Show
@@ -271,7 +271,7 @@ export function BranchActivist_CheckOut_Act_Group() {
           },
         }}
         durationMs={0}
-        visibility={1}>
+        hide={1}>
         —Вот!
       </Say>
 
@@ -316,7 +316,7 @@ export function BranchActivist_CheckOut_Act_Group() {
           },
         }}
         durationMs={0}
-        visibility={1}>
+        hide={1}>
         —Вот!
       </Say>
 

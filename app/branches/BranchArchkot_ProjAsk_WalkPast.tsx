@@ -20,7 +20,7 @@ export function BranchArchkot_ProjAsk_WalkPast() {
             exit: {x: '-400%', transition: {duration: 2}},
           },
         }}
-        visibility={1}
+        hide={1}
         zIndex={100}
       />
 
@@ -47,7 +47,7 @@ export function BranchArchkot_ProjAsk_WalkPast() {
         историко-культурному наследию
       </Say>
 
-      <Title visibility="indefinite">Конец игры</Title>
+      <Title hide={-1}>Конец игры</Title>
 
       <Menu
         scheme="dark"

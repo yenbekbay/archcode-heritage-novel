@@ -25,7 +25,7 @@ export function BranchCityHall_ProjAsk_Approve() {
             transformOrigin: '50% 35%',
           },
         }}
-        visibility={2}
+        hide={2}
       />
 
       <Show

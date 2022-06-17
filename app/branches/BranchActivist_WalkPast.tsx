@@ -19,7 +19,7 @@ export function BranchActivist_WalkPast() {
             exit: {x: '-400%', transition: {duration: 2}},
           },
         }}
-        visibility={2}
+        hide={2}
         zIndex={100}
       />
 
@@ -51,7 +51,7 @@ export function BranchActivist_WalkPast() {
 
       <Scene src={bgBldgAFenceGif} durationMs={10000} />
 
-      <Title visibility="indefinite">Конец игры</Title>
+      <Title hide={-1}>Конец игры</Title>
 
       <Menu
         scheme="dark"

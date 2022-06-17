@@ -36,7 +36,7 @@ export function BranchCityHall_ProjAsk_Examine_Reject_Ignore() {
         Здание АСК может быть внесено в список памятников и стать новым активом
       </Say>
 
-      <Title visibility="indefinite">Конец игры</Title>
+      <Title hide={-1}>Конец игры</Title>
 
       <Menu
         scheme="dark"

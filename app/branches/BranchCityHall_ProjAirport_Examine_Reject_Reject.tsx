@@ -31,7 +31,7 @@ export function BranchCityHall_ProjAirport_Examine_Reject_Reject() {
         терминала, вы повышаете рейтинг аэропорта; растет интерес туристов
       </Say>
 
-      <Title visibility="indefinite">Конец игры</Title>
+      <Title hide={-1}>Конец игры</Title>
 
       <Menu
         scheme="dark"

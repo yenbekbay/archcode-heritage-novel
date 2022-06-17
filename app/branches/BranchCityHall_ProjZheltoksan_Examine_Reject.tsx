@@ -26,7 +26,7 @@ export function BranchCityHall_ProjZheltoksan_Examine_Reject() {
             transformOrigin: '50% 35%',
           },
         }}
-        visibility={1}
+        hide={1}
       />
 
       <Show

@@ -10,7 +10,7 @@ export interface MenuProps extends Omit<MenuViewProps, 'controls'> {
 export function Menu({image, zIndex, ...menuProps}: MenuProps) {
   const imageProps = typeof image === 'string' ? {uri: image} : image
   return (
-    <Command behavior={['non_skippable']} zIndex={zIndex}>
+    <Command name="Menu" behavior={['non_skippable']} zIndex={zIndex}>
       {(controls) => (
         <>
           {imageProps && <ImageView controls={controls} {...imageProps} />}

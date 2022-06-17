@@ -1,24 +1,18 @@
 import {motion} from 'framer-motion'
+import type {CommandProps} from '../components'
 import {Command} from '../components'
 
-export interface TitleProps {
+export interface TitleProps extends Pick<CommandProps, 'hide'> {
   children: string
   durationMs?: number
-  visibility?: number | 'indefinite'
-  zIndex?: number
 }
 
-export function Title({
-  children,
-  durationMs = 3000,
-  visibility,
-  zIndex,
-}: TitleProps) {
+export function Title({children, durationMs = 3000, hide}: TitleProps) {
   return (
     <Command
+      name="Title"
       behavior={['skippable_timed', {durationMs}]}
-      visibility={visibility}
-      zIndex={zIndex}>
+      hide={hide}>
       {(controls) => (
         <div className="flex flex-1 flex-col justify-center p-8">
           <motion.span
@@ -27,7 +21,7 @@ export function Title({
               initial: {opacity: 0},
               entrance: {
                 opacity: 1,
-                transition: {delay: 0.5, duration: 4},
+                transition: {duration: 4},
               },
               exit: {
                 opacity: 0,

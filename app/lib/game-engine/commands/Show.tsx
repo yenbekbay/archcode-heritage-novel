@@ -8,7 +8,7 @@ export interface ShowSource {
   animation?: CommandViewAnimation
 }
 
-export interface ShowProps extends Pick<CommandProps, 'visibility' | 'zIndex'> {
+export interface ShowProps extends Pick<CommandProps, 'hide' | 'zIndex'> {
   src: string | ShowSource | (string | ShowSource)[]
   durationMs?: number
 }
@@ -16,7 +16,7 @@ export interface ShowProps extends Pick<CommandProps, 'visibility' | 'zIndex'> {
 export function Show({
   src: srcProp,
   durationMs = 1000,
-  visibility,
+  hide,
   zIndex,
 }: ShowProps) {
   const normalizedSrcs = (Array.isArray(srcProp) ? srcProp : [srcProp]).map(
@@ -24,8 +24,9 @@ export function Show({
   )
   return (
     <Command
+      name="Show"
       behavior={['skippable_timed', {durationMs}]}
-      visibility={visibility}
+      hide={hide}
       zIndex={zIndex}>
       {(controls) => (
         <>

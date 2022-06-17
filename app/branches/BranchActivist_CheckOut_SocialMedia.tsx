@@ -113,7 +113,7 @@ export function BranchActivist_CheckOut_SocialMedia() {
         image={{uri: redhead2Png, style: {width: '100%', bottom: 0}}}
       />
 
-      <Title visibility="indefinite">Конец игры</Title>
+      <Title hide={-1}>Конец игры</Title>
 
       <Menu
         scheme="dark"

@@ -21,7 +21,7 @@ export function BranchActivist_CheckOut_Act_Self() {
       <Scene src={bgAptEntranceJpg} />
       <Scene src={bgLaptopAboveJpg} />
 
-      <Say scheme="dark" visibility={1}>
+      <Say scheme="dark" hide={1}>
         Действовать надо последовательно
       </Say>
 
@@ -33,7 +33,7 @@ export function BranchActivist_CheckOut_Act_Self() {
 
       <Say
         image={{uri: redhead9Png, style: {width: '100%', bottom: 0}}}
-        visibility={1}>
+        hide={1}>
         Узнать надо побольше…
       </Say>
 

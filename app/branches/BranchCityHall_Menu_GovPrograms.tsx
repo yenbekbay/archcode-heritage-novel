@@ -40,7 +40,7 @@ export function BranchCityHall_Menu_GovPrograms() {
 
       <Show
         src={{uri: angryCrowd1Png, style: {width: '100%', bottom: 0}}}
-        visibility={2}
+        hide={2}
       />
 
       <Say>Общественность возмущена</Say>

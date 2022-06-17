@@ -21,30 +21,45 @@ export interface StatementProviderProps {
 
 export function StatementProvider({
   statementIndex,
-  statementLabel,
+  statementLabel = null,
   children,
 }: StatementProviderProps) {
   const branchCtx = useBranchContext()
   const statement = branchCtx.getStatement(statementIndex)
   const ctx = React.useMemo((): StatementContextValue => {
-    const visibleExtra =
-      statement?.visibility === 'indefinite'
-        ? Number.MAX_SAFE_INTEGER
-        : Math.max(0, statement?.visibility ?? 0)
+    const focused = branchCtx.focusedStatementIndex === statementIndex
+    let visible = focused
+    if (branchCtx.focusedStatementIndex > statementIndex) {
+      if (statement?.hide === -1) {
+        visible = true
+      } else if (typeof statement?.hide === 'number') {
+        visible =
+          branchCtx.focusedStatementIndex <= statementIndex + statement.hide
+      } else if (typeof statement?.hide === 'function') {
+        visible = true
+        let currStatementIndex = statementIndex + 1
+        let currStatement = branchCtx.getStatement(currStatementIndex)
+        while (
+          currStatementIndex <= branchCtx.focusedStatementIndex &&
+          currStatement != null
+        ) {
+          if (statement.hide(currStatement)) {
+            visible = false
+            break
+          } else {
+            currStatementIndex += 1
+            currStatement = branchCtx.getStatement(currStatementIndex)
+          }
+        }
+      }
+    }
     return {
       statementIndex,
-      statementLabel: statementLabel ?? null,
-      focused: branchCtx.focusedStatementIndex === statementIndex,
-      visible:
-        branchCtx.focusedStatementIndex >= statementIndex &&
-        branchCtx.focusedStatementIndex <= statementIndex + visibleExtra,
+      statementLabel,
+      focused,
+      visible,
     }
-  }, [
-    statement?.visibility,
-    statementIndex,
-    statementLabel,
-    branchCtx.focusedStatementIndex,
-  ])
+  }, [branchCtx, statement, statementIndex, statementLabel])
   return (
     <StatementContext.Provider value={ctx}>
       {children}

@@ -39,7 +39,7 @@ export function BranchCityHall_ProjAsk_Examine_Reject() {
             transformOrigin: '50% 35%',
           },
         }}
-        visibility={1}
+        hide={1}
       />
 
       <Show

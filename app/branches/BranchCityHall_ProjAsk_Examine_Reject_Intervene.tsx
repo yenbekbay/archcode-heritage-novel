@@ -39,7 +39,7 @@ export function BranchCityHall_ProjAsk_Examine_Reject_Intervene() {
         общественностью в дальнейшем
       </Say>
 
-      <Title visibility="indefinite">Конец игры</Title>
+      <Title hide={-1}>Конец игры</Title>
 
       <Menu
         scheme="dark"

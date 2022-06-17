@@ -20,7 +20,7 @@ export function BranchCityHall_ProjZheltoksan_Examine_Reject_Ignore_Ignore_Ignor
         общественностью
       </Say>
 
-      <Title visibility="indefinite">Конец игры</Title>
+      <Title hide={-1}>Конец игры</Title>
 
       <Menu
         scheme="dark"

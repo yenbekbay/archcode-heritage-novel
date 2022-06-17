@@ -28,7 +28,7 @@ export function SubmitPost({onDone, frame, scheme, image}: SubmitPostProps) {
   const {containerSize, goToStatement, skip} = useBranchContext()
   const imageProps = typeof image === 'string' ? {uri: image} : image
   return (
-    <Command behavior={['non_skippable']}>
+    <Command name="SubmitPost" behavior={['non_skippable']}>
       {(controls) => (
         <>
           {imageProps && <ImageView controls={controls} {...imageProps} />}
@@ -44,7 +44,7 @@ export function SubmitPost({onDone, frame, scheme, image}: SubmitPostProps) {
               initial: {opacity: 0},
               entrance: {
                 opacity: 1,
-                transition: {delay: 0.5, duration: 1},
+                transition: {duration: 1},
               },
               exit: {
                 opacity: 0,

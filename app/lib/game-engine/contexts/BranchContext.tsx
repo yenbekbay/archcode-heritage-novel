@@ -9,13 +9,12 @@ export type StatementBehavior =
   | ['skippable_static']
   | ['non_skippable']
 
-export type StatementVisibility = number | 'indefinite'
-
 export interface Statement {
   index: number
   label: string | null
+  command: string
   behavior: StatementBehavior
-  visibility: StatementVisibility
+  hide: number | ((statement: Statement) => boolean)
   enter: () => void
   pause: () => void
   resume: () => void

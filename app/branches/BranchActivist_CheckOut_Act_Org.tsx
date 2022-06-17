@@ -58,7 +58,7 @@ export function BranchActivist_CheckOut_Act_Org() {
         [Позвонить в Архкод](tel://+77071210483)
       </Say>
 
-      <Title visibility="indefinite">Конец игры</Title>
+      <Title hide={-1}>Конец игры</Title>
 
       <Menu
         scheme="dark"

@@ -55,10 +55,10 @@ export function BranchCityHall_MonumentDept_Rant() {
           },
         }}
         durationMs={0}
-        visibility={5}
+        hide={5}
       />
 
-      <Say durationMs={0} visibility={2}>
+      <Say durationMs={0} hide={2}>
         Ну что, приступим к списку…
       </Say>
 
@@ -72,7 +72,7 @@ export function BranchCityHall_MonumentDept_Rant() {
           },
         }}
         style_={{fontSize: 16, textAlign: 'left'}}
-        visibility={1}>
+        hide={1}>
         “Какие здания уже в реестре памятников?” [*Ссылка
         РЕЕСТР](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
       </Say>
@@ -91,7 +91,7 @@ export function BranchCityHall_MonumentDept_Rant() {
         2](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
       </Say>
 
-      <Say durationMs={0} visibility={1}>
+      <Say durationMs={0} hide={1}>
         Какие здания города надо бы добавить в этот список?
       </Say>
 

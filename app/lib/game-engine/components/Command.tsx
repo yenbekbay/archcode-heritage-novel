@@ -3,11 +3,7 @@ import type {Variant} from 'framer-motion'
 import {AnimatePresence, motion, useAnimation, usePresence} from 'framer-motion'
 import type {AnimationControls} from 'framer-motion/types/animation/types'
 import React from 'react'
-import type {
-  Statement,
-  StatementBehavior,
-  StatementVisibility,
-} from '../contexts'
+import type {Statement, StatementBehavior} from '../contexts'
 import {
   useBranchContext,
   useGameContext,
@@ -24,16 +20,18 @@ export type CommandViewAnimation = {
 }
 
 export interface CommandProps {
+  name: string
   children: (controls: AnimationControls) => React.ReactNode
   behavior?: StatementBehavior
-  visibility?: StatementVisibility
+  hide?: number | ((statement: Statement) => boolean)
   zIndex?: number | 'auto'
 }
 
 export function Command({
+  name: command,
   children,
   behavior = ['skippable_static'],
-  visibility = 0,
+  hide = 0,
   zIndex = 'auto',
 }: CommandProps) {
   const {visible} = useStatementContext()
@@ -42,13 +40,14 @@ export function Command({
   useRegisterStatement(
     React.useMemo(
       (): Omit<Statement, 'index' | 'label'> => ({
+        command,
         behavior,
-        visibility,
+        hide,
         enter: () => viewRef.current?.enter() ?? false,
         pause: () => viewRef.current?.pause(),
         resume: () => viewRef.current?.resume(),
       }),
-      [behavior, visibility],
+      [behavior, hide, command],
     ),
   )
 

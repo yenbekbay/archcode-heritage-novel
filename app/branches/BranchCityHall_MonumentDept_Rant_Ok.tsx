@@ -14,7 +14,7 @@ export function BranchCityHall_MonumentDept_Rant_Ok() {
         активом!
       </Say>
 
-      <Title visibility="indefinite">Конец игры</Title>
+      <Title hide={-1}>Конец игры</Title>
 
       <Menu
         scheme="dark"

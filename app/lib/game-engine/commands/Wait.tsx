@@ -6,6 +6,8 @@ export interface WaitProps {
 
 export function Wait({durationMs = 1000}: WaitProps) {
   return (
-    <Command behavior={['skippable_timed', {durationMs}]}>{() => null}</Command>
+    <Command name="Wait" behavior={['skippable_timed', {durationMs}]}>
+      {() => null}
+    </Command>
   )
 }

@@ -45,7 +45,7 @@ export function BranchIntro() {
         Наше настоящее в ваших руках!” — были его последние слова.
       </Say>
 
-      <Title visibility="indefinite">Снести нельзя оставить</Title>
+      <Title hide={-1}>Снести нельзя оставить</Title>
 
       <Menu
         scheme="dark"
@@ -104,8 +104,9 @@ function IntroScene() {
 
   return (
     <Command
+      name="IntroScene"
       behavior={['skippable_timed', {durationMs: 0}]}
-      visibility="indefinite">
+      hide={-1}>
       {() => (
         <motion.img
           ref={imgRef}

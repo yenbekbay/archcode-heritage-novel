@@ -23,7 +23,7 @@ export function BranchCityHall_GovPrograms_Stop_Agree() {
 
       <Say>Советские остановки стали достопримечательностью города!</Say>
 
-      <Title visibility="indefinite">Конец игры</Title>
+      <Title hide={-1}>Конец игры</Title>
 
       <Menu
         scheme="dark"

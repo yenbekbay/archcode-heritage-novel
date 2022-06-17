@@ -17,7 +17,7 @@ export function BranchArchkot_0Juncture() {
             entrance: {
               x: 0,
               scale: 1,
-              transition: {delay: 0.5, duration: 2},
+              transition: {duration: 2},
             },
             exit: {
               opacity: 0,
@@ -25,7 +25,7 @@ export function BranchArchkot_0Juncture() {
             },
           },
         }}
-        visibility="indefinite"
+        hide={-1}
       />
 
       <Say
