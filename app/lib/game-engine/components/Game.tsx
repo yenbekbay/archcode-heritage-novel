@@ -86,7 +86,7 @@ function GameView({assets, branches, initialBranchId, onClose}: GameViewProps) {
           {paused ? <PlayIcon /> : <PauseIcon />}
         </button>
 
-        {process.env.NODE_ENV === 'ddevelopment' && (
+        {process.env.NODE_ENV === 'development' && (
           <PopoverPrimitive.Root>
             <PopoverPrimitive.Trigger asChild>
               <button className="btn btn-ghost btn-circle bg-white text-xl shadow-md">
