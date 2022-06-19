@@ -33,7 +33,7 @@ export function BranchActivist_CheckOut() {
         Мутят что-то без доклада народу. Надо разобраться!
       </Say>
 
-      <Scene src={bgZheltoksanBeforeFenceGif} durationMs={10000} />
+      <Scene src={bgZheltoksanBeforeFenceGif} durationMs={6000} />
 
       <Say
         image={{uri: redhead2Png, align: 'bottom'}}

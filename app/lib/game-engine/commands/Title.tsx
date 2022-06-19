@@ -7,7 +7,7 @@ export interface TitleProps extends Pick<CommandProps, 'hide'> {
   durationMs?: number
 }
 
-export function Title({children, durationMs = 3000, hide}: TitleProps) {
+export function Title({children, durationMs = 4000, hide}: TitleProps) {
   return (
     <Command
       name="Title"

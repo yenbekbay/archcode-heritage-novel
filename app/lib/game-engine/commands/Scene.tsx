@@ -13,7 +13,7 @@ export interface SceneProps {
   durationMs?: number
 }
 
-export function Scene({src: srcProp, durationMs = 1000}: SceneProps) {
+export function Scene({src: srcProp, durationMs = 4000}: SceneProps) {
   const normalizedSrcs = (Array.isArray(srcProp) ? srcProp : [srcProp]).map(
     (src): SceneSource => (typeof src === 'object' ? src : {uri: src}),
   )

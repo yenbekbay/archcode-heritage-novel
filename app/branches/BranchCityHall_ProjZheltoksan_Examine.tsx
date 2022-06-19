@@ -36,7 +36,7 @@ export function BranchCityHall_ProjZheltoksan_Examine() {
         —Ещё одно! Ещё нарушение!!!
       </Say>
 
-      <Show src={{uri: expert3Png, align: 'bottom'}} durationMs={3000} />
+      <Show src={{uri: expert3Png, align: 'bottom'}} durationMs={4000} />
 
       <Scene src={bgMayorDoorJpg} />
 

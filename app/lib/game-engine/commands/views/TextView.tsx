@@ -152,7 +152,7 @@ const charAnimation: CommandViewAnimation = {
   initial: {opacity: 0},
   entrance: (idx) => ({
     opacity: 1,
-    transition: {delay: 0.5 + 0.02 * idx},
+    transition: {delay: 0.5 + 0.05 * idx},
   }),
   exit: {
     opacity: 0,

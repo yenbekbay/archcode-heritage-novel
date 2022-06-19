@@ -2,7 +2,7 @@ import useSize from '@react-hook/size'
 import {motion, useAnimation} from 'framer-motion'
 import React from 'react'
 import {bgIntroJpg, logoPng} from '~/assets/game'
-import {Branch, Command, Menu, Say, Show, Title, useBranchContext} from '~/lib'
+import {Branch, Command, Menu, Say, Show, useBranchContext} from '~/lib'
 
 export function BranchIntro() {
   return (
@@ -20,7 +20,7 @@ export function BranchIntro() {
       />
 
       <Say>
-        В городе, с цветущими яблонями и журчащими арыками, где возвышалось
+        В городе с цветущими яблонями и журчащими арыками, где возвышалось
         здание с изогнутой золотой крышей и стучали об рельсы трамваи, на
         центральной площади что-то строил старик, а перед ним табличка: “Я верну
         голубое небо”
@@ -36,12 +36,12 @@ export function BranchIntro() {
 
       <Say>
         Город показывается сверху, и это оказывается плотный смог из призраков
-        снесенных зданий. Вокруг небо обычное. И вот настал день, когда старик
+        снесённых зданий. Вокруг небо обычное. И вот настал день, когда старик
         завершил строение.
       </Say>
 
       <Say>
-        “Это машина времени, которая вернет вас туда, где небо было голубым.
+        “Это машина времени, которая вернёт вас туда, где небо было голубым.
         Наше настоящее в ваших руках!” — были его последние слова.
       </Say>
 

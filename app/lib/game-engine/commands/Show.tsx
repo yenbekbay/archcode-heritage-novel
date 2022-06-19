@@ -13,7 +13,7 @@ export interface ShowProps
 
 export function Show({
   src: srcProp,
-  durationMs = 1000,
+  durationMs = 4000,
   hide,
   next,
   zIndex,

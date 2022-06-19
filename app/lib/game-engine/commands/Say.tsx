@@ -46,7 +46,7 @@ export function Say({
           ? ['non_skippable']
           : groups.some((g) => g.type === 'link')
           ? ['skippable_static']
-          : ['skippable_timed', {durationMs: durationMs ?? 3000 + length * 40}]
+          : ['skippable_timed', {durationMs: durationMs ?? 4000 + length * 25}]
       }
       hide={hide}
       next={next}
