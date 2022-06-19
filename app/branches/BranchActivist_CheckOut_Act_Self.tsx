@@ -51,7 +51,7 @@ export function BranchActivist_CheckOut_Act_Self() {
             transform: 'scale(2) translateY(30px)',
           },
         }}>
-        [*Ссылка фактчек](https://factcheck.kz/)
+        [Ссылка фактчек](https://factcheck.kz/)
       </Say>
 
       <Say image={{uri: redhead10Png, style: {width: '100%', bottom: 0}}}>
@@ -68,8 +68,7 @@ export function BranchActivist_CheckOut_Act_Self() {
             transform: 'scale(2) translateY(30px)',
           },
         }}>
-        [*Ссылка 22 "как написать пост в соц.сети и быть
-        услышанным"](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
+        [Ссылка 22 "как написать пост в соц.сети и быть услышанным"](#)
       </Say>
 
       <Say image={{uri: redhead11Png, style: {width: '100%', bottom: 0}}}>
@@ -86,8 +85,7 @@ export function BranchActivist_CheckOut_Act_Self() {
             transform: 'scale(2) translateY(30px)',
           },
         }}>
-        [*Ссылка список "кому можно писать" и примеры официальных
-        писем](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
+        [Ссылка список "кому можно писать" и примеры официальных писем](#)
       </Say>
 
       <Say image={{uri: redhead9Png, style: {width: '100%', bottom: 0}}}>
@@ -104,8 +102,7 @@ export function BranchActivist_CheckOut_Act_Self() {
             transform: 'scale(2) translateY(30px)',
           },
         }}>
-        [Новости, статьи и объявления о
-        слушаниях](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
+        [Новости, статьи и объявления о слушаниях](#)
       </Say>
 
       <Say image={{uri: redhead12Png, style: {width: '100%', bottom: 0}}}>
@@ -126,9 +123,9 @@ export function BranchActivist_CheckOut_Act_Self() {
             transform: 'scale(2) translateY(30px)',
           },
         }}>
-        [*переход на СЦЕНЫ](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
-        (Примеры протестных акций: Акция женщины, обклеившей свой дом
-        фотографиями президента, Розовый фламинго Талдыколя, Художник в ковше)
+        [*переход на СЦЕНЫ](#) (Примеры протестных акций: Акция женщины,
+        обклеившей свой дом фотографиями президента, Розовый фламинго Талдыколя,
+        Художник в ковше)
       </Say>
 
       <Say

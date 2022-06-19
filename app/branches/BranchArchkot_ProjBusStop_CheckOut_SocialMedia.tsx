@@ -1,18 +1,21 @@
 import {
+  archbot1Png,
   archkot1Png,
   archkot2Png,
-  bgAskAfterJpg,
-  bgAskBeforeJpg,
+  archkot7Png,
+  bgBusStop2Jpg,
+  bgBusStop4Jpg,
+  bgBusStop6Jpg,
   bgPhoneFingerJpg,
   bgPhoneHandJpg,
 } from '~/assets/game'
 import {SubmitMeme, SubmitPost} from '~/commands'
 import {Branch, Label, Menu, Say, Scene, Title} from '~/lib'
 
-export function BranchArchkot_ProjAsk_CheckOut_SocialMedia() {
+export function BranchArchkot_ProjBusStop_CheckOut_SocialMedia() {
   return (
     <Branch>
-      <Scene src={bgAskBeforeJpg} />
+      <Scene src={bgBusStop2Jpg} />
 
       <Say image={{uri: archkot2Png, style: {width: '100%', bottom: 0}}}>
         Видимо, процесс уже запущен, что же
@@ -109,11 +112,23 @@ export function BranchArchkot_ProjAsk_CheckOut_SocialMedia() {
         </Say>
       </Label>
 
-      <Scene src={bgAskAfterJpg} />
+      <Scene src={bgBusStop4Jpg} />
+
+      <Scene src={bgBusStop6Jpg} />
 
       <Say>
-        Здание изменено до неузнаваемости, и теперь это уже не имеет отношения к
-        историко-культурному наследию
+        Остановка изменена до неузнаваемости, и теперь это уже не имеет
+        отношения к историко-культурному наследию
+      </Say>
+
+      <Say image={{uri: archkot7Png, style: {width: '100%', bottom: 0}}}>
+        Была история, и нет истории. Зря Дядь Юра старался
+      </Say>
+
+      <Say
+        tag="АрхБот:"
+        image={{uri: archbot1Png, style: {width: '100%', bottom: 0}}}>
+        {'—А могло бы быть вот так:\n\n[Ссылка на зарубежные примеры](#)'}
       </Say>
 
       <Title hide={-1}>Конец игры</Title>

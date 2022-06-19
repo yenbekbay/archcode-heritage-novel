@@ -57,76 +57,78 @@ export function MenuView({
   return (
     <div
       className={clsx(
-        'absolute inset-0 flex flex-col items-center space-y-2 p-8 pt-20',
+        'pointer-events-none absolute inset-0 flex flex-col p-8 pt-20',
         {
           top: 'justify-start',
           middle: 'justify-center',
           bottom: 'justify-end',
         }[placement],
       )}>
-      {!!label && (
-        <motion.span
-          className={clsx(
-            'GameEngine-text mb-2 whitespace-pre-wrap text-center font-calligraph text-lg',
-            scheme === 'dark' && 'GameEngine-text--dark',
-          )}
-          variants={itemAnimation}
-          initial="initial"
-          animate={controls}
-          custom={0}>
-          {label}
-        </motion.span>
-      )}
+      <div className="pointer-events-auto flex flex-col items-center space-y-2">
+        {!!label && (
+          <motion.span
+            className={clsx(
+              'GameEngine-text mb-2 whitespace-pre-wrap text-center font-calligraph text-lg',
+              scheme === 'dark' && 'GameEngine-text--dark',
+            )}
+            variants={itemAnimation}
+            initial="initial"
+            animate={controls}
+            custom={0}>
+            {label}
+          </motion.span>
+        )}
 
-      {choices.map((c, idx) => (
-        <motion.div
-          key={c.label}
-          className="flex flex-col"
-          variants={itemAnimation}
-          initial="initial"
-          animate={controls}
-          custom={idx + 1}>
-          {c.frame ? (
-            <motion.div
-              className={clsx(
-                'GameEngine-surface btn btn-ghost border',
-                scheme === 'dark' && 'GameEngine-surface--dark',
-              )}
-              aria-label={c.label}
-              style={styleForFrame({containerSize}, c.frame)}
-              animate={{opacity: 0}}
-              transition={{
-                repeat: Infinity,
-                repeatType: 'reverse',
-                duration: 1,
-                ease: 'easeInOut',
-              }}
-              tabIndex={-1}
-              onClick={(event) => {
-                event.stopPropagation()
-                c.onClick(ctx)
-              }}
-            />
-          ) : (
-            <button
-              className={clsx(
-                'GameEngine-button btn btn-ghost h-auto min-h-0 animate-bounce-gentle py-1 font-calligraph leading-6 shadow-md',
-                scheme === 'dark' && 'GameEngine-button--dark',
-                {
-                  md: 'text-md btn-lg',
-                  lg: 'btn-xl text-2xl',
-                }[size],
-              )}
-              style={{animationDelay: `calc(0.05 * ${idx}s)`}}
-              onClick={(event) => {
-                event.stopPropagation()
-                c.onClick(ctx)
-              }}>
-              {c.label}
-            </button>
-          )}
-        </motion.div>
-      ))}
+        {choices.map((c, idx) => (
+          <motion.div
+            key={c.label}
+            className="flex flex-col"
+            variants={itemAnimation}
+            initial="initial"
+            animate={controls}
+            custom={idx + 1}>
+            {c.frame ? (
+              <motion.div
+                className={clsx(
+                  'GameEngine-surface btn btn-ghost border',
+                  scheme === 'dark' && 'GameEngine-surface--dark',
+                )}
+                aria-label={c.label}
+                style={styleForFrame({containerSize}, c.frame)}
+                animate={{opacity: 0}}
+                transition={{
+                  repeat: Infinity,
+                  repeatType: 'reverse',
+                  duration: 1,
+                  ease: 'easeInOut',
+                }}
+                tabIndex={-1}
+                onClick={(event) => {
+                  event.stopPropagation()
+                  c.onClick(ctx)
+                }}
+              />
+            ) : (
+              <button
+                className={clsx(
+                  'GameEngine-button btn btn-ghost h-auto min-h-0 animate-bounce-gentle py-1 font-calligraph leading-6 shadow-md',
+                  scheme === 'dark' && 'GameEngine-button--dark',
+                  {
+                    md: 'text-md btn-lg',
+                    lg: 'btn-xl text-2xl',
+                  }[size],
+                )}
+                style={{animationDelay: `calc(0.05 * ${idx}s)`}}
+                onClick={(event) => {
+                  event.stopPropagation()
+                  c.onClick(ctx)
+                }}>
+                {c.label}
+              </button>
+            )}
+          </motion.div>
+        ))}
+      </div>
     </div>
   )
 }

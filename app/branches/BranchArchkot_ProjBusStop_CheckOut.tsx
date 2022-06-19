@@ -1,13 +1,7 @@
-import {
-  archkot1Png,
-  archkot2Png,
-  archkot8Png,
-  bgAskBeforeJpg,
-  fencePng,
-} from '~/assets/game'
+import {archkot1Png, archkot8Png, bgBusStop2Jpg, fencePng} from '~/assets/game'
 import {Branch, Say, Scene, Show} from '~/lib'
 
-export function BranchArchkot_ProjAsk_CheckOut() {
+export function BranchArchkot_ProjBusStop_CheckOut() {
   return (
     <Branch>
       <Show
@@ -37,32 +31,34 @@ export function BranchArchkot_ProjAsk_CheckOut() {
         Я не усну спокойно, не посмотрев, что за забором
       </Say>
 
-      <Scene src={bgAskBeforeJpg} />
+      <Scene src={bgBusStop2Jpg} />
 
-      <Say image={{uri: archkot8Png, style: {width: '100%', bottom: 0}}}>
-        Что за напасть! Здание аппаратно-студийного комплекса перестроить решили
+      <Say>
+        Так это ж остановка «Казмеханобр»! Мне дядя Юра, который в одном из
+        цехов работал, рассказывал, её в семьдесят седьмом году ещё
+        спроектировали
       </Say>
 
-      <Say image={{uri: archkot2Png, style: {width: '100%', bottom: 0}}}>
-        А я был здесь ребенком ещё, у мамы на работе, мне по лестницам этим так
-        бегать нравилось
+      <Say>
+        Потом проект отменили, а он с парой коллег сами своими руками остановку
+        собрали
       </Say>
 
       <Say
-        image={{uri: archkot1Png, style: {width: '100%', bottom: 0}}}
+        image={{uri: archkot8Png, style: {width: '100%', bottom: 0}}}
         menu={[
           {
             label: 'Погрустить',
             onClick: (ctx) =>
-              ctx.goToBranch('Archkot_ProjAsk_CheckOut_SocialMedia'),
+              ctx.goToBranch('Archkot_ProjBusStop_CheckOut_SocialMedia'),
           },
           {
             label: 'Собрать команду',
             onClick: (ctx) =>
-              ctx.goToBranch('Archkot_ProjAsk_CheckOut_AssembleTeam'),
+              ctx.goToBranch('Archkot_ProjBusStop_CheckOut_AssembleTeam'),
           },
         ]}>
-        Что можно сделать мне, простому АрхКоту?
+        И что же я, АрхКот, сделать-то могу?
       </Say>
     </Branch>
   )

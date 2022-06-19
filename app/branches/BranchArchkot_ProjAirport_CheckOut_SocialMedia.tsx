@@ -1,18 +1,18 @@
 import {
   archkot1Png,
   archkot2Png,
-  bgAskAfterJpg,
-  bgAskBeforeJpg,
+  bgAirportFenceGif,
+  bgAirportJpg,
   bgPhoneFingerJpg,
   bgPhoneHandJpg,
 } from '~/assets/game'
 import {SubmitMeme, SubmitPost} from '~/commands'
 import {Branch, Label, Menu, Say, Scene, Title} from '~/lib'
 
-export function BranchArchkot_ProjAsk_CheckOut_SocialMedia() {
+export function BranchArchkot_ProjAirport_CheckOut_SocialMedia() {
   return (
     <Branch>
-      <Scene src={bgAskBeforeJpg} />
+      <Scene src={bgAirportJpg} />
 
       <Say image={{uri: archkot2Png, style: {width: '100%', bottom: 0}}}>
         Видимо, процесс уже запущен, что же
@@ -98,7 +98,7 @@ export function BranchArchkot_ProjAsk_CheckOut_SocialMedia() {
             {
               label: 'Собраться с командой Архкод',
               onClick: (ctx) =>
-                ctx.goToBranch('Archkot_ProjAsk_CheckOut_AssembleTeam'),
+                ctx.goToBranch('Archkot_ProjAirport_CheckOut_AssembleTeam'),
             },
             {
               label: 'Я сделал всё, что было в моих силах',
@@ -109,7 +109,7 @@ export function BranchArchkot_ProjAsk_CheckOut_SocialMedia() {
         </Say>
       </Label>
 
-      <Scene src={bgAskAfterJpg} />
+      <Scene src={bgAirportFenceGif} durationMs={6000} />
 
       <Say>
         Здание изменено до неузнаваемости, и теперь это уже не имеет отношения к

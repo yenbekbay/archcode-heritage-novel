@@ -28,13 +28,11 @@ export function BranchCityHall_ProjAirport_Examine_Reject_Approve() {
         Рабочая группа от общественности отправила письмо в EBRD
       </Say>
 
-      <Say placement="bottom">
-        [*Ссылка на письмо](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
-      </Say>
+      <Say placement="bottom">[Ссылка на письмо](#)</Say>
 
       <Scene src={bgCityHallConferenceRoomJpg} />
 
-      <Say>А еще они организовали пресс конференцию</Say>
+      <Say>А ещё они организовали пресс конференцию</Say>
 
       <Say>
         Возникли трудности, вы не можете продолжить реализацию проекта и

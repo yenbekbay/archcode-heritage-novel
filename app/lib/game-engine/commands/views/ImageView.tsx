@@ -27,7 +27,7 @@ export function ImageView({
 }: ImageViewProps) {
   return (
     <motion.div
-      className="absolute inset-0 flex"
+      className="pointer-events-none absolute inset-0 flex"
       variants={animation}
       initial="initial"
       animate={controls}>

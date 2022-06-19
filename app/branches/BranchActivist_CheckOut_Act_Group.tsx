@@ -98,7 +98,7 @@ export function BranchActivist_CheckOut_Act_Group() {
         }}
         style_={{fontSize: 16, textAlign: 'left'}}>
         {[
-          '—Здравствуйте! Меня тоже все это возмущает! Мы должны действовать сообща!',
+          '—Здравствуйте! Меня тоже всё это возмущает! Мы должны действовать сообща!',
           '                            —Здравое дело! Я с вами!',
           '—Готовы встретиться, назначайте время и место',
         ].join('\n\n')}
@@ -157,8 +157,7 @@ export function BranchActivist_CheckOut_Act_Group() {
             transform: 'scale(2.25) translateX(-15px)',
           },
         }}>
-        [*Ссылка 24 "кто такие
-        стейкхолдеры"](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
+        [Ссылка 24 "кто такие стейкхолдеры"](#)
       </Say>
 
       <Say image={{uri: redhead5Png, style: {width: '100%', bottom: 0}}}>
@@ -187,7 +186,7 @@ export function BranchActivist_CheckOut_Act_Group() {
             transform: 'scale(2.25) translateX(-15px)',
           },
         }}>
-        [*Ссылка фактчек](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
+        [Ссылка фактчек](#)
       </Say>
 
       <Say image={{uri: activistBPng, style: {width: '100%', bottom: 0}}}>
@@ -216,8 +215,7 @@ export function BranchActivist_CheckOut_Act_Group() {
             transform: 'scale(2.25) translateX(-15px)',
           },
         }}>
-        [*Ссылка 22 "как написать пост в соц.сети и быть
-        услышанным"](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
+        [Ссылка 22 "как написать пост в соц.сети и быть услышанным"](#)
       </Say>
 
       <Say image={{uri: activistAPng, style: {width: '100%', bottom: 0}}}>
@@ -244,8 +242,7 @@ export function BranchActivist_CheckOut_Act_Group() {
             transform: 'scale(2.25) translateX(-15px)',
           },
         }}>
-        [*Ссылка 6 "как участвовать в общественных
-        слушаниях"](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
+        [Ссылка 6 "как участвовать в общественных слушаниях"](#)
       </Say>
 
       <Say image={{uri: redhead1Png, style: {width: '100%', bottom: 0}}}>
@@ -286,10 +283,8 @@ export function BranchActivist_CheckOut_Act_Group() {
           },
         }}
         style_={{fontSize: 20}}>
-        [*ссылка на примеры писем по разным
-        ситуациям](https://www.youtube.com/watch?v=dQw4w9WgXcQ). Проверить
-        информацию из СМИ [*Ссылка *23 на инструкцию по факт
-        чеку](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
+        [*ссылка на примеры писем по разным ситуациям](#). Проверить информацию
+        из СМИ [Ссылка *23 на инструкцию по факт чеку](#)
       </Say>
 
       <Say

@@ -47,89 +47,94 @@ export function TextView({
   return (
     <div
       className={clsx(
-        'absolute inset-0 flex flex-col items-center p-8 pt-20',
+        'pointer-events-none absolute inset-0 flex flex-col p-8 pt-20',
         {
           top: 'justify-start',
           middle: 'justify-center',
           bottom: 'justify-end',
         }[placement],
       )}>
-      {tag && (
-        <motion.span
-          className="text-md GameEngine-tag mb-1 whitespace-pre-wrap rounded-md px-1 text-center font-calligraph"
-          variants={{
-            initial: {opacity: 0},
-            entrance: {
-              opacity: 1,
-              transition: {duration: 1},
-            },
-            exit: {
-              opacity: 0,
-              transition: {duration: 0.5, ease: 'easeOut'},
-            },
-          }}
-          initial="initial"
-          animate={controls}>
-          {tag}
-        </motion.span>
-      )}
-
-      <div
-        className={clsx(
-          'GameEngine-text whitespace-pre-wrap text-center font-calligraph leading-tight',
-          scheme === 'dark' && 'GameEngine-text--dark',
-          {
-            md: 'text-md',
-            lg: 'text-xl',
-            xl: 'text-3xl',
-          }[size],
+      <div className="pointer-events-auto flex flex-col items-center space-y-2">
+        {tag && (
+          <motion.span
+            className="text-md GameEngine-tag mb-1 whitespace-pre-wrap rounded-md px-1 text-center font-calligraph"
+            variants={{
+              initial: {opacity: 0},
+              entrance: {
+                opacity: 1,
+                transition: {duration: 1},
+              },
+              exit: {
+                opacity: 0,
+                transition: {duration: 0.5, ease: 'easeOut'},
+              },
+            }}
+            initial="initial"
+            animate={controls}>
+            {tag}
+          </motion.span>
         )}
-        style={{
-          ...style,
-          ...(frame && styleForFrame({containerSize}, frame)),
-        }}>
-        {groups.map((group, groupIdx) => {
-          switch (group.type) {
-            case 'text':
-              return (
-                <React.Fragment key={groupIdx}>
-                  {group.chars.map((char, charIdx) => (
-                    <motion.span
-                      key={`${char}_${group.startIndex + charIdx}`}
-                      style={{fontSize}}
-                      variants={charAnimation}
-                      initial="initial"
-                      animate={controls}
-                      custom={group.startIndex + charIdx}>
-                      {char}
-                    </motion.span>
-                  ))}
-                </React.Fragment>
-              )
-            case 'link':
-              return (
-                <a
-                  key={groupIdx}
-                  className="underline"
-                  style={{fontSize, textUnderlineOffset: size ? '6px' : '4px'}}
-                  href={group.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={(event) => event.stopPropagation()}>
-                  {group.chars.map((char, charIdx) => (
-                    <motion.span
-                      key={`${char}_${group.startIndex + charIdx}`}
-                      variants={charAnimation}
-                      initial="initial"
-                      animate={controls}
-                      custom={group.startIndex + charIdx}>
-                      {char}
-                    </motion.span>
-                  ))}
-                </a>
-              )
-          }
-        })}
+
+        <div
+          className={clsx(
+            'GameEngine-text whitespace-pre-wrap text-center font-calligraph leading-tight',
+            scheme === 'dark' && 'GameEngine-text--dark',
+            {
+              md: 'text-md',
+              lg: 'text-xl',
+              xl: 'text-3xl',
+            }[size],
+          )}
+          style={{
+            ...style,
+            ...(frame && styleForFrame({containerSize}, frame)),
+          }}>
+          {groups.map((group, groupIdx) => {
+            switch (group.type) {
+              case 'text':
+                return (
+                  <React.Fragment key={groupIdx}>
+                    {group.chars.map((char, charIdx) => (
+                      <motion.span
+                        key={`${char}_${group.startIndex + charIdx}`}
+                        style={{fontSize}}
+                        variants={charAnimation}
+                        initial="initial"
+                        animate={controls}
+                        custom={group.startIndex + charIdx}>
+                        {char}
+                      </motion.span>
+                    ))}
+                  </React.Fragment>
+                )
+              case 'link':
+                return (
+                  <a
+                    key={groupIdx}
+                    className="underline"
+                    style={{
+                      fontSize,
+                      textUnderlineOffset: size ? '6px' : '4px',
+                    }}
+                    href={group.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={(event) => event.stopPropagation()}>
+                    {group.chars.map((char, charIdx) => (
+                      <motion.span
+                        key={`${char}_${group.startIndex + charIdx}`}
+                        variants={charAnimation}
+                        initial="initial"
+                        animate={controls}
+                        custom={group.startIndex + charIdx}>
+                        {char}
+                      </motion.span>
+                    ))}
+                  </a>
+                )
+            }
+          })}
+        </div>
       </div>
     </div>
   )

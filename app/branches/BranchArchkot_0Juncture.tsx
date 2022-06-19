@@ -40,13 +40,29 @@ export function BranchArchkot_0Juncture() {
         menu={[
           {
             label: 'Пройти мимо',
-            // FIXME: Add other cases
-            onClick: (ctx) => ctx.goToBranch('Archkot_ProjAsk_WalkPast'),
+            onClick: (ctx) => {
+              const options: BranchId[] = [
+                'Archkot_ProjAsk_WalkPast',
+                'Archkot_ProjAirport_WalkPast',
+                'Archkot_ProjBusStop_WalkPast',
+              ]
+              return ctx.goToBranch(
+                options[Math.floor(Math.random() * options.length)],
+              )
+            },
           },
           {
             label: 'Посмотреть',
-            // FIXME: Add other cases
-            onClick: (ctx) => ctx.goToBranch('Archkot_ProjAsk_CheckOut'),
+            onClick: (ctx) => {
+              const options: BranchId[] = [
+                'Archkot_ProjAsk_CheckOut',
+                'Archkot_ProjAirport_CheckOut',
+                'Archkot_ProjBusStop_CheckOut',
+              ]
+              ctx.goToBranch(
+                options[Math.floor(Math.random() * options.length)],
+              )
+            },
           },
         ]}>
         Возмутительно это конечно, никакого паспорта объекта!

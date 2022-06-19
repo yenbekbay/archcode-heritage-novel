@@ -67,12 +67,12 @@ export function BranchCityHall_ProjAsk_Examine_Reject() {
       <Say
         tag="Девелопер:"
         image={{uri: developerRepB1Png, style: {width: '100%', bottom: 0}}}>
-        —Внутри мы хотим создать современные, удобные помещения, увеличить
+        —Внутри мы хотим создать современные, удобные помещёния, увеличить
         свободную площадь,
       </Say>
 
       <Say image={{uri: developerRepB2Png, style: {width: '100%', bottom: 0}}}>
-        а еще сделать open space — с учетом прозрачного фасада, будет больше
+        а ещё сделать open space — с учетом прозрачного фасада, будет больше
         света!
       </Say>
 

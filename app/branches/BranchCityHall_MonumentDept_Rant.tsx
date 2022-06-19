@@ -73,8 +73,7 @@ export function BranchCityHall_MonumentDept_Rant() {
         }}
         style_={{fontSize: 16, textAlign: 'left'}}
         hide={1}>
-        “Какие здания уже в реестре памятников?” [*Ссылка
-        РЕЕСТР](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
+        “Какие здания уже в реестре памятников?” [Ссылка РЕЕСТР](#)
       </Say>
 
       <Say
@@ -87,8 +86,7 @@ export function BranchCityHall_MonumentDept_Rant() {
           },
         }}
         style_={{fontSize: 16, textAlign: 'left'}}>
-        “Какие здания хотел внести список аким Байбек. [*Ссылка
-        2](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
+        “Какие здания хотел внести список аким Байбек. [Ссылка 2](#)
       </Say>
 
       <Say durationMs={0} hide={1}>

@@ -30,12 +30,12 @@ export function BranchArchkot_ProjAsk_CheckOut_AssembleTeam_Debate() {
       <Say
         tag="Девелопер:"
         image={{uri: developerRepB1Png, style: {width: '100%', bottom: 0}}}>
-        —Внутри мы хотим создать современные, удобные помещения, увеличить
+        —Внутри мы хотим создать современные, удобные помещёния, увеличить
         свободную площадь,
       </Say>
 
       <Say image={{uri: developerRepB2Png, style: {width: '100%', bottom: 0}}}>
-        а еще сделать open space — с учетом прозрачного фасада, будет больше
+        а ещё сделать open space — с учетом прозрачного фасада, будет больше
         света!
       </Say>
 
@@ -111,14 +111,14 @@ export function BranchArchkot_ProjAsk_CheckOut_AssembleTeam_Debate() {
       <Say
         tag="АрхБот:"
         image={{uri: archbot3Png, style: {width: '100%', bottom: 0}}}>
-        Но вот памятником оно все же не стало…ушел аким, ушел и список…
+        Но вот памятником оно всё же не стало…ушел аким, ушел и список…
       </Say>
 
       <Say
         tag="АрхБот:"
         image={{uri: archbot3Png, style: {width: '100%', bottom: 0}}}>
         {
-          'Хотите узнать, что написали СМИ о состоявшейся реставрации АСК?\n\n[*Ссылка на статьи](https://www.youtube.com/watch?v=dQw4w9WgXcQ)'
+          'Хотите узнать, что написали СМИ о состоявшейся реставрации АСК?\n\n[Ссылка на статьи](#)'
         }
       </Say>
 

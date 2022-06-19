@@ -49,7 +49,7 @@ export function BranchCityHall_GovPrograms_Stop() {
 
       <Say image={{uri: archkot3Png, style: {width: '100%', bottom: 0}}}>
         {
-          '-Вот карта остановок.\n[*ССЫЛКА](https://www.youtube.com/watch?v=dQw4w9WgXcQ)\n-Они должны охраняться государством!'
+          '-Вот карта остановок.\n[*ССЫЛКА](#)\n-Они должны охраняться государством!'
         }
       </Say>
 

@@ -59,7 +59,7 @@ export function BranchCityHall_ProjZheltoksan_Approve_Debate() {
       <Say
         tag="Сабит:"
         image={{uri: sabitPng, style: {width: '100%', bottom: 0}}}>
-        —Никто еще ничего не сносит. У владельцев есть намерение. И они
+        —Никто ещё ничего не сносит. У владельцев есть намерение. И они
         приносили нам 4 проекта, которые мы отклонили
       </Say>
 

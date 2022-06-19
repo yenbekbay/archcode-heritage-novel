@@ -1,5 +1,6 @@
-import type {Paragraph, Text} from 'mdast'
+import type {Paragraph} from 'mdast'
 import {fromMarkdown} from 'mdast-util-from-markdown'
+import type {PhrasingContent} from 'mdast-util-from-markdown/lib'
 
 export type CharGroup =
   | {
@@ -44,13 +45,8 @@ export function charGroupsForMarkdown(value: string) {
           break
         }
         case 'link': {
-          const text = node.children.find((c): c is Text => c.type === 'text')
-          if (!text) {
-            console.warn('Unsupported syntax', node)
-            break
-          }
-
-          const chars = text.value.split('')
+          const value = getContentValue(node)
+          const chars = value.split('')
           groups.push({
             type: 'link',
             url: node.url,
@@ -67,4 +63,23 @@ export function charGroupsForMarkdown(value: string) {
     }
   }
   return groups
+}
+
+function getContentValue(node: {children: PhrasingContent[]}) {
+  let value = ''
+  for (const c of node.children) {
+    switch (c.type) {
+      case 'text':
+        value += c.value
+        break
+      case 'emphasis':
+      case 'strong':
+        value += getContentValue(c)
+        break
+      default:
+        console.warn('Unsupported syntax', node)
+        break
+    }
+  }
+  return value
 }

@@ -11,6 +11,8 @@ import archbot3Png from './archbot-3.png'
 import archkot1Png from './archkot-1.png'
 import archkot10Png from './archkot-10.png'
 import archkot11Png from './archkot-11.png'
+import archkot12Png from './archkot-12.png'
+import archkot13Png from './archkot-13.png'
 import archkot2Png from './archkot-2.png'
 import archkot3Png from './archkot-3.png'
 import archkot4Png from './archkot-4.png'
@@ -21,6 +23,9 @@ import archkot8Png from './archkot-8.png'
 import archkot9Png from './archkot-9.png'
 import archtok1Png from './archtok-1.png'
 import archtok2Png from './archtok-2.png'
+import archtok3Png from './archtok-3.png'
+import archtok4Png from './archtok-4.png'
+import archtok5Png from './archtok-5.png'
 import assistant1Png from './assistant-1.png'
 import assistant2Png from './assistant-2.png'
 import assistant3Png from './assistant-3.png'
@@ -100,6 +105,8 @@ import mayor8Png from './mayor-8.png'
 import mayor9Png from './mayor-9.png'
 import monumentDeptStaff1Png from './monument-dept-staff-1.png'
 import monumentDeptStaff2Png from './monument-dept-staff-2.png'
+import monumentDeptStaff3Png from './monument-dept-staff-3.png'
+import monumentDeptStaff4Png from './monument-dept-staff-4.png'
 import portalPaperPng from './portal-paper.png'
 import redhead1Png from './redhead-1.png'
 import redhead10Png from './redhead-10.png'
@@ -141,6 +148,8 @@ export {
   archkot1Png,
   archkot10Png,
   archkot11Png,
+  archkot12Png,
+  archkot13Png,
   archkot2Png,
   archkot3Png,
   archkot4Png,
@@ -151,6 +160,9 @@ export {
   archkot9Png,
   archtok1Png,
   archtok2Png,
+  archtok3Png,
+  archtok4Png,
+  archtok5Png,
   assistant1Png,
   assistant2Png,
   assistant3Png,
@@ -230,6 +242,8 @@ export {
   mayor9Png,
   monumentDeptStaff1Png,
   monumentDeptStaff2Png,
+  monumentDeptStaff3Png,
+  monumentDeptStaff4Png,
   portalPaperPng,
   redhead1Png,
   redhead10Png,

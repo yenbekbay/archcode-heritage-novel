@@ -1,13 +1,7 @@
-import {
-  archkot1Png,
-  archkot2Png,
-  archkot8Png,
-  bgAskBeforeJpg,
-  fencePng,
-} from '~/assets/game'
+import {archkot1Png, archkot8Png, bgAirportJpg, fencePng} from '~/assets/game'
 import {Branch, Say, Scene, Show} from '~/lib'
 
-export function BranchArchkot_ProjAsk_CheckOut() {
+export function BranchArchkot_ProjAirport_CheckOut() {
   return (
     <Branch>
       <Show
@@ -37,16 +31,19 @@ export function BranchArchkot_ProjAsk_CheckOut() {
         Я не усну спокойно, не посмотрев, что за забором
       </Say>
 
-      <Scene src={bgAskBeforeJpg} />
+      <Scene src={bgAirportJpg} />
 
       <Say image={{uri: archkot8Png, style: {width: '100%', bottom: 0}}}>
-        Что за напасть! Здание аппаратно-студийного комплекса перестроить решили
+        Вот вам новости! старенький vip-терминал аэропорта
       </Say>
 
-      <Say image={{uri: archkot2Png, style: {width: '100%', bottom: 0}}}>
-        А я был здесь ребенком ещё, у мамы на работе, мне по лестницам этим так
-        бегать нравилось
+      <Say image={{uri: archkot8Png, style: {width: '100%', bottom: 0}}}>
+        И что теперь, снесут его?
       </Say>
+
+      <Say>Ворота в Алматы…</Say>
+
+      <Say>…до свидания?</Say>
 
       <Say
         image={{uri: archkot1Png, style: {width: '100%', bottom: 0}}}
@@ -54,15 +51,15 @@ export function BranchArchkot_ProjAsk_CheckOut() {
           {
             label: 'Погрустить',
             onClick: (ctx) =>
-              ctx.goToBranch('Archkot_ProjAsk_CheckOut_SocialMedia'),
+              ctx.goToBranch('Archkot_ProjAirport_CheckOut_SocialMedia'),
           },
           {
             label: 'Собрать команду',
             onClick: (ctx) =>
-              ctx.goToBranch('Archkot_ProjAsk_CheckOut_AssembleTeam'),
+              ctx.goToBranch('Archkot_ProjAirport_CheckOut_AssembleTeam'),
           },
         ]}>
-        Что можно сделать мне, простому АрхКоту?
+        Что можно сделать мне, простому Архкоту?
       </Say>
     </Branch>
   )

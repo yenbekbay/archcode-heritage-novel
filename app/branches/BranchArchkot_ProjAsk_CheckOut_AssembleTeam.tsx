@@ -65,9 +65,13 @@ export function BranchArchkot_ProjAsk_CheckOut_AssembleTeam() {
       <Say
         tag="АрхБот:"
         image={{uri: archbot1Png, style: {width: '100%', bottom: 0}}}>
-        {
-          '—Загляните в ГОСУДАРСТВЕННЫЙ РЕЕСТР ПАМЯТНИКОВ. Там можно поискать нужное нам здание.\n\n[*Ссылка РЕЕСТР](https://www.youtube.com/watch?v=dQw4w9WgXcQ)'
-        }
+        —Загляните в ГОСУДАРСТВЕННЫЙ РЕЕСТР ПАМЯТНИКОВ
+      </Say>
+
+      <Say
+        tag="АрхБот:"
+        image={{uri: archbot1Png, style: {width: '100%', bottom: 0}}}>
+        {'—Там можно поискать нужное нам здание.\n\n[Ссылка РЕЕСТР](#)'}
       </Say>
 
       <Say
@@ -133,7 +137,7 @@ export function BranchArchkot_ProjAsk_CheckOut_AssembleTeam() {
 
       <Say image={{uri: archbot3Png, style: {width: '100%', bottom: 0}}}>
         {
-          '—Представляю вам документ, который я условно назвал “Список Байбека”\n\n[*Cсылка cтатья "Список Байбека"](https://www.youtube.com/watch?v=dQw4w9WgXcQ)'
+          '—Представляю вам документ, который я условно назвал “Список Байбека”\n\n[*Cсылка cтатья "Список Байбека"](#)'
         }
       </Say>
 
@@ -147,7 +151,7 @@ export function BranchArchkot_ProjAsk_CheckOut_AssembleTeam() {
         tag="АрхБот:"
         image={{uri: archbot1Png, style: {width: '100%', bottom: 0}}}>
         {
-          '—Я нашел закон, в котором говорится о зданиях, которые заявлены, как возможные памятники\n\n[*Cсылка на закон](https://www.youtube.com/watch?v=dQw4w9WgXcQ)'
+          '—Я нашел закон, в котором говорится о зданиях, которые заявлены, как возможные памятники\n\n[*Cсылка на закон](#)'
         }
       </Say>
 
@@ -172,8 +176,8 @@ export function BranchArchkot_ProjAsk_CheckOut_AssembleTeam() {
           },
           {
             label: 'Статья с рекомендациями',
-            // FIXME
-            onClick: () => alert('Не готово'),
+            onClick: (ctx) =>
+              ctx.goToBranch('Archkot_ProjAsk_CheckOut_AssembleTeam_Article'),
           },
         ]}>
         Что делать?
