@@ -21,11 +21,8 @@ export function BranchArchkot_ProjBusStop_CheckOut() {
       <Say
         image={{
           uri: archkot1Png,
-          style: {
-            width: '100%',
-            bottom: 0,
-            filter: 'drop-shadow(40px 40px 5px rgba(0, 0, 0, .35))',
-          },
+          align: 'bottom',
+          style: {filter: 'drop-shadow(40px 40px 5px rgba(0, 0, 0, .35))'},
         }}
         zIndex={101}>
         Я не усну спокойно, не посмотрев, что за забором
@@ -45,7 +42,7 @@ export function BranchArchkot_ProjBusStop_CheckOut() {
       </Say>
 
       <Say
-        image={{uri: archkot8Png, style: {width: '100%', bottom: 0}}}
+        image={{uri: archkot8Png, align: 'bottom'}}
         menu={[
           {
             label: 'Погрустить',

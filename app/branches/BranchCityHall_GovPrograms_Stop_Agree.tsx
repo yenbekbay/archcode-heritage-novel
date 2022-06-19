@@ -10,11 +10,11 @@ export function BranchCityHall_GovPrograms_Stop_Agree() {
     <Branch>
       <Scene src={bgCityHallConferenceRoomJpg} />
 
-      <Say image={{uri: mayor3Png, style: {width: '100%', bottom: 0}}}>
+      <Say image={{uri: mayor3Png, align: 'bottom'}}>
         —Спасибо, отличная работа!
       </Say>
 
-      <Say image={{uri: mayor3Png, style: {width: '100%', bottom: 0}}}>
+      <Say image={{uri: mayor3Png, align: 'bottom'}}>
         —Мы возьмем этот процесс под свой контроль и позаботимся о том, чтобы
         придать этим остановкам особый статус
       </Say>

@@ -12,13 +12,11 @@ export function BranchCityHall_ProjAsk_Examine_Reject_Ignore() {
     <Branch>
       <Scene src={bgDeveloperHqInsidePng} />
 
-      <Say
-        tag="АрхКот:"
-        image={{uri: archkot2Png, style: {width: '100%', bottom: 0}}}>
+      <Say tag="АрхКот:" image={{uri: archkot2Png, align: 'bottom'}}>
         —Мы предлагаем свою кандидатуру в качестве мониторинговой группы
       </Say>
 
-      <Say image={{uri: archkot3Png, style: {width: '100%', bottom: 0}}}>
+      <Say image={{uri: archkot3Png, align: 'bottom'}}>
         —Давайте договоримся о серии встреч с девелопером.
       </Say>
 

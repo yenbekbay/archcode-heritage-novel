@@ -12,26 +12,26 @@ export function BranchActivist_CheckOut_Act_Org() {
     <Branch>
       <Scene src={bgCourtyardJpg} />
 
-      <Say image={{uri: redhead19Png, style: {width: '100%', bottom: 0}}}>
+      <Say image={{uri: redhead19Png, align: 'bottom'}}>
         —Алло, здравствуйте, это Архкод?
       </Say>
 
       <Scene src={bgArchcodeOfficeJpg} />
 
-      <Say image={{uri: sillhouettePng, style: {width: '100%', bottom: 0}}}>
+      <Say image={{uri: sillhouettePng, align: 'bottom'}}>
         —Здравствуйте, да, я вас слушаю.
       </Say>
 
       <Scene src={bgCourtyardJpg} />
 
-      <Say image={{uri: redhead19Png, style: {width: '100%', bottom: 0}}}>
+      <Say image={{uri: redhead19Png, align: 'bottom'}}>
         —Непонятно, что творится! Забор там! Здание снесут! Унчтожат!
         Испоганят!!! Что делать???
       </Say>
 
       <Scene src={bgArchcodeOfficeJpg} />
 
-      <Say image={{uri: sillhouettePng, style: {width: '100%', bottom: 0}}}>
+      <Say image={{uri: sillhouettePng, align: 'bottom'}}>
         —Без паники. Приходите, поделимся опытом
       </Say>
 

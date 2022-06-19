@@ -21,7 +21,7 @@ export function BranchCityHall_Menu_GovPrograms() {
     <Branch>
       <Scene src={bgCityHallConferenceRoomJpg} />
 
-      <Say image={{uri: mayor3Png, style: {width: '100%', bottom: 0}}}>
+      <Say image={{uri: mayor3Png, align: 'bottom'}}>
         С 25 числа начать реализацию обновления остановок на территории г.Алматы
       </Say>
 
@@ -38,16 +38,11 @@ export function BranchCityHall_Menu_GovPrograms() {
 
       <Say>Конструкции мощные</Say>
 
-      <Show
-        src={{uri: angryCrowd1Png, style: {width: '100%', bottom: 0}}}
-        hide={2}
-      />
+      <Show src={{uri: angryCrowd1Png, align: 'bottom'}} hide={2} />
 
       <Say>Общественность возмущена</Say>
 
-      <Say image={{uri: archkot1Png, style: {width: '100%', bottom: 0}}}>
-        *АрхКот тоже здесь
-      </Say>
+      <Say image={{uri: archkot1Png, align: 'bottom'}}>*АрхКот тоже здесь</Say>
 
       <Scene src={bgMayorDoorJpg} />
 
@@ -79,7 +74,7 @@ export function BranchCityHall_Menu_GovPrograms() {
       <Scene src={bgCityHallMayorOfficeJpg} />
 
       <Say
-        image={{uri: mayor2Png, style: {width: '100%', bottom: 0}}}
+        image={{uri: mayor2Png, align: 'bottom'}}
         menu={[
           {
             label: 'Продолжить демонтаж',

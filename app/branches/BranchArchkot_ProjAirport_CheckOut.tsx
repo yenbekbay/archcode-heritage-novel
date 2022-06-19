@@ -21,11 +21,8 @@ export function BranchArchkot_ProjAirport_CheckOut() {
       <Say
         image={{
           uri: archkot1Png,
-          style: {
-            width: '100%',
-            bottom: 0,
-            filter: 'drop-shadow(40px 40px 5px rgba(0, 0, 0, .35))',
-          },
+          align: 'bottom',
+          style: {filter: 'drop-shadow(40px 40px 5px rgba(0, 0, 0, .35))'},
         }}
         zIndex={101}>
         Я не усну спокойно, не посмотрев, что за забором
@@ -33,11 +30,11 @@ export function BranchArchkot_ProjAirport_CheckOut() {
 
       <Scene src={bgAirportJpg} />
 
-      <Say image={{uri: archkot8Png, style: {width: '100%', bottom: 0}}}>
+      <Say image={{uri: archkot8Png, align: 'bottom'}}>
         Вот вам новости! старенький vip-терминал аэропорта
       </Say>
 
-      <Say image={{uri: archkot8Png, style: {width: '100%', bottom: 0}}}>
+      <Say image={{uri: archkot8Png, align: 'bottom'}}>
         И что теперь, снесут его?
       </Say>
 
@@ -46,7 +43,7 @@ export function BranchArchkot_ProjAirport_CheckOut() {
       <Say>…до свидания?</Say>
 
       <Say
-        image={{uri: archkot1Png, style: {width: '100%', bottom: 0}}}
+        image={{uri: archkot1Png, align: 'bottom'}}
         menu={[
           {
             label: 'Погрустить',

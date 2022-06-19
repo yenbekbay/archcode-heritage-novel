@@ -26,11 +26,8 @@ export function BranchActivist_WalkPast() {
       <Say
         image={{
           uri: redhead2Png,
-          style: {
-            width: '100%',
-            bottom: 0,
-            filter: 'drop-shadow(40px 40px 5px rgba(0, 0, 0, .35))',
-          },
+          align: 'bottom',
+          style: {filter: 'drop-shadow(40px 40px 5px rgba(0, 0, 0, .35))'},
         }}
         zIndex={101}>
         Скорее всего, ничего особенного. Очередное…да не важно
@@ -39,11 +36,8 @@ export function BranchActivist_WalkPast() {
       <Say
         image={{
           uri: redhead3Png,
-          style: {
-            width: '100%',
-            bottom: 0,
-            filter: 'drop-shadow(40px 40px 5px rgba(0, 0, 0, .35))',
-          },
+          align: 'bottom',
+          style: {filter: 'drop-shadow(40px 40px 5px rgba(0, 0, 0, .35))'},
         }}
         zIndex={101}>
         Поберегу нервы, семья ждет, пойду дома чай попью

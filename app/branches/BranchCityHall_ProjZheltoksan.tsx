@@ -12,13 +12,13 @@ export function BranchCityHall_ProjZheltoksan() {
 
       <Say
         tag="Представитель:"
-        image={{uri: developerRepAPng, style: {width: '100%', bottom: 0}}}>
+        image={{uri: developerRepAPng, align: 'bottom'}}>
         —Добрый день, я — представитель Bay Shatyr Group. Представляю вашему
         внимаю проект KAISAR PLAZA
       </Say>
 
       <Say
-        image={{uri: mayor2Png, style: {width: '100%', bottom: 0}}}
+        image={{uri: mayor2Png, align: 'bottom'}}
         menu={[
           {
             label: 'Нужна экспертиза',

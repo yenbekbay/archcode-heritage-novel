@@ -26,9 +26,7 @@ export function BranchActivist_CheckOut_Act_Group() {
       <Scene src={bgAptEntranceJpg} />
       <Scene src={bgAptKitchenJpg} />
 
-      <Say image={{uri: redhead14Png, style: {width: '100%', bottom: 0}}}>
-        —БЕСПРЕДЕЛ!
-      </Say>
+      <Say image={{uri: redhead14Png, align: 'bottom'}}>—БЕСПРЕДЕЛ!</Say>
 
       <Say
         scheme="dark"
@@ -63,11 +61,11 @@ export function BranchActivist_CheckOut_Act_Group() {
         }
       </Say>
 
-      <Say image={{uri: redhead15Png, style: {width: '100%', bottom: 0}}}>
+      <Say image={{uri: redhead15Png, align: 'bottom'}}>
         —Ты представляешь, что происходит ??
       </Say>
 
-      <Say image={{uri: redhead16Png, style: {width: '100%', bottom: 0}}}>
+      <Say image={{uri: redhead16Png, align: 'bottom'}}>
         {'*pop up\n\nзвуки уведомлений'}
       </Say>
 
@@ -106,16 +104,15 @@ export function BranchActivist_CheckOut_Act_Group() {
 
       <Scene src={bgCourtyardJpg} />
 
-      <Say
-        image={{uri: activistBPng, style: {width: '100%', bottom: 0}}}
-        hide={2}>
+      <Say image={{uri: activistBPng, align: 'bottom'}} hide={2}>
         *встреча активистов
       </Say>
 
       <Show
         src={{
           uri: activistAPng,
-          style: {width: '100%', bottom: 0, transform: 'translateX(-25%)'},
+          align: 'bottom',
+          style: {transform: 'translateX(-25%)'},
         }}
         hide={1}
       />
@@ -123,15 +120,12 @@ export function BranchActivist_CheckOut_Act_Group() {
       <Show
         src={{
           uri: redhead17Png,
-          style: {
-            width: '100%',
-            bottom: 0,
-            transform: 'translateX(25%) scaleX(-1)',
-          },
+          align: 'bottom',
+          style: {transform: 'translateX(25%) scaleX(-1)'},
         }}
       />
 
-      <Say image={{uri: activistAPng, style: {width: '100%', bottom: 0}}}>
+      <Say image={{uri: activistAPng, align: 'bottom'}}>
         {
           '—Действовать надо последовательно…\n\nДля начала давайте узнаем, кто здесь - заинтересованные стороны'
         }
@@ -160,7 +154,7 @@ export function BranchActivist_CheckOut_Act_Group() {
         [Ссылка 24 "кто такие стейкхолдеры"](#)
       </Say>
 
-      <Say image={{uri: redhead5Png, style: {width: '100%', bottom: 0}}}>
+      <Say image={{uri: redhead5Png, align: 'bottom'}}>
         {
           '—И узнать надо побольше.\n\nИ не только почитать новости, а проверить, правду ли говорят'
         }
@@ -189,7 +183,7 @@ export function BranchActivist_CheckOut_Act_Group() {
         [Ссылка фактчек](#)
       </Say>
 
-      <Say image={{uri: activistBPng, style: {width: '100%', bottom: 0}}}>
+      <Say image={{uri: activistBPng, align: 'bottom'}}>
         {
           '—Нужно как можно больше писать в соц.сети. \n\nЧем больше людей знают, тем сложнее что-то скрыть!'
         }
@@ -218,7 +212,7 @@ export function BranchActivist_CheckOut_Act_Group() {
         [Ссылка 22 "как написать пост в соц.сети и быть услышанным"](#)
       </Say>
 
-      <Say image={{uri: activistAPng, style: {width: '100%', bottom: 0}}}>
+      <Say image={{uri: activistAPng, align: 'bottom'}}>
         —Еще мы должны участвовать в общественных слушаниях…
       </Say>
 
@@ -245,14 +239,15 @@ export function BranchActivist_CheckOut_Act_Group() {
         [Ссылка 6 "как участвовать в общественных слушаниях"](#)
       </Say>
 
-      <Say image={{uri: redhead1Png, style: {width: '100%', bottom: 0}}}>
+      <Say image={{uri: redhead1Png, align: 'bottom'}}>
         —Будем писать во все инстанции!!!
       </Say>
 
       <Say
         image={{
           uri: activistAPng,
-          style: {width: '100%', bottom: 0, transform: 'scaleX(-1)'},
+          align: 'bottom',
+          style: {transform: 'scaleX(-1)'},
         }}>
         —А куда можно написать?
       </Say>
@@ -290,12 +285,13 @@ export function BranchActivist_CheckOut_Act_Group() {
       <Say
         image={{
           uri: redhead18Png,
-          style: {width: '100%', bottom: 0, transform: 'scaleX(-1)'},
+          align: 'bottom',
+          style: {transform: 'scaleX(-1)'},
         }}>
         —А если не будет дельных ответов, просто устроим протестную акцию!
       </Say>
 
-      <Say image={{uri: activistBPng, style: {width: '100%', bottom: 0}}}>
+      <Say image={{uri: activistBPng, align: 'bottom'}}>
         —А я тут новости читал. Есть группа Архкод, вроде как наследием
         занимается
       </Say>
@@ -329,7 +325,7 @@ export function BranchActivist_CheckOut_Act_Group() {
         [сайт Архкода](https://archcode.kz)
       </Say>
 
-      <Say image={{uri: activistAPng, style: {width: '100%', bottom: 0}}}>
+      <Say image={{uri: activistAPng, align: 'bottom'}}>
         —Да, давайте позвоним им
       </Say>
 

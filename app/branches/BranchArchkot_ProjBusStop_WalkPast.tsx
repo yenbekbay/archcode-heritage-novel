@@ -29,11 +29,8 @@ export function BranchArchkot_ProjBusStop_WalkPast() {
       <Say
         image={{
           uri: archkot6Png,
-          style: {
-            width: '100%',
-            bottom: 0,
-            filter: 'drop-shadow(40px 40px 5px rgba(0, 0, 0, .35))',
-          },
+          align: 'bottom',
+          style: {filter: 'drop-shadow(40px 40px 5px rgba(0, 0, 0, .35))'},
         }}
         zIndex={101}>
         Не стоит зря терять времени, дедлайны горят, дома кот некормленный, да
@@ -53,13 +50,11 @@ export function BranchArchkot_ProjBusStop_WalkPast() {
         отношения к историко-культурному наследию
       </Say>
 
-      <Say image={{uri: archkot7Png, style: {width: '100%', bottom: 0}}}>
+      <Say image={{uri: archkot7Png, align: 'bottom'}}>
         Была история, и нет истории. Зря Дядь Юра старался
       </Say>
 
-      <Say
-        tag="АрхБот:"
-        image={{uri: archbot1Png, style: {width: '100%', bottom: 0}}}>
+      <Say tag="АрхБот:" image={{uri: archbot1Png, align: 'bottom'}}>
         {'—А могло бы быть вот так:\n\n[Ссылка на зарубежные примеры](#)'}
       </Say>
 

@@ -16,7 +16,7 @@ export function BranchCityHall_GovPrograms_Continue() {
         конструкций
       </Say>
 
-      <Say image={{uri: angryCrowd1Png, style: {width: '100%', bottom: 0}}}>
+      <Say image={{uri: angryCrowd1Png, align: 'bottom'}}>
         За день общественность успевает распространить информацию о демонтаже. В
         акимат пришло несколько писем от активистов с просьбой остановить
         демонтаж остановки
@@ -25,7 +25,7 @@ export function BranchCityHall_GovPrograms_Continue() {
       <Scene src={bgCityHallMayorOfficeJpg} />
 
       <Say
-        image={{uri: mayor2Png, style: {width: '100%', bottom: 0}}}
+        image={{uri: mayor2Png, align: 'bottom'}}
         menu={[
           {
             label: 'Продолжить демонтаж',

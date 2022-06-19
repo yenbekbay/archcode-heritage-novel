@@ -42,12 +42,12 @@ export function BranchCityHall_ProjAirport_Approve() {
 
       <Say>Указ: Одобрить снос здания VIP терминала Аэропорта</Say>
 
-      <Say image={{uri: mayor2Png, style: {width: '100%', bottom: 0}}}>
+      <Say image={{uri: mayor2Png, align: 'bottom'}}>
         Мнение общественности учитывать не обязательно. Сохранить старый
         терминал — путь архаичного советского мышления
       </Say>
 
-      <Say image={{uri: mayor3Png, style: {width: '100%', bottom: 0}}}>
+      <Say image={{uri: mayor3Png, align: 'bottom'}}>
         Однако, по закону необходимо провести общественные слушания по проекту
       </Say>
 

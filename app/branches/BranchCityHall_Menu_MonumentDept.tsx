@@ -15,27 +15,23 @@ export function BranchCityHall_Menu_MonumentDept() {
     <Branch>
       <Scene src={bgCityHallMayorOfficeJpg} />
 
-      <Say image={{uri: mayor1Png, style: {width: '100%', bottom: 0}}}>
+      <Say image={{uri: mayor1Png, align: 'bottom'}}>
         Что у нас делает отдел памятников?
       </Say>
 
       <Scene src={bgMonumentDeptDoorJpg} />
 
-      <Say image={{uri: mayor5Png, style: {width: '100%', bottom: 0}}}>
+      <Say image={{uri: mayor5Png, align: 'bottom'}}>
         Посмотрим, что они тут делают…
       </Say>
 
       <Scene src={bgMonumentDeptDoorwayJpg} />
 
-      <Show
-        src={{uri: monumentDeptStaff1Png, style: {width: '100%', bottom: 0}}}
-      />
-      <Show
-        src={{uri: monumentDeptStaff2Png, style: {width: '100%', bottom: 0}}}
-      />
+      <Show src={{uri: monumentDeptStaff1Png, align: 'bottom'}} />
+      <Show src={{uri: monumentDeptStaff2Png, align: 'bottom'}} />
 
       <Say
-        image={{uri: mayor6Png, style: {width: '100%', bottom: 0}}}
+        image={{uri: mayor6Png, align: 'bottom'}}
         menu={[
           {
             label: 'Чай!',

@@ -43,18 +43,18 @@ export function BranchCityHall_GovPrograms_Stop() {
 
       <Say>Встреча с АрхКотом</Say>
 
-      <Say image={{uri: archkot2Png, style: {width: '100%', bottom: 0}}}>
+      <Say image={{uri: archkot2Png, align: 'bottom'}}>
         -Мы провели исследование темы и инвентаризацию советских остановок
       </Say>
 
-      <Say image={{uri: archkot3Png, style: {width: '100%', bottom: 0}}}>
+      <Say image={{uri: archkot3Png, align: 'bottom'}}>
         {
           '-Вот карта остановок.\n[*ССЫЛКА](#)\n-Они должны охраняться государством!'
         }
       </Say>
 
       <Say
-        image={{uri: mayor2Png, style: {width: '100%', bottom: 0}}}
+        image={{uri: mayor2Png, align: 'bottom'}}
         menu={[
           {
             label: 'Он прав!',

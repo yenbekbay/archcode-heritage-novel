@@ -11,13 +11,11 @@ export function BranchCityHall_ProjAirport_Examine_Reject_Reject() {
     <Branch>
       <Scene src={bgCityHallMayorOfficeJpg} />
 
-      <Say image={{uri: mayor3Png, style: {width: '100%', bottom: 0}}}>
+      <Say image={{uri: mayor3Png, align: 'bottom'}}>
         —В проекте действительно есть ряд нарушений, нужно его изменить
       </Say>
 
-      <Say
-        tag="Девелопер:"
-        image={{uri: developerRepB6Png, style: {width: '100%', bottom: 0}}}>
+      <Say tag="Девелопер:" image={{uri: developerRepB6Png, align: 'bottom'}}>
         —Мы учли мнение общественности и данный проект сохранияет наше
         историко-культурное наследие
       </Say>

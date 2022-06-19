@@ -42,12 +42,12 @@ export function BranchCityHall_ProjZheltoksan_Approve() {
 
       <Scene src={bgZheltoksanBeforeJpg} />
 
-      <Say image={{uri: angryCrowd1Png, style: {width: '100%', bottom: 0}}}>
+      <Say image={{uri: angryCrowd1Png, align: 'bottom'}}>
         Общественность возмущена
       </Say>
 
       <Say
-        image={{uri: mayor4Png, style: {width: '100%', bottom: 0}}}
+        image={{uri: mayor4Png, align: 'bottom'}}
         menu={[
           {
             label: 'Попросить помощи у блоггеров',

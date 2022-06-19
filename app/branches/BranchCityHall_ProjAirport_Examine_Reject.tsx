@@ -1,5 +1,5 @@
 import {
-  akordeevPng,
+  aKordeevPng,
   archkot1Png,
   archkot4Png,
   assistant3Png,
@@ -55,14 +55,12 @@ export function BranchCityHall_ProjAirport_Examine_Reject() {
 
       <Scene src={bgCityHallConferenceRoomJpg} />
 
-      <Say
-        tag="Зам. акима:"
-        image={{uri: assistant3Png, style: {width: '100%', bottom: 0}}}>
+      <Say tag="Зам. акима:" image={{uri: assistant3Png, align: 'bottom'}}>
         —То, что есть сейчас, утратило историческую ценность. Когда-то, в 50-е
         годы, оно было таким, да, но сейчас — нет
       </Say>
 
-      <Say image={{uri: assistant3Png, style: {width: '100%', bottom: 0}}}>
+      <Say image={{uri: assistant3Png, align: 'bottom'}}>
         —Нет никаких исторических элементов, есть стеклянные электронные двери.
         Там почти всё поменяли. Всё изменилось до неузнаваемости в худшую
         сторону. Никаким туристам здание неинтересно
@@ -70,38 +68,36 @@ export function BranchCityHall_ProjAirport_Examine_Reject() {
 
       <Say
         tag="Член Общ. совета Шарат Мибутов:"
-        image={{uri: sharatMibutovPng, style: {width: '100%', bottom: 0}}}>
+        image={{uri: sharatMibutovPng, align: 'bottom'}}>
         —То, что предложила турецкая фирма, выглядело не очень. То есть, это
         обычная квадратная коробка, без какой-либо связи с Казахстаном
       </Say>
 
-      <Say image={{uri: sharatMibutovPng, style: {width: '100%', bottom: 0}}}>
+      <Say image={{uri: sharatMibutovPng, align: 'bottom'}}>
         —Был выбран экономичный вариант, который рассчитан только на увеличение
         пропускной способности терминала и максимизацию прибыли инвесторов
       </Say>
 
       <Say
         tag={'Вице президент “Аэропорт”\nА. Кордеев:'}
-        image={{uri: akordeevPng, style: {width: '100%', bottom: 0}}}>
+        image={{uri: aKordeevPng, align: 'bottom'}}>
         —Я не считаю его великим памятником. Оно не несёт функциональной
         нагрузки и занимает огромную площадь
       </Say>
 
-      <Say
-        tag="АрхКот:"
-        image={{uri: archkot1Png, style: {width: '100%', bottom: 0}}}>
+      <Say tag="АрхКот:" image={{uri: archkot1Png, align: 'bottom'}}>
         —Согласно закону об охране и использовании объектов историко-культурного
         наследия. Перемещёние и изменение памятника истории и культуры
         запрещаются
       </Say>
 
-      <Say image={{uri: archkot4Png, style: {width: '100%', bottom: 0}}}>
+      <Say image={{uri: archkot4Png, align: 'bottom'}}>
         —Исключение допускается лишь в случаях разрушения более семидесяти
         процентов памятника истории и культуры либо утраты историко-культурной
         значимости
       </Say>
 
-      <Say image={{uri: archkot4Png, style: {width: '100%', bottom: 0}}}>
+      <Say image={{uri: archkot4Png, align: 'bottom'}}>
         —или если его перемещёние и изменение повлекут улучшение условий его
         сохранения. Да и в общей сложности, это крайне дорогая процедура
       </Say>
@@ -112,7 +108,7 @@ export function BranchCityHall_ProjAirport_Examine_Reject() {
       </Say>
 
       <Say
-        image={{uri: mayor2Png, style: {width: '100%', bottom: 0}}}
+        image={{uri: mayor2Png, align: 'bottom'}}
         menu={[
           {
             label: 'Не одобрять',

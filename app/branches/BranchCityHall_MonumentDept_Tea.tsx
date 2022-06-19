@@ -32,7 +32,7 @@ export function BranchCityHall_MonumentDept_Tea() {
       </Say>
 
       <Say
-        image={{uri: mayor2Png, style: {width: '100%', bottom: 0}}}
+        image={{uri: mayor2Png, align: 'bottom'}}
         menu={[
           {
             label:
@@ -79,7 +79,7 @@ export function BranchCityHall_MonumentDept_Tea() {
       </Say>
 
       <Say
-        image={{uri: mayor2Png, style: {width: '100%', bottom: 0}}}
+        image={{uri: mayor2Png, align: 'bottom'}}
         menu={[
           {
             label: 'Не одобрять! Пусть меняют проект',
@@ -109,7 +109,7 @@ export function BranchCityHall_MonumentDept_Tea() {
       </Say>
 
       <Say
-        image={{uri: mayor2Png, style: {width: '100%', bottom: 0}}}
+        image={{uri: mayor2Png, align: 'bottom'}}
         menu={[
           {
             label: 'Дальше',

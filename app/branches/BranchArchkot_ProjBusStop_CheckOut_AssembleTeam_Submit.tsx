@@ -16,84 +16,60 @@ export function BranchArchkot_ProjBusStop_CheckOut_AssembleTeam_Submit() {
     <Branch>
       <Scene src={bgArchcodeOfficeJpg} />
 
-      <Say
-        tag="АрхКот:"
-        image={{uri: archkot9Png, style: {width: '100%', bottom: 0}}}>
+      <Say tag="АрхКот:" image={{uri: archkot9Png, align: 'bottom'}}>
         {'—Мы сами можем разобраться! Памятниками должны стать…\n\n[Ссылка](#)'}
       </Say>
 
-      <Say
-        tag="АрхКот:"
-        image={{uri: archkot9Png, style: {width: '100%', bottom: 0}}}>
+      <Say tag="АрхКот:" image={{uri: archkot9Png, align: 'bottom'}}>
         {'—Хмм…\n\n[Ссылка 9*10](#)'}
       </Say>
 
-      <Say
-        tag="АрхТок:"
-        image={{uri: archtok1Png, style: {width: '100%', bottom: 0}}}>
+      <Say tag="АрхТок:" image={{uri: archtok1Png, align: 'bottom'}}>
         —На самом деле, точных критериев, по которым можно определить, какие
         здания внести в список памятников нет, поэтому…
       </Say>
 
-      <Say
-        tag="АрхБот:"
-        image={{uri: archbot2Png, style: {width: '100%', bottom: 0}}}>
+      <Say tag="АрхБот:" image={{uri: archbot2Png, align: 'bottom'}}>
         {
           '—Идея! Мы проведем опрос среди горожан. Я уже составил пару вопросов\n\n[Ссылка СМИ*4](#)'
         }
       </Say>
 
-      <Say
-        tag="АрхТок:"
-        image={{uri: archtok1Png, style: {width: '100%', bottom: 0}}}>
+      <Say tag="АрхТок:" image={{uri: archtok1Png, align: 'bottom'}}>
         —Ну, неплохо… А вообще конечно, есть Конвенция ЮНЕСКО…. Вполне логичный
         вариант — опираться на нее
       </Say>
 
-      <Say
-        tag="АрхБот:"
-        image={{uri: archbot3Png, style: {width: '100%', bottom: 0}}}>
+      <Say tag="АрхБот:" image={{uri: archbot3Png, align: 'bottom'}}>
         —Мы составили список зданий, необходимых для внесения в список....
       </Say>
 
-      <Say
-        tag="АрхКот:"
-        image={{uri: archkot12Png, style: {width: '100%', bottom: 0}}}>
+      <Say tag="АрхКот:" image={{uri: archkot12Png, align: 'bottom'}}>
         —Дааааа! Можем нести его в акимат!
       </Say>
 
-      <Say
-        tag="АрхТок:"
-        image={{uri: archtok2Png, style: {width: '100%', bottom: 0}}}>
+      <Say tag="АрхТок:" image={{uri: archtok2Png, align: 'bottom'}}>
         {
           '—Погоди…Теперь необходимо провести экспертизу\n\n[Ссылка на закон об экспертизе *7](#)'
         }
       </Say>
 
-      <Say
-        tag="АрхКот:"
-        image={{uri: archkot11Png, style: {width: '100%', bottom: 0}}}>
+      <Say tag="АрхКот:" image={{uri: archkot11Png, align: 'bottom'}}>
         —Фух…
       </Say>
 
-      <Say
-        tag="АрхБот:"
-        image={{uri: archbot1Png, style: {width: '100%', bottom: 0}}}>
+      <Say tag="АрхБот:" image={{uri: archbot1Png, align: 'bottom'}}>
         {
           '—Поздравляем! документы готовы\n\n[Ссылка написать письмо акиму с пакетом документов](#)'
         }
       </Say>
 
-      <Say
-        tag="АрхКот:"
-        image={{uri: archkot11Png, style: {width: '100%', bottom: 0}}}>
+      <Say tag="АрхКот:" image={{uri: archkot11Png, align: 'bottom'}}>
         —Не всё так просто в этом мире, милый кот. Не всё так просто в этом
         городе
       </Say>
 
-      <Say
-        tag="АрхКот:"
-        image={{uri: archkot9Png, style: {width: '100%', bottom: 0}}}>
+      <Say tag="АрхКот:" image={{uri: archkot9Png, align: 'bottom'}}>
         —Нееет, я не отчаиваюсь…
       </Say>
 

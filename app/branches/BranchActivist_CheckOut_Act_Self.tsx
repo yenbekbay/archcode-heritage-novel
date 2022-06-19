@@ -31,9 +31,7 @@ export function BranchActivist_CheckOut_Act_Self() {
 
       <Scene src={bgAptKitchenJpg} />
 
-      <Say
-        image={{uri: redhead9Png, style: {width: '100%', bottom: 0}}}
-        hide={1}>
+      <Say image={{uri: redhead9Png, align: 'bottom'}} hide={1}>
         Узнать надо побольше…
       </Say>
 
@@ -54,7 +52,7 @@ export function BranchActivist_CheckOut_Act_Self() {
         [Ссылка фактчек](https://factcheck.kz/)
       </Say>
 
-      <Say image={{uri: redhead10Png, style: {width: '100%', bottom: 0}}}>
+      <Say image={{uri: redhead10Png, align: 'bottom'}}>
         А теперь как запилю пост, что весь город на уши встанет!!!
       </Say>
 
@@ -71,7 +69,7 @@ export function BranchActivist_CheckOut_Act_Self() {
         [Ссылка 22 "как написать пост в соц.сети и быть услышанным"](#)
       </Say>
 
-      <Say image={{uri: redhead11Png, style: {width: '100%', bottom: 0}}}>
+      <Say image={{uri: redhead11Png, align: 'bottom'}}>
         Буду писать во все инстанции!
       </Say>
 
@@ -88,7 +86,7 @@ export function BranchActivist_CheckOut_Act_Self() {
         [Ссылка список "кому можно писать" и примеры официальных писем](#)
       </Say>
 
-      <Say image={{uri: redhead9Png, style: {width: '100%', bottom: 0}}}>
+      <Say image={{uri: redhead9Png, align: 'bottom'}}>
         Таксссссс, а слушания то будут??
       </Say>
 
@@ -105,13 +103,11 @@ export function BranchActivist_CheckOut_Act_Self() {
         [Новости, статьи и объявления о слушаниях](#)
       </Say>
 
-      <Say image={{uri: redhead12Png, style: {width: '100%', bottom: 0}}}>
+      <Say image={{uri: redhead12Png, align: 'bottom'}}>
         И вообще, если не будет диалога, я готова действовать!!!
       </Say>
 
-      <Say image={{uri: redhead11Png, style: {width: '100%', bottom: 0}}}>
-        Устрою протест!!!
-      </Say>
+      <Say image={{uri: redhead11Png, align: 'bottom'}}>Устрою протест!!!</Say>
 
       <Say
         image={{

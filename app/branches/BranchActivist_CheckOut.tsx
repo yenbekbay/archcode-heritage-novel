@@ -26,11 +26,8 @@ export function BranchActivist_CheckOut() {
       <Say
         image={{
           uri: redhead4Png,
-          style: {
-            width: '100%',
-            bottom: 0,
-            filter: 'drop-shadow(40px 40px 5px rgba(0, 0, 0, .35))',
-          },
+          align: 'bottom',
+          style: {filter: 'drop-shadow(40px 40px 5px rgba(0, 0, 0, .35))'},
         }}
         zIndex={101}>
         Мутят что-то без доклада народу. Надо разобраться!
@@ -39,10 +36,7 @@ export function BranchActivist_CheckOut() {
       <Scene src={bgBldgAFenceGif} durationMs={10000} />
 
       <Say
-        image={{
-          uri: redhead2Png,
-          style: {width: '100%', bottom: 0},
-        }}
+        image={{uri: redhead2Png, align: 'bottom'}}
         menu={[
           {
             label: 'Как-то печально всё это',

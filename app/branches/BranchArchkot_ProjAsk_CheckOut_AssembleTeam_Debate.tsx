@@ -21,72 +21,56 @@ export function BranchArchkot_ProjAsk_CheckOut_AssembleTeam_Debate() {
       <Scene src={bgDeveloperHqOutsideJpg} />
       <Scene src={bgDeveloperHqInsidePng} />
 
-      <Say
-        tag="АрхКот:"
-        image={{uri: archkot4Png, style: {width: '100%', bottom: 0}}}>
+      <Say tag="АрхКот:" image={{uri: archkot4Png, align: 'bottom'}}>
         —Это сейчас практически единственное здание, которое не было изменено
       </Say>
 
-      <Say
-        tag="Девелопер:"
-        image={{uri: developerRepB1Png, style: {width: '100%', bottom: 0}}}>
+      <Say tag="Девелопер:" image={{uri: developerRepB1Png, align: 'bottom'}}>
         —Внутри мы хотим создать современные, удобные помещёния, увеличить
         свободную площадь,
       </Say>
 
-      <Say image={{uri: developerRepB2Png, style: {width: '100%', bottom: 0}}}>
+      <Say image={{uri: developerRepB2Png, align: 'bottom'}}>
         а ещё сделать open space — с учетом прозрачного фасада, будет больше
         света!
       </Say>
 
-      <Say image={{uri: developerRepB3Png, style: {width: '100%', bottom: 0}}}>
+      <Say image={{uri: developerRepB3Png, align: 'bottom'}}>
         Стекла на фасаде сделаем зеркальными!
       </Say>
 
-      <Say
-        tag="Горжемпо:"
-        image={{uri: gorzhempoPng, style: {width: '100%', bottom: 0}}}>
+      <Say tag="Горжемпо:" image={{uri: gorzhempoPng, align: 'bottom'}}>
         —В начале 80-х годов прошлого века я мечтал о зеркальном стекле,
         которого в СССР не было
       </Say>
 
-      <Say image={{uri: gorzhempoPng, style: {width: '100%', bottom: 0}}}>
+      <Say image={{uri: gorzhempoPng, align: 'bottom'}}>
         Из-за дефицита материала в итоге при строительстве было использовано
         дымчатое стекло,
       </Say>
 
-      <Say image={{uri: gorzhempoPng, style: {width: '100%', bottom: 0}}}>
+      <Say image={{uri: gorzhempoPng, align: 'bottom'}}>
         и в проекте, судя по рендерам, оно заменяется на зеркальное
       </Say>
 
-      <Say
-        tag="Тина Штунер:"
-        image={{uri: tinaShtunerPng, style: {width: '100%', bottom: 0}}}>
+      <Say tag="Тина Штунер:" image={{uri: tinaShtunerPng, align: 'bottom'}}>
         —Это уже исторический памятник, и сделать зеркальные окна — нарушение
         облика, к которому мы привыкли
       </Say>
 
-      <Say
-        tag="Адя Пчелкина:"
-        image={{uri: adyaPchelkinaPng, style: {width: '100%', bottom: 0}}}>
+      <Say tag="Адя Пчелкина:" image={{uri: adyaPchelkinaPng, align: 'bottom'}}>
         —Есть ли у Bay Shatyr Group лицензия на работу с памятниками?
       </Say>
 
-      <Say
-        tag="Девелопер:"
-        image={{uri: developerRepB4Png, style: {width: '100%', bottom: 0}}}>
+      <Say tag="Девелопер:" image={{uri: developerRepB4Png, align: 'bottom'}}>
         …
       </Say>
 
-      <Say
-        tag="АрхКот:"
-        image={{uri: archkot4Png, style: {width: '100%', bottom: 0}}}>
+      <Say tag="АрхКот:" image={{uri: archkot4Png, align: 'bottom'}}>
         —Нужен кто-то, кто будет контролировать правильность процесса!
       </Say>
 
-      <Say
-        tag="Девелопер:"
-        image={{uri: developerRepB5Png, style: {width: '100%', bottom: 0}}}>
+      <Say tag="Девелопер:" image={{uri: developerRepB5Png, align: 'bottom'}}>
         …
       </Say>
 
@@ -108,15 +92,11 @@ export function BranchArchkot_ProjAsk_CheckOut_AssembleTeam_Debate() {
         Побегайте по лестницам у входа, почувствйте себя снова ребенком!
       </Say>
 
-      <Say
-        tag="АрхБот:"
-        image={{uri: archbot3Png, style: {width: '100%', bottom: 0}}}>
+      <Say tag="АрхБот:" image={{uri: archbot3Png, align: 'bottom'}}>
         Но вот памятником оно всё же не стало…ушел аким, ушел и список…
       </Say>
 
-      <Say
-        tag="АрхБот:"
-        image={{uri: archbot3Png, style: {width: '100%', bottom: 0}}}>
+      <Say tag="АрхБот:" image={{uri: archbot3Png, align: 'bottom'}}>
         {
           'Хотите узнать, что написали СМИ о состоявшейся реставрации АСК?\n\n[Ссылка на статьи](#)'
         }

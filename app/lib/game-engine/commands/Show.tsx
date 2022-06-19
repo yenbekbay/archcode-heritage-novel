@@ -1,12 +1,9 @@
-import type {CommandProps, CommandViewAnimation} from '../components'
+import type {CommandProps} from '../components'
 import {Command} from '../components'
+import type {ImageViewProps} from './views'
 import {ImageView} from './views'
 
-export interface ShowSource {
-  uri: string
-  style?: React.CSSProperties
-  animation?: CommandViewAnimation
-}
+export interface ShowSource extends Omit<ImageViewProps, 'controls'> {}
 
 export interface ShowProps extends Pick<CommandProps, 'hide' | 'zIndex'> {
   src: string | ShowSource | (string | ShowSource)[]

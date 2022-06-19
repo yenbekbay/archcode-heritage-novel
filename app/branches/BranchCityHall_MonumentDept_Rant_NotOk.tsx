@@ -10,7 +10,7 @@ export function BranchCityHall_MonumentDept_Rant_NotOk() {
     <Branch>
       <Scene src={bgCityHallMayorOfficeJpg} />
 
-      <Say image={{uri: mayor13Png, style: {width: '100%', bottom: 0}}}>
+      <Say image={{uri: mayor13Png, align: 'bottom'}}>
         {'Хммм…\nЧто-то долго'}
       </Say>
 

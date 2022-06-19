@@ -14,7 +14,7 @@ export function BranchCityHall_0Menu() {
       <Scene src={bgCityHallSignJpg} />
       <Scene src={bgCityHallMayorOfficeJpg} />
 
-      <Say image={{uri: mayor1Png, style: {width: '100%', bottom: 0}}}>
+      <Say image={{uri: mayor1Png, align: 'bottom'}}>
         Так-с…Что у нас на повестке дня?
       </Say>
 

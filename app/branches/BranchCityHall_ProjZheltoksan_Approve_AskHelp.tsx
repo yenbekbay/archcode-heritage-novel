@@ -29,11 +29,11 @@ export function BranchCityHall_ProjZheltoksan_Approve_AskHelp() {
 
       <Scene src={bgZheltoksanBeforeJpg} />
 
-      <Say image={{uri: angryCrowd1Png, style: {width: '100%', bottom: 0}}}>
+      <Say image={{uri: angryCrowd1Png, align: 'bottom'}}>
         {`—Надувательство\n\n—Бред собачий`}
       </Say>
 
-      <Say image={{uri: angryCrowd2Png, style: {width: '100%', bottom: 0}}}>
+      <Say image={{uri: angryCrowd2Png, align: 'bottom'}}>
         —Продажные чуваки
       </Say>
 

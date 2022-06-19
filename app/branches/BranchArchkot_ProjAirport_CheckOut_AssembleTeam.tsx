@@ -1,5 +1,5 @@
 import {
-  akordeevPng,
+  aKordeevPng,
   archbot1Png,
   archbot2Png,
   archbot3Png,
@@ -30,7 +30,7 @@ export function BranchArchkot_ProjAirport_CheckOut_AssembleTeam() {
     <Branch>
       <Scene src={bgAirportJpg} />
 
-      <Say image={{uri: archkot8Png, style: {width: '100%', bottom: 0}}}>
+      <Say image={{uri: archkot8Png, align: 'bottom'}}>
         Быстро! Быстро! Надо собрать команду и разобраться, что тут происходит!
       </Say>
 
@@ -59,35 +59,27 @@ export function BranchArchkot_ProjAirport_CheckOut_AssembleTeam() {
 
       <Scene src={bgArchcodeOfficeJpg} />
 
-      <Say
-        tag="АрхКот:"
-        image={{uri: archkot2Png, style: {width: '100%', bottom: 0}}}>
+      <Say tag="АрхКот:" image={{uri: archkot2Png, align: 'bottom'}}>
         —В городе беда. VIP терминал Аэропорта обнесен забором, и никто ничего
         об этом не знает! Мы должны что-то делать
       </Say>
 
-      <Say
-        tag="АрхТок:"
-        image={{uri: archtok1Png, style: {width: '100%', bottom: 0}}}>
+      <Say tag="АрхТок:" image={{uri: archtok1Png, align: 'bottom'}}>
         —Первое, что необходимо выяснить - это является ли здание памятником
         историко-культурного наследия.
       </Say>
 
-      <Say
-        tag="АрхБот:"
-        image={{uri: archbot1Png, style: {width: '100%', bottom: 0}}}>
+      <Say tag="АрхБот:" image={{uri: archbot1Png, align: 'bottom'}}>
         —Загляните в ГОСУДАРСТВЕННЫЙ РЕЕСТР ПАМЯТНИКОВ
       </Say>
 
-      <Say
-        tag="АрхБот:"
-        image={{uri: archbot1Png, style: {width: '100%', bottom: 0}}}>
+      <Say tag="АрхБот:" image={{uri: archbot1Png, align: 'bottom'}}>
         {'—Там можно поискать нужное нам здание.\n\n[Ссылка РЕЕСТР](#)'}
       </Say>
 
       <Say
         tag="АрхТок:"
-        image={{uri: archtok2Png, style: {width: '100%', bottom: 0}}}
+        image={{uri: archtok2Png, align: 'bottom'}}
         menu={[
           {
             label: 'Да',
@@ -109,7 +101,7 @@ export function BranchArchkot_ProjAirport_CheckOut_AssembleTeam() {
 
       <Say
         tag="АрхКот:"
-        image={{uri: archkot4Png, style: {width: '100%', bottom: 0}}}
+        image={{uri: archkot4Png, align: 'bottom'}}
         menu={[
           {
             label: 'Это памятник – значит всё с ним хорошо будет',
@@ -124,61 +116,43 @@ export function BranchArchkot_ProjAirport_CheckOut_AssembleTeam() {
         —ЭТО ПАМЯТНИК!!!
       </Say>
 
-      <Say
-        tag="АрхТок:"
-        image={{uri: archtok2Png, style: {width: '100%', bottom: 0}}}>
+      <Say tag="АрхТок:" image={{uri: archtok2Png, align: 'bottom'}}>
         —Во-первых…
       </Say>
 
-      <Say
-        tag="АрхБот:"
-        image={{uri: archbot3Png, style: {width: '100%', bottom: 0}}}>
+      <Say tag="АрхБот:" image={{uri: archbot3Png, align: 'bottom'}}>
         —Во-первых было про памятник
       </Say>
 
-      <Say
-        tag="АрхТок:"
-        image={{uri: archtok3Png, style: {width: '100%', bottom: 0}}}>
+      <Say tag="АрхТок:" image={{uri: archtok3Png, align: 'bottom'}}>
         —Во-вторых, нужно узнать о всех заинтересованных сторонах
       </Say>
 
-      <Say
-        tag="АрхБот:"
-        image={{uri: archbot1Png, style: {width: '100%', bottom: 0}}}>
+      <Say tag="АрхБот:" image={{uri: archbot1Png, align: 'bottom'}}>
         {'—Представляю вам список стейкхолдеров:\n\n[*список стейкхолдеров](#)'}
       </Say>
 
-      <Say
-        tag="АрхТок:"
-        image={{uri: archtok4Png, style: {width: '100%', bottom: 0}}}>
+      <Say tag="АрхТок:" image={{uri: archtok4Png, align: 'bottom'}}>
         —Не зря я с тобой работаю! Дальше…Они предлагают перенести здание…разве
         это возможно?
       </Say>
 
-      <Say
-        tag="АрхБот:"
-        image={{uri: archbot1Png, style: {width: '100%', bottom: 0}}}>
+      <Say tag="АрхБот:" image={{uri: archbot1Png, align: 'bottom'}}>
         {
           '—Нашел правила переноса памятника:\n\n[Ссылка 4 правила переноса здания](#)'
         }
       </Say>
 
-      <Say
-        tag="АрхТок:"
-        image={{uri: archtok5Png, style: {width: '100%', bottom: 0}}}>
+      <Say tag="АрхТок:" image={{uri: archtok5Png, align: 'bottom'}}>
         —Вот!
       </Say>
 
-      <Say
-        tag="АрхТок:"
-        image={{uri: archtok5Png, style: {width: '100%', bottom: 0}}}>
+      <Say tag="АрхТок:" image={{uri: archtok5Png, align: 'bottom'}}>
         —Перемещёние и изменение памятника истории и культуры запрещаются. Есть
         исключения, но это не про наш терминал аэропорта…
       </Say>
 
-      <Say
-        tag="АрхБот:"
-        image={{uri: archbot3Png, style: {width: '100%', bottom: 0}}}>
+      <Say tag="АрхБот:" image={{uri: archbot3Png, align: 'bottom'}}>
         —Объявлены общественные слушания по проекту нового терминала Аэропорта
         Алматы
       </Say>
@@ -186,7 +160,8 @@ export function BranchArchkot_ProjAirport_CheckOut_AssembleTeam() {
       <Say
         image={{
           uri: archbot2Png,
-          style: {width: '100%', bottom: 0, transform: 'translateX(35%)'},
+          align: 'bottom',
+          style: {transform: 'translateX(35%)'},
         }}
         durationMs={1000}
         hide={2}>
@@ -196,9 +171,8 @@ export function BranchArchkot_ProjAirport_CheckOut_AssembleTeam() {
       <Show
         src={{
           uri: archtok4Png,
+          align: 'bottom',
           style: {
-            width: '100%',
-            bottom: 0,
             transform: 'scale(0.85) translateX(5%)',
             transformOrigin: 'bottom',
           },
@@ -209,7 +183,8 @@ export function BranchArchkot_ProjAirport_CheckOut_AssembleTeam() {
       <Show
         src={{
           uri: archkot12Png,
-          style: {width: '100%', bottom: 0, transform: 'translateX(-35%)'},
+          align: 'bottom',
+          style: {transform: 'translateX(-35%)'},
         }}
       />
 
@@ -221,55 +196,49 @@ export function BranchArchkot_ProjAirport_CheckOut_AssembleTeam() {
 
       <Scene src={bgCityHallConferenceRoomJpg} />
 
-      <Say
-        tag="Зам. акима:"
-        image={{uri: assistant3Png, style: {width: '100%', bottom: 0}}}>
+      <Say tag="Зам. акима:" image={{uri: assistant3Png, align: 'bottom'}}>
         —То, что есть сейчас, утратило историческую ценность. Когда-то, в 50-е
         годы, оно было таким, да, но сейчас — нет. Нет никаких исторических
         элементов, есть стеклянные электронные двери
       </Say>
 
-      <Say
-        tag="Зам. акима:"
-        image={{uri: assistant3Png, style: {width: '100%', bottom: 0}}}>
+      <Say tag="Зам. акима:" image={{uri: assistant3Png, align: 'bottom'}}>
         —Там почти всё поменяли. Всё изменилось до неузнаваемости в худшую
         сторону. Никаким туристам здание неинтересно
       </Say>
 
       <Say
         tag="Член Общ. совета Шарат Мибутов:"
-        image={{uri: sharatMibutovPng, style: {width: '100%', bottom: 0}}}>
+        image={{uri: sharatMibutovPng, align: 'bottom'}}>
         —То, что предложила турецкая фирма, выглядело не очень. То есть, это
         обычная квадратная коробка, без какой-либо связи с Казахстаном
       </Say>
 
-      <Say image={{uri: sharatMibutovPng, style: {width: '100%', bottom: 0}}}>
+      <Say image={{uri: sharatMibutovPng, align: 'bottom'}}>
         —Был выбран экономичный вариант, который рассчитан только на увеличение
         пропускной способности терминала и максимизацию прибыли инвесторов
       </Say>
 
       <Say
         tag={'Вице президент “Аэропорт”\nА. Кордеев:'}
-        image={{uri: akordeevPng, style: {width: '100%', bottom: 0}}}>
+        image={{uri: aKordeevPng, align: 'bottom'}}>
         —Я не считаю его великим памятником. Оно не несёт функциональной
         нагрузки и занимает огромную площадь
       </Say>
 
-      <Say
-        tag="АрхКот:"
-        image={{uri: archkot1Png, style: {width: '100%', bottom: 0}}}>
+      <Say tag="АрхКот:" image={{uri: archkot1Png, align: 'bottom'}}>
         —Согласно закону об охране и использовании объектов историко-культурного
         наследия. Перемещёние и изменение памятника истории и культуры
         запрещаются
       </Say>
 
-      <Say image={{uri: archkot4Png, style: {width: '100%', bottom: 0}}}>
+      <Say image={{uri: archkot4Png, align: 'bottom'}}>
         —Исключение допускается лишь в случаях разрушения более семидесяти
         процентов памятника истории и культуры либо утраты историко-культурной
         значимости
       </Say>
 
-      <Say image={{uri: archkot4Png, style: {width: '100%', bottom: 0}}}>
+      <Say image={{uri: archkot4Png, align: 'bottom'}}>
         —или если его перемещёние и изменение повлекут улучшение условий его
         сохранения. Да и в общей сложности, это крайне дорогая процедура
       </Say>
@@ -294,11 +263,11 @@ export function BranchArchkot_ProjAirport_CheckOut_AssembleTeam() {
 
       <Scene src={bgArchcodeOfficeJpg} />
 
-      <Say image={{uri: archkot11Png, style: {width: '100%', bottom: 0}}}>
+      <Say image={{uri: archkot11Png, align: 'bottom'}}>
         И нам удалось приостановить проект по строительству нового терминала
       </Say>
 
-      <Say image={{uri: archkot9Png, style: {width: '100%', bottom: 0}}}>
+      <Say image={{uri: archkot9Png, align: 'bottom'}}>
         Родной старенький VIP терминал ещё стоит нетронутый, и мы обязательно
         добьемся того, чтобы его сохранили в новом проекте
       </Say>

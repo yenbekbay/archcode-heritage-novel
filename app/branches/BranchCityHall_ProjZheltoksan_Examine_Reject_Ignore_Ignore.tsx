@@ -42,12 +42,10 @@ export function BranchCityHall_ProjZheltoksan_Examine_Reject_Ignore_Ignore() {
 
       <Scene src={bgZheltoksanBeforeJpg} />
 
-      <Say image={{uri: angryCrowd1Png, style: {width: '100%', bottom: 0}}}>
-        Массовый протест
-      </Say>
+      <Say image={{uri: angryCrowd1Png, align: 'bottom'}}>Массовый протест</Say>
 
       <Say
-        image={{uri: mayor4Png, style: {width: '100%', bottom: 0}}}
+        image={{uri: mayor4Png, align: 'bottom'}}
         menu={[
           {
             label: 'Учесть мнение',

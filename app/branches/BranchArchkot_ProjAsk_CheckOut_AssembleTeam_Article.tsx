@@ -27,7 +27,7 @@ export function BranchArchkot_ProjAsk_CheckOut_AssembleTeam_Article() {
 
       <Scene src={bgAskAfterJpg} />
 
-      <Say image={{uri: archkot7Png, style: {width: '100%', bottom: 0}}}>
+      <Say image={{uri: archkot7Png, align: 'bottom'}}>
         Здание изменено до неузнаваемости, и теперь это уже не имеет отношения к
         историко-культурному наследию
       </Say>

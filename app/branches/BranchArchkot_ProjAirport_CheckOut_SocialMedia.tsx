@@ -14,7 +14,7 @@ export function BranchArchkot_ProjAirport_CheckOut_SocialMedia() {
     <Branch>
       <Scene src={bgAirportJpg} />
 
-      <Say image={{uri: archkot2Png, style: {width: '100%', bottom: 0}}}>
+      <Say image={{uri: archkot2Png, align: 'bottom'}}>
         Видимо, процесс уже запущен, что же
       </Say>
 
@@ -93,7 +93,7 @@ export function BranchArchkot_ProjAirport_CheckOut_SocialMedia() {
 
       <Label label="acknowledged">
         <Say
-          image={{uri: archkot1Png, style: {width: '100%', bottom: 0}}}
+          image={{uri: archkot1Png, align: 'bottom'}}
           menu={[
             {
               label: 'Собраться с командой Архкод',

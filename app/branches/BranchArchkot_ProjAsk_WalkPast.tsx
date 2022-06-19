@@ -27,11 +27,8 @@ export function BranchArchkot_ProjAsk_WalkPast() {
       <Say
         image={{
           uri: archkot6Png,
-          style: {
-            width: '100%',
-            bottom: 0,
-            filter: 'drop-shadow(40px 40px 5px rgba(0, 0, 0, .35))',
-          },
+          align: 'bottom',
+          style: {filter: 'drop-shadow(40px 40px 5px rgba(0, 0, 0, .35))'},
         }}
         zIndex={101}>
         Не стоит зря терять времени, дедлайны горят, дома кот некормленный, да
@@ -42,7 +39,7 @@ export function BranchArchkot_ProjAsk_WalkPast() {
 
       <Scene src={bgAskAfterJpg} />
 
-      <Say image={{uri: archkot7Png, style: {width: '100%', bottom: 0}}}>
+      <Say image={{uri: archkot7Png, align: 'bottom'}}>
         Здание изменено до неузнаваемости, и теперь это уже не имеет отношения к
         историко-культурному наследию
       </Say>

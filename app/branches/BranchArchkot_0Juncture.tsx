@@ -31,11 +31,8 @@ export function BranchArchkot_0Juncture() {
       <Say
         image={{
           uri: archkot5Png,
-          style: {
-            width: '100%',
-            bottom: 0,
-            filter: 'drop-shadow(40px 40px 5px rgba(0, 0, 0, .35))',
-          },
+          align: 'bottom',
+          style: {filter: 'drop-shadow(40px 40px 5px rgba(0, 0, 0, .35))'},
         }}
         menu={[
           {

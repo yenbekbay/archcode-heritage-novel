@@ -31,9 +31,8 @@ export function BranchActivist_0Juncture() {
       <Say
         image={{
           uri: redhead1Png,
+          align: 'bottom',
           style: {
-            width: '100%',
-            bottom: 0,
             filter: 'drop-shadow(40px 40px 5px rgba(0, 0, 0, .35))',
           },
         }}

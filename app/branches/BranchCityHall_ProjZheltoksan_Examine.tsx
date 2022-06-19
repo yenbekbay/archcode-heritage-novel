@@ -24,20 +24,15 @@ export function BranchCityHall_ProjZheltoksan_Examine() {
 
       <Scene src={bgCityHallConferenceRoomJpg} />
 
-      <Say
-        tag="Эксперт:"
-        image={{uri: expert1Png, style: {width: '100%', bottom: 0}}}>
+      <Say tag="Эксперт:" image={{uri: expert1Png, align: 'bottom'}}>
         —Вижу нарушения…
       </Say>
 
-      <Say image={{uri: expert2Png, style: {width: '100%', bottom: 0}}}>
+      <Say image={{uri: expert2Png, align: 'bottom'}}>
         —Ещё одно! Ещё нарушение!!!
       </Say>
 
-      <Show
-        src={{uri: expert3Png, style: {width: '100%', bottom: 0}}}
-        durationMs={3000}
-      />
+      <Show src={{uri: expert3Png, align: 'bottom'}} durationMs={3000} />
 
       <Scene src={bgMayorDoorJpg} />
 
@@ -69,7 +64,7 @@ export function BranchCityHall_ProjZheltoksan_Examine() {
       <Scene src={bgCityHallMayorOfficeJpg} />
 
       <Say
-        image={{uri: mayor2Png, style: {width: '100%', bottom: 0}}}
+        image={{uri: mayor2Png, align: 'bottom'}}
         menu={[
           {
             label: 'Не одобрять',

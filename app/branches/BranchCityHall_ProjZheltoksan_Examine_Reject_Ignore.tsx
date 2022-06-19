@@ -49,7 +49,7 @@ export function BranchCityHall_ProjZheltoksan_Examine_Reject_Ignore() {
 
       <Scene src={bgZheltoksanBeforeJpg} />
 
-      <Say image={{uri: angryCrowd1Png, style: {width: '100%', bottom: 0}}}>
+      <Say image={{uri: angryCrowd1Png, align: 'bottom'}}>
         Общественность возмущена
       </Say>
 
@@ -57,49 +57,37 @@ export function BranchCityHall_ProjZheltoksan_Examine_Reject_Ignore() {
 
       <Say
         tag="Представитель:"
-        image={{uri: developerRepAPng, style: {width: '100%', bottom: 0}}}>
+        image={{uri: developerRepAPng, align: 'bottom'}}>
         —Добрый день, я — представитель Bay Shatyr Group. В рамках проекта будет
         построено девятиэтажное здание
       </Say>
 
-      <Say
-        tag="Девелопер:"
-        image={{uri: developerRepB6Png, style: {width: '100%', bottom: 0}}}>
+      <Say tag="Девелопер:" image={{uri: developerRepB6Png, align: 'bottom'}}>
         —Под галереей на последнем этаже подразумевается ресторан. Подземный
         3-уровневый паркинг на 490 авто
       </Say>
 
-      <Say
-        tag="Активистка:"
-        image={{uri: redhead12Png, style: {width: '100%', bottom: 0}}}>
+      <Say tag="Активистка:" image={{uri: redhead12Png, align: 'bottom'}}>
         —Но ведь это создаёт огромную нагрузку на транспортную инфраструктуру и
         не только…
       </Say>
 
-      <Say
-        tag="Девелопер:"
-        image={{uri: developerRepB1Png, style: {width: '100%', bottom: 0}}}>
+      <Say tag="Девелопер:" image={{uri: developerRepB1Png, align: 'bottom'}}>
         —Всё под контролем, беспокойств не будет. Всё рассчитано и одобрено
       </Say>
 
-      <Say
-        tag="Активистка:"
-        image={{uri: redhead14Png, style: {width: '100%', bottom: 0}}}>
+      <Say tag="Активистка:" image={{uri: redhead14Png, align: 'bottom'}}>
         —Судя по всему, предполагается вырубка всех существующих на территории
         здания деревьев???
       </Say>
 
-      <Say
-        tag="Девелопер:"
-        image={{uri: developerRepB7Png, style: {width: '100%', bottom: 0}}}>
+      <Say tag="Девелопер:" image={{uri: developerRepB7Png, align: 'bottom'}}>
         —Согласно правилам маслихата по озеленению, в качестве компенсации мы
         обязуемся высадить соответствующее количество деревьев на землях общего
         пользования. Все по правилам, и придуманы они не нами
       </Say>
 
-      <Say
-        tag="Активистка:"
-        image={{uri: redhead13Png, style: {width: '100%', bottom: 0}}}>
+      <Say tag="Активистка:" image={{uri: redhead13Png, align: 'bottom'}}>
         —А в целом то, здание, хоть и не является официально памятником, но это
         история города! Его непременно нужно сохранить!!!
       </Say>
@@ -110,7 +98,7 @@ export function BranchCityHall_ProjZheltoksan_Examine_Reject_Ignore() {
       </Say>
 
       <Say
-        image={{uri: mayor2Png, style: {width: '100%', bottom: 0}}}
+        image={{uri: mayor2Png, align: 'bottom'}}
         menu={[
           {
             label: 'Учесть мнение',

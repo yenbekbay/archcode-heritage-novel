@@ -14,11 +14,11 @@ export function BranchCityHall_ProjAsk_Examine_Reject_Intervene() {
 
       <Say
         tag="Работник акимата:"
-        image={{uri: assistant3Png, style: {width: '100%', bottom: 0}}}>
+        image={{uri: assistant3Png, align: 'bottom'}}>
         —Мы предоставим группу сотрудников для ведения мониторинга
       </Say>
 
-      <Say image={{uri: mayor1Png, style: {width: '100%', bottom: 0}}}>
+      <Say image={{uri: mayor1Png, align: 'bottom'}}>
         —Отлично, договоримся о серии встреч с девелопером
       </Say>
 

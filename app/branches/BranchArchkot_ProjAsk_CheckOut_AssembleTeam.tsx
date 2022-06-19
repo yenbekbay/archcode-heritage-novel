@@ -19,7 +19,7 @@ export function BranchArchkot_ProjAsk_CheckOut_AssembleTeam() {
     <Branch>
       <Scene src={bgAskBeforeJpg} />
 
-      <Say image={{uri: archkot8Png, style: {width: '100%', bottom: 0}}}>
+      <Say image={{uri: archkot8Png, align: 'bottom'}}>
         Быстро! Быстро! Надо собрать команду и разобраться, что тут происходит!
       </Say>
 
@@ -48,35 +48,27 @@ export function BranchArchkot_ProjAsk_CheckOut_AssembleTeam() {
 
       <Scene src={bgArchcodeOfficeJpg} />
 
-      <Say
-        tag="АрхКот:"
-        image={{uri: archkot9Png, style: {width: '100%', bottom: 0}}}>
+      <Say tag="АрхКот:" image={{uri: archkot9Png, align: 'bottom'}}>
         —В городе беда. Здание АСК обнесено забором, и никто ничего об этом не
         знает! Мы должны что-то делать
       </Say>
 
-      <Say
-        tag="АрхТок:"
-        image={{uri: archtok1Png, style: {width: '100%', bottom: 0}}}>
+      <Say tag="АрхТок:" image={{uri: archtok1Png, align: 'bottom'}}>
         —Первое, что необходимо выяснить — это является ли здание АСК памятником
         историко-культурного наследия
       </Say>
 
-      <Say
-        tag="АрхБот:"
-        image={{uri: archbot1Png, style: {width: '100%', bottom: 0}}}>
+      <Say tag="АрхБот:" image={{uri: archbot1Png, align: 'bottom'}}>
         —Загляните в ГОСУДАРСТВЕННЫЙ РЕЕСТР ПАМЯТНИКОВ
       </Say>
 
-      <Say
-        tag="АрхБот:"
-        image={{uri: archbot1Png, style: {width: '100%', bottom: 0}}}>
+      <Say tag="АрхБот:" image={{uri: archbot1Png, align: 'bottom'}}>
         {'—Там можно поискать нужное нам здание.\n\n[Ссылка РЕЕСТР](#)'}
       </Say>
 
       <Say
         tag="АрхТок:"
-        image={{uri: archtok2Png, style: {width: '100%', bottom: 0}}}
+        image={{uri: archtok2Png, align: 'bottom'}}
         menu={[
           {
             label: 'Да',
@@ -106,7 +98,7 @@ export function BranchArchkot_ProjAsk_CheckOut_AssembleTeam() {
       </Say>
 
       <Say
-        image={{uri: archkot11Png, style: {width: '100%', bottom: 0}}}
+        image={{uri: archkot11Png, align: 'bottom'}}
         menu={[
           {
             label: 'Подумаю о дальнейших действиях',
@@ -121,35 +113,27 @@ export function BranchArchkot_ProjAsk_CheckOut_AssembleTeam() {
         Что делать?
       </Say>
 
-      <Say
-        tag="АрхТок:"
-        image={{uri: archtok1Png, style: {width: '100%', bottom: 0}}}>
+      <Say tag="АрхТок:" image={{uri: archtok1Png, align: 'bottom'}}>
         —Надо вести мониторинг ситуации. Проверить информацию, которая есть в
         СМИ
       </Say>
 
-      <Say
-        tag="АрхБот:"
-        image={{uri: archbot2Png, style: {width: '100%', bottom: 0}}}>
+      <Say tag="АрхБот:" image={{uri: archbot2Png, align: 'bottom'}}>
         —Я проверил различные СМИ. В результате отслеживания статей в СМИ
         найдено то, что нужно
       </Say>
 
-      <Say image={{uri: archbot3Png, style: {width: '100%', bottom: 0}}}>
+      <Say image={{uri: archbot3Png, align: 'bottom'}}>
         {
           '—Представляю вам документ, который я условно назвал “Список Байбека”\n\n[*Cсылка cтатья "Список Байбека"](#)'
         }
       </Say>
 
-      <Say
-        tag="АрхТок:"
-        image={{uri: archtok2Png, style: {width: '100%', bottom: 0}}}>
+      <Say tag="АрхТок:" image={{uri: archtok2Png, align: 'bottom'}}>
         —Значит, это не памятник, но и не совсем непамятник?
       </Say>
 
-      <Say
-        tag="АрхБот:"
-        image={{uri: archbot1Png, style: {width: '100%', bottom: 0}}}>
+      <Say tag="АрхБот:" image={{uri: archbot1Png, align: 'bottom'}}>
         {
           '—Я нашел закон, в котором говорится о зданиях, которые заявлены, как возможные памятники\n\n[*Cсылка на закон](#)'
         }

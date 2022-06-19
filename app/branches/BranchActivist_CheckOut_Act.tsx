@@ -7,10 +7,7 @@ export function BranchActivist_CheckOut_Act() {
       <Scene src={bgBldgAJpg} />
 
       <Say
-        image={{
-          uri: redhead8Png,
-          style: {width: '100%', bottom: 0},
-        }}
+        image={{uri: redhead8Png, align: 'bottom'}}
         menu={[
           {
             label: 'Разберусь сама',

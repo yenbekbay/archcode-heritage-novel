@@ -23,23 +23,24 @@ export function BranchCityHall_MonumentDept_Rant() {
         —БЫСТРО ВСЕМ ЗА РАБОТУ!!!
       </Say>
 
-      <Say image={{uri: mayor9Png, style: {width: '100%', bottom: 0}}}>
+      <Say image={{uri: mayor9Png, align: 'bottom'}}>
         —Подготовить базу для внесения зданий в список
       </Say>
 
-      <Say image={{uri: mayor2Png, style: {width: '100%', bottom: 0}}}>
+      <Say image={{uri: mayor2Png, align: 'bottom'}}>
         На самом деле много зданий, которые могут быть официальными памятниками…
       </Say>
 
       <Say
         image={{
           uri: mayor10Png,
-          style: {width: '100%', bottom: 0, transform: 'scaleX(-1)'},
+          align: 'bottom',
+          style: {transform: 'scaleX(-1)'},
         }}>
         Привлекут больше туристов
       </Say>
 
-      <Say image={{uri: mayor10Png, style: {width: '100%', bottom: 0}}}>
+      <Say image={{uri: mayor10Png, align: 'bottom'}}>
         Да и ценность их вырастет
       </Say>
 
@@ -106,9 +107,7 @@ export function BranchCityHall_MonumentDept_Rant() {
         }}
       />
 
-      <Say
-        placement="bottom"
-        image={{uri: mayor11Png, style: {width: '100%', bottom: 0}}}>
+      <Say placement="bottom" image={{uri: mayor11Png, align: 'bottom'}}>
         Попробую отправить запрос на внесение в список
       </Say>
 

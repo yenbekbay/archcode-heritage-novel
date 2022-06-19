@@ -13,17 +13,15 @@ export function BranchCityHall_GovPrograms_Stop_Dismiss() {
     <Branch>
       <Scene src={bgCityHallConferenceRoomJpg} />
 
-      <Say image={{uri: mayor9Png, style: {width: '100%', bottom: 0}}}>
+      <Say image={{uri: mayor9Png, align: 'bottom'}}>
         —Никакой ценности эти остановки не имеют!
       </Say>
 
-      <Say image={{uri: mayor15Png, style: {width: '100%', bottom: 0}}}>
+      <Say image={{uri: mayor15Png, align: 'bottom'}}>
         —Все это-пережитки советского прошлого!
       </Say>
 
-      <Say image={{uri: mayor3Png, style: {width: '100%', bottom: 0}}}>
-        —Не одобрять проект!
-      </Say>
+      <Say image={{uri: mayor3Png, align: 'bottom'}}>—Не одобрять проект!</Say>
 
       <Scene src={bgBusStop5Jpg} />
 

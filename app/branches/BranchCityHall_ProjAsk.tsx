@@ -10,15 +10,13 @@ export function BranchCityHall_ProjAsk() {
     <Branch>
       <Scene src={bgCityHallConferenceRoomJpg} />
 
-      <Say
-        tag="Девелопер:"
-        image={{uri: developerRepAPng, style: {width: '100%', bottom: 0}}}>
+      <Say tag="Девелопер:" image={{uri: developerRepAPng, align: 'bottom'}}>
         —Добрый день, я — представитель Bay Shatyr Group. Представляю вашему
         внимаюпроект АСК
       </Say>
 
       <Say
-        image={{uri: mayor2Png, style: {width: '100%', bottom: 0}}}
+        image={{uri: mayor2Png, align: 'bottom'}}
         menu={[
           {
             label: 'Нужна экспертиза',

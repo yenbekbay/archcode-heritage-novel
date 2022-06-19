@@ -11,7 +11,7 @@ export function BranchCityHall_ProjAirport_Examine_Reject_Approve() {
     <Branch>
       <Scene src={bgCityHallMayorOfficeJpg} />
 
-      <Say image={{uri: mayor4Png, style: {width: '100%', bottom: 0}}}>
+      <Say image={{uri: mayor4Png, align: 'bottom'}}>
         Тише едешь — дальше будешь, пусть строят как хотят!
       </Say>
 

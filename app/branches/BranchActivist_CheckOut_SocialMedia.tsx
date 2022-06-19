@@ -14,7 +14,7 @@ export function BranchActivist_CheckOut_SocialMedia() {
     <Branch>
       <Scene src={bgBldgAJpg} />
 
-      <Say image={{uri: redhead5Png, style: {width: '100%', bottom: 0}}}>
+      <Say image={{uri: redhead5Png, align: 'bottom'}}>
         В моменты отчаяния всегда можно вылить свою боль в соц. сети
       </Say>
 
@@ -92,7 +92,7 @@ export function BranchActivist_CheckOut_SocialMedia() {
       </Label>
 
       <Label label="acknowledged">
-        <Say image={{uri: redhead7Png, style: {width: '100%', bottom: 0}}}>
+        <Say image={{uri: redhead7Png, align: 'bottom'}}>
           ПОЗДРАВЛЯЕМ!!! ВАШИ ПОСТЫ/МЕМЫ УВИДЕЛА ИЗВЕСТНАЯ АКТИВИСТКА ТИНА
           ШТУНЕР, И ТЕПЕРЬ ОНА БУДЕТ ДОБИВАТЬСЯ СПРАВЕДЛИВОСТИ
         </Say>
@@ -110,7 +110,7 @@ export function BranchActivist_CheckOut_SocialMedia() {
             onClick: (ctx) => ctx.skip(),
           },
         ]}
-        image={{uri: redhead2Png, style: {width: '100%', bottom: 0}}}
+        image={{uri: redhead2Png, align: 'bottom'}}
       />
 
       <Title hide={-1}>Конец игры</Title>

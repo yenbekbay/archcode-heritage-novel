@@ -17,7 +17,7 @@ export function BranchArchkot_ProjBusStop_CheckOut_SocialMedia() {
     <Branch>
       <Scene src={bgBusStop2Jpg} />
 
-      <Say image={{uri: archkot2Png, style: {width: '100%', bottom: 0}}}>
+      <Say image={{uri: archkot2Png, align: 'bottom'}}>
         Видимо, процесс уже запущен, что же
       </Say>
 
@@ -96,7 +96,7 @@ export function BranchArchkot_ProjBusStop_CheckOut_SocialMedia() {
 
       <Label label="acknowledged">
         <Say
-          image={{uri: archkot1Png, style: {width: '100%', bottom: 0}}}
+          image={{uri: archkot1Png, align: 'bottom'}}
           menu={[
             {
               label: 'Собраться с командой Архкод',
@@ -121,13 +121,11 @@ export function BranchArchkot_ProjBusStop_CheckOut_SocialMedia() {
         отношения к историко-культурному наследию
       </Say>
 
-      <Say image={{uri: archkot7Png, style: {width: '100%', bottom: 0}}}>
+      <Say image={{uri: archkot7Png, align: 'bottom'}}>
         Была история, и нет истории. Зря Дядь Юра старался
       </Say>
 
-      <Say
-        tag="АрхБот:"
-        image={{uri: archbot1Png, style: {width: '100%', bottom: 0}}}>
+      <Say tag="АрхБот:" image={{uri: archbot1Png, align: 'bottom'}}>
         {'—А могло бы быть вот так:\n\n[Ссылка на зарубежные примеры](#)'}
       </Say>
 

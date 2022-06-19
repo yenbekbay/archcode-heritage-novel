@@ -61,8 +61,7 @@ export function BranchIntro() {
           },
           {
             label: 'Девелопер',
-            // FIXME
-            onClick: () => alert('Не готово'),
+            onClick: (ctx) => ctx.goToBranch('Developer_0Intro'),
           },
           {
             label: 'Акимат',

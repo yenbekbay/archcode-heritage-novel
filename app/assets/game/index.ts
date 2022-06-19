@@ -1,8 +1,8 @@
 // codegen:start {preset: barrel, include: "./*.{jpg,png,gif}", import: default}
+import aKordeevPng from './a-kordeev.png'
 import activistAPng from './activist-a.png'
 import activistBPng from './activist-b.png'
 import adyaPchelkinaPng from './adya-pchelkina.png'
-import akordeevPng from './akordeev.png'
 import angryCrowd1Png from './angry-crowd-1.png'
 import angryCrowd2Png from './angry-crowd-2.png'
 import archbot1Png from './archbot-1.png'
@@ -81,6 +81,7 @@ import developerRepB4Png from './developer-rep-b-4.png'
 import developerRepB5Png from './developer-rep-b-5.png'
 import developerRepB6Png from './developer-rep-b-6.png'
 import developerRepB7Png from './developer-rep-b-7.png'
+import developerRepB8Png from './developer-rep-b-8.png'
 import expert1Png from './expert-1.png'
 import expert2Png from './expert-2.png'
 import expert3Png from './expert-3.png'
@@ -136,10 +137,10 @@ import stampRejectedPng from './stamp-rejected.png'
 import tinaShtunerPng from './tina-shtuner.png'
 
 export {
+  aKordeevPng,
   activistAPng,
   activistBPng,
   adyaPchelkinaPng,
-  akordeevPng,
   angryCrowd1Png,
   angryCrowd2Png,
   archbot1Png,
@@ -218,6 +219,7 @@ export {
   developerRepB5Png,
   developerRepB6Png,
   developerRepB7Png,
+  developerRepB8Png,
   expert1Png,
   expert2Png,
   expert3Png,

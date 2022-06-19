@@ -10,7 +10,7 @@ export function BranchCityHall_ProjZheltoksan_Examine_Reject_Listen() {
     <Branch>
       <Scene src={bgCityHallConferenceRoomJpg} />
 
-      <Say image={{uri: mayor3Png, style: {width: '100%', bottom: 0}}}>
+      <Say image={{uri: mayor3Png, align: 'bottom'}}>
         Выявлен ряд нарушений! Девелопер должен пересмотреть проект
       </Say>
 

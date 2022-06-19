@@ -27,11 +27,8 @@ export function BranchArchkot_ProjAsk_CheckOut() {
       <Say
         image={{
           uri: archkot1Png,
-          style: {
-            width: '100%',
-            bottom: 0,
-            filter: 'drop-shadow(40px 40px 5px rgba(0, 0, 0, .35))',
-          },
+          align: 'bottom',
+          style: {filter: 'drop-shadow(40px 40px 5px rgba(0, 0, 0, .35))'},
         }}
         zIndex={101}>
         Я не усну спокойно, не посмотрев, что за забором
@@ -39,17 +36,17 @@ export function BranchArchkot_ProjAsk_CheckOut() {
 
       <Scene src={bgAskBeforeJpg} />
 
-      <Say image={{uri: archkot8Png, style: {width: '100%', bottom: 0}}}>
+      <Say image={{uri: archkot8Png, align: 'bottom'}}>
         Что за напасть! Здание аппаратно-студийного комплекса перестроить решили
       </Say>
 
-      <Say image={{uri: archkot2Png, style: {width: '100%', bottom: 0}}}>
+      <Say image={{uri: archkot2Png, align: 'bottom'}}>
         А я был здесь ребенком ещё, у мамы на работе, мне по лестницам этим так
         бегать нравилось
       </Say>
 
       <Say
-        image={{uri: archkot1Png, style: {width: '100%', bottom: 0}}}
+        image={{uri: archkot1Png, align: 'bottom'}}
         menu={[
           {
             label: 'Погрустить',

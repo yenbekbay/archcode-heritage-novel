@@ -18,12 +18,12 @@ export function BranchCityHall_ProjAirport() {
         }}
       />
 
-      <Say image={{uri: mayor1Png, style: {width: '100%', bottom: 0}}}>
+      <Say image={{uri: mayor1Png, align: 'bottom'}}>
         Указания сверху: одобрить перенос VIP терминала аэоропрта безоговорочно
       </Say>
 
       <Say
-        image={{uri: mayor4Png, style: {width: '100%', bottom: 0}}}
+        image={{uri: mayor4Png, align: 'bottom'}}
         menu={[
           {
             label: 'Нужна экспертиза',
