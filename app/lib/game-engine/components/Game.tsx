@@ -79,14 +79,14 @@ function GameView({assets, branches, initialBranchId, onClose}: GameViewProps) {
         </div>
       </div>
 
-      {process.env.NODE_ENV === 'development' && (
-        <div className="absolute bottom-4 right-4 z-[120] space-x-2">
-          <button
-            className="btn btn-ghost btn-circle bg-white text-xl shadow-md"
-            onClick={() => setPaused(!paused)}>
-            {paused ? <PlayIcon /> : <PauseIcon />}
-          </button>
+      <div className="absolute bottom-4 right-4 z-[120] space-x-2">
+        <button
+          className="btn btn-ghost btn-circle bg-white text-xl shadow-md"
+          onClick={() => setPaused(!paused)}>
+          {paused ? <PlayIcon /> : <PauseIcon />}
+        </button>
 
+        {process.env.NODE_ENV === 'ddevelopment' && (
           <PopoverPrimitive.Root>
             <PopoverPrimitive.Trigger asChild>
               <button className="btn btn-ghost btn-circle bg-white text-xl shadow-md">
@@ -136,8 +136,8 @@ function GameView({assets, branches, initialBranchId, onClose}: GameViewProps) {
               </div>
             </PopoverPrimitive.Content>
           </PopoverPrimitive.Root>
-        </div>
-      )}
+        )}
+      </div>
 
       <MobileDeviceChrome>
         <WithAssets assets={assets}>

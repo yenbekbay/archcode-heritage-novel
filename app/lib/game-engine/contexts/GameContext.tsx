@@ -73,7 +73,6 @@ export function GameProvider({children, initialBranchId}: GameProviderProps) {
       goToBranch: (branchId) => {
         if (branchId !== focusedLocation.branchId) {
           history.push({branchId, statementIndex: 0})
-          setPaused(false)
         }
       },
       goToLocation: (branchId, statementIndex) => {
@@ -82,7 +81,6 @@ export function GameProvider({children, initialBranchId}: GameProviderProps) {
           statementIndex !== focusedLocation.statementIndex
         ) {
           history.push({branchId, statementIndex})
-          setPaused(false)
         }
       },
       goBack: () => {
