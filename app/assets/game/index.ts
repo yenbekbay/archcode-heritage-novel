@@ -8,6 +8,7 @@ import angryCrowd2Png from './angry-crowd-2.png'
 import archbot1Png from './archbot-1.png'
 import archbot2Png from './archbot-2.png'
 import archbot3Png from './archbot-3.png'
+import architectPng from './architect.png'
 import archkot1Png from './archkot-1.png'
 import archkot10Png from './archkot-10.png'
 import archkot11Png from './archkot-11.png'
@@ -53,7 +54,7 @@ import bgCityHallMayorOfficeJpg from './bg-city-hall-mayor-office.jpg'
 import bgCityHallOutsideJpg from './bg-city-hall-outside.jpg'
 import bgCityHallSignJpg from './bg-city-hall-sign.jpg'
 import bgCourtyardJpg from './bg-courtyard.jpg'
-import bgDeveloperHqInsidePng from './bg-developer-hq-inside.png'
+import bgDeveloperHqInsideJpg from './bg-developer-hq-inside.jpg'
 import bgDeveloperHqOutsideJpg from './bg-developer-hq-outside.jpg'
 import bgIntroJpg from './bg-intro.jpg'
 import bgLaptopAboveJpg from './bg-laptop-above.jpg'
@@ -61,7 +62,6 @@ import bgLaptopHandsJpg from './bg-laptop-hands.jpg'
 import bgLaptopStandaloneJpg from './bg-laptop-standalone.jpg'
 import bgMapGif from './bg-map.gif'
 import bgMapJpg from './bg-map.jpg'
-import bgMayorDeskAJpg from './bg-mayor-desk-a.jpg'
 import bgMayorDeskJpg from './bg-mayor-desk.jpg'
 import bgMayorDoorJpg from './bg-mayor-door.jpg'
 import bgMayorDoorwayJpg from './bg-mayor-doorway.jpg'
@@ -69,12 +69,16 @@ import bgMonumentDeptDoorJpg from './bg-monument-dept-door.jpg'
 import bgMonumentDeptDoorwayJpg from './bg-monument-dept-doorway.jpg'
 import bgPhoneFingerJpg from './bg-phone-finger.jpg'
 import bgPhoneHandJpg from './bg-phone-hand.jpg'
+import bgProjectsFolderJpg from './bg-projects-folder.jpg'
 import bgZheltoksanAfterJpg from './bg-zheltoksan-after.jpg'
 import bgZheltoksanBeforeFenceGif from './bg-zheltoksan-before-fence.gif'
 import bgZheltoksanBeforeFenceJpg from './bg-zheltoksan-before-fence.jpg'
 import bgZheltoksanBeforeJpg from './bg-zheltoksan-before.jpg'
+import botBuilderPng from './bot-builder.png'
 import developerRepAPng from './developer-rep-a.png'
 import developerRepB1Png from './developer-rep-b-1.png'
+import developerRepB10Png from './developer-rep-b-10.png'
+import developerRepB11Png from './developer-rep-b-11.png'
 import developerRepB2Png from './developer-rep-b-2.png'
 import developerRepB3Png from './developer-rep-b-3.png'
 import developerRepB4Png from './developer-rep-b-4.png'
@@ -82,6 +86,7 @@ import developerRepB5Png from './developer-rep-b-5.png'
 import developerRepB6Png from './developer-rep-b-6.png'
 import developerRepB7Png from './developer-rep-b-7.png'
 import developerRepB8Png from './developer-rep-b-8.png'
+import developerRepB9Png from './developer-rep-b-9.png'
 import expert1Png from './expert-1.png'
 import expert2Png from './expert-2.png'
 import expert3Png from './expert-3.png'
@@ -146,6 +151,7 @@ export {
   archbot1Png,
   archbot2Png,
   archbot3Png,
+  architectPng,
   archkot1Png,
   archkot10Png,
   archkot11Png,
@@ -191,7 +197,7 @@ export {
   bgCityHallOutsideJpg,
   bgCityHallSignJpg,
   bgCourtyardJpg,
-  bgDeveloperHqInsidePng,
+  bgDeveloperHqInsideJpg,
   bgDeveloperHqOutsideJpg,
   bgIntroJpg,
   bgLaptopAboveJpg,
@@ -199,7 +205,6 @@ export {
   bgLaptopStandaloneJpg,
   bgMapGif,
   bgMapJpg,
-  bgMayorDeskAJpg,
   bgMayorDeskJpg,
   bgMayorDoorJpg,
   bgMayorDoorwayJpg,
@@ -207,12 +212,16 @@ export {
   bgMonumentDeptDoorwayJpg,
   bgPhoneFingerJpg,
   bgPhoneHandJpg,
+  bgProjectsFolderJpg,
   bgZheltoksanAfterJpg,
   bgZheltoksanBeforeFenceGif,
   bgZheltoksanBeforeFenceJpg,
   bgZheltoksanBeforeJpg,
+  botBuilderPng,
   developerRepAPng,
   developerRepB1Png,
+  developerRepB10Png,
+  developerRepB11Png,
   developerRepB2Png,
   developerRepB3Png,
   developerRepB4Png,
@@ -220,6 +229,7 @@ export {
   developerRepB6Png,
   developerRepB7Png,
   developerRepB8Png,
+  developerRepB9Png,
   expert1Png,
   expert2Png,
   expert3Png,

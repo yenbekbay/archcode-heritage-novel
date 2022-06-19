@@ -84,7 +84,10 @@ function IntroScene() {
       return
     }
 
-    const enteredPercent = (focusedStatementIndex + 1) / getStatementCount()
+    const enteredPercent = Math.min(
+      1,
+      (focusedStatementIndex + 1) / getStatementCount(),
+    )
     controls.stop()
     controls.start({
       y: `calc(${containerSize[1] - imgSize[1]}px * ${enteredPercent})`,
@@ -102,20 +105,22 @@ function IntroScene() {
   ])
 
   return (
-    <Command
-      name="IntroScene"
-      behavior={['skippable_timed', {durationMs: 0}]}
-      hide={-1}>
-      {() => (
-        <motion.img
-          ref={imgRef}
-          className="w-full"
-          src={bgIntroJpg}
-          initial={{y: 0}}
-          animate={controls}
-        />
-      )}
-    </Command>
+    <>
+      <Command
+        name="IntroScene"
+        behavior={['skippable_timed', {durationMs: 0}]}
+        hide={-1}>
+        {() => null}
+      </Command>
+
+      <motion.img
+        ref={imgRef}
+        className="w-full"
+        src={bgIntroJpg}
+        initial={{y: 0}}
+        animate={controls}
+      />
+    </>
   )
 }
 

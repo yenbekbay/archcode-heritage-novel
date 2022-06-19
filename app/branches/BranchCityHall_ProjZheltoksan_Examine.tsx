@@ -28,7 +28,7 @@ export function BranchCityHall_ProjZheltoksan_Examine() {
         —Вижу нарушения…
       </Say>
 
-      <Say image={{uri: expert2Png, align: 'bottom'}}>
+      <Say tag="Эксперт:" image={{uri: expert2Png, align: 'bottom'}}>
         —Ещё одно! Ещё нарушение!!!
       </Say>
 

@@ -4,6 +4,7 @@ import type {CommandViewAnimation} from '../../components'
 
 export interface ImageViewProps {
   uri: string
+  align?: 'bottom'
   style?: React.CSSProperties
   animation?: CommandViewAnimation
   controls: AnimationControls
@@ -11,6 +12,7 @@ export interface ImageViewProps {
 
 export function ImageView({
   uri,
+  align,
   style,
   animation = {
     initial: {opacity: 0},
@@ -31,7 +33,17 @@ export function ImageView({
       variants={animation}
       initial="initial"
       animate={controls}>
-      <img className="absolute max-w-none" style={style} src={uri} />
+      <img
+        className="absolute max-w-none"
+        style={{
+          ...(align === 'bottom' && {
+            width: '100%',
+            bottom: 0,
+          }),
+          ...style,
+        }}
+        src={uri}
+      />
     </motion.div>
   )
 }

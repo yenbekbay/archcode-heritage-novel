@@ -123,7 +123,7 @@ export function BranchArchkot_ProjAsk_CheckOut_AssembleTeam() {
         найдено то, что нужно
       </Say>
 
-      <Say image={{uri: archbot3Png, align: 'bottom'}}>
+      <Say tag="АрхБот:" image={{uri: archbot3Png, align: 'bottom'}}>
         {
           '—Представляю вам документ, который я условно назвал “Список Байбека”\n\n[*Cсылка cтатья "Список Байбека"](#)'
         }

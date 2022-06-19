@@ -3,20 +3,20 @@ import {
   archkot3Png,
   bgAskAfterAltJpg,
   bgAskBeforeFenceGif,
-  bgDeveloperHqInsidePng,
+  bgDeveloperHqInsideJpg,
 } from '~/assets/game'
 import {Branch, Menu, Say, Scene, Title} from '~/lib'
 
 export function BranchCityHall_ProjAsk_Examine_Reject_Ignore() {
   return (
     <Branch>
-      <Scene src={bgDeveloperHqInsidePng} />
+      <Scene src={bgDeveloperHqInsideJpg} />
 
       <Say tag="АрхКот:" image={{uri: archkot2Png, align: 'bottom'}}>
         —Мы предлагаем свою кандидатуру в качестве мониторинговой группы
       </Say>
 
-      <Say image={{uri: archkot3Png, align: 'bottom'}}>
+      <Say tag="АрхКот:" image={{uri: archkot3Png, align: 'bottom'}}>
         —Давайте договоримся о серии встреч с девелопером.
       </Say>
 

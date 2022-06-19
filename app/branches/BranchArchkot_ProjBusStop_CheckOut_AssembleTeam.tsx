@@ -56,7 +56,7 @@ export function BranchArchkot_ProjBusStop_CheckOut_AssembleTeam() {
         остановить!
       </Say>
 
-      <Say image={{uri: archtok1Png, align: 'bottom'}}>
+      <Say tag="АрхКот:" image={{uri: archtok1Png, align: 'bottom'}}>
         —Первое, что необходимо выяснить — это является ли здание памятником
         историко-культурного наследия
       </Say>
@@ -109,7 +109,7 @@ export function BranchArchkot_ProjBusStop_CheckOut_AssembleTeam() {
               ctx.goToBranch('Archkot_ProjBusStop_CheckOut_AssembleTeam_Bail'),
           },
           {
-            label: 'Что еще можно сделать?',
+            label: 'Что ещё можно сделать?',
             onClick: (ctx) => ctx.skip(),
           },
         ]}>
@@ -127,7 +127,7 @@ export function BranchArchkot_ProjBusStop_CheckOut_AssembleTeam() {
       </Say>
 
       <Say tag="АрхТок:" image={{uri: archtok2Png, align: 'bottom'}}>
-        —Неплохо бы еще подготовить статью, чтобы привлечь внимание
+        —Неплохо бы ещё подготовить статью, чтобы привлечь внимание
       </Say>
 
       <Say tag="АрхБот:" image={{uri: archbot1Png, align: 'bottom'}}>
@@ -170,7 +170,7 @@ export function BranchArchkot_ProjBusStop_CheckOut_AssembleTeam() {
 
       <Say tag="АрхКот:" image={{uri: archkot2Png, align: 'bottom'}}>
         {
-          '—Надо довести дело до конца, ведь в городе еще много уникальнейших остановок, которым грозит опасность\n\n[Ссылка с составленной картой остановок](#)'
+          '—Надо довести дело до конца, ведь в городе ещё много уникальнейших остановок, которым грозит опасность\n\n[Ссылка с составленной картой остановок](#)'
         }
       </Say>
 

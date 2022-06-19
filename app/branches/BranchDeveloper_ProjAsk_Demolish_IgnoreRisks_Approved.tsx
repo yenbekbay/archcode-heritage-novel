@@ -1,31 +1,28 @@
 import {
   adyaPchelkinaPng,
+  angryCrowd1Png,
   archkot4Png,
-  bgCityHallMayorOfficeJpg,
+  bgAskBeforeJpg,
+  bgCityHallConferenceRoomJpg,
   bgDeveloperHqInsideJpg,
   bgDeveloperHqOutsideJpg,
   developerRepB1Png,
   developerRepB2Png,
   developerRepB3Png,
   developerRepB4Png,
-  developerRepB5Png,
+  developerRepB7Png,
   gorzhempoPng,
   letterPng,
-  mayor2Png,
-  mayor3Png,
-  stampRejectedPng,
+  mayor7Png,
+  stampApprovedPng,
   tinaShtunerPng,
 } from '~/assets/game'
 import {Branch, Say, Scene, Show} from '~/lib'
 
-export function BranchCityHall_ProjAsk_Examine_Reject() {
+export function BranchDeveloper_ProjAsk_Demolish_IgnoreRisks_Approved() {
   return (
     <Branch>
-      <Scene src={bgCityHallMayorOfficeJpg} />
-
-      <Say image={{uri: mayor3Png, align: 'bottom'}}>
-        Проект нужно пересмотреть. устроить общественные слушания!
-      </Say>
+      <Scene src={bgCityHallConferenceRoomJpg} />
 
       <Show
         src={{
@@ -44,7 +41,7 @@ export function BranchCityHall_ProjAsk_Examine_Reject() {
 
       <Show
         src={{
-          uri: stampRejectedPng,
+          uri: stampApprovedPng,
           style: {
             height: '100%',
             width: '100%',
@@ -54,25 +51,61 @@ export function BranchCityHall_ProjAsk_Examine_Reject() {
         }}
       />
 
-      <Scene src={bgDeveloperHqOutsideJpg} />
+      <Say
+        tag="Аким:"
+        image={{uri: mayor7Png, align: 'bottom', style: {bottom: '-12%'}}}>
+        —Я согласен с вашими решениями. Можете начинать стройку
+      </Say>
+
+      <Scene src={bgAskBeforeJpg} />
+
+      <Say image={{uri: angryCrowd1Png, align: 'bottom'}}>
+        Общественность возмущена
+      </Say>
 
       <Scene src={bgDeveloperHqInsideJpg} />
 
-      <Say tag="АрхКот:" image={{uri: archkot4Png, align: 'bottom'}}>
+      <Say
+        image={{uri: developerRepB7Png, align: 'bottom'}}
+        menu={[
+          {
+            label: 'Игнорировать',
+            onClick: (ctx) => ctx.skip(),
+          },
+          {
+            label: 'Провести общественные слушаниям',
+            onClick: (ctx) => ctx.skip(1),
+          },
+        ]}>
+        Вечно всем надо совать свой нос в чужое дело… Что с этим делать?
+      </Say>
+
+      <Say>
+        Можно игнорировать запросы, но общественные слушания придётся проводить
+        в любом случае
+      </Say>
+
+      <Scene src={bgDeveloperHqOutsideJpg} />
+
+      <Say>Общественные слушания</Say>
+
+      <Scene src={bgDeveloperHqInsideJpg} />
+
+      <Say tag="Архкот:" image={{uri: archkot4Png, align: 'bottom'}}>
         —Это сейчас практически единственное здание, которое не было изменено
       </Say>
 
-      <Say tag="Девелопер:" image={{uri: developerRepB1Png, align: 'bottom'}}>
-        —Внутри мы хотим создать современные, удобные помещёния, увеличить
-        свободную площадь,
+      <Say image={{uri: developerRepB1Png, align: 'bottom'}}>
+        —Внутри мы хотим создать современные, удобные помещения, увеличить
+        свободную площадь
       </Say>
 
-      <Say tag="Девелопер:" image={{uri: developerRepB2Png, align: 'bottom'}}>
-        —а ещё сделать open space — с учетом прозрачного фасада, будет больше
+      <Say image={{uri: developerRepB2Png, align: 'bottom'}}>
+        —А ещё сделать open space — с учетом прозрачного фасада, будет больше
         света!
       </Say>
 
-      <Say tag="Девелопер:" image={{uri: developerRepB3Png, align: 'bottom'}}>
+      <Say image={{uri: developerRepB3Png, align: 'bottom'}}>
         —Стёкла на фасаде сделаем зеркальными!
       </Say>
 
@@ -99,33 +132,31 @@ export function BranchCityHall_ProjAsk_Examine_Reject() {
         —Есть ли у Bay Shatyr Group лицензия на работу с памятниками?
       </Say>
 
-      <Say tag="Девелопер:" image={{uri: developerRepB4Png, align: 'bottom'}}>
-        …
-      </Say>
+      <Say image={{uri: developerRepB4Png, align: 'bottom'}}>…</Say>
 
       <Say tag="АрхКот:" image={{uri: archkot4Png, align: 'bottom'}}>
         —Нужен кто-то, кто будет контролировать правильность процесса!
       </Say>
 
-      <Say tag="Девелопер:" image={{uri: developerRepB5Png, align: 'bottom'}}>
-        …
-      </Say>
-
       <Say
-        image={{uri: mayor2Png, align: 'bottom'}}
+        image={{uri: developerRepB4Png, align: 'bottom'}}
         menu={[
           {
-            label: 'Выдвинуть группу от акимата',
+            label: 'Конечно, отлично!',
             onClick: (ctx) =>
-              ctx.goToBranch('CityHall_ProjAsk_Examine_Reject_Intervene'),
+              ctx.goToBranch(
+                'Developer_ProjAsk_Demolish_IgnoreRisks_Approved_Listen',
+              ),
           },
           {
-            label: 'Проигнорировать',
+            label: 'Мониторинговая группа уже представлена от Акимата',
             onClick: (ctx) =>
-              ctx.goToBranch('CityHall_ProjAsk_Examine_Reject_Ignore'),
+              ctx.goToBranch(
+                'Developer_ProjAsk_Demolish_IgnoreRisks_Approved_Ignore',
+              ),
           },
         ]}>
-        Что делать?
+        Что ответить?
       </Say>
     </Branch>
   )

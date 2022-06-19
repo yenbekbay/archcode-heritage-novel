@@ -158,6 +158,7 @@ export function BranchArchkot_ProjAirport_CheckOut_AssembleTeam() {
       </Say>
 
       <Say
+        tag="АрхБот:"
         image={{
           uri: archbot2Png,
           align: 'bottom',
@@ -186,6 +187,7 @@ export function BranchArchkot_ProjAirport_CheckOut_AssembleTeam() {
           align: 'bottom',
           style: {transform: 'translateX(-35%)'},
         }}
+        durationMs={4000}
       />
 
       <Scene src={bgCityHallOutsideJpg} />
@@ -214,7 +216,9 @@ export function BranchArchkot_ProjAirport_CheckOut_AssembleTeam() {
         обычная квадратная коробка, без какой-либо связи с Казахстаном
       </Say>
 
-      <Say image={{uri: sharatMibutovPng, align: 'bottom'}}>
+      <Say
+        tag="Член Общ. совета Шарат Мибутов:"
+        image={{uri: sharatMibutovPng, align: 'bottom'}}>
         —Был выбран экономичный вариант, который рассчитан только на увеличение
         пропускной способности терминала и максимизацию прибыли инвесторов
       </Say>
@@ -232,13 +236,13 @@ export function BranchArchkot_ProjAirport_CheckOut_AssembleTeam() {
         запрещаются
       </Say>
 
-      <Say image={{uri: archkot4Png, align: 'bottom'}}>
+      <Say tag="АрхКот:" image={{uri: archkot4Png, align: 'bottom'}}>
         —Исключение допускается лишь в случаях разрушения более семидесяти
         процентов памятника истории и культуры либо утраты историко-культурной
         значимости
       </Say>
 
-      <Say image={{uri: archkot4Png, align: 'bottom'}}>
+      <Say tag="АрхКот:" image={{uri: archkot4Png, align: 'bottom'}}>
         —или если его перемещёние и изменение повлекут улучшение условий его
         сохранения. Да и в общей сложности, это крайне дорогая процедура
       </Say>

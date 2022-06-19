@@ -3,7 +3,7 @@ import {
   archbot3Png,
   archkot4Png,
   bgAskAfterAltJpg,
-  bgDeveloperHqInsidePng,
+  bgDeveloperHqInsideJpg,
   bgDeveloperHqOutsideJpg,
   developerRepB1Png,
   developerRepB2Png,
@@ -19,7 +19,7 @@ export function BranchArchkot_ProjAsk_CheckOut_AssembleTeam_Debate() {
   return (
     <Branch>
       <Scene src={bgDeveloperHqOutsideJpg} />
-      <Scene src={bgDeveloperHqInsidePng} />
+      <Scene src={bgDeveloperHqInsideJpg} />
 
       <Say tag="АрхКот:" image={{uri: archkot4Png, align: 'bottom'}}>
         —Это сейчас практически единственное здание, которое не было изменено
@@ -30,13 +30,13 @@ export function BranchArchkot_ProjAsk_CheckOut_AssembleTeam_Debate() {
         свободную площадь,
       </Say>
 
-      <Say image={{uri: developerRepB2Png, align: 'bottom'}}>
-        а ещё сделать open space — с учетом прозрачного фасада, будет больше
+      <Say tag="Девелопер:" image={{uri: developerRepB2Png, align: 'bottom'}}>
+        —а ещё сделать open space — с учетом прозрачного фасада, будет больше
         света!
       </Say>
 
-      <Say image={{uri: developerRepB3Png, align: 'bottom'}}>
-        Стекла на фасаде сделаем зеркальными!
+      <Say tag="Девелопер:" image={{uri: developerRepB3Png, align: 'bottom'}}>
+        —Стёкла на фасаде сделаем зеркальными!
       </Say>
 
       <Say tag="Горжемпо:" image={{uri: gorzhempoPng, align: 'bottom'}}>
@@ -44,13 +44,13 @@ export function BranchArchkot_ProjAsk_CheckOut_AssembleTeam_Debate() {
         которого в СССР не было
       </Say>
 
-      <Say image={{uri: gorzhempoPng, align: 'bottom'}}>
-        Из-за дефицита материала в итоге при строительстве было использовано
+      <Say tag="Горжемпо:" image={{uri: gorzhempoPng, align: 'bottom'}}>
+        —Из-за дефицита материала в итоге при строительстве было использовано
         дымчатое стекло,
       </Say>
 
-      <Say image={{uri: gorzhempoPng, align: 'bottom'}}>
-        и в проекте, судя по рендерам, оно заменяется на зеркальное
+      <Say tag="Горжемпо:" image={{uri: gorzhempoPng, align: 'bottom'}}>
+        —и в проекте, судя по рендерам, оно заменяется на зеркальное
       </Say>
 
       <Say tag="Тина Штунер:" image={{uri: tinaShtunerPng, align: 'bottom'}}>

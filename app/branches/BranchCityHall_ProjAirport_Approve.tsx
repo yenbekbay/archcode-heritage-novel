@@ -56,6 +56,7 @@ export function BranchCityHall_ProjAirport_Approve() {
           {
             label: 'Дальше',
             onClick: (ctx) =>
+              // HACK
               ctx.goToLocation('CityHall_ProjAirport_Examine_Reject', 4),
           },
         ]}

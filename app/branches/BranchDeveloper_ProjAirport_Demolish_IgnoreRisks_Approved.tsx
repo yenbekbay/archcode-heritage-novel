@@ -1,22 +1,26 @@
 import {
   aKordeevPng,
+  angryCrowd1Png,
   archkot1Png,
   archkot4Png,
   assistant3Png,
+  bgAirportJpg,
   bgCityHallConferenceRoomJpg,
-  bgCityHallMayorOfficeJpg,
   bgCityHallOutsideJpg,
+  bgDeveloperHqInsideJpg,
+  developerRepB7Png,
+  developerRepB9Png,
   letterPng,
-  mayor2Png,
+  mayor7Png,
   sharatMibutovPng,
-  stampRejectedPng,
+  stampApprovedPng,
 } from '~/assets/game'
 import {Branch, Say, Scene, Show} from '~/lib'
 
-export function BranchCityHall_ProjAirport_Examine_Reject() {
+export function BranchDeveloper_ProjAirport_Demolish_IgnoreRisks_Approved() {
   return (
     <Branch>
-      <Scene src={bgCityHallMayorOfficeJpg} />
+      <Scene src={bgCityHallConferenceRoomJpg} />
 
       <Show
         src={{
@@ -35,7 +39,7 @@ export function BranchCityHall_ProjAirport_Examine_Reject() {
 
       <Show
         src={{
-          uri: stampRejectedPng,
+          uri: stampApprovedPng,
           style: {
             height: '100%',
             width: '100%',
@@ -45,15 +49,43 @@ export function BranchCityHall_ProjAirport_Examine_Reject() {
         }}
       />
 
-      <Scene src={bgCityHallMayorOfficeJpg} />
+      <Say
+        tag="Аким:"
+        image={{uri: mayor7Png, align: 'bottom', style: {bottom: '-12%'}}}>
+        —Я согласен с вашими решениями. Можете начинать стройку
+      </Say>
 
-      <Say>Устроить общественное обсуждение</Say>
+      <Scene src={bgAirportJpg} />
+
+      <Say image={{uri: angryCrowd1Png, align: 'bottom'}}>
+        Общественность возмущена
+      </Say>
+
+      <Scene src={bgDeveloperHqInsideJpg} />
+
+      <Say
+        image={{uri: developerRepB7Png, align: 'bottom'}}
+        menu={[
+          {
+            label: 'Игнорировать',
+            onClick: (ctx) => ctx.skip(),
+          },
+          {
+            label: 'Провести общественные слушаниям',
+            onClick: (ctx) => ctx.skip(1),
+          },
+        ]}>
+        Вечно всем надо совать свой нос в чужое дело… Что с этим делать?
+      </Say>
+
+      <Say>
+        Можно игнорировать запросы, но общественные слушания придётся проводить
+        в любом случае
+      </Say>
 
       <Scene src={bgCityHallOutsideJpg} />
 
-      <Say placement="middle" scheme="dark">
-        Общественные слушания
-      </Say>
+      <Say>Общественные слушания</Say>
 
       <Scene src={bgCityHallConferenceRoomJpg} />
 
@@ -112,20 +144,24 @@ export function BranchCityHall_ProjAirport_Examine_Reject() {
       </Say>
 
       <Say
-        image={{uri: mayor2Png, align: 'bottom'}}
+        image={{uri: developerRepB9Png, align: 'bottom'}}
         menu={[
           {
-            label: 'Не одобрять',
+            label: 'Учесть мнения',
             onClick: (ctx) =>
-              ctx.goToBranch('CityHall_ProjAirport_Examine_Reject_Reject'),
+              ctx.goToBranch(
+                'Developer_ProjAirport_Demolish_IgnoreRisks_Approved_Listen',
+              ),
           },
           {
-            label: 'Одобрить',
+            label: 'Игнорировать',
             onClick: (ctx) =>
-              ctx.goToBranch('CityHall_ProjAirport_Examine_Reject_Approve'),
+              ctx.goToBranch(
+                'Developer_ProjAirport_Demolish_IgnoreRisks_Approved_Ignore',
+              ),
           },
         ]}>
-        Что делать с проектом?
+        Что делать?
       </Say>
     </Branch>
   )

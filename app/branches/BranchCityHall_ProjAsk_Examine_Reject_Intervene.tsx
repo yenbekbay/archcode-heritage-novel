@@ -2,7 +2,7 @@ import {
   assistant3Png,
   bgAskAfterAltJpg,
   bgAskBeforeFenceGif,
-  bgDeveloperHqInsidePng,
+  bgDeveloperHqInsideJpg,
   mayor1Png,
 } from '~/assets/game'
 import {Branch, Menu, Say, Scene, Title} from '~/lib'
@@ -10,7 +10,7 @@ import {Branch, Menu, Say, Scene, Title} from '~/lib'
 export function BranchCityHall_ProjAsk_Examine_Reject_Intervene() {
   return (
     <Branch>
-      <Scene src={bgDeveloperHqInsidePng} />
+      <Scene src={bgDeveloperHqInsideJpg} />
 
       <Say
         tag="Работник акимата:"
@@ -18,7 +18,7 @@ export function BranchCityHall_ProjAsk_Examine_Reject_Intervene() {
         —Мы предоставим группу сотрудников для ведения мониторинга
       </Say>
 
-      <Say image={{uri: mayor1Png, align: 'bottom'}}>
+      <Say tag="Работник акимата:" image={{uri: mayor1Png, align: 'bottom'}}>
         —Отлично, договоримся о серии встреч с девелопером
       </Say>
 

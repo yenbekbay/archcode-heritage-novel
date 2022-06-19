@@ -1,7 +1,7 @@
 import {bgProjectsFolderJpg} from '~/assets/game'
 import {Branch, Say, Scene} from '~/lib'
 
-export function BranchCityHall_Menu_Projects() {
+export function BranchDeveloper_Menu_Projects() {
   return (
     <Branch>
       <Scene src={bgProjectsFolderJpg} />
@@ -11,15 +11,15 @@ export function BranchCityHall_Menu_Projects() {
         menu={[
           {
             label: 'Желтоксан',
-            onClick: (ctx) => ctx.goToBranch('CityHall_ProjZheltoksan'),
+            onClick: (ctx) => ctx.goToBranch('Developer_ProjZheltoksan'),
           },
           {
             label: 'Аэропорт',
-            onClick: (ctx) => ctx.goToBranch('CityHall_ProjAirport'),
+            onClick: (ctx) => ctx.goToBranch('Developer_ProjAirport'),
           },
           {
             label: 'АСК',
-            onClick: (ctx) => ctx.goToBranch('CityHall_ProjAsk'),
+            onClick: (ctx) => ctx.goToBranch('Developer_ProjAsk'),
           },
         ]}>
         Выберите проект

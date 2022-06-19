@@ -55,7 +55,9 @@ export function BranchCityHall_MonumentDept_Tea() {
           },
           {
             label: 'Нет, вернуться к выбору',
-            onClick: (ctx) => ctx.goToLocation('CityHall_0Menu', 5),
+            onClick: (ctx) =>
+              // HACK
+              ctx.goToLocation('CityHall_0Menu', 5),
           },
         ]}>
         Хотите продолжить работу с отделом памятников?
@@ -102,7 +104,9 @@ export function BranchCityHall_MonumentDept_Tea() {
           },
           {
             label: 'Нет, вернуться к выбору',
-            onClick: (ctx) => ctx.goToLocation('CityHall_0Menu', 5),
+            onClick: (ctx) =>
+              // HACK
+              ctx.goToLocation('CityHall_0Menu', 5),
           },
         ]}>
         Хотите продолжить работу с отделом памятников?
