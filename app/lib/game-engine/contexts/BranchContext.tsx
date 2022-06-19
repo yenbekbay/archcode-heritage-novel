@@ -2,6 +2,7 @@ import useSize from '@react-hook/size'
 import React from 'react'
 import {useLongPress} from 'use-long-press'
 import {useStableCallback} from '~/lib/hooks'
+import {playSound} from '../utils'
 import {useGameContext} from './GameContext'
 
 export type StatementBehavior =
@@ -139,6 +140,10 @@ export function BranchProvider({branchId, children}: BranchProviderProps) {
 
           const command = statementByIndex.get(focusedStatementIndex)
           if (command?.behavior[0].startsWith('skippable')) {
+            playSound(
+              // eslint-disable-next-line no-sparse-arrays
+              ...[, , 150, 0.05, , 0.05, , 1.3, , , , , , 3],
+            )
             skip()
           }
         }}
@@ -149,6 +154,10 @@ export function BranchProvider({branchId, children}: BranchProviderProps) {
             style={{color: 'rgba(0, 0, 0, .35)'}}
             tabIndex={-1}
             onClick={(event) => {
+              playSound(
+                // eslint-disable-next-line no-sparse-arrays
+                ...[, , 150, 0.05, , 0.05, , 1.3, , , , , , 3],
+              )
               goBack()
               event.stopPropagation()
             }}

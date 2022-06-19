@@ -2,4 +2,5 @@
 export * from './commands/index'
 export * from './components/index'
 export * from './contexts/index'
+export * from './utils/index'
 // codegen:end

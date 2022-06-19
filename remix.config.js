@@ -10,6 +10,7 @@ module.exports = {
   ignoredRouteFiles: ['**/.*'],
   serverDependenciesToBundle: [
     'character-entities',
+    'zzfx',
     'decode-named-character-reference',
     /^mdast/,
     /^micromark/,
