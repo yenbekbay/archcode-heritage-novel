@@ -1,4 +1,4 @@
-import {useUpdateEffect} from '@react-hookz/web'
+import {useLocalStorageValue, useUpdateEffect} from '@react-hookz/web'
 import React from 'react'
 import {useSearchParam} from '~/lib/hooks'
 import type {GameHistory, GameLocation} from './internal'
@@ -36,11 +36,17 @@ export function GameProvider({children, initialBranchId}: GameProviderProps) {
     () => parseGameLocation(storedFocusedLocationId) ?? initialLocation,
   )
   const [paused, setPaused] = useSearchParam<boolean>('paused', false)
+  const [locations, setLocations] = useLocalStorageValue<GameLocation[]>(
+    'gameHistory',
+    [focusedLocation],
+  )
   const [history] = React.useState<GameHistory>(() =>
     makeGameHistory({
-      initialLocation: focusedLocation,
-      onChange: (newLocations) =>
-        setFocusedLocation(newLocations[newLocations.length - 1]),
+      locations,
+      onChange: (newLocations) => {
+        setLocations(newLocations)
+        setFocusedLocation(newLocations[newLocations.length - 1])
+      },
     }),
   )
 

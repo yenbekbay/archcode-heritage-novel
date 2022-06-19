@@ -1,4 +1,5 @@
 import useSize from '@react-hook/size'
+import clsx from 'clsx'
 import React from 'react'
 import {useLongPress} from 'use-long-press'
 import {useStableCallback} from '~/lib/hooks'
@@ -148,21 +149,30 @@ export function BranchProvider({branchId, children}: BranchProviderProps) {
           }
         }}
         {...bindLongPress()}>
-        {canGoBack() && (
-          <div
-            className="absolute left-0 z-50 h-full w-16 cursor-pointer from-current to-transparent hover:bg-gradient-to-r"
-            style={{color: 'rgba(0, 0, 0, .35)'}}
-            tabIndex={-1}
-            onClick={(event) => {
+        <div
+          className={clsx(
+            'absolute left-0 z-[110] h-full w-16 cursor-pointer from-current to-transparent',
+            canGoBack() && 'hover:bg-gradient-to-r',
+          )}
+          style={{color: 'rgba(0, 0, 0, .35)'}}
+          tabIndex={-1}
+          onClick={(event) => {
+            event.stopPropagation()
+            if (!canGoBack()) {
               playSound(
                 // eslint-disable-next-line no-sparse-arrays
-                ...[, , 150, 0.05, , 0.05, , 1.3, , , , , , 3],
+                ...[1.5, 0.5, 270, , 0.1, , 1, 1.5, , , , , , , , 0.1, 0.01],
               )
-              goBack()
-              event.stopPropagation()
-            }}
-          />
-        )}
+              return
+            }
+
+            playSound(
+              // eslint-disable-next-line no-sparse-arrays
+              ...[, , 150, 0.05, , 0.05, , 1.3, , , , , , 3],
+            )
+            goBack()
+          }}
+        />
 
         {children}
       </div>

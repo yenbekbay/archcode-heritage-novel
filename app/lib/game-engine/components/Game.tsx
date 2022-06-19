@@ -21,6 +21,10 @@ export interface GameProps {
 }
 
 export function Game({assets, branches, initialBranchId, onClose}: GameProps) {
+  // Do not render on the server
+  if (typeof window === 'undefined') {
+    return null
+  }
   return (
     <GameProvider initialBranchId={initialBranchId}>
       <GameView
@@ -43,15 +47,15 @@ interface GameViewProps {
 }
 
 function GameView({assets, branches, initialBranchId, onClose}: GameViewProps) {
-  const {focusedLocation, paused, setPaused, goToBranch, goBack, canGoBack} =
+  const {focusedLocation, paused, setPaused, goToLocation, goBack, canGoBack} =
     useGameContext()
   return (
     <div className="h-screen">
-      <div className="navbar absolute z-50 p-4">
+      <div className="navbar absolute z-[120] p-4">
         <div className="navbar-start space-x-2">
           <button
             className="btn btn-ghost btn-circle bg-white text-xl shadow-md"
-            onClick={() => goToBranch(initialBranchId)}>
+            onClick={() => goToLocation(initialBranchId, 0)}>
             <ArrowCounterClockwiseIcon />
           </button>
 
@@ -76,7 +80,7 @@ function GameView({assets, branches, initialBranchId, onClose}: GameViewProps) {
       </div>
 
       {process.env.NODE_ENV === 'development' && (
-        <div className="absolute bottom-4 right-4 z-50 space-x-2">
+        <div className="absolute bottom-4 right-4 z-[120] space-x-2">
           <button
             className="btn btn-ghost btn-circle bg-white text-xl shadow-md"
             onClick={() => setPaused(!paused)}>
@@ -118,7 +122,7 @@ function GameView({assets, branches, initialBranchId, onClose}: GameViewProps) {
                     <button
                       key={branchId}
                       className="btn btn-ghost btn-sm btn-block justify-between normal-case"
-                      onClick={() => goToBranch(branchId as BranchId)}>
+                      onClick={() => goToLocation(branchId as BranchId, 0)}>
                       <span className="flex w-full flex-row items-center justify-between space-x-1">
                         <span className="flex-1 overflow-hidden text-ellipsis whitespace-nowrap text-left">
                           {branchId}

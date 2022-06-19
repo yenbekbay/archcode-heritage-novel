@@ -3,19 +3,19 @@ import type {GameLocation} from './game-location'
 export interface GameHistory {
   peek: () => GameLocation
   push: (location: GameLocation) => void
-  reset: (location?: GameLocation) => void
+  reset: (location: GameLocation) => void
   goBack: () => boolean
   canGoBack: () => boolean
 }
 
 export function makeGameHistory({
-  initialLocation,
+  locations,
   onChange,
 }: {
-  initialLocation: GameLocation
+  locations: GameLocation[]
   onChange?: (newLocations: GameLocation[]) => void
 }): GameHistory {
-  let items = [initialLocation]
+  let items = locations
   return {
     peek: () => items[items.length - 1],
     push: (location) => {
@@ -23,7 +23,7 @@ export function makeGameHistory({
       onChange?.(items)
     },
     reset: (location) => {
-      items = [location ?? initialLocation]
+      items = [location]
       onChange?.(items)
     },
     goBack: () => {
