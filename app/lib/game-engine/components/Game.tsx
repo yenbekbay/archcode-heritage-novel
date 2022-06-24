@@ -17,21 +17,30 @@ export interface GameProps {
   assets: Record<string, string>
   branches: Record<string, React.ComponentType>
   initialBranchId: BranchId
-  onClose?: () => void
+  onGoHome?: () => void
+  onLinkClick?: (href: string, event: React.MouseEvent) => void
 }
 
-export function Game({assets, branches, initialBranchId, onClose}: GameProps) {
+export function Game({
+  assets,
+  branches,
+  initialBranchId,
+  onGoHome,
+  onLinkClick,
+}: GameProps) {
   // Do not render on the server
   if (typeof window === 'undefined') {
     return null
   }
   return (
-    <GameProvider initialBranchId={initialBranchId}>
+    <GameProvider
+      initialBranchId={initialBranchId}
+      onGoHome={onGoHome}
+      onLinkClick={onLinkClick}>
       <GameView
         assets={assets}
         branches={branches}
         initialBranchId={initialBranchId}
-        onClose={onClose}
       />
     </GameProvider>
   )
@@ -43,12 +52,18 @@ interface GameViewProps {
   assets: Record<string, string>
   branches: Record<string, React.ComponentType>
   initialBranchId: BranchId
-  onClose?: () => void
 }
 
-function GameView({assets, branches, initialBranchId, onClose}: GameViewProps) {
-  const {focusedLocation, paused, setPaused, goToLocation, goBack, canGoBack} =
-    useGameContext()
+function GameView({assets, branches, initialBranchId}: GameViewProps) {
+  const {
+    options,
+    focusedLocation,
+    paused,
+    setPaused,
+    goToLocation,
+    goBack,
+    canGoBack,
+  } = useGameContext()
   return (
     <div className="h-screen">
       <div className="navbar absolute z-[120] p-4">
@@ -69,10 +84,10 @@ function GameView({assets, branches, initialBranchId, onClose}: GameViewProps) {
         </div>
 
         <div className="navbar-end space-x-2">
-          {onClose && (
+          {options.onGoHome && (
             <button
               className="btn btn-ghost btn-circle bg-white text-xl shadow-md"
-              onClick={() => onClose()}>
+              onClick={options.onGoHome}>
               <HouseIcon />
             </button>
           )}

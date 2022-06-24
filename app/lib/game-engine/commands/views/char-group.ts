@@ -19,11 +19,20 @@ export function charGroupsForMarkdown(value: string) {
   const tree = fromMarkdown(value)
   const paragraphs: Paragraph[] = []
   for (const child of tree.children) {
-    if (child.type !== 'paragraph') {
-      console.warn('Unsupported syntax', child)
-      continue
+    switch (child.type) {
+      case 'paragraph':
+        paragraphs.push(child)
+        break
+      case 'code':
+        paragraphs.push({
+          type: 'paragraph',
+          children: [{type: 'text', value: child.value}],
+        })
+        break
+      default:
+        console.warn('Unsupported syntax', child)
+        continue
     }
-    paragraphs.push(child)
   }
   const groups: CharGroup[] = []
   let startIndex = 0

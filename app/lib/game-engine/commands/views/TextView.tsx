@@ -6,7 +6,7 @@ import type {
   CommandViewAnimation,
   CommandViewColorScheme,
 } from '../../components'
-import {useBranchContext} from '../../contexts'
+import {useBranchContext, useGameContext} from '../../contexts'
 import type {CharGroup} from './char-group'
 import type {Frame} from './frame'
 import {styleForFrame} from './frame'
@@ -32,6 +32,7 @@ export function TextView({
   frame,
   scheme,
 }: TextViewProps) {
+  const {options} = useGameContext()
   const {containerSize} = useBranchContext()
   const length = groups.flatMap((g) => g.chars).length
   const size: 'md' | 'lg' | 'xl' = (() => {
@@ -127,7 +128,12 @@ export function TextView({
                     href={group.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    onClick={(event) => event.stopPropagation()}>
+                    onClick={(event) => {
+                      event.stopPropagation()
+                      if (options.onLinkClick) {
+                        options.onLinkClick(group.url, event)
+                      }
+                    }}>
                     {group.chars.map((char, charIdx) => (
                       <motion.span
                         key={`${char}_${group.startIndex + charIdx}`}

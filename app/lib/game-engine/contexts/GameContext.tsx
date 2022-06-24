@@ -8,7 +8,13 @@ import {
   parseGameLocation,
 } from './internal'
 
+export interface GameOptions {
+  onGoHome?: () => void
+  onLinkClick?: (href: string, event: React.MouseEvent) => void
+}
+
 export interface GameContextValue {
+  options: GameOptions
   focusedLocation: GameLocation
   paused: boolean
   setPaused: React.Dispatch<React.SetStateAction<boolean>>
@@ -23,9 +29,16 @@ const GameContext = React.createContext<GameContextValue | null>(null)
 export interface GameProviderProps {
   children: React.ReactNode
   initialBranchId: BranchId
+  onGoHome?: () => void
+  onLinkClick?: (href: string, event: React.MouseEvent) => void
 }
 
-export function GameProvider({children, initialBranchId}: GameProviderProps) {
+export function GameProvider({
+  children,
+  initialBranchId,
+  onGoHome,
+  onLinkClick,
+}: GameProviderProps) {
   const initialLocation: GameLocation = {
     branchId: initialBranchId,
     statementIndex: 0,
@@ -67,6 +80,7 @@ export function GameProvider({children, initialBranchId}: GameProviderProps) {
 
   const ctx = React.useMemo(
     (): GameContextValue => ({
+      options: {onGoHome, onLinkClick},
       focusedLocation,
       paused,
       setPaused,
@@ -92,7 +106,7 @@ export function GameProvider({children, initialBranchId}: GameProviderProps) {
       },
       canGoBack: history.canGoBack,
     }),
-    [focusedLocation, history, paused, setPaused],
+    [focusedLocation, history, onGoHome, onLinkClick, paused, setPaused],
   )
 
   return <GameContext.Provider value={ctx}>{children}</GameContext.Provider>

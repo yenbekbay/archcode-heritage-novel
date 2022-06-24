@@ -3,7 +3,7 @@ import clsx from 'clsx'
 import React from 'react'
 import {useLongPress} from 'use-long-press'
 import {useStableCallback} from '~/lib/hooks'
-import {playSound} from '../utils'
+import {playSound} from '../sounds'
 import {useGameContext} from './GameContext'
 
 export type StatementBehavior =
@@ -133,18 +133,22 @@ export function BranchProvider({branchId, children}: BranchProviderProps) {
         ref={containerRef}
         className="relative flex-1 select-none"
         tabIndex={-1}
-        onClick={() => {
+        onClick={(event) => {
           if (ignoreClickRef.current) {
             ignoreClickRef.current = false
             return
           }
 
+          const targetContained =
+            event.currentTarget === event.target ||
+            (event.currentTarget as Element).contains(event.target as Element)
+          if (!targetContained) {
+            return
+          }
+
           const command = statementByIndex.get(focusedStatementIndex)
           if (command?.behavior[0].startsWith('skippable')) {
-            playSound(
-              // eslint-disable-next-line no-sparse-arrays
-              ...[, , 150, 0.05, , 0.05, , 1.3, , , , , , 3],
-            )
+            playSound('skip')
             skip()
           }
         }}
@@ -159,17 +163,11 @@ export function BranchProvider({branchId, children}: BranchProviderProps) {
           onClick={(event) => {
             event.stopPropagation()
             if (!canGoBack()) {
-              playSound(
-                // eslint-disable-next-line no-sparse-arrays
-                ...[1.5, 0.5, 270, , 0.1, , 1, 1.5, , , , , , , , 0.1, 0.01],
-              )
+              playSound('error')
               return
             }
 
-            playSound(
-              // eslint-disable-next-line no-sparse-arrays
-              ...[, , 150, 0.05, , 0.05, , 1.3, , , , , , 3],
-            )
+            playSound('skip')
             goBack()
           }}
         />

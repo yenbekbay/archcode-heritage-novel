@@ -7,7 +7,7 @@ import type {
   CommandViewColorScheme,
 } from '../../components'
 import {useBranchContext, useGameContext} from '../../contexts'
-import {playSound} from '../../utils'
+import {playSound} from '../../sounds'
 import type {Frame} from './frame'
 import {styleForFrame} from './frame'
 
@@ -80,65 +80,57 @@ export function MenuView({
           </motion.span>
         )}
 
-        {choices.map((c, idx) => {
-          function click() {
-            playSound(
-              // prettier-ignore
-              // eslint-disable-next-line no-sparse-arrays
-              ...[2, 0.8, 999, , , , , 1.5, , 0.3, -99, 0.1, 1.63, , , 0.11, 0.22],
-            )
-            c.onClick(ctx)
-          }
-          return (
-            <motion.div
-              key={c.label}
-              className="flex flex-col"
-              variants={itemAnimation}
-              initial="initial"
-              animate={controls}
-              custom={idx + 1}>
-              {c.frame ? (
-                <motion.div
-                  className={clsx(
-                    'GameEngine-surface btn btn-ghost border',
-                    scheme === 'dark' && 'GameEngine-surface--dark',
-                  )}
-                  aria-label={c.label}
-                  style={styleForFrame({containerSize}, c.frame)}
-                  animate={{opacity: 0}}
-                  transition={{
-                    repeat: Infinity,
-                    repeatType: 'reverse',
-                    duration: 1,
-                    ease: 'easeInOut',
-                  }}
-                  tabIndex={-1}
-                  onClick={(event) => {
-                    event.stopPropagation()
-                    click()
-                  }}
-                />
-              ) : (
-                <button
-                  className={clsx(
-                    'GameEngine-button btn btn-ghost h-auto min-h-0 animate-bounce-gentle py-1 font-calligraph leading-6 shadow-md',
-                    scheme === 'dark' && 'GameEngine-button--dark',
-                    {
-                      md: 'text-md btn-lg',
-                      lg: 'btn-xl text-2xl',
-                    }[size],
-                  )}
-                  style={{animationDelay: `calc(0.05 * ${idx}s)`}}
-                  onClick={(event) => {
-                    event.stopPropagation()
-                    click()
-                  }}>
-                  {c.label}
-                </button>
-              )}
-            </motion.div>
-          )
-        })}
+        {choices.map((c, idx) => (
+          <motion.div
+            key={c.label}
+            className="flex flex-col"
+            variants={itemAnimation}
+            initial="initial"
+            animate={controls}
+            custom={idx + 1}>
+            {c.frame ? (
+              <motion.div
+                className={clsx(
+                  'GameEngine-surface btn btn-ghost border',
+                  scheme === 'dark' && 'GameEngine-surface--dark',
+                )}
+                aria-label={c.label}
+                style={styleForFrame({containerSize}, c.frame)}
+                animate={{opacity: 0}}
+                transition={{
+                  repeat: Infinity,
+                  repeatType: 'reverse',
+                  duration: 1,
+                  ease: 'easeInOut',
+                }}
+                tabIndex={-1}
+                onClick={(event) => {
+                  event.stopPropagation()
+                  playSound('click')
+                  c.onClick(ctx)
+                }}
+              />
+            ) : (
+              <button
+                className={clsx(
+                  'GameEngine-button btn btn-ghost h-auto min-h-0 animate-bounce-gentle py-1 font-calligraph leading-6 shadow-md',
+                  scheme === 'dark' && 'GameEngine-button--dark',
+                  {
+                    md: 'text-md btn-lg',
+                    lg: 'btn-xl text-2xl',
+                  }[size],
+                )}
+                style={{animationDelay: `calc(0.05 * ${idx}s)`}}
+                onClick={(event) => {
+                  event.stopPropagation()
+                  playSound('click')
+                  c.onClick(ctx)
+                }}>
+                {c.label}
+              </button>
+            )}
+          </motion.div>
+        ))}
       </div>
     </div>
   )
