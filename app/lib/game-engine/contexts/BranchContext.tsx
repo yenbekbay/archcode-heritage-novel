@@ -187,7 +187,7 @@ export function useBranchContext() {
   const ctx = React.useContext(BranchContext)
   if (!ctx) {
     throw new Error(
-      '`useBranchContext` can only be used inside a BranchContainer component',
+      '`useBranchContext` can only be used inside a Game component',
     )
   }
   return ctx

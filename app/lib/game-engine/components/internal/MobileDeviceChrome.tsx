@@ -1,6 +1,5 @@
 import {useMeasure} from '@react-hookz/web'
 import React from 'react'
-import {Media} from '../../../Media'
 
 export interface MobileDeviceChromeProps {
   children?: React.ReactNode
@@ -9,43 +8,43 @@ export interface MobileDeviceChromeProps {
 export function MobileDeviceChrome({children}: MobileDeviceChromeProps) {
   const [containerRect, containerRef] = useMeasure<HTMLDivElement>()
   return (
-    <>
-      <Media className="h-full w-full" at="sm">
-        {children}
-      </Media>
-
-      <Media className="h-full w-full" greaterThan="sm">
-        <div className="flex h-full w-full flex-col items-center justify-center p-8">
-          <div ref={containerRef} className="flex h-full flex-col">
-            {containerRect && (
-              <MobileDeviceChromeFrame height={containerRect.height}>
-                {children}
-              </MobileDeviceChromeFrame>
-            )}
+    <div ref={containerRef} className="flex h-screen w-screen flex-col">
+      {containerRect &&
+        (containerRect.width < MD_BREAKPOINT ? (
+          children
+        ) : (
+          <div className="flex h-full w-full flex-col items-center justify-center p-8">
+            <MobileDeviceChromeFrame rect={containerRect}>
+              {children}
+            </MobileDeviceChromeFrame>
           </div>
-        </div>
-      </Media>
-    </>
+        ))}
+    </div>
   )
 }
+
+const MD_BREAKPOINT = 768
 
 // MARK: MobileDeviceChromeFrame
 
 interface MobileDeviceChromeFrameProps {
-  height: number
+  rect: DOMRectReadOnly
   children?: React.ReactNode
 }
 
 function MobileDeviceChromeFrame({
-  height,
+  rect,
   children,
 }: MobileDeviceChromeFrameProps) {
-  const ratio = height / 451
+  const height = rect.height - 2 * 32
+  const ratio = height / CHROME_ORIGINAL_SIZE[1]
   return (
-    <div className="relative" style={{width: ratio * 212, height}}>
+    <div
+      className="relative"
+      style={{width: ratio * CHROME_ORIGINAL_SIZE[0], height}}>
       <svg
         className="z-120 pointer-events-none absolute inset-0"
-        width={ratio * 212}
+        width={ratio * CHROME_ORIGINAL_SIZE[0]}
         height={height}
         viewBox="0 0 212 451"
         fill="none"
@@ -117,3 +116,5 @@ function MobileDeviceChromeFrame({
     </div>
   )
 }
+
+const CHROME_ORIGINAL_SIZE = [212, 451]

@@ -2,5 +2,4 @@
 export * from './components/index'
 export * from './game-engine/index'
 export * from './hooks/index'
-export * from './Media'
 // codegen:end

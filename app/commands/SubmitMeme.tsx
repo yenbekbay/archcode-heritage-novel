@@ -123,7 +123,7 @@ function MemeForm({onSubmit, onSkip, scheme}: MemeFormProps) {
         <div className="navbar">
           <div className="navbar-start">
             <button
-              className="btn btn-ghost btn-circle bg-white text-xl shadow-md"
+              className="btn btn-ghost btn-circle bg-base-100 text-xl shadow-md hover:bg-base-200"
               onClick={() => {
                 if (previewUrl) {
                   setPreviewUrl('')

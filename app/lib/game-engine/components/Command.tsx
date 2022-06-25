@@ -1,7 +1,6 @@
 import {useIsMounted, useSyncedRef} from '@react-hookz/web'
-import type {Variant} from 'framer-motion'
+import type {AnimationControls, Variant} from 'framer-motion'
 import {AnimatePresence, motion, useAnimation, usePresence} from 'framer-motion'
-import type {AnimationControls} from 'framer-motion/types/animation/types'
 import React from 'react'
 import type {Statement, StatementBehavior} from '../contexts'
 import {
@@ -36,7 +35,8 @@ export function Command({
   next = 1,
   zIndex = 'auto',
 }: CommandProps) {
-  const {visible} = useStatementContext()
+  const ctx = useStatementContext()
+  const {visible} = ctx
 
   const viewRef = React.useRef<CommandViewInstance>(null)
   useRegisterStatement(

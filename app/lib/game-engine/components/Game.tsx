@@ -29,10 +29,6 @@ export function Game({
   onGoHome,
   onLinkClick,
 }: GameProps) {
-  // Do not render on the server
-  if (typeof window === 'undefined') {
-    return null
-  }
   return (
     <GameProvider
       initialBranchId={initialBranchId}
@@ -66,62 +62,60 @@ function GameView({assets, branches, initialBranchId}: GameViewProps) {
     canGoBack,
   } = useGameContext()
   return (
-    <div className="h-screen">
-      <MobileDeviceChrome>
-        <div className="navbar absolute z-[120] p-4">
-          <div className="navbar-start space-x-2">
-            <button
-              className="btn btn-ghost btn-circle bg-white text-xl shadow-md"
-              onClick={() => goToLocation(initialBranchId, 0)}>
-              <ArrowCounterClockwiseIcon />
-            </button>
-
-            {canGoBack() && (
-              <button
-                className="btn btn-ghost btn-circle bg-white text-xl shadow-md"
-                onClick={() => goBack()}>
-                <ArrowLeftIcon />
-              </button>
-            )}
-          </div>
-
-          <div className="navbar-end space-x-2">
-            {options.onGoHome && (
-              <button
-                className="btn btn-ghost btn-circle bg-white text-xl shadow-md"
-                onClick={options.onGoHome}>
-                <HouseIcon />
-              </button>
-            )}
-          </div>
-        </div>
-
-        <div className="absolute bottom-4 right-4 z-[120] space-x-2">
+    <MobileDeviceChrome>
+      <div className="navbar absolute z-[120] p-4">
+        <div className="navbar-start space-x-2">
           <button
-            className="btn btn-ghost btn-circle bg-white text-xl shadow-md"
-            onClick={() => setPaused(!paused)}>
-            {paused ? <PlayIcon /> : <PauseIcon />}
+            className="btn btn-ghost btn-circle bg-base-100 text-xl shadow-md hover:bg-base-200"
+            onClick={() => goToLocation(initialBranchId, 0)}>
+            <ArrowCounterClockwiseIcon />
           </button>
 
-          {process.env.NODE_ENV === 'development' && (
-            <DebugPopover branches={branches} />
+          {canGoBack() && (
+            <button
+              className="btn btn-ghost btn-circle bg-base-100 text-xl shadow-md hover:bg-base-200"
+              onClick={() => goBack()}>
+              <ArrowLeftIcon />
+            </button>
           )}
         </div>
 
-        <WithAssets assets={assets}>
-          <div className="flex h-full w-full overflow-hidden bg-base-100">
-            {Object.entries(branches).map(
-              ([branchId, BranchComp]) =>
-                branchId === focusedLocation.branchId && (
-                  <BranchProvider key={branchId} branchId={branchId}>
-                    <BranchComp />
-                  </BranchProvider>
-                ),
-            )}
-          </div>
-        </WithAssets>
-      </MobileDeviceChrome>
-    </div>
+        <div className="navbar-end space-x-2">
+          {options.onGoHome && (
+            <button
+              className="btn btn-ghost btn-circle bg-base-100 text-xl shadow-md hover:bg-base-200"
+              onClick={options.onGoHome}>
+              <HouseIcon />
+            </button>
+          )}
+        </div>
+      </div>
+
+      <div className="absolute bottom-4 right-4 z-[120] space-x-2">
+        <button
+          className="btn btn-ghost btn-circle bg-base-100 text-xl shadow-md hover:bg-base-200"
+          onClick={() => setPaused(!paused)}>
+          {paused ? <PlayIcon /> : <PauseIcon />}
+        </button>
+
+        {process.env.NODE_ENV === 'development' && (
+          <DebugPopover branches={branches} />
+        )}
+      </div>
+
+      <WithAssets assets={assets}>
+        <div className="flex h-full w-full overflow-hidden bg-base-100">
+          {Object.entries(branches).map(
+            ([branchId, BranchComp]) =>
+              branchId === focusedLocation.branchId && (
+                <BranchProvider key={branchId} branchId={branchId}>
+                  <BranchComp />
+                </BranchProvider>
+              ),
+          )}
+        </div>
+      </WithAssets>
+    </MobileDeviceChrome>
   )
 }
 
@@ -133,25 +127,28 @@ interface DebugPopoverProps {
 
 function DebugPopover({branches}: DebugPopoverProps) {
   const {goToLocation} = useGameContext()
-  const [content, setContent] = React.useState<HTMLDivElement | null>(null)
-  const rect = useRect(content)
+  const [button, setButton] = React.useState<HTMLButtonElement | null>(null)
+  const buttonRect = useRect(button)
   return (
     <PopoverPrimitive.Root>
       <PopoverPrimitive.Trigger asChild>
-        <button className="btn btn-ghost btn-circle bg-white text-xl shadow-md">
+        <button
+          ref={setButton}
+          className="btn btn-ghost btn-circle bg-base-100 text-xl shadow-md hover:bg-base-200">
           <WrenchIcon />
         </button>
       </PopoverPrimitive.Trigger>
 
       <PopoverPrimitive.Content
-        ref={setContent}
         align="center"
         side="top"
         sideOffset={4}
-        className="no-animation flex flex-col overflow-hidden rounded-lg bg-white p-2 shadow-md radix-side-top:animate-slide-up"
+        className="no-animation flex flex-col overflow-hidden rounded-lg bg-base-100 p-2 shadow-md hover:bg-base-200 radix-side-top:animate-slide-up"
         style={{
           width: 'min(calc(100vw - 2rem), 30rem)',
-          maxHeight: rect?.bottom,
+          ...(buttonRect && {
+            maxHeight: buttonRect.top - 4,
+          }),
         }}>
         <div className="navbar">
           <div className="navbar-start"></div>

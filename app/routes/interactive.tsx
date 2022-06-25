@@ -15,6 +15,11 @@ declare global {
 export default function Interactive() {
   const navigate = useNavigate()
   const [activeLink, setActiveLink] = React.useState<Link | null>(null)
+  const [mounted, setMounted] = React.useState(false)
+  React.useEffect(() => setMounted(true), [])
+  if (!mounted) {
+    return null
+  }
   return (
     <>
       <Game

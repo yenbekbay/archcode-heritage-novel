@@ -13,7 +13,6 @@ import {
 } from '@remix-run/react'
 import {Toaster} from 'react-hot-toast'
 import {Footer, Header} from '~/components'
-import {MediaContextProvider, mediaStyle} from '~/lib'
 import tailwindStylesUrl from '~/__generated__/tailwind.css'
 
 export async function loader() {
@@ -137,14 +136,11 @@ function Document({
         <Links />
 
         <title>{title}</title>
-        <style id="fresnel" dangerouslySetInnerHTML={{__html: mediaStyle}} />
       </head>
 
       <body>
-        <MediaContextProvider>
-          {children}
-          <Toaster />
-        </MediaContextProvider>
+        {children}
+        <Toaster />
         <ScrollRestoration />
         <Scripts />
         <LiveReload />
