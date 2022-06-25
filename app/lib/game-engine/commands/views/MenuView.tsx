@@ -45,7 +45,7 @@ export function MenuView({
   controls,
 }: MenuViewProps) {
   const {goToBranch, goToLocation} = useGameContext()
-  const {containerSize, goToStatement, skip} = useBranchContext()
+  const {containerRect, goToStatement, skip} = useBranchContext()
   const ctx = React.useMemo(
     (): MenuContext => ({
       goToStatement,
@@ -95,7 +95,7 @@ export function MenuView({
                   scheme === 'dark' && 'GameEngine-surface--dark',
                 )}
                 aria-label={c.label}
-                style={styleForFrame({containerSize}, c.frame)}
+                style={styleForFrame({containerRect}, c.frame)}
                 animate={{opacity: 0}}
                 transition={{
                   repeat: Infinity,

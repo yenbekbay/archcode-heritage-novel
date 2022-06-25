@@ -22,7 +22,7 @@ export function SubmitMonumentNomination({
   scheme,
 }: SubmitMonumentNominationProps) {
   const {goToBranch} = useGameContext()
-  const {containerSize, goToStatement, skip} = useBranchContext()
+  const {containerRect, goToStatement, skip} = useBranchContext()
   return (
     <Command name="SubmitMonumentNomination" behavior={['non_skippable']}>
       {(controls) => (
@@ -32,7 +32,7 @@ export function SubmitMonumentNomination({
             scheme === 'dark' && 'GameEngine-text--dark',
             !frame && 'inset-0 p-8 pt-20',
           )}
-          style={frame && styleForFrame({containerSize}, frame)}
+          style={frame && styleForFrame({containerRect}, frame)}
           variants={{
             initial: {opacity: 0},
             entrance: {

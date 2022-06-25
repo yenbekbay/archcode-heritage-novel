@@ -1,4 +1,4 @@
-import useSize from '@react-hook/size'
+import {useMeasure} from '@react-hookz/web'
 import clsx from 'clsx'
 import React from 'react'
 import {useLongPress} from 'use-long-press'
@@ -25,7 +25,7 @@ export interface Statement {
 
 export interface BranchContextValue {
   branchId: BranchId
-  containerSize: [number, number]
+  containerRect: DOMRectReadOnly
   registerStatement: (statement: Statement) => void
   getStatement: (statementIndex: number) => Statement | undefined
   getStatementCount: () => number
@@ -48,8 +48,7 @@ export function BranchProvider({branchId, children}: BranchProviderProps) {
 
   const [statementByIndex] = React.useState(() => new Map<number, Statement>())
   const [statementByLabel] = React.useState(() => new Map<string, Statement>())
-  const containerRef = React.useRef<HTMLDivElement>(null)
-  const containerSize = useSize(containerRef)
+  const [containerRect, containerRef] = useMeasure<HTMLDivElement>()
 
   const skip = useStableCallback((plusIndex = 0) => {
     const focusedStatement = statementByIndex.get(focusedStatementIndex)
@@ -73,39 +72,45 @@ export function BranchProvider({branchId, children}: BranchProviderProps) {
     }
   })
   const ctx = React.useMemo(
-    (): BranchContextValue => ({
-      branchId,
-      containerSize,
-      registerStatement: (statement) => {
-        statementByIndex.set(statement.index, statement)
-        if (statement.label) {
-          if (statementByLabel.has(statement.label)) {
-            throw new Error(`Duplicate statement label: ${statement.label}`)
+    (): BranchContextValue | null =>
+      containerRect
+        ? {
+            branchId,
+            containerRect,
+            registerStatement: (statement) => {
+              statementByIndex.set(statement.index, statement)
+              if (statement.label) {
+                if (statementByLabel.has(statement.label)) {
+                  throw new Error(
+                    `Duplicate statement label: ${statement.label}`,
+                  )
+                }
+                statementByLabel.set(statement.label, statement)
+              }
+              return () => {
+                statementByIndex.delete(statement.index)
+                if (statement.label) {
+                  statementByLabel.delete(statement.label)
+                }
+              }
+            },
+            getStatement: (statementIndex) =>
+              statementByIndex.get(statementIndex),
+            getStatementCount: () => statementByIndex.size,
+            focusedStatementIndex,
+            goToStatement: (statementLabel) => {
+              const statement = statementByLabel.get(statementLabel)
+              if (!statement) {
+                throw new Error(`Unknown statement label: ${statementLabel}`)
+              }
+              goToLocation(branchId, statement?.index)
+            },
+            skip,
           }
-          statementByLabel.set(statement.label, statement)
-        }
-        return () => {
-          statementByIndex.delete(statement.index)
-          if (statement.label) {
-            statementByLabel.delete(statement.label)
-          }
-        }
-      },
-      getStatement: (statementIndex) => statementByIndex.get(statementIndex),
-      getStatementCount: () => statementByIndex.size,
-      focusedStatementIndex,
-      goToStatement: (statementLabel) => {
-        const statement = statementByLabel.get(statementLabel)
-        if (!statement) {
-          throw new Error(`Unknown statement label: ${statementLabel}`)
-        }
-        goToLocation(branchId, statement?.index)
-      },
-      skip,
-    }),
+        : null,
     [
       branchId,
-      containerSize,
+      containerRect,
       focusedStatementIndex,
       skip,
       statementByIndex,
@@ -128,53 +133,53 @@ export function BranchProvider({branchId, children}: BranchProviderProps) {
   )
 
   return (
-    <BranchContext.Provider value={ctx}>
+    <div
+      ref={containerRef}
+      className="relative flex-1 select-none"
+      tabIndex={-1}
+      onClick={(event) => {
+        if (ignoreClickRef.current) {
+          ignoreClickRef.current = false
+          return
+        }
+
+        const targetContained =
+          event.currentTarget === event.target ||
+          (event.currentTarget as Element).contains(event.target as Element)
+        if (!targetContained) {
+          return
+        }
+
+        const command = statementByIndex.get(focusedStatementIndex)
+        if (command?.behavior[0].startsWith('skippable')) {
+          playSound('skip')
+          skip()
+        }
+      }}
+      {...bindLongPress()}>
       <div
-        ref={containerRef}
-        className="relative flex-1 select-none"
+        className={clsx(
+          'absolute left-0 z-[110] h-full w-16 cursor-pointer from-current to-transparent',
+          canGoBack() && 'hover:bg-gradient-to-r',
+        )}
+        style={{color: 'rgba(0, 0, 0, .35)'}}
         tabIndex={-1}
         onClick={(event) => {
-          if (ignoreClickRef.current) {
-            ignoreClickRef.current = false
+          event.stopPropagation()
+          if (!canGoBack()) {
+            playSound('error')
             return
           }
 
-          const targetContained =
-            event.currentTarget === event.target ||
-            (event.currentTarget as Element).contains(event.target as Element)
-          if (!targetContained) {
-            return
-          }
-
-          const command = statementByIndex.get(focusedStatementIndex)
-          if (command?.behavior[0].startsWith('skippable')) {
-            playSound('skip')
-            skip()
-          }
+          playSound('skip')
+          goBack()
         }}
-        {...bindLongPress()}>
-        <div
-          className={clsx(
-            'absolute left-0 z-[110] h-full w-16 cursor-pointer from-current to-transparent',
-            canGoBack() && 'hover:bg-gradient-to-r',
-          )}
-          style={{color: 'rgba(0, 0, 0, .35)'}}
-          tabIndex={-1}
-          onClick={(event) => {
-            event.stopPropagation()
-            if (!canGoBack()) {
-              playSound('error')
-              return
-            }
+      />
 
-            playSound('skip')
-            goBack()
-          }}
-        />
-
-        {children}
-      </div>
-    </BranchContext.Provider>
+      {ctx && (
+        <BranchContext.Provider value={ctx}>{children}</BranchContext.Provider>
+      )}
+    </div>
   )
 }
 

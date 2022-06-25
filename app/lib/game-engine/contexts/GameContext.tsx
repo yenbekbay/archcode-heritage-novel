@@ -10,7 +10,7 @@ import {
 
 export interface GameOptions {
   onGoHome?: () => void
-  onLinkClick?: (href: string, event: React.MouseEvent) => void
+  onLinkClick?: (href: string, name: string, event: React.MouseEvent) => void
 }
 
 export interface GameContextValue {
@@ -30,7 +30,7 @@ export interface GameProviderProps {
   children: React.ReactNode
   initialBranchId: BranchId
   onGoHome?: () => void
-  onLinkClick?: (href: string, event: React.MouseEvent) => void
+  onLinkClick?: (href: string, name: string, event: React.MouseEvent) => void
 }
 
 export function GameProvider({

@@ -25,7 +25,7 @@ export interface SubmitPostProps {
 
 export function SubmitPost({onDone, frame, scheme, image}: SubmitPostProps) {
   const {goToBranch} = useGameContext()
-  const {containerSize, goToStatement, skip} = useBranchContext()
+  const {containerRect, goToStatement, skip} = useBranchContext()
   const imageProps = typeof image === 'string' ? {uri: image} : image
   return (
     <Command name="SubmitPost" behavior={['non_skippable']}>
@@ -39,7 +39,7 @@ export function SubmitPost({onDone, frame, scheme, image}: SubmitPostProps) {
               scheme === 'dark' && 'GameEngine-text--dark',
               !frame && 'inset-0 p-8 pt-20',
             )}
-            style={frame && styleForFrame({containerSize}, frame)}
+            style={frame && styleForFrame({containerRect}, frame)}
             variants={{
               initial: {opacity: 0},
               entrance: {

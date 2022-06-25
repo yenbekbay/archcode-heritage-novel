@@ -33,7 +33,7 @@ export function TextView({
   scheme,
 }: TextViewProps) {
   const {options} = useGameContext()
-  const {containerSize} = useBranchContext()
+  const {containerRect} = useBranchContext()
   const length = groups.flatMap((g) => g.chars).length
   const size: 'md' | 'lg' | 'xl' = (() => {
     if (length > 90) {
@@ -44,7 +44,7 @@ export function TextView({
     }
     return 'xl'
   })()
-  const fontSize = `${containerSize[0] / REFERENCE_SIZE[0]}em`
+  const fontSize = `${containerRect?.width / REFERENCE_SIZE[0]}em`
   return (
     <div
       className={clsx(
@@ -96,7 +96,7 @@ export function TextView({
           )}
           style={{
             ...style,
-            ...(frame && styleForFrame({containerSize}, frame)),
+            ...(frame && styleForFrame({containerRect}, frame)),
           }}>
           {groups.map((group, groupIdx) => {
             switch (group.type) {
@@ -120,7 +120,7 @@ export function TextView({
                 return (
                   <a
                     key={groupIdx}
-                    className="underline"
+                    className="-m-4 p-4 underline"
                     style={{
                       fontSize,
                       textUnderlineOffset: size ? '6px' : '4px',
@@ -131,7 +131,11 @@ export function TextView({
                     onClick={(event) => {
                       event.stopPropagation()
                       if (options.onLinkClick) {
-                        options.onLinkClick(group.url, event)
+                        options.onLinkClick(
+                          group.url,
+                          group.chars.join(''),
+                          event,
+                        )
                       }
                     }}>
                     {group.chars.map((char, charIdx) => (

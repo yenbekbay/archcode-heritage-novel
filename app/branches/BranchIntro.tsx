@@ -1,4 +1,4 @@
-import useSize from '@react-hook/size'
+import {useMeasure} from '@react-hookz/web'
 import {motion, useAnimation} from 'framer-motion'
 import React from 'react'
 import {bgIntroJpg, logoPng} from '~/assets/game'
@@ -73,13 +73,12 @@ export function BranchIntro() {
 }
 
 function IntroScene() {
-  const {containerSize, focusedStatementIndex, getStatementCount} =
+  const {containerRect, focusedStatementIndex, getStatementCount} =
     useBranchContext()
   const controls = useAnimation()
-  const imgRef = React.useRef<HTMLImageElement>(null)
-  const imgSize = useSize(imgRef)
+  const [imgRect, imgRef] = useMeasure<HTMLImageElement>()
   React.useLayoutEffect(() => {
-    if (containerSize[1] === 0 || imgSize[1] === 0) {
+    if (!imgRect) {
       return
     }
 
@@ -89,18 +88,18 @@ function IntroScene() {
     )
     controls.stop()
     controls.start({
-      y: `calc(${containerSize[1] - imgSize[1]}px * ${enteredPercent})`,
+      y: `calc(${containerRect.height - imgRect.height}px * ${enteredPercent})`,
       transition: {
         duration: INTRO_SCENE_TRANSITION_DURATION_PER_STATEMENT / 1000,
         ease: 'easeOut',
       },
     })
   }, [
-    containerSize,
+    containerRect,
     controls,
-    imgSize,
     focusedStatementIndex,
     getStatementCount,
+    imgRect,
   ])
 
   return (

@@ -33,7 +33,7 @@ export interface SubmitMemeProps {
 
 export function SubmitMeme({onDone, frame, scheme, image}: SubmitMemeProps) {
   const {goToBranch} = useGameContext()
-  const {containerSize, goToStatement, skip} = useBranchContext()
+  const {containerRect, goToStatement, skip} = useBranchContext()
   const imageProps = typeof image === 'string' ? {uri: image} : image
   return (
     <Command name="SubmitMeme" behavior={['non_skippable']}>
@@ -47,7 +47,7 @@ export function SubmitMeme({onDone, frame, scheme, image}: SubmitMemeProps) {
               scheme === 'dark' && 'GameEngine-text--dark',
               !frame && 'inset-0 p-8 pt-20',
             )}
-            style={frame && styleForFrame({containerSize}, frame)}
+            style={frame && styleForFrame({containerRect}, frame)}
             variants={{
               initial: {opacity: 0},
               entrance: {

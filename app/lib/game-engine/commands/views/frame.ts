@@ -13,12 +13,12 @@ export interface Frame {
 }
 
 export function styleForFrame(
-  ctx: {containerSize: [number, number]},
+  ctx: {containerRect: DOMRectReadOnly},
   frame: Frame,
 ): React.CSSProperties {
   const backgroundResizeInfo = cover(
-    ctx.containerSize[0],
-    ctx.containerSize[1],
+    ctx.containerRect.width,
+    ctx.containerRect.height,
     frame.viewport[0],
     frame.viewport[1],
   )

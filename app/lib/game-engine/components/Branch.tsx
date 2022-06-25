@@ -1,20 +1,16 @@
 import React from 'react'
 import flattenChildren from 'react-keyed-flatten-children'
-import {StatementProvider, useBranchContext} from '../contexts'
+import {StatementProvider} from '../contexts'
 
 export interface BranchProps {
   children?: React.ReactElement[] | React.ReactElement
 }
 
 export function Branch({children: childrenProp}: BranchProps) {
-  const {containerSize} = useBranchContext()
   const statements = React.useMemo(
     () => unwrapStatements(childrenProp),
     [childrenProp],
   )
-  if (containerSize[0] === 0) {
-    return null
-  }
   return (
     <>
       {statements.map((child, idx) => (

@@ -1,4 +1,5 @@
 import * as PopoverPrimitive from '@radix-ui/react-popover'
+import {useRect} from '@radix-ui/react-use-rect'
 import {
   ArrowCounterClockwise as ArrowCounterClockwiseIcon,
   ArrowLeft as ArrowLeftIcon,
@@ -18,7 +19,7 @@ export interface GameProps {
   branches: Record<string, React.ComponentType>
   initialBranchId: BranchId
   onGoHome?: () => void
-  onLinkClick?: (href: string, event: React.MouseEvent) => void
+  onLinkClick?: (href: string, name: string, event: React.MouseEvent) => void
 }
 
 export function Game({
@@ -66,95 +67,47 @@ function GameView({assets, branches, initialBranchId}: GameViewProps) {
   } = useGameContext()
   return (
     <div className="h-screen">
-      <div className="navbar absolute z-[120] p-4">
-        <div className="navbar-start space-x-2">
+      <MobileDeviceChrome>
+        <div className="navbar absolute z-[120] p-4">
+          <div className="navbar-start space-x-2">
+            <button
+              className="btn btn-ghost btn-circle bg-white text-xl shadow-md"
+              onClick={() => goToLocation(initialBranchId, 0)}>
+              <ArrowCounterClockwiseIcon />
+            </button>
+
+            {canGoBack() && (
+              <button
+                className="btn btn-ghost btn-circle bg-white text-xl shadow-md"
+                onClick={() => goBack()}>
+                <ArrowLeftIcon />
+              </button>
+            )}
+          </div>
+
+          <div className="navbar-end space-x-2">
+            {options.onGoHome && (
+              <button
+                className="btn btn-ghost btn-circle bg-white text-xl shadow-md"
+                onClick={options.onGoHome}>
+                <HouseIcon />
+              </button>
+            )}
+          </div>
+        </div>
+
+        <div className="absolute bottom-4 right-4 z-[120] space-x-2">
           <button
             className="btn btn-ghost btn-circle bg-white text-xl shadow-md"
-            onClick={() => goToLocation(initialBranchId, 0)}>
-            <ArrowCounterClockwiseIcon />
+            onClick={() => setPaused(!paused)}>
+            {paused ? <PlayIcon /> : <PauseIcon />}
           </button>
 
-          {canGoBack() && (
-            <button
-              className="btn btn-ghost btn-circle bg-white text-xl shadow-md"
-              onClick={() => goBack()}>
-              <ArrowLeftIcon />
-            </button>
+          {process.env.NODE_ENV === 'development' && (
+            <DebugPopover branches={branches} />
           )}
         </div>
 
-        <div className="navbar-end space-x-2">
-          {options.onGoHome && (
-            <button
-              className="btn btn-ghost btn-circle bg-white text-xl shadow-md"
-              onClick={options.onGoHome}>
-              <HouseIcon />
-            </button>
-          )}
-        </div>
-      </div>
-
-      <div className="absolute bottom-4 right-4 z-[120] space-x-2">
-        <button
-          className="btn btn-ghost btn-circle bg-white text-xl shadow-md"
-          onClick={() => setPaused(!paused)}>
-          {paused ? <PlayIcon /> : <PauseIcon />}
-        </button>
-
-        {process.env.NODE_ENV === 'development' && (
-          <PopoverPrimitive.Root>
-            <PopoverPrimitive.Trigger asChild>
-              <button className="btn btn-ghost btn-circle bg-white text-xl shadow-md">
-                <WrenchIcon />
-              </button>
-            </PopoverPrimitive.Trigger>
-
-            <PopoverPrimitive.Content
-              align="center"
-              side="top"
-              sideOffset={4}
-              className="no-animation flex flex-col overflow-hidden rounded-lg bg-white p-2 shadow-md radix-side-top:animate-slide-up"
-              style={{
-                width: 'min(calc(100vw - 2rem), 30rem)',
-                maxHeight: 'calc(100vh - calc(4rem + 8px))',
-              }}>
-              <div className="navbar">
-                <div className="navbar-start"></div>
-                <div className="navbar-end">
-                  <PopoverPrimitive.Close className="btn btn-ghost btn-circle btn-sm">
-                    <XIcon />
-                  </PopoverPrimitive.Close>
-                </div>
-              </div>
-
-              <div className="space-y-4 overflow-y-auto">
-                <div>
-                  <div className="prose p-2">
-                    <span className="text-lg font-semibold">Go to branch</span>
-                  </div>
-
-                  {Object.keys(branches).map((branchId) => (
-                    <button
-                      key={branchId}
-                      className="btn btn-ghost btn-sm btn-block justify-between normal-case"
-                      onClick={() => goToLocation(branchId as BranchId, 0)}>
-                      <span className="flex w-full flex-row items-center justify-between space-x-1">
-                        <span className="flex-1 overflow-hidden text-ellipsis whitespace-nowrap text-left">
-                          {branchId}
-                        </span>
-
-                        <CaretRightIcon />
-                      </span>
-                    </button>
-                  ))}
-                </div>
-              </div>
-            </PopoverPrimitive.Content>
-          </PopoverPrimitive.Root>
-        )}
-      </div>
-
-      <MobileDeviceChrome>
         <WithAssets assets={assets}>
           <div className="flex h-full w-full overflow-hidden bg-base-100">
             {Object.entries(branches).map(
@@ -169,6 +122,70 @@ function GameView({assets, branches, initialBranchId}: GameViewProps) {
         </WithAssets>
       </MobileDeviceChrome>
     </div>
+  )
+}
+
+// MARK: DebugPopover
+
+interface DebugPopoverProps {
+  branches: Record<string, React.ComponentType>
+}
+
+function DebugPopover({branches}: DebugPopoverProps) {
+  const {goToLocation} = useGameContext()
+  const [content, setContent] = React.useState<HTMLDivElement | null>(null)
+  const rect = useRect(content)
+  return (
+    <PopoverPrimitive.Root>
+      <PopoverPrimitive.Trigger asChild>
+        <button className="btn btn-ghost btn-circle bg-white text-xl shadow-md">
+          <WrenchIcon />
+        </button>
+      </PopoverPrimitive.Trigger>
+
+      <PopoverPrimitive.Content
+        ref={setContent}
+        align="center"
+        side="top"
+        sideOffset={4}
+        className="no-animation flex flex-col overflow-hidden rounded-lg bg-white p-2 shadow-md radix-side-top:animate-slide-up"
+        style={{
+          width: 'min(calc(100vw - 2rem), 30rem)',
+          maxHeight: rect?.bottom,
+        }}>
+        <div className="navbar">
+          <div className="navbar-start"></div>
+          <div className="navbar-end">
+            <PopoverPrimitive.Close className="btn btn-ghost btn-circle btn-sm">
+              <XIcon />
+            </PopoverPrimitive.Close>
+          </div>
+        </div>
+
+        <div className="space-y-4 overflow-y-auto">
+          <div>
+            <div className="prose p-2">
+              <span className="text-lg font-semibold">Go to branch</span>
+            </div>
+
+            {Object.keys(branches).map((branchId) => (
+              <button
+                key={branchId}
+                className="btn btn-ghost btn-sm btn-block justify-between normal-case"
+                onClick={() => goToLocation(branchId as BranchId, 0)}>
+                <span className="flex w-full flex-row items-center justify-between space-x-1">
+                  <span className="flex-1 overflow-hidden text-ellipsis whitespace-nowrap text-left">
+                    {branchId}
+                  </span>
+
+                  <CaretRightIcon />
+                </span>
+              </button>
+            ))}
+          </div>
+        </div>
+      </PopoverPrimitive.Content>
+    </PopoverPrimitive.Root>
   )
 }
 

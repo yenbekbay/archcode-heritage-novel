@@ -1,4 +1,4 @@
-import useSize from '@react-hook/size'
+import {useMeasure} from '@react-hookz/web'
 import React from 'react'
 import {Media} from '../../../Media'
 
@@ -7,8 +7,7 @@ export interface MobileDeviceChromeProps {
 }
 
 export function MobileDeviceChrome({children}: MobileDeviceChromeProps) {
-  const containerRef = React.useRef<HTMLDivElement>(null)
-  const containerSize = useSize(containerRef)
+  const [containerRect, containerRef] = useMeasure<HTMLDivElement>()
   return (
     <>
       <Media className="h-full w-full" at="sm">
@@ -18,8 +17,8 @@ export function MobileDeviceChrome({children}: MobileDeviceChromeProps) {
       <Media className="h-full w-full" greaterThan="sm">
         <div className="flex h-full w-full flex-col items-center justify-center p-8">
           <div ref={containerRef} className="flex h-full flex-col">
-            {containerSize[1] !== 0 && (
-              <MobileDeviceChromeFrame height={containerSize[1]}>
+            {containerRect && (
+              <MobileDeviceChromeFrame height={containerRect.height}>
                 {children}
               </MobileDeviceChromeFrame>
             )}
