@@ -97,7 +97,8 @@ export function BranchArchkot_ProjBusStop_CheckOut_AssembleTeam_Submit() {
         —Нееет, я не отчаиваюсь…
       </Say>
 
-      <Say>FIXME</Say>
+      {/** FIXME */}
+      <Say hide={-1}>Продолжение следует…</Say>
 
       <Title hide={-1}>Конец игры</Title>
 
