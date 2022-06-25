@@ -1,10 +1,7 @@
 import {
   archkot6Png,
-  archkot7Png,
   bgAirportFenceGif,
   bgAirportJpg,
-  bgAskAfterJpg,
-  bgAskBeforeFenceGif,
   fencePng,
 } from '~/assets/game'
 import {Branch, Menu, Say, Scene, Show, Title} from '~/lib/game-engine'

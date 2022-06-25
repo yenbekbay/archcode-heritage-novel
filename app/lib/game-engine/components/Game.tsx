@@ -143,7 +143,7 @@ function DebugPopover({branches}: DebugPopoverProps) {
         align="center"
         side="top"
         sideOffset={4}
-        className="no-animation flex flex-col overflow-hidden rounded-lg bg-base-100 p-2 shadow-md hover:bg-base-200 radix-side-top:animate-slide-up"
+        className="no-animation flex flex-col overflow-hidden rounded-lg bg-base-100 p-2 shadow-md radix-side-top:animate-slide-up"
         style={{
           width: 'min(calc(100vw - 2rem), 30rem)',
           ...(buttonRect && {

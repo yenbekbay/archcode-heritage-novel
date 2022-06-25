@@ -30,7 +30,7 @@ export function BranchCityHall_ProjAsk_Approve_AskHelp() {
       <Scene src={bgAskBeforeJpg} />
 
       <Say image={{uri: angryCrowd1Png, align: 'bottom'}}>
-        {`—Надувательство\n\n—Бред собачий`}
+        {'—Надувательство\n\n—Бред собачий'}
       </Say>
 
       <Say image={{uri: angryCrowd2Png, align: 'bottom'}}>

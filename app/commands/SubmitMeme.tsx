@@ -87,9 +87,6 @@ export function SubmitMeme({onDone, frame, scheme, image}: SubmitMemeProps) {
 
 // MARK: MemeForm
 
-const kActiveTemplateId = `@MemeForm/activeTemplateId`
-const kPreviewUrl = `@MemeForm/previewUrl`
-
 interface MemeFormProps {
   onSubmit: (values: {url: string; name: string}) => unknown | Promise<unknown>
   onSkip: () => void
@@ -97,13 +94,11 @@ interface MemeFormProps {
 }
 
 function MemeForm({onSubmit, onSkip, scheme}: MemeFormProps) {
-  const [activeTemplateId, setActiveTemplateId] = useLocalStorageValue<
+  const [activeTemplateId, setActiveTemplateId, resetActiveTemplateId] =
+    useLocalStorageValue<string | ''>('@MemeForm/activeTemplateId')
+  const [previewUrl, setPreviewUrl, resetPreviewUrl] = useLocalStorageValue<
     string | ''
-  >(kActiveTemplateId, null)
-  const [previewUrl, setPreviewUrl] = useLocalStorageValue<string | ''>(
-    kPreviewUrl,
-    null,
-  )
+  >('@MemeForm/previewUrl')
   const templatesRes = useSWR('memeTemplates', memeTemplatesFetcher)
   const templates = templatesRes.data
   const templateById = React.useMemo(
@@ -155,13 +150,13 @@ function MemeForm({onSubmit, onSkip, scheme}: MemeFormProps) {
               url={previewUrl}
               onSubmit={async (values) => {
                 await onSubmit(values)
-                localStorage.removeItem(kPreviewUrl)
-                localStorage.removeItem(kActiveTemplateId)
+                resetPreviewUrl()
+                resetActiveTemplateId()
               }}
               onSkip={() => {
                 onSkip()
-                localStorage.removeItem(kPreviewUrl)
-                localStorage.removeItem(kActiveTemplateId)
+                resetPreviewUrl()
+                resetActiveTemplateId()
               }}
             />
           ) : (

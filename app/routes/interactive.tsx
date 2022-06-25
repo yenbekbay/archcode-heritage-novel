@@ -1,10 +1,14 @@
 import {useNavigate} from '@remix-run/react'
 import {AnimatePresence} from 'framer-motion'
+import {useAtomValue, useSetAtom} from 'jotai'
+import {atomWithStorage} from 'jotai/utils'
 import React from 'react'
 import toast from 'react-hot-toast'
+import {uniqBy} from 'remeda'
 import * as assets from '~/assets/game'
 import * as _branches from '~/branches'
-import {Dialog, Game, prepareBranches} from '~/lib'
+import {Dialog} from '~/lib/components'
+import {Game, prepareBranches} from '~/lib/game-engine'
 
 const branches = prepareBranches(_branches)
 
@@ -38,6 +42,10 @@ export default function Interactive() {
   )
 }
 
+// MARK: LinkPrompt
+
+const linksAtom = atomWithStorage<Link[]>('@App/savedLinks', [])
+
 interface Link {
   href: string
   name: string
@@ -49,6 +57,7 @@ interface LinkPromptProps {
 }
 
 function LinkPrompt({link, onClose}: LinkPromptProps) {
+  const setLinks = useSetAtom(linksAtom)
   return (
     <AnimatePresence>
       {link && (
@@ -62,26 +71,27 @@ function LinkPrompt({link, onClose}: LinkPromptProps) {
           <Dialog.Title className="link">{link.href}</Dialog.Title>
 
           <div className="btn-group">
-            <button
+            <Dialog.Close
               className="btn btn-outline"
               onClick={() => window.open(link.href, '_blank')}>
               Читать сейчас
-            </button>
+            </Dialog.Close>
 
-            <button
+            <Dialog.Close
               className="btn"
               onClick={() => {
-                toast.error('FIXME')
+                setLinks((prev) => uniqBy([...prev, link], (l) => l.href))
+                toast.success('Ссылка сохранена')
               }}>
               Сохранить
-            </button>
+            </Dialog.Close>
           </div>
 
-          <p className="prose prose-sm">
+          <div className="prose prose-sm">
             <blockquote>
               Доступ к сохранённым ссылкам можно получить в конце игры.
             </blockquote>
-          </p>
+          </div>
         </Dialog>
       )}
     </AnimatePresence>

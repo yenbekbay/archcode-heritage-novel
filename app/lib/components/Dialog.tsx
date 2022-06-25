@@ -49,6 +49,7 @@ export function Dialog({open, onOpenChange, children}: DialogProps) {
   )
 }
 
+Dialog.Close = DialogPrimitive.Close
 Dialog.Description = DialogPrimitive.Description
 Dialog.Title = DialogPrimitive.Title
 Dialog.Trigger = DialogPrimitive.Trigger

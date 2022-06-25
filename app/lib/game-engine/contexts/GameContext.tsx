@@ -50,7 +50,7 @@ export function GameProvider({
   )
   const [paused, setPaused] = useSearchParam<boolean>('paused', false)
   const [locations, setLocations] = useLocalStorageValue<GameLocation[]>(
-    'gameHistory',
+    '@GameContext/locations',
     [focusedLocation],
   )
   const [history] = React.useState<GameHistory>(() =>
