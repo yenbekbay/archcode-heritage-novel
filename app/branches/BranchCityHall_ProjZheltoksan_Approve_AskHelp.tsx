@@ -7,7 +7,7 @@ import {
   bgZheltoksanBeforeFenceGif,
   bgZheltoksanBeforeJpg,
 } from '~/assets/game'
-import {Branch, Menu, Say, Scene, Title} from '~/lib'
+import {Branch, Menu, Say, Scene, Title} from '~/lib/game-engine'
 
 export function BranchCityHall_ProjZheltoksan_Approve_AskHelp() {
   return (

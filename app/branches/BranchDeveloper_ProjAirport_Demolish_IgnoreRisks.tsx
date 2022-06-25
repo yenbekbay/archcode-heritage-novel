@@ -8,7 +8,7 @@ import {
   developerRepB10Png,
   developerRepB6Png,
 } from '~/assets/game'
-import {Branch, Say, Scene} from '~/lib'
+import {Branch, Say, Scene} from '~/lib/game-engine'
 
 export function BranchDeveloper_ProjAirport_Demolish_IgnoreRisks() {
   return (

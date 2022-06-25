@@ -4,7 +4,7 @@ import {
   mayor2Png,
   sabitPng,
 } from '~/assets/game'
-import {Branch, Say, Scene} from '~/lib'
+import {Branch, Say, Scene} from '~/lib/game-engine'
 
 export function BranchCityHall_ProjZheltoksan_Approve_Debate() {
   return (

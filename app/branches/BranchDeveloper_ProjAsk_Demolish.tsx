@@ -4,7 +4,7 @@ import {
   developerRepAPng,
   developerRepB9Png,
 } from '~/assets/game'
-import {Branch, Say, Scene} from '~/lib'
+import {Branch, Say, Scene} from '~/lib/game-engine'
 
 export function BranchDeveloper_ProjAsk_Demolish() {
   return (

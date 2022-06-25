@@ -15,7 +15,7 @@ import {
   bgBusStop2Jpg,
   bgPhoneHandJpg,
 } from '~/assets/game'
-import {Branch, Say, Scene} from '~/lib'
+import {Branch, Say, Scene} from '~/lib/game-engine'
 
 export function BranchArchkot_ProjBusStop_CheckOut_AssembleTeam() {
   return (

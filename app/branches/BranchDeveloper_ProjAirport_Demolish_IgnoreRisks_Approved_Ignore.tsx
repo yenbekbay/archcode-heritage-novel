@@ -5,7 +5,7 @@ import {
   botBuilderPng,
   developerRepB11Png,
 } from '~/assets/game'
-import {Branch, Menu, Say, Scene, Title} from '~/lib'
+import {Branch, Menu, Say, Scene, Title} from '~/lib/game-engine'
 
 export function BranchDeveloper_ProjAirport_Demolish_IgnoreRisks_Approved_Ignore() {
   return (

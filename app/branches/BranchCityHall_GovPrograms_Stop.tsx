@@ -10,7 +10,7 @@ import {
   mayor14Png,
   mayor2Png,
 } from '~/assets/game'
-import {Branch, Say, Scene, Show} from '~/lib'
+import {Branch, Say, Scene, Show} from '~/lib/game-engine'
 
 export function BranchCityHall_GovPrograms_Stop() {
   return (

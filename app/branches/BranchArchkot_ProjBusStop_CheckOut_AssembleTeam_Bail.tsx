@@ -4,7 +4,7 @@ import {
   bgBusStop4Jpg,
   bgBusStop6Jpg,
 } from '~/assets/game'
-import {Branch, Menu, Say, Scene, Title} from '~/lib'
+import {Branch, Menu, Say, Scene, Title} from '~/lib/game-engine'
 
 export function BranchArchkot_ProjBusStop_CheckOut_AssembleTeam_Bail() {
   return (

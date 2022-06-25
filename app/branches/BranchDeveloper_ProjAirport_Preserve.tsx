@@ -9,7 +9,7 @@ import {
   developerRepB6Png,
   developerRepB9Png,
 } from '~/assets/game'
-import {Branch, Menu, Say, Scene, Title} from '~/lib'
+import {Branch, Menu, Say, Scene, Title} from '~/lib/game-engine'
 
 export function BranchDeveloper_ProjAirport_Preserve() {
   return (

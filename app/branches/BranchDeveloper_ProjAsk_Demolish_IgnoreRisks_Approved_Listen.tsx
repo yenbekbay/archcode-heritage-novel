@@ -6,7 +6,7 @@ import {
   bgDeveloperHqInsideJpg,
   bgDeveloperHqOutsideJpg,
 } from '~/assets/game'
-import {Branch, Menu, Say, Scene, Title} from '~/lib'
+import {Branch, Menu, Say, Scene, Title} from '~/lib/game-engine'
 
 export function BranchDeveloper_ProjAsk_Demolish_IgnoreRisks_Approved_Listen() {
   return (

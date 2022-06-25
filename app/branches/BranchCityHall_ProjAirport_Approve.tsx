@@ -5,7 +5,7 @@ import {
   mayor3Png,
   stampApprovedPng,
 } from '~/assets/game'
-import {Branch, Menu, Say, Scene, Show} from '~/lib'
+import {Branch, Menu, Say, Scene, Show} from '~/lib/game-engine'
 
 export function BranchCityHall_ProjAirport_Approve() {
   return (

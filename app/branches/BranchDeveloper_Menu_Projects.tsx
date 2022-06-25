@@ -1,5 +1,5 @@
 import {bgProjectsFolderJpg} from '~/assets/game'
-import {Branch, Say, Scene} from '~/lib'
+import {Branch, Say, Scene} from '~/lib/game-engine'
 
 export function BranchDeveloper_Menu_Projects() {
   return (

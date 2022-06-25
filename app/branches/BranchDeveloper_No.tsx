@@ -1,5 +1,5 @@
 import {bgDeveloperHqInsideJpg, developerRepB9Png} from '~/assets/game'
-import {Branch, Menu, Scene, Show} from '~/lib'
+import {Branch, Menu, Scene, Show} from '~/lib/game-engine'
 
 export function BranchDeveloper_No() {
   return (

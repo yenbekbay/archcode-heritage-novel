@@ -1,5 +1,5 @@
 import {bgZheltoksanAfterJpg, bgZheltoksanBeforeFenceGif} from '~/assets/game'
-import {Branch, Menu, Say, Scene, Title} from '~/lib'
+import {Branch, Menu, Say, Scene, Title} from '~/lib/game-engine'
 
 export function BranchDeveloper_ProjZheltoksan_Demolish_IgnoreRisks_Approved__Continue() {
   return (

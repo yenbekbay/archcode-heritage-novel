@@ -4,7 +4,7 @@ import {
   mayor6Png,
   stampRejectedPng,
 } from '~/assets/game'
-import {Branch, Menu, Say, Scene, Show} from '~/lib'
+import {Branch, Menu, Say, Scene, Show} from '~/lib/game-engine'
 
 export function BranchDeveloper_ProjAirport_Demolish_IgnoreRisks_Rejected() {
   return (

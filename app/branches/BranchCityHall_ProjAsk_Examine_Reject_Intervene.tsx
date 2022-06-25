@@ -5,7 +5,7 @@ import {
   bgDeveloperHqInsideJpg,
   mayor1Png,
 } from '~/assets/game'
-import {Branch, Menu, Say, Scene, Title} from '~/lib'
+import {Branch, Menu, Say, Scene, Title} from '~/lib/game-engine'
 
 export function BranchCityHall_ProjAsk_Examine_Reject_Intervene() {
   return (

@@ -11,7 +11,7 @@ import {
   redhead12Png,
   redhead9Png,
 } from '~/assets/game'
-import {Branch, Say, Scene} from '~/lib'
+import {Branch, Say, Scene} from '~/lib/game-engine'
 
 export function BranchActivist_CheckOut_Act_Self() {
   return (

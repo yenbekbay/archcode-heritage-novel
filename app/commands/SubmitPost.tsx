@@ -1,13 +1,17 @@
 import clsx from 'clsx'
 import {motion} from 'framer-motion'
-import type {CommandViewColorScheme, Frame, ImageViewProps} from '~/lib'
+import type {
+  CommandViewColorScheme,
+  Frame,
+  ImageViewProps,
+} from '~/lib/game-engine'
 import {
   Command,
   ImageView,
   styleForFrame,
   useBranchContext,
   useGameContext,
-} from '~/lib'
+} from '~/lib/game-engine'
 import type {definitions} from '~/supabase'
 import {getSupabase} from '~/supabase'
 import {TextForm} from './internal'

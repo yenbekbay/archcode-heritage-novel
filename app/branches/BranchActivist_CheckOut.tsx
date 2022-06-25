@@ -4,7 +4,7 @@ import {
   redhead2Png,
   redhead4Png,
 } from '~/assets/game'
-import {Branch, Say, Scene, Show} from '~/lib'
+import {Branch, Say, Scene, Show} from '~/lib/game-engine'
 
 export function BranchActivist_CheckOut() {
   return (

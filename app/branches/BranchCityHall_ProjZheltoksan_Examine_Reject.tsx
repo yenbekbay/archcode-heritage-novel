@@ -7,7 +7,7 @@ import {
   sabitPng,
   stampRejectedPng,
 } from '~/assets/game'
-import {Branch, Say, Scene, Show} from '~/lib'
+import {Branch, Say, Scene, Show} from '~/lib/game-engine'
 
 export function BranchCityHall_ProjZheltoksan_Examine_Reject() {
   return (

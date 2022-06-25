@@ -1,5 +1,5 @@
 import {archkot5Png, bgMapGif, fencePng} from '~/assets/game'
-import {Branch, Say, Scene, Show} from '~/lib'
+import {Branch, Say, Scene, Show} from '~/lib/game-engine'
 
 export function BranchArchkot_0Juncture() {
   return (

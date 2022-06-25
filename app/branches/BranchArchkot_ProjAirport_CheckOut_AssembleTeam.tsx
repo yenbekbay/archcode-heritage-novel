@@ -23,7 +23,7 @@ import {
   bgPhoneHandJpg,
   sharatMibutovPng,
 } from '~/assets/game'
-import {Branch, Menu, Say, Scene, Show, Title} from '~/lib'
+import {Branch, Menu, Say, Scene, Show, Title} from '~/lib/game-engine'
 
 export function BranchArchkot_ProjAirport_CheckOut_AssembleTeam() {
   return (

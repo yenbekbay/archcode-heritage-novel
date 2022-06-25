@@ -8,17 +8,21 @@ import {useZorm} from 'react-zorm'
 import type {Fetcher} from 'swr'
 import useSWR from 'swr'
 import {z} from 'zod'
-import type {CommandViewColorScheme, Frame, ImageViewProps} from '~/lib'
+import {Spinner} from '~/lib/components'
+import type {
+  CommandViewColorScheme,
+  Frame,
+  ImageViewProps,
+} from '~/lib/game-engine'
 import {
   Command,
   ImageView,
   styleForFrame,
   useBranchContext,
   useGameContext,
-} from '~/lib'
+} from '~/lib/game-engine'
 import type {definitions} from '~/supabase'
 import {getSupabase} from '~/supabase'
-import {Spinner} from './internal'
 
 export interface SubmitMemeProps {
   onDone: (ctx: {

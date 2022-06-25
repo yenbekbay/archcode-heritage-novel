@@ -13,7 +13,7 @@ import {
   gorzhempoPng,
   tinaShtunerPng,
 } from '~/assets/game'
-import {Branch, Menu, Say, Scene, Title} from '~/lib'
+import {Branch, Menu, Say, Scene, Title} from '~/lib/game-engine'
 
 export function BranchArchkot_ProjAsk_CheckOut_AssembleTeam_Debate() {
   return (

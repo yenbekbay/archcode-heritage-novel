@@ -5,7 +5,7 @@ import {
   bgMayorDeskJpg,
   mayor1Png,
 } from '~/assets/game'
-import {Branch, Menu, Say, Scene} from '~/lib'
+import {Branch, Menu, Say, Scene} from '~/lib/game-engine'
 
 export function BranchCityHall_0Menu() {
   return (

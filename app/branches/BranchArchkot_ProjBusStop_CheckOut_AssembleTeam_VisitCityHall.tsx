@@ -9,7 +9,7 @@ import {
   monumentDeptStaff3Png,
   monumentDeptStaff4Png,
 } from '~/assets/game'
-import {Branch, Menu, Say, Scene} from '~/lib'
+import {Branch, Menu, Say, Scene} from '~/lib/game-engine'
 
 export function BranchArchkot_ProjBusStop_CheckOut_AssembleTeam_VisitCityHall() {
   return (

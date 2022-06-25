@@ -3,8 +3,8 @@ import React from 'react'
 import toast from 'react-hot-toast'
 import {useZorm} from 'react-zorm'
 import {z} from 'zod'
-import type {CommandViewColorScheme} from '~/lib'
-import {Spinner} from './Spinner'
+import {Spinner} from '~/lib/components'
+import type {CommandViewColorScheme} from '~/lib/game-engine'
 
 export interface TextFormProps {
   inputLabel: string

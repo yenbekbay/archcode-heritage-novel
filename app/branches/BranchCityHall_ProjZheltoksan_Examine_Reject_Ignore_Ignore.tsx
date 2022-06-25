@@ -6,7 +6,7 @@ import {
   mayor4Png,
   stampApprovedPng,
 } from '~/assets/game'
-import {Branch, Say, Scene, Show} from '~/lib'
+import {Branch, Say, Scene, Show} from '~/lib/game-engine'
 
 export function BranchCityHall_ProjZheltoksan_Examine_Reject_Ignore_Ignore() {
   return (

@@ -1,5 +1,5 @@
 import {bgZheltoksanBeforeJpg} from '~/assets/game'
-import {Branch, Say, Scene} from '~/lib'
+import {Branch, Say, Scene} from '~/lib/game-engine'
 
 export function BranchDeveloper_ProjZheltoksan_Demolish_IgnoreRisks_Approved_Silence() {
   return (

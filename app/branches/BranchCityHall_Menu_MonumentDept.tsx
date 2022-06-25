@@ -8,7 +8,7 @@ import {
   monumentDeptStaff1Png,
   monumentDeptStaff2Png,
 } from '~/assets/game'
-import {Branch, Say, Scene, Show} from '~/lib'
+import {Branch, Say, Scene, Show} from '~/lib/game-engine'
 
 export function BranchCityHall_Menu_MonumentDept() {
   return (

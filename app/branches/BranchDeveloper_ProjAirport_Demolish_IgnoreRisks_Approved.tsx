@@ -15,7 +15,7 @@ import {
   sharatMibutovPng,
   stampApprovedPng,
 } from '~/assets/game'
-import {Branch, Say, Scene, Show} from '~/lib'
+import {Branch, Say, Scene, Show} from '~/lib/game-engine'
 
 export function BranchDeveloper_ProjAirport_Demolish_IgnoreRisks_Approved() {
   return (

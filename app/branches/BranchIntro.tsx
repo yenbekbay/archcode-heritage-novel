@@ -2,7 +2,14 @@ import {useMeasure} from '@react-hookz/web'
 import {motion, useAnimation} from 'framer-motion'
 import React from 'react'
 import {bgIntroJpg, logoPng} from '~/assets/game'
-import {Branch, Command, Menu, Say, Show, useBranchContext} from '~/lib'
+import {
+  Branch,
+  Command,
+  Menu,
+  Say,
+  Show,
+  useBranchContext,
+} from '~/lib/game-engine'
 
 export function BranchIntro() {
   return (

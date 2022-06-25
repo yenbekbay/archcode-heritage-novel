@@ -8,7 +8,7 @@ import {
   mayor2Png,
   mayor7Png,
 } from '~/assets/game'
-import {Branch, Label, Say, Scene, Show} from '~/lib'
+import {Branch, Label, Say, Scene, Show} from '~/lib/game-engine'
 
 export function BranchCityHall_MonumentDept_Tea() {
   return (

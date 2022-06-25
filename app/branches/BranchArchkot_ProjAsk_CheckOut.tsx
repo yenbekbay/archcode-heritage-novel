@@ -5,7 +5,7 @@ import {
   bgAskBeforeJpg,
   fencePng,
 } from '~/assets/game'
-import {Branch, Say, Scene, Show} from '~/lib'
+import {Branch, Say, Scene, Show} from '~/lib/game-engine'
 
 export function BranchArchkot_ProjAsk_CheckOut() {
   return (

@@ -6,7 +6,7 @@ import {
   mayor3Png,
   mayor9Png,
 } from '~/assets/game'
-import {Branch, Menu, Say, Scene, Title} from '~/lib'
+import {Branch, Menu, Say, Scene, Title} from '~/lib/game-engine'
 
 export function BranchCityHall_GovPrograms_Stop_Dismiss() {
   return (

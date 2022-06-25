@@ -16,7 +16,7 @@ import {
   redhead13Png,
   stampApprovedPng,
 } from '~/assets/game'
-import {Branch, Menu, Say, Scene, Show} from '~/lib'
+import {Branch, Menu, Say, Scene, Show} from '~/lib/game-engine'
 
 export function BranchDeveloper_ProjZheltoksan_Demolish_IgnoreRisks_Approved() {
   const [answers] = React.useState(() => new Map<number, 'a' | 'b'>())

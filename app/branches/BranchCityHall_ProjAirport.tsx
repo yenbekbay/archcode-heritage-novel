@@ -4,7 +4,7 @@ import {
   mayor4Png,
   portalPaperPng,
 } from '~/assets/game'
-import {Branch, Say, Scene, Show} from '~/lib'
+import {Branch, Say, Scene, Show} from '~/lib/game-engine'
 
 export function BranchCityHall_ProjAirport() {
   return (

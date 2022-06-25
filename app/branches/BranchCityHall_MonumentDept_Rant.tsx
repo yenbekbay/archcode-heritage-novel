@@ -10,7 +10,7 @@ import {
   mayor9Png,
 } from '~/assets/game'
 import {SubmitMonumentNomination} from '~/commands'
-import {Branch, Say, Scene, Show} from '~/lib'
+import {Branch, Say, Scene, Show} from '~/lib/game-engine'
 
 export function BranchCityHall_MonumentDept_Rant() {
   return (

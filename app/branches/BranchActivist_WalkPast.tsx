@@ -5,7 +5,7 @@ import {
   redhead2Png,
   redhead3Png,
 } from '~/assets/game'
-import {Branch, Menu, Say, Scene, Show, Title} from '~/lib'
+import {Branch, Menu, Say, Scene, Show, Title} from '~/lib/game-engine'
 
 export function BranchActivist_WalkPast() {
   return (

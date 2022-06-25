@@ -3,7 +3,7 @@ import {
   bgCityHallOutsideJpg,
   mayor13Png,
 } from '~/assets/game'
-import {Branch, Menu, Say, Scene, Title} from '~/lib'
+import {Branch, Menu, Say, Scene, Title} from '~/lib/game-engine'
 
 export function BranchCityHall_MonumentDept_Rant_NotOk() {
   return (

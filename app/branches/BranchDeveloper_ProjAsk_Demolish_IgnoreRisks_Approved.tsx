@@ -17,7 +17,7 @@ import {
   stampApprovedPng,
   tinaShtunerPng,
 } from '~/assets/game'
-import {Branch, Say, Scene, Show} from '~/lib'
+import {Branch, Say, Scene, Show} from '~/lib/game-engine'
 
 export function BranchDeveloper_ProjAsk_Demolish_IgnoreRisks_Approved() {
   return (

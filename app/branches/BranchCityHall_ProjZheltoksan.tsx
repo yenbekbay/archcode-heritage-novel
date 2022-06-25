@@ -3,7 +3,7 @@ import {
   developerRepAPng,
   mayor2Png,
 } from '~/assets/game'
-import {Branch, Say, Scene} from '~/lib'
+import {Branch, Say, Scene} from '~/lib/game-engine'
 
 export function BranchCityHall_ProjZheltoksan() {
   return (
