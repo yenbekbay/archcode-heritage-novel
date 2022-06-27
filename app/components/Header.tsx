@@ -1,71 +1,102 @@
-import {NavLink as RemixNavLink} from '@remix-run/react'
+import {NavLink} from '@remix-run/react'
 import {List as ListIcon} from 'phosphor-react'
-import archcodeLogoUrl from '~/assets/logo.png'
+import gameLogoPng from '~/assets/game-logo.png'
 
-const LINKS: {to: string; label: string}[] = [
+type Link = {label: string} & (
+  | {
+      to: string
+      href?: never
+    }
+  | {
+      to?: never
+      href: string
+    }
+)
+
+const LINKS: Link[] = [
   {
-    to: '/about',
-    label: 'О нас',
+    to: '/about-novel',
+    label: 'Визуальная новелла',
   },
   {
-    to: '/interactive',
-    label: 'Интерактив',
+    to: '/about-bot',
+    label: 'Telegram-Бот',
   },
   {
-    to: '/materials',
-    label: 'Материалы',
+    to: '/about-us',
+    label: 'О команде',
   },
   {
-    to: '/contact',
-    label: 'Контакты',
+    href: 'https://archcode.kz/',
+    label: 'Архкод',
+  },
+  {
+    to: '/play',
+    label: 'Играть',
   },
 ]
 
 export function Header() {
   return (
-    <header className="container mx-auto">
+    <header className="container mx-auto text-content-invert">
       <div className="navbar p-4">
         <div className="flex-1">
-          <RemixNavLink className="flex-shrink-0" to="/">
+          <NavLink className="flex-shrink-0" to="/">
             <img
-              style={{height: '3rem'}}
-              src={archcodeLogoUrl}
-              alt="Логотип Архкод"
+              className="h-32"
+              src={gameLogoPng}
+              alt="Логотип «Снести нельзя оставить»"
             />
-          </RemixNavLink>
+          </NavLink>
         </div>
 
         <div className="flex-none">
-          <div className="dropdown-end dropdown">
+          <div className="dropdown dropdown-end">
             <label tabIndex={0} className="btn btn-ghost text-xl lg:hidden">
               <ListIcon />
             </label>
 
             <ul
               tabIndex={0}
-              className="dropdown-content menu rounded-box menu-compact mt-3 w-52 bg-base-100 p-2 shadow-md">
-              {LINKS.map((l) => (
-                <li key={l.to}>
-                  <RemixNavLink
-                    className={({isActive}) => (isActive ? 'active' : '')}
-                    to={l.to}>
-                    {l.label}
-                  </RemixNavLink>
-                </li>
-              ))}
+              className="dropdown-content menu rounded-box menu-compact mt-3 w-52 bg-base-100 p-2 text-content shadow-md">
+              {LINKS.map((l) =>
+                l.to ? (
+                  <li key={l.to}>
+                    <NavLink
+                      className={({isActive}) => (isActive ? 'active' : '')}
+                      to={l.to}>
+                      {l.label}
+                    </NavLink>
+                  </li>
+                ) : (
+                  <li key={l.href}>
+                    <a href={l.href} target="_blank" rel="noopener noreferrer">
+                      {l.label}
+                    </a>
+                  </li>
+                ),
+              )}
             </ul>
           </div>
 
           <ul className="menu menu-horizontal hidden p-0 lg:flex">
-            {LINKS.map((l) => (
-              <li key={l.to}>
-                <RemixNavLink
-                  className={({isActive}) => (isActive ? 'active' : '')}
-                  to={l.to}>
-                  {l.label}
-                </RemixNavLink>
-              </li>
-            ))}
+            {LINKS.map((l) =>
+              l.to ? (
+                <li key={l.to}>
+                  <NavLink
+                    className={({isActive}) => (isActive ? 'active' : '')}
+                    to={l.to}>
+                    {l.label}
+                  </NavLink>
+                </li>
+              ) : (
+                <li key={l.href}>
+                  <a href={l.href} target="_blank" rel="noopener noreferrer">
+                    {l.label}
+                  </a>
+                </li>
+              ),
+            )}
           </ul>
         </div>
       </div>

@@ -78,7 +78,7 @@ function LinkPrompt({link, onClose}: LinkPromptProps) {
             </Dialog.Close>
 
             <Dialog.Close
-              className="btn"
+              className="btn border-base-content hover:border-base-content"
               onClick={() => {
                 setLinks((prev) => uniqBy([...prev, link], (l) => l.href))
                 toast.success('Ссылка сохранена')

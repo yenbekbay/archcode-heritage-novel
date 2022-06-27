@@ -12,6 +12,7 @@ import {
   useLocation,
 } from '@remix-run/react'
 import {Toaster} from 'react-hot-toast'
+import bgIntroJpg from '~/assets/game/bg-intro.jpg'
 import {Footer, Header} from '~/components'
 import tailwindStylesUrl from '~/__generated__/tailwind.css'
 
@@ -59,9 +60,9 @@ export function ErrorBoundary({error}: {error: Error}) {
   return (
     <Document title="Ошибка!">
       <Layout>
-        <section>
-          <div className="container mx-auto px-4 py-16">
-            <div className="prose mx-auto flex flex-col space-y-2">
+        <section className="text-content-invert">
+          <div className="container mx-auto px-8 py-16">
+            <div className="prose">
               <h1>Что-то пошло не так!</h1>
 
               <pre className="alert alert-error whitespace-pre-line font-mono">
@@ -106,9 +107,9 @@ export function CatchBoundary() {
   return (
     <Document title={`${caught.status} ${caught.statusText}`}>
       <Layout>
-        <section>
-          <div className="container mx-auto px-4 py-16">
-            <div className="prose mx-auto flex flex-col space-y-2">
+        <section className="text-content-invert">
+          <div className="container mx-auto px-8 py-16">
+            <div className="prose">
               <h1>
                 {caught.status}: {caught.statusText}
               </h1>
@@ -153,20 +154,23 @@ function Document({
 
 function Layout({children}: {children: React.ReactNode}) {
   const location = useLocation()
-  const isInteractive = location.pathname.includes('/interactive')
+  const isGame = location.pathname.includes('/play')
+  if (isGame) {
+    return <>{children}</>
+  }
   return (
-    <div className="relative min-h-screen">
-      <div className="bg-gradient absolute inset-0 -z-10" />
-
-      {isInteractive ? (
-        children
-      ) : (
-        <>
-          <Header />
-          {children}
-          <Footer />
-        </>
-      )}
+    <div className="relative">
+      <div className="absolute inset-0 -z-10">
+        <div
+          // https://www.wolframalpha.com/input?i=fit+%28320%2C+280%29%2C+%28375%2C+460%29%2C+%28768%2C+1800%29%2C+%281024%2C+2600%29
+          className="absolute inset-0 bg-[length:100%_auto] bg-[position:center_top_calc(-1*calc(330vw-780px))] bg-no-repeat"
+          style={{backgroundImage: `url(${bgIntroJpg})`}}
+        />
+        <div className="absolute inset-0 bg-black/50" />
+      </div>
+      <Header />
+      {children}
+      <Footer />
     </div>
   )
 }
@@ -186,7 +190,7 @@ function Env() {
   return (
     <script
       dangerouslySetInnerHTML={{
-        __html: `window.ENV = ${JSON.stringify(data.ENV)}`,
+        __html: `window.ENV = ${JSON.stringify(data?.ENV)}`,
       }}
     />
   )

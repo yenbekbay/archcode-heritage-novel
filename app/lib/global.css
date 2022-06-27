@@ -9,32 +9,43 @@
   font-style: normal;
 }
 
-.bg-gradient {
-  background: radial-gradient(
-      circle at top left,
-      var(--gradient-start),
-      rgba(255, 255, 255, 0) 15%
-    ),
-    radial-gradient(
-      circle at 80% 20%,
-      var(--gradient-end),
-      rgba(255, 255, 255, 0) 15%
-    );
+.text-content-invert .prose {
+  --tw-prose-body: theme(colors.content-invert / 0.8);
+  --tw-prose-headings: theme(colors.content-invert);
+  --tw-prose-lead: theme(colors.content-invert);
+  --tw-prose-links: theme(colors.content-invert);
+  --tw-prose-bold: theme(colors.content-invert);
+  --tw-prose-counters: theme(colors.content-invert);
+  --tw-prose-bullets: theme(colors.content-invert / 0.5);
+  --tw-prose-hr: theme(colors.content-invert / 0.2);
+  --tw-prose-quotes: theme(colors.content-invert);
+  --tw-prose-quote-borders: theme(colors.content-invert / 0.2);
+  --tw-prose-captions: theme(colors.content-invert / 0.5);
+  --tw-prose-code: theme(colors.content-invert);
+  --tw-prose-th-borders: theme(colors.content-invert / 0.5);
+  --tw-prose-td-borders: theme(colors.content-invert / 0.2);
 }
 
-@media (min-width: 1024px) {
-  .bg-gradient {
-    background: radial-gradient(
-        circle at 15% 50%,
-        var(--gradient-start),
-        rgba(255, 255, 255, 0) 25%
-      ),
-      radial-gradient(
-        circle at 85% 30%,
-        var(--gradient-end),
-        rgba(255, 255, 255, 0) 25%
-      );
-  }
+.text-content-invert .btn {
+  background-color: theme(colors.content-invert / var(--tw-bg-opacity));
+  border-color: theme(colors.content-invert / var(--tw-border-opacity));
+  color: theme(colors.content / var(--tw-text-opacity));
+}
+
+.text-content-invert .btn:hover,
+.text-content-invert .btn-active {
+  background-color: theme(colors.content-invert-focus / var(--tw-bg-opacity));
+  border-color: theme(colors.content-invert-focus / var(--tw-border-opacity));
+}
+
+.text-content-invert .btn-outline {
+  background-color: transparent;
+  color: theme(colors.content-invert / var(--tw-text-opacity));
+}
+
+.text-content-invert .btn-outline:hover,
+.text-content-invert .btn-outline-active {
+  color: theme(colors.content / var(--tw-text-opacity));
 }
 
 .progress.rounded-none {
