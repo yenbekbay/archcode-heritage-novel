@@ -1,12 +1,21 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
 
 @font-face {
   font-family: 'calligraph';
   src: url('/fonts/calligraph.otf') format('opentype');
   font-weight: normal;
   font-style: normal;
+}
+
+@font-face {
+  font-family: 'Moniqa';
+  font-weight: 600;
+  font-display: swap;
+  font-style: normal;
+  src: url('/fonts/Moniqa-SemiBoldDisplay.woff2') format('woff2'),
+    url('/fonts/Moniqa-SemiBoldDisplay.woff') format('woff');
 }
 
 .text-content-invert .prose {

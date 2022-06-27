@@ -61,6 +61,7 @@ module.exports = {
       },
       fontFamily: {
         sans: ['Inter var', ...defaultTheme.fontFamily.sans],
+        display: ['Moniqa'],
         calligraph: ['calligraph'],
       },
       keyframes: {
