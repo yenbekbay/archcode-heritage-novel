@@ -6,8 +6,8 @@ import {
   bgPhoneFingerJpg,
   bgPhoneHandJpg,
 } from '~/assets/game'
-import {SubmitMeme, SubmitPost} from '~/commands'
 import {Branch, Label, Menu, Say, Scene, Title} from '~/lib/game-engine'
+import {SubmitMeme, SubmitPost} from '../commands'
 
 export function BranchArchkot_ProjAsk_CheckOut_SocialMedia() {
   return (

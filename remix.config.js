@@ -10,10 +10,15 @@ module.exports = {
   ignoredRouteFiles: ['**/.*'],
   serverDependenciesToBundle: [
     'character-entities',
-    'zzfx',
     'decode-named-character-reference',
+    'path-data-parser',
+    'react-rough',
+    'zzfx',
     /^mdast/,
     /^micromark/,
+    /^points-on-curve/,
+    /^points-on-path/,
+    /^roughjs/,
     /^unist/,
   ],
 }

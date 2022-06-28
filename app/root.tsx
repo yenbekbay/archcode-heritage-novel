@@ -15,6 +15,7 @@ import {Toaster} from 'react-hot-toast'
 import bgIntroJpg from '~/assets/game/bg-intro.jpg'
 import {Footer, Header} from '~/components'
 import tailwindStylesUrl from '~/__generated__/tailwind.css'
+import {useFontLoaded} from './lib/hooks'
 
 export async function loader() {
   return json({
@@ -60,9 +61,9 @@ export function ErrorBoundary({error}: {error: Error}) {
   return (
     <Document title="Ошибка!">
       <Layout>
-        <section className="text-content-invert">
+        <section>
           <div className="container mx-auto px-8 py-16">
-            <div className="prose">
+            <div className="prose-invert">
               <h1>Что-то пошло не так!</h1>
 
               <pre className="alert alert-error whitespace-pre-line font-mono">
@@ -107,9 +108,9 @@ export function CatchBoundary() {
   return (
     <Document title={`${caught.status} ${caught.statusText}`}>
       <Layout>
-        <section className="text-content-invert">
+        <section>
           <div className="container mx-auto px-8 py-16">
-            <div className="prose">
+            <div className="prose prose-invert">
               <h1>
                 {caught.status}: {caught.statusText}
               </h1>
@@ -154,9 +155,13 @@ function Document({
 
 function Layout({children}: {children: React.ReactNode}) {
   const location = useLocation()
+  const displayFontLoaded = useFontLoaded('Moniqa')
   const isGame = location.pathname.includes('/play')
   if (isGame) {
     return <>{children}</>
+  }
+  if (!displayFontLoaded) {
+    return null
   }
   return (
     <div className="relative">

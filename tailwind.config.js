@@ -1,5 +1,4 @@
 const defaultColors = require('tailwindcss/colors')
-const defaultTheme = require('tailwindcss/defaultTheme')
 
 const colors = {
   ...defaultColors,
@@ -60,7 +59,6 @@ module.exports = {
         'content-invert-focus': colors['rum-swizzle'][100],
       },
       fontFamily: {
-        sans: ['Inter var', ...defaultTheme.fontFamily.sans],
         display: ['Moniqa'],
         calligraph: ['calligraph'],
       },

@@ -6,8 +6,8 @@ import {
   redhead5Png,
   redhead7Png,
 } from '~/assets/game'
-import {SubmitMeme, SubmitPost} from '~/commands'
 import {Branch, Label, Menu, Say, Scene, Title} from '~/lib/game-engine'
+import {SubmitMeme, SubmitPost} from '../commands'
 
 export function BranchActivist_CheckOut_SocialMedia() {
   return (

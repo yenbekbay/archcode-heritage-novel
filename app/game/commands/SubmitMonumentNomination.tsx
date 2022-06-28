@@ -7,8 +7,8 @@ import {
   useBranchContext,
   useGameContext,
 } from '~/lib/game-engine'
-import type {definitions} from '~/supabase'
-import {getSupabase} from '~/supabase'
+import type {definitions} from '~/api'
+import {getSupabase} from '~/api'
 import {TextForm} from './internal'
 
 export interface SubmitMonumentNominationProps {

@@ -1,4 +1,4 @@
-import type { SupabaseClient} from '@supabase/supabase-js';
+import type {SupabaseClient} from '@supabase/supabase-js'
 import {createClient} from '@supabase/supabase-js'
 
 let supabase: SupabaseClient | undefined
@@ -18,4 +18,4 @@ export function getSupabase() {
   return supabase
 }
 
-export * from './__generated__/supabase'
+export * from '../__generated__/supabase'

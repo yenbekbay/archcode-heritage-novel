@@ -1,10 +1,9 @@
-import {NavLink} from '@remix-run/react'
-import {Link} from '@remix-run/react'
+import {Link, NavLink} from '@remix-run/react'
 import {
-  TelegramLogo as TelegramLogoIcon,
   InstagramLogo as InstagramLogoIcon,
+  TelegramLogo as TelegramLogoIcon,
 } from 'phosphor-react'
-import gameLogoPng from '~/assets/game-logo.png'
+import {gameLogoPng} from '~/assets/www'
 
 export function Footer() {
   return (
@@ -13,13 +12,13 @@ export function Footer() {
         <div className="grid grid-flow-row gap-8 lg:grid-flow-col lg:items-center">
           <div className="grid grid-flow-col gap-4">
             <a
-              className="btn btn-circle text-2xl"
+              className="btn-invert btn btn-circle text-2xl"
               href="https://t.me/archcode_kazakhstan/"
               aria-label="Telegram">
               <TelegramLogoIcon />
             </a>
             <a
-              className="btn btn-circle text-2xl"
+              className="btn-invert btn btn-circle text-2xl"
               href="https://instagram.com/heritage_novel/"
               aria-label="Instagram">
               <InstagramLogoIcon />

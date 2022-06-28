@@ -18,108 +18,115 @@
     url('/fonts/Moniqa-SemiBoldDisplay.woff') format('woff');
 }
 
-.text-content-invert .prose {
-  --tw-prose-body: theme(colors.content-invert / 0.8);
-  --tw-prose-headings: theme(colors.content-invert);
-  --tw-prose-lead: theme(colors.content-invert);
-  --tw-prose-links: theme(colors.content-invert);
-  --tw-prose-bold: theme(colors.content-invert);
-  --tw-prose-counters: theme(colors.content-invert);
-  --tw-prose-bullets: theme(colors.content-invert / 0.5);
-  --tw-prose-hr: theme(colors.content-invert / 0.2);
-  --tw-prose-quotes: theme(colors.content-invert);
-  --tw-prose-quote-borders: theme(colors.content-invert / 0.2);
-  --tw-prose-captions: theme(colors.content-invert / 0.5);
-  --tw-prose-code: theme(colors.content-invert);
-  --tw-prose-th-borders: theme(colors.content-invert / 0.5);
-  --tw-prose-td-borders: theme(colors.content-invert / 0.2);
-}
+@layer components {
+  .prose.prose-invert {
+    --tw-prose-body: theme(colors.content-invert / 0.8);
+    --tw-prose-headings: theme(colors.content-invert);
+    --tw-prose-lead: theme(colors.content-invert);
+    --tw-prose-links: theme(colors.content-invert);
+    --tw-prose-bold: theme(colors.content-invert);
+    --tw-prose-counters: theme(colors.content-invert);
+    --tw-prose-bullets: theme(colors.content-invert / 0.5);
+    --tw-prose-hr: theme(colors.content-invert / 0.2);
+    --tw-prose-quotes: theme(colors.content-invert);
+    --tw-prose-quote-borders: theme(colors.content-invert / 0.2);
+    --tw-prose-captions: theme(colors.content-invert / 0.5);
+    --tw-prose-code: theme(colors.content-invert);
+    --tw-prose-th-borders: theme(colors.content-invert / 0.5);
+    --tw-prose-td-borders: theme(colors.content-invert / 0.2);
+  }
 
-.text-content-invert .btn {
-  background-color: theme(colors.content-invert / var(--tw-bg-opacity));
-  border-color: theme(colors.content-invert / var(--tw-border-opacity));
-  color: theme(colors.content / var(--tw-text-opacity));
-}
+  .btn-invert {
+    @apply border-content-invert bg-content-invert text-content;
+  }
 
-.text-content-invert .btn:hover,
-.text-content-invert .btn-active {
-  background-color: theme(colors.content-invert-focus / var(--tw-bg-opacity));
-  border-color: theme(colors.content-invert-focus / var(--tw-border-opacity));
-}
+  .btn-invert:hover,
+  .btn-invert.btn-active {
+    @apply border-content-invert-focus bg-content-invert-focus;
+  }
 
-.text-content-invert .btn-outline {
-  background-color: transparent;
-  color: theme(colors.content-invert / var(--tw-text-opacity));
-}
+  .btn-outline.btn-invert {
+    color: theme(colors.content-invert / var(--tw-text-opacity));
+    @apply bg-transparent;
+  }
 
-.text-content-invert .btn-outline:hover,
-.text-content-invert .btn-outline-active {
-  color: theme(colors.content / var(--tw-text-opacity));
-}
+  .btn-outline.btn-invert:hover,
+  .btn-outline.btn-invert.btn-active {
+    @apply text-content;
+  }
 
-.progress.rounded-none {
-  --rounded-box: 0;
-}
+  .menu li.item-invert > * {
+    @apply bg-content-invert text-content;
+  }
 
-.GameEngine-text {
-  color: rgb(17, 24, 28);
-  text-shadow: 0 1px rgb(236, 238, 240), 0 0 4px rgba(255, 255, 255),
-    0 0 4px rgba(255, 255, 255), 0 0 4px rgba(255, 255, 255);
-}
+  .menu li.item-invert:hover > * {
+    @apply bg-content-invert-focus;
+  }
 
-.GameEngine-text--dark {
-  color: rgb(251, 249, 223);
-  text-shadow: 0 -1px rgba(0, 0, 0, 0.35), 0 2px rgb(17, 24, 28),
-    0 0 4px rgba(0, 0, 0), 0 0 4px rgba(0, 0, 0), 0 0 4px rgba(0, 0, 0);
-}
+  .progress.rounded-none {
+    --rounded-box: 0;
+  }
 
-.GameEngine-title {
-  color: rgb(239, 68, 68);
-  text-shadow: 0 -1px rgba(0, 0, 0, 0.35), 0 2px rgb(17, 24, 28),
-    0 0 4px rgba(0, 0, 0), 0 0 4px rgba(0, 0, 0), 0 0 4px rgba(0, 0, 0);
-}
+  .GameEngine-text {
+    color: rgb(17, 24, 28);
+    text-shadow: 0 1px rgb(236, 238, 240), 0 0 4px rgba(255, 255, 255),
+      0 0 4px rgba(255, 255, 255), 0 0 4px rgba(255, 255, 255);
+  }
 
-.GameEngine-tag {
-  color: rgb(251, 249, 223);
-  background-color: rgba(165, 123, 85, 0.75);
-}
+  .GameEngine-text--dark {
+    color: rgb(251, 249, 223);
+    text-shadow: 0 -1px rgba(0, 0, 0, 0.35), 0 2px rgb(17, 24, 28),
+      0 0 4px rgba(0, 0, 0), 0 0 4px rgba(0, 0, 0), 0 0 4px rgba(0, 0, 0);
+  }
 
-.GameEngine-button {
-  color: rgb(17, 24, 28);
-  background-color: rgba(255, 255, 255, 0.5);
-  text-shadow: 0 1px rgb(236, 238, 240), 0 0 4px rgba(255, 255, 255),
-    0 0 4px rgba(255, 255, 255), 0 0 4px rgba(255, 255, 255);
-  box-shadow: 0 2px rgba(0, 0, 0, 0.35);
-}
+  .GameEngine-title {
+    color: rgb(239, 68, 68);
+    text-shadow: 0 -1px rgba(0, 0, 0, 0.35), 0 2px rgb(17, 24, 28),
+      0 0 4px rgba(0, 0, 0), 0 0 4px rgba(0, 0, 0), 0 0 4px rgba(0, 0, 0);
+  }
 
-.GameEngine-button--dark {
-  color: rgb(251, 249, 223);
-  background-color: rgba(0, 0, 0, 0.35);
-  text-shadow: 0 -1px rgba(0, 0, 0, 0.35), 0 2px rgb(17, 24, 28),
-    0 0 4px rgba(0, 0, 0), 0 0 4px rgba(0, 0, 0), 0 0 4px rgba(0, 0, 0);
-  box-shadow: 0 2px rgba(0, 0, 0, 0.35);
-}
+  .GameEngine-tag {
+    color: rgb(251, 249, 223);
+    background-color: rgba(165, 123, 85, 0.75);
+  }
 
-.GameEngine-button--opaque {
-  background-color: rgba(255, 255, 255);
-}
+  .GameEngine-button {
+    color: rgb(17, 24, 28);
+    background-color: rgba(255, 255, 255, 0.5);
+    text-shadow: 0 1px rgb(236, 238, 240), 0 0 4px rgba(255, 255, 255),
+      0 0 4px rgba(255, 255, 255), 0 0 4px rgba(255, 255, 255);
+    box-shadow: 0 2px rgba(0, 0, 0, 0.35);
+  }
 
-.GameEngine-button--opaque:hover {
-  text-shadow: none;
-}
+  .GameEngine-button--dark {
+    color: rgb(251, 249, 223);
+    background-color: rgba(0, 0, 0, 0.35);
+    text-shadow: 0 -1px rgba(0, 0, 0, 0.35), 0 2px rgb(17, 24, 28),
+      0 0 4px rgba(0, 0, 0), 0 0 4px rgba(0, 0, 0), 0 0 4px rgba(0, 0, 0);
+    box-shadow: 0 2px rgba(0, 0, 0, 0.35);
+  }
 
-.GameEngine-button--opaque.GameEngine-button--dark {
-  background-color: rgb(157, 157, 137);
-}
+  .GameEngine-button--opaque {
+    background-color: rgba(255, 255, 255);
+  }
 
-.GameEngine-surface {
-  border-color: rgb(17, 24, 28);
-  background-color: rgba(255, 255, 255, 0.5);
-  box-shadow: 0 2px rgba(0, 0, 0, 0.35);
-}
+  .GameEngine-button--opaque:hover {
+    text-shadow: none;
+  }
 
-.GameEngine-surface--dark {
-  border-color: white;
-  background-color: rgba(0, 0, 0, 0.5);
-  box-shadow: 0 2px rgba(0, 0, 0, 0.35);
+  .GameEngine-button--opaque.GameEngine-button--dark {
+    background-color: rgb(157, 157, 137);
+  }
+
+  .GameEngine-surface {
+    border-color: rgb(17, 24, 28);
+    background-color: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 2px rgba(0, 0, 0, 0.35);
+  }
+
+  .GameEngine-surface--dark {
+    border-color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    box-shadow: 0 2px rgba(0, 0, 0, 0.35);
+  }
 }

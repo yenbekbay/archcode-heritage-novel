@@ -1,21 +1,18 @@
 import {
-  archbot1Png,
   archkot1Png,
   archkot2Png,
-  archkot7Png,
-  bgBusStop2Jpg,
-  bgBusStop4Jpg,
-  bgBusStop6Jpg,
+  bgAirportFenceGif,
+  bgAirportJpg,
   bgPhoneFingerJpg,
   bgPhoneHandJpg,
 } from '~/assets/game'
-import {SubmitMeme, SubmitPost} from '~/commands'
 import {Branch, Label, Menu, Say, Scene, Title} from '~/lib/game-engine'
+import {SubmitMeme, SubmitPost} from '../commands'
 
-export function BranchArchkot_ProjBusStop_CheckOut_SocialMedia() {
+export function BranchArchkot_ProjAirport_CheckOut_SocialMedia() {
   return (
     <Branch>
-      <Scene src={bgBusStop2Jpg} />
+      <Scene src={bgAirportJpg} />
 
       <Say image={{uri: archkot2Png, align: 'bottom'}}>
         Видимо, процесс уже запущен, что же
@@ -101,7 +98,7 @@ export function BranchArchkot_ProjBusStop_CheckOut_SocialMedia() {
             {
               label: 'Собраться с командой Архкод',
               onClick: (ctx) =>
-                ctx.goToBranch('Archkot_ProjAsk_CheckOut_AssembleTeam'),
+                ctx.goToBranch('Archkot_ProjAirport_CheckOut_AssembleTeam'),
             },
             {
               label: 'Я сделал всё, что было в моих силах',
@@ -112,23 +109,11 @@ export function BranchArchkot_ProjBusStop_CheckOut_SocialMedia() {
         </Say>
       </Label>
 
-      <Scene src={bgBusStop4Jpg} />
-
-      <Scene src={bgBusStop6Jpg} />
+      <Scene src={bgAirportFenceGif} durationMs={6000} />
 
       <Say>
-        Остановка изменена до неузнаваемости, и теперь это уже не имеет
-        отношения к историко-культурному наследию
-      </Say>
-
-      <Say image={{uri: archkot7Png, align: 'bottom'}}>
-        Была история, и нет истории. Зря Дядь Юра старался
-      </Say>
-
-      <Say
-        tag={{text: 'АрхБот:', color: '#65506D'}}
-        image={{uri: archbot1Png, align: 'bottom'}}>
-        {'—А могло бы быть вот так:\n\n[Ссылка на зарубежные примеры](#)'}
+        Здание изменено до неузнаваемости, и теперь это уже не имеет отношения к
+        историко-культурному наследию
       </Say>
 
       <Title hide={-1}>Конец игры</Title>

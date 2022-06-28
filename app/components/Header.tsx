@@ -1,8 +1,14 @@
 import {NavLink} from '@remix-run/react'
-import {List as ListIcon} from 'phosphor-react'
-import gameLogoPng from '~/assets/game-logo.png'
+import clsx from 'clsx'
+import type {IconProps} from 'phosphor-react'
+import {
+  GameController as GameControllerIcon,
+  List as ListIcon,
+} from 'phosphor-react'
+import React from 'react'
+import {gameLogoPng} from '~/assets/www'
 
-type Link = {label: string} & (
+type Link = {label: string; icon?: React.ComponentType<IconProps>} & (
   | {
       to: string
       href?: never
@@ -33,6 +39,7 @@ const LINKS: Link[] = [
   {
     to: '/play',
     label: 'Играть',
+    icon: GameControllerIcon,
   },
 ]
 
@@ -59,44 +66,53 @@ export function Header() {
             <ul
               tabIndex={0}
               className="dropdown-content menu rounded-box menu-compact mt-3 w-52 bg-base-100 p-2 text-content shadow-md">
-              {LINKS.map((l) =>
-                l.to ? (
-                  <li key={l.to}>
-                    <NavLink
-                      className={({isActive}) => (isActive ? 'active' : '')}
-                      to={l.to}>
-                      {l.label}
-                    </NavLink>
+              {LINKS.map((l) => {
+                const key = l.to ? l.to : l.href
+                return (
+                  <li key={key}>
+                    {l.to ? (
+                      <NavLink
+                        className={({isActive}) => (isActive ? 'active' : '')}
+                        to={l.to}>
+                        {l.icon && <l.icon size="1.25em" weight="fill" />}
+                        {l.label}
+                      </NavLink>
+                    ) : (
+                      <a
+                        href={l.href}
+                        target="_blank"
+                        rel="noopener noreferrer">
+                        {l.icon && <l.icon size="1.25em" weight="fill" />}
+                        {l.label}
+                      </a>
+                    )}
                   </li>
-                ) : (
-                  <li key={l.href}>
-                    <a href={l.href} target="_blank" rel="noopener noreferrer">
-                      {l.label}
-                    </a>
-                  </li>
-                ),
-              )}
+                )
+              })}
             </ul>
           </div>
 
           <ul className="menu menu-horizontal hidden p-0 lg:flex">
-            {LINKS.map((l) =>
-              l.to ? (
-                <li key={l.to}>
-                  <NavLink
-                    className={({isActive}) => (isActive ? 'active' : '')}
-                    to={l.to}>
-                    {l.label}
-                  </NavLink>
+            {LINKS.map((l) => {
+              const key = l.to ? l.to : l.href
+              return (
+                <li key={key} className={clsx(l.icon && 'item-invert')}>
+                  {l.to ? (
+                    <NavLink
+                      className={({isActive}) => (isActive ? 'active' : '')}
+                      to={l.to}>
+                      {l.icon && <l.icon size="1.25em" weight="fill" />}
+                      {l.label}
+                    </NavLink>
+                  ) : (
+                    <a href={l.href} target="_blank" rel="noopener noreferrer">
+                      {l.icon && <l.icon size="1.25em" weight="fill" />}
+                      {l.label}
+                    </a>
+                  )}
                 </li>
-              ) : (
-                <li key={l.href}>
-                  <a href={l.href} target="_blank" rel="noopener noreferrer">
-                    {l.label}
-                  </a>
-                </li>
-              ),
-            )}
+              )
+            })}
           </ul>
         </div>
       </div>

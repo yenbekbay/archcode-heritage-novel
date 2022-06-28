@@ -65,12 +65,6 @@ function GameView({assets, branches, initialBranchId}: GameViewProps) {
     <MobileDeviceChrome>
       <div className="navbar absolute z-[120] p-4">
         <div className="navbar-start space-x-2">
-          <button
-            className="btn btn-ghost btn-circle bg-base-100 text-xl shadow-md hover:bg-base-200"
-            onClick={() => goToLocation(initialBranchId, 0)}>
-            <ArrowCounterClockwiseIcon />
-          </button>
-
           {canGoBack() && (
             <button
               className="btn btn-ghost btn-circle bg-base-100 text-xl shadow-md hover:bg-base-200"
@@ -81,6 +75,12 @@ function GameView({assets, branches, initialBranchId}: GameViewProps) {
         </div>
 
         <div className="navbar-end space-x-2">
+          <button
+            className="btn btn-ghost btn-circle bg-base-100 text-xl shadow-md hover:bg-base-200"
+            onClick={() => goToLocation(initialBranchId, 0)}>
+            <ArrowCounterClockwiseIcon />
+          </button>
+
           {options.onGoHome && (
             <button
               className="btn btn-ghost btn-circle bg-base-100 text-xl shadow-md hover:bg-base-200"
