@@ -1,9 +1,8 @@
-import ReactRough, {Rectangle} from 'react-rough'
+import {useMeasure} from '@react-hookz/web'
 import {NavLink} from '@remix-run/react'
-import {ClientOnly} from 'remix-utils'
+import ReactRough, {Rectangle} from 'react-rough'
 import {fencePng} from '~/assets/www'
 import {Hero} from '~/components/Hero'
-import {useMeasure} from '@react-hookz/web'
 
 export default function Home() {
   return (
@@ -23,16 +22,16 @@ export default function Home() {
         </p>
       </Hero>
 
-      <div className="relative flex flex-col overflow-hidden py-8">
+      <div className="relative flex flex-col overflow-hidden py-28">
         <img
           className="absolute inset-0 -z-10 -ml-[10%] w-[120%] max-w-none object-cover"
           src={fencePng}
         />
 
-        <div className="container relative mx-auto p-8">
+        <div className="relative mx-auto">
           <RoughCard />
 
-          <article className="prose max-w-none font-mono">
+          <article className="prose p-8 font-mono">
             <h2>Манифест</h2>
 
             <p>
@@ -52,10 +51,10 @@ export default function Home() {
               архитектурного наследия практически не менялись со времен
               Советского Союза (с 1991 года). Мало того, из этих списков были
               исключены несколько памятников: Дом генерал губернатора снесен,
-              Гостиница Жетысу изменена до неузнаваемости. (……..еще примеры?).
-              Единственное здание, ставшее памятником за все время независимости
-              — это резиденция президента на улице Назарбаева, которая сгорела в
-              январских событиях.
+              Гостиница Жетысу изменена до неузнаваемости. Единственное здание,
+              ставшее памятником за все время независимости — это резиденция
+              президента на улице Назарбаева, которая сгорела в январских
+              событиях.
             </p>
 
             <p>
@@ -179,6 +178,7 @@ function RoughCard() {
   return (
     <div className="absolute inset-0 -z-10" ref={containerRef}>
       {containerRect && (
+        // @ts-ignore
         <ReactRough
           width={containerRect.width}
           height={containerRect.height}
@@ -190,7 +190,7 @@ function RoughCard() {
             height={containerRect.height}
             fill="#F7F4DC"
             fillStyle="solid"
-            roughness={3}
+            roughness={4}
           />
         </ReactRough>
       )}
