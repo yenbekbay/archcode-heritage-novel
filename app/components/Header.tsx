@@ -26,7 +26,7 @@ const LINKS: Link[] = [
   },
   {
     to: '/about-bot',
-    label: 'Telegram-Бот',
+    label: 'Телеграм-бот',
   },
   {
     to: '/about-us',

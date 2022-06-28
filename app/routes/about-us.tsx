@@ -1,11 +1,13 @@
+import {Hero} from '~/components'
+
 export default function AboutUs() {
   return (
     <section>
-      <div className="container mx-auto px-8 py-16">
-        <article className="prose prose-invert">
+      <section>
+        <Hero title="Команда">
           <p>TODO</p>
-        </article>
-      </div>
+        </Hero>
+      </section>
     </section>
   )
 }

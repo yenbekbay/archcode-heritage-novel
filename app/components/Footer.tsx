@@ -32,7 +32,7 @@ export function Footer() {
               Визуальная новелла
             </NavLink>
             <NavLink className="link link-hover" to="/about-bot">
-              Telegram-Бот
+              Телеграм-бот
             </NavLink>
             <NavLink className="link link-hover" to="/about-us">
               О команде
