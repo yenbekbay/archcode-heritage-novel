@@ -5,20 +5,27 @@ import ReactRough, {Rectangle} from 'react-rough'
 
 export interface CardProps extends React.ComponentPropsWithoutRef<'div'> {}
 
-export function Card({children, className, ...restProps}: CardProps) {
+export const Card = React.forwardRef(function Card(
+  {children, className, ...restProps}: CardProps,
+  forwardedRef: React.ForwardedRef<HTMLDivElement>,
+) {
   return (
-    <div className={clsx('relative mx-auto', className)} {...restProps}>
+    <div
+      ref={forwardedRef}
+      className={clsx('relative mx-auto', className)}
+      {...restProps}>
       <CardBackground />
-
-      <article className="prose p-8 font-mono">{children}</article>
+      <article className="prose relative z-10 p-8 font-mono">
+        {children}
+      </article>
     </div>
   )
-}
+})
 
 function CardBackground() {
   const [containerRect, containerRef] = useMeasure<HTMLDivElement>()
   return (
-    <div className="absolute inset-0 -z-10" ref={containerRef}>
+    <div className="absolute inset-0" ref={containerRef}>
       {containerRect && (
         // @ts-ignore
         <ReactRough

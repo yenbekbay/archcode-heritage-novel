@@ -52,7 +52,7 @@
 
   .btn-outline.btn-invert:hover,
   .btn-outline.btn-invert.btn-active {
-    @apply text-content;
+    @apply bg-content-invert text-content;
   }
 
   .menu li.item-invert > * {

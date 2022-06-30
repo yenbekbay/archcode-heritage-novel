@@ -18,7 +18,7 @@ export function BranchCityHall_GovPrograms_Stop_Dismiss() {
       </Say>
 
       <Say image={{uri: mayor15Png, align: 'bottom'}}>
-        —Все это-пережитки советского прошлого!
+        —Всё это-пережитки советского прошлого!
       </Say>
 
       <Say image={{uri: mayor3Png, align: 'bottom'}}>—Не одобрять проект!</Say>

@@ -12,6 +12,7 @@ module.exports = {
     'character-entities',
     'decode-named-character-reference',
     'path-data-parser',
+    'react-merge-refs',
     'react-rough',
     'zzfx',
     /^mdast/,
