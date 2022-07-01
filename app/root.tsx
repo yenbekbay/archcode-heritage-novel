@@ -12,7 +12,7 @@ import {
   useLocation,
 } from '@remix-run/react'
 import {Toaster} from 'react-hot-toast'
-import bgIntroJpg from '~/assets/game/bg-intro.jpg'
+import {ParallaxProvider} from 'react-scroll-parallax'
 import {Footer, Header} from '~/components'
 import tailwindStylesUrl from '~/__generated__/tailwind.css'
 import {useFontLoaded} from './lib/hooks'
@@ -141,7 +141,7 @@ function Document({
       </head>
 
       <body>
-        {children}
+        <ParallaxProvider>{children}</ParallaxProvider>
         <Toaster />
         <ScrollRestoration />
         <Scripts />

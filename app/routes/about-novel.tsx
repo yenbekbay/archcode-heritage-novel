@@ -1,4 +1,5 @@
 import {NavLink} from '@remix-run/react'
+import {ParallaxBanner} from 'react-scroll-parallax'
 import {bgAskBeforeJpg} from '~/assets/game'
 import {phoneScreenshotPng, phoneSwirlPng} from '~/assets/www'
 import {Card, FenceSection, Hero} from '~/components'
@@ -7,9 +8,19 @@ export default function AboutNovel() {
   return (
     <section>
       <div className="absolute inset-0 -z-10">
-        <div
-          className="absolute inset-0 bg-cover bg-[position:center_top] bg-no-repeat"
-          style={{backgroundImage: `url(${bgAskBeforeJpg})`}}
+        <ParallaxBanner
+          className="h-full"
+          layers={[
+            {
+              children: (
+                <div
+                  className="h-full w-full bg-cover bg-[position:center_top] bg-no-repeat"
+                  style={{backgroundImage: `url(${bgAskBeforeJpg})`}}
+                />
+              ),
+              speed: 16,
+            },
+          ]}
         />
         <div className="absolute inset-0 bg-black/50" />
       </div>
