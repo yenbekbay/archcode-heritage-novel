@@ -1,16 +1,18 @@
 import {useMeasure} from '@react-hookz/web'
 import clsx from 'clsx'
+import type {HTMLMotionProps} from 'framer-motion'
 import React from 'react'
 import ReactRough, {Rectangle} from 'react-rough'
+import {Reveal} from '~/lib/components'
 
-export interface CardProps extends React.ComponentPropsWithoutRef<'div'> {}
+export interface CardProps extends HTMLMotionProps<'div'> {}
 
 export const Card = React.forwardRef(function Card(
   {children, className, ...restProps}: CardProps,
   forwardedRef: React.ForwardedRef<HTMLDivElement>,
 ) {
   return (
-    <div
+    <Reveal
       ref={forwardedRef}
       className={clsx('relative', className)}
       {...restProps}>
@@ -18,7 +20,7 @@ export const Card = React.forwardRef(function Card(
       <article className="prose relative z-10 p-8 font-mono">
         {children}
       </article>
-    </div>
+    </Reveal>
   )
 })
 

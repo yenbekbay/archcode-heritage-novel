@@ -2,7 +2,7 @@ import {NavLink} from '@remix-run/react'
 import {bgIntroJpg} from '~/assets/game'
 import {Card, FenceSection} from '~/components'
 import {Hero} from '~/components/Hero'
-import {Annotated} from '~/lib/components'
+import {Annotate} from '~/lib/components'
 
 export default function Home() {
   return (
@@ -39,8 +39,8 @@ export default function Home() {
             Уютные кварталы и дворики, улицы, уходящие перспективой в горы,
             тенистые тротуары, утопающие в зелени, арки с барельефами у сводов,
             ажурные балкончики на фоне теплых желтых стен. Всё это —{' '}
-            <Annotated config={{type: 'circle', padding: 12}}>Алматы</Annotated>
-            , город, который мы очень любим.
+            <Annotate config={{type: 'circle', padding: 12}}>Алматы</Annotate>,
+            город, который мы очень любим.
           </p>
 
           <p>
