@@ -55,8 +55,13 @@
     @apply bg-content-invert text-content;
   }
 
+  .menu :where(li:not(.menu-title):not(:empty)) > :where(:not(ul).active),
+  .menu :where(li:not(.menu-title):not(:empty)) > :where(*:not(ul):active) {
+    @apply shadow-md;
+  }
+
   .menu li.item-invert > * {
-    @apply bg-content-invert text-content;
+    @apply bg-content-invert text-content shadow-md;
   }
 
   .menu li.item-invert:hover > * {

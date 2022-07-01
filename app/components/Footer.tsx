@@ -1,3 +1,4 @@
+import {GameController as GameControllerIcon} from 'phosphor-react'
 import {Link, NavLink} from '@remix-run/react'
 import {
   InstagramLogo as InstagramLogoIcon,
@@ -24,7 +25,13 @@ export function Footer() {
               <InstagramLogoIcon />
             </a>
           </div>
-          <div className="grid grid-flow-row gap-4 lg:grid-flow-col lg:pr-4">
+          <div className="grid grid-flow-row items-center gap-4 lg:grid-flow-col lg:pr-4">
+            <NavLink
+              className="btn-invert btn btn-sm gap-2 normal-case"
+              to="/play">
+              <GameControllerIcon />
+              Играть
+            </NavLink>
             <NavLink className="link link-hover" to="/">
               Главная
             </NavLink>
@@ -44,9 +51,6 @@ export function Footer() {
               rel="noopener noreferrer">
               Архкод
             </a>
-            <NavLink className="link link-hover" to="/play">
-              Играть
-            </NavLink>
           </div>
         </div>
 

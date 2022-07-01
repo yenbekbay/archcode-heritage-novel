@@ -165,14 +165,6 @@ function Layout({children}: {children: React.ReactNode}) {
   }
   return (
     <div className="relative">
-      <div className="absolute inset-0 -z-10">
-        <div
-          // https://www.wolframalpha.com/input?i=fit+%28320%2C+280%29%2C+%28375%2C+460%29%2C+%28768%2C+1800%29%2C+%281024%2C+2600%29
-          className="absolute inset-0 bg-[length:100%_auto] bg-[position:center_top_calc(-1*calc(330vw-780px))] bg-no-repeat"
-          style={{backgroundImage: `url(${bgIntroJpg})`}}
-        />
-        <div className="absolute inset-0 bg-black/50" />
-      </div>
       <Header />
       {children}
       <Footer />

@@ -1,8 +1,17 @@
+import {bgAirportJpg} from '~/assets/game'
 import {Hero} from '~/components'
 
 export default function AboutBot() {
   return (
     <section>
+      <div className="absolute inset-0 -z-10">
+        <div
+          className="absolute inset-0 bg-cover bg-[position:center_top] bg-no-repeat"
+          style={{backgroundImage: `url(${bgAirportJpg})`}}
+        />
+        <div className="absolute inset-0 bg-black/50" />
+      </div>
+
       <Hero title="Телеграм-бот">
         <p>
           Это обучающий бот, который даёт представление об общей ситуации в

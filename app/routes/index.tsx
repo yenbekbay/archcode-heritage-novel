@@ -1,11 +1,21 @@
 import {NavLink} from '@remix-run/react'
+import {bgIntroJpg} from '~/assets/game'
 import {Card, FenceSection} from '~/components'
 import {Hero} from '~/components/Hero'
 import {Annotated} from '~/lib/components'
 
 export default function Home() {
   return (
-    <section>
+    <main>
+      <div className="absolute inset-0 -z-10">
+        <div
+          // https://www.wolframalpha.com/input?i=fit+%28320%2C+280%29%2C+%28375%2C+460%29%2C+%28768%2C+1800%29%2C+%281024%2C+2600%29
+          className="absolute inset-0 bg-[length:100%_auto] bg-[position:center_top_calc(-1*calc(330vw-780px))] bg-no-repeat"
+          style={{backgroundImage: `url(${bgIntroJpg})`}}
+        />
+        <div className="absolute inset-0 bg-black/50" />
+      </div>
+
       <Hero title="Снести нельзя оставить">
         <p>
           Этот проект посвящен привлечению внимания общественности к теме
@@ -22,21 +32,19 @@ export default function Home() {
       </Hero>
 
       <FenceSection>
-        <Card>
-          <Annotated config={{type: 'circle', padding: 12}} asChild>
-            <h2 className="inline-block">Манифест</h2>
-          </Annotated>
+        <Card className="self-center">
+          <h2>Манифест</h2>
 
           <p>
             Уютные кварталы и дворики, улицы, уходящие перспективой в горы,
             тенистые тротуары, утопающие в зелени, арки с барельефами у сводов,
             ажурные балкончики на фоне теплых желтых стен. Всё это —{' '}
-            <Annotated config={{type: 'underline'}}>Алматы</Annotated>, город,
-            который мы очень любим.
+            <Annotated config={{type: 'circle', padding: 12}}>Алматы</Annotated>
+            , город, который мы очень любим.
           </p>
 
           <p>
-            У каждого человека есть любимые места в городе, в котором он живет,
+            У каждого человека есть любимые места в городе, в котором он живёт,
             и иногда случается так, что на их месте вырастает гигантский забор
             из профнастила — реконструкция, снос и строительство нового здания,
             которые обычно начинаются неожиданно для общественности. Ценные
@@ -158,6 +166,6 @@ export default function Home() {
           <p>Мы требуем право на память!</p>
         </Card>
       </FenceSection>
-    </section>
+    </main>
   )
 }

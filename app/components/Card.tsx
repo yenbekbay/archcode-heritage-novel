@@ -12,7 +12,7 @@ export const Card = React.forwardRef(function Card(
   return (
     <div
       ref={forwardedRef}
-      className={clsx('relative mx-auto', className)}
+      className={clsx('relative', className)}
       {...restProps}>
       <CardBackground />
       <article className="prose relative z-10 p-8 font-mono">
