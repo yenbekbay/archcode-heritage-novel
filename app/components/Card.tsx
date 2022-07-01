@@ -1,3 +1,4 @@
+import Tilt from 'react-parallax-tilt'
 import {useMeasure} from '@react-hookz/web'
 import clsx from 'clsx'
 import type {HTMLMotionProps} from 'framer-motion'
@@ -16,10 +17,16 @@ export const Card = React.forwardRef(function Card(
       ref={forwardedRef}
       className={clsx('relative', className)}
       {...restProps}>
-      <CardBackground />
-      <article className="prose relative z-10 p-8 font-mono">
-        {children}
-      </article>
+      <Tilt
+        className="shadow-lg"
+        tiltMaxAngleX={8}
+        tiltMaxAngleY={8}
+        perspective={6000}>
+        <CardBackground />
+        <article className="prose relative z-10 p-8 font-mono">
+          {children}
+        </article>
+      </Tilt>
     </Reveal>
   )
 })
