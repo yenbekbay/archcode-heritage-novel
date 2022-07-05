@@ -13,14 +13,14 @@ import {Card, Hero} from '~/components'
 export default function AboutUs() {
   return (
     <main>
-      <div className="absolute inset-0 -z-10 max-h-[60rem]">
+      <div className="absolute inset-0 -z-10 max-h-[20rem] md:max-h-[40rem] lg:max-h-[60rem]">
         <ParallaxBanner
           className="h-full"
           layers={[
             {
               children: (
                 <div
-                  className="h-full w-full bg-cover bg-[position:center_top] bg-no-repeat"
+                  className="h-full w-full bg-cover bg-[position:center_top] bg-no-repeat md:bg-[position:center_top_-3rem] lg:bg-[position:center_top_-6rem]"
                   style={{backgroundImage: `url(${teamPhotoJpg})`}}
                 />
               ),
@@ -32,7 +32,7 @@ export default function AboutUs() {
       </div>
 
       <div className="relative z-10">
-        <Hero className="pt-96" title="Команда" />
+        <Hero className="md:pt-48 lg:pt-96" title="Команда" />
 
         <img
           className="absolute bottom-0 w-full translate-y-[54%]"
@@ -68,6 +68,12 @@ export default function AboutUs() {
 
           <Card className="self-center">
             <div className="grid grid-flow-row gap-4 lg:grid-flow-col">
+              <img
+                className="lg:order-2"
+                src={polaroidInzhuPng}
+                alt="Фотография Инжу"
+              />
+
               <div>
                 <h2 className="mb-0">Инжу Сыдыкова</h2>
                 <h3>Сценарий, архитектура игры</h3>
@@ -81,8 +87,6 @@ export default function AboutUs() {
                   специальностей.
                 </p>
               </div>
-
-              <img src={polaroidInzhuPng} alt="Фотография Инжу" />
             </div>
           </Card>
 
@@ -106,6 +110,12 @@ export default function AboutUs() {
 
           <Card className="self-center">
             <div className="grid grid-flow-row gap-4 lg:grid-flow-col">
+              <img
+                className="lg:order-2"
+                src={polaroidAruzhanPng}
+                alt="Фотография Аружан"
+              />
+
               <div>
                 <h2 className="mb-0">Аружан Шотай</h2>
                 <h3>Визуальный нарратив</h3>
@@ -118,8 +128,6 @@ export default function AboutUs() {
                   благое дело.
                 </p>
               </div>
-
-              <img src={polaroidAruzhanPng} alt="Фотография Аружан" />
             </div>
           </Card>
         </div>

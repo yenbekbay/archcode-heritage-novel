@@ -8,7 +8,7 @@ export interface FenceSectionProps {
 
 export function FenceSection({children}: FenceSectionProps) {
   return (
-    <section className="relative flex flex-col overflow-x-hidden pt-28 pb-[26rem]">
+    <section className="relative flex flex-col pt-28 pb-[26rem]">
       <Reveal className="absolute inset-0 -ml-[10%] flex w-[120%] flex-col">
         <img src={fenceTopPng} />
         <div
