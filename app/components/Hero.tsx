@@ -4,8 +4,8 @@ import {Reveal} from '~/lib/components'
 
 export interface HeroProps extends React.ComponentPropsWithoutRef<'section'> {
   title: string
-  image?: string | null
-  children: React.ReactNode
+  image?: React.ReactNode
+  children?: React.ReactNode
 }
 
 export function Hero({
@@ -17,7 +17,7 @@ export function Hero({
 }: HeroProps) {
   return (
     <Reveal asChild>
-      <section
+      <div
         className={clsx(
           'container mx-auto grid grid-flow-row justify-items-center gap-8 p-8 pb-16 lg:grid-flow-col lg:justify-items-start',
           className,
@@ -31,8 +31,8 @@ export function Hero({
           {children}
         </div>
 
-        {image && <img className="max-h-[36rem]" src={image} />}
-      </section>
+        {image}
+      </div>
     </Reveal>
   )
 }

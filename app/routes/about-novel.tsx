@@ -6,7 +6,7 @@ import {Card, FenceSection, Hero} from '~/components'
 
 export default function AboutNovel() {
   return (
-    <section>
+    <main>
       <div className="absolute inset-0 -z-10">
         <ParallaxBanner
           className="h-full"
@@ -14,18 +14,20 @@ export default function AboutNovel() {
             {
               children: (
                 <div
-                  className="h-full w-full bg-cover bg-[position:center_top] bg-no-repeat"
+                  className="h-full w-full bg-cover bg-[position:center_top] bg-no-repeat lg:bg-[length:100%_auto]"
                   style={{backgroundImage: `url(${bgAskBeforeJpg})`}}
                 />
               ),
-              speed: 16,
+              speed: -16,
             },
           ]}
         />
         <div className="absolute inset-0 bg-black/50" />
       </div>
 
-      <Hero title="Визуальная новелла" image={phoneSwirlPng}>
+      <Hero
+        title="Визуальная новелла"
+        image={<img className="max-h-[36rem]" src={phoneSwirlPng} />}>
         <p>
           Новелла «Снести нельзя оставить» повествует о четырёх героях, которые
           напоминают характерных персонажей типичного постсоветского города. Их
@@ -97,6 +99,6 @@ export default function AboutNovel() {
           </div>
         </div>
       </FenceSection>
-    </section>
+    </main>
   )
 }

@@ -29,7 +29,7 @@ export function Footer() {
             <NavLink
               className="btn-invert btn btn-sm gap-2 normal-case"
               to="/play">
-              <GameControllerIcon />
+              <GameControllerIcon weight="fill" />
               Играть
             </NavLink>
             <NavLink className="link link-hover" to="/">
