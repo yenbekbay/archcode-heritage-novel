@@ -1,15 +1,21 @@
 import loadAsset from 'load-asset'
 import React from 'react'
-import {useResult} from '../../../hooks'
+import {useResult, useStableCallback} from '../../../hooks'
 
 export interface WithAssetsProps {
   assets: Record<string, string>
   children: React.ReactNode
+  onLoaded?: () => void
 }
 
-export function WithAssets({assets, children}: WithAssetsProps) {
+export function WithAssets({
+  assets,
+  children,
+  onLoaded: _onLoaded,
+}: WithAssetsProps) {
   const [res, setRes] = useResult<Error, undefined>()
   const [progress, setProgress] = React.useState(0)
+  const onLoaded = useStableCallback(_onLoaded ?? (() => {}))
   React.useEffect(() => {
     ;(async () => {
       try {
@@ -17,6 +23,7 @@ export function WithAssets({assets, children}: WithAssetsProps) {
           setProgress(info.progress),
         )
         setRes({status: 'success', data: undefined})
+        onLoaded()
       } catch {
         setRes({
           status: 'failure',
@@ -24,7 +31,7 @@ export function WithAssets({assets, children}: WithAssetsProps) {
         })
       }
     })()
-  }, [assets, setRes])
+  }, [assets, onLoaded, setRes])
 
   if (res.status === 'loading') {
     return (

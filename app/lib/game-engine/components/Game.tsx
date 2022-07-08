@@ -61,11 +61,12 @@ function GameView({assets, branches, initialBranchId}: GameViewProps) {
     goBack,
     canGoBack,
   } = useGameContext()
+  const [loaded, setLoaded] = React.useState(false)
   return (
     <MobileDeviceChrome>
       <div className="navbar absolute z-[120] p-4">
         <div className="navbar-start space-x-2">
-          {canGoBack() && (
+          {loaded && canGoBack() && (
             <button
               className="btn btn-ghost btn-circle bg-base-100 text-xl shadow-md hover:bg-base-200"
               onClick={() => goBack()}>
@@ -75,11 +76,13 @@ function GameView({assets, branches, initialBranchId}: GameViewProps) {
         </div>
 
         <div className="navbar-end space-x-2">
-          <button
-            className="btn btn-ghost btn-circle bg-base-100 text-xl shadow-md hover:bg-base-200"
-            onClick={() => goToLocation(initialBranchId, 0)}>
-            <ArrowCounterClockwiseIcon />
-          </button>
+          {loaded && (
+            <button
+              className="btn btn-ghost btn-circle bg-base-100 text-xl shadow-md hover:bg-base-200"
+              onClick={() => goToLocation(initialBranchId, 0)}>
+              <ArrowCounterClockwiseIcon />
+            </button>
+          )}
 
           {options.onGoHome && (
             <button
@@ -92,18 +95,20 @@ function GameView({assets, branches, initialBranchId}: GameViewProps) {
       </div>
 
       <div className="absolute bottom-4 right-4 z-[120] space-x-2">
-        <button
-          className="btn btn-ghost btn-circle bg-base-100 text-xl shadow-md hover:bg-base-200"
-          onClick={() => setPaused(!paused)}>
-          {paused ? <PlayIcon /> : <PauseIcon />}
-        </button>
+        {loaded && (
+          <button
+            className="btn btn-ghost btn-circle bg-base-100 text-xl shadow-md hover:bg-base-200"
+            onClick={() => setPaused(!paused)}>
+            {paused ? <PlayIcon /> : <PauseIcon />}
+          </button>
+        )}
 
         {process.env.NODE_ENV === 'development' && (
           <DebugPopover branches={branches} />
         )}
       </div>
 
-      <WithAssets assets={assets}>
+      <WithAssets assets={assets} onLoaded={() => setLoaded(true)}>
         <div className="flex h-full w-full overflow-hidden bg-base-100">
           {Object.entries(branches).map(
             ([branchId, BranchComp]) =>
