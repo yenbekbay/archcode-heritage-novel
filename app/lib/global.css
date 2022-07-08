@@ -138,10 +138,28 @@
 
 @layer utilities {
   .h-screen-safe {
-    height: calc(100vh - env(safe-area-inset-bottom, 0));
+    height: 100vh;
   }
 
   .min-h-screen-safe {
-    min-height: calc(100vh - env(safe-area-inset-bottom, 0));
+    min-height: 100vh;
+  }
+
+  .max-h-screen-safe {
+    max-height: 100vh;
+  }
+
+  @supports (height: 100dvh) {
+    .h-screen-safe {
+      height: 100dvh;
+    }
+
+    .min-h-screen-safe {
+      min-height: 100dvh;
+    }
+
+    .max-h-screen-safe {
+      max-height: 100dvh;
+    }
   }
 }

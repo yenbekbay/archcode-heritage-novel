@@ -15,7 +15,11 @@ export default function AboutBot() {
       <Hero
         title="Телеграм-бот"
         image={
-          <a href="https://t.me/archcode_bot" aria-label="Перейти в Телеграм">
+          <a
+            href="https://t.me/archcode_bot"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Перейти в Телеграм">
             <img className="max-h-[18rem]" src={telegramBotQrCodePng} />
           </a>
         }>

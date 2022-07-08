@@ -1,4 +1,4 @@
-import {useMeasure} from '@react-hookz/web'
+import {useMeasure, useWindowSize} from '@react-hookz/web'
 import React from 'react'
 
 export interface MobileDeviceChromeProps {
@@ -7,8 +7,12 @@ export interface MobileDeviceChromeProps {
 
 export function MobileDeviceChrome({children}: MobileDeviceChromeProps) {
   const [containerRect, containerRef] = useMeasure<HTMLDivElement>()
+  const windowSize = useWindowSize()
   return (
-    <div ref={containerRef} className="h-screen-safe flex w-screen flex-col">
+    <div
+      ref={containerRef}
+      className="flex w-screen flex-col bg-base-100"
+      style={{height: windowSize.height}}>
       {containerRect &&
         (containerRect.width < MD_BREAKPOINT ? (
           children
