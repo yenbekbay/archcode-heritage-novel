@@ -13,8 +13,9 @@ import {
 } from '@remix-run/react'
 import {Toaster} from 'react-hot-toast'
 import {ParallaxProvider} from 'react-scroll-parallax'
-import {Footer, Header} from '~/components'
+import {Card, Footer, Header, HeroBackground} from '~/components'
 import tailwindStylesUrl from '~/__generated__/tailwind.css'
+import {bgArchcodeOfficeJpg} from './assets/game'
 import {useFontLoaded} from './lib/hooks'
 
 export async function loader() {
@@ -61,9 +62,11 @@ export function ErrorBoundary({error}: {error: Error}) {
   return (
     <Document title="Ошибка!">
       <Layout>
-        <section>
-          <div className="container mx-auto px-8 py-16">
-            <div className="prose-invert">
+        <main>
+          <HeroBackground src={bgArchcodeOfficeJpg} className="bg-cover" />
+
+          <section className="flex flex-col py-28">
+            <Card className="self-center">
               <h1>Что-то пошло не так!</h1>
 
               <pre className="alert alert-error whitespace-pre-line font-mono">
@@ -74,9 +77,9 @@ export function ErrorBoundary({error}: {error: Error}) {
                 Мы уже в курсе этой ошибки, и постараемся её исправить как можно
                 скорее.
               </p>
-            </div>
-          </div>
-        </section>
+            </Card>
+          </section>
+        </main>
       </Layout>
     </Document>
   )
@@ -108,17 +111,19 @@ export function CatchBoundary() {
   return (
     <Document title={`${caught.status} ${caught.statusText}`}>
       <Layout>
-        <section>
-          <div className="container mx-auto px-8 py-16">
-            <div className="prose prose-invert">
+        <main>
+          <HeroBackground src={bgArchcodeOfficeJpg} className="bg-cover" />
+
+          <section className="flex flex-col py-28">
+            <Card className="self-center">
               <h1>
                 {caught.status}: {caught.statusText}
               </h1>
 
               <p>{message}</p>
-            </div>
-          </div>
-        </section>
+            </Card>
+          </section>
+        </main>
       </Layout>
     </Document>
   )
@@ -164,7 +169,7 @@ function Layout({children}: {children: React.ReactNode}) {
     return null
   }
   return (
-    <div className="relative">
+    <div className="relative flex min-h-screen flex-col overflow-hidden">
       <Header />
       {children}
       <Footer />

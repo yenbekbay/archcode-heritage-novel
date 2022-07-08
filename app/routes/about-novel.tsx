@@ -1,33 +1,24 @@
 import {NavLink} from '@remix-run/react'
-import {ParallaxBanner} from 'react-scroll-parallax'
 import {bgAskBeforeJpg} from '~/assets/game'
 import {phoneScreenshotPng, phoneSwirlPng} from '~/assets/www'
-import {Card, FenceSection, Hero} from '~/components'
+import {Card, FenceSection, Hero, HeroBackground} from '~/components'
 
 export default function AboutNovel() {
   return (
     <main>
-      <div className="absolute inset-0 -z-10">
-        <ParallaxBanner
-          className="h-full"
-          layers={[
-            {
-              children: (
-                <div
-                  className="h-full w-full bg-cover bg-[position:center_top] bg-no-repeat lg:bg-[length:100%_auto]"
-                  style={{backgroundImage: `url(${bgAskBeforeJpg})`}}
-                />
-              ),
-              speed: -16,
-            },
-          ]}
-        />
-        <div className="absolute inset-0 bg-black/50" />
-      </div>
+      <HeroBackground
+        src={bgAskBeforeJpg}
+        // https://www.wolframalpha.com/input?i=fit+linear+%281024%2C+0%29%2C+%282560%2C+400%29
+        className="bg-cover bg-[position:center_top_-12rem] bg-no-repeat lg:bg-[length:100%_auto] lg:bg-[position:center_top_calc(-1*calc(26vw-270px))]"
+      />
 
       <Hero
         title="Визуальная новелла"
-        image={<img className="max-h-[36rem]" src={phoneSwirlPng} />}>
+        image={
+          <NavLink to="/play" aria-label="Играть">
+            <img className="max-h-[36rem]" src={phoneSwirlPng} />
+          </NavLink>
+        }>
         <p>
           Новелла «Снести нельзя оставить» повествует о четырёх героях, которые
           напоминают характерных персонажей типичного постсоветского города. Их

@@ -23,7 +23,7 @@ export function Hero({
           className,
         )}
         {...restProps}>
-        <div className="prose prose-invert flex flex-col space-y-4">
+        <div className="prose prose-invert flex flex-col space-y-4 prose-p:font-medium">
           <h1 className="mb-2 font-display text-7xl leading-[0.8] lg:text-9xl lg:leading-[0.8]">
             {title}
           </h1>

@@ -1,4 +1,3 @@
-import {ParallaxBanner} from 'react-scroll-parallax'
 import {bgMapJpg} from '~/assets/game'
 import {
   paperRipPng,
@@ -8,28 +7,17 @@ import {
   polaroidNadiraPng,
   teamPhotoJpg,
 } from '~/assets/www'
-import {Card, Hero} from '~/components'
+import {Card, Hero, HeroBackground} from '~/components'
 
 export default function AboutUs() {
   return (
     <main>
-      <div className="absolute inset-0 -z-10 max-h-[20rem] md:max-h-[40rem] lg:max-h-[60rem]">
-        <ParallaxBanner
-          className="h-full"
-          layers={[
-            {
-              children: (
-                <div
-                  className="h-full w-full bg-cover bg-[position:center_top] bg-no-repeat md:bg-[position:center_top_-3rem] lg:bg-[position:center_top_-6rem]"
-                  style={{backgroundImage: `url(${teamPhotoJpg})`}}
-                />
-              ),
-              speed: -4,
-            },
-          ]}
-        />
-        <div className="absolute inset-0 bg-black/50" />
-      </div>
+      <HeroBackground
+        src={teamPhotoJpg}
+        className="bg-cover bg-[position:center_top] bg-no-repeat md:bg-[position:center_top_-3rem] lg:bg-[position:center_top_-6rem]"
+        containerClassName="max-h-[20rem] md:max-h-[40rem] lg:max-h-[60rem]"
+        speed={-4}
+      />
 
       <div className="relative z-10">
         <Hero className="md:pt-48 lg:pt-96" title="Команда" />

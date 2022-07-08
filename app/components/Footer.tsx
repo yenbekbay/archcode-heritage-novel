@@ -8,7 +8,7 @@ import {gameLogoPng} from '~/assets/www'
 
 export function Footer() {
   return (
-    <footer className="bg-chicago-900 text-content-invert">
+    <footer className="flex-1 bg-chicago-900 text-content-invert">
       <div className="container footer mx-auto bg-chicago-900 px-8 py-16">
         <div className="grid grid-flow-row gap-8 lg:grid-flow-col lg:items-center">
           <div className="grid grid-flow-col gap-4">

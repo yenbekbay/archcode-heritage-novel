@@ -1,33 +1,24 @@
 import {TelegramLogo as TelegramLogoIcon} from 'phosphor-react'
-import {ParallaxBanner} from 'react-scroll-parallax'
 import {bgAirportJpg} from '~/assets/game'
 import {telegramBotQrCodePng} from '~/assets/www'
-import {Hero} from '~/components'
+import {Hero, HeroBackground} from '~/components'
 
 export default function AboutBot() {
   return (
     <main>
-      <div className="absolute inset-0 -z-10">
-        <ParallaxBanner
-          className="h-full"
-          layers={[
-            {
-              children: (
-                <div
-                  className="h-full w-full bg-cover bg-[position:center_top] bg-no-repeat lg:bg-[length:100%_auto] lg:bg-[position:center_top_-30rem]"
-                  style={{backgroundImage: `url(${bgAirportJpg})`}}
-                />
-              ),
-              speed: -16,
-            },
-          ]}
-        />
-        <div className="absolute inset-0 bg-black/50" />
-      </div>
+      <HeroBackground
+        src={bgAirportJpg}
+        // https://www.wolframalpha.com/input?i=fit+linear+%281024%2C+400%29%2C+%282560%2C+1600%29
+        className="bg-cover bg-[position:center_top_-12rem] bg-no-repeat lg:bg-[length:100%_auto] lg:bg-[position:center_top_calc(-1*calc(78vw-400px))]"
+      />
 
       <Hero
         title="Телеграм-бот"
-        image={<img className="max-h-[18rem]" src={telegramBotQrCodePng} />}>
+        image={
+          <a href="https://t.me/archcode_bot" aria-label="Перейти в Телеграм">
+            <img className="max-h-[18rem]" src={telegramBotQrCodePng} />
+          </a>
+        }>
         <p>
           Это обучающий бот, который даёт представление об общей ситуации в
           области сохранения архитектурного наследия в Казахстане. Раздел

@@ -1,31 +1,17 @@
-import {ParallaxBanner} from 'react-scroll-parallax'
 import {NavLink} from '@remix-run/react'
 import {bgIntroJpg} from '~/assets/game'
-import {Card, FenceSection} from '~/components'
+import {Card, FenceSection, HeroBackground} from '~/components'
 import {Hero} from '~/components/Hero'
 import {Annotate} from '~/lib/components'
 
 export default function Home() {
   return (
     <main>
-      <div className="absolute inset-0 -z-10">
-        <ParallaxBanner
-          className="h-full"
-          layers={[
-            {
-              children: (
-                <div
-                  // https://www.wolframalpha.com/input?i=fit+%28320%2C+280%29%2C+%28375%2C+460%29%2C+%28768%2C+1800%29%2C+%281024%2C+2600%29
-                  className="h-full w-full bg-[length:100%_auto] bg-[position:center_top_calc(-1*calc(330vw-780px))] bg-no-repeat"
-                  style={{backgroundImage: `url(${bgIntroJpg})`}}
-                />
-              ),
-              speed: -16,
-            },
-          ]}
-        />
-        <div className="absolute inset-0 bg-black/50" />
-      </div>
+      <HeroBackground
+        src={bgIntroJpg}
+        // https://www.wolframalpha.com/input?i=fit+linear+%28320%2C+280%29%2C+%281024%2C+2800%29
+        className="bg-[length:100%_auto] bg-[position:center_top_calc(-1*calc(360vw-870px))] bg-no-repeat"
+      />
 
       <Hero title="Снести нельзя оставить">
         <p>
