@@ -8,7 +8,7 @@ export interface MobileDeviceChromeProps {
 export function MobileDeviceChrome({children}: MobileDeviceChromeProps) {
   const [containerRect, containerRef] = useMeasure<HTMLDivElement>()
   return (
-    <div ref={containerRef} className="flex h-screen w-screen flex-col">
+    <div ref={containerRef} className="h-screen-safe flex w-screen flex-col">
       {containerRect &&
         (containerRect.width < MD_BREAKPOINT ? (
           children

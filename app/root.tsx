@@ -169,7 +169,7 @@ function Layout({children}: {children: React.ReactNode}) {
     return null
   }
   return (
-    <div className="relative flex min-h-screen flex-col overflow-hidden">
+    <div className="min-h-screen-safe relative flex flex-col overflow-hidden">
       <Header />
       {children}
       <Footer />
