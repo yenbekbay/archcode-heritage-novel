@@ -7,7 +7,6 @@ export function BranchCityHall_Menu_Projects() {
       <Scene src={bgProjectsFolderJpg} />
 
       <Say
-        scheme="dark"
         menu={[
           {
             label: 'Желтоксан',
