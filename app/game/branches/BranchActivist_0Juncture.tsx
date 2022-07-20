@@ -1,9 +1,17 @@
-import {bgMapGif, fencePng, redhead1Png} from '~/assets/game'
-import {Branch, Say, Scene, Show} from '~/lib/game-engine'
+import {
+  bgMapGif,
+  fenceOgg,
+  fencePng,
+  heartbeatOgg,
+  redhead1Png,
+} from '~/assets/game'
+import {Branch, Play, Say, Scene, Show} from '~/lib/game-engine'
 
 export function BranchActivist_0Juncture() {
   return (
     <Branch>
+      <Play audio={{uri: heartbeatOgg, loop: true}} hide={2} />
+
       <Scene src={bgMapGif} />
 
       <Say>Забор в этом городе появился новый</Say>
@@ -25,6 +33,7 @@ export function BranchActivist_0Juncture() {
             },
           },
         }}
+        audio={fenceOgg}
         hide={-1}
       />
 

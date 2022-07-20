@@ -10,7 +10,7 @@ import type {
 import {charGroupsForMarkdown, ImageView, MenuView, TextView} from './views'
 
 export interface SayProps
-  extends Pick<CommandProps, 'hide' | 'next' | 'zIndex'>,
+  extends Pick<CommandProps, 'audio' | 'hide' | 'next' | 'zIndex'>,
     Omit<TextViewProps, 'groups' | 'controls'> {
   children: string
   image?: string | Omit<ImageViewProps, 'controls'>
@@ -25,6 +25,7 @@ export function Say({
   image,
   menu,
   durationMs,
+  audio,
   hide,
   next,
   zIndex,
@@ -48,6 +49,7 @@ export function Say({
           ? ['skippable_static']
           : ['skippable_timed', {durationMs: durationMs ?? 4000 + length * 25}]
       }
+      audio={audio}
       hide={hide}
       next={next}
       zIndex={zIndex}>

@@ -1,7 +1,13 @@
 import {useMeasure} from '@react-hookz/web'
 import {motion, useAnimation} from 'framer-motion'
 import React from 'react'
-import {bgIntroJpg, logoPng} from '~/assets/game'
+import {
+  bgIntroJpg,
+  calmLoopOgg,
+  generalThemeOgg,
+  introOgg,
+  logoPng,
+} from '~/assets/game'
 import {
   Branch,
   Command,
@@ -112,6 +118,7 @@ function IntroScene() {
       <Command
         name="IntroScene"
         behavior={['skippable_timed', {durationMs: 0}]}
+        audio={{uri: generalThemeOgg, loop: true}}
         hide={-1}>
         {() => null}
       </Command>

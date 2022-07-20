@@ -7,8 +7,9 @@ import toast from 'react-hot-toast'
 import {uniqBy} from 'remeda'
 import {ClientOnly} from 'remix-utils'
 import * as assets from '~/assets/game'
+import {clickOgg} from '~/assets/game'
 import {Dialog} from '~/lib/components'
-import {Game, prepareBranches} from '~/lib/game-engine'
+import {delay, Game, prepareBranches} from '~/lib/game-engine'
 import * as _branches from './branches'
 
 const branches = prepareBranches(_branches)
@@ -32,6 +33,19 @@ export default function MyGame() {
             onLinkClick={(href, name, event) => {
               event.preventDefault()
               setActiveLink({href, name})
+            }}
+            onPlaySound={(name) => {
+              switch (name) {
+                case 'click':
+                  playAudio(clickOgg)
+                  break
+                case 'skip':
+                  playZzfxSound('skip')
+                  break
+                case 'not_allowed':
+                  playZzfxSound('not_allowed')
+                  break
+              }
             }}
           />
         )}
@@ -96,4 +110,34 @@ function LinkPrompt({link, onClose}: LinkPromptProps) {
       )}
     </AnimatePresence>
   )
+}
+
+// MARK: Sounds
+
+const ZZFX_SOUNDS = {
+  /* eslint-disable no-sparse-arrays */
+  skip: [, , 150, 0.05, , 0.05, , 1.3, , , , , , 3],
+  not_allowed: [1.5, 0.5, 270, , 0.1, , 1, 1.5, , , , , , , , 0.1, 0.01],
+  /* eslint-enable no-sparse-arrays */
+}
+
+export async function playZzfxSound(name: keyof typeof ZZFX_SOUNDS) {
+  const {zzfx} = await import('zzfx')
+  return new Promise<void>((resolve) => {
+    const sound = ZZFX_SOUNDS[name]
+    if (sound) {
+      const audio = zzfx(...sound)
+      audio.onended = async () => {
+        await delay(500)
+        resolve()
+      }
+    } else {
+      resolve()
+    }
+  })
+}
+
+export async function playAudio(src: string) {
+  const el = new Audio(src)
+  el.play()
 }

@@ -1,9 +1,17 @@
-import {archkot5Png, bgMapGif, fencePng} from '~/assets/game'
-import {Branch, Say, Scene, Show} from '~/lib/game-engine'
+import {
+  archkot5Png,
+  bgMapGif,
+  fenceOgg,
+  fencePng,
+  heartbeatOgg,
+} from '~/assets/game'
+import {Branch, Play, Say, Scene, Show} from '~/lib/game-engine'
 
 export function BranchArchkot_0Juncture() {
   return (
     <Branch>
+      <Play audio={{uri: heartbeatOgg, loop: true}} hide={2} />
+
       <Scene src={bgMapGif} />
 
       <Say>Забор в этом городе появился новый</Say>
@@ -25,6 +33,7 @@ export function BranchArchkot_0Juncture() {
             },
           },
         }}
+        audio={fenceOgg}
         hide={-1}
       />
 

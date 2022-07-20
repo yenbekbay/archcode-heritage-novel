@@ -5,6 +5,7 @@ import {
   bgDeveloperHqInsideJpg,
   bgDeveloperHqOutsideJpg,
   bgZheltoksanBeforeJpg,
+  chatterOgg,
   developerRepAPng,
   developerRepB10Png,
   developerRepB1Png,
@@ -59,7 +60,9 @@ export function BranchDeveloper_ProjZheltoksan_Demolish_IgnoreRisks_Approved() {
 
       <Scene src={bgZheltoksanBeforeJpg} />
 
-      <Say image={{uri: angryCrowd1Png, align: 'bottom'}}>
+      <Say
+        image={{uri: angryCrowd1Png, align: 'bottom'}}
+        audio={{uri: chatterOgg, loop: true}}>
         Общественность возмущена
       </Say>
 

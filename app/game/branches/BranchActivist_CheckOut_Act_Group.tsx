@@ -1,6 +1,7 @@
 import {
   activistAPng,
   activistBPng,
+  alertsOgg,
   bgAptEntranceJpg,
   bgAptKitchenJpg,
   bgAptOutsideWindowJpg,
@@ -65,7 +66,7 @@ export function BranchActivist_CheckOut_Act_Group() {
         —Ты представляешь, что происходит ??
       </Say>
 
-      <Say image={{uri: redhead16Png, align: 'bottom'}}>
+      <Say image={{uri: redhead16Png, align: 'bottom'}} audio={alertsOgg}>
         {'*pop up\n\nзвуки уведомлений'}
       </Say>
 

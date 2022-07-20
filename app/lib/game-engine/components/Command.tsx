@@ -1,4 +1,4 @@
-import {useIsMounted, useSyncedRef} from '@react-hookz/web'
+import {useIsMounted, useSyncedRef, useUnmountEffect} from '@react-hookz/web'
 import type {AnimationControls, Variant} from 'framer-motion'
 import {AnimatePresence, motion, useAnimation, usePresence} from 'framer-motion'
 import React from 'react'
@@ -18,10 +18,16 @@ export type CommandViewAnimation = {
   exit: Variant
 }
 
+export interface CommandAudioOptions {
+  uri: string
+  loop?: boolean
+}
+
 export interface CommandProps {
   name: string
   children: (controls: AnimationControls) => React.ReactNode
   behavior?: StatementBehavior
+  audio?: string | CommandAudioOptions
   hide?: number | ((statement: Statement) => boolean)
   next?: number | string
   zIndex?: number | 'auto'
@@ -31,12 +37,12 @@ export function Command({
   name: command,
   children,
   behavior = ['skippable_static'],
+  audio,
   hide = 0,
   next = 1,
   zIndex = 'auto',
 }: CommandProps) {
-  const ctx = useStatementContext()
-  const {visible} = ctx
+  const {visible} = useStatementContext()
 
   const viewRef = React.useRef<CommandViewInstance>(null)
   useRegisterStatement(
@@ -53,6 +59,39 @@ export function Command({
       [behavior, command, hide, next],
     ),
   )
+
+  const audioEl = React.useMemo(
+    () => {
+      if (!audio) {
+        return null
+      }
+
+      const ret = new Audio(typeof audio === 'string' ? audio : audio.uri)
+      if (typeof audio === 'object') {
+        ret.loop = audio.loop ?? false
+      }
+      return ret
+    },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [],
+  )
+  React.useEffect(
+    () => {
+      if (audioEl) {
+        if (visible) {
+          audioEl.currentTime = 0
+          audioEl.play()
+        } else {
+          audioEl.pause()
+        }
+      }
+    },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [visible],
+  )
+  useUnmountEffect(() => {
+    audioEl?.pause()
+  })
 
   return (
     <AnimatePresence>

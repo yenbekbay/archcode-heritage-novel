@@ -3,6 +3,7 @@ import {
   botBuilderPng,
   developerRepAPng,
   developerRepB9Png,
+  hologramOgg,
 } from '~/assets/game'
 import {Branch, Say, Scene} from '~/lib/game-engine'
 
@@ -18,7 +19,8 @@ export function BranchDeveloper_ProjAirport_Demolish() {
 
       <Say
         tag={{text: 'Бот-билдер:', color: '#53C7D5'}}
-        image={{uri: botBuilderPng, align: 'bottom'}}>
+        image={{uri: botBuilderPng, align: 'bottom'}}
+        audio={hologramOgg}>
         —Но это же памятник
       </Say>
 
@@ -34,7 +36,8 @@ export function BranchDeveloper_ProjAirport_Demolish() {
 
       <Say
         tag={{text: 'Бот-билдер:', color: '#53C7D5'}}
-        image={{uri: botBuilderPng, align: 'bottom'}}>
+        image={{uri: botBuilderPng, align: 'bottom'}}
+        audio={hologramOgg}>
         {
           '—Перенос памятника возможен, но при повреждении 70% здания, к тому же это чрезвычайно дорогое решение…-Кроме того, общественность скорее всего рада не будет…\n\n[Ссылка*15](#)'
         }

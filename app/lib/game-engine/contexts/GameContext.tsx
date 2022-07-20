@@ -8,13 +8,17 @@ import {
   parseGameLocation,
 } from './internal'
 
+export type SoundName = 'click' | 'skip' | 'not_allowed'
+
 export interface GameOptions {
   onGoHome?: () => void
   onLinkClick?: (href: string, name: string, event: React.MouseEvent) => void
+  onPlaySound?: (name: SoundName) => void
 }
 
 export interface GameContextValue {
   options: GameOptions
+  audioContext: AudioContext
   focusedLocation: GameLocation
   paused: boolean
   setPaused: React.Dispatch<React.SetStateAction<boolean>>
@@ -31,6 +35,7 @@ export interface GameProviderProps {
   initialBranchId: BranchId
   onGoHome?: () => void
   onLinkClick?: (href: string, name: string, event: React.MouseEvent) => void
+  onPlaySound?: (name: SoundName) => void
 }
 
 export function GameProvider({
@@ -38,6 +43,7 @@ export function GameProvider({
   initialBranchId,
   onGoHome,
   onLinkClick,
+  onPlaySound,
 }: GameProviderProps) {
   const initialLocation: GameLocation = {
     branchId: initialBranchId,
@@ -78,9 +84,11 @@ export function GameProvider({
     }
   }, [storedFocusedLocationId])
 
+  const [audioContext] = React.useState(() => new AudioContext())
   const ctx = React.useMemo(
     (): GameContextValue => ({
-      options: {onGoHome, onLinkClick},
+      options: {onGoHome, onLinkClick, onPlaySound},
+      audioContext,
       focusedLocation,
       paused,
       setPaused,
@@ -106,7 +114,16 @@ export function GameProvider({
       },
       canGoBack: history.canGoBack,
     }),
-    [focusedLocation, history, onGoHome, onLinkClick, paused, setPaused],
+    [
+      audioContext,
+      focusedLocation,
+      history,
+      onGoHome,
+      onLinkClick,
+      onPlaySound,
+      paused,
+      setPaused,
+    ],
   )
 
   return <GameContext.Provider value={ctx}>{children}</GameContext.Provider>

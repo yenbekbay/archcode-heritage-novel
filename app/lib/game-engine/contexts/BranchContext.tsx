@@ -3,7 +3,6 @@ import clsx from 'clsx'
 import React from 'react'
 import {useLongPress} from 'use-long-press'
 import {useStableCallback} from '~/lib/hooks'
-import {playSound} from '../sounds'
 import {useGameContext} from './GameContext'
 
 export type StatementBehavior =
@@ -42,7 +41,8 @@ export interface BranchProviderProps {
 }
 
 export function BranchProvider({branchId, children}: BranchProviderProps) {
-  const {focusedLocation, goToLocation, goBack, canGoBack} = useGameContext()
+  const {options, focusedLocation, goToLocation, goBack, canGoBack} =
+    useGameContext()
   const focusedStatementIndex =
     focusedLocation.branchId === branchId ? focusedLocation.statementIndex : 0
 
@@ -152,7 +152,7 @@ export function BranchProvider({branchId, children}: BranchProviderProps) {
 
         const command = statementByIndex.get(focusedStatementIndex)
         if (command?.behavior[0].startsWith('skippable')) {
-          playSound('skip')
+          options.onPlaySound?.('skip')
           skip()
         }
       }}
@@ -167,11 +167,11 @@ export function BranchProvider({branchId, children}: BranchProviderProps) {
         onClick={(event) => {
           event.stopPropagation()
           if (!canGoBack()) {
-            playSound('error')
+            options.onPlaySound?.('not_allowed')
             return
           }
 
-          playSound('skip')
+          options.onPlaySound?.('skip')
           goBack()
         }}
       />

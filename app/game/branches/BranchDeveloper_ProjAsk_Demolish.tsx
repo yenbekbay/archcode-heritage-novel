@@ -3,6 +3,7 @@ import {
   botBuilderPng,
   developerRepAPng,
   developerRepB9Png,
+  hologramOgg,
 } from '~/assets/game'
 import {Branch, Say, Scene} from '~/lib/game-engine'
 
@@ -24,7 +25,8 @@ export function BranchDeveloper_ProjAsk_Demolish() {
 
       <Say
         tag={{text: 'Бот-билдер:', color: '#53C7D5'}}
-        image={{uri: botBuilderPng, align: 'bottom'}}>
+        image={{uri: botBuilderPng, align: 'bottom'}}
+        audio={hologramOgg}>
         {'Возможные риски при изменении/сносе АСК:\n\n[Ссылка](#)'}
       </Say>
 

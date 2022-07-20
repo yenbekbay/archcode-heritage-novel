@@ -6,7 +6,7 @@ import {ImageView} from './views'
 export interface ShowSource extends Omit<ImageViewProps, 'controls'> {}
 
 export interface ShowProps
-  extends Pick<CommandProps, 'hide' | 'next' | 'zIndex'> {
+  extends Pick<CommandProps, 'audio' | 'hide' | 'next' | 'zIndex'> {
   src: string | ShowSource | (string | ShowSource)[]
   durationMs?: number
 }
@@ -14,6 +14,7 @@ export interface ShowProps
 export function Show({
   src: srcProp,
   durationMs = 4000,
+  audio,
   hide,
   next,
   zIndex,
@@ -25,6 +26,7 @@ export function Show({
     <Command
       name="Show"
       behavior={['skippable_timed', {durationMs}]}
+      audio={audio}
       hide={hide}
       next={next}
       zIndex={zIndex}>

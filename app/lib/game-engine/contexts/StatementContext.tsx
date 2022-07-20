@@ -5,9 +5,9 @@ import {useBranchContext} from './BranchContext'
 export interface StatementContextValue {
   statementIndex: number
   statementLabel: string | null
-  /** Is this the current statementIndex? */
+  /** Is this the current statement? */
   focused: boolean
-  /** Is this statementIndex still shown but not necessarily focused? */
+  /** Is this statement still shown but not necessarily focused? */
   visible: boolean
 }
 

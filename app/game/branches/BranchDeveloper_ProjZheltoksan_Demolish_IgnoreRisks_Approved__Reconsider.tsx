@@ -5,6 +5,7 @@ import {
   bgZheltoksanBeforeJpg,
   botBuilderPng,
   developerRepB9Png,
+  hologramOgg,
 } from '~/assets/game'
 import {Branch, Menu, Say, Scene, Title} from '~/lib/game-engine'
 
@@ -30,7 +31,8 @@ export function BranchDeveloper_ProjZheltoksan_Demolish_IgnoreRisks_Approved__Re
 
       <Say
         tag={{text: 'Бот-билдер:', color: '#53C7D5'}}
-        image={{uri: botBuilderPng, align: 'bottom'}}>
+        image={{uri: botBuilderPng, align: 'bottom'}}
+        audio={hologramOgg}>
         {
           'Нужно подходить к вопросу грамотно. Что такое реставрация?\n\n[Ссылка*15](#)'
         }

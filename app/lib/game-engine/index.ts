@@ -2,6 +2,5 @@
 export * from './commands/index'
 export * from './components/index'
 export * from './contexts/index'
-export * from './sounds'
 export * from './utils'
 // codegen:end

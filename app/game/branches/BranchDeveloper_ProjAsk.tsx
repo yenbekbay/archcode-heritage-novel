@@ -6,8 +6,10 @@ import {
   bgDeveloperHqOutsideJpg,
   bgPhoneHandJpg,
   botBuilderPng,
+  chatterOgg,
   developerRepAPng,
   developerRepB9Png,
+  hologramOgg,
 } from '~/assets/game'
 import {Branch, Say, Scene} from '~/lib/game-engine'
 
@@ -43,7 +45,9 @@ export function BranchDeveloper_ProjAsk() {
 
       <Scene src={bgAskBeforeJpg} />
 
-      <Say image={{uri: angryCrowd1Png, align: 'bottom'}}>
+      <Say
+        image={{uri: angryCrowd1Png, align: 'bottom'}}
+        audio={{uri: chatterOgg, loop: true}}>
         Общественность возмущена
       </Say>
 
@@ -64,7 +68,8 @@ export function BranchDeveloper_ProjAsk() {
 
       <Say
         tag={{text: 'Бот-билдер:', color: '#53C7D5'}}
-        image={{uri: botBuilderPng, align: 'bottom'}}>
+        image={{uri: botBuilderPng, align: 'bottom'}}
+        audio={hologramOgg}>
         {
           'Ознакомьтесь со списком\n\n[Ссылка ГОСУДАРСТВЕННЫЙ РЕЕСТР ПАМЯТНИКОВ](#)'
         }
@@ -73,6 +78,7 @@ export function BranchDeveloper_ProjAsk() {
       <Say
         tag={{text: 'Бот-билдер:', color: '#53C7D5'}}
         image={{uri: botBuilderPng, align: 'bottom'}}
+        audio={hologramOgg}
         menu={[
           {
             label: 'Да',
@@ -94,14 +100,16 @@ export function BranchDeveloper_ProjAsk() {
 
       <Say
         tag={{text: 'Бот-билдер:', color: '#53C7D5'}}
-        image={{uri: botBuilderPng, align: 'bottom'}}>
+        image={{uri: botBuilderPng, align: 'bottom'}}
+        audio={hologramOgg}>
         Аким Байбек подал заявку на внесение ряда зданий Алматы в число
         памятников историко- культурного наследия местного значения
       </Say>
 
       <Say
         tag={{text: 'Бот-билдер:', color: '#53C7D5'}}
-        image={{uri: botBuilderPng, align: 'bottom'}}>
+        image={{uri: botBuilderPng, align: 'bottom'}}
+        audio={hologramOgg}>
         {
           'На АСК распространяются те же правила, что и на действующие памятники\n\n[Ссылка *2 на список Байбека](#)'
         }

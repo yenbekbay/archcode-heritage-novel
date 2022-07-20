@@ -2,6 +2,7 @@ import {
   angryCrowd1Png,
   bgCityHallMayorOfficeJpg,
   bgZheltoksanBeforeJpg,
+  chatterOgg,
   letterPng,
   mayor4Png,
   stampApprovedPng,
@@ -42,7 +43,9 @@ export function BranchCityHall_ProjZheltoksan_Approve() {
 
       <Scene src={bgZheltoksanBeforeJpg} />
 
-      <Say image={{uri: angryCrowd1Png, align: 'bottom'}}>
+      <Say
+        image={{uri: angryCrowd1Png, align: 'bottom'}}
+        audio={{uri: chatterOgg, loop: true}}>
         Общественность возмущена
       </Say>
 

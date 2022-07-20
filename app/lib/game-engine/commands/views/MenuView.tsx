@@ -7,7 +7,6 @@ import type {
   CommandViewColorScheme,
 } from '../../components'
 import {useBranchContext, useGameContext} from '../../contexts'
-import {playSound} from '../../sounds'
 import type {Frame} from './frame'
 import {styleForFrame} from './frame'
 
@@ -44,7 +43,7 @@ export function MenuView({
   scheme,
   controls,
 }: MenuViewProps) {
-  const {goToBranch, goToLocation} = useGameContext()
+  const {options, goToBranch, goToLocation} = useGameContext()
   const {containerRect, goToStatement, skip} = useBranchContext()
   const ctx = React.useMemo(
     (): MenuContext => ({
@@ -106,7 +105,7 @@ export function MenuView({
                 tabIndex={-1}
                 onClick={(event) => {
                   event.stopPropagation()
-                  playSound('click')
+                  options.onPlaySound?.('click')
                   c.onClick(ctx)
                 }}
               />
@@ -123,7 +122,7 @@ export function MenuView({
                 style={{animationDelay: `calc(0.05 * ${idx}s)`}}
                 onClick={(event) => {
                   event.stopPropagation()
-                  playSound('click')
+                  options.onPlaySound?.('click')
                   c.onClick(ctx)
                 }}>
                 {c.label}

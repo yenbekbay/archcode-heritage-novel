@@ -11,6 +11,7 @@ import {
   X as XIcon,
 } from 'phosphor-react'
 import React from 'react'
+import type {SoundName} from '../contexts'
 import {BranchProvider, GameProvider, useGameContext} from '../contexts'
 import {MobileDeviceChrome, WithAssets} from './internal'
 
@@ -20,6 +21,7 @@ export interface GameProps {
   initialBranchId: BranchId
   onGoHome?: () => void
   onLinkClick?: (href: string, name: string, event: React.MouseEvent) => void
+  onPlaySound?: (name: SoundName) => void
 }
 
 export function Game({
@@ -28,12 +30,14 @@ export function Game({
   initialBranchId,
   onGoHome,
   onLinkClick,
+  onPlaySound,
 }: GameProps) {
   return (
     <GameProvider
       initialBranchId={initialBranchId}
       onGoHome={onGoHome}
-      onLinkClick={onLinkClick}>
+      onLinkClick={onLinkClick}
+      onPlaySound={onPlaySound}>
       <GameView
         assets={assets}
         branches={branches}

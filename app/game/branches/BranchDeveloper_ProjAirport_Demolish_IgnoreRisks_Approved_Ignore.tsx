@@ -4,6 +4,7 @@ import {
   bgPhoneHandJpg,
   botBuilderPng,
   developerRepB11Png,
+  hologramOgg,
 } from '~/assets/game'
 import {Branch, Menu, Say, Scene, Title} from '~/lib/game-engine'
 
@@ -42,7 +43,8 @@ export function BranchDeveloper_ProjAirport_Demolish_IgnoreRisks_Approved_Ignore
 
       <Say
         tag={{text: 'Бот-билдер:', color: '#53C7D5'}}
-        image={{uri: botBuilderPng, align: 'bottom'}}>
+        image={{uri: botBuilderPng, align: 'bottom'}}
+        audio={hologramOgg}>
         {
           'В результате слушаний была собрана рабочая группа по мониторингу проекта от общественности\n\n[Ссылка](#)'
         }

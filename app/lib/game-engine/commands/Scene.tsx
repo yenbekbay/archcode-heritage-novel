@@ -1,4 +1,4 @@
-import type {CommandViewAnimation} from '../components'
+import type {CommandAudioOptions, CommandViewAnimation} from '../components'
 import {Command} from '../components'
 import {ImageView} from './views'
 
@@ -10,10 +10,11 @@ export interface SceneSource {
 
 export interface SceneProps {
   src: string | SceneSource | (string | SceneSource)[]
+  audio?: string | CommandAudioOptions
   durationMs?: number
 }
 
-export function Scene({src: srcProp, durationMs = 4000}: SceneProps) {
+export function Scene({src: srcProp, audio, durationMs = 4000}: SceneProps) {
   const normalizedSrcs = (Array.isArray(srcProp) ? srcProp : [srcProp]).map(
     (src): SceneSource => (typeof src === 'object' ? src : {uri: src}),
   )
@@ -21,6 +22,7 @@ export function Scene({src: srcProp, durationMs = 4000}: SceneProps) {
     <Command
       name="Scene"
       behavior={['skippable_timed', {durationMs}]}
+      audio={audio}
       hide={(s) => s.command === 'Scene'}>
       {(controls) => (
         <>

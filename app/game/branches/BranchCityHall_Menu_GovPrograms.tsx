@@ -11,10 +11,12 @@ import {
   bgCityHallMayorOfficeJpg,
   bgMayorDoorJpg,
   bgMayorDoorwayJpg,
+  chatterOgg,
+  constructionOgg,
   mayor2Png,
   mayor3Png,
 } from '~/assets/game'
-import {Branch, Say, Scene, Show} from '~/lib/game-engine'
+import {Branch, Label, Play, Say, Scene, Show} from '~/lib/game-engine'
 
 export function BranchCityHall_Menu_GovPrograms() {
   return (
@@ -28,6 +30,11 @@ export function BranchCityHall_Menu_GovPrograms() {
       <Scene src={bgBusStop1Jpg} />
       <Scene src={bgBusStop2Jpg} />
 
+      <Play
+        audio={{uri: constructionOgg, loop: true}}
+        hide={(s) => s.label === 'crowd'}
+      />
+
       <Say>Начинается демонтаж…</Say>
 
       <Scene src={bgBusStop3Jpg} />
@@ -38,7 +45,13 @@ export function BranchCityHall_Menu_GovPrograms() {
 
       <Say>Конструкции мощные</Say>
 
-      <Show src={{uri: angryCrowd1Png, align: 'bottom'}} hide={2} />
+      <Label label="crowd">
+        <Show
+          src={{uri: angryCrowd1Png, align: 'bottom'}}
+          audio={{uri: chatterOgg, loop: true}}
+          hide={2}
+        />
+      </Label>
 
       <Say>Общественность возмущена</Say>
 
