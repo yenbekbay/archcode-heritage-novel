@@ -16,6 +16,12 @@ import polaroidNadiraPng from './polaroid-nadira.png'
 import polaroidYaroslavPng from './polaroid-yaroslav.png'
 import polaroidYuliaPng from './polaroid-yulia.png'
 import polaroidZamanbekPng from './polaroid-zamanbek.png'
+import screenshot1Png from './screenshot-1.png'
+import screenshot2Png from './screenshot-2.png'
+import screenshot3Png from './screenshot-3.png'
+import screenshot4Png from './screenshot-4.png'
+import screenshot5Png from './screenshot-5.png'
+import screenshot6Png from './screenshot-6.png'
 import teamPhotoJpg from './team-photo.jpg'
 import telegramBotQrCodePng from './telegram-bot-qr-code.png'
 
@@ -37,6 +43,12 @@ export {
   polaroidYaroslavPng,
   polaroidYuliaPng,
   polaroidZamanbekPng,
+  screenshot1Png,
+  screenshot2Png,
+  screenshot3Png,
+  screenshot4Png,
+  screenshot5Png,
+  screenshot6Png,
   teamPhotoJpg,
   telegramBotQrCodePng,
 }

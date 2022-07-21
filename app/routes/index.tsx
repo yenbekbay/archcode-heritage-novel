@@ -8,8 +8,9 @@ export default function Home() {
     <main>
       <HeroBackground
         src={bgIntroJpg}
-        // https://www.wolframalpha.com/input?i=fit+linear+%28320%2C+280%29%2C+%281024%2C+2800%29
-        className="bg-[length:100%_auto] bg-[position:center_top_calc(-1*calc(360vw-870px))] bg-no-repeat"
+        // https://www.wolframalpha.com/input?i=fit+linear+%28320%2C+0%29%2C+%28425%2C+540%29
+        // https://www.wolframalpha.com/input?i=fit+linear+%28768%2C+1900%29%2C+%281024%2C+2700%29
+        className="bg-[length:100%_auto] bg-[position:center_top_calc(-1*calc(514vw-1646px))] bg-no-repeat md:bg-[position:center_top_calc(-1*calc(313vw-500px))]"
       />
 
       <div className="flex flex-col">

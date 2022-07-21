@@ -1,6 +1,17 @@
+import {WheelGesturesPlugin} from 'embla-carousel-wheel-gestures'
 import {NavLink} from '@remix-run/react'
+import useEmblaCarousel from 'embla-carousel-react'
 import {bgAskBeforeJpg} from '~/assets/game'
-import {phoneScreenshotPng, phoneSwirlPng} from '~/assets/www'
+import {
+  phoneScreenshotPng,
+  phoneSwirlPng,
+  screenshot1Png,
+  screenshot2Png,
+  screenshot3Png,
+  screenshot4Png,
+  screenshot5Png,
+  screenshot6Png,
+} from '~/assets/www'
 import {Card, FenceSection, Hero, HeroBackground} from '~/components'
 
 export default function AboutNovel() {
@@ -53,6 +64,8 @@ export default function AboutNovel() {
             </p>
           </Card>
 
+          <ScreenshotCarousel />
+
           <div className="grid grid-flow-row gap-8 lg:grid-flow-col">
             <img className="relative w-[30rem]" src={phoneScreenshotPng} />
 
@@ -91,5 +104,32 @@ export default function AboutNovel() {
         </div>
       </FenceSection>
     </main>
+  )
+}
+
+function ScreenshotCarousel() {
+  const [viewportRef] = useEmblaCarousel(
+    {align: 'start', loop: false, skipSnaps: true},
+    [WheelGesturesPlugin()],
+  )
+  return (
+    <div className="ScreenshotCarousel overflow-hidden" ref={viewportRef}>
+      <div className="flex">
+        {[
+          screenshot1Png,
+          screenshot2Png,
+          screenshot3Png,
+          screenshot4Png,
+          screenshot5Png,
+          screenshot6Png,
+        ].map((src) => (
+          <div
+            className="relative w-[80%] flex-[0_0_auto] md:w-[40%] lg:w-[18%]"
+            key={src}>
+            <img src={src} />
+          </div>
+        ))}
+      </div>
+    </div>
   )
 }

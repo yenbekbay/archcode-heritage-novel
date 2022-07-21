@@ -134,6 +134,20 @@
     background-color: rgba(0, 0, 0, 0.5);
     box-shadow: 0 2px rgba(0, 0, 0, 0.35);
   }
+
+  .ScreenshotCarousel.is-draggable {
+    cursor: move;
+    cursor: grab;
+  }
+
+  .ScreenshotCarousel.is-dragging {
+    cursor: grabbing;
+  }
+
+  .ScreenshotCarousel.is-wheel-dragging {
+    cursor: move;
+    cursor: grab;
+  }
 }
 
 @layer utilities {
