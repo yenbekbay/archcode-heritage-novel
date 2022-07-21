@@ -4,6 +4,7 @@ import {
   bgAskBeforeFenceGif,
   bgDeveloperHqInsideJpg,
   bgDeveloperHqOutsideJpg,
+  bgSolidJpg,
   botBuilderPng,
   developerRepAPng,
   developerRepB10Png,
@@ -119,10 +120,15 @@ export function BranchDeveloper_ProjAsk_Preserve() {
         результат — деликатная реставрация объекта
       </Say>
 
+      <Scene src={bgSolidJpg} />
+
+      <Say durationMs={8000}>
+        {'В память об архитекторе Александре Коржемпо\n1934-2022'}
+      </Say>
+
       <Title hide={-1}>Конец игры</Title>
 
       <Menu
-        scheme="dark"
         choices={[
           {
             label: 'Начать заново',

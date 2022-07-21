@@ -5,6 +5,7 @@ import {
   bgAskAfterAltJpg,
   bgDeveloperHqInsideJpg,
   bgDeveloperHqOutsideJpg,
+  bgSolidJpg,
   developerRepB1Png,
   developerRepB2Png,
   developerRepB3Png,
@@ -130,10 +131,15 @@ export function BranchArchkot_ProjAsk_CheckOut_AssembleTeam_Debate() {
         }
       </Say>
 
+      <Scene src={bgSolidJpg} />
+
+      <Say durationMs={8000}>
+        {'В память об архитекторе Александре Коржемпо\n1934-2022'}
+      </Say>
+
       <Title hide={-1}>Конец игры</Title>
 
       <Menu
-        scheme="dark"
         choices={[
           {
             label: 'Начать заново',

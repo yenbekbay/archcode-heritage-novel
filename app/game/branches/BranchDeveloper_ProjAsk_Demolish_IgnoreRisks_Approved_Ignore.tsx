@@ -3,6 +3,7 @@ import {
   bgAskAfterJpg,
   bgAskBeforeFenceGif,
   bgDeveloperHqInsideJpg,
+  bgSolidJpg,
 } from '~/assets/game'
 import {Branch, Menu, Say, Scene, Title} from '~/lib/game-engine'
 
@@ -28,10 +29,15 @@ export function BranchDeveloper_ProjAsk_Demolish_IgnoreRisks_Approved_Ignore() {
         общественностью
       </Say>
 
+      <Scene src={bgSolidJpg} />
+
+      <Say durationMs={8000}>
+        {'В память об архитекторе Александре Коржемпо\n1934-2022'}
+      </Say>
+
       <Title hide={-1}>Конец игры</Title>
 
       <Menu
-        scheme="dark"
         choices={[
           {
             label: 'Начать заново',

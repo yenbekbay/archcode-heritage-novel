@@ -5,6 +5,7 @@ import {
   bgAskBeforeJpg,
   bgPhoneFingerJpg,
   bgPhoneHandJpg,
+  bgSolidJpg,
 } from '~/assets/game'
 import {Branch, Label, Menu, Say, Scene, Title} from '~/lib/game-engine'
 import {SubmitMeme, SubmitPost} from '../commands'
@@ -116,10 +117,15 @@ export function BranchArchkot_ProjAsk_CheckOut_SocialMedia() {
         историко-культурному наследию
       </Say>
 
+      <Scene src={bgSolidJpg} />
+
+      <Say durationMs={8000}>
+        {'В память об архитекторе Александре Коржемпо\n1934-2022'}
+      </Say>
+
       <Title hide={-1}>Конец игры</Title>
 
       <Menu
-        scheme="dark"
         choices={[
           {
             label: 'Начать заново',
