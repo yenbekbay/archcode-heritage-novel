@@ -6,7 +6,7 @@ import {
   List as ListIcon,
 } from 'phosphor-react'
 import React from 'react'
-import {gameLogoPng} from '~/assets/www'
+import {logoGamePng} from '~/assets/www'
 
 type Link = {label: string; icon?: React.ComponentType<IconProps>} & (
   | {
@@ -51,7 +51,7 @@ export function Header() {
           <NavLink className="flex-shrink-0" to="/">
             <img
               className="h-32"
-              src={gameLogoPng}
+              src={logoGamePng}
               alt="Логотип «Снести нельзя оставить»"
             />
           </NavLink>
