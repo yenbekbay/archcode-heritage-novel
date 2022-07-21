@@ -95,7 +95,10 @@ export function Footer() {
               />
             </a>
 
-            <a href="https://soros.kz">
+            <a
+              href="https://soros.kz"
+              target="_blank"
+              rel="noopener noreferrer">
               <img
                 className="h-[3rem] bg-white"
                 src={logoSorosPng}

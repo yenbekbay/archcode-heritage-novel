@@ -55,7 +55,10 @@ export function GameOverMenu() {
               />
             </a>
 
-            <a href="https://soros.kz">
+            <a
+              href="https://soros.kz"
+              target="_blank"
+              rel="noopener noreferrer">
               <img
                 className="max-h-[4rem]"
                 src={logoSorosPng}
