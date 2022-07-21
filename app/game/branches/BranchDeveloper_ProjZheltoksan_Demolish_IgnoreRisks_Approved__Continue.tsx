@@ -1,5 +1,6 @@
 import {bgZheltoksanAfterJpg, bgZheltoksanBeforeFenceGif} from '~/assets/game'
-import {Branch, Menu, Say, Scene, Title} from '~/lib/game-engine'
+import {Branch, Say, Scene} from '~/lib/game-engine'
+import {GameOverMenu, GameOverTitle} from '../commands'
 
 export function BranchDeveloper_ProjZheltoksan_Demolish_IgnoreRisks_Approved__Continue() {
   return (
@@ -16,17 +17,8 @@ export function BranchDeveloper_ProjZheltoksan_Demolish_IgnoreRisks_Approved__Co
         ещё долго пустуют. Понизился уровень доверия общественности к Вам
       </Say>
 
-      <Title hide={-1}>Конец игры</Title>
-
-      <Menu
-        scheme="dark"
-        choices={[
-          {
-            label: 'Начать заново',
-            onClick: (ctx) => ctx.goToBranch('Intro'),
-          },
-        ]}
-      />
+      <GameOverTitle />
+      <GameOverMenu />
     </Branch>
   )
 }

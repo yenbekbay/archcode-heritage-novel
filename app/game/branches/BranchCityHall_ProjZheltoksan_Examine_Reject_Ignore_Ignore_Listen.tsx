@@ -1,5 +1,6 @@
 import {bgZheltoksanBeforeJpg} from '~/assets/game'
-import {Branch, Menu, Say, Scene, Title} from '~/lib/game-engine'
+import {Branch, Say, Scene} from '~/lib/game-engine'
+import {GameOverMenu, GameOverTitle} from '../commands'
 
 export function BranchCityHall_ProjZheltoksan_Examine_Reject_Ignore_Ignore_Listen() {
   return (
@@ -11,17 +12,8 @@ export function BranchCityHall_ProjZheltoksan_Examine_Reject_Ignore_Ignore_Liste
         здания в список памятников, оно может стать активом
       </Say>
 
-      <Title hide={-1}>Конец игры</Title>
-
-      <Menu
-        scheme="dark"
-        choices={[
-          {
-            label: 'Начать заново',
-            onClick: (ctx) => ctx.goToBranch('Intro'),
-          },
-        ]}
-      />
+      <GameOverTitle />
+      <GameOverMenu />
     </Branch>
   )
 }

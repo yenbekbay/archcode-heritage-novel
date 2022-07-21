@@ -6,8 +6,8 @@ import {
   bgPhoneFingerJpg,
   bgPhoneHandJpg,
 } from '~/assets/game'
-import {Branch, Label, Menu, Say, Scene, Title} from '~/lib/game-engine'
-import {SubmitMeme, SubmitPost} from '../commands'
+import {Branch, Label, Say, Scene} from '~/lib/game-engine'
+import {GameOverMenu, GameOverTitle, SubmitMeme, SubmitPost} from '../commands'
 
 export function BranchArchkot_ProjAirport_CheckOut_SocialMedia() {
   return (
@@ -116,17 +116,8 @@ export function BranchArchkot_ProjAirport_CheckOut_SocialMedia() {
         историко-культурному наследию
       </Say>
 
-      <Title hide={-1}>Конец игры</Title>
-
-      <Menu
-        scheme="dark"
-        choices={[
-          {
-            label: 'Начать заново',
-            onClick: (ctx) => ctx.goToBranch('Intro'),
-          },
-        ]}
-      />
+      <GameOverTitle />
+      <GameOverMenu />
     </Branch>
   )
 }

@@ -3,7 +3,8 @@ import {
   bgZheltoksanBeforeFenceGif,
   bgZheltoksanBeforeJpg,
 } from '~/assets/game'
-import {Branch, Menu, Say, Scene, Title} from '~/lib/game-engine'
+import {Branch, Say, Scene} from '~/lib/game-engine'
+import {GameOverMenu, GameOverTitle} from '../commands'
 
 export function BranchCityHall_ProjZheltoksan_Examine_Reject_Ignore_Ignore_Ignore() {
   return (
@@ -20,17 +21,8 @@ export function BranchCityHall_ProjZheltoksan_Examine_Reject_Ignore_Ignore_Ignor
         ещё долго пустуют. Понизился уровень доверия общественности к Вам
       </Say>
 
-      <Title hide={-1}>Конец игры</Title>
-
-      <Menu
-        scheme="dark"
-        choices={[
-          {
-            label: 'Начать заново',
-            onClick: (ctx) => ctx.goToBranch('Intro'),
-          },
-        ]}
-      />
+      <GameOverTitle />
+      <GameOverMenu />
     </Branch>
   )
 }

@@ -4,7 +4,8 @@ import {
   bgBusStop4Jpg,
   bgBusStop6Jpg,
 } from '~/assets/game'
-import {Branch, Menu, Say, Scene, Title} from '~/lib/game-engine'
+import {Branch, Say, Scene} from '~/lib/game-engine'
+import {GameOverMenu, GameOverTitle} from '../commands'
 
 export function BranchArchkot_ProjBusStop_CheckOut_AssembleTeam_Bail() {
   return (
@@ -28,17 +29,8 @@ export function BranchArchkot_ProjBusStop_CheckOut_AssembleTeam_Bail() {
         {'—А могло бы быть вот так:\n\n[Ссылка на зарубежные примеры](#)'}
       </Say>
 
-      <Title hide={-1}>Конец игры</Title>
-
-      <Menu
-        scheme="dark"
-        choices={[
-          {
-            label: 'Начать заново',
-            onClick: (ctx) => ctx.goToBranch('Intro'),
-          },
-        ]}
-      />
+      <GameOverTitle />
+      <GameOverMenu />
     </Branch>
   )
 }

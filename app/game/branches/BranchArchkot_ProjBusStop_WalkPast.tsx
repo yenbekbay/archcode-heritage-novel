@@ -7,7 +7,8 @@ import {
   bgBusStop6Jpg,
   fencePng,
 } from '~/assets/game'
-import {Branch, Menu, Say, Scene, Show, Title} from '~/lib/game-engine'
+import {Branch, Say, Scene, Show} from '~/lib/game-engine'
+import {GameOverMenu, GameOverTitle} from '../commands'
 
 export function BranchArchkot_ProjBusStop_WalkPast() {
   return (
@@ -60,17 +61,8 @@ export function BranchArchkot_ProjBusStop_WalkPast() {
         {'—А могло бы быть вот так:\n\n[Ссылка на зарубежные примеры](#)'}
       </Say>
 
-      <Title hide={-1}>Конец игры</Title>
-
-      <Menu
-        scheme="dark"
-        choices={[
-          {
-            label: 'Начать заново',
-            onClick: (ctx) => ctx.goToBranch('Intro'),
-          },
-        ]}
-      />
+      <GameOverTitle />
+      <GameOverMenu />
     </Branch>
   )
 }

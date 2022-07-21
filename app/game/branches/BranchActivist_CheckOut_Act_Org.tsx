@@ -5,7 +5,8 @@ import {
   bgPhoneHandJpg,
   redhead19Png,
 } from '~/assets/game'
-import {Branch, Menu, Say, Scene, Title} from '~/lib/game-engine'
+import {Branch, Say, Scene} from '~/lib/game-engine'
+import {GameOverMenu, GameOverTitle} from '../commands'
 
 export function BranchActivist_CheckOut_Act_Org() {
   return (
@@ -60,17 +61,8 @@ export function BranchActivist_CheckOut_Act_Org() {
         [Позвонить в Архкод](tel://+77071210483)
       </Say>
 
-      <Title hide={-1}>Конец игры</Title>
-
-      <Menu
-        scheme="dark"
-        choices={[
-          {
-            label: 'Начать заново',
-            onClick: (ctx) => ctx.goToBranch('Intro'),
-          },
-        ]}
-      />
+      <GameOverTitle />
+      <GameOverMenu />
     </Branch>
   )
 }

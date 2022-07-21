@@ -3,7 +3,8 @@ import {
   bgCityHallConferenceRoomJpg,
   mayor3Png,
 } from '~/assets/game'
-import {Branch, Menu, Say, Scene, Title} from '~/lib/game-engine'
+import {Branch, Say, Scene} from '~/lib/game-engine'
+import {GameOverMenu, GameOverTitle} from '../commands'
 
 export function BranchCityHall_GovPrograms_Stop_Agree() {
   return (
@@ -23,17 +24,8 @@ export function BranchCityHall_GovPrograms_Stop_Agree() {
 
       <Say>Советские остановки стали достопримечательностью города!</Say>
 
-      <Title hide={-1}>Конец игры</Title>
-
-      <Menu
-        scheme="dark"
-        choices={[
-          {
-            label: 'Начать заново',
-            onClick: (ctx) => ctx.goToBranch('Intro'),
-          },
-        ]}
-      />
+      <GameOverTitle />
+      <GameOverMenu />
     </Branch>
   )
 }

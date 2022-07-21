@@ -1,5 +1,6 @@
 import {bgBusStop1Jpg} from '~/assets/game'
-import {Branch, Menu, Say, Scene, Title} from '~/lib/game-engine'
+import {Branch, Say, Scene} from '~/lib/game-engine'
+import {GameOverMenu, GameOverTitle} from '../commands'
 
 export function BranchArchkot_ProjBusStop_CheckOut_AssembleTeam_StopHalfway() {
   return (
@@ -11,17 +12,8 @@ export function BranchArchkot_ProjBusStop_CheckOut_AssembleTeam_StopHalfway() {
         наследия
       </Say>
 
-      <Title hide={-1}>Конец игры</Title>
-
-      <Menu
-        scheme="dark"
-        choices={[
-          {
-            label: 'Начать заново',
-            onClick: (ctx) => ctx.goToBranch('Intro'),
-          },
-        ]}
-      />
+      <GameOverTitle />
+      <GameOverMenu />
     </Branch>
   )
 }

@@ -4,7 +4,8 @@ import {
   developerRepB6Png,
   mayor3Png,
 } from '~/assets/game'
-import {Branch, Menu, Say, Scene, Title} from '~/lib/game-engine'
+import {Branch, Say, Scene} from '~/lib/game-engine'
+import {GameOverMenu, GameOverTitle} from '../commands'
 
 export function BranchCityHall_ProjAirport_Examine_Reject_Reject() {
   return (
@@ -31,17 +32,8 @@ export function BranchCityHall_ProjAirport_Examine_Reject_Reject() {
         аэропорта; растет интерес туристов
       </Say>
 
-      <Title hide={-1}>Конец игры</Title>
-
-      <Menu
-        scheme="dark"
-        choices={[
-          {
-            label: 'Начать заново',
-            onClick: (ctx) => ctx.goToBranch('Intro'),
-          },
-        ]}
-      />
+      <GameOverTitle />
+      <GameOverMenu />
     </Branch>
   )
 }

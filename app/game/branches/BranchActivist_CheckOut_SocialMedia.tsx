@@ -6,8 +6,8 @@ import {
   redhead5Png,
   redhead7Png,
 } from '~/assets/game'
-import {Branch, Label, Menu, Say, Scene, Title} from '~/lib/game-engine'
-import {SubmitMeme, SubmitPost} from '../commands'
+import {Branch, Label, Menu, Say, Scene} from '~/lib/game-engine'
+import {GameOverMenu, GameOverTitle, SubmitMeme, SubmitPost} from '../commands'
 
 export function BranchActivist_CheckOut_SocialMedia() {
   return (
@@ -113,17 +113,8 @@ export function BranchActivist_CheckOut_SocialMedia() {
         image={{uri: redhead2Png, align: 'bottom'}}
       />
 
-      <Title hide={-1}>Конец игры</Title>
-
-      <Menu
-        scheme="dark"
-        choices={[
-          {
-            label: 'Начать заново',
-            onClick: (ctx) => ctx.goToBranch('Intro'),
-          },
-        ]}
-      />
+      <GameOverTitle />
+      <GameOverMenu />
     </Branch>
   )
 }

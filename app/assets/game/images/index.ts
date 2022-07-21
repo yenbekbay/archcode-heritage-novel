@@ -73,6 +73,8 @@ import bgZheltoksanBeforeFenceGif from './bg-zheltoksan-before-fence.gif'
 import bgZheltoksanBeforeFenceJpg from './bg-zheltoksan-before-fence.jpg'
 import bgZheltoksanBeforeJpg from './bg-zheltoksan-before.jpg'
 import botBuilderPng from './bot-builder.png'
+import calligraphyGameOverPng from './calligraphy-game-over.png'
+import calligraphyLogoPng from './calligraphy-logo.png'
 import developerRepAPng from './developer-rep-a.png'
 import developerRepB1Png from './developer-rep-b-1.png'
 import developerRepB10Png from './developer-rep-b-10.png'
@@ -92,7 +94,6 @@ import fencePng from './fence.png'
 import gorzhempoPng from './gorzhempo.png'
 import journalistPng from './journalist.png'
 import letterPng from './letter.png'
-import logoPng from './logo.png'
 import mayor1Png from './mayor-1.png'
 import mayor10Png from './mayor-10.png'
 import mayor11Png from './mayor-11.png'
@@ -214,6 +215,8 @@ export {
   bgZheltoksanBeforeFenceJpg,
   bgZheltoksanBeforeJpg,
   botBuilderPng,
+  calligraphyGameOverPng,
+  calligraphyLogoPng,
   developerRepAPng,
   developerRepB1Png,
   developerRepB10Png,
@@ -233,7 +236,6 @@ export {
   gorzhempoPng,
   journalistPng,
   letterPng,
-  logoPng,
   mayor1Png,
   mayor10Png,
   mayor11Png,

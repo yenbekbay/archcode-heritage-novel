@@ -4,7 +4,8 @@ import {
   bgAirportJpg,
   fencePng,
 } from '~/assets/game'
-import {Branch, Menu, Say, Scene, Show, Title} from '~/lib/game-engine'
+import {Branch, Say, Scene, Show} from '~/lib/game-engine'
+import {GameOverMenu, GameOverTitle} from '../commands'
 
 export function BranchArchkot_ProjAirport_WalkPast() {
   return (
@@ -45,17 +46,8 @@ export function BranchArchkot_ProjAirport_WalkPast() {
         отношения к историко-культурному наследию
       </Say>
 
-      <Title hide={-1}>Конец игры</Title>
-
-      <Menu
-        scheme="dark"
-        choices={[
-          {
-            label: 'Начать заново',
-            onClick: (ctx) => ctx.goToBranch('Intro'),
-          },
-        ]}
-      />
+      <GameOverTitle />
+      <GameOverMenu />
     </Branch>
   )
 }

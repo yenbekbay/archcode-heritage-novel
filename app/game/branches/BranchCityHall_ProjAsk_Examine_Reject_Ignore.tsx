@@ -6,7 +6,8 @@ import {
   bgDeveloperHqInsideJpg,
   bgSolidJpg,
 } from '~/assets/game'
-import {Branch, Menu, Say, Scene, Title} from '~/lib/game-engine'
+import {Branch, Say, Scene} from '~/lib/game-engine'
+import {GameOverMenu, GameOverTitle} from '../commands'
 
 export function BranchCityHall_ProjAsk_Examine_Reject_Ignore() {
   return (
@@ -46,16 +47,8 @@ export function BranchCityHall_ProjAsk_Examine_Reject_Ignore() {
         {'В память об архитекторе Александре Коржемпо\n1934-2022'}
       </Say>
 
-      <Title hide={-1}>Конец игры</Title>
-
-      <Menu
-        choices={[
-          {
-            label: 'Начать заново',
-            onClick: (ctx) => ctx.goToBranch('Intro'),
-          },
-        ]}
-      />
+      <GameOverTitle />
+      <GameOverMenu />
     </Branch>
   )
 }

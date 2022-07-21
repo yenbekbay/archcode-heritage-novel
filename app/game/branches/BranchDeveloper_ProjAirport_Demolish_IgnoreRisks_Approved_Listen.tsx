@@ -5,7 +5,8 @@ import {
   bgDeveloperHqOutsideJpg,
   developerRepB9Png,
 } from '~/assets/game'
-import {Branch, Menu, Say, Scene, Title} from '~/lib/game-engine'
+import {Branch, Say, Scene} from '~/lib/game-engine'
+import {GameOverMenu, GameOverTitle} from '../commands'
 
 export function BranchDeveloper_ProjAirport_Demolish_IgnoreRisks_Approved_Listen() {
   return (
@@ -32,17 +33,8 @@ export function BranchDeveloper_ProjAirport_Demolish_IgnoreRisks_Approved_Listen
 
       <Say hide={-1}>Продолжение следует…</Say>
 
-      <Title hide={-1}>Конец игры</Title>
-
-      <Menu
-        scheme="dark"
-        choices={[
-          {
-            label: 'Начать заново',
-            onClick: (ctx) => ctx.goToBranch('Intro'),
-          },
-        ]}
-      />
+      <GameOverTitle />
+      <GameOverMenu />
     </Branch>
   )
 }

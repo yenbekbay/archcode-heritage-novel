@@ -1,13 +1,7 @@
 import {useMeasure} from '@react-hookz/web'
 import {motion, useAnimation} from 'framer-motion'
 import React from 'react'
-import {
-  bgIntroJpg,
-  calmLoopOgg,
-  generalThemeOgg,
-  introOgg,
-  logoPng,
-} from '~/assets/game'
+import {bgIntroJpg, calligraphyLogoPng, generalThemeOgg} from '~/assets/game'
 import {
   Branch,
   Command,
@@ -55,7 +49,22 @@ export function BranchIntro() {
 
       <Say>Который теряет свой колорит.</Say>
 
-      <Show src={{uri: logoPng, align: 'top', style: {top: '5rem'}}} hide={1} />
+      <Show
+        src={{
+          uri: calligraphyLogoPng,
+          align: 'top',
+          style: {paddingLeft: '2rem', paddingRight: '2rem', top: '5rem'},
+          animation: {
+            initial: {opacity: 0},
+            entrance: {
+              opacity: 1,
+              transition: {duration: 8},
+            },
+            exit: {},
+          },
+        }}
+        hide={-1}
+      />
 
       <Menu
         label="Выберите персонажа"
