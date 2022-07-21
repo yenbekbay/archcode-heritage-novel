@@ -6,6 +6,7 @@ import {
   polaroidInzhuPng,
   polaroidNadiraPng,
   polaroidYaroslavPng,
+  polaroidYuliaPng,
   polaroidZamanbekPng,
   teamPhotoJpg,
 } from '~/assets/www'
@@ -44,7 +45,7 @@ export default function AboutUs() {
 
               <div>
                 <h2 className="mb-0">Анель Молдахметова</h2>
-                <h3>Креативное продюссирование</h3>
+                <h3 className="text-base">Креативное продюссирование</h3>
                 <p>
                   Для меня это проект, который позволяет мне упаковать и
                   систематизировать колоссальный опыт инициативы Архкод Алматы,
@@ -66,7 +67,7 @@ export default function AboutUs() {
 
               <div>
                 <h2 className="mb-0">Инжу Сыдыкова</h2>
-                <h3>Сценарий, архитектура игры</h3>
+                <h3 className="text-base">Сценарий, архитектура игры</h3>
                 <p>
                   Мой интерес зажигают вопросы о том, что создает любимую сердцу
                   атмосферу нашего города, какая архитектура представляет
@@ -86,7 +87,9 @@ export default function AboutUs() {
 
               <div>
                 <h2 className="mb-0">Надира Жадыраева</h2>
-                <h3>Визуальный нарратив, иллюстрации и дизайн</h3>
+                <h3 className="text-base">
+                  Визуальный нарратив, иллюстрации и дизайн
+                </h3>
                 <p>
                   С Archcode мы уже работали над проектом Koktem Shaqyrady/The
                   Spring is Calling, завершив который почти сразу согласилась на
@@ -108,7 +111,9 @@ export default function AboutUs() {
 
               <div>
                 <h2 className="mb-0">Аружан Шотай</h2>
-                <h3>Визуальный нарратив, иллюстрации и дизайн</h3>
+                <h3 className="text-base">
+                  Визуальный нарратив, иллюстрации и дизайн
+                </h3>
                 <p>
                   Это один из самых уникальных и интересных проектов про наш
                   город, его архитектурное наследие и всех, кому оно
@@ -123,33 +128,11 @@ export default function AboutUs() {
 
           <Card className="self-center">
             <div className="grid grid-flow-row gap-4 lg:grid-flow-col">
-              <img src={polaroidNadiraPng} alt="Фотография Надиры" />
-
-              <div>
-                <h2 className="mb-0">Надира Жадыраева</h2>
-                <h3>Визуальный нарратив, иллюстрации и дизайн</h3>
-                <p>
-                  С Archcode мы уже работали над проектом Koktem Shaqyrady/The
-                  Spring is Calling, завершив который почти сразу согласилась на
-                  новый. Эти проекты уникальны не только результатом, но и
-                  невероятными возможностями в процессе, где участники ничем не
-                  ограничены и могут попробовать себя в любых ролях. :)
-                </p>
-              </div>
-            </div>
-          </Card>
-
-          <Card className="self-center">
-            <div className="grid grid-flow-row gap-4 lg:grid-flow-col">
-              <img
-                className="lg:order-2"
-                src={polaroidYaroslavPng}
-                alt="Фотография Ярослава"
-              />
+              <img src={polaroidYaroslavPng} alt="Фотография Ярослава" />
 
               <div>
                 <h2 className="mb-0">Ярослав Самойлов</h2>
-                <h3>Разработка Телеграм-бота</h3>
+                <h3 className="text-base">Разработка Телеграм-бота</h3>
                 <p>
                   Проект заинтересовал возможностью сделать что-то полезное и
                   важное для родного города и его жителей. Рассказать о его
@@ -163,11 +146,17 @@ export default function AboutUs() {
 
           <Card className="self-center">
             <div className="grid grid-flow-row gap-4 lg:grid-flow-col">
-              <img src={polaroidZamanbekPng} alt="Фотография Заманбека" />
+              <img
+                className="lg:order-2"
+                src={polaroidZamanbekPng}
+                alt="Фотография Заманбека"
+              />
 
               <div>
                 <h2 className="mb-0">Заманбек Мукасали</h2>
-                <h3>Технический продюссер, дизайнер выставки</h3>
+                <h3 className="text-base">
+                  Технический продюссер, дизайнер выставки
+                </h3>
                 <p>
                   Мне нравится, что в этом проекте я делаю то, что люблю — делаю
                   сцены новеллы физически осязаемыми.
@@ -178,15 +167,11 @@ export default function AboutUs() {
 
           <Card className="self-center">
             <div className="grid grid-flow-row gap-4 lg:grid-flow-col">
-              <img
-                className="lg:order-2"
-                src={polaroidYaroslavPng}
-                alt="Фотография Ярослава"
-              />
+              <img src={polaroidYuliaPng} alt="Фотография Юлии" />
 
               <div>
                 <h2 className="mb-0">Юлия Петухова</h2>
-                <h3>Композитор и саунд дизайнер</h3>
+                <h3 className="text-base">Композитор и саунд дизайнер</h3>
                 <p>
                   Моя роль на проекте была в том, чтобы написать музыку и
                   сделать звуковое оформление игры. Эта игра даёт людям

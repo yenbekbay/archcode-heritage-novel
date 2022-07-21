@@ -1,7 +1,7 @@
 import {NavLink} from '@remix-run/react'
 import {bgIntroJpg} from '~/assets/game'
-import {Card, FenceSection, HeroBackground} from '~/components'
-import {Hero} from '~/components/Hero'
+import {Card, FenceSection, Hero, HeroBackground} from '~/components'
+import {Reveal} from '~/lib/components'
 
 export default function Home() {
   return (
@@ -28,17 +28,19 @@ export default function Home() {
           </p>
         </Hero>
 
-        <div className="prose prose-invert -mt-4 self-end px-4 pb-4">
-          <p className="text-xs">
-            *Проект стал возможным благодаря помощи американского народа,
-            оказанной через Агентство США по международному развитию (USAID), и
-            был подготовлен в рамках Центральноазиатской программы MediaCAMP,
-            реализуемой Internews при финансовой поддержке USAID. Archcode
-            Almaty несёт ответственность за его содержание, которое не
-            обязательно отражает позицию USAID или Правительства США, или
-            Internews.
-          </p>
-        </div>
+        <Reveal asChild>
+          <div className="prose prose-invert -mt-4 self-end px-4 pb-4">
+            <p className="text-xs">
+              *Проект стал возможным благодаря помощи американского народа,
+              оказанной через Агентство США по международному развитию (USAID),
+              и был подготовлен в рамках Центральноазиатской программы
+              MediaCAMP, реализуемой Internews при финансовой поддержке USAID.
+              Archcode Almaty несёт ответственность за его содержание, которое
+              не обязательно отражает позицию USAID или Правительства США, или
+              Internews.
+            </p>
+          </div>
+        </Reveal>
       </div>
 
       <FenceSection>
