@@ -31,6 +31,7 @@ export interface MenuViewProps {
   label?: string
   size?: MenuSize
   placement?: MenuPlacement
+  style?: React.CSSProperties
   scheme?: CommandViewColorScheme
   controls: AnimationControls
 }
@@ -40,6 +41,7 @@ export function MenuView({
   label,
   size = 'md',
   placement = 'bottom',
+  style,
   scheme,
   controls,
 }: MenuViewProps) {
@@ -63,7 +65,8 @@ export function MenuView({
           middle: 'justify-center',
           bottom: 'justify-end',
         }[placement],
-      )}>
+      )}
+      style={style}>
       <div className="pointer-events-auto flex flex-col items-center space-y-2">
         {!!label && (
           <motion.span

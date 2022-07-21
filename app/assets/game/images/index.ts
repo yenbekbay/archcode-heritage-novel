@@ -94,6 +94,9 @@ import fencePng from './fence.png'
 import gorzhempoPng from './gorzhempo.png'
 import journalistPng from './journalist.png'
 import letterPng from './letter.png'
+import logoArchcodePng from './logo-archcode.png'
+import logoNonmuseumPng from './logo-nonmuseum.png'
+import logoSorosPng from './logo-soros.png'
 import mayor1Png from './mayor-1.png'
 import mayor10Png from './mayor-10.png'
 import mayor11Png from './mayor-11.png'
@@ -236,6 +239,9 @@ export {
   gorzhempoPng,
   journalistPng,
   letterPng,
+  logoArchcodePng,
+  logoNonmuseumPng,
+  logoSorosPng,
   mayor1Png,
   mayor10Png,
   mayor11Png,
