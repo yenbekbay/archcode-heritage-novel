@@ -7,7 +7,6 @@ import type {Statement, StatementBehavior} from '../contexts'
 import {
   useBranchContext,
   useGameContext,
-  useRegisterStatement,
   useStatementContext,
 } from '../contexts'
 
@@ -43,12 +42,12 @@ export function Command({
   next = 1,
   zIndex = 'auto',
 }: CommandProps) {
-  const {visible} = useStatementContext()
+  const {register, visible} = useStatementContext()
 
   const viewRef = React.useRef<CommandViewInstance>(null)
-  useRegisterStatement(
-    React.useMemo(
-      (): Omit<Statement, 'index' | 'label'> => ({
+  React.useEffect(
+    () =>
+      register({
         command,
         behavior,
         hide,
@@ -57,8 +56,7 @@ export function Command({
         pause: () => viewRef.current?.pause(),
         resume: () => viewRef.current?.resume(),
       }),
-      [behavior, command, hide, next],
-    ),
+    [behavior, command, hide, next, register],
   )
 
   const howl = React.useMemo(

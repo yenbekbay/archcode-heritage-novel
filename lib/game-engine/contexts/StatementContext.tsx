@@ -3,6 +3,7 @@ import type {Statement} from './BranchContext'
 import {useBranchContext} from './BranchContext'
 
 export interface StatementContextValue {
+  register: (statement: Omit<Statement, 'index' | 'label'>) => void
   statementIndex: number
   statementLabel: string | null
   /** Is this the current statement? */
@@ -25,7 +26,19 @@ export function StatementProvider({
   children,
 }: StatementProviderProps) {
   const branchCtx = useBranchContext()
-  const statement = branchCtx.getStatement(statementIndex)
+  const [statement, setStatement] = React.useState<Statement | null>(null)
+  const register = React.useCallback(
+    (_stmt: Omit<Statement, 'index' | 'label'>) => {
+      const stmt = {
+        ..._stmt,
+        index: statementIndex,
+        label: statementLabel,
+      }
+      setStatement(stmt)
+      return branchCtx.registerStatement(stmt)
+    },
+    [branchCtx, statementIndex, statementLabel],
+  )
   const ctx = React.useMemo((): StatementContextValue => {
     const focused = branchCtx.focusedStatementIndex === statementIndex
     let visible = focused
@@ -54,12 +67,13 @@ export function StatementProvider({
       }
     }
     return {
+      register,
       statementIndex,
       statementLabel,
       focused,
       visible,
     }
-  }, [branchCtx, statement, statementIndex, statementLabel])
+  }, [branchCtx, register, statement, statementIndex, statementLabel])
   return (
     <StatementContext.Provider value={ctx}>
       {children}
@@ -75,20 +89,4 @@ export function useStatementContext() {
     )
   }
   return ctx
-}
-
-export function useRegisterStatement(
-  statement: Omit<Statement, 'index' | 'label'>,
-) {
-  const branchCtx = useBranchContext()
-  const {statementIndex, statementLabel} = useStatementContext()
-  React.useEffect(
-    () =>
-      branchCtx.registerStatement({
-        ...statement,
-        index: statementIndex,
-        label: statementLabel,
-      }),
-    [statement, statementIndex, branchCtx, statementLabel],
-  )
 }
