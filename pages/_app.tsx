@@ -1,3 +1,4 @@
+import {PreloadLinks} from '~/game/PreloadLinks'
 import {NextQueryParamProvider} from 'next-query-params'
 import type {AppProps} from 'next/app'
 import Head from 'next/head'
@@ -19,6 +20,7 @@ export default function MyApp({Component, pageProps}: AppProps) {
           name="description"
         />
         <link rel="icon" href="/favicon.ico" />
+        <PreloadLinks />
       </Head>
 
       <NextQueryParamProvider>

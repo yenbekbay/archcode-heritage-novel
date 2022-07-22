@@ -20,7 +20,7 @@
       "~/api": ["./api"],
       "~/assets/*": ["./assets/*"],
       "~/components": ["./components"],
-      "~/game": ["./game"],
+      "~/game/*": ["./game/*"],
       "~/lib/*": ["./lib/*"]
     }
   },
