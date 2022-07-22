@@ -73,7 +73,10 @@ function GameView({assets, branches, initialBranchId}: GameViewProps) {
           {loaded && canGoBack() && (
             <button
               className="btn btn-ghost btn-circle bg-base-100 text-xl shadow-md hover:bg-base-200"
-              onClick={() => goBack()}>
+              onClick={() => {
+                options.onPlaySound?.('click')
+                goBack()
+              }}>
               <ArrowLeftIcon />
             </button>
           )}
@@ -83,7 +86,10 @@ function GameView({assets, branches, initialBranchId}: GameViewProps) {
           {loaded && (
             <button
               className="btn btn-ghost btn-circle bg-base-100 text-xl shadow-md hover:bg-base-200"
-              onClick={() => goToLocation(initialBranchId, 0)}>
+              onClick={() => {
+                options.onPlaySound?.('click')
+                goToLocation(initialBranchId, 0)
+              }}>
               <ArrowCounterClockwiseIcon />
             </button>
           )}
@@ -91,7 +97,10 @@ function GameView({assets, branches, initialBranchId}: GameViewProps) {
           {options.onGoHome && (
             <button
               className="btn btn-ghost btn-circle bg-base-100 text-xl shadow-md hover:bg-base-200"
-              onClick={options.onGoHome}>
+              onClick={() => {
+                options.onPlaySound?.('click')
+                options.onGoHome?.()
+              }}>
               <HouseIcon />
             </button>
           )}
@@ -102,7 +111,10 @@ function GameView({assets, branches, initialBranchId}: GameViewProps) {
         {loaded && (
           <button
             className="btn btn-ghost btn-circle bg-base-100 text-xl shadow-md hover:bg-base-200"
-            onClick={() => setPaused(!paused)}>
+            onClick={() => {
+              options.onPlaySound?.('click')
+              setPaused(!paused)
+            }}>
             {paused ? <PlayIcon /> : <PauseIcon />}
           </button>
         )}

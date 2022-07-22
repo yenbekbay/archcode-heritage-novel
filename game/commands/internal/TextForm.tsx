@@ -4,7 +4,7 @@ import toast from 'react-hot-toast'
 import {useZorm} from 'react-zorm'
 import {z} from 'zod'
 import {Spinner} from '~/lib/components'
-import type {CommandViewColorScheme} from '~/lib/game-engine'
+import {CommandViewColorScheme, useGameContext} from '~/lib/game-engine'
 
 export interface TextFormProps {
   inputLabel: string
@@ -21,6 +21,7 @@ export function TextForm({
   rows = 2,
   scheme,
 }: TextFormProps) {
+  const {options} = useGameContext()
   const [submitting, setSubmitting] = React.useState(false)
   const [FormSchema] = React.useState(() =>
     z.object({
@@ -95,7 +96,8 @@ export function TextForm({
           className={clsx(
             'GameEngine-button GameEngine-button--opaque btn btn-outline font-calligraph',
             scheme === 'dark' && 'GameEngine-button--dark',
-          )}>
+          )}
+          onClick={() => options.onPlaySound?.('click')}>
           {submitLabel}
         </button>
       </form>

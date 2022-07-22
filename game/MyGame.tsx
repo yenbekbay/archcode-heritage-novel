@@ -1,5 +1,4 @@
 import {AnimatePresence} from 'framer-motion'
-import {Howl} from 'howler'
 import {useSetAtom} from 'jotai'
 import {atomWithStorage} from 'jotai/utils'
 import {useRouter} from 'next/router'
@@ -7,10 +6,10 @@ import React from 'react'
 import toast from 'react-hot-toast'
 import {uniqBy} from 'remeda'
 import * as assets from '~/assets/game'
-import {clickMp3} from '~/assets/game'
 import {Dialog} from '~/lib/components'
-import {delay, Game, prepareBranches} from '~/lib/game-engine'
+import {Game, prepareBranches} from '~/lib/game-engine'
 import * as _branches from './branches'
+import {playSound} from './sound'
 
 const branches = prepareBranches(_branches)
 
@@ -32,19 +31,7 @@ export default function MyGame() {
           event.preventDefault()
           setActiveLink({href, name})
         }}
-        onPlaySound={(name) => {
-          switch (name) {
-            case 'click':
-              playAudio(clickMp3)
-              break
-            case 'skip':
-              playZzfxSound('skip')
-              break
-            case 'not_allowed':
-              playZzfxSound('not_allowed')
-              break
-          }
-        }}
+        onPlaySound={playSound}
       />
 
       <LinkPrompt link={activeLink} onClose={() => setActiveLink(null)} />
@@ -83,13 +70,17 @@ function LinkPrompt({link, onClose}: LinkPromptProps) {
           <div className="btn-group">
             <Dialog.Close
               className="btn btn-outline"
-              onClick={() => window.open(link.href, '_blank')}>
+              onClick={() => {
+                playSound('click')
+                window.open(link.href, '_blank')
+              }}>
               Читать сейчас
             </Dialog.Close>
 
             <Dialog.Close
               className="btn border-base-content hover:border-base-content"
               onClick={() => {
+                playSound('click')
                 setLinks((prev) => uniqBy([...prev, link], (l) => l.href))
                 toast.success('Ссылка сохранена')
               }}>
@@ -106,34 +97,4 @@ function LinkPrompt({link, onClose}: LinkPromptProps) {
       )}
     </AnimatePresence>
   )
-}
-
-// MARK: Sounds
-
-const ZZFX_SOUNDS = {
-  /* eslint-disable no-sparse-arrays */
-  skip: [, , 150, 0.05, , 0.05, , 1.3, , , , , , 3],
-  not_allowed: [1.5, 0.5, 270, , 0.1, , 1, 1.5, , , , , , , , 0.1, 0.01],
-  /* eslint-enable no-sparse-arrays */
-}
-
-export async function playZzfxSound(name: keyof typeof ZZFX_SOUNDS) {
-  const {zzfx} = await import('zzfx')
-  return new Promise<void>((resolve) => {
-    const sound = ZZFX_SOUNDS[name]
-    if (sound) {
-      const audio = zzfx(...sound)
-      audio.onended = async () => {
-        await delay(500)
-        resolve()
-      }
-    } else {
-      resolve()
-    }
-  })
-}
-
-export async function playAudio(src: string) {
-  const howl = new Howl({src, html5: true})
-  howl.play()
 }

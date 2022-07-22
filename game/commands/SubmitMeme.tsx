@@ -94,6 +94,7 @@ interface MemeFormProps {
 }
 
 function MemeForm({onSubmit, onSkip, scheme}: MemeFormProps) {
+  const {options} = useGameContext()
   const [activeTemplateId, setActiveTemplateId, resetActiveTemplateId] =
     useLocalStorageValue<string | ''>('@MemeForm/activeTemplateId')
   const [previewUrl, setPreviewUrl, resetPreviewUrl] = useLocalStorageValue<
@@ -124,6 +125,7 @@ function MemeForm({onSubmit, onSkip, scheme}: MemeFormProps) {
             <button
               className="btn btn-ghost btn-circle bg-base-100 text-xl shadow-md hover:bg-base-200"
               onClick={() => {
+                options.onPlaySound?.('click')
                 if (previewUrl) {
                   setPreviewUrl('')
                 } else {
@@ -184,7 +186,10 @@ function MemeForm({onSubmit, onSkip, scheme}: MemeFormProps) {
           src={t.url}
           aria-label={t.name}
           tabIndex={-1}
-          onClick={() => setActiveTemplateId(t.id)}
+          onClick={() => {
+            options.onPlaySound?.('click')
+            setActiveTemplateId(t.id)
+          }}
         />
       ))}
     </div>
@@ -201,6 +206,7 @@ interface MemePreviewProps {
 }
 
 function MemePreview({url, onSubmit, onSkip, scheme}: MemePreviewProps) {
+  const {options} = useGameContext()
   const [submitting, setSubmitting] = React.useState(false)
   const [FormSchema] = React.useState(() => z.object({name: z.string()}))
   const zo = useZorm('meme-preview', FormSchema, {
@@ -249,7 +255,10 @@ function MemePreview({url, onSubmit, onSkip, scheme}: MemePreviewProps) {
             'GameEngine-button btn btn-outline font-calligraph',
             scheme === 'dark' && 'GameEngine-button--dark',
           )}
-          onClick={() => onSkip()}>
+          onClick={() => {
+            options.onPlaySound?.('click')
+            onSkip()
+          }}>
           Пропустить
         </button>
 
@@ -259,7 +268,8 @@ function MemePreview({url, onSubmit, onSkip, scheme}: MemePreviewProps) {
           className={clsx(
             'GameEngine-button GameEngine-button--opaque btn btn-outline font-calligraph',
             scheme === 'dark' && 'GameEngine-button--dark',
-          )}>
+          )}
+          onClick={() => options.onPlaySound?.('click')}>
           Опубликовать мем
         </button>
 
@@ -292,6 +302,7 @@ function MemeTemplateForm({
   onPreviewUrlChange,
   scheme,
 }: MemeTemplateFormProps) {
+  const {options} = useGameContext()
   const [submitting, setSubmitting] = React.useState(false)
   const [FormSchema] = React.useState(() =>
     z.object(
@@ -367,7 +378,8 @@ function MemeTemplateForm({
           className={clsx(
             'GameEngine-button GameEngine-button--opaque btn btn-outline font-calligraph',
             scheme === 'dark' && 'GameEngine-button--dark',
-          )}>
+          )}
+          onClick={() => options.onPlaySound?.('click')}>
           Посмотреть
         </button>
       </form>
