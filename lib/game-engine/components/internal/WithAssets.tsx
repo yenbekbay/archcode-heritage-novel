@@ -1,6 +1,6 @@
-import loadAsset from 'load-asset'
 import React from 'react'
 import {useResult, useStableCallback} from '../../../hooks'
+import {preloadAssets} from './preload-assets'
 
 export interface WithAssetsProps {
   assets: Record<string, string | {src: string}>
@@ -19,10 +19,10 @@ export function WithAssets({
   React.useEffect(() => {
     ;(async () => {
       try {
-        const srcs = Object.values(assets).map((a) =>
-          typeof a === 'object' ? a.src : a,
+        preloadAssets(
+          Object.values(assets).map((a) => (typeof a === 'object' ? a.src : a)),
+          setProgress,
         )
-        await loadAsset.all(srcs, (info) => setProgress(info.progress))
         setRes({status: 'success', data: undefined})
         onLoaded()
       } catch (err) {
@@ -51,7 +51,7 @@ export function WithAssets({
       <div className="prose flex h-full w-full flex-col items-center justify-center space-y-2 p-8">
         <h1>Что-то пошло не так!</h1>
 
-        <pre className="alert alert-error whitespace-pre-line font-mono">
+        <pre className="alert alert-error items-start whitespace-pre-line font-mono">
           {res.error.message}
         </pre>
 

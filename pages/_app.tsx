@@ -44,7 +44,7 @@ function ErrorFallback({error}: FallbackProps) {
           <Card className="self-center">
             <h1>Что-то пошло не так!</h1>
 
-            <pre className="alert alert-error whitespace-pre-line font-mono">
+            <pre className="alert alert-error items-start whitespace-pre-line font-mono">
               {error.message}
             </pre>
 
