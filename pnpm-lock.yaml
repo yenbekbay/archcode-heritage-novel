@@ -13,6 +13,7 @@ specifiers:
   '@trivago/prettier-plugin-sort-imports': 3.2.0
   '@types/fontfaceobserver': 2.1.0
   '@types/intrinsic-scale': 3.0.0
+  '@types/mdast': 3.0.10
   '@types/prettier': 2.6.3
   '@types/react': 18.0.14
   '@types/react-dom': 18.0.5
@@ -113,6 +114,7 @@ devDependencies:
   '@trivago/prettier-plugin-sort-imports': 3.2.0_prettier@2.7.1
   '@types/fontfaceobserver': 2.1.0
   '@types/intrinsic-scale': 3.0.0
+  '@types/mdast': 3.0.10
   '@types/prettier': 2.6.3
   '@types/react': 18.0.14
   '@types/react-dom': 18.0.5
@@ -1440,7 +1442,6 @@ packages:
       }
     dependencies:
       '@types/unist': 2.0.6
-    dev: false
 
   /@types/minimatch/3.0.5:
     resolution:
@@ -1534,7 +1535,6 @@ packages:
       {
         integrity: sha512-PBjIUxZHOuj0R15/xuwJYjFi+KZdNFrehocChv4g5hu6aFroHue8m0lBP0POdK2nKzbw0cgV1mws8+V/JAcEkQ==,
       }
-    dev: false
 
   /@types/yargs-parser/21.0.0:
     resolution:
