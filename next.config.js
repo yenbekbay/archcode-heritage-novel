@@ -19,7 +19,7 @@ module.exports = withTM({
   },
   webpack(config) {
     config.module.rules.push({
-      test: /\.(webm)$/,
+      test: /\.(mp3)$/,
       type: 'asset/resource',
       generator: {
         filename: 'static/chunks/[path][name].[hash][ext]',

@@ -2,7 +2,7 @@ import {
   angryCrowd1Png,
   bgCityHallConferenceRoomJpg,
   bgZheltoksanBeforeJpg,
-  chatterWebm,
+  chatterMp3,
   developerRepAPng,
   developerRepB1Png,
   developerRepB6Png,
@@ -52,7 +52,7 @@ export function BranchCityHall_ProjZheltoksan_Examine_Reject_Ignore() {
 
       <Say
         image={{uri: angryCrowd1Png.src, align: 'bottom'}}
-        audio={{uri: chatterWebm, loop: true}}>
+        audio={{uri: chatterMp3, loop: true}}>
         Общественность возмущена
       </Say>
 

@@ -10,7 +10,7 @@ import {
   expert2Png,
   expert3Png,
   mayor2Png,
-  portalWebm,
+  portalMp3,
 } from '~/assets/game'
 import {Branch, Say, Scene, Show} from '~/lib/game-engine'
 
@@ -37,7 +37,7 @@ export function BranchCityHall_ProjAirport_Examine() {
         —Ещё одно! Ещё нарушение!!!
       </Say>
 
-      <Show src={{uri: expert3Png.src, align: 'bottom'}} audio={portalWebm} />
+      <Show src={{uri: expert3Png.src, align: 'bottom'}} audio={portalMp3} />
 
       <Scene src={bgMayorDoorJpg.src} />
 

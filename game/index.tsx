@@ -7,7 +7,7 @@ import React from 'react'
 import toast from 'react-hot-toast'
 import {uniqBy} from 'remeda'
 import * as assets from '~/assets/game'
-import {clickWebm} from '~/assets/game'
+import {clickMp3} from '~/assets/game'
 import {Dialog} from '~/lib/components'
 import {delay, Game, prepareBranches} from '~/lib/game-engine'
 import * as _branches from './branches'
@@ -35,7 +35,7 @@ export default function MyGame() {
         onPlaySound={(name) => {
           switch (name) {
             case 'click':
-              playAudio(clickWebm)
+              playAudio(clickMp3)
               break
             case 'skip':
               playZzfxSound('skip')

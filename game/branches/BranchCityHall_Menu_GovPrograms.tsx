@@ -11,8 +11,8 @@ import {
   bgCityHallMayorOfficeJpg,
   bgMayorDoorJpg,
   bgMayorDoorwayJpg,
-  chatterWebm,
-  constructionWebm,
+  chatterMp3,
+  constructionMp3,
   mayor2Png,
   mayor3Png,
 } from '~/assets/game'
@@ -31,7 +31,7 @@ export function BranchCityHall_Menu_GovPrograms() {
       <Scene src={bgBusStop2Jpg.src} />
 
       <Play
-        audio={{uri: constructionWebm, loop: true}}
+        audio={{uri: constructionMp3, loop: true}}
         hide={(s) => s.label === 'crowd'}
       />
 
@@ -48,7 +48,7 @@ export function BranchCityHall_Menu_GovPrograms() {
       <Label label="crowd">
         <Show
           src={{uri: angryCrowd1Png.src, align: 'bottom'}}
-          audio={{uri: chatterWebm, loop: true}}
+          audio={{uri: chatterMp3, loop: true}}
           hide={2}
         />
       </Label>
