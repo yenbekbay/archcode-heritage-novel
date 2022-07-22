@@ -4,6 +4,7 @@ import React from 'react'
 import {
   bgIntroJpg,
   calligraphyLogoPng,
+  calmLoopMp3,
   generalThemeMp3,
   introMp3,
   introTailMp3,
@@ -35,7 +36,10 @@ export function BranchIntro() {
         ]}
       />
 
-      <Play audio={{uri: generalThemeMp3, loop: true}} hide={-1} />
+      <Play
+        audio={{uri: generalThemeMp3, loop: true}}
+        hide={(s) => s.command === 'Menu'}
+      />
 
       <Say>
         {[
@@ -79,6 +83,7 @@ export function BranchIntro() {
 
       <Menu
         label="Выберите персонажа"
+        audio={{uri: calmLoopMp3, loop: true}}
         choices={[
           {
             label: 'Активист',
