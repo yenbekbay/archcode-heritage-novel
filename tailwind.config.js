@@ -47,7 +47,7 @@ const colors = {
  * @type {import('tailwindcss/tailwind-config').TailwindConfig}
  */
 module.exports = {
-  content: ['./app/**/*.{ts,tsx}'],
+  content: ['./{components,game,lib,pages}/**/*.{ts,tsx}'],
   darkMode: 'class',
   theme: {
     colors,
