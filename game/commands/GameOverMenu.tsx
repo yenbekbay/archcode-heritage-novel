@@ -40,7 +40,6 @@ export function GameOverMenu() {
               rel="noopener noreferrer">
               <Image
                 className="max-h-[4rem] w-auto"
-                placeholder="blur"
                 src={logoNonmuseumPng}
                 alt="Логотип «Немузей Архитектуры»"
               />
@@ -52,7 +51,6 @@ export function GameOverMenu() {
               rel="noopener noreferrer">
               <Image
                 className="max-h-[4rem] w-auto"
-                placeholder="blur"
                 src={logoArchcodePng}
                 alt="Логотип «Архкод Алматы»"
               />
@@ -64,7 +62,6 @@ export function GameOverMenu() {
               rel="noopener noreferrer">
               <Image
                 className="max-h-[4rem] w-auto"
-                placeholder="blur"
                 src={logoSorosPng}
                 alt="Логотип «Фонд Cорос-Казахстан»"
               />

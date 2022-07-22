@@ -30,11 +30,7 @@ export default function AboutNovel() {
           image={
             <Link href="/play">
               <a aria-label="Играть">
-                <Image
-                  className="max-h-[36rem] w-auto"
-                  placeholder="blur"
-                  src={phoneSwirlPng}
-                />
+                <Image className="max-h-[36rem] w-auto" src={phoneSwirlPng} />
               </a>
             </Link>
           }>
@@ -77,7 +73,6 @@ export default function AboutNovel() {
             <div className="grid grid-flow-row gap-8 lg:grid-flow-col">
               <Image
                 className="relative h-auto w-[30rem]"
-                placeholder="blur"
                 src={phoneScreenshotPng}
               />
 

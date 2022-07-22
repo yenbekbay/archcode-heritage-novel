@@ -54,7 +54,6 @@ export function Header() {
             <a>
               <Image
                 className="h-32 w-auto"
-                placeholder="blur"
                 src={logoGamePng}
                 alt="Логотип «Снести нельзя оставить»"
               />

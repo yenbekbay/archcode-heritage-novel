@@ -43,11 +43,7 @@ export default function AboutUs() {
           <div className="flex flex-col space-y-8">
             <Card className="self-center">
               <div className="grid grid-flow-row gap-4 lg:grid-flow-col">
-                <Image
-                  placeholder="blur"
-                  src={polaroidAnelPng}
-                  alt="Фотография Анель"
-                />
+                <Image src={polaroidAnelPng} alt="Фотография Анель" />
 
                 <div>
                   <h2 className="mb-0">Анель Молдахметова</h2>
@@ -67,7 +63,6 @@ export default function AboutUs() {
               <div className="grid grid-flow-row gap-4 lg:grid-flow-col">
                 <Image
                   className="lg:order-2"
-                  placeholder="blur"
                   src={polaroidInzhuPng}
                   alt="Фотография Инжу"
                 />
@@ -90,11 +85,7 @@ export default function AboutUs() {
 
             <Card className="self-center">
               <div className="grid grid-flow-row gap-4 lg:grid-flow-col">
-                <Image
-                  placeholder="blur"
-                  src={polaroidNadiraPng}
-                  alt="Фотография Надиры"
-                />
+                <Image src={polaroidNadiraPng} alt="Фотография Надиры" />
 
                 <div>
                   <h2 className="mb-0">Надира Жадыраева</h2>
@@ -116,7 +107,6 @@ export default function AboutUs() {
               <div className="grid grid-flow-row gap-4 lg:grid-flow-col">
                 <Image
                   className="lg:order-2"
-                  placeholder="blur"
                   src={polaroidAruzhanPng}
                   alt="Фотография Аружан"
                 />
@@ -140,11 +130,7 @@ export default function AboutUs() {
 
             <Card className="self-center">
               <div className="grid grid-flow-row gap-4 lg:grid-flow-col">
-                <Image
-                  placeholder="blur"
-                  src={polaroidYaroslavPng}
-                  alt="Фотография Ярослава"
-                />
+                <Image src={polaroidYaroslavPng} alt="Фотография Ярослава" />
 
                 <div>
                   <h2 className="mb-0">Ярослав Самойлов</h2>
@@ -165,7 +151,6 @@ export default function AboutUs() {
               <div className="grid grid-flow-row gap-4 lg:grid-flow-col">
                 <Image
                   className="lg:order-2"
-                  placeholder="blur"
                   src={polaroidZamanbekPng}
                   alt="Фотография Заманбека"
                 />
@@ -185,11 +170,7 @@ export default function AboutUs() {
 
             <Card className="self-center">
               <div className="grid grid-flow-row gap-4 lg:grid-flow-col">
-                <Image
-                  placeholder="blur"
-                  src={polaroidYuliaPng}
-                  alt="Фотография Юлии"
-                />
+                <Image src={polaroidYuliaPng} alt="Фотография Юлии" />
 
                 <div>
                   <h2 className="mb-0">Юлия Петухова</h2>

@@ -24,7 +24,6 @@ export default function AboutBot() {
               aria-label="Перейти в Телеграм">
               <Image
                 className="max-h-[18rem] w-auto"
-                placeholder="blur"
                 src={telegramBotQrCodePng}
               />
             </a>
