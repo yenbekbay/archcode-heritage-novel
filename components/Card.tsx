@@ -41,6 +41,7 @@ function CardBackground() {
             height={containerRect.height}
             fill="#F7F4DC"
             fillStyle="solid"
+            strokeWidth={2}
             roughness={2}
           />
         </ReactRough>

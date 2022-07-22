@@ -43,10 +43,14 @@ export default function AboutUs() {
           <div className="flex flex-col space-y-8">
             <Card className="self-center">
               <div className="grid grid-flow-row gap-4 lg:grid-flow-col">
-                <Image src={polaroidAnelPng} alt="Фотография Анель" />
+                <Image
+                  className="my-0"
+                  src={polaroidAnelPng}
+                  alt="Фотография Анель"
+                />
 
                 <div>
-                  <h2 className="mb-0">Анель Молдахметова</h2>
+                  <h2 className="mb-0 lg:mt-0">Анель Молдахметова</h2>
                   <h3 className="text-base">Креативное продюсирование</h3>
                   <p>
                     Для меня это проект, который позволяет мне упаковать и
@@ -62,13 +66,13 @@ export default function AboutUs() {
             <Card className="self-center">
               <div className="grid grid-flow-row gap-4 lg:grid-flow-col">
                 <Image
-                  className="lg:order-2"
+                  className="my-0 lg:order-2"
                   src={polaroidInzhuPng}
                   alt="Фотография Инжу"
                 />
 
                 <div>
-                  <h2 className="mb-0">Инжу Сыдыкова</h2>
+                  <h2 className="mb-0 lg:mt-0">Инжу Сыдыкова</h2>
                   <h3 className="text-base">Сценарий, архитектура игры</h3>
                   <p>
                     Мой интерес зажигают вопросы о том, что создает любимую
@@ -85,10 +89,14 @@ export default function AboutUs() {
 
             <Card className="self-center">
               <div className="grid grid-flow-row gap-4 lg:grid-flow-col">
-                <Image src={polaroidNadiraPng} alt="Фотография Надиры" />
+                <Image
+                  className="my-0"
+                  src={polaroidNadiraPng}
+                  alt="Фотография Надиры"
+                />
 
                 <div>
-                  <h2 className="mb-0">Надира Жадыраева</h2>
+                  <h2 className="mb-0 lg:mt-0">Надира Жадыраева</h2>
                   <h3 className="text-base">
                     Визуальный нарратив, иллюстрации и дизайн
                   </h3>
@@ -106,13 +114,13 @@ export default function AboutUs() {
             <Card className="self-center">
               <div className="grid grid-flow-row gap-4 lg:grid-flow-col">
                 <Image
-                  className="lg:order-2"
+                  className="my-0 lg:order-2"
                   src={polaroidAruzhanPng}
                   alt="Фотография Аружан"
                 />
 
                 <div>
-                  <h2 className="mb-0">Аружан Шотай</h2>
+                  <h2 className="mb-0 lg:mt-0">Аружан Шотай</h2>
                   <h3 className="text-base">
                     Визуальный нарратив, иллюстрации и дизайн
                   </h3>
@@ -130,10 +138,14 @@ export default function AboutUs() {
 
             <Card className="self-center">
               <div className="grid grid-flow-row gap-4 lg:grid-flow-col">
-                <Image src={polaroidYaroslavPng} alt="Фотография Ярослава" />
+                <Image
+                  className="my-0"
+                  src={polaroidYaroslavPng}
+                  alt="Фотография Ярослава"
+                />
 
                 <div>
-                  <h2 className="mb-0">Ярослав Самойлов</h2>
+                  <h2 className="mb-0 lg:mt-0">Ярослав Самойлов</h2>
                   <h3 className="text-base">Разработка Телеграм-бота</h3>
                   <p>
                     Проект заинтересовал возможностью сделать что-то полезное и
@@ -150,13 +162,13 @@ export default function AboutUs() {
             <Card className="self-center">
               <div className="grid grid-flow-row gap-4 lg:grid-flow-col">
                 <Image
-                  className="lg:order-2"
+                  className="my-0 lg:order-2"
                   src={polaroidZamanbekPng}
                   alt="Фотография Заманбека"
                 />
 
                 <div>
-                  <h2 className="mb-0">Заманбек Мукасали</h2>
+                  <h2 className="mb-0 lg:mt-0">Заманбек Мукасали</h2>
                   <h3 className="text-base">
                     Технический продюссер, дизайнер выставки
                   </h3>
@@ -170,10 +182,14 @@ export default function AboutUs() {
 
             <Card className="self-center">
               <div className="grid grid-flow-row gap-4 lg:grid-flow-col">
-                <Image src={polaroidYuliaPng} alt="Фотография Юлии" />
+                <Image
+                  className="my-0"
+                  src={polaroidYuliaPng}
+                  alt="Фотография Юлии"
+                />
 
                 <div>
-                  <h2 className="mb-0">Юлия Петухова</h2>
+                  <h2 className="mb-0 lg:mt-0">Юлия Петухова</h2>
                   <h3 className="text-base">Композитор и саунд дизайнер</h3>
                   <p>
                     Моя роль на проекте была в том, чтобы написать музыку и

@@ -98,7 +98,7 @@ export function BranchIntro() {
             onClick: (ctx) => ctx.goToBranch('Developer_0Intro'),
           },
           {
-            label: 'Акимат',
+            label: 'Аким',
             onClick: (ctx) => ctx.goToBranch('CityHall_0Menu'),
           },
         ]}
