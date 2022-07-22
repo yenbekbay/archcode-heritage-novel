@@ -1,18 +1,13 @@
-import {PreloadLinks} from '~/game/PreloadLinks'
 import {NextQueryParamProvider} from 'next-query-params'
 import type {AppProps} from 'next/app'
 import Head from 'next/head'
 import {ErrorBoundary, FallbackProps} from 'react-error-boundary'
 import {Toaster} from 'react-hot-toast'
-import unmuteAudio from 'unmute-ios-audio'
 import {ParallaxProvider} from 'react-scroll-parallax'
 import {bgArchcodeOfficeJpg} from '~/assets/game'
 import {Card, HeroBackground, Layout} from '~/components'
+import {PreloadLinks} from '~/game/PreloadLinks'
 import '../__generated__/tailwind.css'
-
-if (typeof window !== 'undefined') {
-  unmuteAudio()
-}
 
 export default function MyApp({Component, pageProps}: AppProps) {
   return (

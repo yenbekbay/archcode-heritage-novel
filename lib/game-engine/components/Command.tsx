@@ -70,6 +70,7 @@ export function Command({
       const ret = new Howl({
         src: typeof audio === 'string' ? audio : audio.uri,
         loop: typeof audio === 'object' ? audio.loop : false,
+        html5: true,
       })
       return ret
     },
