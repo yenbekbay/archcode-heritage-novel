@@ -1,6 +1,7 @@
 import {useIsMounted, useSyncedRef, useUnmountEffect} from '@react-hookz/web'
 import type {AnimationControls, Variant} from 'framer-motion'
 import {AnimatePresence, motion, useAnimation, usePresence} from 'framer-motion'
+import {Howl} from 'howler'
 import React from 'react'
 import type {Statement, StatementBehavior} from '../contexts'
 import {
@@ -60,16 +61,16 @@ export function Command({
     ),
   )
 
-  const audioEl = React.useMemo(
+  const howl = React.useMemo(
     () => {
       if (!audio) {
         return null
       }
 
-      const ret = new Audio(typeof audio === 'string' ? audio : audio.uri)
-      if (typeof audio === 'object') {
-        ret.loop = audio.loop ?? false
-      }
+      const ret = new Howl({
+        src: typeof audio === 'string' ? audio : audio.uri,
+        loop: typeof audio === 'object' ? audio.loop : false,
+      })
       return ret
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -77,12 +78,11 @@ export function Command({
   )
   React.useEffect(
     () => {
-      if (audioEl) {
+      if (howl) {
         if (visible) {
-          audioEl.currentTime = 0
-          audioEl.play()
+          howl.play()
         } else {
-          audioEl.pause()
+          howl.stop()
         }
       }
     },
@@ -90,7 +90,7 @@ export function Command({
     [visible],
   )
   useUnmountEffect(() => {
-    audioEl?.pause()
+    howl?.pause()
   })
 
   return (

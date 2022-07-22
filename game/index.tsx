@@ -1,4 +1,5 @@
 import {AnimatePresence} from 'framer-motion'
+import {Howl} from 'howler'
 import {useSetAtom} from 'jotai'
 import {atomWithStorage} from 'jotai/utils'
 import {useRouter} from 'next/router'
@@ -133,6 +134,6 @@ export async function playZzfxSound(name: keyof typeof ZZFX_SOUNDS) {
 }
 
 export async function playAudio(src: string) {
-  const el = new Audio(src)
-  el.play()
+  const howl = new Howl({src})
+  howl.play()
 }
