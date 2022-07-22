@@ -134,6 +134,6 @@ export async function playZzfxSound(name: keyof typeof ZZFX_SOUNDS) {
 }
 
 export async function playAudio(src: string) {
-  const howl = new Howl({src})
+  const howl = new Howl({src, html5: true})
   howl.play()
 }

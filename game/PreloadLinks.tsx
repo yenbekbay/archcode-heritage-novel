@@ -3,6 +3,14 @@ import * as assets from '~/assets/game'
 export function PreloadLinks() {
   return (
     <>
+      <link
+        rel="preload"
+        href="/fonts/calligraph.otf"
+        as="font"
+        type="font/woff2"
+        crossOrigin="anonymous"
+      />
+
       {Object.values(assets)
         .map((a) => (typeof a === 'object' ? a.src : a))
         .map((src) => {
