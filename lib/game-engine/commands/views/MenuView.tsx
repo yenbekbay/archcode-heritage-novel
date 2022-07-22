@@ -1,6 +1,7 @@
 import clsx from 'clsx'
 import type {AnimationControls} from 'framer-motion'
 import {motion} from 'framer-motion'
+import {Howl} from 'howler'
 import React from 'react'
 import type {
   CommandViewAnimation,
@@ -20,6 +21,7 @@ interface MenuContext {
 export interface Choice {
   label: string
   frame?: Frame
+  audio?: string
   onClick: (ctx: MenuContext) => void
 }
 
@@ -109,6 +111,9 @@ export function MenuView({
                 onClick={(event) => {
                   event.stopPropagation()
                   options.onPlaySound?.('click')
+                  if (c.audio) {
+                    new Howl({src: c.audio, html5: true}).play()
+                  }
                   c.onClick(ctx)
                 }}
               />
@@ -126,6 +131,9 @@ export function MenuView({
                 onClick={(event) => {
                   event.stopPropagation()
                   options.onPlaySound?.('click')
+                  if (c.audio) {
+                    new Howl({src: c.audio, html5: true}).play()
+                  }
                   c.onClick(ctx)
                 }}>
                 {c.label}

@@ -1,11 +1,18 @@
 import {useMeasure} from '@react-hookz/web'
 import {motion, useAnimation} from 'framer-motion'
 import React from 'react'
-import {bgIntroJpg, calligraphyLogoPng, generalThemeMp3} from '~/assets/game'
+import {
+  bgIntroJpg,
+  calligraphyLogoPng,
+  generalThemeMp3,
+  introMp3,
+  introTailMp3,
+} from '~/assets/game'
 import {
   Branch,
   Command,
   Menu,
+  Play,
   Say,
   Show,
   useBranchContext,
@@ -18,13 +25,17 @@ export function BranchIntro() {
 
       <Menu
         placement="middle"
+        audio={{uri: introMp3, loop: true}}
         choices={[
           {
             label: 'Начать',
+            audio: introTailMp3,
             onClick: (ctx) => ctx.skip(),
           },
         ]}
       />
+
+      <Play audio={{uri: generalThemeMp3, loop: true}} hide={-1} />
 
       <Say>
         {[
@@ -126,7 +137,6 @@ function IntroScene() {
       <Command
         name="IntroScene"
         behavior={['skippable_timed', {durationMs: 0}]}
-        audio={{uri: generalThemeMp3, loop: true}}
         hide={-1}>
         {() => null}
       </Command>
