@@ -1,8 +1,8 @@
 import {
   bgMapGif,
-  fenceOgg,
+  fenceWebm,
   fencePng,
-  heartbeatOgg,
+  heartbeatWebm,
   redhead1Png,
 } from '~/assets/game'
 import {Branch, Play, Say, Scene, Show} from '~/lib/game-engine'
@@ -10,7 +10,7 @@ import {Branch, Play, Say, Scene, Show} from '~/lib/game-engine'
 export function BranchActivist_0Juncture() {
   return (
     <Branch>
-      <Play audio={{uri: heartbeatOgg, loop: true}} hide={2} />
+      <Play audio={{uri: heartbeatWebm, loop: true}} hide={2} />
 
       <Scene src={bgMapGif.src} />
 
@@ -33,7 +33,7 @@ export function BranchActivist_0Juncture() {
             },
           },
         }}
-        audio={fenceOgg}
+        audio={fenceWebm}
         hide={-1}
       />
 

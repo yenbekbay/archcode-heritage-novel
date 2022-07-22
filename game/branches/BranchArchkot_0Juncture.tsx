@@ -1,16 +1,16 @@
 import {
   archkot5Png,
   bgMapGif,
-  fenceOgg,
+  fenceWebm,
   fencePng,
-  heartbeatOgg,
+  heartbeatWebm,
 } from '~/assets/game'
 import {Branch, Play, Say, Scene, Show} from '~/lib/game-engine'
 
 export function BranchArchkot_0Juncture() {
   return (
     <Branch>
-      <Play audio={{uri: heartbeatOgg, loop: true}} hide={2} />
+      <Play audio={{uri: heartbeatWebm, loop: true}} hide={2} />
 
       <Scene src={bgMapGif.src} />
 
@@ -33,7 +33,7 @@ export function BranchArchkot_0Juncture() {
             },
           },
         }}
-        audio={fenceOgg}
+        audio={fenceWebm}
         hide={-1}
       />
 

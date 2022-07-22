@@ -8,7 +8,7 @@ import {
   developerRepB10Png,
   developerRepB6Png,
   developerRepB9Png,
-  hologramOgg,
+  hologramWebm,
 } from '~/assets/game'
 import {Branch, Say, Scene} from '~/lib/game-engine'
 import {GameOverMenu, GameOverTitle} from '../commands'
@@ -38,7 +38,7 @@ export function BranchDeveloper_ProjAirport_Preserve() {
       <Say
         tag={{text: 'Бот-билдер:', color: '#53C7D5'}}
         image={{uri: botBuilderPng.src, align: 'bottom'}}
-        audio={hologramOgg}>
+        audio={hologramWebm}>
         {
           'Нужно подходить к вопросу грамотно. Что такое реставрация?\n\n[Ссылка*15](#)'
         }

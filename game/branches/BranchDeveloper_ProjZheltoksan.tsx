@@ -6,10 +6,10 @@ import {
   bgPhoneHandJpg,
   bgZheltoksanBeforeJpg,
   botBuilderPng,
-  chatterOgg,
+  chatterWebm,
   developerRepAPng,
   developerRepB9Png,
-  hologramOgg,
+  hologramWebm,
 } from '~/assets/game'
 import {Branch, Say, Scene} from '~/lib/game-engine'
 
@@ -47,7 +47,7 @@ export function BranchDeveloper_ProjZheltoksan() {
 
       <Say
         image={{uri: angryCrowd1Png.src, align: 'bottom'}}
-        audio={{uri: chatterOgg, loop: true}}>
+        audio={{uri: chatterWebm, loop: true}}>
         Общественность возмущена
       </Say>
 
@@ -70,7 +70,7 @@ export function BranchDeveloper_ProjZheltoksan() {
       <Say
         tag={{text: 'Бот-билдер:', color: '#53C7D5'}}
         image={{uri: botBuilderPng.src, align: 'bottom'}}
-        audio={hologramOgg}>
+        audio={hologramWebm}>
         {
           'Ознакомьтесь со списком\n\n[Ссылка ГОСУДАРСТВЕННЫЙ РЕЕСТР ПАМЯТНИКОВ](#)'
         }
@@ -79,7 +79,7 @@ export function BranchDeveloper_ProjZheltoksan() {
       <Say
         tag={{text: 'Бот-билдер:', color: '#53C7D5'}}
         image={{uri: botBuilderPng.src, align: 'bottom'}}
-        audio={hologramOgg}
+        audio={hologramWebm}
         menu={[
           {
             label: 'Да',

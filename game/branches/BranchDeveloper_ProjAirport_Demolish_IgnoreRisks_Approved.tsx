@@ -8,7 +8,7 @@ import {
   bgCityHallConferenceRoomJpg,
   bgCityHallOutsideJpg,
   bgDeveloperHqInsideJpg,
-  chatterOgg,
+  chatterWebm,
   developerRepB7Png,
   developerRepB9Png,
   letterPng,
@@ -60,7 +60,7 @@ export function BranchDeveloper_ProjAirport_Demolish_IgnoreRisks_Approved() {
 
       <Say
         image={{uri: angryCrowd1Png.src, align: 'bottom'}}
-        audio={{uri: chatterOgg, loop: true}}>
+        audio={{uri: chatterWebm, loop: true}}>
         Общественность возмущена
       </Say>
 

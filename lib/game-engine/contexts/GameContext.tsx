@@ -23,7 +23,6 @@ export interface GameOptions {
 
 export interface GameContextValue {
   options: GameOptions
-  audioContext: AudioContext
   focusedLocation: GameLocation
   paused: boolean
   setPaused: React.Dispatch<React.SetStateAction<boolean | null | undefined>>
@@ -94,11 +93,9 @@ export function GameProvider({
     }
   }, [storedFocusedLocationId])
 
-  const [audioContext] = React.useState(() => new AudioContext())
   const ctx = React.useMemo(
     (): GameContextValue => ({
       options: {onGoHome, onLinkClick, onPlaySound},
-      audioContext,
       focusedLocation,
       paused,
       setPaused,
@@ -125,7 +122,6 @@ export function GameProvider({
       canGoBack: history.canGoBack,
     }),
     [
-      audioContext,
       focusedLocation,
       history,
       onGoHome,

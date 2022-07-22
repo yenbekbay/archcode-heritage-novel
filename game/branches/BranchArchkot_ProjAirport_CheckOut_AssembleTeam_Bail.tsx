@@ -2,7 +2,7 @@ import {
   archbot1Png,
   archtok3Png,
   bgAirportFenceGif,
-  fenceOgg,
+  fenceWebm,
   fencePng,
 } from '~/assets/game'
 import {Branch, Say, Scene, Show} from '~/lib/game-engine'
@@ -35,7 +35,7 @@ export function BranchArchkot_ProjAirport_CheckOut_AssembleTeam_Bail() {
             },
           },
         }}
-        audio={fenceOgg}
+        audio={fenceWebm}
         hide={-1}
       />
 

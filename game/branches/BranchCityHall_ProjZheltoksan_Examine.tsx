@@ -10,7 +10,7 @@ import {
   expert2Png,
   expert3Png,
   mayor2Png,
-  portalOgg,
+  portalWebm,
 } from '~/assets/game'
 import {Branch, Say, Scene, Show} from '~/lib/game-engine'
 
@@ -37,7 +37,7 @@ export function BranchCityHall_ProjZheltoksan_Examine() {
         —Ещё одно! Ещё нарушение!!!
       </Say>
 
-      <Show src={{uri: expert3Png.src, align: 'bottom'}} audio={portalOgg} />
+      <Show src={{uri: expert3Png.src, align: 'bottom'}} audio={portalWebm} />
 
       <Scene src={bgMayorDoorJpg.src} />
 
