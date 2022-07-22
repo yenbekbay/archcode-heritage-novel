@@ -25,10 +25,10 @@ export function WithAssets({
         await loadAsset.all(srcs, (info) => setProgress(info.progress))
         setRes({status: 'success', data: undefined})
         onLoaded()
-      } catch {
+      } catch (err) {
         setRes({
           status: 'failure',
-          error: new Error('Не удалось загрузить ресурсы'),
+          error: err instanceof Error ? err : new Error(String(err)),
         })
       }
     })()
