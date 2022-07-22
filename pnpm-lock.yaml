@@ -67,6 +67,7 @@ specifiers:
   tailwindcss: 3.1.4
   tailwindcss-radix: 2.3.1
   typescript: 4.7.4
+  unmute-ios-audio: 3.3.0
   use-long-press: 2.0.2
   zod: 3.17.3
   zzfx: 1.1.8
@@ -107,6 +108,7 @@ dependencies:
   rough-notation: 0.5.1
   roughjs: 4.5.2
   swr: 1.3.0_react@18.2.0
+  unmute-ios-audio: 3.3.0
   use-long-press: 2.0.2_react@18.2.0
   zod: 3.17.3
   zzfx: 1.1.8
@@ -4917,6 +4919,10 @@ packages:
     resolution: {integrity: sha512-rBJeI5CXAlmy1pV+617WB9J63U6XcazHHF2f2dbJix4XzpUF0RS3Zbj0FGIOCAva5P/d/GBOYaACQ1w+0azUkg==}
     engines: {node: '>= 4.0.0'}
     dev: true
+
+  /unmute-ios-audio/3.3.0:
+    resolution: {integrity: sha512-MmoCOrsS2gn3wLT2tT+hF56Q4V4kksIKn2LHrwAtX6umzQwQHDWSh1slMzH+0WuxTZ62s3w8/wsfIII1FQ7ACg==}
+    dev: false
 
   /update-browserslist-db/1.0.5_browserslist@4.21.2:
     resolution: {integrity: sha512-dteFFpCyvuDdr9S/ff1ISkKt/9YZxKjI9WlRR99c180GaztJtRa/fn18FdxGVKVsnPY7/a/FDN68mcvUmP4U7Q==}
