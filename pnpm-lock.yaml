@@ -8,6 +8,7 @@ specifiers:
   '@radix-ui/react-use-rect': 0.1.1
   '@react-hookz/web': 14.3.0
   '@supabase/supabase-js': 1.35.3
+  '@supercharge/promise-pool': 2.3.0
   '@tailwindcss/forms': 0.5.2
   '@tailwindcss/typography': 0.5.2
   '@trivago/prettier-plugin-sort-imports': 3.2.0
@@ -79,6 +80,7 @@ dependencies:
   '@radix-ui/react-use-rect': 0.1.1_react@18.2.0
   '@react-hookz/web': 14.3.0_biqbaboplfbrettd7655fr4n2y
   '@supabase/supabase-js': 1.35.3
+  '@supercharge/promise-pool': 2.3.0
   async-preloader: 7.0.0
   clsx: 1.1.1
   embla-carousel: 7.0.0-rc05
@@ -1036,6 +1038,11 @@ packages:
     transitivePeerDependencies:
       - encoding
       - supports-color
+    dev: false
+
+  /@supercharge/promise-pool/2.3.0:
+    resolution: {integrity: sha512-KLf3JBWW4JymplvT/c5JCZhc4KrNE9EBf15FPjvklQiGcoUczSLInpV23iV5dITnvktJlwQ5xq08wfNwBk71Rg==}
+    engines: {node: '>=8'}
     dev: false
 
   /@swc/helpers/0.4.2:

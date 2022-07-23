@@ -1,13 +1,18 @@
 import {NextQueryParamProvider} from 'next-query-params'
 import type {AppProps} from 'next/app'
+import dynamic from 'next/dynamic'
 import Head from 'next/head'
 import {ErrorBoundary, FallbackProps} from 'react-error-boundary'
 import {Toaster} from 'react-hot-toast'
 import {ParallaxProvider} from 'react-scroll-parallax'
 import {bgArchcodeOfficeJpg} from '~/assets/game'
 import {Card, HeroBackground, Layout} from '~/components'
-import {PreloadLinks} from '~/game/PreloadLinks'
 import '../__generated__/tailwind.css'
+
+const PreloadMyGameAssets = dynamic(
+  () => import('~/game/PreloadMyGameAssets'),
+  {ssr: false},
+)
 
 export default function MyApp({Component, pageProps}: AppProps) {
   return (
@@ -20,8 +25,9 @@ export default function MyApp({Component, pageProps}: AppProps) {
           name="description"
         />
         <link rel="icon" href="/favicon.ico" />
-        <PreloadLinks />
       </Head>
+
+      {Component.name !== 'Play' && <PreloadMyGameAssets concurrency={10} />}
 
       <NextQueryParamProvider>
         <ParallaxProvider>

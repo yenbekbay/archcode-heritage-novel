@@ -59,6 +59,7 @@
     "@radix-ui/react-use-rect": "0.1.1",
     "@react-hookz/web": "14.3.0",
     "@supabase/supabase-js": "1.35.3",
+    "@supercharge/promise-pool": "2.3.0",
     "async-preloader": "7.0.0",
     "clsx": "1.1.1",
     "embla-carousel": "7.0.0-rc05",
