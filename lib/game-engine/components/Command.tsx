@@ -21,6 +21,7 @@ export type CommandViewAnimation = {
 export interface CommandAudioOptions {
   uri: string
   loop?: boolean
+  fadeOut?: boolean
 }
 
 export interface CommandProps {
@@ -37,7 +38,7 @@ export function Command({
   name: command,
   children,
   behavior = ['skippable_static'],
-  audio,
+  audio: _audio,
   hide = 0,
   next = 1,
   zIndex = 'auto',
@@ -59,27 +60,49 @@ export function Command({
     [behavior, command, hide, next, register],
   )
 
-  const howl = React.useMemo(
-    () => {
-      if (!audio) {
-        return null
-      }
-
-      const ret = new Howl({
-        src: typeof audio === 'string' ? audio : audio.uri,
-        loop: typeof audio === 'object' ? audio.loop : false,
-        html5: true,
-      })
-      return ret
-    },
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [],
+  const audio = React.useMemo(
+    (): CommandAudioOptions | null =>
+      _audio == null || typeof _audio === 'object'
+        ? _audio ?? null
+        : {uri: _audio},
+    [_audio],
   )
+  const visibleRef = useSyncedRef(visible)
+  const [howl] = React.useState(() => {
+    if (!audio) {
+      return null
+    }
+    const ret = new Howl({
+      src: audio.uri,
+      loop: audio.loop,
+      html5: true,
+      onplayerror: () => {
+        ret.once('unlock', () => {
+          if (visibleRef.current && !ret.playing()) {
+            ret.seek(0)
+            ret.play()
+          }
+        })
+      },
+    })
+    return ret
+  })
   React.useEffect(
     () => {
-      if (howl) {
-        if (visible) {
-          howl.play()
+      if (!howl) {
+        return
+      }
+      if (visible) {
+        howl.volume(1)
+        howl.play()
+      } else if (howl.playing()) {
+        if (audio?.fadeOut) {
+          howl.once('fade', () => {
+            if (howl.volume() === 0) {
+              howl.stop()
+            }
+          })
+          howl.fade(1, 0, 4000)
         } else {
           howl.stop()
         }
@@ -89,7 +112,19 @@ export function Command({
     [visible],
   )
   useUnmountEffect(() => {
-    howl?.pause()
+    if (!howl || !howl.playing()) {
+      return
+    }
+    if (audio?.fadeOut) {
+      howl.once('fade', () => {
+        if (howl.volume() === 0) {
+          howl.stop()
+        }
+      })
+      howl.fade(1, 0, 4000)
+    } else {
+      howl.stop()
+    }
   })
 
   return (

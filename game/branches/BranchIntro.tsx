@@ -83,7 +83,7 @@ export function BranchIntro() {
 
       <Menu
         label="Выберите персонажа"
-        audio={{uri: calmLoopMp3, loop: true}}
+        audio={{uri: calmLoopMp3, loop: true, fadeOut: true}}
         choices={[
           {
             label: 'Активист',

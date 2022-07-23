@@ -57,7 +57,7 @@ export function GameProvider({
   const [focusedLocation, setFocusedLocation] = React.useState(
     () => parseGameLocation(storedFocusedLocationId) ?? initialLocation,
   )
-  const [muted, setMuted] = useLocalStorageValue('@GameContext/muted', true)
+  const [muted, setMuted] = React.useState(true)
   const [paused, setPaused] = useLocalStorageValue('@GameContext/paused', false)
   const [locations, setLocations] = useLocalStorageValue<GameLocation[]>(
     '@GameContext/locations',

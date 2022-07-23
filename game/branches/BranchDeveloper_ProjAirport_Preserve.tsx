@@ -19,9 +19,8 @@ export function BranchDeveloper_ProjAirport_Preserve() {
       <Scene src={bgDeveloperHqInsideJpg.src} />
 
       <Say image={{uri: developerRepB9Png.src, align: 'bottom'}}>
-        {/** FIXME: Fix copy? It is actually a monument */}
-        —Хоть оно и не является памятником историко-культурного наследия, но
-        представляет большую ценность для города и его жителей
+        —Здание является памятником историко-культурного наследия и представляет
+        большую ценность для города и его жителей
       </Say>
 
       <Say image={{uri: developerRepB10Png.src, align: 'bottom'}}>
