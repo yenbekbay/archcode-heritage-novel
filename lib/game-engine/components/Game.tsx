@@ -7,6 +7,8 @@ import {
   House as HouseIcon,
   Pause as PauseIcon,
   Play as PlayIcon,
+  SpeakerHigh as SpeakerHighIcon,
+  SpeakerSlash as SpeakerSlashIcon,
   Wrench as WrenchIcon,
   X as XIcon,
 } from 'phosphor-react'
@@ -59,6 +61,8 @@ function GameView({assets, branches, initialBranchId}: GameViewProps) {
   const {
     options,
     focusedLocation,
+    muted,
+    setMuted,
     paused,
     setPaused,
     goToLocation,
@@ -109,14 +113,25 @@ function GameView({assets, branches, initialBranchId}: GameViewProps) {
 
       <div className="absolute bottom-4 right-4 z-[120] space-x-2">
         {loaded && (
-          <button
-            className="btn btn-ghost btn-circle bg-base-100 text-xl shadow-md hover:bg-base-200"
-            onClick={() => {
-              options.onPlaySound?.('click')
-              setPaused(!paused)
-            }}>
-            {paused ? <PlayIcon /> : <PauseIcon />}
-          </button>
+          <>
+            <button
+              className="btn btn-ghost btn-circle bg-base-100 text-xl shadow-md hover:bg-base-200"
+              onClick={() => {
+                options.onPlaySound?.('click')
+                setMuted(!muted)
+              }}>
+              {muted ? <SpeakerSlashIcon /> : <SpeakerHighIcon />}
+            </button>
+
+            <button
+              className="btn btn-ghost btn-circle bg-base-100 text-xl shadow-md hover:bg-base-200"
+              onClick={() => {
+                options.onPlaySound?.('click')
+                setPaused(!paused)
+              }}>
+              {paused ? <PlayIcon /> : <PauseIcon />}
+            </button>
+          </>
         )}
 
         {process.env.NODE_ENV === 'development' && (

@@ -1,10 +1,5 @@
 import {useLocalStorageValue, useUpdateEffect} from '@react-hookz/web'
-import {
-  BooleanParam,
-  StringParam,
-  useQueryParam,
-  withDefault,
-} from 'next-query-params'
+import {StringParam, useQueryParam, withDefault} from 'next-query-params'
 import React from 'react'
 import type {GameHistory, GameLocation} from './internal'
 import {
@@ -24,8 +19,10 @@ export interface GameOptions {
 export interface GameContextValue {
   options: GameOptions
   focusedLocation: GameLocation
+  muted: boolean
+  setMuted: React.Dispatch<boolean>
   paused: boolean
-  setPaused: React.Dispatch<React.SetStateAction<boolean | null | undefined>>
+  setPaused: React.Dispatch<boolean>
   goToBranch: (branchId: BranchId) => void
   goToLocation: (branchId: BranchId, statementIndex: number) => void
   goBack: () => boolean
@@ -60,10 +57,8 @@ export function GameProvider({
   const [focusedLocation, setFocusedLocation] = React.useState(
     () => parseGameLocation(storedFocusedLocationId) ?? initialLocation,
   )
-  const [paused, setPaused] = useQueryParam(
-    'paused',
-    withDefault(BooleanParam, false),
-  )
+  const [muted, setMuted] = useLocalStorageValue('@GameContext/muted', true)
+  const [paused, setPaused] = useLocalStorageValue('@GameContext/paused', false)
   const [locations, setLocations] = useLocalStorageValue<GameLocation[]>(
     '@GameContext/locations',
     [focusedLocation],
@@ -77,6 +72,10 @@ export function GameProvider({
       },
     }),
   )
+
+  React.useEffect(() => {
+    Howler.mute(muted)
+  }, [muted])
 
   useUpdateEffect(() => {
     setStoredFocusedLocationId(makeGameLocationId(focusedLocation))
@@ -97,6 +96,8 @@ export function GameProvider({
     (): GameContextValue => ({
       options: {onGoHome, onLinkClick, onPlaySound},
       focusedLocation,
+      muted,
+      setMuted,
       paused,
       setPaused,
       goToBranch: (branchId) => {
@@ -124,10 +125,12 @@ export function GameProvider({
     [
       focusedLocation,
       history,
+      muted,
       onGoHome,
       onLinkClick,
       onPlaySound,
       paused,
+      setMuted,
       setPaused,
     ],
   )
