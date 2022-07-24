@@ -6,23 +6,21 @@ import {
   heartbeatMp3,
   redhead1Png,
 } from '~/assets/game'
-import {Branch, Play, Say, Scene, Show} from '~/lib/game-engine'
+import {Branch, Say, Scene, Show} from '~/lib/game-engine'
 
 export function BranchActivist_0Juncture() {
   return (
     <Branch>
-      <Play
+      <Scene
+        src={bgMapGif.src}
         audio={{
           whileVisible: {
             uri: heartbeatMp3,
             loop: true,
-            onStop: ['fadeOut'],
+            onStop: ['fadeOut', 4000],
           },
         }}
-        hide={2}
       />
-
-      <Scene src={bgMapGif.src} />
 
       <Say>Забор в этом городе появился новый</Say>
 
@@ -43,11 +41,12 @@ export function BranchActivist_0Juncture() {
             },
           },
         }}
-        audio={{onEntrance: fenceMp3}}
+        audio={{
+          whileVisible: {uri: cityAtmosMp3, loop: true},
+          onEntrance: fenceMp3,
+        }}
         hide={-1}
       />
-
-      <Play audio={{whileVisible: {uri: cityAtmosMp3, loop: true}}} hide={-1} />
 
       <Say
         image={{

@@ -6,6 +6,7 @@ import {
   bgLaptopAboveJpg,
   bgLaptopHandsJpg,
   bgLaptopStandaloneJpg,
+  cityAtmosMp3,
   redhead10Png,
   redhead11Png,
   redhead12Png,
@@ -16,8 +17,14 @@ import {Branch, Say, Scene} from '~/lib/game-engine'
 export function BranchActivist_CheckOut_Act_Self() {
   return (
     <Branch>
-      <Scene src={bgCourtyardJpg.src} />
-      <Scene src={bgAptOutsideWindowJpg.src} />
+      <Scene
+        src={bgCourtyardJpg.src}
+        audio={{whileVisible: {uri: cityAtmosMp3, loop: true}}}
+      />
+      <Scene
+        src={bgAptOutsideWindowJpg.src}
+        audio={{whileVisible: {uri: cityAtmosMp3, loop: true}}}
+      />
       <Scene src={bgAptEntranceJpg.src} />
       <Scene src={bgLaptopAboveJpg.src} />
 

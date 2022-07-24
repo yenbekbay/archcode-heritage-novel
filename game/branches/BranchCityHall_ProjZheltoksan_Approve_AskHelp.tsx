@@ -6,6 +6,7 @@ import {
   bgZheltoksanAfterJpg,
   bgZheltoksanBeforeFenceGif,
   bgZheltoksanBeforeJpg,
+  chatterMp3,
 } from '~/assets/game'
 import {Branch, Say, Scene} from '~/lib/game-engine'
 import {GameOverMenu, GameOverTitle} from '../commands'
@@ -30,7 +31,9 @@ export function BranchCityHall_ProjZheltoksan_Approve_AskHelp() {
 
       <Scene src={bgZheltoksanBeforeJpg.src} />
 
-      <Say image={{uri: angryCrowd1Png.src, align: 'bottom'}}>
+      <Say
+        image={{uri: angryCrowd1Png.src, align: 'bottom'}}
+        audio={{whileVisible: {uri: chatterMp3, loop: true}}}>
         {'—Надувательство\n\n—Бред собачий'}
       </Say>
 

@@ -3,6 +3,8 @@ import {
   bgArchcodeOfficeJpg,
   bgCourtyardJpg,
   bgPhoneHandJpg,
+  cityAtmosMp3,
+  indoorAtmosphereMp3,
   redhead19Png,
 } from '~/assets/game'
 import {Branch, Say, Scene} from '~/lib/game-engine'
@@ -11,26 +13,38 @@ import {GameOverMenu, GameOverTitle} from '../commands'
 export function BranchActivist_CheckOut_Act_Org() {
   return (
     <Branch>
-      <Scene src={bgCourtyardJpg.src} />
+      <Scene
+        src={bgCourtyardJpg.src}
+        audio={{whileVisible: {uri: cityAtmosMp3, loop: true}}}
+      />
 
       <Say image={{uri: redhead19Png.src, align: 'bottom'}}>
         —Алло, здравствуйте, это Архкод?
       </Say>
 
-      <Scene src={bgArchcodeOfficeJpg.src} />
+      <Scene
+        src={bgArchcodeOfficeJpg.src}
+        audio={{whileVisible: {uri: indoorAtmosphereMp3, loop: true}}}
+      />
 
       <Say image={{uri: archkot1Png.src, align: 'bottom'}}>
         —Здравствуйте, да, я вас слушаю
       </Say>
 
-      <Scene src={bgCourtyardJpg.src} />
+      <Scene
+        src={bgCourtyardJpg.src}
+        audio={{whileVisible: {uri: cityAtmosMp3, loop: true}}}
+      />
 
       <Say image={{uri: redhead19Png.src, align: 'bottom'}}>
         —Непонятно, что творится! Забор там! Здание снесут! Уничтожат!
         Испоганят!!! Что делать???
       </Say>
 
-      <Scene src={bgArchcodeOfficeJpg.src} />
+      <Scene
+        src={bgArchcodeOfficeJpg.src}
+        audio={{whileVisible: {uri: indoorAtmosphereMp3, loop: true}}}
+      />
 
       <Say image={{uri: archkot1Png.src, align: 'bottom'}}>
         {

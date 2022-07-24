@@ -2,6 +2,7 @@ import {
   angryCrowd1Png,
   bgBusStop4Jpg,
   bgCityHallMayorOfficeJpg,
+  chatterMp3,
   mayor2Png,
 } from '~/assets/game'
 import {Branch, Say, Scene} from '~/lib/game-engine'
@@ -16,7 +17,9 @@ export function BranchCityHall_GovPrograms_Continue() {
         конструкций
       </Say>
 
-      <Say image={{uri: angryCrowd1Png.src, align: 'bottom'}}>
+      <Say
+        image={{uri: angryCrowd1Png.src, align: 'bottom'}}
+        audio={{whileVisible: {uri: chatterMp3, loop: true}}}>
         За день общественность успевает распространить информацию о демонтаже. В
         акимат пришло несколько писем от активистов с просьбой остановить
         демонтаж остановки

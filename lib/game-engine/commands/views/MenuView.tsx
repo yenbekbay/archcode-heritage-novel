@@ -107,6 +107,7 @@ export function MenuView({
                   ease: 'easeInOut',
                 }}
                 tabIndex={-1}
+                onMouseOver={() => playSound('mouseover')}
                 onClick={(event) => {
                   event.stopPropagation()
                   playSound('click')
@@ -124,6 +125,7 @@ export function MenuView({
                   }[size],
                 )}
                 style={{animationDelay: `calc(0.05 * ${idx}s)`}}
+                onMouseOver={() => playSound('mouseover')}
                 onClick={(event) => {
                   event.stopPropagation()
                   playSound('click')

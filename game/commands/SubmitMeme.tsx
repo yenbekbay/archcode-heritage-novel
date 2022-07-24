@@ -124,6 +124,7 @@ function MemeForm({onSubmit, onSkip, scheme}: MemeFormProps) {
           <div className="navbar-start">
             <button
               className="btn btn-ghost btn-circle bg-base-100 text-xl shadow-md hover:bg-base-200"
+              onMouseOver={() => playSound('mouseover')}
               onClick={() => {
                 playSound('click')
                 if (previewUrl) {
@@ -186,6 +187,7 @@ function MemeForm({onSubmit, onSkip, scheme}: MemeFormProps) {
           src={t.url}
           aria-label={t.name}
           tabIndex={-1}
+          onMouseOver={() => playSound('mouseover')}
           onClick={() => {
             playSound('click')
             setActiveTemplateId(t.id)
@@ -255,6 +257,7 @@ function MemePreview({url, onSubmit, onSkip, scheme}: MemePreviewProps) {
             'GameEngine-button btn btn-outline font-calligraph',
             scheme === 'dark' && 'GameEngine-button--dark',
           )}
+          onMouseOver={() => playSound('mouseover')}
           onClick={() => {
             playSound('click')
             onSkip()
@@ -269,6 +272,7 @@ function MemePreview({url, onSubmit, onSkip, scheme}: MemePreviewProps) {
             'GameEngine-button GameEngine-button--opaque btn btn-outline font-calligraph',
             scheme === 'dark' && 'GameEngine-button--dark',
           )}
+          onMouseOver={() => playSound('mouseover')}
           onClick={() => playSound('click')}>
           Опубликовать мем
         </button>
@@ -379,6 +383,7 @@ function MemeTemplateForm({
             'GameEngine-button GameEngine-button--opaque btn btn-outline font-calligraph',
             scheme === 'dark' && 'GameEngine-button--dark',
           )}
+          onMouseOver={() => playSound('mouseover')}
           onClick={() => playSound('click')}>
           Посмотреть
         </button>

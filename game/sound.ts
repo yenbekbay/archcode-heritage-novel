@@ -1,4 +1,4 @@
-import {clickMp3} from '~/assets/game'
+import {clickMp3, mouseoverMp3} from '~/assets/game'
 import {delay, SoundName} from '~/lib/game-engine'
 import {getAudio} from '~/lib/game-engine/components/internal'
 
@@ -6,6 +6,9 @@ export function playSound(name: SoundName) {
   switch (name) {
     case 'click':
       playAudio(clickMp3)
+      break
+    case 'mouseover':
+      playAudio(mouseoverMp3)
       break
     case 'skip':
       playZzfxSound('skip')
@@ -40,5 +43,5 @@ async function playZzfxSound(name: keyof typeof ZZFX_SOUNDS) {
 }
 
 async function playAudio(src: string) {
-  getAudio({src, html5: true}).play()
+  getAudio({src}).play()
 }

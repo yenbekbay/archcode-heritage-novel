@@ -2,6 +2,7 @@ import {
   bgPhoneFingerJpg,
   bgPhoneHandJpg,
   bgZheltoksanBeforeFenceJpg,
+  cityAtmosMp3,
   redhead2Png,
   redhead5Png,
   redhead7Png,
@@ -12,7 +13,10 @@ import {GameOverMenu, GameOverTitle, SubmitMeme, SubmitPost} from '../commands'
 export function BranchActivist_CheckOut_SocialMedia() {
   return (
     <Branch>
-      <Scene src={bgZheltoksanBeforeFenceJpg.src} />
+      <Scene
+        src={bgZheltoksanBeforeFenceJpg.src}
+        audio={{whileVisible: {uri: cityAtmosMp3, loop: true}}}
+      />
 
       <Say image={{uri: redhead5Png.src, align: 'bottom'}}>
         В моменты отчаяния всегда можно вылить свою боль в соц. сети

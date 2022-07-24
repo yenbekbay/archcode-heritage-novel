@@ -2,6 +2,7 @@ import {
   angryCrowd1Png,
   bgCityHallMayorOfficeJpg,
   bgZheltoksanBeforeJpg,
+  chatterMp3,
   letterPng,
   mayor4Png,
   stampApprovedPng,
@@ -42,7 +43,9 @@ export function BranchCityHall_ProjZheltoksan_Examine_Reject_Ignore_Ignore() {
 
       <Scene src={bgZheltoksanBeforeJpg.src} />
 
-      <Say image={{uri: angryCrowd1Png.src, align: 'bottom'}}>
+      <Say
+        image={{uri: angryCrowd1Png.src, align: 'bottom'}}
+        audio={{whileVisible: {uri: chatterMp3, loop: true}}}>
         Массовый протест
       </Say>
 

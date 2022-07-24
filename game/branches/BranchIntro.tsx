@@ -92,7 +92,7 @@ export function BranchIntro() {
           whileVisible: {
             uri: calmLoopMp3,
             loop: true,
-            onStop: ['fadeOut'],
+            onStop: ['fadeOut', 4000],
           },
         }}
         choices={[

@@ -4,7 +4,7 @@ import React from 'react'
 export interface AudioSource {
   uri: string
   loop?: boolean
-  onStop?: ['fadeOut'] | ['play', string]
+  onStop?: ['fadeOut', number] | ['play', string]
 }
 
 export function useAudio(_src: string | AudioSource | null) {
@@ -22,7 +22,6 @@ export function useAudio(_src: string | AudioSource | null) {
     const ret = getAudio({
       src: src.uri,
       loop: src.loop,
-      html5: true,
       onplayerror: () => {
         ret.once('unlock', () => {
           if (playingRef.current && !ret.playing()) {
@@ -38,15 +37,17 @@ export function useAudio(_src: string | AudioSource | null) {
     if (!audio || playingRef.current) {
       return
     }
+    console.debug('[useAudio] play', src?.uri)
     playingRef.current = true
     audio.volume(1)
     audio.play()
-  }, [audio])
+  }, [audio, src?.uri])
   const stop = React.useCallback(() => {
     if (!audio || !playingRef.current) {
       return
     }
     playingRef.current = false
+    console.debug('[useAudio] stop', src?.uri)
     if (src?.onStop) {
       switch (src.onStop[0]) {
         case 'fadeOut':
@@ -59,13 +60,13 @@ export function useAudio(_src: string | AudioSource | null) {
           break
         case 'play':
           audio.stop()
-          getAudio({src: src.onStop[1], html5: true}).play()
+          getAudio({src: src.onStop[1]}).play()
           break
       }
     } else {
       audio.stop()
     }
-  }, [audio, src?.onStop])
+  }, [audio, src?.onStop, src?.uri])
   return {play, stop}
 }
 

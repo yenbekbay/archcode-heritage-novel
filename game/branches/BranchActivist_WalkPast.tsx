@@ -1,11 +1,14 @@
 import {
   bgZheltoksanAfterJpg,
   bgZheltoksanBeforeFenceGif,
+  calmLoopMp3,
+  cityAtmosMp3,
+  fenceMp3,
   fencePng,
   redhead2Png,
   redhead3Png,
 } from '~/assets/game'
-import {Branch, Say, Scene, Show} from '~/lib/game-engine'
+import {Branch, Play, Say, Scene, Show} from '~/lib/game-engine'
 import {GameOverMenu, GameOverTitle} from '../commands'
 
 export function BranchActivist_WalkPast() {
@@ -20,6 +23,10 @@ export function BranchActivist_WalkPast() {
             entrance: {},
             exit: {x: '-400%', transition: {duration: 2}},
           },
+        }}
+        audio={{
+          whileVisible: {uri: cityAtmosMp3, loop: true},
+          onExit: fenceMp3,
         }}
         hide={2}
         zIndex={100}
@@ -45,11 +52,20 @@ export function BranchActivist_WalkPast() {
         Поберегу нервы, семья ждет, пойду дома чай попью
       </Say>
 
-      <Scene src={bgZheltoksanBeforeFenceGif.src} durationMs={6000} />
+      <Scene
+        src={bgZheltoksanBeforeFenceGif.src}
+        audio={{whileVisible: {uri: cityAtmosMp3, loop: true}}}
+        durationMs={6000}
+      />
+
+      <Play audio={{whileVisible: {uri: calmLoopMp3, loop: true}}} hide={-1} />
 
       <Say>Оказывается, за забором было здание госплана Желтоксан 115</Say>
 
-      <Scene src={bgZheltoksanAfterJpg.src} />
+      <Scene
+        src={bgZheltoksanAfterJpg.src}
+        audio={{whileVisible: {uri: cityAtmosMp3, loop: true}}}
+      />
 
       <Say>
         Его снесли, а на его месте построили K-plaza, которая до сих пор

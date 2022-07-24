@@ -70,6 +70,7 @@ function LinkPrompt({link, onClose}: LinkPromptProps) {
           <div className="btn-group">
             <Dialog.Close
               className="btn btn-outline"
+              onMouseOver={() => playSound('mouseover')}
               onClick={() => {
                 playSound('click')
                 window.open(link.href, '_blank')
@@ -79,6 +80,7 @@ function LinkPrompt({link, onClose}: LinkPromptProps) {
 
             <Dialog.Close
               className="btn border-base-content hover:border-base-content"
+              onMouseOver={() => playSound('mouseover')}
               onClick={() => {
                 playSound('click')
                 setLinks((prev) => uniqBy([...prev, link], (l) => l.href))

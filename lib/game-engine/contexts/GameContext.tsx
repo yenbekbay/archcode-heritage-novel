@@ -8,7 +8,7 @@ import {
   parseGameLocation,
 } from './internal'
 
-export type SoundName = 'click' | 'skip' | 'not_allowed'
+export type SoundName = 'click' | 'mouseover' | 'skip' | 'not_allowed'
 
 export interface GameOptions {
   onGoToRoot: () => void

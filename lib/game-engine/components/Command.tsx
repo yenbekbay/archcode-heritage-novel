@@ -14,7 +14,7 @@ import {
   useGameContext,
   useStatementContext,
 } from '../contexts'
-import {AudioSource, getAudio, useAudio} from './internal'
+import {AudioSource, useAudio} from './internal'
 
 export type CommandViewColorScheme = 'default' | 'dark'
 
@@ -71,9 +71,10 @@ export function Command({
   const onExitAudio = useAudio(audioSrc?.onExit ?? null)
 
   const mountedRef = React.useRef(false)
+  const visibleRef = useSyncedRef(visible)
   useMountEffect(() => {
     mountedRef.current = true
-    if (visible) {
+    if (visibleRef.current) {
       onExitAudio.stop()
       onEntranceAudio.play()
       whileVisibleAudio.play()
@@ -81,16 +82,18 @@ export function Command({
   })
   useUnmountEffect(() => {
     mountedRef.current = false
-    // Work around double rendering caused by strict mode
-    // @see https://reactjs.org/blog/2022/03/08/react-18-upgrade-guide.html#updates-to-strict-mode
-    setTimeout(() => {
-      if (mountedRef.current) {
-        return
-      }
-      whileVisibleAudio.stop()
-      onEntranceAudio.stop()
-      onExitAudio.play()
-    })
+    if (visibleRef.current) {
+      // Work around double rendering caused by strict mode
+      // @see https://reactjs.org/blog/2022/03/08/react-18-upgrade-guide.html#updates-to-strict-mode
+      setTimeout(() => {
+        if (mountedRef.current) {
+          return
+        }
+        whileVisibleAudio.stop()
+        onEntranceAudio.stop()
+        onExitAudio.play()
+      })
+    }
   })
   useUpdateEffect(() => {
     if (visible) {

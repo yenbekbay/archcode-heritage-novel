@@ -10,18 +10,16 @@ import {Branch, Play, Say, Scene, Show} from '~/lib/game-engine'
 export function BranchArchkot_0Juncture() {
   return (
     <Branch>
-      <Play
+      <Scene
+        src={bgMapGif.src}
         audio={{
           whileVisible: {
             uri: heartbeatMp3,
             loop: true,
-            onStop: ['fadeOut'],
+            onStop: ['fadeOut', 4000],
           },
         }}
-        hide={2}
       />
-
-      <Scene src={bgMapGif.src} />
 
       <Say>Забор в этом городе появился новый</Say>
 

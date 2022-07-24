@@ -1,10 +1,17 @@
-import {bgZheltoksanBeforeFenceJpg, redhead8Png} from '~/assets/game'
+import {
+  bgZheltoksanBeforeFenceJpg,
+  cityAtmosMp3,
+  redhead8Png,
+} from '~/assets/game'
 import {Branch, Say, Scene} from '~/lib/game-engine'
 
 export function BranchActivist_CheckOut_Act() {
   return (
     <Branch>
-      <Scene src={bgZheltoksanBeforeFenceJpg.src} />
+      <Scene
+        src={bgZheltoksanBeforeFenceJpg.src}
+        audio={{whileVisible: {uri: cityAtmosMp3, loop: true}}}
+      />
 
       <Say
         image={{uri: redhead8Png.src, align: 'bottom'}}

@@ -9,6 +9,7 @@ import {
   bgLaptopStandaloneJpg,
   bgPhoneFingerJpg,
   bgPhoneHandJpg,
+  cityAtmosMp3,
   redhead14Png,
   redhead15Png,
   redhead16Png,
@@ -16,15 +17,24 @@ import {
   redhead18Png,
   redhead1Png,
   redhead5Png,
+  transition1Mp3,
+  transition2ShortMp3,
+  transition3ShortMp3,
 } from '~/assets/game'
 import {Branch, Menu, Say, Scene, Show} from '~/lib/game-engine'
 
 export function BranchActivist_CheckOut_Act_Group() {
   return (
     <Branch>
-      <Scene src={bgCourtyardJpg.src} />
-      <Scene src={bgAptOutsideWindowJpg.src} />
-      <Scene src={bgAptEntranceJpg.src} />
+      <Scene src={bgCourtyardJpg.src} audio={{onEntrance: transition1Mp3}} />
+      <Scene
+        src={bgAptOutsideWindowJpg.src}
+        audio={{onEntrance: transition2ShortMp3}}
+      />
+      <Scene
+        src={bgAptEntranceJpg.src}
+        audio={{onEntrance: transition3ShortMp3}}
+      />
       <Scene src={bgAptKitchenJpg.src} />
 
       <Say image={{uri: redhead14Png.src, align: 'bottom'}}>—БЕСПРЕДЕЛ!</Say>
@@ -105,7 +115,10 @@ export function BranchActivist_CheckOut_Act_Group() {
         ].join('\n\n')}
       </Say>
 
-      <Scene src={bgCourtyardJpg.src} />
+      <Scene
+        src={bgCourtyardJpg.src}
+        audio={{whileVisible: {uri: cityAtmosMp3, loop: true}}}
+      />
 
       <Say image={{uri: activistBPng.src, align: 'bottom'}} hide={2}>
         *встреча активистов

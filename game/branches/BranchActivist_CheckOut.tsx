@@ -1,5 +1,7 @@
 import {
   bgZheltoksanBeforeFenceGif,
+  cityAtmosMp3,
+  fenceMp3,
   fencePng,
   redhead2Png,
   redhead4Png,
@@ -19,6 +21,10 @@ export function BranchActivist_CheckOut() {
             exit: {x: '-400%', transition: {duration: 2}},
           },
         }}
+        audio={{
+          whileVisible: {uri: cityAtmosMp3, loop: true},
+          onExit: fenceMp3,
+        }}
         hide={1}
         zIndex={100}
       />
@@ -33,7 +39,11 @@ export function BranchActivist_CheckOut() {
         Мутят что-то без доклада народу. Надо разобраться!
       </Say>
 
-      <Scene src={bgZheltoksanBeforeFenceGif.src} durationMs={6000} />
+      <Scene
+        src={bgZheltoksanBeforeFenceGif.src}
+        audio={{whileVisible: {uri: cityAtmosMp3, loop: true}}}
+        durationMs={6000}
+      />
 
       <Say
         image={{uri: redhead2Png.src, align: 'bottom'}}

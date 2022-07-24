@@ -97,6 +97,7 @@ export function TextForm({
             'GameEngine-button GameEngine-button--opaque btn btn-outline font-calligraph',
             scheme === 'dark' && 'GameEngine-button--dark',
           )}
+          onMouseOver={() => playSound('mouseover')}
           onClick={() => playSound('click')}>
           {submitLabel}
         </button>

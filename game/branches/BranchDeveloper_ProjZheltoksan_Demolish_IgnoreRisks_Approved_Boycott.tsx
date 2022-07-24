@@ -2,6 +2,7 @@ import {
   angryCrowd1Png,
   bgDeveloperHqInsideJpg,
   bgZheltoksanBeforeJpg,
+  chatterMp3,
   redhead11Png,
 } from '~/assets/game'
 import {Branch, Say, Scene} from '~/lib/game-engine'
@@ -28,7 +29,11 @@ export function BranchDeveloper_ProjZheltoksan_Demolish_IgnoreRisks_Approved_Boy
 
       <Scene src={bgZheltoksanBeforeJpg.src} />
 
-      <Say image={{uri: angryCrowd1Png.src, align: 'bottom'}}>Бойкот</Say>
+      <Say
+        image={{uri: angryCrowd1Png.src, align: 'bottom'}}
+        audio={{whileVisible: {uri: chatterMp3, loop: true}}}>
+        Бойкот
+      </Say>
 
       <Say
         menu={[
