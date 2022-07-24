@@ -26,7 +26,7 @@ export default function MyGame() {
         assets={assets}
         branches={branches}
         initialBranchId="Intro"
-        onGoHome={() => router.push('/')}
+        onGoToRoot={() => router.push('/')}
         onLinkClick={(href, name, event) => {
           event.preventDefault()
           setActiveLink({href, name})

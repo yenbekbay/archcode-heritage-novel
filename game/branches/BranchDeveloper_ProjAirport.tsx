@@ -47,7 +47,7 @@ export function BranchDeveloper_ProjAirport() {
 
       <Say
         image={{uri: angryCrowd1Png.src, align: 'bottom'}}
-        audio={{uri: chatterMp3, loop: true}}>
+        audio={{whileVisible: {uri: chatterMp3, loop: true}}}>
         Общественность возмущена
       </Say>
 
@@ -69,7 +69,7 @@ export function BranchDeveloper_ProjAirport() {
       <Say
         tag={{text: 'Бот-билдер:', color: '#53C7D5'}}
         image={{uri: botBuilderPng.src, align: 'bottom'}}
-        audio={hologramMp3}>
+        audio={{onEntrance: hologramMp3}}>
         {
           'Ознакомьтесь со списком\n\n[Ссылка ГОСУДАРСТВЕННЫЙ РЕЕСТР ПАМЯТНИКОВ](#)'
         }
@@ -78,7 +78,7 @@ export function BranchDeveloper_ProjAirport() {
       <Say
         tag={{text: 'Бот-билдер:', color: '#53C7D5'}}
         image={{uri: botBuilderPng.src, align: 'bottom'}}
-        audio={hologramMp3}
+        audio={{onEntrance: hologramMp3}}
         menu={[
           {
             label: 'Да',

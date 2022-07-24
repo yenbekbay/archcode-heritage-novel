@@ -31,7 +31,7 @@ export function BranchCityHall_Menu_GovPrograms() {
       <Scene src={bgBusStop2Jpg.src} />
 
       <Play
-        audio={{uri: constructionMp3, loop: true}}
+        audio={{whileVisible: {uri: constructionMp3, loop: true}}}
         hide={(s) => s.label === 'crowd'}
       />
 
@@ -48,7 +48,7 @@ export function BranchCityHall_Menu_GovPrograms() {
       <Label label="crowd">
         <Show
           src={{uri: angryCrowd1Png.src, align: 'bottom'}}
-          audio={{uri: chatterMp3, loop: true}}
+          audio={{whileVisible: {uri: chatterMp3, loop: true}}}
           hide={2}
         />
       </Label>

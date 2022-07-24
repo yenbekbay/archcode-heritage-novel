@@ -21,7 +21,7 @@ export function TextForm({
   rows = 2,
   scheme,
 }: TextFormProps) {
-  const {options} = useGameContext()
+  const {playSound} = useGameContext()
   const [submitting, setSubmitting] = React.useState(false)
   const [FormSchema] = React.useState(() =>
     z.object({
@@ -97,7 +97,7 @@ export function TextForm({
             'GameEngine-button GameEngine-button--opaque btn btn-outline font-calligraph',
             scheme === 'dark' && 'GameEngine-button--dark',
           )}
-          onClick={() => options.onPlaySound?.('click')}>
+          onClick={() => playSound('click')}>
           {submitLabel}
         </button>
       </form>

@@ -35,7 +35,7 @@ export function BranchArchkot_ProjAirport_CheckOut_AssembleTeam_Bail() {
             },
           },
         }}
-        audio={fenceMp3}
+        audio={{onEntrance: fenceMp3}}
         hide={-1}
       />
 

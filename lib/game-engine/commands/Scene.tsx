@@ -1,4 +1,4 @@
-import type {CommandAudioOptions, CommandViewAnimation} from '../components'
+import type {CommandAudioConfig, CommandViewAnimation} from '../components'
 import {Command} from '../components'
 import {ImageView} from './views'
 
@@ -10,7 +10,7 @@ export interface SceneSource {
 
 export interface SceneProps {
   src: string | SceneSource | (string | SceneSource)[]
-  audio?: string | CommandAudioOptions
+  audio?: CommandAudioConfig
   durationMs?: number
 }
 

@@ -62,7 +62,7 @@ export function BranchDeveloper_ProjZheltoksan_Demolish_IgnoreRisks_Approved() {
 
       <Say
         image={{uri: angryCrowd1Png.src, align: 'bottom'}}
-        audio={{uri: chatterMp3, loop: true}}>
+        audio={{whileVisible: {uri: chatterMp3, loop: true}}}>
         Общественность возмущена
       </Say>
 

@@ -20,7 +20,7 @@ export function BranchDeveloper_ProjAirport_Demolish() {
       <Say
         tag={{text: 'Бот-билдер:', color: '#53C7D5'}}
         image={{uri: botBuilderPng.src, align: 'bottom'}}
-        audio={hologramMp3}>
+        audio={{onEntrance: hologramMp3}}>
         —Но это же памятник
       </Say>
 
@@ -37,7 +37,7 @@ export function BranchDeveloper_ProjAirport_Demolish() {
       <Say
         tag={{text: 'Бот-билдер:', color: '#53C7D5'}}
         image={{uri: botBuilderPng.src, align: 'bottom'}}
-        audio={hologramMp3}>
+        audio={{onEntrance: hologramMp3}}>
         {
           '—Перенос памятника возможен, но при повреждении 70% здания, к тому же это чрезвычайно дорогое решение…-Кроме того, общественность скорее всего рада не будет…\n\n[Ссылка*15](#)'
         }

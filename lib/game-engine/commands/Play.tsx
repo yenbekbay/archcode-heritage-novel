@@ -1,9 +1,9 @@
-import type {CommandAudioOptions} from '../components'
+import type {CommandAudioConfig} from '../components'
 import {Command} from '../components'
 import type {Statement} from '../contexts'
 
 export interface PlayProps {
-  audio?: string | CommandAudioOptions
+  audio?: CommandAudioConfig
   hide?: number | ((statement: Statement) => boolean)
 }
 

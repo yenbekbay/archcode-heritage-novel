@@ -21,7 +21,6 @@ interface MenuContext {
 export interface Choice {
   label: string
   frame?: Frame
-  audio?: string
   onClick: (ctx: MenuContext) => void
 }
 
@@ -47,7 +46,7 @@ export function MenuView({
   scheme,
   controls,
 }: MenuViewProps) {
-  const {options, goToBranch, goToLocation} = useGameContext()
+  const {goToBranch, goToLocation, playSound} = useGameContext()
   const {containerRect, goToStatement, skip} = useBranchContext()
   const ctx = React.useMemo(
     (): MenuContext => ({
@@ -110,10 +109,7 @@ export function MenuView({
                 tabIndex={-1}
                 onClick={(event) => {
                   event.stopPropagation()
-                  options.onPlaySound?.('click')
-                  if (c.audio) {
-                    new Howl({src: c.audio, html5: true}).play()
-                  }
+                  playSound('click')
                   c.onClick(ctx)
                 }}
               />
@@ -130,10 +126,7 @@ export function MenuView({
                 style={{animationDelay: `calc(0.05 * ${idx}s)`}}
                 onClick={(event) => {
                   event.stopPropagation()
-                  options.onPlaySound?.('click')
-                  if (c.audio) {
-                    new Howl({src: c.audio, html5: true}).play()
-                  }
+                  playSound('click')
                   c.onClick(ctx)
                 }}>
                 {c.label}

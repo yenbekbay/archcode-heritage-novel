@@ -26,7 +26,7 @@ export function BranchDeveloper_ProjZheltoksan_Demolish() {
       <Say
         tag={{text: 'Бот-билдер:', color: '#53C7D5'}}
         image={{uri: botBuilderPng.src, align: 'bottom'}}
-        audio={hologramMp3}>
+        audio={{onEntrance: hologramMp3}}>
         {'Возможные риски при изменении/сносе Желтоксан 115:\n\n[Ссылка](#)'}
       </Say>
 

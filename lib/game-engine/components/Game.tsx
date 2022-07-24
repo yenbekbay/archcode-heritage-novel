@@ -21,23 +21,23 @@ export interface GameProps {
   assets: Record<string, string | {src: string}>
   branches: Record<string, React.ComponentType>
   initialBranchId: BranchId
-  onGoHome?: () => void
-  onLinkClick?: (href: string, name: string, event: React.MouseEvent) => void
-  onPlaySound?: (name: SoundName) => void
+  onGoToRoot: () => void
+  onLinkClick: (href: string, name: string, event: React.MouseEvent) => void
+  onPlaySound: (name: SoundName) => void
 }
 
 export function Game({
   assets,
   branches,
   initialBranchId,
-  onGoHome,
+  onGoToRoot,
   onLinkClick,
   onPlaySound,
 }: GameProps) {
   return (
     <GameProvider
       initialBranchId={initialBranchId}
-      onGoHome={onGoHome}
+      onGoToRoot={onGoToRoot}
       onLinkClick={onLinkClick}
       onPlaySound={onPlaySound}>
       <GameView
@@ -59,7 +59,6 @@ interface GameViewProps {
 
 function GameView({assets, branches, initialBranchId}: GameViewProps) {
   const {
-    options,
     focusedLocation,
     muted,
     setMuted,
@@ -68,6 +67,8 @@ function GameView({assets, branches, initialBranchId}: GameViewProps) {
     goToLocation,
     goBack,
     canGoBack,
+    goToRoot,
+    playSound,
   } = useGameContext()
   const [loaded, setLoaded] = React.useState(false)
   return (
@@ -78,7 +79,7 @@ function GameView({assets, branches, initialBranchId}: GameViewProps) {
             <button
               className="btn btn-ghost btn-circle bg-base-100 text-xl shadow-md hover:bg-base-200"
               onClick={() => {
-                options.onPlaySound?.('click')
+                playSound('click')
                 goBack()
               }}>
               <ArrowLeftIcon />
@@ -91,23 +92,21 @@ function GameView({assets, branches, initialBranchId}: GameViewProps) {
             <button
               className="btn btn-ghost btn-circle bg-base-100 text-xl shadow-md hover:bg-base-200"
               onClick={() => {
-                options.onPlaySound?.('click')
+                playSound('click')
                 goToLocation(initialBranchId, 0)
               }}>
               <ArrowCounterClockwiseIcon />
             </button>
           )}
 
-          {options.onGoHome && (
-            <button
-              className="btn btn-ghost btn-circle bg-base-100 text-xl shadow-md hover:bg-base-200"
-              onClick={() => {
-                options.onPlaySound?.('click')
-                options.onGoHome?.()
-              }}>
-              <HouseIcon />
-            </button>
-          )}
+          <button
+            className="btn btn-ghost btn-circle bg-base-100 text-xl shadow-md hover:bg-base-200"
+            onClick={() => {
+              playSound('click')
+              goToRoot()
+            }}>
+            <HouseIcon />
+          </button>
         </div>
       </div>
 
@@ -117,7 +116,7 @@ function GameView({assets, branches, initialBranchId}: GameViewProps) {
             <button
               className="btn btn-ghost btn-circle bg-base-100 text-xl shadow-md hover:bg-base-200"
               onClick={() => {
-                options.onPlaySound?.('click')
+                playSound('click')
                 setMuted(!muted)
               }}>
               {muted ? <SpeakerSlashIcon /> : <SpeakerHighIcon />}
@@ -126,7 +125,7 @@ function GameView({assets, branches, initialBranchId}: GameViewProps) {
             <button
               className="btn btn-ghost btn-circle bg-base-100 text-xl shadow-md hover:bg-base-200"
               onClick={() => {
-                options.onPlaySound?.('click')
+                playSound('click')
                 setPaused(!paused)
               }}>
               {paused ? <PlayIcon /> : <PauseIcon />}

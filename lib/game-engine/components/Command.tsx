@@ -1,7 +1,12 @@
-import {useIsMounted, useSyncedRef, useUnmountEffect} from '@react-hookz/web'
+import {
+  useIsMounted,
+  useMountEffect,
+  useSyncedRef,
+  useUnmountEffect,
+  useUpdateEffect,
+} from '@react-hookz/web'
 import type {AnimationControls, Variant} from 'framer-motion'
 import {AnimatePresence, motion, useAnimation, usePresence} from 'framer-motion'
-import {Howl} from 'howler'
 import React from 'react'
 import type {Statement, StatementBehavior} from '../contexts'
 import {
@@ -9,6 +14,7 @@ import {
   useGameContext,
   useStatementContext,
 } from '../contexts'
+import {AudioSource, getAudio, useAudio} from './internal'
 
 export type CommandViewColorScheme = 'default' | 'dark'
 
@@ -18,17 +24,17 @@ export type CommandViewAnimation = {
   exit: Variant
 }
 
-export interface CommandAudioOptions {
-  uri: string
-  loop?: boolean
-  fadeOut?: boolean
+export interface CommandAudioConfig {
+  whileVisible?: string | AudioSource
+  onEntrance?: string
+  onExit?: string
 }
 
 export interface CommandProps {
   name: string
   children: (controls: AnimationControls) => React.ReactNode
   behavior?: StatementBehavior
-  audio?: string | CommandAudioOptions
+  audio?: CommandAudioConfig
   hide?: number | ((statement: Statement) => boolean)
   next?: number | string
   zIndex?: number | 'auto'
@@ -38,7 +44,7 @@ export function Command({
   name: command,
   children,
   behavior = ['skippable_static'],
-  audio: _audio,
+  audio: audioSrc,
   hide = 0,
   next = 1,
   zIndex = 'auto',
@@ -60,72 +66,43 @@ export function Command({
     [behavior, command, hide, next, register],
   )
 
-  const audio = React.useMemo(
-    (): CommandAudioOptions | null =>
-      _audio == null || typeof _audio === 'object'
-        ? _audio ?? null
-        : {uri: _audio},
-    [_audio],
-  )
-  const visibleRef = useSyncedRef(visible)
-  const [howl] = React.useState(() => {
-    if (!audio) {
-      return null
+  const whileVisibleAudio = useAudio(audioSrc?.whileVisible ?? null)
+  const onEntranceAudio = useAudio(audioSrc?.onEntrance ?? null)
+  const onExitAudio = useAudio(audioSrc?.onExit ?? null)
+
+  const mountedRef = React.useRef(false)
+  useMountEffect(() => {
+    mountedRef.current = true
+    if (visible) {
+      onExitAudio.stop()
+      onEntranceAudio.play()
+      whileVisibleAudio.play()
     }
-    const ret = new Howl({
-      src: audio.uri,
-      loop: audio.loop,
-      html5: true,
-      onplayerror: () => {
-        ret.once('unlock', () => {
-          if (visibleRef.current && !ret.playing()) {
-            ret.seek(0)
-            ret.play()
-          }
-        })
-      },
-    })
-    return ret
   })
-  React.useEffect(
-    () => {
-      if (!howl) {
+  useUnmountEffect(() => {
+    mountedRef.current = false
+    // Work around double rendering caused by strict mode
+    // @see https://reactjs.org/blog/2022/03/08/react-18-upgrade-guide.html#updates-to-strict-mode
+    setTimeout(() => {
+      if (mountedRef.current) {
         return
       }
-      if (visible) {
-        howl.volume(1)
-        howl.play()
-      } else if (howl.playing()) {
-        if (audio?.fadeOut) {
-          howl.once('fade', () => {
-            if (howl.volume() === 0) {
-              howl.stop()
-            }
-          })
-          howl.fade(1, 0, 4000)
-        } else {
-          howl.stop()
-        }
-      }
-    },
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [visible],
-  )
-  useUnmountEffect(() => {
-    if (!howl || !howl.playing()) {
-      return
-    }
-    if (audio?.fadeOut) {
-      howl.once('fade', () => {
-        if (howl.volume() === 0) {
-          howl.stop()
-        }
-      })
-      howl.fade(1, 0, 4000)
-    } else {
-      howl.stop()
-    }
+      whileVisibleAudio.stop()
+      onEntranceAudio.stop()
+      onExitAudio.play()
+    })
   })
+  useUpdateEffect(() => {
+    if (visible) {
+      onExitAudio.stop()
+      onEntranceAudio.play()
+      whileVisibleAudio.play()
+    } else {
+      whileVisibleAudio.stop()
+      onEntranceAudio.stop()
+      onExitAudio.play()
+    }
+  }, [visible])
 
   return (
     <AnimatePresence>

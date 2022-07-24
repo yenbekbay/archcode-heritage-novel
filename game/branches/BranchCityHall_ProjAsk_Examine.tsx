@@ -37,7 +37,10 @@ export function BranchCityHall_ProjAsk_Examine() {
         —Ещё одно! Ещё нарушение!!!
       </Say>
 
-      <Show src={{uri: expert3Png.src, align: 'bottom'}} audio={portalMp3} />
+      <Show
+        src={{uri: expert3Png.src, align: 'bottom'}}
+        audio={{onEntrance: portalMp3}}
+      />
 
       <Scene src={bgMayorDoorJpg.src} />
 

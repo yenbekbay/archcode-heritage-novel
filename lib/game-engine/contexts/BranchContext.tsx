@@ -41,7 +41,7 @@ export interface BranchProviderProps {
 }
 
 export function BranchProvider({branchId, children}: BranchProviderProps) {
-  const {options, focusedLocation, goToLocation, goBack, canGoBack} =
+  const {focusedLocation, goToLocation, goBack, canGoBack, playSound} =
     useGameContext()
   const focusedStatementIndex =
     focusedLocation.branchId === branchId ? focusedLocation.statementIndex : 0
@@ -152,7 +152,7 @@ export function BranchProvider({branchId, children}: BranchProviderProps) {
 
         const command = statementByIndex.get(focusedStatementIndex)
         if (command?.behavior[0].startsWith('skippable')) {
-          options.onPlaySound?.('skip')
+          playSound('skip')
           skip()
         }
       }}
@@ -167,11 +167,11 @@ export function BranchProvider({branchId, children}: BranchProviderProps) {
         onClick={(event) => {
           event.stopPropagation()
           if (!canGoBack()) {
-            options.onPlaySound?.('not_allowed')
+            playSound('not_allowed')
             return
           }
 
-          options.onPlaySound?.('skip')
+          playSound('skip')
           goBack()
         }}
       />

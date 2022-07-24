@@ -11,13 +11,12 @@ import {
 export type SoundName = 'click' | 'skip' | 'not_allowed'
 
 export interface GameOptions {
-  onGoHome?: () => void
-  onLinkClick?: (href: string, name: string, event: React.MouseEvent) => void
-  onPlaySound?: (name: SoundName) => void
+  onGoToRoot: () => void
+  onLinkClick: (href: string, name: string, event: React.MouseEvent) => void
+  onPlaySound: (name: SoundName) => void
 }
 
 export interface GameContextValue {
-  options: GameOptions
   focusedLocation: GameLocation
   muted: boolean
   setMuted: React.Dispatch<boolean>
@@ -27,6 +26,9 @@ export interface GameContextValue {
   goToLocation: (branchId: BranchId, statementIndex: number) => void
   goBack: () => boolean
   canGoBack: () => boolean
+  goToRoot: () => void
+  handleLinkClick: (href: string, name: string, event: React.MouseEvent) => void
+  playSound: (name: SoundName) => void
 }
 
 const GameContext = React.createContext<GameContextValue | null>(null)
@@ -34,15 +36,15 @@ const GameContext = React.createContext<GameContextValue | null>(null)
 export interface GameProviderProps {
   children: React.ReactNode
   initialBranchId: BranchId
-  onGoHome?: () => void
-  onLinkClick?: (href: string, name: string, event: React.MouseEvent) => void
-  onPlaySound?: (name: SoundName) => void
+  onGoToRoot: () => void
+  onLinkClick: (href: string, name: string, event: React.MouseEvent) => void
+  onPlaySound: (name: SoundName) => void
 }
 
 export function GameProvider({
   children,
   initialBranchId,
-  onGoHome,
+  onGoToRoot,
   onLinkClick,
   onPlaySound,
 }: GameProviderProps) {
@@ -94,7 +96,6 @@ export function GameProvider({
 
   const ctx = React.useMemo(
     (): GameContextValue => ({
-      options: {onGoHome, onLinkClick, onPlaySound},
       focusedLocation,
       muted,
       setMuted,
@@ -121,12 +122,19 @@ export function GameProvider({
         return ok
       },
       canGoBack: history.canGoBack,
+      goToRoot: onGoToRoot,
+      handleLinkClick: onLinkClick,
+      playSound: (name) => {
+        if (!muted) {
+          onPlaySound(name)
+        }
+      },
     }),
     [
       focusedLocation,
       history,
       muted,
-      onGoHome,
+      onGoToRoot,
       onLinkClick,
       onPlaySound,
       paused,

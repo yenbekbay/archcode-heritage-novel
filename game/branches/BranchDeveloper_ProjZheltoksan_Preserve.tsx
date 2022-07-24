@@ -36,7 +36,7 @@ export function BranchDeveloper_ProjZheltoksan_Preserve() {
       <Say
         tag={{text: 'Бот-билдер:', color: '#53C7D5'}}
         image={{uri: botBuilderPng.src, align: 'bottom'}}
-        audio={hologramMp3}>
+        audio={{onEntrance: hologramMp3}}>
         {
           'Нужно подходить к вопросу грамотно. Что такое реставрация?\n\n[Ссылка*15](#)'
         }

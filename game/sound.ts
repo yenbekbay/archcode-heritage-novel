@@ -1,6 +1,6 @@
-import {Howl} from 'howler'
 import {clickMp3} from '~/assets/game'
 import {delay, SoundName} from '~/lib/game-engine'
+import {getAudio} from '~/lib/game-engine/components/internal'
 
 export function playSound(name: SoundName) {
   switch (name) {
@@ -40,6 +40,5 @@ async function playZzfxSound(name: keyof typeof ZZFX_SOUNDS) {
 }
 
 async function playAudio(src: string) {
-  const howl = new Howl({src, html5: true})
-  howl.play()
+  getAudio({src, html5: true}).play()
 }

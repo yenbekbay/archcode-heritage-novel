@@ -66,7 +66,9 @@ export function BranchActivist_CheckOut_Act_Group() {
         —Ты представляешь, что происходит ??
       </Say>
 
-      <Say image={{uri: redhead16Png.src, align: 'bottom'}} audio={alertsMp3}>
+      <Say
+        image={{uri: redhead16Png.src, align: 'bottom'}}
+        audio={{onEntrance: alertsMp3}}>
         {'*pop up\n\nзвуки уведомлений'}
       </Say>
 
