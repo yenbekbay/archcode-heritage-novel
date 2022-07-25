@@ -39,6 +39,7 @@ function _getAudio(_src: AudioSource): AudioPlayer {
         }
       })
     },
+    html5: true,
   })
   const audio = {
     src,
@@ -71,7 +72,7 @@ function _getAudio(_src: AudioSource): AudioPlayer {
             break
           case 'play':
             howl.stop()
-            const tail = new Howl({src: onStop[1]})
+            const tail = new Howl({src: onStop[1], html5: true})
             tail.once('end', () => resolve())
             tail.play()
             break
