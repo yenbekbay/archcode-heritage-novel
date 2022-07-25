@@ -33,6 +33,7 @@ export default function AboutUs() {
           <Image
             className="absolute bottom-0 h-auto w-full translate-y-[54%]"
             src={paperRipPng}
+            priority
           />
         </div>
 
@@ -188,7 +189,7 @@ function TeamMemberCard({
 
         <div>
           <h2 className="mb-0 md:mt-0">{name}</h2>
-          <h3 className="text-base">{role}</h3>
+          <h3 className="text-base italic">{role}</h3>
           <p className="md:text-sm">{bio}</p>
         </div>
       </div>

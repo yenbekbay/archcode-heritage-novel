@@ -61,7 +61,7 @@ module.exports = {
       },
       fontFamily: {
         display: ['Moniqa', ...defaultTheme.fontFamily.serif],
-        mono: ['IBMPlexMono', ...defaultTheme.fontFamily.mono],
+        mono: ['IBM Plex Mono', ...defaultTheme.fontFamily.mono],
         calligraph: ['calligraph'],
       },
       keyframes: {

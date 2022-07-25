@@ -21,6 +21,27 @@ export default function MyDocument() {
         />
         <link
           rel="preload"
+          href="/fonts/IBMPlexMono-Italic.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preload"
+          href="/fonts/IBMPlexMono-Medium.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preload"
+          href="/fonts/IBMPlexMono-MediumItalic.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preload"
           href="/fonts/Moniqa-SemiBoldDisplay.woff2"
           as="font"
           type="font/woff2"

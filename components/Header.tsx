@@ -60,6 +60,7 @@ export function Header() {
                 className="h-32 w-auto"
                 src={logoGamePng}
                 alt="Логотип «Снести нельзя оставить»"
+                priority
               />
             </a>
           </Link>

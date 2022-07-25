@@ -12,12 +12,39 @@
 }
 
 @font-face {
-  font-family: 'IBMPlexMono';
+  font-family: 'IBM Plex Mono';
   font-weight: 400;
   font-display: swap;
   font-style: normal;
   src: url('/fonts/IBMPlexMono-Regular.woff2') format('woff2'),
     url('/fonts/IBMPlexMono-Regular.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'IBM Plex Mono';
+  font-weight: 400;
+  font-display: swap;
+  font-style: italic;
+  src: url('/fonts/IBMPlexMono-Italic.woff2') format('woff2'),
+    url('/fonts/IBMPlexMono-Italic.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'IBM Plex Mono';
+  font-weight: 700;
+  font-display: swap;
+  font-style: normal;
+  src: url('/fonts/IBMPlexMono-Medium.woff2') format('woff2'),
+    url('/fonts/IBMPlexMono-Medium.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'IBM Plex Mono';
+  font-weight: 700;
+  font-display: swap;
+  font-style: italic;
+  src: url('/fonts/IBMPlexMono-MediumItalic.woff2') format('woff2'),
+    url('/fonts/IBMPlexMono-MediumItalic.woff') format('woff');
 }
 
 @font-face {

@@ -75,6 +75,7 @@ export function Footer() {
                   className="h-[3rem] w-auto"
                   src={logoGamePng}
                   alt="Логотип «Снести нельзя оставить»"
+                  priority
                 />
               </a>
             </Link>
@@ -87,6 +88,7 @@ export function Footer() {
                 className="h-[3rem] w-auto"
                 src={logoNonmuseumPng}
                 alt="Логотип «Немузей Архитектуры»"
+                priority
               />
             </a>
 
@@ -98,6 +100,7 @@ export function Footer() {
                 className="h-[3rem] w-auto"
                 src={logoArchcodePng}
                 alt="Логотип «Архкод Алматы»"
+                priority
               />
             </a>
 
@@ -109,6 +112,7 @@ export function Footer() {
                 className="h-[3rem] w-auto bg-white"
                 src={logoSorosPng}
                 alt="Логотип «Фонд Cорос-Казахстан»"
+                priority
               />
             </a>
           </div>
