@@ -88,13 +88,7 @@ export function BranchIntro() {
 
       <Menu
         label="Выберите персонажа"
-        audio={{
-          whileVisible: {
-            uri: calmLoopMp3,
-            loop: true,
-            onStop: ['fadeOut', 4000],
-          },
-        }}
+        audio={{whileVisible: {uri: calmLoopMp3, loop: true}}}
         choices={[
           {
             label: 'Активист',

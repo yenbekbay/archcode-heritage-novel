@@ -13,13 +13,7 @@ export function BranchActivist_0Juncture() {
     <Branch>
       <Scene
         src={bgMapGif.src}
-        audio={{
-          whileVisible: {
-            uri: heartbeatMp3,
-            loop: true,
-            onStop: ['fadeOut', 4000],
-          },
-        }}
+        audio={{whileVisible: {uri: heartbeatMp3, loop: true}}}
       />
 
       <Say>Забор в этом городе появился новый</Say>

@@ -62,10 +62,7 @@ export function BranchActivist_WalkPast() {
 
       <Say>Оказывается, за забором было здание госплана Желтоксан 115</Say>
 
-      <Scene
-        src={bgZheltoksanAfterJpg.src}
-        audio={{whileVisible: {uri: cityAtmosMp3, loop: true}}}
-      />
+      <Scene src={bgZheltoksanAfterJpg.src} />
 
       <Say>
         Его снесли, а на его месте построили K-plaza, которая до сих пор

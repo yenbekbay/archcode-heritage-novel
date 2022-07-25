@@ -1,6 +1,7 @@
 import {
   archkot5Png,
   bgMapGif,
+  cityAtmosMp3,
   fenceMp3,
   fencePng,
   heartbeatMp3,
@@ -12,13 +13,7 @@ export function BranchArchkot_0Juncture() {
     <Branch>
       <Scene
         src={bgMapGif.src}
-        audio={{
-          whileVisible: {
-            uri: heartbeatMp3,
-            loop: true,
-            onStop: ['fadeOut', 4000],
-          },
-        }}
+        audio={{whileVisible: {uri: heartbeatMp3, loop: true}}}
       />
 
       <Say>Забор в этом городе появился новый</Say>
@@ -40,7 +35,10 @@ export function BranchArchkot_0Juncture() {
             },
           },
         }}
-        audio={{onEntrance: fenceMp3}}
+        audio={{
+          whileVisible: {uri: cityAtmosMp3, loop: true},
+          onEntrance: fenceMp3,
+        }}
         hide={-1}
       />
 

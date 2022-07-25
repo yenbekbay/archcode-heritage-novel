@@ -8,6 +8,7 @@ import {
 import type {AnimationControls, Variant} from 'framer-motion'
 import {AnimatePresence, motion, useAnimation, usePresence} from 'framer-motion'
 import React from 'react'
+import {useWindowFocus} from '../../hooks'
 import type {Statement, StatementBehavior} from '../contexts'
 import {
   useBranchContext,
@@ -66,18 +67,33 @@ export function Command({
     [behavior, command, hide, next, register],
   )
 
-  const whileVisibleAudio = useAudio(audioSrc?.whileVisible ?? null)
-  const onEntranceAudio = useAudio(audioSrc?.onEntrance ?? null)
-  const onExitAudio = useAudio(audioSrc?.onExit ?? null)
+  const whileVisibleAudio = useAudio(
+    audioSrc?.whileVisible
+      ? {
+          channel: 'main',
+          ...(typeof audioSrc.whileVisible === 'object'
+            ? audioSrc.whileVisible
+            : {uri: audioSrc.whileVisible}),
+        }
+      : null,
+  )
+  const onEntranceAudio = useAudio(
+    audioSrc?.onEntrance
+      ? {uri: audioSrc.onEntrance, channel: 'entrance'}
+      : null,
+  )
+  const onExitAudio = useAudio(
+    audioSrc?.onExit ? {uri: audioSrc.onExit, channel: 'exit'} : null,
+  )
 
   const mountedRef = React.useRef(false)
   const visibleRef = useSyncedRef(visible)
   useMountEffect(() => {
     mountedRef.current = true
     if (visibleRef.current) {
-      onExitAudio.stop()
-      onEntranceAudio.play()
-      whileVisibleAudio.play()
+      onExitAudio?.stop()
+      onEntranceAudio?.play()
+      whileVisibleAudio?.play()
     }
   })
   useUnmountEffect(() => {
@@ -89,21 +105,21 @@ export function Command({
         if (mountedRef.current) {
           return
         }
-        whileVisibleAudio.stop()
-        onEntranceAudio.stop()
-        onExitAudio.play()
+        whileVisibleAudio?.stop()
+        onEntranceAudio?.stop()
+        onExitAudio?.play()
       })
     }
   })
   useUpdateEffect(() => {
     if (visible) {
-      onExitAudio.stop()
-      onEntranceAudio.play()
-      whileVisibleAudio.play()
+      onExitAudio?.stop()
+      onEntranceAudio?.play()
+      whileVisibleAudio?.play()
     } else {
-      whileVisibleAudio.stop()
-      onEntranceAudio.stop()
-      onExitAudio.play()
+      whileVisibleAudio?.stop()
+      onEntranceAudio?.stop()
+      onExitAudio?.play()
     }
   }, [visible])
 
@@ -141,6 +157,7 @@ const CommandView = React.forwardRef(function CommandView(
   const {statementIndex, focused} = useStatementContext()
   const [isPresent, safeToRemove] = usePresence()
   const isMounted = useIsMounted()
+  const windowFocused = useWindowFocus()
 
   const enteredRef = React.useRef(false)
   const [entered, _setEntered] = React.useState(false)
@@ -154,6 +171,7 @@ const CommandView = React.forwardRef(function CommandView(
   const countdownTimerRef = React.useRef<ReturnType<typeof setInterval>>()
   const countdownPausedRef = React.useRef(false)
   const gamePausedRef = useSyncedRef(gamePaused)
+  const windowFocusedRef = useSyncedRef(windowFocused)
 
   React.useImperativeHandle(
     forwardedRef,
@@ -201,7 +219,11 @@ const CommandView = React.forwardRef(function CommandView(
       if (behavior[0] === 'skippable_timed' && entered && focused) {
         setCountdownProgress(0)
         countdownTimerRef.current = setInterval(() => {
-          if (countdownPausedRef.current || gamePausedRef.current) {
+          if (
+            countdownPausedRef.current ||
+            gamePausedRef.current ||
+            !windowFocusedRef.current
+          ) {
             return
           }
 

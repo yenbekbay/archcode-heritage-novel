@@ -2,4 +2,5 @@
 export * from './useFontLoaded'
 export * from './useResult'
 export * from './useStableCallback'
+export * from './useWindowFocus'
 // codegen:end

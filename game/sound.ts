@@ -43,5 +43,5 @@ async function playZzfxSound(name: keyof typeof ZZFX_SOUNDS) {
 }
 
 async function playAudio(src: string) {
-  getAudio({src}).play()
+  getAudio({uri: src}).play()
 }

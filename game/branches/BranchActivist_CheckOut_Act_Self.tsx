@@ -3,30 +3,31 @@ import {
   bgAptKitchenJpg,
   bgAptOutsideWindowJpg,
   bgCourtyardJpg,
-  bgLaptopAboveJpg,
   bgLaptopHandsJpg,
   bgLaptopStandaloneJpg,
-  cityAtmosMp3,
   redhead10Png,
   redhead11Png,
   redhead12Png,
   redhead9Png,
+  transition1Mp3,
+  transition2ShortMp3,
+  transition3ShortMp3,
 } from '~/assets/game'
 import {Branch, Say, Scene} from '~/lib/game-engine'
 
 export function BranchActivist_CheckOut_Act_Self() {
   return (
     <Branch>
-      <Scene
-        src={bgCourtyardJpg.src}
-        audio={{whileVisible: {uri: cityAtmosMp3, loop: true}}}
-      />
+      <Scene src={bgCourtyardJpg.src} audio={{onEntrance: transition1Mp3}} />
       <Scene
         src={bgAptOutsideWindowJpg.src}
-        audio={{whileVisible: {uri: cityAtmosMp3, loop: true}}}
+        audio={{onEntrance: transition2ShortMp3}}
       />
-      <Scene src={bgAptEntranceJpg.src} />
-      <Scene src={bgLaptopAboveJpg.src} />
+      <Scene
+        src={bgAptEntranceJpg.src}
+        audio={{onEntrance: transition3ShortMp3}}
+      />
+      <Scene src={bgAptKitchenJpg.src} />
 
       <Say scheme="dark" hide={1}>
         Действовать надо последовательно
