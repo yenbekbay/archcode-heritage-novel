@@ -1,3 +1,4 @@
+import {Howl} from 'howler'
 import {
   akimThemeMp3,
   calmLoopMp3,
@@ -15,8 +16,8 @@ import {
   introTailMp3,
   mouseoverMp3,
 } from '~/assets/game'
-import {CommandAudioConfig, delay, SoundName} from '~/lib/game-engine'
-import {getAudio} from '~/lib/game-engine/components/internal'
+import type {CommandAudioConfig, SoundName} from '~/lib/game-engine'
+import {delay} from '~/lib/game-engine/utils'
 
 function makeAudioConfig(config: CommandAudioConfig) {
   return config
@@ -137,5 +138,5 @@ async function playZzfxSound(name: keyof typeof ZZFX_SOUNDS) {
 }
 
 async function playAudio(src: string) {
-  getAudio({uri: src}).play()
+  new Howl({src}).play()
 }

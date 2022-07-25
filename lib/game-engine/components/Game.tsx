@@ -78,7 +78,7 @@ function GameView({assets, branches, initialBranchId}: GameViewProps) {
           {loaded && canGoBack() && (
             <button
               className="btn btn-ghost btn-circle bg-base-100 text-xl shadow-md hover:bg-base-200"
-              onMouseOver={() => playSound('mouseover')}
+              onMouseEnter={() => playSound('mouseover')}
               onClick={() => {
                 playSound('click')
                 goBack()
@@ -92,7 +92,7 @@ function GameView({assets, branches, initialBranchId}: GameViewProps) {
           {loaded && (
             <button
               className="btn btn-ghost btn-circle bg-base-100 text-xl shadow-md hover:bg-base-200"
-              onMouseOver={() => playSound('mouseover')}
+              onMouseEnter={() => playSound('mouseover')}
               onClick={() => {
                 playSound('click')
                 goToLocation(initialBranchId, 0)
@@ -103,7 +103,7 @@ function GameView({assets, branches, initialBranchId}: GameViewProps) {
 
           <button
             className="btn btn-ghost btn-circle bg-base-100 text-xl shadow-md hover:bg-base-200"
-            onMouseOver={() => playSound('mouseover')}
+            onMouseEnter={() => playSound('mouseover')}
             onClick={() => {
               playSound('click')
               goToRoot()
@@ -118,7 +118,7 @@ function GameView({assets, branches, initialBranchId}: GameViewProps) {
           <>
             <button
               className="btn btn-ghost btn-circle bg-base-100 text-xl shadow-md hover:bg-base-200"
-              onMouseOver={() => playSound('mouseover')}
+              onMouseEnter={() => playSound('mouseover')}
               onClick={() => {
                 playSound('click')
                 setMuted(!muted)
@@ -128,7 +128,7 @@ function GameView({assets, branches, initialBranchId}: GameViewProps) {
 
             <button
               className="btn btn-ghost btn-circle bg-base-100 text-xl shadow-md hover:bg-base-200"
-              onMouseOver={() => playSound('mouseover')}
+              onMouseEnter={() => playSound('mouseover')}
               onClick={() => {
                 playSound('click')
                 setPaused(!paused)

@@ -121,7 +121,7 @@ function makeChannel(): AudioChannel {
       playlist.set(audio, {playedAt: Date.now()})
       for (const a of prevAudios) {
         if (a.src.overlap) {
-          ;(async () => {
+          (async () => {
             await a.stop()
             playlist.delete(a)
           })()

@@ -1,5 +1,5 @@
-import clsx from 'clsx'
 import {motion} from 'framer-motion'
+import {twMerge} from 'tailwind-merge'
 import type {definitions} from '~/api'
 import {getSupabase} from '~/api'
 import type {
@@ -38,10 +38,10 @@ export function SubmitPost({onDone, frame, scheme, image}: SubmitPostProps) {
           {imageProps && <ImageView controls={controls} {...imageProps} />}
 
           <motion.div
-            className={clsx(
+            className={twMerge(
               'GameEngine-text absolute flex flex-col',
               scheme === 'dark' && 'GameEngine-text--dark',
-              !frame && 'inset-0 p-8 pt-20',
+              !frame && 'inset-0 p-8 py-20',
             )}
             style={frame && styleForFrame({containerRect}, frame)}
             variants={{

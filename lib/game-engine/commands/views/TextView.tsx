@@ -1,7 +1,7 @@
-import clsx from 'clsx'
 import type {AnimationControls} from 'framer-motion'
 import {motion} from 'framer-motion'
 import React from 'react'
+import {twMerge} from 'tailwind-merge'
 import type {
   CommandViewAnimation,
   CommandViewColorScheme,
@@ -47,8 +47,8 @@ export function TextView({
   const fontSize = `${containerRect?.width / REFERENCE_SIZE[0]}em`
   return (
     <div
-      className={clsx(
-        'pointer-events-none absolute inset-0 flex flex-col p-8 pt-20',
+      className={twMerge(
+        'pointer-events-none absolute inset-0 flex flex-col p-8 py-20',
         {
           top: 'justify-start',
           middle: 'justify-center',
@@ -85,7 +85,7 @@ export function TextView({
         )}
 
         <div
-          className={clsx(
+          className={twMerge(
             'GameEngine-text whitespace-pre-wrap text-center font-calligraph leading-tight',
             scheme === 'dark' && 'GameEngine-text--dark',
             {

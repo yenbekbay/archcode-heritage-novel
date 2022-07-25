@@ -1,5 +1,6 @@
 import {useRouter} from 'next/router'
-import Link, {LinkProps} from 'next/link'
+import type {LinkProps} from 'next/link'
+import Link from 'next/link'
 import React from 'react'
 
 export interface ActiveLinkProps extends LinkProps {

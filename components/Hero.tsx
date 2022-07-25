@@ -1,5 +1,5 @@
-import clsx from 'clsx'
 import React from 'react'
+import {twMerge} from 'tailwind-merge'
 import {Reveal} from '~/lib/components'
 
 export interface HeroProps extends React.ComponentPropsWithoutRef<'section'> {
@@ -18,7 +18,7 @@ export function Hero({
   return (
     <Reveal asChild>
       <div
-        className={clsx(
+        className={twMerge(
           'container mx-auto grid grid-flow-row justify-items-center gap-8 p-8 pb-16 lg:grid-flow-col lg:justify-items-start',
           className,
         )}

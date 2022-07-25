@@ -1,14 +1,14 @@
+import Image from 'next/future/image'
 import Link from 'next/link'
-import clsx from 'clsx'
 import type {IconProps} from 'phosphor-react'
 import {
   GameController as GameControllerIcon,
   List as ListIcon,
 } from 'phosphor-react'
 import React from 'react'
+import {twMerge} from 'tailwind-merge'
 import {logoGamePng} from '~/assets/www'
 import {ActiveLink} from './ActiveLink'
-import Image from 'next/future/image'
 
 type Link = {label: string; icon?: React.ComponentType<IconProps>} & (
   | {
@@ -33,6 +33,10 @@ const LINKS: Link[] = [
   {
     to: '/about-us',
     label: 'О команде',
+  },
+  {
+    to: '/links',
+    label: 'Ссылки',
   },
   {
     href: 'https://archcode.kz/',
@@ -100,7 +104,7 @@ export function Header() {
             {LINKS.map((l) => {
               const key = l.to ? l.to : l.href
               return (
-                <li key={key} className={clsx(l.icon && 'item-invert')}>
+                <li key={key} className={twMerge(l.icon && 'item-invert')}>
                   {l.to ? (
                     <ActiveLink activeClassName="active" href={l.to}>
                       <a>

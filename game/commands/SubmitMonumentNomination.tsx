@@ -1,5 +1,5 @@
-import clsx from 'clsx'
 import {motion} from 'framer-motion'
+import {twMerge} from 'tailwind-merge'
 import type {definitions} from '~/api'
 import {getSupabase} from '~/api'
 import type {CommandViewColorScheme, Frame} from '~/lib/game-engine'
@@ -32,10 +32,10 @@ export function SubmitMonumentNomination({
     <Command name="SubmitMonumentNomination" behavior={['non_skippable']}>
       {(controls) => (
         <motion.div
-          className={clsx(
+          className={twMerge(
             'GameEngine-text absolute flex flex-col',
             scheme === 'dark' && 'GameEngine-text--dark',
-            !frame && 'inset-0 p-8 pt-20',
+            !frame && 'inset-0 p-8 py-20',
           )}
           style={frame && styleForFrame({containerRect}, frame)}
           variants={{

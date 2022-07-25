@@ -1,7 +1,7 @@
-import clsx from 'clsx'
-import {StaticImageData} from 'next/future/image'
+import type {StaticImageData} from 'next/future/image'
 import React from 'react'
 import {ParallaxBanner} from 'react-scroll-parallax'
+import {twMerge} from 'tailwind-merge'
 
 export interface HeroBackgroundProps
   extends React.ComponentPropsWithoutRef<'div'> {
@@ -19,14 +19,14 @@ export function HeroBackground({
   ...restProps
 }: HeroBackgroundProps) {
   return (
-    <div className={clsx('absolute inset-0 -z-10', containerClassName)}>
+    <div className={twMerge('absolute inset-0 -z-10', containerClassName)}>
       <ParallaxBanner
         className="h-full"
         layers={[
           {
             children: (
               <div
-                className={clsx('h-full w-full', className)}
+                className={twMerge('h-full w-full', className)}
                 style={{
                   backgroundImage: `url(${
                     typeof src === 'object' ? src.src : src

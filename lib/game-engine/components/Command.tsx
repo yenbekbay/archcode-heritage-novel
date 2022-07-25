@@ -15,7 +15,8 @@ import {
   useGameContext,
   useStatementContext,
 } from '../contexts'
-import {AudioSource, useAudio} from './internal'
+import type {AudioSource} from './internal'
+import {useAudio} from './internal'
 
 export type CommandViewColorScheme = 'default' | 'dark'
 

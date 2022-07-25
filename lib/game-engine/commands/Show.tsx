@@ -3,7 +3,7 @@ import {Command} from '../components'
 import type {ImageViewProps} from './views'
 import {ImageView} from './views'
 
-export interface ShowSource extends Omit<ImageViewProps, 'controls'> {}
+export type ShowSource = Omit<ImageViewProps, 'controls'>
 
 export interface ShowProps
   extends Pick<CommandProps, 'audio' | 'hide' | 'next' | 'zIndex'> {

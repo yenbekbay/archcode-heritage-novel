@@ -1,5 +1,4 @@
 import {useLocalStorageValue} from '@react-hookz/web'
-import clsx from 'clsx'
 import {motion} from 'framer-motion'
 import {ArrowLeft as ArrowLeftIcon} from 'phosphor-react'
 import React from 'react'
@@ -7,6 +6,7 @@ import toast from 'react-hot-toast'
 import {useZorm} from 'react-zorm'
 import type {Fetcher} from 'swr'
 import useSWR from 'swr'
+import {twMerge} from 'tailwind-merge'
 import {z} from 'zod'
 import type {definitions} from '~/api'
 import {getSupabase} from '~/api'
@@ -46,10 +46,10 @@ export function SubmitMeme({onDone, frame, scheme, image}: SubmitMemeProps) {
           {imageProps && <ImageView controls={controls} {...imageProps} />}
 
           <motion.div
-            className={clsx(
+            className={twMerge(
               'GameEngine-text absolute flex flex-col',
               scheme === 'dark' && 'GameEngine-text--dark',
-              !frame && 'inset-0 p-8 pt-20',
+              !frame && 'inset-0 p-8 py-20',
             )}
             style={frame && styleForFrame({containerRect}, frame)}
             variants={{
@@ -124,7 +124,7 @@ function MemeForm({onSubmit, onSkip, scheme}: MemeFormProps) {
           <div className="navbar-start">
             <button
               className="btn btn-ghost btn-circle bg-base-100 text-xl shadow-md hover:bg-base-200"
-              onMouseOver={() => playSound('mouseover')}
+              onMouseEnter={() => playSound('mouseover')}
               onClick={() => {
                 playSound('click')
                 if (previewUrl) {
@@ -180,14 +180,14 @@ function MemeForm({onSubmit, onSkip, scheme}: MemeFormProps) {
         // eslint-disable-next-line @next/next/no-img-element
         <img
           key={t.id}
-          className={clsx(
+          className={twMerge(
             'GameEngine-surface h-auto w-full cursor-pointer object-contain',
             scheme === 'dark' && 'GameEngine-surface--dark',
           )}
           src={t.url}
           aria-label={t.name}
           tabIndex={-1}
-          onMouseOver={() => playSound('mouseover')}
+          onMouseEnter={() => playSound('mouseover')}
           onClick={() => {
             playSound('click')
             setActiveTemplateId(t.id)
@@ -228,7 +228,7 @@ function MemePreview({url, onSubmit, onSkip, scheme}: MemePreviewProps) {
     <div className="relative flex flex-col">
       <form
         ref={zo.ref}
-        className={clsx(
+        className={twMerge(
           'flex flex-col space-y-2',
           submitting && 'pointer-events-none opacity-50',
         )}>
@@ -238,7 +238,7 @@ function MemePreview({url, onSubmit, onSkip, scheme}: MemePreviewProps) {
           </label>
 
           <input
-            className={clsx(
+            className={twMerge(
               'rounded-md focus:border-accent focus:ring-0',
               zo.errors.name('border-error'),
             )}
@@ -253,11 +253,11 @@ function MemePreview({url, onSubmit, onSkip, scheme}: MemePreviewProps) {
         </div>
 
         <button
-          className={clsx(
+          className={twMerge(
             'GameEngine-button btn btn-outline font-calligraph',
             scheme === 'dark' && 'GameEngine-button--dark',
           )}
-          onMouseOver={() => playSound('mouseover')}
+          onMouseEnter={() => playSound('mouseover')}
           onClick={() => {
             playSound('click')
             onSkip()
@@ -268,11 +268,11 @@ function MemePreview({url, onSubmit, onSkip, scheme}: MemePreviewProps) {
         <button
           type="submit"
           disabled={zo.validation?.success === false}
-          className={clsx(
+          className={twMerge(
             'GameEngine-button GameEngine-button--opaque btn btn-outline font-calligraph',
             scheme === 'dark' && 'GameEngine-button--dark',
           )}
-          onMouseOver={() => playSound('mouseover')}
+          onMouseEnter={() => playSound('mouseover')}
           onClick={() => playSound('click')}>
           Опубликовать мем
         </button>
@@ -350,7 +350,7 @@ function MemeTemplateForm({
     <div className="relative flex flex-col">
       <form
         ref={zo.ref}
-        className={clsx(
+        className={twMerge(
           'flex flex-col space-y-4',
           submitting && 'pointer-events-none opacity-50',
         )}>
@@ -361,7 +361,7 @@ function MemeTemplateForm({
             </label>
 
             <input
-              className={clsx(
+              className={twMerge(
                 'rounded-md focus:border-accent focus:ring-0',
                 zo.errors[name]('border-error'),
               )}
@@ -379,11 +379,11 @@ function MemeTemplateForm({
         <button
           type="submit"
           disabled={zo.validation?.success === false}
-          className={clsx(
+          className={twMerge(
             'GameEngine-button GameEngine-button--opaque btn btn-outline font-calligraph',
             scheme === 'dark' && 'GameEngine-button--dark',
           )}
-          onMouseOver={() => playSound('mouseover')}
+          onMouseEnter={() => playSound('mouseover')}
           onClick={() => playSound('click')}>
           Посмотреть
         </button>

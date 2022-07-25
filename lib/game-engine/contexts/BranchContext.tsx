@@ -1,6 +1,6 @@
 import {useMeasure} from '@react-hookz/web'
-import clsx from 'clsx'
 import React from 'react'
+import {twMerge} from 'tailwind-merge'
 import {useLongPress} from 'use-long-press'
 import {useStableCallback} from '~/lib/hooks'
 import {useGameContext} from './GameContext'
@@ -158,7 +158,7 @@ export function BranchProvider({branchId, children}: BranchProviderProps) {
       }}
       {...bindLongPress()}>
       <div
-        className={clsx(
+        className={twMerge(
           'absolute left-0 z-[110] h-full w-16 cursor-pointer from-current to-transparent',
           canGoBack() && 'hover:bg-gradient-to-r',
         )}

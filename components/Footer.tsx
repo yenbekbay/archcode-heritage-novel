@@ -54,6 +54,9 @@ export function Footer() {
             <Link href="/about-us">
               <a className="link link-hover">О команде</a>
             </Link>
+            <Link href="/links">
+              <a className="link link-hover">Ссылки</a>
+            </Link>
             <a
               className="link link-hover"
               href="https://archcode.kz/"

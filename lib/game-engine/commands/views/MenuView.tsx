@@ -1,7 +1,7 @@
-import clsx from 'clsx'
 import type {AnimationControls} from 'framer-motion'
 import {motion} from 'framer-motion'
 import React from 'react'
+import {twMerge} from 'tailwind-merge'
 import type {
   CommandViewAnimation,
   CommandViewColorScheme,
@@ -58,8 +58,8 @@ export function MenuView({
   )
   return (
     <div
-      className={clsx(
-        'pointer-events-none absolute inset-0 flex flex-col p-8 pt-20',
+      className={twMerge(
+        'pointer-events-none absolute inset-0 flex flex-col p-8 py-20',
         {
           top: 'justify-start',
           middle: 'justify-center',
@@ -70,7 +70,7 @@ export function MenuView({
       <div className="pointer-events-auto flex flex-col items-center space-y-2">
         {!!label && (
           <motion.span
-            className={clsx(
+            className={twMerge(
               'GameEngine-text mb-2 whitespace-pre-wrap text-center font-calligraph text-lg',
               scheme === 'dark' && 'GameEngine-text--dark',
             )}
@@ -92,7 +92,7 @@ export function MenuView({
             custom={idx + 1}>
             {c.frame ? (
               <motion.div
-                className={clsx(
+                className={twMerge(
                   'GameEngine-surface btn btn-ghost border',
                   scheme === 'dark' && 'GameEngine-surface--dark',
                 )}
@@ -106,7 +106,7 @@ export function MenuView({
                   ease: 'easeInOut',
                 }}
                 tabIndex={-1}
-                onMouseOver={() => playSound('mouseover')}
+                onMouseEnter={() => playSound('mouseover')}
                 onClick={(event) => {
                   event.stopPropagation()
                   playSound('click')
@@ -115,7 +115,7 @@ export function MenuView({
               />
             ) : (
               <button
-                className={clsx(
+                className={twMerge(
                   'GameEngine-button btn btn-ghost h-auto min-h-0 animate-bounce-gentle py-1 font-calligraph leading-6 shadow-md',
                   scheme === 'dark' && 'GameEngine-button--dark',
                   {
@@ -124,7 +124,7 @@ export function MenuView({
                   }[size],
                 )}
                 style={{animationDelay: `calc(0.05 * ${idx}s)`}}
-                onMouseOver={() => playSound('mouseover')}
+                onMouseEnter={() => playSound('mouseover')}
                 onClick={(event) => {
                   event.stopPropagation()
                   playSound('click')

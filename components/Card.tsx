@@ -1,23 +1,29 @@
 import {useMeasure} from '@react-hookz/web'
-import clsx from 'clsx'
 import type {HTMLMotionProps} from 'framer-motion'
 import React from 'react'
 import ReactRough, {Rectangle} from 'react-rough'
+import {twMerge} from 'tailwind-merge'
 import {Reveal} from '~/lib/components'
 
-export interface CardProps extends HTMLMotionProps<'div'> {}
+export interface CardProps extends HTMLMotionProps<'div'> {
+  contentClassName?: string
+}
 
 export const Card = React.forwardRef(function Card(
-  {children, className, ...restProps}: CardProps,
+  {children, className, contentClassName, ...restProps}: CardProps,
   forwardedRef: React.ForwardedRef<HTMLDivElement>,
 ) {
   return (
     <Reveal
       ref={forwardedRef}
-      className={clsx('relative shadow-lg', className)}
+      className={twMerge('relative shadow-lg', className)}
       {...restProps}>
       <CardBackground />
-      <article className="prose relative z-10 p-8 font-mono">
+      <article
+        className={twMerge(
+          'prose relative z-10 p-8 font-mono',
+          contentClassName,
+        )}>
         {children}
       </article>
     </Reveal>

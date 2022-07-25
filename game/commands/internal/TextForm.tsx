@@ -1,10 +1,11 @@
-import clsx from 'clsx'
 import React from 'react'
 import toast from 'react-hot-toast'
 import {useZorm} from 'react-zorm'
+import {twMerge} from 'tailwind-merge'
 import {z} from 'zod'
 import {Spinner} from '~/lib/components'
-import {CommandViewColorScheme, useGameContext} from '~/lib/game-engine'
+import type {CommandViewColorScheme} from '~/lib/game-engine'
+import {useGameContext} from '~/lib/game-engine'
 
 export interface TextFormProps {
   inputLabel: string
@@ -46,7 +47,7 @@ export function TextForm({
     <div className="relative flex flex-1 flex-col overflow-y-auto">
       <form
         ref={zo.ref}
-        className={clsx(
+        className={twMerge(
           'flex flex-col space-y-4',
           submitting && 'pointer-events-none opacity-50',
         )}>
@@ -56,7 +57,7 @@ export function TextForm({
           </label>
 
           <textarea
-            className={clsx(
+            className={twMerge(
               'rounded-md focus:border-accent focus:ring-0',
               zo.errors.body('border-error'),
             )}
@@ -76,7 +77,7 @@ export function TextForm({
           </label>
 
           <input
-            className={clsx(
+            className={twMerge(
               'rounded-md focus:border-accent focus:ring-0',
               zo.errors.name('border-error'),
             )}
@@ -93,11 +94,11 @@ export function TextForm({
         <button
           type="submit"
           disabled={zo.validation?.success === false}
-          className={clsx(
+          className={twMerge(
             'GameEngine-button GameEngine-button--opaque btn btn-outline font-calligraph',
             scheme === 'dark' && 'GameEngine-button--dark',
           )}
-          onMouseOver={() => playSound('mouseover')}
+          onMouseEnter={() => playSound('mouseover')}
           onClick={() => playSound('click')}>
           {submitLabel}
         </button>
