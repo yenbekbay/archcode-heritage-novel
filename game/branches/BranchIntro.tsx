@@ -24,7 +24,7 @@ export function BranchIntro() {
         choices={[
           {
             label: 'Начать',
-            onClick: (ctx) => ctx.skip(),
+            onClick: (ctx) => ctx.goToNextStatement(),
           },
         ]}
       />

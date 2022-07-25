@@ -74,11 +74,11 @@ export function BranchDeveloper_ProjAsk_Demolish_IgnoreRisks_Approved() {
         menu={[
           {
             label: 'Игнорировать',
-            onClick: (ctx) => ctx.skip(),
+            onClick: (ctx) => ctx.goToNextStatement(),
           },
           {
             label: 'Провести общественные слушаниям',
-            onClick: (ctx) => ctx.skip(1),
+            onClick: (ctx) => ctx.goToNextStatement(1),
           },
         ]}>
         Вечно всем надо совать свой нос в чужое дело… Что с этим делать?

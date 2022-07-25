@@ -106,7 +106,7 @@ export function BranchCityHall_MonumentDept_Rant() {
       </Say>
 
       <SubmitMonumentNomination
-        onDone={(ctx) => ctx.skip()}
+        onDone={(ctx) => ctx.goToNextStatement()}
         frame={{
           viewport: [1080, 1920],
           rect: {

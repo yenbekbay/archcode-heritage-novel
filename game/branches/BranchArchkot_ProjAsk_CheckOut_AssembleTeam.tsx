@@ -88,11 +88,11 @@ export function BranchArchkot_ProjAsk_CheckOut_AssembleTeam() {
         menu={[
           {
             label: 'Да',
-            onClick: (ctx) => ctx.skip(),
+            onClick: (ctx) => ctx.goToNextStatement(),
           },
           {
             label: 'Нет',
-            onClick: (ctx) => ctx.skip(2),
+            onClick: (ctx) => ctx.goToNextStatement(2),
           },
         ]}>
         Является ли здание АСК памятником?
@@ -118,7 +118,7 @@ export function BranchArchkot_ProjAsk_CheckOut_AssembleTeam() {
         menu={[
           {
             label: 'Подумаю о дальнейших действиях',
-            onClick: (ctx) => ctx.skip(),
+            onClick: (ctx) => ctx.goToNextStatement(),
           },
           {
             label: 'Ничего уже не поделаешь…',

@@ -169,7 +169,7 @@ const CommandView = React.forwardRef(function CommandView(
   forwardedRef: React.ForwardedRef<CommandViewInstance>,
 ) {
   const {paused: gamePaused} = useGameContext()
-  const {skip} = useBranchContext()
+  const {goToNextStatement} = useBranchContext()
   const {statementIndex, focused} = useStatementContext()
   const [isPresent, safeToRemove] = usePresence()
   const isMounted = useIsMounted()
@@ -264,7 +264,7 @@ const CommandView = React.forwardRef(function CommandView(
           countdownTimerRef.current = undefined
         }
         if (focused) {
-          skip()
+          goToNextStatement()
         }
       }
     },

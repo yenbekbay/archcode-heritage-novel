@@ -97,11 +97,11 @@ export function BranchDeveloper_ProjAirport() {
         menu={[
           {
             label: 'Да',
-            onClick: (ctx) => ctx.skip(),
+            onClick: (ctx) => ctx.goToNextStatement(),
           },
           {
             label: 'Нет',
-            onClick: (ctx) => ctx.skip(),
+            onClick: (ctx) => ctx.goToNextStatement(),
           },
         ]}>
         Является ли VIP терминал памятником историко-культурного наследия?

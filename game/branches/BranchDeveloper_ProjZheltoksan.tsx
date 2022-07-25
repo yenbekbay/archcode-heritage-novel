@@ -98,11 +98,11 @@ export function BranchDeveloper_ProjZheltoksan() {
         menu={[
           {
             label: 'Да',
-            onClick: (ctx) => ctx.skip(),
+            onClick: (ctx) => ctx.goToNextStatement(),
           },
           {
             label: 'Нет',
-            onClick: (ctx) => ctx.skip(),
+            onClick: (ctx) => ctx.goToNextStatement(),
           },
         ]}>
         Является ли здание Желтоксан 115 памятником историко-культурного

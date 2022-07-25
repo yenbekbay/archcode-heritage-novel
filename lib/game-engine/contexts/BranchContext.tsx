@@ -30,7 +30,7 @@ export interface BranchContextValue {
   getStatementCount: () => number
   focusedStatementIndex: number
   goToStatement: (statementLabel: string) => void
-  skip: (plusIndex?: number) => void
+  goToNextStatement: (plusIndex?: number) => void
 }
 
 const BranchContext = React.createContext<BranchContextValue | null>(null)
@@ -50,25 +50,19 @@ export function BranchProvider({branchId, children}: BranchProviderProps) {
   const [statementByLabel] = React.useState(() => new Map<string, Statement>())
   const [containerRect, containerRef] = useMeasure<HTMLDivElement>()
 
-  const skip = useStableCallback((plusIndex = 0) => {
+  const goToNextStatement = useStableCallback((plusIndex = 0) => {
     const focusedStatement = statementByIndex.get(focusedStatementIndex)
-    const entered = focusedStatement?.enter() ?? false
-    // Complete entrance animation before jumping to next statement
-    if (!entered) {
-      const nextStatement =
-        typeof focusedStatement?.next === 'string'
-          ? statementByLabel.get(focusedStatement.next)
-          : statementByIndex.get(
-              Math.min(
-                statementByIndex.size - 1,
-                focusedStatementIndex +
-                  (focusedStatement?.next ?? 1) +
-                  plusIndex,
-              ),
-            )
-      if (nextStatement) {
-        goToLocation(branchId, nextStatement.index)
-      }
+    const nextStatement =
+      typeof focusedStatement?.next === 'string'
+        ? statementByLabel.get(focusedStatement.next)
+        : statementByIndex.get(
+            Math.min(
+              statementByIndex.size - 1,
+              focusedStatementIndex + (focusedStatement?.next ?? 1) + plusIndex,
+            ),
+          )
+    if (nextStatement) {
+      goToLocation(branchId, nextStatement.index)
     }
   })
   const ctx = React.useMemo(
@@ -105,17 +99,17 @@ export function BranchProvider({branchId, children}: BranchProviderProps) {
               }
               goToLocation(branchId, statement?.index)
             },
-            skip,
+            goToNextStatement,
           }
         : null,
     [
       branchId,
       containerRect,
       focusedStatementIndex,
-      skip,
+      goToLocation,
+      goToNextStatement,
       statementByIndex,
       statementByLabel,
-      goToLocation,
     ],
   )
 
@@ -153,7 +147,12 @@ export function BranchProvider({branchId, children}: BranchProviderProps) {
         const command = statementByIndex.get(focusedStatementIndex)
         if (command?.behavior[0].startsWith('skippable')) {
           playSound('skip')
-          skip()
+          const focusedStatement = statementByIndex.get(focusedStatementIndex)
+          const entered = focusedStatement?.enter() ?? false
+          // Complete entrance animation before jumping to next statement
+          if (!entered) {
+            goToNextStatement()
+          }
         }
       }}
       {...bindLongPress()}>

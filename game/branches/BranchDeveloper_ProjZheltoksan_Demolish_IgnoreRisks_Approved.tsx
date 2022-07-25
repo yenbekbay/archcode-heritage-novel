@@ -74,11 +74,11 @@ export function BranchDeveloper_ProjZheltoksan_Demolish_IgnoreRisks_Approved() {
         menu={[
           {
             label: 'Игнорировать',
-            onClick: (ctx) => ctx.skip(),
+            onClick: (ctx) => ctx.goToNextStatement(),
           },
           {
             label: 'Провести общественные слушаниям',
-            onClick: (ctx) => ctx.skip(1),
+            onClick: (ctx) => ctx.goToNextStatement(1),
           },
         ]}>
         Вечно всем надо совать свой нос в чужое дело… Что с этим делать?
@@ -124,14 +124,14 @@ export function BranchDeveloper_ProjZheltoksan_Demolish_IgnoreRisks_Approved() {
             label: 'А) Всё под контролем, беспокойств не будет',
             onClick: (ctx) => {
               answers.set(0, 'a')
-              ctx.skip()
+              ctx.goToNextStatement()
             },
           },
           {
             label: 'Б) Мы учтем ваше замечание и пересмотрим расчеты',
             onClick: (ctx) => {
               answers.set(0, 'b')
-              ctx.skip()
+              ctx.goToNextStatement()
             },
           },
         ]}>
@@ -152,14 +152,14 @@ export function BranchDeveloper_ProjZheltoksan_Demolish_IgnoreRisks_Approved() {
             label: 'А) Всё по правилам, и придуманы они не нами',
             onClick: (ctx) => {
               answers.set(1, 'a')
-              ctx.skip()
+              ctx.goToNextStatement()
             },
           },
           {
             label: 'Б) В проекте возможны поправки, учтём ваши пожелания',
             onClick: (ctx) => {
               answers.set(1, 'b')
-              ctx.skip()
+              ctx.goToNextStatement()
             },
           },
         ]}>
@@ -180,14 +180,14 @@ export function BranchDeveloper_ProjZheltoksan_Demolish_IgnoreRisks_Approved() {
             label: 'А) На уровне законодательства нет никаких наращений',
             onClick: (ctx) => {
               answers.set(2, 'a')
-              ctx.skip()
+              ctx.goToNextStatement()
             },
           },
           {
             label: 'Б) Благодарим за ваши пожелания. Они заставляют задуматься',
             onClick: (ctx) => {
               answers.set(2, 'b')
-              ctx.skip()
+              ctx.goToNextStatement()
             },
           },
         ]}>

@@ -97,11 +97,11 @@ export function BranchDeveloper_ProjAsk() {
         menu={[
           {
             label: 'Да',
-            onClick: (ctx) => ctx.skip(),
+            onClick: (ctx) => ctx.goToNextStatement(),
           },
           {
             label: 'Нет',
-            onClick: (ctx) => ctx.skip(),
+            onClick: (ctx) => ctx.goToNextStatement(),
           },
         ]}>
         Является ли здание АСК памятником историко-культурного наследия?

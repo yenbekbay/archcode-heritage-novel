@@ -104,7 +104,7 @@ export function BranchArchkot_ProjAsk_CheckOut_SocialMedia() {
             },
             {
               label: 'Я сделал всё, что было в моих силах',
-              onClick: (ctx) => ctx.skip(),
+              onClick: (ctx) => ctx.goToNextStatement(),
             },
           ]}>
           Что делать дальше?

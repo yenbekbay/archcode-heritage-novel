@@ -14,7 +14,7 @@ interface MenuContext {
   goToBranch: (branchId: BranchId) => void
   goToStatement: (statementLabel: string) => void
   goToLocation: (branchId: BranchId, statementIndex: number) => void
-  skip: (plusIndex?: number) => void
+  goToNextStatement: (plusIndex?: number) => void
 }
 
 export interface Choice {
@@ -46,15 +46,15 @@ export function MenuView({
   controls,
 }: MenuViewProps) {
   const {goToBranch, goToLocation, playSound} = useGameContext()
-  const {containerRect, goToStatement, skip} = useBranchContext()
+  const {containerRect, goToStatement, goToNextStatement} = useBranchContext()
   const ctx = React.useMemo(
     (): MenuContext => ({
-      goToStatement,
       goToBranch,
       goToLocation,
-      skip,
+      goToStatement,
+      goToNextStatement,
     }),
-    [goToBranch, goToLocation, goToStatement, skip],
+    [goToBranch, goToLocation, goToStatement, goToNextStatement],
   )
   return (
     <div

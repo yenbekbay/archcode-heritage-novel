@@ -91,11 +91,11 @@ export function BranchArchkot_ProjBusStop_CheckOut_AssembleTeam() {
         menu={[
           {
             label: 'Да',
-            onClick: (ctx) => ctx.skip(),
+            onClick: (ctx) => ctx.goToNextStatement(),
           },
           {
             label: 'Нет',
-            onClick: (ctx) => ctx.skip(2),
+            onClick: (ctx) => ctx.goToNextStatement(2),
           },
         ]}>
         Является ли остановка «Казмеханобр» памятником?
@@ -126,7 +126,7 @@ export function BranchArchkot_ProjBusStop_CheckOut_AssembleTeam() {
           },
           {
             label: 'Что ещё можно сделать?',
-            onClick: (ctx) => ctx.skip(),
+            onClick: (ctx) => ctx.goToNextStatement(),
           },
         ]}>
         Что делать?
@@ -196,7 +196,7 @@ export function BranchArchkot_ProjBusStop_CheckOut_AssembleTeam() {
           },
           {
             label: 'Надо довести всё до конца',
-            onClick: (ctx) => ctx.skip(),
+            onClick: (ctx) => ctx.goToNextStatement(),
           },
         ]}>
         Что делать теперь?

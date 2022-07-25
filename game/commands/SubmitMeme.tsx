@@ -28,7 +28,7 @@ export interface SubmitMemeProps {
   onDone: (ctx: {
     goToBranch: (branchId: BranchId) => void
     goToStatement: (statementLabel: string) => void
-    skip: () => void
+    goToNextStatement: (plusIndex?: number) => void
   }) => void
   scheme?: CommandViewColorScheme
   frame?: Frame
@@ -37,7 +37,7 @@ export interface SubmitMemeProps {
 
 export function SubmitMeme({onDone, frame, scheme, image}: SubmitMemeProps) {
   const {goToBranch} = useGameContext()
-  const {containerRect, goToStatement, skip} = useBranchContext()
+  const {containerRect, goToStatement, goToNextStatement} = useBranchContext()
   const imageProps = typeof image === 'string' ? {uri: image} : image
   return (
     <Command name="SubmitMeme" behavior={['non_skippable']}>
@@ -74,9 +74,11 @@ export function SubmitMeme({onDone, frame, scheme, image}: SubmitMemeProps) {
                     url: values.url,
                     name: values.name || undefined,
                   })
-                onDone({goToStatement, goToBranch, skip})
+                onDone({goToStatement, goToBranch, goToNextStatement})
               }}
-              onSkip={() => onDone({goToStatement, goToBranch, skip})}
+              onSkip={() =>
+                onDone({goToStatement, goToBranch, goToNextStatement})
+              }
             />
           </motion.div>
         </>

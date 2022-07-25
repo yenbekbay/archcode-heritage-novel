@@ -20,7 +20,7 @@ export interface SubmitPostProps {
   onDone: (ctx: {
     goToBranch: (branchId: BranchId) => void
     goToStatement: (statementLabel: string) => void
-    skip: () => void
+    goToNextStatement: (plusIndex?: number) => void
   }) => void
   scheme?: CommandViewColorScheme
   frame?: Frame
@@ -29,7 +29,7 @@ export interface SubmitPostProps {
 
 export function SubmitPost({onDone, frame, scheme, image}: SubmitPostProps) {
   const {goToBranch} = useGameContext()
-  const {containerRect, goToStatement, skip} = useBranchContext()
+  const {containerRect, goToStatement, goToNextStatement} = useBranchContext()
   const imageProps = typeof image === 'string' ? {uri: image} : image
   return (
     <Command name="SubmitPost" behavior={['non_skippable']}>
@@ -69,7 +69,7 @@ export function SubmitPost({onDone, frame, scheme, image}: SubmitPostProps) {
                     body: values.body,
                     name: values.name || undefined,
                   })
-                onDone({goToStatement, goToBranch, skip})
+                onDone({goToStatement, goToBranch, goToNextStatement})
               }}
             />
           </motion.div>

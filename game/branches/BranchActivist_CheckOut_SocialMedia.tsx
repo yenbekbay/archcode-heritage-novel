@@ -108,7 +108,7 @@ export function BranchActivist_CheckOut_SocialMedia() {
           },
           {
             label: 'Я сделала всё что было в моих силах',
-            onClick: (ctx) => ctx.skip(),
+            onClick: (ctx) => ctx.goToNextStatement(),
           },
         ]}
         image={{uri: redhead2Png.src, align: 'bottom'}}

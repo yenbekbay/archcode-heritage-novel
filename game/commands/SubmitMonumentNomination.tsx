@@ -15,7 +15,7 @@ export interface SubmitMonumentNominationProps {
   onDone: (ctx: {
     goToBranch: (branchId: BranchId) => void
     goToStatement: (statementLabel: string) => void
-    skip: () => void
+    goToNextStatement: (plusIndex?: number) => void
   }) => void
   frame?: Frame
   scheme?: CommandViewColorScheme
@@ -27,7 +27,7 @@ export function SubmitMonumentNomination({
   scheme,
 }: SubmitMonumentNominationProps) {
   const {goToBranch} = useGameContext()
-  const {containerRect, goToStatement, skip} = useBranchContext()
+  const {containerRect, goToStatement, goToNextStatement} = useBranchContext()
   return (
     <Command name="SubmitMonumentNomination" behavior={['non_skippable']}>
       {(controls) => (
@@ -65,7 +65,7 @@ export function SubmitMonumentNomination({
                   body: values.body,
                   name: values.name || undefined,
                 })
-              onDone({goToStatement, goToBranch, skip})
+              onDone({goToStatement, goToBranch, goToNextStatement})
             }}
           />
         </motion.div>

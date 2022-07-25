@@ -101,11 +101,11 @@ export function BranchArchkot_ProjAirport_CheckOut_AssembleTeam() {
         menu={[
           {
             label: 'Да',
-            onClick: (ctx) => ctx.skip(),
+            onClick: (ctx) => ctx.goToNextStatement(),
           },
           {
             label: 'Нет',
-            onClick: (ctx) => ctx.skip(),
+            onClick: (ctx) => ctx.goToNextStatement(),
           },
         ]}>
         —Является ли здание VIP терминала Аэропорта памятником?
@@ -128,7 +128,7 @@ export function BranchArchkot_ProjAirport_CheckOut_AssembleTeam() {
           },
           {
             label: 'Что ещё можно сделать?',
-            onClick: (ctx) => ctx.skip(),
+            onClick: (ctx) => ctx.goToNextStatement(),
           },
         ]}>
         —ЭТО ПАМЯТНИК!!!
