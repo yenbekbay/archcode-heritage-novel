@@ -13,6 +13,7 @@ import {
   transition2ShortMp3,
 } from '~/assets/game'
 import {Branch, Say, Scene} from '~/lib/game-engine'
+import {LINKS} from '../links'
 import {SCENE_AUDIO} from '../sounds'
 
 export function BranchDeveloper_ProjZheltoksan() {
@@ -40,9 +41,11 @@ export function BranchDeveloper_ProjZheltoksan() {
             transform: 'scale(2.25) translateX(-15px)',
           },
         }}>
-        {
-          'Новости:\n\nПроект Желтоксан 115 в разработке компании Bay Shatyr Group'
-        }
+        {`
+          Новости:
+
+          Проект Желтоксан 115 в разработке компании Bay Shatyr Group
+        `}
       </Say>
 
       <Scene src={bgZheltoksanBeforeJpg.src} audio={SCENE_AUDIO.city} />
@@ -79,9 +82,13 @@ export function BranchDeveloper_ProjZheltoksan() {
         tag={{text: 'Бот-билдер:', color: '#53C7D5'}}
         image={{uri: botBuilderPng.src, align: 'bottom'}}
         audio={{onEntrance: hologramMp3}}>
-        {
-          'Ознакомьтесь со списком\n\n[Ссылка ГОСУДАРСТВЕННЫЙ РЕЕСТР ПАМЯТНИКОВ](#)'
-        }
+        {`
+          Ознакомьтесь со списком
+
+          [Памятники Республиканского значения РК](${LINKS.monument_list_republican})
+
+          [Памятники Местного значения (г. Алматы)](${LINKS.monument_list_local})
+        `}
       </Say>
 
       <Say
@@ -111,9 +118,13 @@ export function BranchDeveloper_ProjZheltoksan() {
       <Say
         tag={{text: 'Архитектор:', color: '#B4AE68CC'}}
         image={{uri: architectPng.src, align: 'bottom'}}>
-        {
-          '—У нас есть два варианта:\n\n№1: Сохранить старое здание и отреставрировать его\n\n№2: А можем все снести, и построить новое!'
-        }
+        {`
+          —У нас есть два варианта:
+
+          №1: Сохранить старое здание и отреставрировать его
+
+          №2: А можем всё снести, и построить новое!
+        `}
       </Say>
 
       <Say

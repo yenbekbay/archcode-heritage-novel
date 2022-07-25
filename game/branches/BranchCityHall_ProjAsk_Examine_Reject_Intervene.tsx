@@ -51,7 +51,10 @@ export function BranchCityHall_ProjAsk_Examine_Reject_Intervene() {
       <Scene src={bgSolidJpg.src} />
 
       <Say durationMs={8000}>
-        {'В память об архитекторе Александре Коржемпо\n1934-2022'}
+        {`
+          В память об архитекторе Александре Коржемпо
+          1934-2022
+        `}
       </Say>
 
       <GameOverTitle />

@@ -6,6 +6,7 @@ import {
   hologramMp3,
 } from '~/assets/game'
 import {Branch, Say, Scene} from '~/lib/game-engine'
+import {LINKS} from '../links'
 import {SCENE_AUDIO} from '../sounds'
 
 export function BranchDeveloper_ProjAsk_Demolish() {
@@ -28,7 +29,11 @@ export function BranchDeveloper_ProjAsk_Demolish() {
         tag={{text: 'Бот-билдер:', color: '#53C7D5'}}
         image={{uri: botBuilderPng.src, align: 'bottom'}}
         audio={{onEntrance: hologramMp3}}>
-        {'Возможные риски при изменении/сносе АСК:\n\n[Ссылка](#)'}
+        {`
+          Возможные риски при изменении/сносе АСК:
+
+          [Посмотреть](${LINKS.potential_demolition_risks_ask})
+        `}
       </Say>
 
       <Say

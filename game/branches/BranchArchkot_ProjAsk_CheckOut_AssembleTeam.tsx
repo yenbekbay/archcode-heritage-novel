@@ -13,6 +13,7 @@ import {
   bgPhoneHandJpg,
 } from '~/assets/game'
 import {Branch, Say, Scene} from '~/lib/game-engine'
+import {LINKS} from '../links'
 import {SCENE_AUDIO} from '../sounds'
 
 export function BranchArchkot_ProjAsk_CheckOut_AssembleTeam() {
@@ -72,7 +73,13 @@ export function BranchArchkot_ProjAsk_CheckOut_AssembleTeam() {
       <Say
         tag={{text: 'АрхБот:', color: '#65506D'}}
         image={{uri: archbot1Png.src, align: 'bottom'}}>
-        {'—Там можно поискать нужное нам здание.\n\n[Ссылка РЕЕСТР](#)'}
+        {`
+          —Там можно поискать нужное нам здание.
+
+          [Памятники Республиканского значения РК](${LINKS.monument_list_republican})
+
+          [Памятники Местного значения (г. Алматы)](${LINKS.monument_list_local})
+        `}
       </Say>
 
       <Say
@@ -139,9 +146,11 @@ export function BranchArchkot_ProjAsk_CheckOut_AssembleTeam() {
       <Say
         tag={{text: 'АрхБот:', color: '#65506D'}}
         image={{uri: archbot3Png.src, align: 'bottom'}}>
-        {
-          '—Представляю вам документ, который я условно назвал “Список Байбека”\n\n[*Cсылка cтатья "Список Байбека"](#)'
-        }
+        {`
+          —Представляю вам документ, который я условно назвал “Список Байбека”
+
+          [Список предварительного учета объектов историко-культурного наследия местного значения](${LINKS.baybek_list})
+        `}
       </Say>
 
       <Say
@@ -153,9 +162,11 @@ export function BranchArchkot_ProjAsk_CheckOut_AssembleTeam() {
       <Say
         tag={{text: 'АрхБот:', color: '#65506D'}}
         image={{uri: archbot1Png.src, align: 'bottom'}}>
-        {
-          '—Я нашел закон, в котором говорится о зданиях, которые заявлены, как возможные памятники\n\n[*Cсылка на закон](#)'
-        }
+        {`
+          —Я нашел закон, в котором говорится о зданиях, которые заявлены как возможные памятники
+
+          [О здании до признания статуса памятника](${LINKS.protection_before_monument_status})
+        `}
       </Say>
 
       <Scene src={bgAskBeforeJpg.src} audio={SCENE_AUDIO.city} />

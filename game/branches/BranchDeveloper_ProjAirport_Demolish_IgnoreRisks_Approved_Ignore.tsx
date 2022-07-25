@@ -10,6 +10,7 @@ import {
 } from '~/assets/game'
 import {Branch, Play, Say, Scene} from '~/lib/game-engine'
 import {GameOverMenu, GameOverTitle} from '../commands'
+import {LINKS} from '../links'
 import {SCENE_AUDIO} from '../sounds'
 
 export function BranchDeveloper_ProjAirport_Demolish_IgnoreRisks_Approved_Ignore() {
@@ -44,7 +45,11 @@ export function BranchDeveloper_ProjAirport_Demolish_IgnoreRisks_Approved_Ignore
             transform: 'scale(2.25) translateX(-15px)',
           },
         }}>
-        {'e-mail:\n\nМы вынуждены заморозить проект, финансирование отозвали'}
+        {`
+          e-mail:
+
+          Мы вынуждены заморозить проект, финансирование отозвали
+        `}
       </Say>
 
       <Say image={{uri: developerRepB11Png.src, align: 'bottom'}}>
@@ -55,9 +60,11 @@ export function BranchDeveloper_ProjAirport_Demolish_IgnoreRisks_Approved_Ignore
         tag={{text: 'Бот-билдер:', color: '#53C7D5'}}
         image={{uri: botBuilderPng.src, align: 'bottom'}}
         audio={{onEntrance: hologramMp3}}>
-        {
-          'В результате слушаний была собрана рабочая группа по мониторингу проекта от общественности\n\n[Ссылка](#)'
-        }
+        {`
+          В результате слушаний была собрана рабочая группа по мониторингу проекта от общественности
+
+          [Кто вошел в рабочую группу?](${LINKS.working_group_members_airport})
+        `}
       </Say>
 
       <Play audio={SCENE_AUDIO.calmLoop} hide={-1} />

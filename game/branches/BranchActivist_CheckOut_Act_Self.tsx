@@ -15,7 +15,6 @@ import {
 } from '~/assets/game'
 import {Branch, Say, Scene} from '~/lib/game-engine'
 import {LINKS} from '../links'
-import {SCENE_AUDIO} from '../sounds'
 
 export function BranchActivist_CheckOut_Act_Self() {
   return (
@@ -150,7 +149,10 @@ export function BranchActivist_CheckOut_Act_Self() {
             onClick: (ctx) => ctx.goToBranch('Activist_CheckOut_Act_Org'),
           },
         ]}>
-        {`Думаю, можно обратиться к ним\n[сайт Архкода](${LINKS.archcode})`}
+        {`
+          Думаю, можно обратиться к ним
+          [сайт Архкода](${LINKS.archcode})
+        `}
       </Say>
     </Branch>
   )

@@ -1,7 +1,9 @@
 import {
   adyaPchelkinaPng,
+  archbot1Png,
   archbot3Png,
   archkot4Png,
+  bgArchcodeOfficeJpg,
   bgAskAfterAltJpg,
   bgDeveloperHqInsideJpg,
   bgDeveloperHqOutsideJpg,
@@ -18,6 +20,7 @@ import {
 } from '~/assets/game'
 import {Branch, Say, Scene} from '~/lib/game-engine'
 import {GameOverMenu, GameOverTitle} from '../commands'
+import {LINKS} from '../links'
 import {SCENE_AUDIO} from '../sounds'
 
 export function BranchArchkot_ProjAsk_CheckOut_AssembleTeam_Debate() {
@@ -116,6 +119,22 @@ export function BranchArchkot_ProjAsk_CheckOut_AssembleTeam_Debate() {
         будут встречаться в процессе работы и стройки процесс обсуждать
       </Say>
 
+      <Scene src={bgArchcodeOfficeJpg.src} audio={SCENE_AUDIO.indoor} />
+
+      <Say
+        tag={{text: 'АрхБот:', color: '#65506D'}}
+        image={{uri: archbot1Png.src, align: 'bottom'}}>
+        {`
+          А вот и протоколы встреч
+
+          [Встреча 1](${LINKS.meeting_protocol_ask_1})
+
+          [Встреча 2](${LINKS.meeting_protocol_ask_2})
+
+          [Встреча 3](${LINKS.meeting_protocol_ask_3})
+        `}
+      </Say>
+
       <Scene src={bgAskAfterAltJpg.src} audio={SCENE_AUDIO.calmLoop} />
 
       <Say>
@@ -136,15 +155,20 @@ export function BranchArchkot_ProjAsk_CheckOut_AssembleTeam_Debate() {
       <Say
         tag={{text: 'АрхБот:', color: '#65506D'}}
         image={{uri: archbot3Png.src, align: 'bottom'}}>
-        {
-          'Вы можете узнать, что написали СМИ о состоявшейся реставрации АСК\n\n[Ссылка на статьи](#)'
-        }
+        {`
+          Вы можете узнать, что написали СМИ о состоявшейся реставрации АСК
+
+          [Статья о реставрации АСК](${LINKS.article_ask_restoration})
+        `}
       </Say>
 
       <Scene src={bgSolidJpg.src} />
 
       <Say durationMs={8000}>
-        {'В память об архитекторе Александре Коржемпо\n1934-2022'}
+        {`
+          В память об архитекторе Александре Коржемпо
+          1934-2022
+        `}
       </Say>
 
       <GameOverTitle />

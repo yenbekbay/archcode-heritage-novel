@@ -7,6 +7,7 @@ import {
 } from '~/assets/game'
 import {Branch, Play, Say, Scene, Show} from '~/lib/game-engine'
 import {GameOverMenu, GameOverTitle} from '../commands'
+import {LINKS} from '../links'
 import {SCENE_AUDIO} from '../sounds'
 
 export function BranchArchkot_ProjAirport_CheckOut_AssembleTeam_Bail() {
@@ -49,7 +50,13 @@ export function BranchArchkot_ProjAirport_CheckOut_AssembleTeam_Bail() {
       <Say
         tag={{text: 'АрхБот:', color: '#65506D'}}
         image={{uri: archbot1Png.src, align: 'bottom'}}>
-        {'—А могло бы быть вот так:\n\n[Ссылка на зарубежные примеры](#)'}
+        {`
+          —А могло бы быть вот так:
+
+          [Екатеринбург](${LINKS.reconstruction_examples_ekaterinburg})
+
+          [Варшава](${LINKS.reconstruction_examples_warsaw})
+        `}
       </Say>
 
       <Say
@@ -61,9 +68,11 @@ export function BranchArchkot_ProjAirport_CheckOut_AssembleTeam_Bail() {
       <Say
         tag={{text: 'АрхБот:', color: '#65506D'}}
         image={{uri: archbot1Png.src, align: 'bottom'}}>
-        {
-          '—Правила вынесения объекта из списка памятников историко-культурного наследия выглядят так:\n\n[Ссылка 3](#)'
-        }
+        {`
+          —Правила вынесения объекта из списка памятников историко-культурного наследия выглядят так:
+
+          [Посмотреть](${LINKS.monument_status_removal_rules})
+        `}
       </Say>
 
       <GameOverTitle />

@@ -16,6 +16,7 @@ import {
 } from '~/assets/game'
 import {Branch, Say, Scene} from '~/lib/game-engine'
 import {GameOverMenu, GameOverTitle} from '../commands'
+import {LINKS} from '../links'
 import {SCENE_AUDIO} from '../sounds'
 
 export function BranchDeveloper_ProjAsk_Preserve() {
@@ -42,9 +43,11 @@ export function BranchDeveloper_ProjAsk_Preserve() {
         tag={{text: 'Бот-билдер:', color: '#53C7D5'}}
         image={{uri: botBuilderPng.src, align: 'bottom'}}
         audio={{onEntrance: hologramMp3}}>
-        {
-          'Нужно подходить к вопросу грамотно. Что такое реставрация?\n\n[Ссылка*15](#)'
-        }
+        {`
+          Нужно подходить к вопросу грамотно. Что такое реставрация?
+          
+          [Что такое реставрация?](${LINKS.what_is_restoration})
+        `}
       </Say>
 
       <Scene
@@ -147,7 +150,10 @@ export function BranchDeveloper_ProjAsk_Preserve() {
       <Scene src={bgSolidJpg.src} />
 
       <Say durationMs={8000}>
-        {'В память об архитекторе Александре Коржемпо\n1934-2022'}
+        {`
+          В память об архитекторе Александре Коржемпо
+          1934-2022
+        `}
       </Say>
 
       <GameOverTitle />

@@ -1,4 +1,5 @@
 import React from 'react'
+import dedent from 'string-dedent'
 import type {CommandProps} from '../components'
 import {Command} from '../components'
 import type {
@@ -31,10 +32,13 @@ export function Say({
   zIndex,
   ...textProps
 }: SayProps) {
-  const groups = React.useMemo(
-    () => charGroupsForMarkdown(children),
-    [children],
-  )
+  let text: string
+  try {
+    text = dedent(children)
+  } catch {
+    text = children
+  }
+  const groups = React.useMemo(() => charGroupsForMarkdown(text), [text])
   const length = groups.flatMap((g) => g.chars).length
   const imageProps = typeof image === 'string' ? {uri: image} : image
   const menuProps =

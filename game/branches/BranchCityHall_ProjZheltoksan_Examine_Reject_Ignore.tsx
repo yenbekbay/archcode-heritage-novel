@@ -2,7 +2,6 @@ import {
   angryCrowd1Png,
   bgCityHallConferenceRoomJpg,
   bgZheltoksanBeforeJpg,
-  chatterMp3,
   developerRepAPng,
   developerRepB1Png,
   developerRepB6Png,
@@ -14,7 +13,6 @@ import {
   redhead14Png,
   stampApprovedPng,
   transition1Mp3,
-  transition2ShortMp3,
 } from '~/assets/game'
 import {Branch, Say, Scene, Show} from '~/lib/game-engine'
 import {SCENE_AUDIO} from '../sounds'

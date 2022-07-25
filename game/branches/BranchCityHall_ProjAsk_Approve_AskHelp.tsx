@@ -35,7 +35,11 @@ export function BranchCityHall_ProjAsk_Approve_AskHelp() {
       <Say
         image={{uri: angryCrowd1Png.src, align: 'bottom'}}
         audio={SCENE_AUDIO.chatter}>
-        {'—Надувательство\n\n—Бред собачий'}
+        {`
+          —Надувательство
+          
+          —Бред собачий
+        `}
       </Say>
 
       <Say image={{uri: angryCrowd2Png.src, align: 'bottom'}}>
@@ -60,7 +64,10 @@ export function BranchCityHall_ProjAsk_Approve_AskHelp() {
       <Scene src={bgSolidJpg.src} />
 
       <Say durationMs={8000}>
-        {'В память об архитекторе Александре Коржемпо\n1934-2022'}
+        {`
+          В память об архитекторе Александре Коржемпо
+          1934-2022
+        `}
       </Say>
 
       <GameOverTitle />

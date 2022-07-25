@@ -21,13 +21,12 @@ import {
   bgCityHallConferenceRoomJpg,
   bgCityHallOutsideJpg,
   bgPhoneHandJpg,
-  indoorAtmosphereMp3,
   sharatMibutovPng,
   transition1Mp3,
-  transition2ShortMp3,
 } from '~/assets/game'
 import {Branch, Play, Say, Scene, Show} from '~/lib/game-engine'
 import {GameOverMenu, GameOverTitle} from '../commands'
+import {LINKS} from '../links'
 import {SCENE_AUDIO} from '../sounds'
 
 export function BranchArchkot_ProjAirport_CheckOut_AssembleTeam() {
@@ -87,7 +86,13 @@ export function BranchArchkot_ProjAirport_CheckOut_AssembleTeam() {
       <Say
         tag={{text: 'АрхБот:', color: '#65506D'}}
         image={{uri: archbot1Png.src, align: 'bottom'}}>
-        {'—Там можно поискать нужное нам здание.\n\n[Ссылка РЕЕСТР](#)'}
+        {`
+          —Там можно поискать нужное нам здание.
+
+          [Памятники Республиканского значения РК](${LINKS.monument_list_republican})
+
+          [Памятники Местного значения (г. Алматы)](${LINKS.monument_list_local})
+        `}
       </Say>
 
       <Say
@@ -150,7 +155,11 @@ export function BranchArchkot_ProjAirport_CheckOut_AssembleTeam() {
       <Say
         tag={{text: 'АрхБот:', color: '#65506D'}}
         image={{uri: archbot1Png.src, align: 'bottom'}}>
-        {'—Представляю вам список стейкхолдеров:\n\n[*список стейкхолдеров](#)'}
+        {`
+          —Представляю вам список стейкхолдеров:
+
+          [Cписок стейкхолдеров](${LINKS.stakeholder_list_airport})
+        `}
       </Say>
 
       <Say
@@ -163,9 +172,11 @@ export function BranchArchkot_ProjAirport_CheckOut_AssembleTeam() {
       <Say
         tag={{text: 'АрхБот:', color: '#65506D'}}
         image={{uri: archbot1Png.src, align: 'bottom'}}>
-        {
-          '—Нашел правила переноса памятника:\n\n[Ссылка 4 правила переноса здания](#)'
-        }
+        {`
+          —Нашел правила переноса памятника:
+
+          [Правила переноса здания](${LINKS.monument_relocation_rules})
+        `}
       </Say>
 
       <Say
@@ -295,17 +306,21 @@ export function BranchArchkot_ProjAirport_CheckOut_AssembleTeam() {
       </Say>
 
       <Say>
-        {
-          'По итогу слушаний собралась рабочая группа активистов, отстаивающих сохранение памятника архитектуры\n\n[Ссылка “кто вошел в рабочую группу”](#)'
-        }
+        {`
+          По итогу слушаний собралась рабочая группа активистов, отстаивающих сохранение памятника архитектуры
+
+          [Кто вошел в рабочую группу?](${LINKS.working_group_members_airport})
+        `}
       </Say>
 
       <Scene src={bgAirportJpg.src} audio={SCENE_AUDIO.city} />
 
       <Say>
-        {
-          'Они написали письмо в EBRD (European bank of construction and development), спонсирующих проект\n\n[Ссылка*19 Письмо](#)'
-        }
+        {`
+          Они написали письмо в EBRD (European bank of construction and development), спонсирующих проект
+
+          [Письмо в EBRD](${LINKS.letter_airport})
+        `}
       </Say>
 
       <Scene src={bgCityHallConferenceRoomJpg.src} audio={SCENE_AUDIO.indoor} />

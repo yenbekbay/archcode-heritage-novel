@@ -14,6 +14,7 @@ import {
 } from '~/assets/game'
 import {Branch, Say, Scene} from '~/lib/game-engine'
 import {GameOverMenu, GameOverTitle} from '../commands'
+import {LINKS} from '../links'
 import {SCENE_AUDIO} from '../sounds'
 
 export function BranchDeveloper_ProjZheltoksan_Preserve() {
@@ -40,9 +41,11 @@ export function BranchDeveloper_ProjZheltoksan_Preserve() {
         tag={{text: 'Бот-билдер:', color: '#53C7D5'}}
         image={{uri: botBuilderPng.src, align: 'bottom'}}
         audio={{onEntrance: hologramMp3}}>
-        {
-          'Нужно подходить к вопросу грамотно. Что такое реставрация?\n\n[Ссылка*15](#)'
-        }
+        {`
+          Нужно подходить к вопросу грамотно. Что такое реставрация?
+          
+          [Что такое реставрация?](${LINKS.what_is_restoration})
+        `}
       </Say>
 
       <Scene

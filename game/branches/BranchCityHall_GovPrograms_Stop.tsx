@@ -11,6 +11,7 @@ import {
   mayor2Png,
 } from '~/assets/game'
 import {Branch, Say, Scene, Show} from '~/lib/game-engine'
+import {LINKS} from '../links'
 import {SCENE_AUDIO} from '../sounds'
 
 export function BranchCityHall_GovPrograms_Stop() {
@@ -40,7 +41,10 @@ export function BranchCityHall_GovPrograms_Stop() {
 
       <Say
         image={{uri: mayor14Png.src, style: {width: '100%', bottom: '-12%'}}}>
-        {'-Хммм…\nДавайте назначим встречу'}
+        {`
+          -Хммм…
+          Давайте назначим встречу
+        `}
       </Say>
 
       <Scene src={bgCityHallConferenceRoomJpg.src} audio={SCENE_AUDIO.indoor} />
@@ -52,9 +56,13 @@ export function BranchCityHall_GovPrograms_Stop() {
       </Say>
 
       <Say image={{uri: archkot3Png.src, align: 'bottom'}}>
-        {
-          '-Вот карта остановок.\n[*ССЫЛКА](#)\n-Они должны охраняться государством!'
-        }
+        {`
+          -Вот карта остановок.
+
+          [Карта остановок](${LINKS.bus_stop_map})
+
+          -Они должны охраняться государством!
+        `}
       </Say>
 
       <Say

@@ -67,9 +67,11 @@ export function BranchActivist_CheckOut_Act_Group() {
           },
         }}
         style={{fontSize: 20, textAlign: 'right'}}>
-        {
-          'Беспредел!\n\nСносят Желтоксан 115. Присоединяйтесь, чтобы вместе действовать в защиту истории!'
-        }
+        {`
+          Беспредел!
+          
+          Сносят Желтоксан 115. Присоединяйтесь, чтобы вместе действовать в защиту истории!
+        `}
       </Say>
 
       <Say image={{uri: redhead15Png.src, align: 'bottom'}}>
@@ -79,7 +81,11 @@ export function BranchActivist_CheckOut_Act_Group() {
       <Say
         image={{uri: redhead16Png.src, align: 'bottom'}}
         audio={{onEntrance: alertsMp3}}>
-        {'*pop up\n\nзвуки уведомлений'}
+        {`
+          *pop up
+          
+          звуки уведомлений
+        `}
       </Say>
 
       <Say
@@ -108,11 +114,11 @@ export function BranchActivist_CheckOut_Act_Group() {
           },
         }}
         style={{fontSize: 16, textAlign: 'left'}}>
-        {[
-          '—Здравствуйте! Меня тоже всё это возмущает! Мы должны действовать сообща!',
-          '                            —Здравое дело! Я с вами!',
-          '—Готовы встретиться, назначайте время и место',
-        ].join('\n\n')}
+        {`
+          —Здравствуйте! Меня тоже всё это возмущает! Мы должны действовать сообща!
+                                      —Здравое дело! Я с вами!
+          —Готовы встретиться, назначайте время и место
+        `}
       </Say>
 
       <Scene src={bgCourtyardJpg.src} audio={{onEntrance: transition1Mp3}} />
@@ -139,9 +145,11 @@ export function BranchActivist_CheckOut_Act_Group() {
       />
 
       <Say image={{uri: activistAPng.src, align: 'bottom'}}>
-        {
-          '—Действовать надо последовательно…\n\nДля начала давайте узнаем, кто здесь - заинтересованные стороны'
-        }
+        {`
+          —Действовать надо последовательно…
+          
+          Для начала давайте узнаем, кто здесь - заинтересованные стороны
+        `}
       </Say>
 
       <Say
@@ -168,9 +176,11 @@ export function BranchActivist_CheckOut_Act_Group() {
       </Say>
 
       <Say image={{uri: redhead5Png.src, align: 'bottom'}}>
-        {
-          '—И узнать надо побольше.\n\nИ не только почитать новости, а проверить, правду ли говорят'
-        }
+        {`
+          —И узнать надо побольше.
+          
+          И не только почитать новости, а проверить, правду ли говорят
+        `}
       </Say>
 
       <Say
@@ -197,9 +207,11 @@ export function BranchActivist_CheckOut_Act_Group() {
       </Say>
 
       <Say image={{uri: activistBPng.src, align: 'bottom'}}>
-        {
-          '—Нужно как можно больше писать в соц.сети.\n\nЧем больше людей знают, тем сложнее что-то скрыть!'
-        }
+        {`
+          —Нужно как можно больше писать в соц.сети.
+          
+          Чем больше людей знают, тем сложнее что-то скрыть!
+        `}
       </Say>
 
       <Say

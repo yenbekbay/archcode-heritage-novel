@@ -4,7 +4,7 @@ import {
   bgCourtyardJpg,
   bgPhoneHandJpg,
   redhead19Png,
-  transition1Mp3,
+  transition2ShortMp3,
 } from '~/assets/game'
 import {Branch, Play, Say, Scene} from '~/lib/game-engine'
 import {GameOverMenu, GameOverTitle} from '../commands'
@@ -14,7 +14,10 @@ import {SCENE_AUDIO} from '../sounds'
 export function BranchActivist_CheckOut_Act_Org() {
   return (
     <Branch>
-      <Scene src={bgCourtyardJpg.src} audio={{onEntrance: transition1Mp3}} />
+      <Scene
+        src={bgCourtyardJpg.src}
+        audio={{onEntrance: transition2ShortMp3}}
+      />
 
       <Say image={{uri: redhead19Png.src, align: 'bottom'}}>
         —Алло, здравствуйте, это Архкод?
@@ -36,7 +39,11 @@ export function BranchActivist_CheckOut_Act_Org() {
       <Scene src={bgArchcodeOfficeJpg.src} audio={SCENE_AUDIO.indoor} />
 
       <Say image={{uri: archkot1Png.src, align: 'bottom'}}>
-        {`—Без паники. Приходите, поделимся опытом\n\n[Переход на телеграм-бот](${LINKS.telegram_bot})`}
+        {`
+          —Без паники. Приходите, поделимся опытом
+
+          [Переход на телеграм-бот](${LINKS.telegram_bot})
+        `}
       </Say>
 
       <Say

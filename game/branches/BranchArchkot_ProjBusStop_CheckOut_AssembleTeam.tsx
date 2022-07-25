@@ -16,6 +16,7 @@ import {
   bgPhoneHandJpg,
 } from '~/assets/game'
 import {Branch, Say, Scene} from '~/lib/game-engine'
+import {LINKS} from '../links'
 import {SCENE_AUDIO} from '../sounds'
 
 export function BranchArchkot_ProjBusStop_CheckOut_AssembleTeam() {
@@ -75,7 +76,13 @@ export function BranchArchkot_ProjBusStop_CheckOut_AssembleTeam() {
       <Say
         tag={{text: 'АрхБот:', color: '#65506D'}}
         image={{uri: archbot1Png.src, align: 'bottom'}}>
-        {'—Там можно поискать нужное нам здание.\n\n[Ссылка РЕЕСТР](#)'}
+        {`
+          —Там можно поискать нужное нам здание.
+
+          [Памятники Республиканского значения РК](${LINKS.monument_list_republican})
+
+          [Памятники Местного значения (г. Алматы)](${LINKS.monument_list_local})
+        `}
       </Say>
 
       <Say
@@ -134,26 +141,34 @@ export function BranchArchkot_ProjBusStop_CheckOut_AssembleTeam() {
       <Say
         tag={{text: 'АрхБот:', color: '#65506D'}}
         image={{uri: archbot1Png.src, align: 'bottom'}}>
-        {
-          '—Я уже подготовил письмо в акимат:\n\n[Ссылка на письмо, отправленное в день демонтажа](#)'
-        }
+        {`
+          —Напишем статью для привлечения внимания!
+
+          [Статья об истории возникновения остановки](${LINKS.article_bus_stop_background})
+        `}
       </Say>
 
       <Say
         tag={{text: 'АрхТок:', color: '#8D8C59'}}
         image={{uri: archtok2Png.src, align: 'bottom'}}>
-        —Неплохо бы ещё подготовить статью, чтобы привлечь внимание
+        —Мы должны действовать реактивно! Нельзя дать им уничтожить остановку…
       </Say>
 
       <Say
         tag={{text: 'АрхБот:', color: '#65506D'}}
         image={{uri: archbot1Png.src, align: 'bottom'}}>
-        {'—Вуаля!:\n\n[Ссылка на статьи и посты о демонтаже Казмеханобра](#)'}
+        —Возможно придеться ехать на место, чтобы требовать остановить демонтаж!
       </Say>
 
       <Scene src={bgBusStop1Jpg.src} audio={SCENE_AUDIO.city} />
 
-      <Say>Поздравляем! Вам удалось остановить демонтаж остановки</Say>
+      <Say>
+        {`
+          Вам удалось выйти на переговоры с владельцами павильона.
+
+          Демонтаж остановлен!
+        `}
+      </Say>
 
       <Scene src={bgArchcodeOfficeJpg.src} audio={SCENE_AUDIO.indoor} />
 
@@ -190,9 +205,11 @@ export function BranchArchkot_ProjBusStop_CheckOut_AssembleTeam() {
       <Say
         tag={{text: 'АрхКот:', color: '#B8AE71'}}
         image={{uri: archkot2Png.src, align: 'bottom'}}>
-        {
-          '—Надо довести дело до конца, ведь в городе ещё много уникальнейших остановок, которым грозит опасность\n\n[Ссылка с составленной картой остановок](#)'
-        }
+        {`
+          —Надо довести дело до конца, ведь в городе ещё много уникальнейших остановок, которым грозит опасность
+
+          [Составленная карта остановок](${LINKS.bus_stop_map})
+        `}
       </Say>
 
       <Say

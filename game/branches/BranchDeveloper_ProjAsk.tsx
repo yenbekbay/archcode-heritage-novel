@@ -13,6 +13,7 @@ import {
   transition2ShortMp3,
 } from '~/assets/game'
 import {Branch, Say, Scene} from '~/lib/game-engine'
+import {LINKS} from '../links'
 import {SCENE_AUDIO} from '../sounds'
 
 export function BranchDeveloper_ProjAsk() {
@@ -40,9 +41,11 @@ export function BranchDeveloper_ProjAsk() {
             transform: 'scale(2.25) translateX(-15px)',
           },
         }}>
-        {
-          'Новости:\n\nПроект Аппаратно студийного комплекса в разработке компании Bay Shatyr Group'
-        }
+        {`
+          Новости:
+
+          Проект Аппаратно студийного комплекса в разработке компании Bay Shatyr Group
+        `}
       </Say>
 
       <Scene src={bgAskBeforeJpg.src} audio={SCENE_AUDIO.city} />
@@ -78,9 +81,13 @@ export function BranchDeveloper_ProjAsk() {
         tag={{text: 'Бот-билдер:', color: '#53C7D5'}}
         image={{uri: botBuilderPng.src, align: 'bottom'}}
         audio={{onEntrance: hologramMp3}}>
-        {
-          'Ознакомьтесь со списком\n\n[Ссылка ГОСУДАРСТВЕННЫЙ РЕЕСТР ПАМЯТНИКОВ](#)'
-        }
+        {`
+          Ознакомьтесь со списком
+
+          [Памятники Республиканского значения РК](${LINKS.monument_list_republican})
+
+          [Памятники Местного значения (г. Алматы)](${LINKS.monument_list_local})
+        `}
       </Say>
 
       <Say
@@ -118,17 +125,22 @@ export function BranchDeveloper_ProjAsk() {
         tag={{text: 'Бот-билдер:', color: '#53C7D5'}}
         image={{uri: botBuilderPng.src, align: 'bottom'}}
         audio={{onEntrance: hologramMp3}}>
-        {
-          'На АСК распространяются те же правила, что и на действующие памятники\n\n[Ссылка *2 на список Байбека](#)'
-        }
+        {`
+          На АСК распространяются те же правила, что и на действующие памятники
+
+          [Список предварительного учета объектов историко-культурного наследия местного значения](${LINKS.baybek_list})
+        `}
       </Say>
 
       <Say
         tag={{text: 'Архитектор:', color: '#B4AE68CC'}}
         image={{uri: architectPng.src, align: 'bottom'}}>
-        {
-          '—У нас есть два варианта:\n\n№1: Сделаем деликатную реставрацию\n\n№2: А можем все перепланировать'
-        }
+        {`
+          —У нас есть два варианта:
+
+          №1: Сделаем деликатную реставрацию
+          №2: А можем всё перепланировать
+        `}
       </Say>
 
       <Say

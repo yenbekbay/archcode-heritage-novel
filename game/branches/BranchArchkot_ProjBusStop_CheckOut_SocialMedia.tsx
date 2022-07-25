@@ -11,6 +11,7 @@ import {
 } from '~/assets/game'
 import {Branch, Label, Say, Scene} from '~/lib/game-engine'
 import {GameOverMenu, GameOverTitle, SubmitMeme, SubmitPost} from '../commands'
+import {LINKS} from '../links'
 import {SCENE_AUDIO} from '../sounds'
 
 export function BranchArchkot_ProjBusStop_CheckOut_SocialMedia() {
@@ -129,7 +130,13 @@ export function BranchArchkot_ProjBusStop_CheckOut_SocialMedia() {
       <Say
         tag={{text: 'АрхБот:', color: '#65506D'}}
         image={{uri: archbot1Png.src, align: 'bottom'}}>
-        {'—А могло бы быть вот так:\n\n[Ссылка на зарубежные примеры](#)'}
+        {`
+          —А могло бы быть вот так:
+
+          [Екатеринбург](${LINKS.reconstruction_examples_ekaterinburg})
+
+          [Варшава](${LINKS.reconstruction_examples_warsaw})
+        `}
       </Say>
 
       <GameOverTitle />

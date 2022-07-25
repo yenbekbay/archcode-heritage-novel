@@ -11,6 +11,7 @@ import {
 } from '~/assets/game'
 import {Branch, Say, Scene, Show} from '~/lib/game-engine'
 import {SubmitMonumentNomination} from '../commands'
+import {LINKS} from '../links'
 import {SCENE_AUDIO} from '../sounds'
 
 export function BranchCityHall_MonumentDept_Rant() {
@@ -74,7 +75,13 @@ export function BranchCityHall_MonumentDept_Rant() {
         }}
         style={{fontSize: 16, textAlign: 'left'}}
         hide={1}>
-        “Какие здания уже в реестре памятников?” [Ссылка РЕЕСТР](#)
+        {`
+          “Какие здания уже в реестре памятников?”
+
+          [Памятники Республиканского значения РК](${LINKS.monument_list_republican})
+
+          [Памятники Местного значения (г. Алматы)](${LINKS.monument_list_local})
+        `}
       </Say>
 
       <Say
@@ -87,7 +94,11 @@ export function BranchCityHall_MonumentDept_Rant() {
           },
         }}
         style={{fontSize: 16, textAlign: 'left'}}>
-        “Какие здания хотел внести список аким Байбек. [Ссылка 2](#)
+        {`
+          “Какие здания хотел внести список аким Байбек?”
+
+          [Список предварительного учета объектов историко-культурного наследия местного значения](${LINKS.baybek_list})
+        `}
       </Say>
 
       <Say durationMs={0} hide={1}>

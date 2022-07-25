@@ -13,6 +13,7 @@ import {
   transition2ShortMp3,
 } from '~/assets/game'
 import {Branch, Say, Scene} from '~/lib/game-engine'
+import {LINKS} from '../links'
 import {SCENE_AUDIO} from '../sounds'
 
 export function BranchDeveloper_ProjAirport() {
@@ -40,9 +41,11 @@ export function BranchDeveloper_ProjAirport() {
             transform: 'scale(2.25) translateX(-15px)',
           },
         }}>
-        {
-          'Новости:\n\nПроект VIP терминала в разработке компании  Bay Shatyr Group'
-        }
+        {`
+          Новости:
+
+          Проект VIP терминала в разработке компании  Bay Shatyr Group
+        `}
       </Say>
 
       <Scene src={bgAirportJpg.src} audio={SCENE_AUDIO.city} />
@@ -78,9 +81,13 @@ export function BranchDeveloper_ProjAirport() {
         tag={{text: 'Бот-билдер:', color: '#53C7D5'}}
         image={{uri: botBuilderPng.src, align: 'bottom'}}
         audio={{onEntrance: hologramMp3}}>
-        {
-          'Ознакомьтесь со списком\n\n[Ссылка ГОСУДАРСТВЕННЫЙ РЕЕСТР ПАМЯТНИКОВ](#)'
-        }
+        {`
+          Ознакомьтесь со списком
+
+          [Памятники Республиканского значения РК](${LINKS.monument_list_republican})
+
+          [Памятники Местного значения (г. Алматы)](${LINKS.monument_list_local})
+        `}
       </Say>
 
       <Say
@@ -109,9 +116,13 @@ export function BranchDeveloper_ProjAirport() {
       <Say
         tag={{text: 'Архитектор:', color: '#B4AE68CC'}}
         image={{uri: architectPng.src, align: 'bottom'}}>
-        {
-          '—У нас есть два варианта:\n\n№1: Можем расположить здание нового терминала, обойдя памятник\n\nА можем всё снести, и возвести терминал ещё большей площади'
-        }
+        {`
+          —У нас есть два варианта:
+
+          №1: Можем расположить здание нового терминала, обойдя памятник
+
+          №2: А можем всё снести, и возвести терминал ещё большей площади
+        `}
       </Say>
 
       <Say

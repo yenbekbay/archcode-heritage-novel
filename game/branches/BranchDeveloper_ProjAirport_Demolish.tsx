@@ -6,6 +6,7 @@ import {
   hologramMp3,
 } from '~/assets/game'
 import {Branch, Say, Scene} from '~/lib/game-engine'
+import {LINKS} from '../links'
 import {SCENE_AUDIO} from '../sounds'
 
 export function BranchDeveloper_ProjAirport_Demolish() {
@@ -39,9 +40,13 @@ export function BranchDeveloper_ProjAirport_Demolish() {
         tag={{text: 'Бот-билдер:', color: '#53C7D5'}}
         image={{uri: botBuilderPng.src, align: 'bottom'}}
         audio={{onEntrance: hologramMp3}}>
-        {
-          '—Перенос памятника возможен, но при повреждении 70% здания, к тому же это чрезвычайно дорогое решение…-Кроме того, общественность скорее всего рада не будет…\n\n[Ссылка*15](#)'
-        }
+        {`
+          —Перенос памятника возможен, но при повреждении 70% здания, к тому же это чрезвычайно дорогое решение…
+
+          -Кроме того, общественность скорее всего рада не будет…
+
+          [Правила переноса здания](${LINKS.monument_relocation_rules})
+        `}
       </Say>
 
       <Say

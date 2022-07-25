@@ -65,6 +65,7 @@ specifiers:
   remeda: 0.0.35
   rough-notation: 0.5.1
   roughjs: 4.5.2
+  string-dedent: 3.0.1
   swr: 1.3.0
   tailwindcss: 3.1.4
   tailwindcss-radix: 2.3.1
@@ -110,6 +111,7 @@ dependencies:
   remeda: 0.0.35
   rough-notation: 0.5.1
   roughjs: 4.5.2
+  string-dedent: 3.0.1
   swr: 1.3.0_react@18.2.0
   use-long-press: 2.0.2_react@18.2.0
   zod: 3.17.3
@@ -4631,6 +4633,11 @@ packages:
     resolution: {integrity: sha512-a1uQGz7IyVy9YwhqjZIZu1c8JO8dNIe20xBmSS6qu9kv++k3JGzCVmprbNN5Kn+BgzD5E7YYwg1CcjuJMRNsvg==}
     engines: {node: '>=0.6.19'}
     dev: true
+
+  /string-dedent/3.0.1:
+    resolution: {integrity: sha512-A2zCXSgpPrpFi1lDJlDwIPYakBWeDtQZ8ZBKssB8M/WbtNEKTzsl1yCDRmHx55jSB27xZDQ6NOtRYekESWx6fw==}
+    engines: {node: '>=0.12.0'}
+    dev: false
 
   /string-width/4.2.3:
     resolution: {integrity: sha512-wKyQRQpjJ0sIp62ErSZdGsjMJWsap5oRNihHhu6G7JVO/9jIB6UyevL+tXuOqrng8j/cxKTWyWUwvSTriiZz/g==}

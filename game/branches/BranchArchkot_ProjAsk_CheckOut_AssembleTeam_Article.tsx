@@ -42,7 +42,10 @@ export function BranchArchkot_ProjAsk_CheckOut_AssembleTeam_Article() {
       <Scene src={bgSolidJpg.src} />
 
       <Say durationMs={8000}>
-        {'В память об архитекторе Александре Коржемпо\n1934-2022'}
+        {`
+          В память об архитекторе Александре Коржемпо
+          1934-2022
+        `}
       </Say>
 
       <GameOverTitle />

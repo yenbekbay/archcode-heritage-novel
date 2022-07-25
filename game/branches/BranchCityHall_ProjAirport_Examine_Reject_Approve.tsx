@@ -6,6 +6,7 @@ import {
 } from '~/assets/game'
 import {Branch, Play, Say, Scene} from '~/lib/game-engine'
 import {GameOverMenu, GameOverTitle} from '../commands'
+import {LINKS} from '../links'
 import {SCENE_AUDIO} from '../sounds'
 
 export function BranchCityHall_ProjAirport_Examine_Reject_Approve() {
@@ -26,11 +27,13 @@ export function BranchCityHall_ProjAirport_Examine_Reject_Approve() {
 
       <Scene src={bgAirportJpg.src} audio={SCENE_AUDIO.city} />
 
-      <Say durationMs={0} hide={1}>
-        Рабочая группа от общественности отправила письмо в EBRD
-      </Say>
+      <Say durationMs={0}>
+        {`
+          Рабочая группа от общественности отправила письмо в EBRD
 
-      <Say placement="bottom">[Ссылка на письмо](#)</Say>
+          [Письмо в EBRD](${LINKS.letter_airport})
+        `}
+      </Say>
 
       <Scene src={bgCityHallConferenceRoomJpg.src} audio={SCENE_AUDIO.indoor} />
 

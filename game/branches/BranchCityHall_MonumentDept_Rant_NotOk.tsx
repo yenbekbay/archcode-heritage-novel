@@ -13,7 +13,10 @@ export function BranchCityHall_MonumentDept_Rant_NotOk() {
       <Scene src={bgCityHallMayorOfficeJpg.src} audio={SCENE_AUDIO.indoor} />
 
       <Say image={{uri: mayor13Png.src, align: 'bottom'}}>
-        {'Хммм…\nЧто-то долго'}
+        {`
+          Хммм…
+          Что-то долго
+        `}
       </Say>
 
       <Scene src={bgCityHallOutsideJpg.src} audio={SCENE_AUDIO.calmLoop} />
