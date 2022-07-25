@@ -138,5 +138,5 @@ async function playZzfxSound(name: keyof typeof ZZFX_SOUNDS) {
 }
 
 async function playAudio(src: string) {
-  new Howl({src, html5: true}).play()
+  new Howl({src}).play()
 }
