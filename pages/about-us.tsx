@@ -1,4 +1,7 @@
 import Image from 'next/future/image'
+import type {StaticImageData} from 'next/image'
+import React from 'react'
+import {twMerge} from 'tailwind-merge'
 import {bgMapJpg} from '~/assets/game'
 import {
   paperRipPng,
@@ -11,7 +14,7 @@ import {
   polaroidZamanbekPng,
   teamPhotoJpg,
 } from '~/assets/www'
-import {RoughCard, Hero, HeroBackground, Layout} from '~/components'
+import {Hero, HeroBackground, Layout, RoughCard} from '~/components'
 
 export default function AboutUs() {
   return (
@@ -40,171 +43,155 @@ export default function AboutUs() {
           />
           <div className="absolute inset-0 bg-black/50" />
 
-          <div className="flex flex-col space-y-8">
-            <RoughCard className="self-center">
-              <div className="grid grid-flow-row gap-4 lg:grid-flow-col">
-                <Image
-                  className="my-0"
-                  src={polaroidAnelPng}
-                  alt="Фотография Анель"
-                />
+          <div className="container mx-auto grid grid-cols-1 justify-items-center gap-8 lg:grid-cols-2">
+            <TeamMemberCard
+              photoSrc={polaroidAnelPng}
+              name="Анель Молдахметова"
+              role="Креативное продюсирование"
+              bio={
+                <>
+                  Для меня это проект, который позволяет мне упаковать и
+                  систематизировать колоссальный опыт инициативы Архкод Алматы,
+                  который мы готовы передать общественности. Это смелый
+                  эксперимент и сотворчество, когда каждый участник команды в
+                  нем растёт.
+                </>
+              }
+            />
 
-                <div>
-                  <h2 className="mb-0 lg:mt-0">Анель Молдахметова</h2>
-                  <h3 className="text-base">Креативное продюсирование</h3>
-                  <p>
-                    Для меня это проект, который позволяет мне упаковать и
-                    систематизировать колоссальный опыт инициативы Архкод
-                    Алматы, который мы готовы передать общественности. Это
-                    смелый эксперимент и сотворчество, когда каждый участник
-                    команды в нем растёт.
-                  </p>
-                </div>
-              </div>
-            </RoughCard>
+            <TeamMemberCard
+              align="right"
+              photoSrc={polaroidInzhuPng}
+              name="Инжу Сыдыкова"
+              role="Сценарий, архитектура игры"
+              bio={
+                <>
+                  Мой интерес зажигают вопросы о том, что создает любимую сердцу
+                  атмосферу нашего города, какая архитектура представляет
+                  ценность как наследие, как формируется идентичность места
+                  через его память. Кроме того, это очень ёмкий и веселый
+                  проект, позволивший мне в незнакомом ранее формате применить
+                  знания и навыки, полученные при изучении разных
+                  специальностей.
+                </>
+              }
+            />
 
-            <RoughCard className="self-center">
-              <div className="grid grid-flow-row gap-4 lg:grid-flow-col">
-                <Image
-                  className="my-0 lg:order-2"
-                  src={polaroidInzhuPng}
-                  alt="Фотография Инжу"
-                />
+            <TeamMemberCard
+              photoSrc={polaroidNadiraPng}
+              name="Надира Жадыраева"
+              role="Визуальный нарратив, иллюстрации и дизайн"
+              bio={
+                <>
+                  С Archcode мы уже работали над проектом Koktem Shaqyrady/The
+                  Spring is Calling, завершив который почти сразу согласилась на
+                  новый. Эти проекты уникальны не только результатом, но и
+                  невероятными возможностями в процессе, где участники ничем не
+                  ограничены и могут попробовать себя в любых ролях. :)
+                </>
+              }
+            />
 
-                <div>
-                  <h2 className="mb-0 lg:mt-0">Инжу Сыдыкова</h2>
-                  <h3 className="text-base">Сценарий, архитектура игры</h3>
-                  <p>
-                    Мой интерес зажигают вопросы о том, что создает любимую
-                    сердцу атмосферу нашего города, какая архитектура
-                    представляет ценность как наследие, как формируется
-                    идентичность места через его память. Кроме того, это очень
-                    ёмкий и веселый проект, позволивший мне в незнакомом ранее
-                    формате применить знания и навыки, полученные при изучении
-                    разных специальностей.
-                  </p>
-                </div>
-              </div>
-            </RoughCard>
+            <TeamMemberCard
+              align="right"
+              photoSrc={polaroidAruzhanPng}
+              name="Аружан Шотай"
+              role="Визуальный нарратив, иллюстрации и дизайн"
+              bio={
+                <>
+                  Это один из самых уникальных и интересных проектов про наш
+                  город, его архитектурное наследие и всех, кому оно
+                  принадлежит. Я рада быть частью очередного значимого проекта
+                  от ArchCode, за все время создания которого творческий
+                  потенциал каждого из нас был раскрыт и направлен в общее
+                  благое дело.
+                </>
+              }
+            />
 
-            <RoughCard className="self-center">
-              <div className="grid grid-flow-row gap-4 lg:grid-flow-col">
-                <Image
-                  className="my-0"
-                  src={polaroidNadiraPng}
-                  alt="Фотография Надиры"
-                />
+            <TeamMemberCard
+              photoSrc={polaroidYaroslavPng}
+              name="Ярослав Самойлов"
+              role="Разработка Телеграм-бота"
+              bio={
+                <>
+                  Проект заинтересовал возможностью сделать что-то полезное и
+                  важное для родного города и его жителей. Рассказать о его
+                  истории и архитектурной идентичности необычным способом.
+                  Выполнить большую творческую и экспериментальную задачу в
+                  соавторстве с талантливыми единомышленниками из Архкод Алматы.
+                </>
+              }
+            />
 
-                <div>
-                  <h2 className="mb-0 lg:mt-0">Надира Жадыраева</h2>
-                  <h3 className="text-base">
-                    Визуальный нарратив, иллюстрации и дизайн
-                  </h3>
-                  <p>
-                    С Archcode мы уже работали над проектом Koktem Shaqyrady/The
-                    Spring is Calling, завершив который почти сразу согласилась
-                    на новый. Эти проекты уникальны не только результатом, но и
-                    невероятными возможностями в процессе, где участники ничем
-                    не ограничены и могут попробовать себя в любых ролях. :)
-                  </p>
-                </div>
-              </div>
-            </RoughCard>
+            <TeamMemberCard
+              align="right"
+              photoSrc={polaroidZamanbekPng}
+              name="Заманбек Мукасали"
+              role="Технический продюссер, дизайнер выставки"
+              bio={
+                <>
+                  Мне нравится, что в этом проекте я делаю то, что люблю — делаю
+                  сцены новеллы физически осязаемыми.
+                </>
+              }
+            />
 
-            <RoughCard className="self-center">
-              <div className="grid grid-flow-row gap-4 lg:grid-flow-col">
-                <Image
-                  className="my-0 lg:order-2"
-                  src={polaroidAruzhanPng}
-                  alt="Фотография Аружан"
-                />
-
-                <div>
-                  <h2 className="mb-0 lg:mt-0">Аружан Шотай</h2>
-                  <h3 className="text-base">
-                    Визуальный нарратив, иллюстрации и дизайн
-                  </h3>
-                  <p>
-                    Это один из самых уникальных и интересных проектов про наш
-                    город, его архитектурное наследие и всех, кому оно
-                    принадлежит. Я рада быть частью очередного значимого проекта
-                    от ArchCode, за все время создания которого творческий
-                    потенциал каждого из нас был раскрыт и направлен в общее
-                    благое дело.
-                  </p>
-                </div>
-              </div>
-            </RoughCard>
-
-            <RoughCard className="self-center">
-              <div className="grid grid-flow-row gap-4 lg:grid-flow-col">
-                <Image
-                  className="my-0"
-                  src={polaroidYaroslavPng}
-                  alt="Фотография Ярослава"
-                />
-
-                <div>
-                  <h2 className="mb-0 lg:mt-0">Ярослав Самойлов</h2>
-                  <h3 className="text-base">Разработка Телеграм-бота</h3>
-                  <p>
-                    Проект заинтересовал возможностью сделать что-то полезное и
-                    важное для родного города и его жителей. Рассказать о его
-                    истории и архитектурной идентичности необычным способом.
-                    Выполнить большую творческую и экспериментальную задачу в
-                    соавторстве с талантливыми единомышленниками из Архкод
-                    Алматы.
-                  </p>
-                </div>
-              </div>
-            </RoughCard>
-
-            <RoughCard className="self-center">
-              <div className="grid grid-flow-row gap-4 lg:grid-flow-col">
-                <Image
-                  className="my-0 lg:order-2"
-                  src={polaroidZamanbekPng}
-                  alt="Фотография Заманбека"
-                />
-
-                <div>
-                  <h2 className="mb-0 lg:mt-0">Заманбек Мукасали</h2>
-                  <h3 className="text-base">
-                    Технический продюссер, дизайнер выставки
-                  </h3>
-                  <p>
-                    Мне нравится, что в этом проекте я делаю то, что люблю —
-                    делаю сцены новеллы физически осязаемыми.
-                  </p>
-                </div>
-              </div>
-            </RoughCard>
-
-            <RoughCard className="self-center">
-              <div className="grid grid-flow-row gap-4 lg:grid-flow-col">
-                <Image
-                  className="my-0"
-                  src={polaroidYuliaPng}
-                  alt="Фотография Юлии"
-                />
-
-                <div>
-                  <h2 className="mb-0 lg:mt-0">Юлия Петухова</h2>
-                  <h3 className="text-base">Композитор и саунд дизайнер</h3>
-                  <p>
-                    Моя роль на проекте была в том, чтобы написать музыку и
-                    сделать звуковое оформление игры. Эта игра даёт людям
-                    возможность не чувствовать беспомощность перед лицом больших
-                    перемен в их городе, она дает инструменты для отстаивания
-                    своей позиции, поэтому мне было важно помочь создать для нее
-                    настроение тем способом, который мне знаком, — музыкой.
-                  </p>
-                </div>
-              </div>
-            </RoughCard>
+            <TeamMemberCard
+              photoSrc={polaroidYuliaPng}
+              name="Юлия Петухова"
+              role="Композитор и саунд дизайнер"
+              bio={
+                <>
+                  Моя роль на проекте была в том, чтобы написать музыку и
+                  сделать звуковое оформление игры. Эта игра даёт людям
+                  возможность не чувствовать беспомощность перед лицом больших
+                  перемен в их городе, она дает инструменты для отстаивания
+                  своей позиции, поэтому мне было важно помочь создать для нее
+                  настроение тем способом, который мне знаком, — музыкой.
+                </>
+              }
+            />
           </div>
         </section>
       </main>
     </Layout>
+  )
+}
+
+interface TeamMemberCardProps {
+  photoSrc: string | StaticImageData
+  name: string | React.ReactElement
+  role: string | React.ReactElement
+  bio: string | React.ReactElement
+  align?: 'left' | 'right'
+}
+
+function TeamMemberCard({
+  photoSrc,
+  name,
+  role,
+  bio,
+  align = 'left',
+}: TeamMemberCardProps) {
+  return (
+    <RoughCard>
+      <div className="grid grid-flow-row gap-4 md:grid-flow-col">
+        <Image
+          className={twMerge(
+            'my-0 min-w-[6rem]',
+            align === 'right' && 'md:order-2 lg:order-none',
+          )}
+          src={photoSrc}
+          alt={`Фотография: ${name}`}
+        />
+
+        <div>
+          <h2 className="mb-0 md:mt-0">{name}</h2>
+          <h3 className="text-base">{role}</h3>
+          <p className="md:text-sm">{bio}</p>
+        </div>
+      </div>
+    </RoughCard>
   )
 }

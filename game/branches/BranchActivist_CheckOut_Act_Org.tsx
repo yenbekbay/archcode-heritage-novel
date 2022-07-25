@@ -42,7 +42,7 @@ export function BranchActivist_CheckOut_Act_Org() {
         {`
           —Без паники. Приходите, поделимся опытом
 
-          [Переход на телеграм-бот](${LINKS.telegram_bot})
+          [Переход на Телеграм-бот](${LINKS.telegram_bot})
         `}
       </Say>
 

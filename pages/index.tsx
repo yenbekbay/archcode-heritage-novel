@@ -7,7 +7,7 @@ import {
   HeroBackground,
   Layout,
 } from '~/components'
-import {Reveal} from '~/lib/components'
+import {Annotate, Reveal} from '~/lib/components'
 
 export default function Home() {
   return (
@@ -65,9 +65,9 @@ export default function Home() {
 
             <p>
               Ценные строения охраняются законом как культурное наследие, но
-              официальные списки памятников архитектурного наследия города
-              Алматы практически не менялись со времен Советского Союза (с 1991
-              года).
+              официальные списки памятников архитектурного наследия города{' '}
+              <Annotate config={{type: 'circle', padding: 6}}>Алматы</Annotate>{' '}
+              практически не менялись со времен Советского Союза (с 1991 года).
             </p>
 
             <p>
@@ -172,7 +172,11 @@ export default function Home() {
               памятники архитектуры.
             </p>
 
-            <p>Мы имеем право на память!</p>
+            <p>
+              <Annotate config={{type: 'underline', padding: 4}}>
+                Мы имеем право на память!
+              </Annotate>
+            </p>
           </RoughCard>
         </FenceSection>
       </main>
