@@ -73,8 +73,7 @@ export function BranchAkim_MonumentDept_Rant() {
             width: 720,
           },
         }}
-        style={{fontSize: 16, textAlign: 'left'}}
-        hide={1}>
+        style={{fontSize: 16, textAlign: 'left'}}>
         {`
           “Какие здания уже в реестре памятников?”
 
