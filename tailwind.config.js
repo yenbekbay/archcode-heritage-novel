@@ -1,3 +1,4 @@
+const defaultTheme = require('tailwindcss/defaultTheme')
 const defaultColors = require('tailwindcss/colors')
 
 const colors = {
@@ -59,7 +60,8 @@ module.exports = {
         'content-invert-focus': colors['rum-swizzle'][100],
       },
       fontFamily: {
-        display: ['Moniqa'],
+        display: ['Moniqa', ...defaultTheme.fontFamily.serif],
+        mono: ['IBMPlexMono', ...defaultTheme.fontFamily.mono],
         calligraph: ['calligraph'],
       },
       keyframes: {
