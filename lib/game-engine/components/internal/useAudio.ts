@@ -1,5 +1,7 @@
 import {Howl} from 'howler'
+import moize from 'moize'
 import React from 'react'
+import {delay} from '../../utils'
 
 export function useAudio(src: AudioSource | null) {
   const [audio] = React.useState(() => (src ? getAudio(src) : null))
@@ -20,7 +22,9 @@ export interface AudioPlayer {
   stop: () => Promise<void>
 }
 
-export function getAudio(_src: AudioSource): AudioPlayer {
+export const getAudio = moize(_getAudio, {isDeepEqual: true, maxSize: Infinity})
+
+function _getAudio(_src: AudioSource): AudioPlayer {
   let playing = false
   let stopP = Promise.resolve()
   const src = typeof _src === 'object' ? _src : {uri: _src}
@@ -42,7 +46,7 @@ export function getAudio(_src: AudioSource): AudioPlayer {
       if (playing) {
         return
       }
-      console.debug('[useAudio] play', src.uri)
+      console.debug('[useAudio] play', src)
       playing = true
       howl.volume(1)
       howl.play()
@@ -52,7 +56,7 @@ export function getAudio(_src: AudioSource): AudioPlayer {
         return stopP
       }
       playing = false
-      console.debug('[useAudio] stop', src.uri)
+      console.debug('[useAudio] stop', src)
       stopP = new Promise<void>((resolve) => {
         const onStop = src.onStop ?? ['fadeOut', 2000]
         switch (onStop[0]) {
@@ -87,6 +91,10 @@ export function getAudio(_src: AudioSource): AudioPlayer {
   return audio
 }
 
+interface AudioPlayerMetadata {
+  playedAt: number
+}
+
 interface AudioChannel {
   play: (audio: AudioPlayer) => Promise<void>
   stop: (audio: AudioPlayer) => Promise<void>
@@ -102,35 +110,47 @@ function getChannel(key: string) {
 }
 
 function makeChannel(): AudioChannel {
-  const playlist = new Map<string, AudioPlayer>()
+  const playlist = new Map<AudioPlayer, AudioPlayerMetadata>()
   return {
     play: async (audio: AudioPlayer) => {
-      if (playlist.has(audio.src.uri)) {
+      if (playlist.has(audio)) {
+        playlist.set(audio, {playedAt: Date.now()})
         return
       }
-      const prevAudios = [...playlist.values()]
-      playlist.set(audio.src.uri, audio)
+      const prevAudios = [...playlist.keys()]
+      playlist.set(audio, {playedAt: Date.now()})
       for (const a of prevAudios) {
         if (a.src.overlap) {
           ;(async () => {
             await a.stop()
-            playlist.delete(a.src.uri)
+            playlist.delete(a)
           })()
         } else {
           await a.stop()
-          playlist.delete(a.src.uri)
+          playlist.delete(a)
         }
       }
-      if (playlist.has(audio.src.uri)) {
+      if (playlist.has(audio)) {
         audio.play()
       }
     },
     stop: async (audio: AudioPlayer) => {
-      if (!playlist.has(audio.src.uri)) {
+      if (!playlist.has(audio)) {
         return
       }
+
+      // Prevent audio from stopping if it was played recently
+      const stoppedAt = Date.now()
+      await delay(CHANNEL_DEBOUNCE_INTERVAL_MS)
+      const meta = playlist.get(audio)!
+      if (meta.playedAt > stoppedAt) {
+        return
+      }
+
       await audio.stop()
-      playlist.delete(audio.src.uri)
+      playlist.delete(audio)
     },
   }
 }
+
+const CHANNEL_DEBOUNCE_INTERVAL_MS = 100

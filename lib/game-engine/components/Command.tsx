@@ -90,36 +90,51 @@ export function Command({
   const visibleRef = useSyncedRef(visible)
   useMountEffect(() => {
     mountedRef.current = true
-    if (visibleRef.current) {
-      onExitAudio?.stop()
-      onEntranceAudio?.play()
-      whileVisibleAudio?.play()
-    }
+    setTimeout(() => {
+      setTimeout(() => {
+        if (!visibleRef.current || !mountedRef.current) {
+          return
+        }
+        onExitAudio?.stop()
+        onEntranceAudio?.play()
+        whileVisibleAudio?.play()
+      })
+    })
   })
   useUnmountEffect(() => {
     mountedRef.current = false
-    if (visibleRef.current) {
-      // Work around double rendering caused by strict mode
-      // @see https://reactjs.org/blog/2022/03/08/react-18-upgrade-guide.html#updates-to-strict-mode
+    // Work around double rendering caused by strict mode
+    // @see https://reactjs.org/blog/2022/03/08/react-18-upgrade-guide.html#updates-to-strict-mode
+    setTimeout(() => {
+      if (!visibleRef.current || mountedRef.current) {
+        return
+      }
+      whileVisibleAudio?.stop()
+      onEntranceAudio?.stop()
+      onExitAudio?.play()
+    })
+  })
+  useUpdateEffect(() => {
+    if (visible) {
       setTimeout(() => {
-        if (mountedRef.current) {
+        setTimeout(() => {
+          if (!visibleRef.current || !mountedRef.current) {
+            return
+          }
+          onExitAudio?.stop()
+          onEntranceAudio?.play()
+          whileVisibleAudio?.play()
+        })
+      })
+    } else {
+      setTimeout(() => {
+        if (visibleRef.current || !mountedRef.current) {
           return
         }
         whileVisibleAudio?.stop()
         onEntranceAudio?.stop()
         onExitAudio?.play()
       })
-    }
-  })
-  useUpdateEffect(() => {
-    if (visible) {
-      onExitAudio?.stop()
-      onEntranceAudio?.play()
-      whileVisibleAudio?.play()
-    } else {
-      whileVisibleAudio?.stop()
-      onEntranceAudio?.stop()
-      onExitAudio?.play()
     }
   }, [visible])
 

@@ -40,6 +40,7 @@ specifiers:
   jotai: 1.7.2
   lint-staged: 13.0.3
   mdast-util-from-markdown: 1.2.0
+  moize: 6.1.1
   next: 12.2.2
   next-query-params: 3.0.0
   next-transpile-modules: 9.0.0
@@ -92,6 +93,7 @@ dependencies:
   intrinsic-scale: 3.0.4
   jotai: 1.7.2_react@18.2.0
   mdast-util-from-markdown: 1.2.0
+  moize: 6.1.1
   next: 12.2.2_biqbaboplfbrettd7655fr4n2y
   next-query-params: 3.0.0_7gpduzaz4csxytrukenoyuq3te
   phosphor-react: 1.4.1_react@18.2.0
@@ -2354,6 +2356,10 @@ packages:
     resolution: {integrity: sha512-f3qQ9oQy9j2AhBe/H9VC91wLmKBCCU/gDOnKNAYG5hswO7BLKj09Hc5HYNz9cGI++xlpDCIgDaitVs03ATR84Q==}
     dev: true
 
+  /fast-equals/3.0.3:
+    resolution: {integrity: sha512-NCe8qxnZFARSHGztGMZOO/PC1qa5MIFB5Hp66WdzbCRAz8U8US3bx1UTgLS49efBQPcUtO9gf5oVEY8o7y/7Kg==}
+    dev: false
+
   /fast-glob/3.2.11:
     resolution: {integrity: sha512-xrO3+1bxSo3ZVHAnqzyuewYT6aMFHRAd4Kcs92MAonjwQZLsK9d0SF1IyQ3k5PoirxTW0Oe/RqFgMQ6TcNE5Ew==}
     engines: {node: '>=8.6.0'}
@@ -3273,6 +3279,10 @@ packages:
     engines: {node: '>= 8'}
     dev: true
 
+  /micro-memoize/4.0.10:
+    resolution: {integrity: sha512-rk0OlvEQkShjbr2EvGn1+GdCsgLDgABQyM9ZV6VoHNU7hiNM+eSOkjGWhiNabU/XWiEalWbjNQrNO+zcqd+pEA==}
+    dev: false
+
   /micromark-core-commonmark/1.0.6:
     resolution: {integrity: sha512-K+PkJTxqjFfSNkfAhp4GB+cZPfQd6dxtTXnf+RjZOV7T4EEXnvgzOcnp+eSTmpGk9d1S9sL6/lqrgSNn/s0HZA==}
     dependencies:
@@ -3487,6 +3497,13 @@ packages:
   /minimist/1.2.6:
     resolution: {integrity: sha512-Jsjnk4bw3YJqYzbdyBiNsPWHPfO++UGG749Cxs6peCu5Xg4nrena6OVxOYxrQTqww0Jmwt+Ref8rggumkTLz9Q==}
     dev: true
+
+  /moize/6.1.1:
+    resolution: {integrity: sha512-6bryLehIBVByDdAkXhoaPP1fknkoq1hNPmVCDYIb/w5zwfidT02zLSto1uGbmnv1GKu02ysgAEaJ5Ic7QQaGQA==}
+    dependencies:
+      fast-equals: 3.0.3
+      micro-memoize: 4.0.10
+    dev: false
 
   /mri/1.2.0:
     resolution: {integrity: sha512-tzzskb3bG8LvYGFF/mDTpq3jpI6Q9wc3LEmBaghu+DdCssd1FakN7Bc0hVNmEyGq1bq3RgfkCb3cmQLpNPOroA==}
