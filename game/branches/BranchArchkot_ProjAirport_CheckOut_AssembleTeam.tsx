@@ -28,7 +28,7 @@ import {
 } from '~/assets/game'
 import {Branch, Play, Say, Scene, Show} from '~/lib/game-engine'
 import {GameOverMenu, GameOverTitle} from '../commands'
-import {SCENE_AUDIO} from '../sound'
+import {SCENE_AUDIO} from '../sounds'
 
 export function BranchArchkot_ProjAirport_CheckOut_AssembleTeam() {
   return (

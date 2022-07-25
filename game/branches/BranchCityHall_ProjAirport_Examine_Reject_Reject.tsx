@@ -6,7 +6,7 @@ import {
 } from '~/assets/game'
 import {Branch, Play, Say, Scene} from '~/lib/game-engine'
 import {GameOverMenu, GameOverTitle} from '../commands'
-import {SCENE_AUDIO} from '../sound'
+import {SCENE_AUDIO} from '../sounds'
 
 export function BranchCityHall_ProjAirport_Examine_Reject_Reject() {
   return (

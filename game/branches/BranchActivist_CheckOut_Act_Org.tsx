@@ -8,7 +8,8 @@ import {
 } from '~/assets/game'
 import {Branch, Play, Say, Scene} from '~/lib/game-engine'
 import {GameOverMenu, GameOverTitle} from '../commands'
-import {SCENE_AUDIO} from '../sound'
+import {LINKS} from '../links'
+import {SCENE_AUDIO} from '../sounds'
 
 export function BranchActivist_CheckOut_Act_Org() {
   return (
@@ -35,9 +36,7 @@ export function BranchActivist_CheckOut_Act_Org() {
       <Scene src={bgArchcodeOfficeJpg.src} audio={SCENE_AUDIO.indoor} />
 
       <Say image={{uri: archkot1Png.src, align: 'bottom'}}>
-        {
-          '—Без паники. Приходите, поделимся опытом\n\n[Переход на телеграм бот](https://t.me/archcode_bot)'
-        }
+        {`—Без паники. Приходите, поделимся опытом\n\n[Переход на телеграм-бот](${LINKS.telegram_bot})`}
       </Say>
 
       <Say
@@ -60,7 +59,7 @@ export function BranchActivist_CheckOut_Act_Org() {
             transform: 'scale(2.25) translateX(-15px)',
           },
         }}>
-        [Позвонить в Архкод](tel://+77071210483)
+        {`[Позвонить в Архкод](${LINKS.archcode_tel})`}
       </Say>
 
       <Play audio={SCENE_AUDIO.calmLoop} hide={-1} />

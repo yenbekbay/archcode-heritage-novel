@@ -11,7 +11,7 @@ import {
   mayor2Png,
 } from '~/assets/game'
 import {Branch, Say, Scene, Show} from '~/lib/game-engine'
-import {SCENE_AUDIO} from '../sound'
+import {SCENE_AUDIO} from '../sounds'
 
 export function BranchCityHall_GovPrograms_Stop() {
   return (

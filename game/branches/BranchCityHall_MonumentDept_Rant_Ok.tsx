@@ -1,7 +1,7 @@
 import {bgCityHallMayorOfficeJpg, bgCityHallOutsideJpg} from '~/assets/game'
 import {Branch, Say, Scene} from '~/lib/game-engine'
 import {GameOverMenu, GameOverTitle} from '../commands'
-import {SCENE_AUDIO} from '../sound'
+import {SCENE_AUDIO} from '../sounds'
 
 export function BranchCityHall_MonumentDept_Rant_Ok() {
   return (

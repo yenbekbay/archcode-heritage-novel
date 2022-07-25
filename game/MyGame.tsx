@@ -9,7 +9,7 @@ import * as assets from '~/assets/game'
 import {Dialog} from '~/lib/components'
 import {Game, prepareBranches} from '~/lib/game-engine'
 import * as _branches from './branches'
-import {playSound} from './sound'
+import {playSound} from './sounds'
 
 const branches = prepareBranches(_branches)
 

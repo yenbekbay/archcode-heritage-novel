@@ -11,7 +11,7 @@ import {
   Show,
   useBranchContext,
 } from '~/lib/game-engine'
-import {SCENE_AUDIO} from '../sound'
+import {SCENE_AUDIO} from '../sounds'
 
 export function BranchIntro() {
   return (

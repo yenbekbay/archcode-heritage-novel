@@ -12,7 +12,7 @@ import {
   transition2ShortMp3,
 } from '~/assets/game'
 import {Branch, Menu, Say, Scene} from '~/lib/game-engine'
-import {SCENE_AUDIO} from '../sound'
+import {SCENE_AUDIO} from '../sounds'
 
 export function BranchArchkot_ProjBusStop_CheckOut_AssembleTeam_VisitCityHall() {
   return (

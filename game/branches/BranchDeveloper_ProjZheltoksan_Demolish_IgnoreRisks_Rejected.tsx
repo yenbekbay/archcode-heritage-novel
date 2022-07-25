@@ -5,7 +5,7 @@ import {
   stampRejectedPng,
 } from '~/assets/game'
 import {Branch, Menu, Say, Scene, Show} from '~/lib/game-engine'
-import {SCENE_AUDIO} from '../sound'
+import {SCENE_AUDIO} from '../sounds'
 
 export function BranchDeveloper_ProjZheltoksan_Demolish_IgnoreRisks_Rejected() {
   return (

@@ -9,7 +9,7 @@ import {
   transition3ShortMp3,
 } from '~/assets/game'
 import {Branch, Menu, Play, Say, Scene} from '~/lib/game-engine'
-import {SCENE_AUDIO} from '../sound'
+import {SCENE_AUDIO} from '../sounds'
 
 export function BranchCityHall_0Menu() {
   return (

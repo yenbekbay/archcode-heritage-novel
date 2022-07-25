@@ -21,7 +21,7 @@ import {
   transition3ShortMp3,
 } from '~/assets/game'
 import {Branch, Menu, Say, Scene, Show} from '~/lib/game-engine'
-import {SCENE_AUDIO} from '../sound'
+import {LINKS} from '../links'
 
 export function BranchActivist_CheckOut_Act_Group() {
   return (
@@ -164,7 +164,7 @@ export function BranchActivist_CheckOut_Act_Group() {
             transform: 'scale(2.25) translateX(-15px)',
           },
         }}>
-        [Ссылка 24 "кто такие стейкхолдеры"](#)
+        {`[Кто такие стейкхолдеры?](${LINKS.who_is_stakeholder})`}
       </Say>
 
       <Say image={{uri: redhead5Png.src, align: 'bottom'}}>
@@ -193,12 +193,12 @@ export function BranchActivist_CheckOut_Act_Group() {
             transform: 'scale(2.25) translateX(-15px)',
           },
         }}>
-        [Ссылка фактчек](#)
+        {`[Как делать фактчекинг?](${LINKS.how_to_factcheck})`}
       </Say>
 
       <Say image={{uri: activistBPng.src, align: 'bottom'}}>
         {
-          '—Нужно как можно больше писать в соц.сети. \n\nЧем больше людей знают, тем сложнее что-то скрыть!'
+          '—Нужно как можно больше писать в соц.сети.\n\nЧем больше людей знают, тем сложнее что-то скрыть!'
         }
       </Say>
 
@@ -222,7 +222,7 @@ export function BranchActivist_CheckOut_Act_Group() {
             transform: 'scale(2.25) translateX(-15px)',
           },
         }}>
-        [Ссылка 22 "как написать пост в соц.сети и быть услышанным"](#)
+        {`[Как написать пост в соц.сети и быть услышанным?](${LINKS.how_to_write_an_effective_article})`}
       </Say>
 
       <Say image={{uri: activistAPng.src, align: 'bottom'}}>
@@ -249,7 +249,7 @@ export function BranchActivist_CheckOut_Act_Group() {
             transform: 'scale(2.25) translateX(-15px)',
           },
         }}>
-        [Ссылка 6 "как участвовать в общественных слушаниях"](#)
+        {`[Как участвовать в общественных слушаниях?](${LINKS.how_to_prepare_for_public_hearings})`}
       </Say>
 
       <Say image={{uri: redhead1Png.src, align: 'bottom'}}>
@@ -291,8 +291,7 @@ export function BranchActivist_CheckOut_Act_Group() {
           },
         }}
         style={{fontSize: 20}}>
-        [*ссылка на примеры писем по разным ситуациям](#). Проверить информацию
-        из СМИ [Ссылка *23 на инструкцию по факт чеку](#)
+        {`[Как и кому писать письма?](${LINKS.how_and_who_to_write_letters_to})`}
       </Say>
 
       <Say
@@ -335,7 +334,7 @@ export function BranchActivist_CheckOut_Act_Group() {
           },
         }}
         style={{fontSize: 24}}>
-        [сайт Архкода](https://archcode.kz)
+        {`[сайт Архкода](${LINKS.archcode})`}
       </Say>
 
       <Say image={{uri: activistAPng.src, align: 'bottom'}}>

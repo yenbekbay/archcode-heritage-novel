@@ -14,7 +14,8 @@ import {
   transition3ShortMp3,
 } from '~/assets/game'
 import {Branch, Say, Scene} from '~/lib/game-engine'
-import {SCENE_AUDIO} from '../sound'
+import {LINKS} from '../links'
+import {SCENE_AUDIO} from '../sounds'
 
 export function BranchActivist_CheckOut_Act_Self() {
   return (
@@ -58,7 +59,7 @@ export function BranchActivist_CheckOut_Act_Self() {
             transform: 'scale(2) translateY(30px)',
           },
         }}>
-        [Ссылка фактчек](https://factcheck.kz/)
+        {`[Как делать фактчекинг?](${LINKS.how_to_factcheck})`}
       </Say>
 
       <Say image={{uri: redhead10Png.src, align: 'bottom'}}>
@@ -75,7 +76,7 @@ export function BranchActivist_CheckOut_Act_Self() {
             transform: 'scale(2) translateY(30px)',
           },
         }}>
-        [Ссылка 22 "как написать пост в соц.сети и быть услышанным"](#)
+        {`[Как написать пост в соц.сети и быть услышанным?](${LINKS.how_to_write_an_effective_article})`}
       </Say>
 
       <Say image={{uri: redhead11Png.src, align: 'bottom'}}>
@@ -92,7 +93,7 @@ export function BranchActivist_CheckOut_Act_Self() {
             transform: 'scale(2) translateY(30px)',
           },
         }}>
-        [Ссылка список "кому можно писать" и примеры официальных писем](#)
+        {`[Как и кому писать письма?](${LINKS.how_and_who_to_write_letters_to})`}
       </Say>
 
       <Say image={{uri: redhead9Png.src, align: 'bottom'}}>
@@ -109,7 +110,7 @@ export function BranchActivist_CheckOut_Act_Self() {
             transform: 'scale(2) translateY(30px)',
           },
         }}>
-        [Новости, статьи и объявления о слушаниях](#)
+        {`[Как участвовать в общественных слушаниях?](${LINKS.how_to_prepare_for_public_hearings})`}
       </Say>
 
       <Say image={{uri: redhead12Png.src, align: 'bottom'}}>
@@ -130,9 +131,7 @@ export function BranchActivist_CheckOut_Act_Self() {
             transform: 'scale(2) translateY(30px)',
           },
         }}>
-        [*переход на СЦЕНЫ](#) (Примеры протестных акций: Акция женщины,
-        обклеившей свой дом фотографиями президента, Розовый фламинго Талдыколя,
-        Художник в ковше)
+        {`[Что нужно знать при подготовке к митингу/одиночному пикету?](${LINKS.how_to_prepare_for_a_rally})`}
       </Say>
 
       <Say
@@ -151,7 +150,7 @@ export function BranchActivist_CheckOut_Act_Self() {
             onClick: (ctx) => ctx.goToBranch('Activist_CheckOut_Act_Org'),
           },
         ]}>
-        {'Думаю, можно обратиться к ним\n[сайт Архкода](https://archcode.kz)'}
+        {`Думаю, можно обратиться к ним\n[сайт Архкода](${LINKS.archcode})`}
       </Say>
     </Branch>
   )

@@ -8,7 +8,7 @@ import {
 } from '~/assets/game'
 import {Branch, Label, Menu, Play, Say, Scene} from '~/lib/game-engine'
 import {GameOverMenu, GameOverTitle, SubmitMeme, SubmitPost} from '../commands'
-import {SCENE_AUDIO} from '../sound'
+import {SCENE_AUDIO} from '../sounds'
 
 export function BranchActivist_CheckOut_SocialMedia() {
   return (

@@ -11,7 +11,7 @@ import {
 } from '~/assets/game'
 import {Branch, Say, Scene, Show} from '~/lib/game-engine'
 import {SubmitMonumentNomination} from '../commands'
-import {SCENE_AUDIO} from '../sound'
+import {SCENE_AUDIO} from '../sounds'
 
 export function BranchCityHall_MonumentDept_Rant() {
   return (

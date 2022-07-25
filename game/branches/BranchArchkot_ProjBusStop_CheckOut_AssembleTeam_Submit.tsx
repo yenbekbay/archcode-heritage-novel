@@ -8,10 +8,11 @@ import {
   archtok1Png,
   archtok2Png,
   bgArchcodeOfficeJpg,
+  bgBusStop1Jpg,
 } from '~/assets/game'
 import {Branch, Play, Say, Scene} from '~/lib/game-engine'
 import {GameOverMenu, GameOverTitle} from '../commands'
-import {SCENE_AUDIO} from '../sound'
+import {SCENE_AUDIO} from '../sounds'
 
 export function BranchArchkot_ProjBusStop_CheckOut_AssembleTeam_Submit() {
   return (
@@ -99,10 +100,12 @@ export function BranchArchkot_ProjBusStop_CheckOut_AssembleTeam_Submit() {
         —Нееет, я не отчаиваюсь…
       </Say>
 
-      <Play audio={SCENE_AUDIO.calmLoop} hide={-1} />
+      <Scene src={bgBusStop1Jpg.src} audio={SCENE_AUDIO.calmLoop} />
 
-      {/** FIXME */}
-      <Say hide={-1}>Продолжение следует…</Say>
+      <Say>
+        Объект сохранен, но так и не стал памятником историко-культурного
+        наследия
+      </Say>
 
       <GameOverTitle />
       <GameOverMenu />

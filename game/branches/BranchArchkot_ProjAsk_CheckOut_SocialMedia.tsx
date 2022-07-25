@@ -9,7 +9,7 @@ import {
 } from '~/assets/game'
 import {Branch, Label, Say, Scene} from '~/lib/game-engine'
 import {GameOverMenu, GameOverTitle, SubmitMeme, SubmitPost} from '../commands'
-import {SCENE_AUDIO} from '../sound'
+import {SCENE_AUDIO} from '../sounds'
 
 export function BranchArchkot_ProjAsk_CheckOut_SocialMedia() {
   return (

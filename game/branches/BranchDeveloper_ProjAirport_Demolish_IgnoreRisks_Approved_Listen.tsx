@@ -9,7 +9,7 @@ import {
 } from '~/assets/game'
 import {Branch, Play, Say, Scene} from '~/lib/game-engine'
 import {GameOverMenu, GameOverTitle} from '../commands'
-import {SCENE_AUDIO} from '../sound'
+import {SCENE_AUDIO} from '../sounds'
 
 export function BranchDeveloper_ProjAirport_Demolish_IgnoreRisks_Approved_Listen() {
   return (

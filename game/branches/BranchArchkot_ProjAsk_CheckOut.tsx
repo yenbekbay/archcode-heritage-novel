@@ -7,7 +7,7 @@ import {
   fencePng,
 } from '~/assets/game'
 import {Branch, Say, Scene, Show} from '~/lib/game-engine'
-import {SCENE_AUDIO} from '../sound'
+import {SCENE_AUDIO} from '../sounds'
 
 export function BranchArchkot_ProjAsk_CheckOut() {
   return (
