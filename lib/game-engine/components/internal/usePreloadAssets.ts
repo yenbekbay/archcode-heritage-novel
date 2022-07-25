@@ -48,12 +48,12 @@ async function preloadAssets(
 ) {
   let loadedCount = 0
   await PromisePool.withConcurrency(concurrency)
-    .onTaskFinished(() => {
+    .for(srcs)
+    .process(async (src) => {
+      await asyncPreloader.loadItem({src})
       loadedCount += 1
       onProgress?.(loadedCount / srcs.length)
     })
-    .for(srcs)
-    .process((src) => asyncPreloader.loadItem({src}))
 }
 
 const requestIdleCallback =
