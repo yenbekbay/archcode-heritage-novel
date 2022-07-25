@@ -5,11 +5,12 @@ import {
   portalPaperPng,
 } from '~/assets/game'
 import {Branch, Say, Scene, Show} from '~/lib/game-engine'
+import {SCENE_AUDIO} from '../sound'
 
 export function BranchCityHall_ProjAirport() {
   return (
     <Branch>
-      <Scene src={bgCityHallConferenceRoomJpg.src} />
+      <Scene src={bgCityHallConferenceRoomJpg.src} audio={SCENE_AUDIO.indoor} />
 
       <Show
         src={{

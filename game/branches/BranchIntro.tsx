@@ -1,14 +1,7 @@
 import {useMeasure} from '@react-hookz/web'
 import {motion, useAnimation} from 'framer-motion'
 import React from 'react'
-import {
-  bgIntroJpg,
-  calligraphyLogoPng,
-  calmLoopMp3,
-  generalThemeMp3,
-  introMp3,
-  introTailMp3,
-} from '~/assets/game'
+import {bgIntroJpg, calligraphyLogoPng} from '~/assets/game'
 import {
   Branch,
   Command,
@@ -18,6 +11,7 @@ import {
   Show,
   useBranchContext,
 } from '~/lib/game-engine'
+import {SCENE_AUDIO} from '../sound'
 
 export function BranchIntro() {
   return (
@@ -26,13 +20,7 @@ export function BranchIntro() {
 
       <Menu
         placement="middle"
-        audio={{
-          whileVisible: {
-            uri: introMp3,
-            loop: true,
-            onStop: ['play', introTailMp3],
-          },
-        }}
+        audio={SCENE_AUDIO.intro}
         choices={[
           {
             label: 'Начать',
@@ -42,7 +30,7 @@ export function BranchIntro() {
       />
 
       <Play
-        audio={{whileVisible: {uri: generalThemeMp3, loop: true}}}
+        audio={SCENE_AUDIO.generalTheme}
         hide={(s) => s.command === 'Menu'}
       />
 
@@ -88,7 +76,7 @@ export function BranchIntro() {
 
       <Menu
         label="Выберите персонажа"
-        audio={{whileVisible: {uri: calmLoopMp3, loop: true}}}
+        audio={SCENE_AUDIO.calmLoop}
         choices={[
           {
             label: 'Активист',

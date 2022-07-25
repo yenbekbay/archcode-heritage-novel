@@ -1,20 +1,11 @@
-import {
-  archkot5Png,
-  bgMapGif,
-  cityAtmosMp3,
-  fenceMp3,
-  fencePng,
-  heartbeatMp3,
-} from '~/assets/game'
-import {Branch, Play, Say, Scene, Show} from '~/lib/game-engine'
+import {archkot5Png, bgMapGif, fenceMp3, fencePng} from '~/assets/game'
+import {Branch, Say, Scene, Show} from '~/lib/game-engine'
+import {SCENE_AUDIO} from '../sound'
 
 export function BranchArchkot_0Juncture() {
   return (
     <Branch>
-      <Scene
-        src={bgMapGif.src}
-        audio={{whileVisible: {uri: heartbeatMp3, loop: true}}}
-      />
+      <Scene src={bgMapGif.src} audio={SCENE_AUDIO.heartbeat} />
 
       <Say>Забор в этом городе появился новый</Say>
 
@@ -36,7 +27,7 @@ export function BranchArchkot_0Juncture() {
           },
         }}
         audio={{
-          whileVisible: {uri: cityAtmosMp3, loop: true},
+          ...SCENE_AUDIO.city,
           onEntrance: fenceMp3,
         }}
         hide={-1}

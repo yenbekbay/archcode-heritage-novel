@@ -5,15 +5,24 @@ import {
   botBuilderPng,
   developerRepB11Png,
   hologramMp3,
+  transition1Mp3,
+  transition2ShortMp3,
 } from '~/assets/game'
-import {Branch, Say, Scene} from '~/lib/game-engine'
+import {Branch, Play, Say, Scene} from '~/lib/game-engine'
 import {GameOverMenu, GameOverTitle} from '../commands'
+import {SCENE_AUDIO} from '../sound'
 
 export function BranchDeveloper_ProjAirport_Demolish_IgnoreRisks_Approved_Ignore() {
   return (
     <Branch>
-      <Scene src={bgDeveloperHqOutsideJpg.src} />
-      <Scene src={bgDeveloperHqInsideJpg.src} />
+      <Scene
+        src={bgDeveloperHqOutsideJpg.src}
+        audio={{onEntrance: transition1Mp3}}
+      />
+      <Scene
+        src={bgDeveloperHqInsideJpg.src}
+        audio={{...SCENE_AUDIO.indoor, onEntrance: transition2ShortMp3}}
+      />
 
       <Say
         frame={{
@@ -50,6 +59,8 @@ export function BranchDeveloper_ProjAirport_Demolish_IgnoreRisks_Approved_Ignore
           'В результате слушаний была собрана рабочая группа по мониторингу проекта от общественности\n\n[Ссылка](#)'
         }
       </Say>
+
+      <Play audio={SCENE_AUDIO.calmLoop} hide={-1} />
 
       <Say>
         Общественностью инициирована пресс конференция, а еще они письмо в EBRD.

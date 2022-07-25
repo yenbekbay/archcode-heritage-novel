@@ -11,21 +11,22 @@ import {
   mayor2Png,
 } from '~/assets/game'
 import {Branch, Say, Scene, Show} from '~/lib/game-engine'
+import {SCENE_AUDIO} from '../sound'
 
 export function BranchCityHall_GovPrograms_Stop() {
   return (
     <Branch>
-      <Scene src={bgCityHallMayorOfficeJpg.src} />
+      <Scene src={bgCityHallMayorOfficeJpg.src} audio={SCENE_AUDIO.indoor} />
 
       <Show
         src={{uri: mayor12Png.src, style: {width: '100%', bottom: '-12%'}}}
       />
 
-      <Scene src={bgMayorDoorJpg.src} />
+      <Scene src={bgMayorDoorJpg.src} audio={SCENE_AUDIO.indoor} />
 
       <Say scheme="dark">*тук-тук</Say>
 
-      <Scene src={bgMayorDoorwayJpg.src} />
+      <Scene src={bgMayorDoorwayJpg.src} audio={SCENE_AUDIO.indoor} />
 
       <Say
         scheme="dark"
@@ -42,7 +43,7 @@ export function BranchCityHall_GovPrograms_Stop() {
         {'-Хммм…\nДавайте назначим встречу'}
       </Say>
 
-      <Scene src={bgCityHallConferenceRoomJpg.src} />
+      <Scene src={bgCityHallConferenceRoomJpg.src} audio={SCENE_AUDIO.indoor} />
 
       <Say>Встреча с АрхКотом</Say>
 

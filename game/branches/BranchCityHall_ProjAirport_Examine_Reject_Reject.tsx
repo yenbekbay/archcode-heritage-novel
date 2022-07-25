@@ -4,13 +4,14 @@ import {
   developerRepB6Png,
   mayor3Png,
 } from '~/assets/game'
-import {Branch, Say, Scene} from '~/lib/game-engine'
+import {Branch, Play, Say, Scene} from '~/lib/game-engine'
 import {GameOverMenu, GameOverTitle} from '../commands'
+import {SCENE_AUDIO} from '../sound'
 
 export function BranchCityHall_ProjAirport_Examine_Reject_Reject() {
   return (
     <Branch>
-      <Scene src={bgCityHallMayorOfficeJpg.src} />
+      <Scene src={bgCityHallMayorOfficeJpg.src} audio={SCENE_AUDIO.indoor} />
 
       <Say image={{uri: mayor3Png.src, align: 'bottom'}}>
         —В проекте действительно есть ряд нарушений, нужно его изменить
@@ -23,7 +24,13 @@ export function BranchCityHall_ProjAirport_Examine_Reject_Reject() {
         историко-культурное наследие
       </Say>
 
-      <Scene src={bgAirportFenceGif.src} durationMs={6000} />
+      <Scene
+        src={bgAirportFenceGif.src}
+        audio={SCENE_AUDIO.city}
+        durationMs={6000}
+      />
+
+      <Play audio={SCENE_AUDIO.calmLoop} hide={-1} />
 
       <Say>
         ПОЗДРАВЛЯЕМ! Несмотря ни на что, вы защищаете культурное и историческое

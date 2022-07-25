@@ -6,13 +6,13 @@ import {
 } from '~/assets/game'
 import {Branch, Say, Scene} from '~/lib/game-engine'
 import {GameOverMenu, GameOverTitle} from '../commands'
+import {SCENE_AUDIO} from '../sound'
 
 export function BranchArchkot_ProjBusStop_CheckOut_AssembleTeam_Bail() {
   return (
     <Branch>
-      <Scene src={bgBusStop4Jpg.src} />
-
-      <Scene src={bgBusStop6Jpg.src} />
+      <Scene src={bgBusStop4Jpg.src} audio={SCENE_AUDIO.city} />
+      <Scene src={bgBusStop6Jpg.src} audio={SCENE_AUDIO.calmLoop} />
 
       <Say>
         Остановка изменена до неузнаваемости, и теперь это уже не имеет

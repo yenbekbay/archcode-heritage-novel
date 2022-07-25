@@ -7,15 +7,15 @@ import {
   bgCityHallMayorOfficeJpg,
   bgPhoneFingerJpg,
   bgSolidJpg,
-  chatterMp3,
 } from '~/assets/game'
 import {Branch, Say, Scene} from '~/lib/game-engine'
 import {GameOverMenu, GameOverTitle} from '../commands'
+import {SCENE_AUDIO} from '../sound'
 
 export function BranchCityHall_ProjAsk_Approve_AskHelp() {
   return (
     <Branch>
-      <Scene src={bgCityHallMayorOfficeJpg.src} />
+      <Scene src={bgCityHallMayorOfficeJpg.src} audio={SCENE_AUDIO.indoor} />
 
       <Say
         image={{
@@ -30,11 +30,11 @@ export function BranchCityHall_ProjAsk_Approve_AskHelp() {
         “Ребята, напишите, что реконструкция крутая”
       </Say>
 
-      <Scene src={bgAskBeforeJpg.src} />
+      <Scene src={bgAskBeforeJpg.src} audio={SCENE_AUDIO.city} />
 
       <Say
         image={{uri: angryCrowd1Png.src, align: 'bottom'}}
-        audio={{whileVisible: {uri: chatterMp3, loop: true}}}>
+        audio={SCENE_AUDIO.chatter}>
         {'—Надувательство\n\n—Бред собачий'}
       </Say>
 
@@ -42,8 +42,12 @@ export function BranchCityHall_ProjAsk_Approve_AskHelp() {
         —Продажные чуваки
       </Say>
 
-      <Scene src={bgAskBeforeFenceGif.src} durationMs={6000} />
-      <Scene src={bgAskAfterJpg.src} />
+      <Scene
+        src={bgAskBeforeFenceGif.src}
+        audio={SCENE_AUDIO.city}
+        durationMs={6000}
+      />
+      <Scene src={bgAskAfterJpg.src} audio={SCENE_AUDIO.calmLoop} />
 
       <Say>Вы успешно реконструировали АСК</Say>
 

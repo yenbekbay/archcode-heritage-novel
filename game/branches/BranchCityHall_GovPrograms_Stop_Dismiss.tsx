@@ -8,11 +8,12 @@ import {
 } from '~/assets/game'
 import {Branch, Say, Scene} from '~/lib/game-engine'
 import {GameOverMenu, GameOverTitle} from '../commands'
+import {SCENE_AUDIO} from '../sound'
 
 export function BranchCityHall_GovPrograms_Stop_Dismiss() {
   return (
     <Branch>
-      <Scene src={bgCityHallConferenceRoomJpg.src} />
+      <Scene src={bgCityHallConferenceRoomJpg.src} audio={SCENE_AUDIO.indoor} />
 
       <Say image={{uri: mayor9Png.src, align: 'bottom'}}>
         —Никакой ценности эти остановки не имеют!
@@ -26,11 +27,11 @@ export function BranchCityHall_GovPrograms_Stop_Dismiss() {
         —Не одобрять проект!
       </Say>
 
-      <Scene src={bgBusStop5Jpg.src} />
+      <Scene src={bgBusStop5Jpg.src} audio={SCENE_AUDIO.city} />
 
       <Say>Вы успешно демонтировали остановку</Say>
 
-      <Scene src={bgBusStop6Jpg.src} />
+      <Scene src={bgBusStop6Jpg.src} audio={SCENE_AUDIO.calmLoop} />
 
       <Say>Советские остановки исчезли по всему городу…</Say>
 

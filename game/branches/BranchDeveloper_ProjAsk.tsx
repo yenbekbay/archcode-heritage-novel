@@ -6,17 +6,19 @@ import {
   bgDeveloperHqOutsideJpg,
   bgPhoneHandJpg,
   botBuilderPng,
-  chatterMp3,
   developerRepAPng,
   developerRepB9Png,
   hologramMp3,
+  transition1Mp3,
+  transition2ShortMp3,
 } from '~/assets/game'
 import {Branch, Say, Scene} from '~/lib/game-engine'
+import {SCENE_AUDIO} from '../sound'
 
 export function BranchDeveloper_ProjAsk() {
   return (
     <Branch>
-      <Scene src={bgAskBeforeJpg.src} />
+      <Scene src={bgAskBeforeJpg.src} audio={SCENE_AUDIO.city} />
 
       <Say
         frame={{
@@ -43,16 +45,22 @@ export function BranchDeveloper_ProjAsk() {
         }
       </Say>
 
-      <Scene src={bgAskBeforeJpg.src} />
+      <Scene src={bgAskBeforeJpg.src} audio={SCENE_AUDIO.city} />
 
       <Say
         image={{uri: angryCrowd1Png.src, align: 'bottom'}}
-        audio={{whileVisible: {uri: chatterMp3, loop: true}}}>
+        audio={SCENE_AUDIO.chatter}>
         Общественность возмущена
       </Say>
 
-      <Scene src={bgDeveloperHqOutsideJpg.src} />
-      <Scene src={bgDeveloperHqInsideJpg.src} />
+      <Scene
+        src={bgDeveloperHqOutsideJpg.src}
+        audio={{onEntrance: transition1Mp3}}
+      />
+      <Scene
+        src={bgDeveloperHqInsideJpg.src}
+        audio={{...SCENE_AUDIO.indoor, onEntrance: transition2ShortMp3}}
+      />
 
       <Say
         tag={{text: 'Менеджер проекта:', color: '#A57B55'}}
@@ -92,11 +100,11 @@ export function BranchDeveloper_ProjAsk() {
         Является ли здание АСК памятником историко-культурного наследия?
       </Say>
 
-      <Scene src={bgAskBeforeJpg.src} />
+      <Scene src={bgAskBeforeJpg.src} audio={SCENE_AUDIO.city} />
 
       <Say>Здание АСК не является памятником</Say>
 
-      <Scene src={bgDeveloperHqInsideJpg.src} />
+      <Scene src={bgDeveloperHqInsideJpg.src} audio={SCENE_AUDIO.indoor} />
 
       <Say
         tag={{text: 'Бот-билдер:', color: '#53C7D5'}}

@@ -13,11 +13,12 @@ import {
   bgPhoneHandJpg,
 } from '~/assets/game'
 import {Branch, Say, Scene} from '~/lib/game-engine'
+import {SCENE_AUDIO} from '../sound'
 
 export function BranchArchkot_ProjAsk_CheckOut_AssembleTeam() {
   return (
     <Branch>
-      <Scene src={bgAskBeforeJpg.src} />
+      <Scene src={bgAskBeforeJpg.src} audio={SCENE_AUDIO.city} />
 
       <Say image={{uri: archkot8Png.src, align: 'bottom'}}>
         Быстро! Быстро! Надо собрать команду и разобраться, что тут происходит!
@@ -46,7 +47,7 @@ export function BranchArchkot_ProjAsk_CheckOut_AssembleTeam() {
         Команда Архкод: срочно собираемся в офисе
       </Say>
 
-      <Scene src={bgArchcodeOfficeJpg.src} />
+      <Scene src={bgArchcodeOfficeJpg.src} audio={SCENE_AUDIO.indoor} />
 
       <Say
         tag={{text: 'АрхКот:', color: '#B8AE71'}}
@@ -90,11 +91,11 @@ export function BranchArchkot_ProjAsk_CheckOut_AssembleTeam() {
         Является ли здание АСК памятником?
       </Say>
 
-      <Scene src={bgAskBeforeJpg.src} />
+      <Scene src={bgAskBeforeJpg.src} audio={SCENE_AUDIO.city} />
 
       <Say>Здание АСК не является памятником</Say>
 
-      <Scene src={bgArchcodeOfficeJpg.src} />
+      <Scene src={bgArchcodeOfficeJpg.src} audio={SCENE_AUDIO.indoor} />
 
       <Say
         tag={{text: 'АрхКот:', color: '#B8AE71'}}
@@ -157,7 +158,7 @@ export function BranchArchkot_ProjAsk_CheckOut_AssembleTeam() {
         }
       </Say>
 
-      <Scene src={bgAskBeforeJpg.src} />
+      <Scene src={bgAskBeforeJpg.src} audio={SCENE_AUDIO.city} />
 
       <Say>
         Выяснили АрхКот, АрхБот и АрхТок, что АСК, хоть и не является

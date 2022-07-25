@@ -11,13 +11,13 @@ import {
 } from '~/assets/game'
 import {Branch, Say, Scene, Show} from '~/lib/game-engine'
 import {SubmitMonumentNomination} from '../commands'
+import {SCENE_AUDIO} from '../sound'
 
 export function BranchCityHall_MonumentDept_Rant() {
   return (
     <Branch>
-      <Scene src={bgCityHallMayorOfficeJpg.src} />
-
-      <Scene src={bgMayorDoorwayJpg.src} />
+      <Scene src={bgCityHallMayorOfficeJpg.src} audio={SCENE_AUDIO.indoor} />
+      <Scene src={bgMayorDoorwayJpg.src} audio={SCENE_AUDIO.indoor} />
 
       <Say image={{uri: mayor8Png.src, style: {width: '100%', bottom: '-10%'}}}>
         —БЫСТРО ВСЕМ ЗА РАБОТУ!!!

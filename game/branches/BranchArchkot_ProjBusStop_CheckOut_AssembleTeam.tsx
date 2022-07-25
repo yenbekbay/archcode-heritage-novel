@@ -16,11 +16,12 @@ import {
   bgPhoneHandJpg,
 } from '~/assets/game'
 import {Branch, Say, Scene} from '~/lib/game-engine'
+import {SCENE_AUDIO} from '../sound'
 
 export function BranchArchkot_ProjBusStop_CheckOut_AssembleTeam() {
   return (
     <Branch>
-      <Scene src={bgBusStop2Jpg.src} />
+      <Scene src={bgBusStop2Jpg.src} audio={SCENE_AUDIO.city} />
 
       <Say image={{uri: archkot8Png.src, align: 'bottom'}}>
         Быстро! Быстро! Надо собрать команду и разобраться, что тут происходит!
@@ -49,7 +50,7 @@ export function BranchArchkot_ProjBusStop_CheckOut_AssembleTeam() {
         Команда Архкод: срочно собираемся в офисе
       </Say>
 
-      <Scene src={bgArchcodeOfficeJpg.src} />
+      <Scene src={bgArchcodeOfficeJpg.src} audio={SCENE_AUDIO.indoor} />
 
       <Say
         tag={{text: 'АрхКот:', color: '#B8AE71'}}
@@ -93,11 +94,11 @@ export function BranchArchkot_ProjBusStop_CheckOut_AssembleTeam() {
         Является ли остановка «Казмеханобр» памятником?
       </Say>
 
-      <Scene src={bgBusStop1Jpg.src} />
+      <Scene src={bgBusStop1Jpg.src} audio={SCENE_AUDIO.city} />
 
       <Say>Остановка «Казмеханобр» не является памятником архитектуры</Say>
 
-      <Scene src={bgArchcodeOfficeJpg.src} />
+      <Scene src={bgArchcodeOfficeJpg.src} audio={SCENE_AUDIO.indoor} />
 
       <Say
         tag={{text: 'АрхКот:', color: '#B8AE71'}}
@@ -150,11 +151,11 @@ export function BranchArchkot_ProjBusStop_CheckOut_AssembleTeam() {
         {'—Вуаля!:\n\n[Ссылка на статьи и посты о демонтаже Казмеханобра](#)'}
       </Say>
 
-      <Scene src={bgBusStop1Jpg.src} />
+      <Scene src={bgBusStop1Jpg.src} audio={SCENE_AUDIO.city} />
 
       <Say>Поздравляем! Вам удалось остановить демонтаж остановки</Say>
 
-      <Scene src={bgArchcodeOfficeJpg.src} />
+      <Scene src={bgArchcodeOfficeJpg.src} audio={SCENE_AUDIO.indoor} />
 
       <Say
         tag={{text: 'АрхКот:', color: '#B8AE71'}}
@@ -162,11 +163,11 @@ export function BranchArchkot_ProjBusStop_CheckOut_AssembleTeam() {
         —Но остановка в ужасном виде. Необходимо ее реставрировать
       </Say>
 
-      <Scene src={bgBusStop2Jpg.src} />
+      <Scene src={bgBusStop2Jpg.src} audio={SCENE_AUDIO.city} />
 
       <Say>Реставрация остановки</Say>
 
-      <Scene src={bgArchcodeOfficeJpg.src} />
+      <Scene src={bgArchcodeOfficeJpg.src} audio={SCENE_AUDIO.indoor} />
 
       <Say
         image={{uri: archkot1Png.src, align: 'bottom'}}

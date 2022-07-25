@@ -4,10 +4,12 @@ import {
   bgAskAfterJpg,
   bgAskBeforeFenceGif,
   bgSolidJpg,
+  fenceMp3,
   fencePng,
 } from '~/assets/game'
 import {Branch, Say, Scene, Show} from '~/lib/game-engine'
 import {GameOverMenu, GameOverTitle} from '../commands'
+import {SCENE_AUDIO} from '../sound'
 
 export function BranchArchkot_ProjAsk_WalkPast() {
   return (
@@ -21,6 +23,10 @@ export function BranchArchkot_ProjAsk_WalkPast() {
             entrance: {},
             exit: {x: '-400%', transition: {duration: 2}},
           },
+        }}
+        audio={{
+          ...SCENE_AUDIO.city,
+          onExit: fenceMp3,
         }}
         hide={1}
         zIndex={100}
@@ -37,9 +43,13 @@ export function BranchArchkot_ProjAsk_WalkPast() {
         сериал недосмотренный
       </Say>
 
-      <Scene src={bgAskBeforeFenceGif.src} durationMs={6000} />
+      <Scene
+        src={bgAskBeforeFenceGif.src}
+        audio={SCENE_AUDIO.city}
+        durationMs={6000}
+      />
 
-      <Scene src={bgAskAfterJpg.src} />
+      <Scene src={bgAskAfterJpg.src} audio={SCENE_AUDIO.calmLoop} />
 
       <Say image={{uri: archkot7Png.src, align: 'bottom'}}>
         Здание изменено до неузнаваемости, и теперь это уже не имеет отношения к

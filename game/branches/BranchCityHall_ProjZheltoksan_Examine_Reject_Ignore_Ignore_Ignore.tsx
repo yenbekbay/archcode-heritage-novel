@@ -5,13 +5,18 @@ import {
 } from '~/assets/game'
 import {Branch, Say, Scene} from '~/lib/game-engine'
 import {GameOverMenu, GameOverTitle} from '../commands'
+import {SCENE_AUDIO} from '../sound'
 
 export function BranchCityHall_ProjZheltoksan_Examine_Reject_Ignore_Ignore_Ignore() {
   return (
     <Branch>
-      <Scene src={bgZheltoksanBeforeJpg.src} />
-      <Scene src={bgZheltoksanBeforeFenceGif.src} durationMs={6000} />
-      <Scene src={bgZheltoksanAfterJpg.src} />
+      <Scene src={bgZheltoksanBeforeJpg.src} audio={SCENE_AUDIO.city} />
+      <Scene
+        src={bgZheltoksanBeforeFenceGif.src}
+        audio={SCENE_AUDIO.city}
+        durationMs={6000}
+      />
+      <Scene src={bgZheltoksanAfterJpg.src} audio={SCENE_AUDIO.calmLoop} />
 
       <Say>Вы успешно реконструировали Желтоксан 115</Say>
 

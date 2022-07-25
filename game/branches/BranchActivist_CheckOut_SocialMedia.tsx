@@ -2,21 +2,18 @@ import {
   bgPhoneFingerJpg,
   bgPhoneHandJpg,
   bgZheltoksanBeforeFenceJpg,
-  cityAtmosMp3,
   redhead2Png,
   redhead5Png,
   redhead7Png,
 } from '~/assets/game'
-import {Branch, Label, Menu, Say, Scene} from '~/lib/game-engine'
+import {Branch, Label, Menu, Play, Say, Scene} from '~/lib/game-engine'
 import {GameOverMenu, GameOverTitle, SubmitMeme, SubmitPost} from '../commands'
+import {SCENE_AUDIO} from '../sound'
 
 export function BranchActivist_CheckOut_SocialMedia() {
   return (
     <Branch>
-      <Scene
-        src={bgZheltoksanBeforeFenceJpg.src}
-        audio={{whileVisible: {uri: cityAtmosMp3, loop: true}}}
-      />
+      <Scene src={bgZheltoksanBeforeFenceJpg.src} audio={SCENE_AUDIO.city} />
 
       <Say image={{uri: redhead5Png.src, align: 'bottom'}}>
         В моменты отчаяния всегда можно вылить свою боль в соц. сети
@@ -116,6 +113,8 @@ export function BranchActivist_CheckOut_SocialMedia() {
         ]}
         image={{uri: redhead2Png.src, align: 'bottom'}}
       />
+
+      <Play audio={SCENE_AUDIO.calmLoop} hide={-1} />
 
       <GameOverTitle />
       <GameOverMenu />

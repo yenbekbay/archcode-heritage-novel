@@ -14,6 +14,7 @@ import {
   transition3ShortMp3,
 } from '~/assets/game'
 import {Branch, Say, Scene} from '~/lib/game-engine'
+import {SCENE_AUDIO} from '../sound'
 
 export function BranchActivist_CheckOut_Act_Self() {
   return (

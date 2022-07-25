@@ -9,11 +9,12 @@ import {
 } from '~/assets/game'
 import {Branch, Label, Say, Scene} from '~/lib/game-engine'
 import {GameOverMenu, GameOverTitle, SubmitMeme, SubmitPost} from '../commands'
+import {SCENE_AUDIO} from '../sound'
 
 export function BranchArchkot_ProjAsk_CheckOut_SocialMedia() {
   return (
     <Branch>
-      <Scene src={bgAskBeforeJpg.src} />
+      <Scene src={bgAskBeforeJpg.src} audio={SCENE_AUDIO.city} />
 
       <Say image={{uri: archkot2Png.src, align: 'bottom'}}>
         Видимо, процесс уже запущен, что же
@@ -110,7 +111,7 @@ export function BranchArchkot_ProjAsk_CheckOut_SocialMedia() {
         </Say>
       </Label>
 
-      <Scene src={bgAskAfterJpg.src} />
+      <Scene src={bgAskAfterJpg.src} audio={SCENE_AUDIO.calmLoop} />
 
       <Say>
         Здание изменено до неузнаваемости, и теперь это уже не имеет отношения к

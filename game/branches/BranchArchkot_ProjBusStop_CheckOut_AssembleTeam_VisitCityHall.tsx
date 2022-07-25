@@ -8,18 +8,27 @@ import {
   bgMonumentDeptDoorwayJpg,
   monumentDeptStaff3Png,
   monumentDeptStaff4Png,
+  transition1Mp3,
+  transition2ShortMp3,
 } from '~/assets/game'
 import {Branch, Menu, Say, Scene} from '~/lib/game-engine'
+import {SCENE_AUDIO} from '../sound'
 
 export function BranchArchkot_ProjBusStop_CheckOut_AssembleTeam_VisitCityHall() {
   return (
     <Branch>
-      <Scene src={bgCityHallOutsideJpg.src} />
+      <Scene
+        src={bgCityHallOutsideJpg.src}
+        audio={{onEntrance: transition1Mp3}}
+      />
 
       <Say>Акимат г. Аталма</Say>
 
-      <Scene src={bgMonumentDeptDoorJpg.src} />
-      <Scene src={bgMonumentDeptDoorwayJpg.src} />
+      <Scene
+        src={bgMonumentDeptDoorJpg.src}
+        audio={{...SCENE_AUDIO.indoor, onEntrance: transition2ShortMp3}}
+      />
+      <Scene src={bgMonumentDeptDoorwayJpg.src} audio={SCENE_AUDIO.indoor} />
 
       <Say
         tag={{text: 'АрхКот:', color: '#B8AE71'}}
@@ -57,7 +66,7 @@ export function BranchArchkot_ProjBusStop_CheckOut_AssembleTeam_VisitCityHall() 
         —Да да… очень интересно
       </Say>
 
-      <Scene src={bgArchcodeOfficeJpg.src} />
+      <Scene src={bgArchcodeOfficeJpg.src} audio={SCENE_AUDIO.indoor} />
 
       <Say
         tag={{text: 'АрхТок:', color: '#8D8C59'}}

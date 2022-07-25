@@ -15,13 +15,16 @@ import {
   mayor7Png,
   sharatMibutovPng,
   stampApprovedPng,
+  transition1Mp3,
+  transition2ShortMp3,
 } from '~/assets/game'
 import {Branch, Say, Scene, Show} from '~/lib/game-engine'
+import {SCENE_AUDIO} from '../sound'
 
 export function BranchDeveloper_ProjAirport_Demolish_IgnoreRisks_Approved() {
   return (
     <Branch>
-      <Scene src={bgCityHallConferenceRoomJpg.src} />
+      <Scene src={bgCityHallConferenceRoomJpg.src} audio={SCENE_AUDIO.indoor} />
 
       <Show
         src={{
@@ -56,15 +59,15 @@ export function BranchDeveloper_ProjAirport_Demolish_IgnoreRisks_Approved() {
         —Я согласен с вашими решениями. Можете начинать стройку
       </Say>
 
-      <Scene src={bgAirportJpg.src} />
+      <Scene src={bgAirportJpg.src} audio={SCENE_AUDIO.city} />
 
       <Say
         image={{uri: angryCrowd1Png.src, align: 'bottom'}}
-        audio={{whileVisible: {uri: chatterMp3, loop: true}}}>
+        audio={SCENE_AUDIO.chatter}>
         Общественность возмущена
       </Say>
 
-      <Scene src={bgDeveloperHqInsideJpg.src} />
+      <Scene src={bgDeveloperHqInsideJpg.src} audio={SCENE_AUDIO.indoor} />
 
       <Say
         image={{uri: developerRepB7Png.src, align: 'bottom'}}
@@ -86,11 +89,17 @@ export function BranchDeveloper_ProjAirport_Demolish_IgnoreRisks_Approved() {
         в любом случае
       </Say>
 
-      <Scene src={bgCityHallOutsideJpg.src} />
+      <Scene
+        src={bgCityHallOutsideJpg.src}
+        audio={{onEntrance: transition1Mp3}}
+      />
 
       <Say>Общественные слушания</Say>
 
-      <Scene src={bgCityHallConferenceRoomJpg.src} />
+      <Scene
+        src={bgCityHallConferenceRoomJpg.src}
+        audio={SCENE_AUDIO.hearings}
+      />
 
       <Say
         tag={{text: 'Зам. акима:', color: '#687065'}}

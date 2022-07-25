@@ -4,11 +4,12 @@ import {
   mayor2Png,
 } from '~/assets/game'
 import {Branch, Say, Scene} from '~/lib/game-engine'
+import {SCENE_AUDIO} from '../sound'
 
 export function BranchCityHall_ProjZheltoksan() {
   return (
     <Branch>
-      <Scene src={bgCityHallConferenceRoomJpg.src} />
+      <Scene src={bgCityHallConferenceRoomJpg.src} audio={SCENE_AUDIO.indoor} />
 
       <Say
         tag={{text: 'Представитель:', color: '#A57B55'}}

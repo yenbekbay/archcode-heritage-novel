@@ -9,7 +9,6 @@ import {
   bgLaptopStandaloneJpg,
   bgPhoneFingerJpg,
   bgPhoneHandJpg,
-  cityAtmosMp3,
   redhead14Png,
   redhead15Png,
   redhead16Png,
@@ -22,6 +21,7 @@ import {
   transition3ShortMp3,
 } from '~/assets/game'
 import {Branch, Menu, Say, Scene, Show} from '~/lib/game-engine'
+import {SCENE_AUDIO} from '../sound'
 
 export function BranchActivist_CheckOut_Act_Group() {
   return (
@@ -115,10 +115,7 @@ export function BranchActivist_CheckOut_Act_Group() {
         ].join('\n\n')}
       </Say>
 
-      <Scene
-        src={bgCourtyardJpg.src}
-        audio={{whileVisible: {uri: cityAtmosMp3, loop: true}}}
-      />
+      <Scene src={bgCourtyardJpg.src} audio={{onEntrance: transition1Mp3}} />
 
       <Say image={{uri: activistBPng.src, align: 'bottom'}} hide={2}>
         *встреча активистов

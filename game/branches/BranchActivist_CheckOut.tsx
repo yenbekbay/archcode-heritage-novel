@@ -1,12 +1,12 @@
 import {
   bgZheltoksanBeforeFenceGif,
-  cityAtmosMp3,
   fenceMp3,
   fencePng,
   redhead2Png,
   redhead4Png,
 } from '~/assets/game'
 import {Branch, Say, Scene, Show} from '~/lib/game-engine'
+import {SCENE_AUDIO} from '../sound'
 
 export function BranchActivist_CheckOut() {
   return (
@@ -22,7 +22,7 @@ export function BranchActivist_CheckOut() {
           },
         }}
         audio={{
-          whileVisible: {uri: cityAtmosMp3, loop: true},
+          ...SCENE_AUDIO.city,
           onExit: fenceMp3,
         }}
         hide={1}
@@ -41,7 +41,7 @@ export function BranchActivist_CheckOut() {
 
       <Scene
         src={bgZheltoksanBeforeFenceGif.src}
-        audio={{whileVisible: {uri: cityAtmosMp3, loop: true}}}
+        audio={SCENE_AUDIO.city}
         durationMs={6000}
       />
 

@@ -11,11 +11,12 @@ import {
 } from '~/assets/game'
 import {Branch, Label, Say, Scene} from '~/lib/game-engine'
 import {GameOverMenu, GameOverTitle, SubmitMeme, SubmitPost} from '../commands'
+import {SCENE_AUDIO} from '../sound'
 
 export function BranchArchkot_ProjBusStop_CheckOut_SocialMedia() {
   return (
     <Branch>
-      <Scene src={bgBusStop2Jpg.src} />
+      <Scene src={bgBusStop2Jpg.src} audio={SCENE_AUDIO.city} />
 
       <Say image={{uri: archkot2Png.src, align: 'bottom'}}>
         Видимо, процесс уже запущен, что же
@@ -112,9 +113,9 @@ export function BranchArchkot_ProjBusStop_CheckOut_SocialMedia() {
         </Say>
       </Label>
 
-      <Scene src={bgBusStop4Jpg.src} />
+      <Scene src={bgBusStop4Jpg.src} audio={SCENE_AUDIO.city} />
 
-      <Scene src={bgBusStop6Jpg.src} />
+      <Scene src={bgBusStop6Jpg.src} audio={SCENE_AUDIO.calmLoop} />
 
       <Say>
         Остановка изменена до неузнаваемости, и теперь это уже не имеет

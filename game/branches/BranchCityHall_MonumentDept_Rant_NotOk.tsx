@@ -5,17 +5,18 @@ import {
 } from '~/assets/game'
 import {Branch, Say, Scene} from '~/lib/game-engine'
 import {GameOverMenu, GameOverTitle} from '../commands'
+import {SCENE_AUDIO} from '../sound'
 
 export function BranchCityHall_MonumentDept_Rant_NotOk() {
   return (
     <Branch>
-      <Scene src={bgCityHallMayorOfficeJpg.src} />
+      <Scene src={bgCityHallMayorOfficeJpg.src} audio={SCENE_AUDIO.indoor} />
 
       <Say image={{uri: mayor13Png.src, align: 'bottom'}}>
         {'Хммм…\nЧто-то долго'}
       </Say>
 
-      <Scene src={bgCityHallOutsideJpg.src} />
+      <Scene src={bgCityHallOutsideJpg.src} audio={SCENE_AUDIO.calmLoop} />
 
       <Say>
         Срок Акима прошел, комиссия так и не состоялась. Новый аким обнуляет все

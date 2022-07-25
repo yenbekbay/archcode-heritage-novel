@@ -11,19 +11,28 @@ import {
   expert3Png,
   mayor2Png,
   portalMp3,
+  transition1Mp3,
+  transition2ShortMp3,
 } from '~/assets/game'
 import {Branch, Say, Scene, Show} from '~/lib/game-engine'
+import {SCENE_AUDIO} from '../sound'
 
 export function BranchCityHall_ProjAirport_Examine() {
   return (
     <Branch>
-      <Scene src={bgCityHallOutsideJpg.src} />
+      <Scene
+        src={bgCityHallOutsideJpg.src}
+        audio={{onEntrance: transition1Mp3}}
+      />
 
       <Say placement="middle" scheme="dark">
         Экспертиза
       </Say>
 
-      <Scene src={bgCityHallConferenceRoomJpg.src} />
+      <Scene
+        src={bgCityHallConferenceRoomJpg.src}
+        audio={{...SCENE_AUDIO.indoor, onEntrance: transition2ShortMp3}}
+      />
 
       <Say
         tag={{text: 'Эксперт:', color: '#687065'}}
@@ -42,11 +51,11 @@ export function BranchCityHall_ProjAirport_Examine() {
         audio={{onEntrance: portalMp3}}
       />
 
-      <Scene src={bgMayorDoorJpg.src} />
+      <Scene src={bgMayorDoorJpg.src} audio={SCENE_AUDIO.indoor} />
 
       <Say scheme="dark">*тук-тук</Say>
 
-      <Scene src={bgMayorDoorwayJpg.src} />
+      <Scene src={bgMayorDoorwayJpg.src} audio={SCENE_AUDIO.indoor} />
 
       <Say
         scheme="dark"
@@ -66,11 +75,11 @@ export function BranchCityHall_ProjAirport_Examine() {
         }}
       />
 
-      <Scene src={bgMayorDoorJpg.src} />
+      <Scene src={bgMayorDoorJpg.src} audio={SCENE_AUDIO.indoor} />
 
       <Say scheme="dark">*хдыщ</Say>
 
-      <Scene src={bgCityHallMayorOfficeJpg.src} />
+      <Scene src={bgCityHallMayorOfficeJpg.src} audio={SCENE_AUDIO.indoor} />
 
       <Say
         image={{uri: mayor2Png.src, align: 'bottom'}}

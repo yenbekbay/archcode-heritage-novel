@@ -9,23 +9,24 @@ import {
   monumentDeptStaff2Png,
 } from '~/assets/game'
 import {Branch, Say, Scene, Show} from '~/lib/game-engine'
+import {SCENE_AUDIO} from '../sound'
 
 export function BranchCityHall_Menu_MonumentDept() {
   return (
     <Branch>
-      <Scene src={bgCityHallMayorOfficeJpg.src} />
+      <Scene src={bgCityHallMayorOfficeJpg.src} audio={SCENE_AUDIO.indoor} />
 
       <Say image={{uri: mayor1Png.src, align: 'bottom'}}>
         Что у нас делает отдел памятников?
       </Say>
 
-      <Scene src={bgMonumentDeptDoorJpg.src} />
+      <Scene src={bgMonumentDeptDoorJpg.src} audio={SCENE_AUDIO.indoor} />
 
       <Say image={{uri: mayor5Png.src, align: 'bottom'}}>
         Посмотрим, что они тут делают…
       </Say>
 
-      <Scene src={bgMonumentDeptDoorwayJpg.src} />
+      <Scene src={bgMonumentDeptDoorwayJpg.src} audio={SCENE_AUDIO.indoor} />
 
       <Show src={{uri: monumentDeptStaff1Png.src, align: 'bottom'}} />
       <Show src={{uri: monumentDeptStaff2Png.src, align: 'bottom'}} />

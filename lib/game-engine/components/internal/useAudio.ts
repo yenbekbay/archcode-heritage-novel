@@ -10,6 +10,7 @@ export interface AudioSource {
   uri: string
   channel?: string
   loop?: boolean
+  overlap?: boolean
   onStop?: ['fadeOut', number] | ['play', string]
 }
 
@@ -101,29 +102,35 @@ function getChannel(key: string) {
 }
 
 function makeChannel(): AudioChannel {
-  const queue = new Set<AudioPlayer>()
+  const playlist = new Map<string, AudioPlayer>()
   return {
     play: async (audio: AudioPlayer) => {
-      if (queue.has(audio)) {
+      if (playlist.has(audio.src.uri)) {
         return
       }
-      const prevAudios = [...queue.values()]
-      queue.add(audio)
-      // Stop previous audios before playing new one
+      const prevAudios = [...playlist.values()]
+      playlist.set(audio.src.uri, audio)
       for (const a of prevAudios) {
-        await a.stop()
-        queue.delete(a)
+        if (a.src.overlap) {
+          ;(async () => {
+            await a.stop()
+            playlist.delete(a.src.uri)
+          })()
+        } else {
+          await a.stop()
+          playlist.delete(a.src.uri)
+        }
       }
-      if (queue.has(audio)) {
+      if (playlist.has(audio.src.uri)) {
         audio.play()
       }
     },
     stop: async (audio: AudioPlayer) => {
-      if (!queue.has(audio)) {
+      if (!playlist.has(audio.src.uri)) {
         return
       }
       await audio.stop()
-      queue.delete(audio)
+      playlist.delete(audio.src.uri)
     },
   }
 }

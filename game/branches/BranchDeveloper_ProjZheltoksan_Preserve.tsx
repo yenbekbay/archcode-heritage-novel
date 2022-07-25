@@ -9,14 +9,17 @@ import {
   developerRepB6Png,
   developerRepB9Png,
   hologramMp3,
+  transition1Mp3,
+  transition2ShortMp3,
 } from '~/assets/game'
 import {Branch, Say, Scene} from '~/lib/game-engine'
 import {GameOverMenu, GameOverTitle} from '../commands'
+import {SCENE_AUDIO} from '../sound'
 
 export function BranchDeveloper_ProjZheltoksan_Preserve() {
   return (
     <Branch>
-      <Scene src={bgDeveloperHqInsideJpg.src} />
+      <Scene src={bgDeveloperHqInsideJpg.src} audio={SCENE_AUDIO.indoor} />
 
       <Say image={{uri: developerRepB9Png.src, align: 'bottom'}}>
         —Хоть оно и не является памятником историко-культурного наследия, но
@@ -42,11 +45,17 @@ export function BranchDeveloper_ProjZheltoksan_Preserve() {
         }
       </Say>
 
-      <Scene src={bgDeveloperHqOutsideJpg.src} />
+      <Scene
+        src={bgDeveloperHqOutsideJpg.src}
+        audio={{onEntrance: transition1Mp3}}
+      />
 
       <Say>Идёт разработка проекта</Say>
 
-      <Scene src={bgDeveloperHqInsideJpg.src} />
+      <Scene
+        src={bgDeveloperHqInsideJpg.src}
+        audio={{...SCENE_AUDIO.indoor, onEntrance: transition2ShortMp3}}
+      />
 
       <Say image={{uri: developerRepB10Png.src, align: 'bottom'}}>
         —Как ведется реставрация?
@@ -69,11 +78,17 @@ export function BranchDeveloper_ProjZheltoksan_Preserve() {
         —Сделаем всё необходимое
       </Say>
 
-      <Scene src={bgDeveloperHqOutsideJpg.src} />
+      <Scene
+        src={bgDeveloperHqOutsideJpg.src}
+        audio={{onEntrance: transition1Mp3}}
+      />
 
       <Say>Проект над реставрацией здания завершен…</Say>
 
-      <Scene src={bgDeveloperHqInsideJpg.src} />
+      <Scene
+        src={bgDeveloperHqInsideJpg.src}
+        audio={{...SCENE_AUDIO.indoor, onEntrance: transition2ShortMp3}}
+      />
 
       <Say
         tag={{text: 'Архитектор:', color: '#B4AE68CC'}}
@@ -85,11 +100,14 @@ export function BranchDeveloper_ProjZheltoksan_Preserve() {
         —Необходимо провести слушания
       </Say>
 
-      <Scene src={bgDeveloperHqOutsideJpg.src} />
+      <Scene
+        src={bgDeveloperHqOutsideJpg.src}
+        audio={{onEntrance: transition1Mp3}}
+      />
 
       <Say>Общественные слушания</Say>
 
-      <Scene src={bgDeveloperHqInsideJpg.src} />
+      <Scene src={bgDeveloperHqInsideJpg.src} audio={SCENE_AUDIO.hearings} />
 
       <Say
         tag={{text: 'Менеджер проекта:', color: '#A57B55'}}
@@ -105,14 +123,14 @@ export function BranchDeveloper_ProjZheltoksan_Preserve() {
         приближёнными к оригинальным
       </Say>
 
-      <Scene src={bgDeveloperHqOutsideJpg.src} />
+      <Scene src={bgDeveloperHqOutsideJpg.src} audio={SCENE_AUDIO.city} />
 
       <Say>
         На общественных слушаниях не было выявлено нарушений законов о работе с
         памятниками, ваш проект одобрен!
       </Say>
 
-      <Scene src={bgZheltoksanBeforeJpg.src} />
+      <Scene src={bgZheltoksanBeforeJpg.src} audio={SCENE_AUDIO.calmLoop} />
 
       <Say>
         Поздравляем! Облик здания сохранен! Не даром прошли все ваши и вот

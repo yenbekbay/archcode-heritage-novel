@@ -2,17 +2,17 @@ import {
   angryCrowd1Png,
   bgAskBeforeJpg,
   bgCityHallMayorOfficeJpg,
-  chatterMp3,
   letterPng,
   mayor4Png,
   stampApprovedPng,
 } from '~/assets/game'
 import {Branch, Say, Scene, Show} from '~/lib/game-engine'
+import {SCENE_AUDIO} from '../sound'
 
 export function BranchCityHall_ProjAsk_Approve() {
   return (
     <Branch>
-      <Scene src={bgCityHallMayorOfficeJpg.src} />
+      <Scene src={bgCityHallMayorOfficeJpg.src} audio={SCENE_AUDIO.indoor} />
 
       <Show
         src={{
@@ -41,11 +41,11 @@ export function BranchCityHall_ProjAsk_Approve() {
         }}
       />
 
-      <Scene src={bgAskBeforeJpg.src} />
+      <Scene src={bgAskBeforeJpg.src} audio={SCENE_AUDIO.city} />
 
       <Say
         image={{uri: angryCrowd1Png.src, align: 'bottom'}}
-        audio={{whileVisible: {uri: chatterMp3, loop: true}}}>
+        audio={SCENE_AUDIO.chatter}>
         Общественность возмущена
       </Say>
 

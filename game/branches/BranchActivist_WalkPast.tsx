@@ -1,8 +1,6 @@
 import {
   bgZheltoksanAfterJpg,
   bgZheltoksanBeforeFenceGif,
-  calmLoopMp3,
-  cityAtmosMp3,
   fenceMp3,
   fencePng,
   redhead2Png,
@@ -10,6 +8,7 @@ import {
 } from '~/assets/game'
 import {Branch, Play, Say, Scene, Show} from '~/lib/game-engine'
 import {GameOverMenu, GameOverTitle} from '../commands'
+import {SCENE_AUDIO} from '../sound'
 
 export function BranchActivist_WalkPast() {
   return (
@@ -25,7 +24,7 @@ export function BranchActivist_WalkPast() {
           },
         }}
         audio={{
-          whileVisible: {uri: cityAtmosMp3, loop: true},
+          ...SCENE_AUDIO.city,
           onExit: fenceMp3,
         }}
         hide={2}
@@ -54,15 +53,13 @@ export function BranchActivist_WalkPast() {
 
       <Scene
         src={bgZheltoksanBeforeFenceGif.src}
-        audio={{whileVisible: {uri: cityAtmosMp3, loop: true}}}
+        audio={SCENE_AUDIO.city}
         durationMs={6000}
       />
 
-      <Play audio={{whileVisible: {uri: calmLoopMp3, loop: true}}} hide={-1} />
-
       <Say>Оказывается, за забором было здание госплана Желтоксан 115</Say>
 
-      <Scene src={bgZheltoksanAfterJpg.src} />
+      <Scene src={bgZheltoksanAfterJpg.src} audio={SCENE_AUDIO.calmLoop} />
 
       <Say>
         Его снесли, а на его месте построили K-plaza, которая до сих пор

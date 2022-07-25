@@ -9,13 +9,14 @@ import {
   archtok2Png,
   bgArchcodeOfficeJpg,
 } from '~/assets/game'
-import {Branch, Say, Scene} from '~/lib/game-engine'
+import {Branch, Play, Say, Scene} from '~/lib/game-engine'
 import {GameOverMenu, GameOverTitle} from '../commands'
+import {SCENE_AUDIO} from '../sound'
 
 export function BranchArchkot_ProjBusStop_CheckOut_AssembleTeam_Submit() {
   return (
     <Branch>
-      <Scene src={bgArchcodeOfficeJpg.src} />
+      <Scene src={bgArchcodeOfficeJpg.src} audio={SCENE_AUDIO.indoor} />
 
       <Say
         tag={{text: 'АрхКот:', color: '#B8AE71'}}
@@ -97,6 +98,8 @@ export function BranchArchkot_ProjBusStop_CheckOut_AssembleTeam_Submit() {
         image={{uri: archkot9Png.src, align: 'bottom'}}>
         —Нееет, я не отчаиваюсь…
       </Say>
+
+      <Play audio={SCENE_AUDIO.calmLoop} hide={-1} />
 
       {/** FIXME */}
       <Say hide={-1}>Продолжение следует…</Say>

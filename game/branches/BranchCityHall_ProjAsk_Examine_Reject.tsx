@@ -15,13 +15,16 @@ import {
   mayor3Png,
   stampRejectedPng,
   tinaShtunerPng,
+  transition1Mp3,
+  transition2ShortMp3,
 } from '~/assets/game'
 import {Branch, Say, Scene, Show} from '~/lib/game-engine'
+import {SCENE_AUDIO} from '../sound'
 
 export function BranchCityHall_ProjAsk_Examine_Reject() {
   return (
     <Branch>
-      <Scene src={bgCityHallMayorOfficeJpg.src} />
+      <Scene src={bgCityHallMayorOfficeJpg.src} audio={SCENE_AUDIO.indoor} />
 
       <Say image={{uri: mayor3Png.src, align: 'bottom'}}>
         Проект нужно пересмотреть. устроить общественные слушания!
@@ -54,9 +57,14 @@ export function BranchCityHall_ProjAsk_Examine_Reject() {
         }}
       />
 
-      <Scene src={bgDeveloperHqOutsideJpg.src} />
-
-      <Scene src={bgDeveloperHqInsideJpg.src} />
+      <Scene
+        src={bgDeveloperHqOutsideJpg.src}
+        audio={{onEntrance: transition1Mp3}}
+      />
+      <Scene
+        src={bgDeveloperHqInsideJpg.src}
+        audio={{...SCENE_AUDIO.indoor, onEntrance: transition2ShortMp3}}
+      />
 
       <Say
         tag={{text: 'АрхКот:', color: '#B8AE71'}}

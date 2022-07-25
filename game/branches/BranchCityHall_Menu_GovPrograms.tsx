@@ -11,44 +11,43 @@ import {
   bgCityHallMayorOfficeJpg,
   bgMayorDoorJpg,
   bgMayorDoorwayJpg,
-  chatterMp3,
-  constructionMp3,
   mayor2Png,
   mayor3Png,
 } from '~/assets/game'
 import {Branch, Label, Play, Say, Scene, Show} from '~/lib/game-engine'
+import {SCENE_AUDIO} from '../sound'
 
 export function BranchCityHall_Menu_GovPrograms() {
   return (
     <Branch>
-      <Scene src={bgCityHallConferenceRoomJpg.src} />
+      <Scene src={bgCityHallConferenceRoomJpg.src} audio={SCENE_AUDIO.indoor} />
 
       <Say image={{uri: mayor3Png.src, align: 'bottom'}}>
         С 25 числа начать реализацию обновления остановок на территории г.Алматы
       </Say>
 
-      <Scene src={bgBusStop1Jpg.src} />
-      <Scene src={bgBusStop2Jpg.src} />
+      <Scene src={bgBusStop1Jpg.src} audio={SCENE_AUDIO.city} />
+      <Scene src={bgBusStop2Jpg.src} audio={SCENE_AUDIO.city} />
 
       <Play
-        audio={{whileVisible: {uri: constructionMp3, loop: true}}}
+        audio={SCENE_AUDIO.construction}
         hide={(s) => s.label === 'crowd'}
       />
 
       <Say>Начинается демонтаж…</Say>
 
-      <Scene src={bgBusStop3Jpg.src} />
+      <Scene src={bgBusStop3Jpg.src} audio={SCENE_AUDIO.city} />
 
       <Say>Проходит он тяжело</Say>
 
-      <Scene src={bgBusStop4Jpg.src} />
+      <Scene src={bgBusStop4Jpg.src} audio={SCENE_AUDIO.city} />
 
       <Say>Конструкции мощные</Say>
 
       <Label label="crowd">
         <Show
           src={{uri: angryCrowd1Png.src, align: 'bottom'}}
-          audio={{whileVisible: {uri: chatterMp3, loop: true}}}
+          audio={SCENE_AUDIO.chatter}
           hide={2}
         />
       </Label>
@@ -59,11 +58,11 @@ export function BranchCityHall_Menu_GovPrograms() {
         *АрхКот тоже здесь
       </Say>
 
-      <Scene src={bgMayorDoorJpg.src} />
+      <Scene src={bgMayorDoorJpg.src} audio={SCENE_AUDIO.indoor} />
 
       <Say scheme="dark">*тук-тук</Say>
 
-      <Scene src={bgMayorDoorwayJpg.src} />
+      <Scene src={bgMayorDoorwayJpg.src} audio={SCENE_AUDIO.indoor} />
 
       <Show
         src={{
@@ -82,11 +81,11 @@ export function BranchCityHall_Menu_GovPrograms() {
         —Общественность возмущена
       </Say>
 
-      <Scene src={bgMayorDoorJpg.src} />
+      <Scene src={bgMayorDoorJpg.src} audio={SCENE_AUDIO.indoor} />
 
       <Say scheme="dark">*хлоп</Say>
 
-      <Scene src={bgCityHallMayorOfficeJpg.src} />
+      <Scene src={bgCityHallMayorOfficeJpg.src} audio={SCENE_AUDIO.indoor} />
 
       <Say
         image={{uri: mayor2Png.src, align: 'bottom'}}

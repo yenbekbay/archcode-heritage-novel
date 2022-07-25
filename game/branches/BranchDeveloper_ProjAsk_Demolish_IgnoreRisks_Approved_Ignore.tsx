@@ -7,11 +7,12 @@ import {
 } from '~/assets/game'
 import {Branch, Say, Scene} from '~/lib/game-engine'
 import {GameOverMenu, GameOverTitle} from '../commands'
+import {SCENE_AUDIO} from '../sound'
 
 export function BranchDeveloper_ProjAsk_Demolish_IgnoreRisks_Approved_Ignore() {
   return (
     <Branch>
-      <Scene src={bgDeveloperHqInsideJpg.src} />
+      <Scene src={bgDeveloperHqInsideJpg.src} audio={SCENE_AUDIO.indoor} />
 
       <Say
         tag={{text: 'АрхКот:', color: '#B8AE71'}}
@@ -19,8 +20,12 @@ export function BranchDeveloper_ProjAsk_Demolish_IgnoreRisks_Approved_Ignore() {
         —Ну как же так…
       </Say>
 
-      <Scene src={bgAskBeforeFenceGif.src} durationMs={6000} />
-      <Scene src={bgAskAfterJpg.src} />
+      <Scene
+        src={bgAskBeforeFenceGif.src}
+        audio={SCENE_AUDIO.city}
+        durationMs={6000}
+      />
+      <Scene src={bgAskAfterJpg.src} audio={SCENE_AUDIO.calmLoop} />
 
       <Say>Вы успешно реконструировали АСК</Say>
 

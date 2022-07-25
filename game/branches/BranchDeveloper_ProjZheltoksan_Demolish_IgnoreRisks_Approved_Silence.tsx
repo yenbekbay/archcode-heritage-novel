@@ -1,10 +1,11 @@
 import {bgZheltoksanBeforeJpg} from '~/assets/game'
 import {Branch, Say, Scene} from '~/lib/game-engine'
+import {SCENE_AUDIO} from '../sound'
 
 export function BranchDeveloper_ProjZheltoksan_Demolish_IgnoreRisks_Approved_Silence() {
   return (
     <Branch>
-      <Scene src={bgZheltoksanBeforeJpg.src} />
+      <Scene src={bgZheltoksanBeforeJpg.src} audio={SCENE_AUDIO.city} />
 
       <Say>
         Слушания подошли к концу, общественность не верит вашим словам, но

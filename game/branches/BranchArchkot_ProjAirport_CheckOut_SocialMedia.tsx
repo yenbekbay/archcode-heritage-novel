@@ -6,13 +6,14 @@ import {
   bgPhoneFingerJpg,
   bgPhoneHandJpg,
 } from '~/assets/game'
-import {Branch, Label, Say, Scene} from '~/lib/game-engine'
+import {Branch, Label, Play, Say, Scene} from '~/lib/game-engine'
 import {GameOverMenu, GameOverTitle, SubmitMeme, SubmitPost} from '../commands'
+import {SCENE_AUDIO} from '../sound'
 
 export function BranchArchkot_ProjAirport_CheckOut_SocialMedia() {
   return (
     <Branch>
-      <Scene src={bgAirportJpg.src} />
+      <Scene src={bgAirportJpg.src} audio={SCENE_AUDIO.city} />
 
       <Say image={{uri: archkot2Png.src, align: 'bottom'}}>
         Видимо, процесс уже запущен, что же
@@ -109,7 +110,13 @@ export function BranchArchkot_ProjAirport_CheckOut_SocialMedia() {
         </Say>
       </Label>
 
-      <Scene src={bgAirportFenceGif.src} durationMs={6000} />
+      <Scene
+        src={bgAirportFenceGif.src}
+        audio={SCENE_AUDIO.city}
+        durationMs={6000}
+      />
+
+      <Play audio={SCENE_AUDIO.calmLoop} hide={-1} />
 
       <Say>
         Здание изменено до неузнаваемости, и теперь это уже не имеет отношения к

@@ -1,16 +1,17 @@
 import {bgBusStop4Jpg, bgBusStop5Jpg, bgBusStop6Jpg} from '~/assets/game'
 import {Branch, Say, Scene} from '~/lib/game-engine'
 import {GameOverMenu, GameOverTitle} from '../commands'
+import {SCENE_AUDIO} from '../sound'
 
 export function BranchCityHall_GovPrograms_Continue_Continue() {
   return (
     <Branch>
-      <Scene src={bgBusStop4Jpg.src} />
-      <Scene src={bgBusStop5Jpg.src} />
+      <Scene src={bgBusStop4Jpg.src} audio={SCENE_AUDIO.city} />
+      <Scene src={bgBusStop5Jpg.src} audio={SCENE_AUDIO.city} />
 
       <Say>Вы успешно демонтировали остановку</Say>
 
-      <Scene src={bgBusStop6Jpg.src} />
+      <Scene src={bgBusStop6Jpg.src} audio={SCENE_AUDIO.calmLoop} />
 
       <Say>Советские остановки исчезли по всему городу…</Say>
 

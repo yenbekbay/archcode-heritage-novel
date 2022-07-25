@@ -1,6 +1,100 @@
-import {clickMp3, mouseoverMp3} from '~/assets/game'
-import {delay, SoundName} from '~/lib/game-engine'
+import {
+  akimThemeMp3,
+  calmLoopMp3,
+  chatterMp3,
+  cityAtmosMp3,
+  cityAtmosTailMp3,
+  clickMp3,
+  constructionMp3,
+  developerThemeMp3,
+  generalThemeMp3,
+  hearingsMp3,
+  heartbeatMp3,
+  indoorAtmosphereMp3,
+  introMp3,
+  introTailMp3,
+  mouseoverMp3,
+} from '~/assets/game'
+import {CommandAudioConfig, delay, SoundName} from '~/lib/game-engine'
 import {getAudio} from '~/lib/game-engine/components/internal'
+
+function makeAudioConfig(config: CommandAudioConfig) {
+  return config
+}
+
+export const SCENE_AUDIO = {
+  akimTheme: makeAudioConfig({
+    whileVisible: {
+      uri: akimThemeMp3,
+      loop: true,
+    },
+  }),
+  calmLoop: makeAudioConfig({
+    whileVisible: {
+      uri: calmLoopMp3,
+      loop: true,
+    },
+  }),
+  chatter: makeAudioConfig({
+    whileVisible: {
+      uri: chatterMp3,
+      loop: true,
+    },
+  }),
+  city: makeAudioConfig({
+    whileVisible: {
+      uri: cityAtmosMp3,
+      loop: true,
+      overlap: true,
+      onStop: ['play', cityAtmosTailMp3],
+    },
+  }),
+  construction: makeAudioConfig({
+    whileVisible: {
+      uri: constructionMp3,
+      loop: true,
+    },
+  }),
+  developerTheme: makeAudioConfig({
+    whileVisible: {
+      uri: developerThemeMp3,
+      loop: true,
+    },
+  }),
+  generalTheme: makeAudioConfig({
+    whileVisible: {
+      uri: generalThemeMp3,
+      loop: true,
+    },
+  }),
+  hearings: makeAudioConfig({
+    whileVisible: {
+      uri: hearingsMp3,
+      loop: true,
+      overlap: true,
+    },
+  }),
+  heartbeat: makeAudioConfig({
+    whileVisible: {
+      uri: heartbeatMp3,
+      loop: true,
+    },
+  }),
+  indoor: makeAudioConfig({
+    whileVisible: {
+      uri: indoorAtmosphereMp3,
+      loop: true,
+    },
+  }),
+  intro: makeAudioConfig({
+    whileVisible: {
+      uri: introMp3,
+      loop: true,
+      overlap: true,
+      onStop: ['play', introTailMp3],
+    },
+  }),
+}
 
 export function playSound(name: SoundName) {
   switch (name) {

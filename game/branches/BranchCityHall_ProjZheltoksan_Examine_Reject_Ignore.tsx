@@ -13,13 +13,16 @@ import {
   redhead13Png,
   redhead14Png,
   stampApprovedPng,
+  transition1Mp3,
+  transition2ShortMp3,
 } from '~/assets/game'
 import {Branch, Say, Scene, Show} from '~/lib/game-engine'
+import {SCENE_AUDIO} from '../sound'
 
 export function BranchCityHall_ProjZheltoksan_Examine_Reject_Ignore() {
   return (
     <Branch>
-      <Scene src={bgCityHallConferenceRoomJpg.src} />
+      <Scene src={bgCityHallConferenceRoomJpg.src} audio={SCENE_AUDIO.indoor} />
 
       <Show
         src={{
@@ -48,15 +51,20 @@ export function BranchCityHall_ProjZheltoksan_Examine_Reject_Ignore() {
         }}
       />
 
-      <Scene src={bgZheltoksanBeforeJpg.src} />
+      <Scene src={bgZheltoksanBeforeJpg.src} audio={SCENE_AUDIO.city} />
 
       <Say
         image={{uri: angryCrowd1Png.src, align: 'bottom'}}
-        audio={{whileVisible: {uri: chatterMp3, loop: true}}}>
+        audio={SCENE_AUDIO.chatter}>
         Общественность возмущена
       </Say>
 
-      <Say>Общественные слушания</Say>
+      <Say audio={{onEntrance: transition1Mp3}}>Общественные слушания</Say>
+
+      <Scene
+        src={bgCityHallConferenceRoomJpg.src}
+        audio={SCENE_AUDIO.hearings}
+      />
 
       <Say
         tag={{text: 'Представитель:', color: '#A57B55'}}

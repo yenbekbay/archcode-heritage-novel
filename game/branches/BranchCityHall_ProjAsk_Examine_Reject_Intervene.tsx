@@ -8,11 +8,12 @@ import {
 } from '~/assets/game'
 import {Branch, Say, Scene} from '~/lib/game-engine'
 import {GameOverMenu, GameOverTitle} from '../commands'
+import {SCENE_AUDIO} from '../sound'
 
 export function BranchCityHall_ProjAsk_Examine_Reject_Intervene() {
   return (
     <Branch>
-      <Scene src={bgDeveloperHqInsideJpg.src} />
+      <Scene src={bgDeveloperHqInsideJpg.src} audio={SCENE_AUDIO.indoor} />
 
       <Say
         tag={{text: 'Работник акимата:', color: '#687065'}}
@@ -31,8 +32,12 @@ export function BranchCityHall_ProjAsk_Examine_Reject_Intervene() {
         какое стекло важнее
       </Say>
 
-      <Scene src={bgAskBeforeFenceGif.src} durationMs={6000} />
-      <Scene src={bgAskAfterAltJpg.src} />
+      <Scene
+        src={bgAskBeforeFenceGif.src}
+        audio={SCENE_AUDIO.city}
+        durationMs={6000}
+      />
+      <Scene src={bgAskAfterAltJpg.src} audio={SCENE_AUDIO.calmLoop} />
 
       <Say>Вы успешно реконструировали АСК</Say>
 

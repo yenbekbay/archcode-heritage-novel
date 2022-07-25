@@ -1,10 +1,11 @@
 import {bgProjectsFolderJpg} from '~/assets/game'
 import {Branch, Say, Scene} from '~/lib/game-engine'
+import {SCENE_AUDIO} from '../sound'
 
 export function BranchCityHall_Menu_Projects() {
   return (
     <Branch>
-      <Scene src={bgProjectsFolderJpg.src} />
+      <Scene src={bgProjectsFolderJpg.src} audio={SCENE_AUDIO.indoor} />
 
       <Say
         menu={[

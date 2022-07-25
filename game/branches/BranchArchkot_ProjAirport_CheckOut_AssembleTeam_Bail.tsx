@@ -5,13 +5,18 @@ import {
   fenceMp3,
   fencePng,
 } from '~/assets/game'
-import {Branch, Say, Scene, Show} from '~/lib/game-engine'
+import {Branch, Play, Say, Scene, Show} from '~/lib/game-engine'
 import {GameOverMenu, GameOverTitle} from '../commands'
+import {SCENE_AUDIO} from '../sound'
 
 export function BranchArchkot_ProjAirport_CheckOut_AssembleTeam_Bail() {
   return (
     <Branch>
-      <Scene src={bgAirportFenceGif.src} durationMs={6000} />
+      <Scene
+        src={bgAirportFenceGif.src}
+        audio={SCENE_AUDIO.city}
+        durationMs={6000}
+      />
 
       <Say>
         Здание изменено до неузнаваемости, и теперь это уже не имеет отношения к
@@ -38,6 +43,8 @@ export function BranchArchkot_ProjAirport_CheckOut_AssembleTeam_Bail() {
         audio={{onEntrance: fenceMp3}}
         hide={-1}
       />
+
+      <Play audio={SCENE_AUDIO.calmLoop} hide={-1} />
 
       <Say
         tag={{text: 'АрхБот:', color: '#65506D'}}

@@ -7,17 +7,27 @@ import {
   bgDeveloperHqOutsideJpg,
   developerRepB10Png,
   developerRepB6Png,
+  transition1Mp3,
+  transition2ShortMp3,
+  transition3ShortMp3,
 } from '~/assets/game'
 import {Branch, Say, Scene} from '~/lib/game-engine'
+import {SCENE_AUDIO} from '../sound'
 
 export function BranchDeveloper_ProjAirport_Demolish_IgnoreRisks() {
   return (
     <Branch>
-      <Scene src={bgDeveloperHqOutsideJpg.src} />
+      <Scene
+        src={bgDeveloperHqOutsideJpg.src}
+        audio={{onEntrance: transition1Mp3}}
+      />
 
       <Say>Идёт разработка проекта сноса</Say>
 
-      <Scene src={bgDeveloperHqInsideJpg.src} />
+      <Scene
+        src={bgDeveloperHqInsideJpg.src}
+        audio={{...SCENE_AUDIO.indoor, onEntrance: transition2ShortMp3}}
+      />
 
       <Say
         tag={{text: 'Архитектор:', color: '#B4AE68CC'}}
@@ -29,9 +39,18 @@ export function BranchDeveloper_ProjAirport_Demolish_IgnoreRisks() {
         —Следующий шаг… Представить проект в акимате!
       </Say>
 
-      <Scene src={bgCityHallOutsideJpg.src} />
-      <Scene src={bgCityHallSignJpg.src} />
-      <Scene src={bgCityHallConferenceRoomJpg.src} />
+      <Scene
+        src={bgCityHallOutsideJpg.src}
+        audio={{onEntrance: transition1Mp3}}
+      />
+      <Scene
+        src={bgCityHallSignJpg.src}
+        audio={{onEntrance: transition2ShortMp3}}
+      />
+      <Scene
+        src={bgCityHallConferenceRoomJpg.src}
+        audio={{onEntrance: transition3ShortMp3}}
+      />
 
       <Say
         image={{uri: developerRepB6Png.src, align: 'bottom'}}

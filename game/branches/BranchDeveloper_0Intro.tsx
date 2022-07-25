@@ -1,10 +1,20 @@
-import {bgDeveloperHqInsideJpg, developerRepB8Png} from '~/assets/game'
-import {Branch, Say, Scene, Show} from '~/lib/game-engine'
+import {
+  bgDeveloperHqInsideJpg,
+  developerRepB8Png,
+  transition1Mp3,
+} from '~/assets/game'
+import {Branch, Play, Say, Scene, Show} from '~/lib/game-engine'
+import {SCENE_AUDIO} from '../sound'
 
 export function BranchDeveloper_0Intro() {
   return (
     <Branch>
-      <Scene src={bgDeveloperHqInsideJpg.src} />
+      <Scene
+        src={bgDeveloperHqInsideJpg.src}
+        audio={{onEntrance: transition1Mp3}}
+      />
+
+      <Play audio={SCENE_AUDIO.developerTheme} hide={-1} />
 
       <Show src={{uri: developerRepB8Png.src, align: 'bottom'}} hide={-1} />
 

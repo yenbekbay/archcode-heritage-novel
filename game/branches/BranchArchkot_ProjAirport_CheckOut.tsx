@@ -1,5 +1,12 @@
-import {archkot1Png, archkot8Png, bgAirportJpg, fencePng} from '~/assets/game'
+import {
+  archkot1Png,
+  archkot8Png,
+  bgAirportJpg,
+  fenceMp3,
+  fencePng,
+} from '~/assets/game'
 import {Branch, Say, Scene, Show} from '~/lib/game-engine'
+import {SCENE_AUDIO} from '../sound'
 
 export function BranchArchkot_ProjAirport_CheckOut() {
   return (
@@ -13,6 +20,10 @@ export function BranchArchkot_ProjAirport_CheckOut() {
             entrance: {},
             exit: {x: '-400%', transition: {duration: 2}},
           },
+        }}
+        audio={{
+          ...SCENE_AUDIO.city,
+          onExit: fenceMp3,
         }}
         hide={1}
         zIndex={100}
@@ -28,7 +39,7 @@ export function BranchArchkot_ProjAirport_CheckOut() {
         Я не усну спокойно, не посмотрев, что за забором
       </Say>
 
-      <Scene src={bgAirportJpg.src} />
+      <Scene src={bgAirportJpg.src} audio={SCENE_AUDIO.city} />
 
       <Say image={{uri: archkot8Png.src, align: 'bottom'}}>
         Вот вам новости! старенький vip-терминал аэропорта

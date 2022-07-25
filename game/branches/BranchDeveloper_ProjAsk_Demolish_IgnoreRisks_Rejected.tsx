@@ -5,11 +5,12 @@ import {
   stampRejectedPng,
 } from '~/assets/game'
 import {Branch, Menu, Say, Scene, Show} from '~/lib/game-engine'
+import {SCENE_AUDIO} from '../sound'
 
 export function BranchDeveloper_ProjAsk_Demolish_IgnoreRisks_Rejected() {
   return (
     <Branch>
-      <Scene src={bgCityHallConferenceRoomJpg.src} />
+      <Scene src={bgCityHallConferenceRoomJpg.src} audio={SCENE_AUDIO.indoor} />
 
       <Show
         src={{

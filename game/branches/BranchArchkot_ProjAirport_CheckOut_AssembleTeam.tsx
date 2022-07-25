@@ -21,15 +21,19 @@ import {
   bgCityHallConferenceRoomJpg,
   bgCityHallOutsideJpg,
   bgPhoneHandJpg,
+  indoorAtmosphereMp3,
   sharatMibutovPng,
+  transition1Mp3,
+  transition2ShortMp3,
 } from '~/assets/game'
-import {Branch, Say, Scene, Show} from '~/lib/game-engine'
+import {Branch, Play, Say, Scene, Show} from '~/lib/game-engine'
 import {GameOverMenu, GameOverTitle} from '../commands'
+import {SCENE_AUDIO} from '../sound'
 
 export function BranchArchkot_ProjAirport_CheckOut_AssembleTeam() {
   return (
     <Branch>
-      <Scene src={bgAirportJpg.src} />
+      <Scene src={bgAirportJpg.src} audio={SCENE_AUDIO.city} />
 
       <Say image={{uri: archkot8Png.src, align: 'bottom'}}>
         Быстро! Быстро! Надо собрать команду и разобраться, что тут происходит!
@@ -58,7 +62,7 @@ export function BranchArchkot_ProjAirport_CheckOut_AssembleTeam() {
         Команда Архкод: срочно собираемся в офисе
       </Say>
 
-      <Scene src={bgArchcodeOfficeJpg.src} />
+      <Scene src={bgArchcodeOfficeJpg.src} audio={SCENE_AUDIO.indoor} />
 
       <Say
         tag={{text: 'АрхКот:', color: '#B8AE71'}}
@@ -102,11 +106,11 @@ export function BranchArchkot_ProjAirport_CheckOut_AssembleTeam() {
         —Является ли здание VIP терминала Аэропорта памятником?
       </Say>
 
-      <Scene src={bgAirportJpg.src} />
+      <Scene src={bgAirportJpg.src} audio={SCENE_AUDIO.city} />
 
       <Say>Здание VIP терминала есть в реестре, оно является памятником</Say>
 
-      <Scene src={bgArchcodeOfficeJpg.src} />
+      <Scene src={bgArchcodeOfficeJpg.src} audio={SCENE_AUDIO.indoor} />
 
       <Say
         tag={{text: 'АрхКот:', color: '#B8AE71'}}
@@ -217,13 +221,19 @@ export function BranchArchkot_ProjAirport_CheckOut_AssembleTeam() {
         durationMs={4000}
       />
 
-      <Scene src={bgCityHallOutsideJpg.src} />
+      <Scene
+        src={bgCityHallOutsideJpg.src}
+        audio={{onEntrance: transition1Mp3}}
+      />
 
       <Say placement="middle" scheme="dark">
         Общественные слушания
       </Say>
 
-      <Scene src={bgCityHallConferenceRoomJpg.src} />
+      <Scene
+        src={bgCityHallConferenceRoomJpg.src}
+        audio={SCENE_AUDIO.hearings}
+      />
 
       <Say
         tag={{text: 'Зам. акима:', color: '#687065'}}
@@ -290,7 +300,7 @@ export function BranchArchkot_ProjAirport_CheckOut_AssembleTeam() {
         }
       </Say>
 
-      <Scene src={bgAirportJpg.src} />
+      <Scene src={bgAirportJpg.src} audio={SCENE_AUDIO.city} />
 
       <Say>
         {
@@ -298,11 +308,11 @@ export function BranchArchkot_ProjAirport_CheckOut_AssembleTeam() {
         }
       </Say>
 
-      <Scene src={bgCityHallConferenceRoomJpg.src} />
+      <Scene src={bgCityHallConferenceRoomJpg.src} audio={SCENE_AUDIO.indoor} />
 
       <Say>А ещё организовали пресс-конференцию</Say>
 
-      <Scene src={bgArchcodeOfficeJpg.src} />
+      <Scene src={bgArchcodeOfficeJpg.src} audio={SCENE_AUDIO.indoor} />
 
       <Say image={{uri: archkot11Png.src, align: 'bottom'}}>
         И нам удалось приостановить проект по строительству нового терминала
@@ -312,6 +322,8 @@ export function BranchArchkot_ProjAirport_CheckOut_AssembleTeam() {
         Родной старенький VIP терминал ещё стоит нетронутый, и мы обязательно
         добьемся того, чтобы его сохранили в новом проекте
       </Say>
+
+      <Play audio={SCENE_AUDIO.calmLoop} hide={-1} />
 
       <Say hide={-1}>Продолжение следует…</Say>
 

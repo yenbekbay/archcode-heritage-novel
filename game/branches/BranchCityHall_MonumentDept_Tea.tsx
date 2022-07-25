@@ -9,21 +9,22 @@ import {
   mayor7Png,
 } from '~/assets/game'
 import {Branch, Label, Say, Scene, Show} from '~/lib/game-engine'
+import {SCENE_AUDIO} from '../sound'
 
 export function BranchCityHall_MonumentDept_Tea() {
   return (
     <Branch>
-      <Scene src={bgCityHallMayorOfficeJpg.src} />
+      <Scene src={bgCityHallMayorOfficeJpg.src} audio={SCENE_AUDIO.indoor} />
 
       <Show
         src={{uri: mayor7Png.src, style: {width: '100%', bottom: '-12%'}}}
       />
 
-      <Scene src={bgMayorDoorJpg.src} />
+      <Scene src={bgMayorDoorJpg.src} audio={SCENE_AUDIO.indoor} />
 
       <Say scheme="dark">*тук-тук</Say>
 
-      <Scene src={bgMayorDoorwayJpg.src} />
+      <Scene src={bgMayorDoorwayJpg.src} audio={SCENE_AUDIO.indoor} />
 
       <Say
         scheme="dark"
@@ -72,7 +73,7 @@ export function BranchCityHall_MonumentDept_Tea() {
       </Label>
 
       <Label label="checkpoint-1">
-        <Scene src={bgMayorDoorwayJpg.src} />
+        <Scene src={bgMayorDoorwayJpg.src} audio={SCENE_AUDIO.indoor} />
 
         <Say
           menu={[
@@ -91,11 +92,11 @@ export function BranchCityHall_MonumentDept_Tea() {
         </Say>
       </Label>
 
-      <Scene src={bgMayorDoorJpg.src} />
+      <Scene src={bgMayorDoorJpg.src} audio={SCENE_AUDIO.indoor} />
 
       <Say scheme="dark">*тук-тук</Say>
 
-      <Scene src={bgMayorDoorwayJpg.src} />
+      <Scene src={bgMayorDoorwayJpg.src} audio={SCENE_AUDIO.indoor} />
 
       <Say
         scheme="dark"
@@ -132,7 +133,7 @@ export function BranchCityHall_MonumentDept_Tea() {
           }
         </Say>
 
-        <Scene src={bgDeveloperHqOutsideJpg.src} />
+        <Scene src={bgDeveloperHqOutsideJpg.src} audio={SCENE_AUDIO.city} />
 
         <Say next="checkpoint-2">Идёт разработка проекта</Say>
       </Label>
@@ -148,7 +149,7 @@ export function BranchCityHall_MonumentDept_Tea() {
       </Label>
 
       <Label label="checkpoint-2">
-        <Scene src={bgMayorDoorwayJpg.src} />
+        <Scene src={bgMayorDoorwayJpg.src} audio={SCENE_AUDIO.indoor} />
 
         <Say
           menu={[

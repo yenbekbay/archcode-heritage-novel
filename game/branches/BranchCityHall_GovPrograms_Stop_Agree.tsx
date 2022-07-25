@@ -5,11 +5,12 @@ import {
 } from '~/assets/game'
 import {Branch, Say, Scene} from '~/lib/game-engine'
 import {GameOverMenu, GameOverTitle} from '../commands'
+import {SCENE_AUDIO} from '../sound'
 
 export function BranchCityHall_GovPrograms_Stop_Agree() {
   return (
     <Branch>
-      <Scene src={bgCityHallConferenceRoomJpg.src} />
+      <Scene src={bgCityHallConferenceRoomJpg.src} audio={SCENE_AUDIO.indoor} />
 
       <Say image={{uri: mayor3Png.src, align: 'bottom'}}>
         —Спасибо, отличная работа!
@@ -20,7 +21,7 @@ export function BranchCityHall_GovPrograms_Stop_Agree() {
         придать этим остановкам особый статус
       </Say>
 
-      <Scene src={bgBusStop1Jpg.src} />
+      <Scene src={bgBusStop1Jpg.src} audio={SCENE_AUDIO.calmLoop} />
 
       <Say>Советские остановки стали достопримечательностью города!</Say>
 

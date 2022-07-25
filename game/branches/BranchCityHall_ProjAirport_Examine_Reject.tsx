@@ -10,13 +10,16 @@ import {
   mayor2Png,
   sharatMibutovPng,
   stampRejectedPng,
+  transition1Mp3,
+  transition2ShortMp3,
 } from '~/assets/game'
 import {Branch, Say, Scene, Show} from '~/lib/game-engine'
+import {SCENE_AUDIO} from '../sound'
 
 export function BranchCityHall_ProjAirport_Examine_Reject() {
   return (
     <Branch>
-      <Scene src={bgCityHallMayorOfficeJpg.src} />
+      <Scene src={bgCityHallMayorOfficeJpg.src} audio={SCENE_AUDIO.indoor} />
 
       <Show
         src={{
@@ -45,17 +48,23 @@ export function BranchCityHall_ProjAirport_Examine_Reject() {
         }}
       />
 
-      <Scene src={bgCityHallMayorOfficeJpg.src} />
+      <Scene src={bgCityHallMayorOfficeJpg.src} audio={SCENE_AUDIO.indoor} />
 
       <Say>Устроить общественное обсуждение</Say>
 
-      <Scene src={bgCityHallOutsideJpg.src} />
+      <Scene
+        src={bgCityHallOutsideJpg.src}
+        audio={{onEntrance: transition1Mp3}}
+      />
 
       <Say placement="middle" scheme="dark">
         Общественные слушания
       </Say>
 
-      <Scene src={bgCityHallConferenceRoomJpg.src} />
+      <Scene
+        src={bgCityHallConferenceRoomJpg.src}
+        audio={SCENE_AUDIO.hearings}
+      />
 
       <Say
         tag={{text: 'Зам. акима:', color: '#687065'}}

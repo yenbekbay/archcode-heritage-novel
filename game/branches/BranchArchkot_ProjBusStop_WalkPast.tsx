@@ -5,10 +5,12 @@ import {
   bgBusStop1Jpg,
   bgBusStop4Jpg,
   bgBusStop6Jpg,
+  fenceMp3,
   fencePng,
 } from '~/assets/game'
 import {Branch, Say, Scene, Show} from '~/lib/game-engine'
 import {GameOverMenu, GameOverTitle} from '../commands'
+import {SCENE_AUDIO} from '../sound'
 
 export function BranchArchkot_ProjBusStop_WalkPast() {
   return (
@@ -22,6 +24,10 @@ export function BranchArchkot_ProjBusStop_WalkPast() {
             entrance: {},
             exit: {x: '-400%', transition: {duration: 2}},
           },
+        }}
+        audio={{
+          ...SCENE_AUDIO.city,
+          onExit: fenceMp3,
         }}
         hide={1}
         zIndex={100}
@@ -38,13 +44,13 @@ export function BranchArchkot_ProjBusStop_WalkPast() {
         сериал недосмотренный
       </Say>
 
-      <Scene src={bgBusStop1Jpg.src} />
+      <Scene src={bgBusStop1Jpg.src} audio={SCENE_AUDIO.city} />
 
       <Say>За забором была автобусная остановка «Казмеханобр»</Say>
 
-      <Scene src={bgBusStop4Jpg.src} />
+      <Scene src={bgBusStop4Jpg.src} audio={SCENE_AUDIO.city} />
 
-      <Scene src={bgBusStop6Jpg.src} />
+      <Scene src={bgBusStop6Jpg.src} audio={SCENE_AUDIO.calmLoop} />
 
       <Say>
         Остановка изменена до неузнаваемости, и теперь это уже не имеет

@@ -1,20 +1,11 @@
-import {
-  bgMapGif,
-  cityAtmosMp3,
-  fenceMp3,
-  fencePng,
-  heartbeatMp3,
-  redhead1Png,
-} from '~/assets/game'
+import {bgMapGif, fenceMp3, fencePng, redhead1Png} from '~/assets/game'
 import {Branch, Say, Scene, Show} from '~/lib/game-engine'
+import {SCENE_AUDIO} from '../sound'
 
 export function BranchActivist_0Juncture() {
   return (
     <Branch>
-      <Scene
-        src={bgMapGif.src}
-        audio={{whileVisible: {uri: heartbeatMp3, loop: true}}}
-      />
+      <Scene src={bgMapGif.src} audio={SCENE_AUDIO.heartbeat} />
 
       <Say>Забор в этом городе появился новый</Say>
 
@@ -36,7 +27,7 @@ export function BranchActivist_0Juncture() {
           },
         }}
         audio={{
-          whileVisible: {uri: cityAtmosMp3, loop: true},
+          ...SCENE_AUDIO.city,
           onEntrance: fenceMp3,
         }}
         hide={-1}

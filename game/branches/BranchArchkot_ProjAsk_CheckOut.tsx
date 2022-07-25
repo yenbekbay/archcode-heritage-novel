@@ -3,9 +3,11 @@ import {
   archkot2Png,
   archkot8Png,
   bgAskBeforeJpg,
+  fenceMp3,
   fencePng,
 } from '~/assets/game'
 import {Branch, Say, Scene, Show} from '~/lib/game-engine'
+import {SCENE_AUDIO} from '../sound'
 
 export function BranchArchkot_ProjAsk_CheckOut() {
   return (
@@ -19,6 +21,10 @@ export function BranchArchkot_ProjAsk_CheckOut() {
             entrance: {},
             exit: {x: '-400%', transition: {duration: 2}},
           },
+        }}
+        audio={{
+          ...SCENE_AUDIO.city,
+          onExit: fenceMp3,
         }}
         hide={1}
         zIndex={100}
@@ -34,7 +40,7 @@ export function BranchArchkot_ProjAsk_CheckOut() {
         Я не усну спокойно, не посмотрев, что за забором
       </Say>
 
-      <Scene src={bgAskBeforeJpg.src} />
+      <Scene src={bgAskBeforeJpg.src} audio={SCENE_AUDIO.city} />
 
       <Say image={{uri: archkot8Png.src, align: 'bottom'}}>
         Что за напасть! Здание аппаратно-студийного комплекса перестроить решили

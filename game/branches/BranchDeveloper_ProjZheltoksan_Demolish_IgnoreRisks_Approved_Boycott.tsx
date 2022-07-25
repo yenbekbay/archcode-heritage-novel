@@ -2,15 +2,15 @@ import {
   angryCrowd1Png,
   bgDeveloperHqInsideJpg,
   bgZheltoksanBeforeJpg,
-  chatterMp3,
   redhead11Png,
 } from '~/assets/game'
 import {Branch, Say, Scene} from '~/lib/game-engine'
+import {SCENE_AUDIO} from '../sound'
 
 export function BranchDeveloper_ProjZheltoksan_Demolish_IgnoreRisks_Approved_Boycott() {
   return (
     <Branch>
-      <Scene src={bgDeveloperHqInsideJpg.src} />
+      <Scene src={bgDeveloperHqInsideJpg.src} audio={SCENE_AUDIO.indoor} />
 
       <Say
         tag={{text: 'Активистка:', color: '#C2653A'}}
@@ -27,11 +27,11 @@ export function BranchDeveloper_ProjZheltoksan_Demolish_IgnoreRisks_Approved_Boy
         документы на большой экран, чтобы каждый из нас видел!
       </Say>
 
-      <Scene src={bgZheltoksanBeforeJpg.src} />
+      <Scene src={bgZheltoksanBeforeJpg.src} audio={SCENE_AUDIO.city} />
 
       <Say
         image={{uri: angryCrowd1Png.src, align: 'bottom'}}
-        audio={{whileVisible: {uri: chatterMp3, loop: true}}}>
+        audio={SCENE_AUDIO.chatter}>
         Бойкот
       </Say>
 

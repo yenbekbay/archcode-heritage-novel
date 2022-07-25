@@ -13,15 +13,24 @@ import {
   developerRepB5Png,
   gorzhempoPng,
   tinaShtunerPng,
+  transition1Mp3,
+  transition2ShortMp3,
 } from '~/assets/game'
 import {Branch, Say, Scene} from '~/lib/game-engine'
 import {GameOverMenu, GameOverTitle} from '../commands'
+import {SCENE_AUDIO} from '../sound'
 
 export function BranchArchkot_ProjAsk_CheckOut_AssembleTeam_Debate() {
   return (
     <Branch>
-      <Scene src={bgDeveloperHqOutsideJpg.src} />
-      <Scene src={bgDeveloperHqInsideJpg.src} />
+      <Scene
+        src={bgDeveloperHqOutsideJpg.src}
+        audio={{onEntrance: transition1Mp3}}
+      />
+      <Scene
+        src={bgDeveloperHqInsideJpg.src}
+        audio={{...SCENE_AUDIO.indoor, onEntrance: transition2ShortMp3}}
+      />
 
       <Say
         tag={{text: 'АрхКот:', color: '#B8AE71'}}
@@ -100,14 +109,14 @@ export function BranchArchkot_ProjAsk_CheckOut_AssembleTeam_Debate() {
         …
       </Say>
 
-      <Scene src={bgDeveloperHqOutsideJpg.src} />
+      <Scene src={bgDeveloperHqOutsideJpg.src} audio={SCENE_AUDIO.city} />
 
       <Say>
         А в результате договорились АрхТок, АрхБот и АрхКот с девелопером, что
         будут встречаться в процессе работы и стройки процесс обсуждать
       </Say>
 
-      <Scene src={bgAskAfterAltJpg.src} />
+      <Scene src={bgAskAfterAltJpg.src} audio={SCENE_AUDIO.calmLoop} />
 
       <Say>
         Поздравляем! Облик здания сохранен! Не даром прошли все ваши усилия, вот

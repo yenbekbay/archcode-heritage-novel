@@ -4,21 +4,36 @@ import {
   bgCityHallSignJpg,
   bgMayorDeskJpg,
   mayor1Png,
+  transition1Mp3,
+  transition2ShortMp3,
+  transition3ShortMp3,
 } from '~/assets/game'
-import {Branch, Menu, Say, Scene} from '~/lib/game-engine'
+import {Branch, Menu, Play, Say, Scene} from '~/lib/game-engine'
+import {SCENE_AUDIO} from '../sound'
 
 export function BranchCityHall_0Menu() {
   return (
     <Branch>
-      <Scene src={bgCityHallOutsideJpg.src} />
-      <Scene src={bgCityHallSignJpg.src} />
-      <Scene src={bgCityHallMayorOfficeJpg.src} />
+      <Scene
+        src={bgCityHallOutsideJpg.src}
+        audio={{onEntrance: transition1Mp3}}
+      />
+      <Scene
+        src={bgCityHallSignJpg.src}
+        audio={{onEntrance: transition2ShortMp3}}
+      />
+      <Scene
+        src={bgCityHallMayorOfficeJpg.src}
+        audio={{onEntrance: transition3ShortMp3}}
+      />
+
+      <Play audio={SCENE_AUDIO.akimTheme} hide={-1} />
 
       <Say image={{uri: mayor1Png.src, align: 'bottom'}}>
         Так-с…Что у нас на повестке дня?
       </Say>
 
-      <Scene src={bgMayorDeskJpg.src} />
+      <Scene src={bgMayorDeskJpg.src} audio={SCENE_AUDIO.akimTheme} />
 
       <Menu
         scheme="dark"

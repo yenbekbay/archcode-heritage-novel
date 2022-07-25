@@ -6,11 +6,12 @@ import {
   hologramMp3,
 } from '~/assets/game'
 import {Branch, Say, Scene} from '~/lib/game-engine'
+import {SCENE_AUDIO} from '../sound'
 
 export function BranchDeveloper_ProjAirport_Demolish() {
   return (
     <Branch>
-      <Scene src={bgDeveloperHqInsideJpg.src} />
+      <Scene src={bgDeveloperHqInsideJpg.src} audio={SCENE_AUDIO.indoor} />
 
       <Say image={{uri: developerRepB9Png.src, align: 'bottom'}}>
         —Здание старое, никакой ценности не представляет. В проекте важно что?

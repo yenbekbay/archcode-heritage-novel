@@ -3,48 +3,36 @@ import {
   bgArchcodeOfficeJpg,
   bgCourtyardJpg,
   bgPhoneHandJpg,
-  cityAtmosMp3,
-  indoorAtmosphereMp3,
   redhead19Png,
+  transition1Mp3,
 } from '~/assets/game'
-import {Branch, Say, Scene} from '~/lib/game-engine'
+import {Branch, Play, Say, Scene} from '~/lib/game-engine'
 import {GameOverMenu, GameOverTitle} from '../commands'
+import {SCENE_AUDIO} from '../sound'
 
 export function BranchActivist_CheckOut_Act_Org() {
   return (
     <Branch>
-      <Scene
-        src={bgCourtyardJpg.src}
-        audio={{whileVisible: {uri: cityAtmosMp3, loop: true}}}
-      />
+      <Scene src={bgCourtyardJpg.src} audio={{onEntrance: transition1Mp3}} />
 
       <Say image={{uri: redhead19Png.src, align: 'bottom'}}>
         —Алло, здравствуйте, это Архкод?
       </Say>
 
-      <Scene
-        src={bgArchcodeOfficeJpg.src}
-        audio={{whileVisible: {uri: indoorAtmosphereMp3, loop: true}}}
-      />
+      <Scene src={bgArchcodeOfficeJpg.src} audio={SCENE_AUDIO.indoor} />
 
       <Say image={{uri: archkot1Png.src, align: 'bottom'}}>
         —Здравствуйте, да, я вас слушаю
       </Say>
 
-      <Scene
-        src={bgCourtyardJpg.src}
-        audio={{whileVisible: {uri: cityAtmosMp3, loop: true}}}
-      />
+      <Scene src={bgCourtyardJpg.src} audio={SCENE_AUDIO.city} />
 
       <Say image={{uri: redhead19Png.src, align: 'bottom'}}>
         —Непонятно, что творится! Забор там! Здание снесут! Уничтожат!
         Испоганят!!! Что делать???
       </Say>
 
-      <Scene
-        src={bgArchcodeOfficeJpg.src}
-        audio={{whileVisible: {uri: indoorAtmosphereMp3, loop: true}}}
-      />
+      <Scene src={bgArchcodeOfficeJpg.src} audio={SCENE_AUDIO.indoor} />
 
       <Say image={{uri: archkot1Png.src, align: 'bottom'}}>
         {
@@ -74,6 +62,8 @@ export function BranchActivist_CheckOut_Act_Org() {
         }}>
         [Позвонить в Архкод](tel://+77071210483)
       </Say>
+
+      <Play audio={SCENE_AUDIO.calmLoop} hide={-1} />
 
       <GameOverTitle />
       <GameOverMenu />

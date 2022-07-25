@@ -8,11 +8,12 @@ import {
   stampRejectedPng,
 } from '~/assets/game'
 import {Branch, Say, Scene, Show} from '~/lib/game-engine'
+import {SCENE_AUDIO} from '../sound'
 
 export function BranchCityHall_ProjZheltoksan_Examine_Reject() {
   return (
     <Branch>
-      <Scene src={bgCityHallMayorOfficeJpg.src} />
+      <Scene src={bgCityHallMayorOfficeJpg.src} audio={SCENE_AUDIO.indoor} />
 
       <Show
         src={{
@@ -41,7 +42,7 @@ export function BranchCityHall_ProjZheltoksan_Examine_Reject() {
         }}
       />
 
-      <Scene src={bgCityHallConferenceRoomJpg.src} />
+      <Scene src={bgCityHallConferenceRoomJpg.src} audio={SCENE_AUDIO.indoor} />
 
       <Say>
         Встреча с руководителем управления архитектуры и градостроительства

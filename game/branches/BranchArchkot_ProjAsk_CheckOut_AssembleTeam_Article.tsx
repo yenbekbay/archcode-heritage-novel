@@ -7,6 +7,7 @@ import {
 } from '~/assets/game'
 import {Branch, Say, Scene} from '~/lib/game-engine'
 import {GameOverMenu, GameOverTitle} from '../commands'
+import {SCENE_AUDIO} from '../sound'
 
 export function BranchArchkot_ProjAsk_CheckOut_AssembleTeam_Article() {
   return (
@@ -25,9 +26,13 @@ export function BranchArchkot_ProjAsk_CheckOut_AssembleTeam_Article() {
         реконструкции продолжался
       </Say>
 
-      <Scene src={bgAskBeforeFenceGif.src} durationMs={6000} />
+      <Scene
+        src={bgAskBeforeFenceGif.src}
+        audio={SCENE_AUDIO.city}
+        durationMs={6000}
+      />
 
-      <Scene src={bgAskAfterJpg.src} />
+      <Scene src={bgAskAfterJpg.src} audio={SCENE_AUDIO.calmLoop} />
 
       <Say image={{uri: archkot7Png.src, align: 'bottom'}}>
         Здание изменено до неузнаваемости, и теперь это уже не имеет отношения к
