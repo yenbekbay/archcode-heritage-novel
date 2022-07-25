@@ -29,7 +29,7 @@ export function Dialog({open, onOpenChange, children}: DialogProps) {
 
         <DialogPrimitive.Content asChild forceMount>
           <motion.div
-            className="fixed top-[50%] left-[50%] z-[1010] flex w-[95vw] max-w-md flex-col space-y-4 rounded-lg bg-base-100 p-4 md:w-full"
+            className="fixed top-[50%] left-[50%] z-[1010] flex max-h-[95vh] w-[95vw] max-w-md flex-col space-y-4 rounded-lg bg-base-100 p-4 md:w-full"
             initial={{opacity: 0, x: '-50%', y: '-50%', scale: 0.95}}
             animate={{
               opacity: 1,

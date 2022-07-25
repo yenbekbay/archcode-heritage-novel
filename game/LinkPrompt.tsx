@@ -44,39 +44,43 @@ export function LinkPrompt({link, onClose}: LinkPromptProps) {
             </button>
           </Dialog.Close>
 
-          <LinkCard
-            className="prose overflow-hidden rounded-md border border-content"
-            url={link.href}
-            size="sm"
-          />
+          <div className="flex flex-col space-y-4 overflow-auto">
+            <LinkCard
+              className="prose flex-shrink-0 overflow-hidden rounded-md border border-content"
+              url={link.href}
+              size="sm"
+            />
 
-          <div className="btn-group">
-            <Dialog.Close
-              className="btn btn-outline"
-              onMouseEnter={() => playSound('mouseover')}
-              onClick={() => {
-                playSound('click')
-                window.open(link.href, '_blank')
-              }}>
-              Читать сейчас
-            </Dialog.Close>
+            <div className="btn-group">
+              <Dialog.Close
+                className="btn btn-outline"
+                onMouseEnter={() => playSound('mouseover')}
+                onClick={() => {
+                  playSound('click')
+                  window.open(link.href, '_blank')
+                }}>
+                Читать сейчас
+              </Dialog.Close>
 
-            <Dialog.Close
-              className="btn border-base-content hover:border-base-content"
-              onMouseEnter={() => playSound('mouseover')}
-              onClick={() => {
-                playSound('click')
-                setSavedLinks((prev) => uniqBy([...prev, link], (l) => l.href))
-                toast.success('Ссылка сохранена')
-              }}>
-              Сохранить
-            </Dialog.Close>
-          </div>
+              <Dialog.Close
+                className="btn border-base-content hover:border-base-content"
+                onMouseEnter={() => playSound('mouseover')}
+                onClick={() => {
+                  playSound('click')
+                  setSavedLinks((prev) =>
+                    uniqBy([...prev, link], (l) => l.href),
+                  )
+                  toast.success('Ссылка сохранена')
+                }}>
+                Сохранить
+              </Dialog.Close>
+            </div>
 
-          <div className="prose prose-sm">
-            <blockquote>
-              Доступ к сохранённым ссылкам можно получить в конце игры.
-            </blockquote>
+            <div className="prose prose-sm">
+              <blockquote>
+                Доступ к сохранённым ссылкам можно получить в конце игры.
+              </blockquote>
+            </div>
           </div>
         </Dialog>
       )}
