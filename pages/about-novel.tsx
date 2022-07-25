@@ -36,7 +36,10 @@ export default function AboutNovel() {
           image={
             <Link href="/play">
               <a aria-label="Играть">
-                <Image className="max-h-[36rem] w-auto" src={phoneSwirlPng} />
+                <Image
+                  className="h-[36rem] w-auto object-contain"
+                  src={phoneSwirlPng}
+                />
               </a>
             </Link>
           }>

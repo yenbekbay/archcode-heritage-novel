@@ -23,7 +23,7 @@ export default function AboutBot() {
               rel="noopener noreferrer"
               aria-label="Перейти в Телеграм">
               <Image
-                className="max-h-[18rem] w-auto"
+                className="h-[18rem] w-auto object-contain"
                 src={telegramBotQrCodePng}
               />
             </a>
