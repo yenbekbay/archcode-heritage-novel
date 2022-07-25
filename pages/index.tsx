@@ -1,6 +1,12 @@
 import Link from 'next/link'
 import {bgIntroJpg} from '~/assets/game'
-import {Card, FenceSection, Hero, HeroBackground, Layout} from '~/components'
+import {
+  RoughCard,
+  FenceSection,
+  Hero,
+  HeroBackground,
+  Layout,
+} from '~/components'
 import {Reveal} from '~/lib/components'
 
 export default function Home() {
@@ -46,7 +52,7 @@ export default function Home() {
         </div>
 
         <FenceSection>
-          <Card className="self-center">
+          <RoughCard className="self-center">
             <h2>Манифест</h2>
 
             <p>
@@ -167,7 +173,7 @@ export default function Home() {
             </p>
 
             <p>Мы имеем право на память!</p>
-          </Card>
+          </RoughCard>
         </FenceSection>
       </main>
     </Layout>

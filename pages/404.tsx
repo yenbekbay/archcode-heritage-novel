@@ -1,5 +1,5 @@
 import {bgArchcodeOfficeJpg} from '~/assets/game'
-import {Card, HeroBackground, Layout} from '~/components'
+import {RoughCard, HeroBackground, Layout} from '~/components'
 
 export default function Custom404() {
   return (
@@ -8,13 +8,13 @@ export default function Custom404() {
         <HeroBackground src={bgArchcodeOfficeJpg} className="bg-cover" />
 
         <section className="flex flex-col py-28">
-          <Card className="self-center">
+          <RoughCard className="self-center">
             <h1>404 Not Found</h1>
 
             <p>
               Ой! Кажется, вы пытаетесь открыть страницу, которая не существует.
             </p>
-          </Card>
+          </RoughCard>
         </section>
       </main>
     </Layout>

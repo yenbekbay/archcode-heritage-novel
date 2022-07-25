@@ -7,7 +7,7 @@ import {ErrorBoundary} from 'react-error-boundary'
 import {Toaster} from 'react-hot-toast'
 import {ParallaxProvider} from 'react-scroll-parallax'
 import {bgArchcodeOfficeJpg} from '~/assets/game'
-import {Card, HeroBackground, Layout} from '~/components'
+import {RoughCard, HeroBackground, Layout} from '~/components'
 import '../__generated__/tailwind.css'
 
 const PreloadMyGameAssets = dynamic(
@@ -50,7 +50,7 @@ function ErrorFallback({error}: FallbackProps) {
         <HeroBackground src={bgArchcodeOfficeJpg} className="bg-cover" />
 
         <section className="flex flex-col py-28">
-          <Card className="self-center">
+          <RoughCard className="self-center">
             <h1>Что-то пошло не так!</h1>
 
             <pre className="alert alert-error items-start whitespace-pre-line font-mono">
@@ -61,7 +61,7 @@ function ErrorFallback({error}: FallbackProps) {
               Мы уже в курсе этой ошибки, и постараемся её исправить как можно
               скорее.
             </p>
-          </Card>
+          </RoughCard>
         </section>
       </main>
     </Layout>

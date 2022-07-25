@@ -1,26 +1,41 @@
 import type {ImageInfo, MqlResponseData} from '@microlink/mql'
 import mql from '@microlink/mql'
+import React from 'react'
 import type {Fetcher} from 'swr'
 import useSWR from 'swr'
 import {twMerge} from 'tailwind-merge'
-import type {CardProps} from '~/components'
-import {Card} from '~/components'
 
-export interface LinkCardProps extends Omit<CardProps, 'title' | 'lang'> {
+export interface LinkCardProps
+  extends Omit<
+    LinkCardViewProps,
+    'title' | 'description' | 'image' | 'screenshot'
+  > {
   url: string
 }
 
 export function LinkCard({url: href, ...restProps}: LinkCardProps) {
   const res = useSWR(href, linkMetadataFetcher)
-  return <LinkCardView {...res.data} url={href} {...restProps} />
+  return (
+    <LinkCardView
+      url={href}
+      title={res.data?.title}
+      description={res.data?.description}
+      image={res.data?.image}
+      screenshot={res.data?.screenshot}
+      {...restProps}
+    />
+  )
 }
 
-interface LinkCardViewProps extends Omit<CardProps, 'title' | 'lang'> {
+interface LinkCardViewProps
+  extends Omit<React.ComponentPropsWithoutRef<'div'>, 'title' | 'lang'> {
   url: string
   title?: string | null
   description?: string | null
   image?: ImageInfo | null
   screenshot?: ImageInfo | null
+  size?: 'md' | 'sm'
+  CardComponent?: React.ElementType<React.ComponentPropsWithoutRef<'div'>>
 }
 
 function LinkCardView({
@@ -29,13 +44,12 @@ function LinkCardView({
   description,
   image,
   screenshot,
-  contentClassName,
+  size = 'md',
+  CardComponent = 'div',
   ...restProps
 }: LinkCardViewProps) {
   return (
-    <Card
-      contentClassName={twMerge('p-0 max-w-none', contentClassName)}
-      {...restProps}>
+    <CardComponent {...restProps}>
       <a
         className="no-underline"
         href={url}
@@ -54,10 +68,30 @@ function LinkCardView({
         ) : (
           <div className="h-48 w-full bg-black/20" />
         )}
-        <p className="px-4 text-xl underline">{title ?? url}</p>
-        {description && <p className="px-4">{description}</p>}
+        <p
+          className={twMerge(
+            'px-4 underline',
+            {
+              md: 'text-xl',
+              sm: 'text-base',
+            }[size],
+          )}>
+          {title ?? url}
+        </p>
+        {description && (
+          <p
+            className={twMerge(
+              'px-4',
+              {
+                md: 'text-base',
+                sm: 'text-sm',
+              }[size],
+            )}>
+            {description}
+          </p>
+        )}
       </a>
-    </Card>
+    </CardComponent>
   )
 }
 

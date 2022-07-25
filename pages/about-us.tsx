@@ -11,7 +11,7 @@ import {
   polaroidZamanbekPng,
   teamPhotoJpg,
 } from '~/assets/www'
-import {Card, Hero, HeroBackground, Layout} from '~/components'
+import {RoughCard, Hero, HeroBackground, Layout} from '~/components'
 
 export default function AboutUs() {
   return (
@@ -41,7 +41,7 @@ export default function AboutUs() {
           <div className="absolute inset-0 bg-black/50" />
 
           <div className="flex flex-col space-y-8">
-            <Card className="self-center">
+            <RoughCard className="self-center">
               <div className="grid grid-flow-row gap-4 lg:grid-flow-col">
                 <Image
                   className="my-0"
@@ -61,9 +61,9 @@ export default function AboutUs() {
                   </p>
                 </div>
               </div>
-            </Card>
+            </RoughCard>
 
-            <Card className="self-center">
+            <RoughCard className="self-center">
               <div className="grid grid-flow-row gap-4 lg:grid-flow-col">
                 <Image
                   className="my-0 lg:order-2"
@@ -85,9 +85,9 @@ export default function AboutUs() {
                   </p>
                 </div>
               </div>
-            </Card>
+            </RoughCard>
 
-            <Card className="self-center">
+            <RoughCard className="self-center">
               <div className="grid grid-flow-row gap-4 lg:grid-flow-col">
                 <Image
                   className="my-0"
@@ -109,9 +109,9 @@ export default function AboutUs() {
                   </p>
                 </div>
               </div>
-            </Card>
+            </RoughCard>
 
-            <Card className="self-center">
+            <RoughCard className="self-center">
               <div className="grid grid-flow-row gap-4 lg:grid-flow-col">
                 <Image
                   className="my-0 lg:order-2"
@@ -134,9 +134,9 @@ export default function AboutUs() {
                   </p>
                 </div>
               </div>
-            </Card>
+            </RoughCard>
 
-            <Card className="self-center">
+            <RoughCard className="self-center">
               <div className="grid grid-flow-row gap-4 lg:grid-flow-col">
                 <Image
                   className="my-0"
@@ -157,9 +157,9 @@ export default function AboutUs() {
                   </p>
                 </div>
               </div>
-            </Card>
+            </RoughCard>
 
-            <Card className="self-center">
+            <RoughCard className="self-center">
               <div className="grid grid-flow-row gap-4 lg:grid-flow-col">
                 <Image
                   className="my-0 lg:order-2"
@@ -178,9 +178,9 @@ export default function AboutUs() {
                   </p>
                 </div>
               </div>
-            </Card>
+            </RoughCard>
 
-            <Card className="self-center">
+            <RoughCard className="self-center">
               <div className="grid grid-flow-row gap-4 lg:grid-flow-col">
                 <Image
                   className="my-0"
@@ -201,7 +201,7 @@ export default function AboutUs() {
                   </p>
                 </div>
               </div>
-            </Card>
+            </RoughCard>
           </div>
         </section>
       </main>

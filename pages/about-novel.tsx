@@ -13,7 +13,13 @@ import {
   screenshot5Png,
   screenshot6Png,
 } from '~/assets/www'
-import {Card, FenceSection, Hero, HeroBackground, Layout} from '~/components'
+import {
+  RoughCard,
+  FenceSection,
+  Hero,
+  HeroBackground,
+  Layout,
+} from '~/components'
 
 export default function AboutNovel() {
   return (
@@ -50,7 +56,7 @@ export default function AboutNovel() {
 
         <FenceSection>
           <div className="flex flex-col space-y-8">
-            <Card className="self-center">
+            <RoughCard className="self-center">
               <h2>Об игре</h2>
 
               <p>
@@ -66,7 +72,7 @@ export default function AboutNovel() {
                 присутствует фон, персонаж, текст и выбор, к тому же имеет
                 образовательный характер.
               </p>
-            </Card>
+            </RoughCard>
 
             <ScreenshotCarousel />
 
@@ -76,7 +82,7 @@ export default function AboutNovel() {
                 src={phoneScreenshotPng}
               />
 
-              <Card className="justify-self-center">
+              <RoughCard className="justify-self-center">
                 <p>
                   Игра посвящена привлечению внимания общественности к теме
                   сохранения архитектурного наследия и права на коллективную
@@ -107,7 +113,7 @@ export default function AboutNovel() {
                   адвокации за сохранение архитектурного наследия Алматы с
                   широким вовлечением общественности.
                 </p>
-              </Card>
+              </RoughCard>
             </div>
           </div>
         </FenceSection>

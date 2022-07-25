@@ -1,6 +1,8 @@
 import Link from 'next/link'
+import {twMerge} from 'tailwind-merge'
 import {bgArchcodeOfficeJpg} from '~/assets/game'
-import {Hero, HeroBackground, Layout, LinkCard} from '~/components'
+import type {LinkCardProps, RoughCardProps} from '~/components'
+import {Hero, HeroBackground, Layout, LinkCard, RoughCard} from '~/components'
 import {useSavedLinks} from '~/game/LinkPrompt'
 
 export default function Links() {
@@ -30,12 +32,25 @@ export default function Links() {
           <section className="container mx-auto">
             <div className="mx-auto flex max-w-full flex-col space-y-4 py-8 md:w-[640px] md:px-8 lg:mx-0">
               {savedLinks.map((l) => (
-                <LinkCard className="w-full" key={l.href} url={l.href} />
+                <RoughLinkCard className="w-full" key={l.href} url={l.href} />
               ))}
             </div>
           </section>
         )}
       </main>
     </Layout>
+  )
+}
+
+function RoughLinkCard(props: LinkCardProps) {
+  return <LinkCard CardComponent={StyledRoughCard as any} {...props} />
+}
+
+function StyledRoughCard({contentClassName, ...restProps}: RoughCardProps) {
+  return (
+    <RoughCard
+      contentClassName={twMerge('p-[4px] max-w-none', contentClassName)}
+      {...restProps}
+    />
   )
 }

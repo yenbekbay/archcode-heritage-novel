@@ -1,6 +1,6 @@
 import {useLocalStorageValue} from '@react-hookz/web'
 import {motion} from 'framer-motion'
-import {ArrowLeft as ArrowLeftIcon} from 'phosphor-react'
+import {X as XIcon} from 'phosphor-react'
 import React from 'react'
 import toast from 'react-hot-toast'
 import {useZorm} from 'react-zorm'
@@ -135,7 +135,7 @@ function MemeForm({onSubmit, onSkip, scheme}: MemeFormProps) {
                   setActiveTemplateId('')
                 }
               }}>
-              <ArrowLeftIcon />
+              <XIcon />
             </button>
           </div>
         </div>

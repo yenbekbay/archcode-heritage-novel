@@ -5,12 +5,12 @@ import ReactRough, {Rectangle} from 'react-rough'
 import {twMerge} from 'tailwind-merge'
 import {Reveal} from '~/lib/components'
 
-export interface CardProps extends HTMLMotionProps<'div'> {
+export interface RoughCardProps extends HTMLMotionProps<'div'> {
   contentClassName?: string
 }
 
-export const Card = React.forwardRef(function Card(
-  {children, className, contentClassName, ...restProps}: CardProps,
+export const RoughCard = React.forwardRef(function Card(
+  {children, className, contentClassName, ...restProps}: RoughCardProps,
   forwardedRef: React.ForwardedRef<HTMLDivElement>,
 ) {
   return (
@@ -18,10 +18,10 @@ export const Card = React.forwardRef(function Card(
       ref={forwardedRef}
       className={twMerge('relative shadow-lg', className)}
       {...restProps}>
-      <CardBackground />
+      <RoughCardBackground />
       <article
         className={twMerge(
-          'prose relative z-10 p-8 font-mono',
+          'prose relative z-10 overflow-hidden p-8 font-mono',
           contentClassName,
         )}>
         {children}
@@ -30,7 +30,7 @@ export const Card = React.forwardRef(function Card(
   )
 })
 
-function CardBackground() {
+function RoughCardBackground() {
   const [containerRect, containerRef] = useMeasure<HTMLDivElement>()
   return (
     <div className="absolute inset-0" ref={containerRef}>

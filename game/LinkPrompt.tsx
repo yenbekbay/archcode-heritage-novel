@@ -3,8 +3,10 @@ import {useAtomValue, useSetAtom} from 'jotai'
 import {atomWithStorage} from 'jotai/utils'
 import toast from 'react-hot-toast'
 import {uniqBy} from 'remeda'
+import {LinkCard} from '~/components'
 import {Dialog} from '~/lib/components'
 import {playSound} from './sounds'
+import {X as XIcon} from 'phosphor-react'
 
 const savedLinksAtom = atomWithStorage<Link[]>('@App/savedLinks', [])
 
@@ -34,9 +36,19 @@ export function LinkPrompt({link, onClose}: LinkPromptProps) {
               onClose()
             }
           }}>
-          <Dialog.Title className="link overflow-hidden text-ellipsis">
-            {link.href}
-          </Dialog.Title>
+          <Dialog.Close asChild>
+            <button
+              className="btn btn-ghost btn-circle bg-base-100 text-xl shadow-md hover:bg-base-200"
+              onMouseEnter={() => playSound('mouseover')}>
+              <XIcon />
+            </button>
+          </Dialog.Close>
+
+          <LinkCard
+            className="prose overflow-hidden rounded-md border border-content"
+            url={link.href}
+            size="sm"
+          />
 
           <div className="btn-group">
             <Dialog.Close
