@@ -119,17 +119,16 @@ function makeChannel(): AudioChannel {
       }
       const prevAudios = [...playlist.keys()]
       playlist.set(audio, {playedAt: Date.now()})
-      for (const a of prevAudios) {
-        if (a.src.overlap) {
-          (async () => {
-            await a.stop()
-            playlist.delete(a)
-          })()
-        } else {
-          await a.stop()
+      await Promise.all(
+        prevAudios.map(async (a) => {
           playlist.delete(a)
-        }
-      }
+          if (a.src.overlap) {
+            a.stop()
+          } else {
+            await a.stop()
+          }
+        }),
+      )
       if (playlist.has(audio)) {
         audio.play()
       }
@@ -142,13 +141,17 @@ function makeChannel(): AudioChannel {
       // Prevent audio from stopping if it was played recently
       const stoppedAt = Date.now()
       await delay(CHANNEL_DEBOUNCE_INTERVAL_MS)
+      if (!playlist.has(audio)) {
+        return
+      }
+
       const meta = playlist.get(audio)!
       if (meta.playedAt > stoppedAt) {
         return
       }
 
-      await audio.stop()
       playlist.delete(audio)
+      await audio.stop()
     },
   }
 }
