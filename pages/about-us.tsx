@@ -7,6 +7,7 @@ import {
   paperRipPng,
   polaroidAnelPng,
   polaroidAruzhanPng,
+  polaroidAyanPng,
   polaroidInzhuPng,
   polaroidNadiraPng,
   polaroidPlaceholderPng,
@@ -80,10 +81,23 @@ export default function AboutUs() {
             />
 
             <TeamMemberCard
-              photoSrc={polaroidPlaceholderPng}
+              photoSrc={polaroidAyanPng}
               name="Аян Енбекбай"
               role="Реализация игры, разработка сайта"
-              bio={<>TODO</>}
+              bio={
+                <>
+                  Алматы — уникальный, полный жизни город. Город очень близкий
+                  моему сердцу. Получая столько радости и вдохновения от
+                  пребывания в Алматы, я в какой-то момент почувствовал, что
+                  хочу отдать ему что-то взамен.
+                  <br />
+                  <br />
+                  Вооруженный этим стремлением, я присоединился к ребятам из
+                  Архкод и использовал свои навыки чтобы воплотить в реальность
+                  проект визуальной новеллы о сохранении архитектурного
+                  наследия. Кажется, получилось очень круто.
+                </>
+              }
             />
 
             <TeamMemberCard

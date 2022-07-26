@@ -20,6 +20,7 @@ import {
   HeroBackground,
   Layout,
 } from '~/components'
+import {Reveal} from '~/lib/components'
 
 export default function AboutNovel() {
   return (
@@ -131,7 +132,7 @@ function ScreenshotCarousel() {
     [WheelGesturesPlugin()],
   )
   return (
-    <div className="ScreenshotCarousel overflow-hidden" ref={viewportRef}>
+    <Reveal className="ScreenshotCarousel overflow-hidden" ref={viewportRef}>
       <div className="flex">
         {[
           screenshot1Png,
@@ -148,6 +149,6 @@ function ScreenshotCarousel() {
           </div>
         ))}
       </div>
-    </div>
+    </Reveal>
   )
 }

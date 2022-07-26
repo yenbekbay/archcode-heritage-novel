@@ -11,9 +11,9 @@ import phoneScreenshotPng from './phone-screenshot.png'
 import phoneSwirlPng from './phone-swirl.png'
 import polaroidAnelPng from './polaroid-anel.png'
 import polaroidAruzhanPng from './polaroid-aruzhan.png'
+import polaroidAyanPng from './polaroid-ayan.png'
 import polaroidInzhuPng from './polaroid-inzhu.png'
 import polaroidNadiraPng from './polaroid-nadira.png'
-import polaroidPlaceholderPng from './polaroid-placeholder.png'
 import polaroidYaroslavPng from './polaroid-yaroslav.png'
 import polaroidYuliaPng from './polaroid-yulia.png'
 import polaroidZamanbekPng from './polaroid-zamanbek.png'
@@ -39,9 +39,9 @@ export {
   phoneSwirlPng,
   polaroidAnelPng,
   polaroidAruzhanPng,
+  polaroidAyanPng,
   polaroidInzhuPng,
   polaroidNadiraPng,
-  polaroidPlaceholderPng,
   polaroidYaroslavPng,
   polaroidYuliaPng,
   polaroidZamanbekPng,
