@@ -26,7 +26,7 @@ export const LINKS = {
   monument_relocation_rules: 'https://adilet.zan.kz/rus/docs/Z1900000288',
   monument_status_removal_rules: 'https://docs.google.com/document/d/e/2PACX-1vTKHKiTSeHCbTI1PGp94Hi5-GTob4NEAYu9N_eqliwyq4xCEtWTog02Sp4OrQALtmIhm4dIrF3trK7P/pub',
   poll_monument_criteria: 'https://vlast.kz/quiz/28-kakoe-zdanie-dolzhno-byt-pamyatnikom-arhitektury/',
-  potential_demolition_risks_ask: '#',
+  potential_demolition_risks_ask: 'https://docs.google.com/document/d/e/2PACX-1vTa-uqMoRNGvYp2DuDJQVXUNEFgrrsgE54OaW1idIod-O8LNxr2sl57pSVQQCKQDIR95CtuFBjVMRf6/pub',
   potential_demolition_risks_zheltoksan: 'https://docs.google.com/document/d/e/2PACX-1vQdRyPMSUntsH4DhFDFPSCvQUL1KHVctnjbrrMLXAucuqLNBbpO8fkF39gHGAYTkWKDsQFi2_AGHut5/pub',
   protection_before_monument_status: 'https://docs.google.com/document/d/e/2PACX-1vRpgXIc2fCkbw35nxKc4JLfRJvhoRKTyfecALQZYlNuI3CUpvpcFr2Atq3QnQqaFlv89EAKB4P9bS42/pub',
   reconstruction_examples_ekaterinburg: 'https://itsmycity.ru/2021-12-10/8-primerov-rekonstrukcij-zdanij-vrossii-ievrope-kotorymi-mozhno-gorditsya',

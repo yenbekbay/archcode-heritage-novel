@@ -21,6 +21,7 @@ export interface TextViewProps {
   style?: React.CSSProperties
   frame?: Frame
   scheme?: CommandViewColorScheme
+  scrim?: boolean
 }
 
 export function TextView({
@@ -31,6 +32,7 @@ export function TextView({
   style,
   frame,
   scheme,
+  scrim,
 }: TextViewProps) {
   const {handleLinkClick, playSound} = useGameContext()
   const {containerRect} = useBranchContext()
@@ -55,7 +57,33 @@ export function TextView({
           bottom: 'justify-end',
         }[placement],
       )}>
-      <div className="pointer-events-auto flex flex-col items-center space-y-2">
+      {scrim && (
+        <motion.div
+          className={twMerge(
+            'absolute inset-0',
+            {
+              top: scheme === 'dark' ? 'scrim-t-3/4' : 'scrim-t-3/4-light',
+              middle: scheme === 'dark' ? 'scrim-t-3/4' : 'scrim-t-3/4-light',
+              bottom: scheme === 'dark' ? 'scrim-b-3/4' : 'scrim-b-3/4-light',
+            }[placement],
+          )}
+          variants={{
+            initial: {opacity: 0},
+            entrance: {
+              opacity: 1,
+              transition: {duration: 1},
+            },
+            exit: {
+              opacity: 0,
+              transition: {duration: 0.5, ease: 'easeOut'},
+            },
+          }}
+          initial="initial"
+          animate={controls}
+        />
+      )}
+
+      <div className="pointer-events-auto z-10 flex flex-col items-center space-y-2">
         {tag && (
           <motion.span
             className="GameEngine-tag mb-1 whitespace-pre-wrap rounded-md px-1 text-center font-calligraph text-base"

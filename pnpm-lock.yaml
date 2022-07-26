@@ -71,6 +71,7 @@ specifiers:
   tailwind-merge: 1.5.1
   tailwindcss: 3.1.6
   tailwindcss-radix: 2.4.0
+  tailwindcss-scrims: 1.0.0
   typescript: 4.7.4
   use-long-press: 2.0.2
   zod: 3.17.10
@@ -152,6 +153,7 @@ devDependencies:
   prettier-plugin-tailwindcss: 0.1.13_prettier@2.7.1
   tailwindcss: 3.1.6
   tailwindcss-radix: 2.4.0
+  tailwindcss-scrims: 1.0.0
   typescript: 4.7.4
 
 packages:
@@ -3909,6 +3911,10 @@ packages:
     resolution: {integrity: sha512-oSXzaWypCMHkPC3NvBEaPHf0KsA5mvPrOPgQWDsbg8n7orZ290M0BmC/jgRZ4vcJ6DTAhjrsSYgdsW/F+MFOBA==}
     dev: true
 
+  /lodash.map/4.6.0:
+    resolution: {integrity: sha512-worNHGKLDetmcEYDvh2stPCrrQRkP20E4l0iIS7F8EvzMqBBi7ltvFN5m1HvTf1P7Jk1txKhvFcmYsCr8O2F1Q==}
+    dev: true
+
   /lodash.merge/4.6.2:
     resolution: {integrity: sha512-0KpjqXRVvrYyCsX1swR/XTK0va6VQkQM6MNo7PqW77ByjAhoARA8EfrP1N4+KlKj8YS0ZUCtRT/YUuhyYDujIQ==}
     dev: true
@@ -5028,6 +5034,10 @@ packages:
     resolution: {integrity: sha512-WuyALRjWPDGtt/wzJiadO5AXY+8hZ80hVpe6MyivgraREW751X3SbhRvG3eLKOYN+8VEvqLcf3wdnt44Z4S4SA==}
     engines: {node: '>=10'}
 
+  /ramda/0.25.0:
+    resolution: {integrity: sha512-GXpfrYVPwx3K7RQ6aYT8KPS8XViSXUVJT1ONhoKPE9VAleW42YE+U+8VEyGWt41EnEQW7gwecYJriTI0pKoecQ==}
+    dev: true
+
   /re2/1.17.7:
     resolution: {integrity: sha512-X8GSuiBoVWwcjuppqSjsIkRxNUKDdjhkO9SBekQbZ2ksqWUReCy7DQPWOVpoTnpdtdz5PIpTTxTFzvJv5UMfjA==}
     requiresBuild: true
@@ -5754,6 +5764,13 @@ packages:
 
   /tailwindcss-radix/2.4.0:
     resolution: {integrity: sha512-VkCXBU98s4gDCO9N+exdJ/p0HRKiN8mxDUIX53J2NyBX61BvPr268b+hP5TEHqO0stdTCQJMpcnjwCwFGDisXQ==}
+    dev: true
+
+  /tailwindcss-scrims/1.0.0:
+    resolution: {integrity: sha512-Hds+IzV5a3gTg4ySQByUY+Cl+DQYp0C/q9jbTkkdcFcBY6PBbczhlAqsh2Dko2IJz9d3la9WDWLgA3iSNhoSgQ==}
+    dependencies:
+      lodash.map: 4.6.0
+      ramda: 0.25.0
     dev: true
 
   /tailwindcss/3.1.6:

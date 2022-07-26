@@ -84,6 +84,12 @@ module.exports = {
     require('@tailwindcss/forms'),
     require('@tailwindcss/typography'),
     require('tailwindcss-radix')(),
+    require('tailwindcss-scrims')({
+      colors: {
+        default: ['rgba(0, 0, 0, 0.5)', 'rgba(0, 0, 0, 0)'],
+        light: ['rgba(255, 255, 255, 0.5)', 'rgba(255, 255, 255, 0)'],
+      },
+    }),
     require('daisyui'),
   ],
   daisyui: {
