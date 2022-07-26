@@ -58,7 +58,7 @@ export function TextView({
       <div className="pointer-events-auto flex flex-col items-center space-y-2">
         {tag && (
           <motion.span
-            className="text-md GameEngine-tag mb-1 whitespace-pre-wrap rounded-md px-1 text-center font-calligraph"
+            className="GameEngine-tag mb-1 whitespace-pre-wrap rounded-md px-1 text-center font-calligraph text-base"
             style={{
               ...(typeof tag === 'object' &&
                 tag.color && {
@@ -89,7 +89,7 @@ export function TextView({
             'GameEngine-text whitespace-pre-wrap text-center font-calligraph leading-tight',
             scheme === 'dark' && 'GameEngine-text--dark',
             {
-              md: 'text-md',
+              md: 'text-base',
               lg: 'text-xl',
               xl: 'text-3xl',
             }[size],

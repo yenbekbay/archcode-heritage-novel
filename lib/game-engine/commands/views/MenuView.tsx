@@ -116,10 +116,10 @@ export function MenuView({
             ) : (
               <button
                 className={twMerge(
-                  'GameEngine-button btn btn-ghost h-auto min-h-0 animate-bounce-gentle py-1 font-calligraph leading-6 shadow-md',
+                  'GameEngine-button btn btn-ghost h-auto min-h-0 animate-bounce-gentle py-2 font-calligraph shadow-md',
                   scheme === 'dark' && 'GameEngine-button--dark',
                   {
-                    md: 'text-md btn-lg',
+                    md: 'btn-lg text-base',
                     lg: 'btn-xl text-2xl',
                   }[size],
                 )}

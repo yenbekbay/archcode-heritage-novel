@@ -5,7 +5,7 @@ import {SCENE_AUDIO} from '../sounds'
 export function BranchDeveloper_Menu_Projects() {
   return (
     <Branch>
-      <Scene src={bgProjectsFolderJpg.src} audio={SCENE_AUDIO.indoor} />
+      <Scene src={bgProjectsFolderJpg.src} audio={SCENE_AUDIO.developerTheme} />
 
       <Say
         scheme="dark"
