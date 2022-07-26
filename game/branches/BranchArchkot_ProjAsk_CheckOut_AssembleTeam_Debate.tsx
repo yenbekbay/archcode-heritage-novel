@@ -154,7 +154,9 @@ export function BranchArchkot_ProjAsk_CheckOut_AssembleTeam_Debate() {
 
       <Say
         tag={{text: 'АрхБот:', color: '#65506D'}}
-        image={{uri: archbot3Png.src, align: 'bottom'}}>
+        image={{uri: archbot3Png.src, align: 'bottom'}}
+        scheme="dark"
+        scrim>
         {`
           Вы можете узнать, что написали СМИ о состоявшейся реставрации АСК
 

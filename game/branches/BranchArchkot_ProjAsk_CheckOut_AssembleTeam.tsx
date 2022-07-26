@@ -189,7 +189,7 @@ export function BranchArchkot_ProjAsk_CheckOut_AssembleTeam() {
               ctx.goToBranch('Archkot_ProjAsk_CheckOut_AssembleTeam_Debate'),
           },
           {
-            label: 'Статья с рекомендациями',
+            label: 'Написать статью',
             onClick: (ctx) =>
               ctx.goToBranch('Archkot_ProjAsk_CheckOut_AssembleTeam_Article'),
           },

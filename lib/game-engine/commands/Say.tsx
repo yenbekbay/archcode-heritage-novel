@@ -1,5 +1,7 @@
+import {motion} from 'framer-motion'
 import React from 'react'
 import dedent from 'string-dedent'
+import {twMerge} from 'tailwind-merge'
 import type {CommandProps} from '../components'
 import {Command} from '../components'
 import type {
@@ -17,6 +19,7 @@ export interface SayProps
   image?: string | Omit<ImageViewProps, 'controls'>
   menu?: Choice[] | Omit<MenuViewProps, 'controls'>
   durationMs?: number
+  scrim?: boolean
 }
 
 export function Say({
@@ -26,6 +29,7 @@ export function Say({
   image,
   menu,
   durationMs,
+  scrim,
   audio,
   hide,
   next,
@@ -59,6 +63,34 @@ export function Say({
       zIndex={zIndex}>
       {(controls) => (
         <>
+          {scrim && (
+            <motion.div
+              className={twMerge(
+                'absolute inset-0',
+                {
+                  top: scheme === 'dark' ? 'scrim-t-3/4' : 'scrim-t-3/4-light',
+                  middle:
+                    scheme === 'dark' ? 'scrim-t-3/4' : 'scrim-t-3/4-light',
+                  bottom:
+                    scheme === 'dark' ? 'scrim-b-3/4' : 'scrim-b-3/4-light',
+                }[placement ?? 'top'],
+              )}
+              variants={{
+                initial: {opacity: 0},
+                entrance: {
+                  opacity: 1,
+                  transition: {duration: 1},
+                },
+                exit: {
+                  opacity: 0,
+                  transition: {duration: 0.5, ease: 'easeOut'},
+                },
+              }}
+              initial="initial"
+              animate={controls}
+            />
+          )}
+
           {imageProps && <ImageView controls={controls} {...imageProps} />}
 
           <TextView
