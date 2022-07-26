@@ -44,6 +44,7 @@ export function GameOverMenu() {
               initial="initial"
               animate={controls}>
               <a
+                className="flex-shrink-0"
                 href="https://archcode.kz/journal/view?category=article&sefname=otkrytie-prostranstva"
                 target="_blank"
                 rel="noopener noreferrer">
@@ -55,6 +56,7 @@ export function GameOverMenu() {
               </a>
 
               <a
+                className="flex-shrink-0"
                 href="https://archcode.kz/"
                 target="_blank"
                 rel="noopener noreferrer">
@@ -66,6 +68,7 @@ export function GameOverMenu() {
               </a>
 
               <a
+                className="flex-shrink-0"
                 href="https://soros.kz"
                 target="_blank"
                 rel="noopener noreferrer">

@@ -70,7 +70,7 @@ export function Footer() {
         <div className="space-y-4">
           <div className="flex flex-row space-x-3">
             <Link href="/">
-              <a>
+              <a className="flex-shrink-0">
                 <Image
                   className="h-[3rem] w-auto"
                   src={logoGamePng}
@@ -81,6 +81,7 @@ export function Footer() {
             </Link>
 
             <a
+              className="flex-shrink-0"
               href="https://archcode.kz/journal/view?category=article&sefname=otkrytie-prostranstva"
               target="_blank"
               rel="noopener noreferrer">
@@ -93,6 +94,7 @@ export function Footer() {
             </a>
 
             <a
+              className="flex-shrink-0"
               href="https://archcode.kz/"
               target="_blank"
               rel="noopener noreferrer">
@@ -105,6 +107,7 @@ export function Footer() {
             </a>
 
             <a
+              className="flex-shrink-0"
               href="https://soros.kz"
               target="_blank"
               rel="noopener noreferrer">
