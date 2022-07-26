@@ -196,7 +196,7 @@ export function BranchArchkot_ProjAirport_CheckOut_AssembleTeam() {
         tag={{text: 'АрхБот:', color: '#65506D'}}
         image={{uri: archbot3Png.src, align: 'bottom'}}>
         —Объявлены общественные слушания по проекту нового терминала Аэропорта
-        Алматы
+        Аталмы
       </Say>
 
       <Say

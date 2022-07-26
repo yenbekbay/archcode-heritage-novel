@@ -20,7 +20,7 @@ export function GameOverMenu() {
               },
               {
                 label: 'Начать заново',
-                onClick: (ctx) => ctx.goToBranch('Intro'),
+                onClick: (ctx) => ctx.goToLocation('Intro', 13),
               },
             ]}
           />

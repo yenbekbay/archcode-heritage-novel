@@ -23,7 +23,8 @@ export function BranchAkim_Menu_GovPrograms() {
       <Scene src={bgCityHallConferenceRoomJpg.src} audio={SCENE_AUDIO.indoor} />
 
       <Say image={{uri: mayor3Png.src, align: 'bottom'}}>
-        С 25 числа начать реализацию обновления остановок на территории г.Алматы
+        С 25 числа начать реализацию обновления остановок на территории г.
+        Аталма
       </Say>
 
       <Scene src={bgBusStop1Jpg.src} audio={SCENE_AUDIO.city} />

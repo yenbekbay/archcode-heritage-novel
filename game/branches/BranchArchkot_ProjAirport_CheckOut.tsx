@@ -49,7 +49,7 @@ export function BranchArchkot_ProjAirport_CheckOut() {
         И что теперь, снесут его?
       </Say>
 
-      <Say>Ворота в Алматы…</Say>
+      <Say>Ворота в Аталму…</Say>
 
       <Say>…до свидания?</Say>
 

@@ -17,7 +17,6 @@ import {SCENE_AUDIO} from '../sounds'
 export function BranchAkim_MonumentDept_Rant() {
   return (
     <Branch>
-      <Scene src={bgCityHallMayorOfficeJpg.src} audio={SCENE_AUDIO.indoor} />
       <Scene src={bgMayorDoorwayJpg.src} audio={SCENE_AUDIO.indoor} />
 
       <Say image={{uri: mayor8Png.src, style: {width: '100%', bottom: '-10%'}}}>
@@ -27,6 +26,8 @@ export function BranchAkim_MonumentDept_Rant() {
       <Say image={{uri: mayor9Png.src, align: 'bottom'}}>
         —Подготовить базу для внесения зданий в список
       </Say>
+
+      <Scene src={bgCityHallMayorOfficeJpg.src} audio={SCENE_AUDIO.indoor} />
 
       <Say image={{uri: mayor2Png.src, align: 'bottom'}}>
         На самом деле много зданий, которые могут быть официальными памятниками…
@@ -88,7 +89,7 @@ export function BranchAkim_MonumentDept_Rant() {
           viewport: [1080, 1920],
           rect: {
             x: 140,
-            y: 1500,
+            y: 1300,
             width: 720,
           },
         }}

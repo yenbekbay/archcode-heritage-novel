@@ -117,7 +117,7 @@ export function BranchDeveloper_ProjAsk() {
         tag={{text: 'Бот-билдер:', color: '#53C7D5'}}
         image={{uri: botBuilderPng.src, align: 'bottom'}}
         audio={{onEntrance: hologramMp3}}>
-        Аким Байбек подал заявку на внесение ряда зданий Алматы в число
+        Аким Байбек подал заявку на внесение ряда зданий Аталмы в число
         памятников историко- культурного наследия местного значения
       </Say>
 
