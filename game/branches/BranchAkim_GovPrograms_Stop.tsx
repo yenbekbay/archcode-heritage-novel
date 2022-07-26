@@ -47,7 +47,10 @@ export function BranchAkim_GovPrograms_Stop() {
         `}
       </Say>
 
-      <Scene src={bgCityHallConferenceRoomJpg.src} audio={SCENE_AUDIO.indoor} />
+      <Scene
+        src={bgCityHallConferenceRoomJpg.src}
+        audio={SCENE_AUDIO.hearings}
+      />
 
       <Say>Встреча с АрхКотом</Say>
 

@@ -43,7 +43,7 @@ export function BranchDeveloper_ProjZheltoksan_Demolish_IgnoreRisks_Rejected() {
         tag={{text: 'Аким:', color: '#687065'}}
         image={{uri: mayor6Png.src, align: 'bottom'}}>
         —Я возмущён! Ведь здание представляет историческую ценность для города.
-        Вам приходется разрабатывать новый проект и сохранить Желтоксан 115
+        Вам придётся разрабатывать новый проект и сохранить Желтоксан 115
       </Say>
 
       <Menu

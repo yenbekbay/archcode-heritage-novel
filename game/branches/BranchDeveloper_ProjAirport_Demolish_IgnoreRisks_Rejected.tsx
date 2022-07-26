@@ -43,7 +43,7 @@ export function BranchDeveloper_ProjAirport_Demolish_IgnoreRisks_Rejected() {
         tag={{text: 'Аким:', color: '#687065'}}
         image={{uri: mayor6Png.src, align: 'bottom'}}>
         —Я возмущён! Ведь здание представляет историческую ценность для города.
-        Вам приходется разрабатывать новый проект и сохранить VIP терминал
+        Вам придётся разрабатывать новый проект и сохранить VIP терминал
       </Say>
 
       <Menu
