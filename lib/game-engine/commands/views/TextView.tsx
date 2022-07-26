@@ -32,7 +32,7 @@ export function TextView({
   frame,
   scheme,
 }: TextViewProps) {
-  const {handleLinkClick} = useGameContext()
+  const {handleLinkClick, playSound} = useGameContext()
   const {containerRect} = useBranchContext()
   const length = groups.flatMap((g) => g.chars).length
   const size: 'md' | 'lg' | 'xl' = (() => {
@@ -130,6 +130,7 @@ export function TextView({
                     rel="noopener noreferrer"
                     onClick={(event) => {
                       event.stopPropagation()
+                      playSound('click')
                       handleLinkClick(group.url, group.chars.join(''), event)
                     }}>
                     {group.chars.map((char, charIdx) => (
