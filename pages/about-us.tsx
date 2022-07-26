@@ -10,7 +10,6 @@ import {
   polaroidAyanPng,
   polaroidInzhuPng,
   polaroidNadiraPng,
-  polaroidPlaceholderPng,
   polaroidYaroslavPng,
   polaroidYuliaPng,
   polaroidZamanbekPng,
