@@ -22,6 +22,7 @@ import {
 } from '~/assets/game'
 import {Branch, Menu, Say, Scene, Show} from '~/lib/game-engine'
 import {LINKS} from '../links'
+import {SCENE_AUDIO} from '../sounds'
 
 export function BranchActivist_CheckOut_Act_Group() {
   return (
@@ -69,7 +70,7 @@ export function BranchActivist_CheckOut_Act_Group() {
         style={{fontSize: 20, textAlign: 'right'}}>
         {`
           Беспредел!
-          
+
           Сносят Желтоксан 115. Присоединяйтесь, чтобы вместе действовать в защиту истории!
         `}
       </Say>
@@ -83,7 +84,7 @@ export function BranchActivist_CheckOut_Act_Group() {
         audio={{onEntrance: alertsMp3}}>
         {`
           *pop up
-          
+
           звуки уведомлений
         `}
       </Say>
@@ -121,7 +122,10 @@ export function BranchActivist_CheckOut_Act_Group() {
         `}
       </Say>
 
-      <Scene src={bgCourtyardJpg.src} audio={{onEntrance: transition1Mp3}} />
+      <Scene
+        src={bgCourtyardJpg.src}
+        audio={{...SCENE_AUDIO.city, onEntrance: transition1Mp3}}
+      />
 
       <Say image={{uri: activistBPng.src, align: 'bottom'}} hide={2}>
         *встреча активистов
@@ -147,7 +151,7 @@ export function BranchActivist_CheckOut_Act_Group() {
       <Say image={{uri: activistAPng.src, align: 'bottom'}}>
         {`
           —Действовать надо последовательно…
-          
+
           Для начала давайте узнаем, кто здесь - заинтересованные стороны
         `}
       </Say>
@@ -178,7 +182,7 @@ export function BranchActivist_CheckOut_Act_Group() {
       <Say image={{uri: redhead5Png.src, align: 'bottom'}}>
         {`
           —И узнать надо побольше.
-          
+
           И не только почитать новости, а проверить, правду ли говорят
         `}
       </Say>
@@ -209,7 +213,7 @@ export function BranchActivist_CheckOut_Act_Group() {
       <Say image={{uri: activistBPng.src, align: 'bottom'}}>
         {`
           —Нужно как можно больше писать в соц.сети.
-          
+
           Чем больше людей знают, тем сложнее что-то скрыть!
         `}
       </Say>

@@ -39,7 +39,8 @@ export function LinkPrompt({link, onClose}: LinkPromptProps) {
           <Dialog.Close asChild>
             <button
               className="btn btn-ghost btn-circle bg-base-100 text-xl shadow-md hover:bg-base-200"
-              onMouseEnter={() => playSound('mouseover')}>
+              onMouseEnter={() => playSound('mouseover')}
+              onClick={() => playSound('click')}>
               <XIcon />
             </button>
           </Dialog.Close>

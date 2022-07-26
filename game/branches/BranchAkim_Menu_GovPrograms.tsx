@@ -29,18 +29,13 @@ export function BranchAkim_Menu_GovPrograms() {
       <Scene src={bgBusStop1Jpg.src} audio={SCENE_AUDIO.city} />
       <Scene src={bgBusStop2Jpg.src} audio={SCENE_AUDIO.city} />
 
-      <Play
-        audio={SCENE_AUDIO.construction}
-        hide={(s) => s.label === 'crowd'}
-      />
-
       <Say>Начинается демонтаж…</Say>
 
-      <Scene src={bgBusStop3Jpg.src} audio={SCENE_AUDIO.city} />
+      <Scene src={bgBusStop3Jpg.src} audio={SCENE_AUDIO.construction} />
 
       <Say>Проходит он тяжело</Say>
 
-      <Scene src={bgBusStop4Jpg.src} audio={SCENE_AUDIO.city} />
+      <Scene src={bgBusStop4Jpg.src} audio={SCENE_AUDIO.construction} />
 
       <Say>Конструкции мощные</Say>
 

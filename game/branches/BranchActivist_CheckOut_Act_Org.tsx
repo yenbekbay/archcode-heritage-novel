@@ -16,7 +16,7 @@ export function BranchActivist_CheckOut_Act_Org() {
     <Branch>
       <Scene
         src={bgCourtyardJpg.src}
-        audio={{onEntrance: transition2ShortMp3}}
+        audio={{...SCENE_AUDIO.city, onEntrance: transition2ShortMp3}}
       />
 
       <Say image={{uri: redhead19Png.src, align: 'bottom'}}>
