@@ -35,7 +35,7 @@ export function BranchDeveloper_ProjAsk_Demolish_IgnoreRisks_Approved_Ignore() {
         общественностью
       </Say>
 
-      <Scene src={bgSolidJpg.src} />
+      <Scene src={bgSolidJpg.src} audio={SCENE_AUDIO.calmLoop} />
 
       <Say durationMs={8000}>
         {`

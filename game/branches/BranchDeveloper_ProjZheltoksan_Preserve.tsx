@@ -43,7 +43,7 @@ export function BranchDeveloper_ProjZheltoksan_Preserve() {
         audio={{onEntrance: hologramMp3}}>
         {`
           Нужно подходить к вопросу грамотно. Что такое реставрация?
-          
+
           [Что такое реставрация?](${LINKS.what_is_restoration})
         `}
       </Say>
@@ -86,7 +86,7 @@ export function BranchDeveloper_ProjZheltoksan_Preserve() {
         audio={{onEntrance: transition1Mp3}}
       />
 
-      <Say>Проект над реставрацией здания завершен…</Say>
+      <Say>Проект над реставрацией здания завершён…</Say>
 
       <Scene
         src={bgDeveloperHqInsideJpg.src}

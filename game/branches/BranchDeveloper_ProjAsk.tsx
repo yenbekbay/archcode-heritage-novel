@@ -44,7 +44,7 @@ export function BranchDeveloper_ProjAsk() {
         {`
           Новости:
 
-          Проект Аппаратно студийного комплекса в разработке компании Bay Shatyr Group
+          Проект Аппаратно-студийного комплекса в разработке компании Bay Shatyr Group
         `}
       </Say>
 

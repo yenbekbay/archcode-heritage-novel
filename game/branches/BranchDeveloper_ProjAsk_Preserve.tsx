@@ -45,7 +45,7 @@ export function BranchDeveloper_ProjAsk_Preserve() {
         audio={{onEntrance: hologramMp3}}>
         {`
           Нужно подходить к вопросу грамотно. Что такое реставрация?
-          
+
           [Что такое реставрация?](${LINKS.what_is_restoration})
         `}
       </Say>
@@ -88,7 +88,7 @@ export function BranchDeveloper_ProjAsk_Preserve() {
         audio={{onEntrance: transition1Mp3}}
       />
 
-      <Say>Проект над реставрацией здания завершен…</Say>
+      <Say>Проект над реставрацией здания завершён…</Say>
 
       <Scene
         src={bgDeveloperHqInsideJpg.src}
@@ -147,7 +147,7 @@ export function BranchDeveloper_ProjAsk_Preserve() {
         результат — деликатная реставрация объекта
       </Say>
 
-      <Scene src={bgSolidJpg.src} />
+      <Scene src={bgSolidJpg.src} audio={SCENE_AUDIO.calmLoop} />
 
       <Say durationMs={8000}>
         {`

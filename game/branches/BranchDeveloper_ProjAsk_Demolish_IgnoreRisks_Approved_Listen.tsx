@@ -60,7 +60,7 @@ export function BranchDeveloper_ProjAsk_Demolish_IgnoreRisks_Approved_Listen() {
         Обновленное здание с первозданным обликом привлекает всё больше туристов
       </Say>
 
-      <Scene src={bgSolidJpg.src} />
+      <Scene src={bgSolidJpg.src} audio={SCENE_AUDIO.calmLoop} />
 
       <Say durationMs={8000}>
         {`

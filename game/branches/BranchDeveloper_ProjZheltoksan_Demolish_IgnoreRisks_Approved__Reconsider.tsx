@@ -46,14 +46,14 @@ export function BranchDeveloper_ProjZheltoksan_Demolish_IgnoreRisks_Approved__Re
         audio={{onEntrance: hologramMp3}}>
         {`
           Нужно подходить к вопросу грамотно. Что такое реставрация?
-          
+
           [Что такое реставрация?](${LINKS.what_is_restoration})
         `}
       </Say>
 
       <Scene src={bgDeveloperHqOutsideJpg.src} audio={SCENE_AUDIO.city} />
 
-      <Say>Проект над реставрацией здания завершен…</Say>
+      <Say>Проект над реставрацией здания завершён…</Say>
 
       <Scene src={bgZheltoksanBeforeJpg.src} audio={SCENE_AUDIO.calmLoop} />
 

@@ -47,7 +47,7 @@ export function BranchAkim_ProjAsk_Examine_Reject_Ignore() {
         Обновленное здание привлекает множество туристов
       </Say>
 
-      <Scene src={bgSolidJpg.src} />
+      <Scene src={bgSolidJpg.src} audio={SCENE_AUDIO.calmLoop} />
 
       <Say durationMs={8000}>
         {`

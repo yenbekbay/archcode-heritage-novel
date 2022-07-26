@@ -61,7 +61,7 @@ export function BranchAkim_ProjAsk_Approve_AskHelp() {
         общественностью
       </Say>
 
-      <Scene src={bgSolidJpg.src} />
+      <Scene src={bgSolidJpg.src} audio={SCENE_AUDIO.calmLoop} />
 
       <Say durationMs={8000}>
         {`

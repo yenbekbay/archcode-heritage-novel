@@ -118,7 +118,7 @@ export function BranchArchkot_ProjAsk_CheckOut_SocialMedia() {
         историко-культурному наследию
       </Say>
 
-      <Scene src={bgSolidJpg.src} />
+      <Scene src={bgSolidJpg.src} audio={SCENE_AUDIO.calmLoop} />
 
       <Say durationMs={8000}>
         {`

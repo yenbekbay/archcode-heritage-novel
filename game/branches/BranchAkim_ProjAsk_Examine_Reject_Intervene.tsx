@@ -42,13 +42,13 @@ export function BranchAkim_ProjAsk_Examine_Reject_Intervene() {
       <Say>Вы успешно реконструировали АСК</Say>
 
       <Say scheme="dark" scrim>
-        ПОЗДРАВЛЯЕМ! Реставрация объекта завершена. У вашего отдела новые
+        ПОЗДРАВЛЯЕМ! Реставрация объекта завершёна. У вашего отдела новые
         перспективы. Тема памятников двигается на городской, а затем и на
         государственный уровень. Вам удалось простроить схему взаимодействия с
         общественностью в дальнейшем
       </Say>
 
-      <Scene src={bgSolidJpg.src} />
+      <Scene src={bgSolidJpg.src} audio={SCENE_AUDIO.calmLoop} />
 
       <Say durationMs={8000}>
         {`
