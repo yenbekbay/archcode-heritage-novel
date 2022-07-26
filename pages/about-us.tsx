@@ -9,6 +9,7 @@ import {
   polaroidAruzhanPng,
   polaroidInzhuPng,
   polaroidNadiraPng,
+  polaroidPlaceholderPng,
   polaroidYaroslavPng,
   polaroidYuliaPng,
   polaroidZamanbekPng,
@@ -79,6 +80,14 @@ export default function AboutUs() {
             />
 
             <TeamMemberCard
+              photoSrc={polaroidPlaceholderPng}
+              name="Аян Енбекбай"
+              role="Реализация игры, разработка сайта"
+              bio={<>TODO</>}
+            />
+
+            <TeamMemberCard
+              align="right"
               photoSrc={polaroidNadiraPng}
               name="Надира Жадыраева"
               role="Визуальный нарратив, иллюстрации и дизайн"
@@ -94,7 +103,6 @@ export default function AboutUs() {
             />
 
             <TeamMemberCard
-              align="right"
               photoSrc={polaroidAruzhanPng}
               name="Аружан Шотай"
               role="Визуальный нарратив, иллюстрации и дизайн"
@@ -111,6 +119,7 @@ export default function AboutUs() {
             />
 
             <TeamMemberCard
+              align="right"
               photoSrc={polaroidYaroslavPng}
               name="Ярослав Самойлов"
               role="Разработка Телеграм-бота"
@@ -126,7 +135,6 @@ export default function AboutUs() {
             />
 
             <TeamMemberCard
-              align="right"
               photoSrc={polaroidZamanbekPng}
               name="Заманбек Мукасали"
               role="Технический продюссер, дизайнер выставки"
@@ -139,6 +147,7 @@ export default function AboutUs() {
             />
 
             <TeamMemberCard
+              align="right"
               photoSrc={polaroidYuliaPng}
               name="Юлия Петухова"
               role="Композитор и саунд дизайнер"
