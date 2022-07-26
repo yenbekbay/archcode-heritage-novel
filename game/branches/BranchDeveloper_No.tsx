@@ -15,7 +15,7 @@ export function BranchDeveloper_No() {
             label: 'Вернуться к выбору',
             onClick: (ctx) =>
               // HACK
-              ctx.goToLocation('Intro', 7),
+              ctx.goToLocation('Intro', 13),
           },
         ]}
       />

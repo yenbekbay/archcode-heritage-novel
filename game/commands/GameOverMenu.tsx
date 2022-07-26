@@ -20,7 +20,9 @@ export function GameOverMenu() {
               },
               {
                 label: 'Начать заново',
-                onClick: (ctx) => ctx.goToLocation('Intro', 13),
+                onClick: (ctx) =>
+                  // HACK
+                  ctx.goToLocation('Intro', 13),
               },
             ]}
           />
