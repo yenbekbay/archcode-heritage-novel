@@ -15,7 +15,7 @@ export function BranchAkim_ProjAsk() {
         tag={{text: 'Менеджер проекта:', color: '#A57B55'}}
         image={{uri: developerRepAPng.src, align: 'bottom'}}>
         —Добрый день, я — представитель Bay Shatyr Group. Представляю вашему
-        внимаюпроект АСК
+        вниманию проект АСК
       </Say>
 
       <Say

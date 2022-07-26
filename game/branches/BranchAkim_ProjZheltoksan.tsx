@@ -15,7 +15,7 @@ export function BranchAkim_ProjZheltoksan() {
         tag={{text: 'Менеджер проекта:', color: '#A57B55'}}
         image={{uri: developerRepAPng.src, align: 'bottom'}}>
         —Добрый день, я — представитель Bay Shatyr Group. Представляю вашему
-        внимаю проект KAISAR PLAZA
+        вниманию проект KAISAR PLAZA
       </Say>
 
       <Say
