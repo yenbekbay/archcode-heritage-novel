@@ -7,7 +7,7 @@ export function GameOverTitle() {
       src={{
         uri: calligraphyGameOverPng.src,
         align: 'top',
-        style: {paddingLeft: '2rem', paddingRight: '2rem', top: '5rem'},
+        style: {paddingLeft: '2rem', paddingRight: '2rem', top: '11rem'},
         animation: {
           initial: {opacity: 0},
           entrance: {

@@ -65,7 +65,7 @@ export function BranchAkim_ProjZheltoksan_Examine_Reject_Ignore() {
       />
 
       <Say
-        tag={{text: 'Представитель:', color: '#A57B55'}}
+        tag={{text: 'Менеджер проекта:', color: '#A57B55'}}
         image={{uri: developerRepAPng.src, align: 'bottom'}}>
         —Добрый день, я — представитель Bay Shatyr Group. В рамках проекта будет
         построено девятиэтажное здание

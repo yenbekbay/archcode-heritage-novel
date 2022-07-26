@@ -2,7 +2,6 @@ import {
   archkot1Png,
   bgArchcodeOfficeJpg,
   bgCourtyardJpg,
-  bgPhoneHandJpg,
   redhead19Png,
   transition2ShortMp3,
 } from '~/assets/game'

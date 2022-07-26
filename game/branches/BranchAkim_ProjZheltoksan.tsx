@@ -12,7 +12,7 @@ export function BranchAkim_ProjZheltoksan() {
       <Scene src={bgCityHallConferenceRoomJpg.src} audio={SCENE_AUDIO.indoor} />
 
       <Say
-        tag={{text: 'Представитель:', color: '#A57B55'}}
+        tag={{text: 'Менеджер проекта:', color: '#A57B55'}}
         image={{uri: developerRepAPng.src, align: 'bottom'}}>
         —Добрый день, я — представитель Bay Shatyr Group. Представляю вашему
         внимаю проект KAISAR PLAZA
