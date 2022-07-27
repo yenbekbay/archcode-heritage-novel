@@ -4,8 +4,8 @@ import {
   bgAskBeforeFenceGif,
   bgLaptopStandaloneJpg,
   bgSolidJpg,
-} from '~/assets/game'
-import {Branch, Say, Scene} from '~/lib/game-engine'
+} from 'assets/game'
+import {Branch, Say, Scene} from 'lib/game-engine'
 import {GameOverMenu, GameOverTitle} from '../commands'
 import {SCENE_AUDIO} from '../sounds'
 

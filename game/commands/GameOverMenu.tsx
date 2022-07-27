@@ -1,8 +1,8 @@
 import {useRouter} from 'next/router'
 import {motion} from 'framer-motion'
 import Image from 'next/future/image'
-import {logoArchcodePng, logoNonmuseumPng, logoSorosPng} from '~/assets/game'
-import {Command, MenuView} from '~/lib/game-engine'
+import {logoArchcodePng, logoNonmuseumPng, logoSorosPng} from 'assets/game'
+import {Command, MenuView} from 'lib/game-engine'
 
 export function GameOverMenu() {
   const router = useRouter()

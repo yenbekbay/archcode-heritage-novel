@@ -3,7 +3,7 @@ import type {HTMLMotionProps} from 'framer-motion'
 import React from 'react'
 import ReactRough, {Rectangle} from 'react-rough'
 import {twMerge} from 'tailwind-merge'
-import {Reveal} from '~/lib/components'
+import {Reveal} from 'lib/components'
 
 export interface RoughCardProps extends HTMLMotionProps<'div'> {
   contentClassName?: string

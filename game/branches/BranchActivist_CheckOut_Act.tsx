@@ -1,5 +1,5 @@
-import {bgZheltoksanBeforeFenceJpg, redhead8Png} from '~/assets/game'
-import {Branch, Say, Scene} from '~/lib/game-engine'
+import {bgZheltoksanBeforeFenceJpg, redhead8Png} from 'assets/game'
+import {Branch, Say, Scene} from 'lib/game-engine'
 import {SCENE_AUDIO} from '../sounds'
 
 export function BranchActivist_CheckOut_Act() {

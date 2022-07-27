@@ -5,8 +5,8 @@ import {
   fencePng,
   redhead2Png,
   redhead3Png,
-} from '~/assets/game'
-import {Branch, Say, Scene, Show} from '~/lib/game-engine'
+} from 'assets/game'
+import {Branch, Say, Scene, Show} from 'lib/game-engine'
 import {GameOverMenu, GameOverTitle} from '../commands'
 import {SCENE_AUDIO} from '../sounds'
 

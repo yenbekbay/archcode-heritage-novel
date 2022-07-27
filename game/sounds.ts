@@ -15,9 +15,9 @@ import {
   introMp3,
   introTailMp3,
   mouseoverMp3,
-} from '~/assets/game'
-import type {CommandAudioConfig, SoundName} from '~/lib/game-engine'
-import {delay} from '~/lib/game-engine/utils'
+} from 'assets/game'
+import type {CommandAudioConfig, SoundName} from 'lib/game-engine'
+import {delay} from 'lib/game-engine/utils'
 
 function makeAudioConfig(config: CommandAudioConfig) {
   return config

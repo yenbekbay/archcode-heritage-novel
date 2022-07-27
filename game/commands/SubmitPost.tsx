@@ -1,19 +1,19 @@
 import {motion} from 'framer-motion'
 import {twMerge} from 'tailwind-merge'
-import type {definitions} from '~/api'
-import {getSupabase} from '~/api'
+import type {definitions} from 'api'
+import {getSupabase} from 'api'
 import type {
   CommandViewColorScheme,
   Frame,
   ImageViewProps,
-} from '~/lib/game-engine'
+} from 'lib/game-engine'
 import {
   Command,
   ImageView,
   styleForFrame,
   useBranchContext,
   useGameContext,
-} from '~/lib/game-engine'
+} from 'lib/game-engine'
 import {TextForm} from './internal'
 
 export interface SubmitPostProps {

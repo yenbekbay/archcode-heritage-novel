@@ -16,8 +16,8 @@ import {
   redhead13Png,
   stampApprovedPng,
   transition1Mp3,
-} from '~/assets/game'
-import {Branch, Menu, Say, Scene, Show} from '~/lib/game-engine'
+} from 'assets/game'
+import {Branch, Menu, Say, Scene, Show} from 'lib/game-engine'
 import {SCENE_AUDIO} from '../sounds'
 
 export function BranchDeveloper_ProjZheltoksan_Demolish_IgnoreRisks_Approved() {

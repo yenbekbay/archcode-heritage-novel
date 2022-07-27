@@ -6,8 +6,8 @@ import {
   mayor2Png,
   sabitPng,
   stampRejectedPng,
-} from '~/assets/game'
-import {Branch, Say, Scene, Show} from '~/lib/game-engine'
+} from 'assets/game'
+import {Branch, Say, Scene, Show} from 'lib/game-engine'
 import {SCENE_AUDIO} from '../sounds'
 
 export function BranchAkim_ProjZheltoksan_Examine_Reject() {

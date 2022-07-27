@@ -4,8 +4,8 @@ import {
   bgCourtyardJpg,
   redhead19Png,
   transition2ShortMp3,
-} from '~/assets/game'
-import {Branch, Play, Say, Scene} from '~/lib/game-engine'
+} from 'assets/game'
+import {Branch, Play, Say, Scene} from 'lib/game-engine'
 import {GameOverMenu, GameOverTitle} from '../commands'
 import {LINKS} from '../links'
 import {SCENE_AUDIO} from '../sounds'

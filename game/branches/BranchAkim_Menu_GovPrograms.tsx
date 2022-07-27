@@ -13,8 +13,8 @@ import {
   bgMayorDoorwayJpg,
   mayor2Png,
   mayor3Png,
-} from '~/assets/game'
-import {Branch, Label, Say, Scene, Show} from '~/lib/game-engine'
+} from 'assets/game'
+import {Branch, Label, Say, Scene, Show} from 'lib/game-engine'
 import {SCENE_AUDIO} from '../sounds'
 
 export function BranchAkim_Menu_GovPrograms() {

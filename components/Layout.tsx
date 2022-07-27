@@ -1,4 +1,4 @@
-import {useFontLoaded} from '~/lib/hooks'
+import {useFontLoaded} from 'lib/hooks'
 import {Footer} from './Footer'
 import {Header} from './Header'
 

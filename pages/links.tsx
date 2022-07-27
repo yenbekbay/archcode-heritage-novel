@@ -1,9 +1,9 @@
 import Link from 'next/link'
 import {twMerge} from 'tailwind-merge'
-import {bgArchcodeOfficeJpg} from '~/assets/game'
-import type {LinkCardProps, RoughCardProps} from '~/components'
-import {Hero, HeroBackground, Layout, LinkCard, RoughCard} from '~/components'
-import {useSavedLinks} from '~/game/LinkPrompt'
+import {bgArchcodeOfficeJpg} from 'assets/game'
+import type {LinkCardProps, RoughCardProps} from 'components'
+import {Hero, HeroBackground, Layout, LinkCard, RoughCard} from 'components'
+import {useSavedLinks} from 'game/LinkPrompt'
 
 export default function Links() {
   const savedLinks = useSavedLinks()

@@ -2,7 +2,7 @@ import Image from 'next/future/image'
 import type {StaticImageData} from 'next/image'
 import React from 'react'
 import {twMerge} from 'tailwind-merge'
-import {bgMapJpg} from '~/assets/game'
+import {bgMapJpg} from 'assets/game'
 import {
   paperRipPng,
   polaroidAnelPng,
@@ -14,8 +14,8 @@ import {
   polaroidYuliaPng,
   polaroidZamanbekPng,
   teamPhotoJpg,
-} from '~/assets/www'
-import {Hero, HeroBackground, Layout, RoughCard} from '~/components'
+} from 'assets/www'
+import {Hero, HeroBackground, Layout, RoughCard} from 'components'
 
 export default function AboutUs() {
   return (

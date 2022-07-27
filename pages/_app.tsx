@@ -6,14 +6,13 @@ import type {FallbackProps} from 'react-error-boundary'
 import {ErrorBoundary} from 'react-error-boundary'
 import {Toaster} from 'react-hot-toast'
 import {ParallaxProvider} from 'react-scroll-parallax'
-import {bgArchcodeOfficeJpg} from '~/assets/game'
-import {RoughCard, HeroBackground, Layout} from '~/components'
+import {bgArchcodeOfficeJpg} from 'assets/game'
+import {RoughCard, HeroBackground, Layout} from 'components'
 import '../__generated__/tailwind.css'
 
-const PreloadMyGameAssets = dynamic(
-  () => import('~/game/PreloadMyGameAssets'),
-  {ssr: false},
-)
+const PreloadMyGameAssets = dynamic(() => import('game/PreloadMyGameAssets'), {
+  ssr: false,
+})
 
 export default function MyApp({Component, pageProps}: AppProps) {
   return (

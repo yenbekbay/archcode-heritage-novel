@@ -1,5 +1,5 @@
-import {calligraphyGameOverPng} from '~/assets/game'
-import {Show} from '~/lib/game-engine'
+import {calligraphyGameOverPng} from 'assets/game'
+import {Show} from 'lib/game-engine'
 
 export function GameOverTitle() {
   return (

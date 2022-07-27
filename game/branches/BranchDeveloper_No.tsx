@@ -1,5 +1,5 @@
-import {bgDeveloperHqInsideJpg, developerRepB9Png} from '~/assets/game'
-import {Branch, Menu, Scene, Show} from '~/lib/game-engine'
+import {bgDeveloperHqInsideJpg, developerRepB9Png} from 'assets/game'
+import {Branch, Menu, Scene, Show} from 'lib/game-engine'
 import {SCENE_AUDIO} from '../sounds'
 
 export function BranchDeveloper_No() {

@@ -8,8 +8,8 @@ import {
   bgBusStop6Jpg,
   bgPhoneFingerJpg,
   bgPhoneHandJpg,
-} from '~/assets/game'
-import {Branch, Label, Say, Scene} from '~/lib/game-engine'
+} from 'assets/game'
+import {Branch, Label, Say, Scene} from 'lib/game-engine'
 import {GameOverMenu, GameOverTitle, SubmitMeme, SubmitPost} from '../commands'
 import {LINKS} from '../links'
 import {SCENE_AUDIO} from '../sounds'

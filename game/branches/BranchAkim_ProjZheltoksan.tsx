@@ -2,8 +2,8 @@ import {
   bgCityHallConferenceRoomJpg,
   developerRepAPng,
   mayor2Png,
-} from '~/assets/game'
-import {Branch, Say, Scene} from '~/lib/game-engine'
+} from 'assets/game'
+import {Branch, Say, Scene} from 'lib/game-engine'
 import {SCENE_AUDIO} from '../sounds'
 
 export function BranchAkim_ProjZheltoksan() {

@@ -4,8 +4,8 @@ import {
   mayor2Png,
   mayor3Png,
   stampApprovedPng,
-} from '~/assets/game'
-import {Branch, Menu, Say, Scene, Show} from '~/lib/game-engine'
+} from 'assets/game'
+import {Branch, Menu, Say, Scene, Show} from 'lib/game-engine'
 import {SCENE_AUDIO} from '../sounds'
 
 export function BranchAkim_ProjAirport_Approve() {

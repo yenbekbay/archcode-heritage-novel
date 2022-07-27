@@ -4,8 +4,8 @@ import {
   bgAirportJpg,
   fenceMp3,
   fencePng,
-} from '~/assets/game'
-import {Branch, Say, Scene, Show} from '~/lib/game-engine'
+} from 'assets/game'
+import {Branch, Say, Scene, Show} from 'lib/game-engine'
 import {SCENE_AUDIO} from '../sounds'
 
 export function BranchArchkot_ProjAirport_CheckOut() {

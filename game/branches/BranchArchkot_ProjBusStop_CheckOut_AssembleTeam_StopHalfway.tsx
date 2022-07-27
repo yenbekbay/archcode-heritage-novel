@@ -1,5 +1,5 @@
-import {bgBusStop1Jpg} from '~/assets/game'
-import {Branch, Say, Scene} from '~/lib/game-engine'
+import {bgBusStop1Jpg} from 'assets/game'
+import {Branch, Say, Scene} from 'lib/game-engine'
 import {GameOverMenu, GameOverTitle} from '../commands'
 import {LINKS} from '../links'
 import {SCENE_AUDIO} from '../sounds'

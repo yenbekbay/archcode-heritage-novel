@@ -5,8 +5,8 @@ import {
   letterPng,
   mayor4Png,
   stampApprovedPng,
-} from '~/assets/game'
-import {Branch, Say, Scene, Show} from '~/lib/game-engine'
+} from 'assets/game'
+import {Branch, Say, Scene, Show} from 'lib/game-engine'
 import {SCENE_AUDIO} from '../sounds'
 
 export function BranchAkim_ProjZheltoksan_Examine_Reject_Ignore_Ignore() {

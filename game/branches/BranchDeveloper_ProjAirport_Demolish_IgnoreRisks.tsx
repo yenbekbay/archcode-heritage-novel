@@ -10,8 +10,8 @@ import {
   transition1Mp3,
   transition2ShortMp3,
   transition3ShortMp3,
-} from '~/assets/game'
-import {Branch, Say, Scene} from '~/lib/game-engine'
+} from 'assets/game'
+import {Branch, Say, Scene} from 'lib/game-engine'
 import {SCENE_AUDIO} from '../sounds'
 
 export function BranchDeveloper_ProjAirport_Demolish_IgnoreRisks() {

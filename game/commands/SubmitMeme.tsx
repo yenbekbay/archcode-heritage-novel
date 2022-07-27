@@ -8,21 +8,21 @@ import type {Fetcher} from 'swr'
 import useSWR from 'swr'
 import {twMerge} from 'tailwind-merge'
 import {z} from 'zod'
-import type {definitions} from '~/api'
-import {getSupabase} from '~/api'
-import {Spinner} from '~/lib/components'
+import type {definitions} from 'api'
+import {getSupabase} from 'api'
+import {Spinner} from 'lib/components'
 import type {
   CommandViewColorScheme,
   Frame,
   ImageViewProps,
-} from '~/lib/game-engine'
+} from 'lib/game-engine'
 import {
   Command,
   ImageView,
   styleForFrame,
   useBranchContext,
   useGameContext,
-} from '~/lib/game-engine'
+} from 'lib/game-engine'
 
 export interface SubmitMemeProps {
   onDone: (ctx: {

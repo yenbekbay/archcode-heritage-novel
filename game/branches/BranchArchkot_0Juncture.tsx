@@ -1,5 +1,5 @@
-import {archkot5Png, bgMapGif, fenceMp3, fencePng} from '~/assets/game'
-import {Branch, Say, Scene, Show} from '~/lib/game-engine'
+import {archkot5Png, bgMapGif, fenceMp3, fencePng} from 'assets/game'
+import {Branch, Say, Scene, Show} from 'lib/game-engine'
 import {SCENE_AUDIO} from '../sounds'
 
 export function BranchArchkot_0Juncture() {

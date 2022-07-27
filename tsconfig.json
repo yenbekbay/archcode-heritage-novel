@@ -16,14 +16,7 @@
     "incremental": true,
     "downlevelIteration": true,
     "noUnusedLocals": true,
-    "baseUrl": ".",
-    "paths": {
-      "~/api": ["./api"],
-      "~/assets/*": ["./assets/*"],
-      "~/components": ["./components"],
-      "~/game/*": ["./game/*"],
-      "~/lib/*": ["./lib/*"]
-    }
+    "baseUrl": "."
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]

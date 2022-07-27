@@ -1,5 +1,5 @@
-import {bgCityHallMayorOfficeJpg, bgCityHallOutsideJpg} from '~/assets/game'
-import {Branch, Say, Scene} from '~/lib/game-engine'
+import {bgCityHallMayorOfficeJpg, bgCityHallOutsideJpg} from 'assets/game'
+import {Branch, Say, Scene} from 'lib/game-engine'
 import {GameOverMenu, GameOverTitle} from '../commands'
 import {SCENE_AUDIO} from '../sounds'
 

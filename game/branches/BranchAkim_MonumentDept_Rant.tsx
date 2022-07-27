@@ -8,8 +8,8 @@ import {
   mayor2Png,
   mayor8Png,
   mayor9Png,
-} from '~/assets/game'
-import {Branch, Say, Scene, Show} from '~/lib/game-engine'
+} from 'assets/game'
+import {Branch, Say, Scene, Show} from 'lib/game-engine'
 import {SubmitMonumentNomination} from '../commands'
 import {LINKS} from '../links'
 import {SCENE_AUDIO} from '../sounds'

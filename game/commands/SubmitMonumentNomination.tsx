@@ -1,14 +1,14 @@
 import {motion} from 'framer-motion'
 import {twMerge} from 'tailwind-merge'
-import type {definitions} from '~/api'
-import {getSupabase} from '~/api'
-import type {CommandViewColorScheme, Frame} from '~/lib/game-engine'
+import type {definitions} from 'api'
+import {getSupabase} from 'api'
+import type {CommandViewColorScheme, Frame} from 'lib/game-engine'
 import {
   Command,
   styleForFrame,
   useBranchContext,
   useGameContext,
-} from '~/lib/game-engine'
+} from 'lib/game-engine'
 import {TextForm} from './internal'
 
 export interface SubmitMonumentNominationProps {

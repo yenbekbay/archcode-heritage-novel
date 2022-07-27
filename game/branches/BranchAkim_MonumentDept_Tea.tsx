@@ -7,8 +7,8 @@ import {
   bgSolidJpg,
   mayor2Png,
   mayor7Png,
-} from '~/assets/game'
-import {Branch, Label, Say, Scene, Show} from '~/lib/game-engine'
+} from 'assets/game'
+import {Branch, Label, Say, Scene, Show} from 'lib/game-engine'
 import {SCENE_AUDIO} from '../sounds'
 
 export function BranchAkim_MonumentDept_Tea() {

@@ -9,8 +9,8 @@ import {
   mayor12Png,
   mayor14Png,
   mayor2Png,
-} from '~/assets/game'
-import {Branch, Say, Scene, Show} from '~/lib/game-engine'
+} from 'assets/game'
+import {Branch, Say, Scene, Show} from 'lib/game-engine'
 import {LINKS} from '../links'
 import {SCENE_AUDIO} from '../sounds'
 

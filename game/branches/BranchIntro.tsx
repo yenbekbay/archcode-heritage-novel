@@ -1,7 +1,7 @@
 import {useMeasure} from '@react-hookz/web'
 import {motion, useAnimation} from 'framer-motion'
 import React from 'react'
-import {bgIntroJpg, calligraphyLogoPng} from '~/assets/game'
+import {bgIntroJpg, calligraphyLogoPng} from 'assets/game'
 import {
   Branch,
   Command,
@@ -10,7 +10,7 @@ import {
   Say,
   Show,
   useBranchContext,
-} from '~/lib/game-engine'
+} from 'lib/game-engine'
 import {SCENE_AUDIO} from '../sounds'
 
 export function BranchIntro() {

@@ -7,7 +7,7 @@ import {
 } from 'phosphor-react'
 import React from 'react'
 import {twMerge} from 'tailwind-merge'
-import {logoGamePng} from '~/assets/www'
+import {logoGamePng} from 'assets/www'
 import {ActiveLink} from './ActiveLink'
 
 type Link = {label: string; icon?: React.ComponentType<IconProps>} & (

@@ -1,8 +1,8 @@
 import Image from 'next/future/image'
 import {TelegramLogo as TelegramLogoIcon} from 'phosphor-react'
-import {bgAirportJpg} from '~/assets/game'
-import {telegramBotQrCodePng} from '~/assets/www'
-import {Hero, HeroBackground, Layout} from '~/components'
+import {bgAirportJpg} from 'assets/game'
+import {telegramBotQrCodePng} from 'assets/www'
+import {Hero, HeroBackground, Layout} from 'components'
 
 export default function AboutBot() {
   return (

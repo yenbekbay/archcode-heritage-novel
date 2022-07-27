@@ -19,8 +19,8 @@ import {
   transition1Mp3,
   transition2ShortMp3,
   transition3ShortMp3,
-} from '~/assets/game'
-import {Branch, Menu, Say, Scene, Show} from '~/lib/game-engine'
+} from 'assets/game'
+import {Branch, Menu, Say, Scene, Show} from 'lib/game-engine'
 import {LINKS} from '../links'
 import {SCENE_AUDIO} from '../sounds'
 

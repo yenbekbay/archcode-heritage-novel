@@ -23,8 +23,8 @@ import {
   bgPhoneHandJpg,
   sharatMibutovPng,
   transition1Mp3,
-} from '~/assets/game'
-import {Branch, Play, Say, Scene, Show} from '~/lib/game-engine'
+} from 'assets/game'
+import {Branch, Play, Say, Scene, Show} from 'lib/game-engine'
 import {GameOverMenu, GameOverTitle} from '../commands'
 import {LINKS} from '../links'
 import {SCENE_AUDIO} from '../sounds'

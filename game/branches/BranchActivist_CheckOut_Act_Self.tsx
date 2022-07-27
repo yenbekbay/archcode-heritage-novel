@@ -12,8 +12,8 @@ import {
   transition1Mp3,
   transition2ShortMp3,
   transition3ShortMp3,
-} from '~/assets/game'
-import {Branch, Say, Scene} from '~/lib/game-engine'
+} from 'assets/game'
+import {Branch, Say, Scene} from 'lib/game-engine'
 import {LINKS} from '../links'
 
 export function BranchActivist_CheckOut_Act_Self() {

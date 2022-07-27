@@ -1,6 +1,6 @@
 import Image from 'next/future/image'
 import React from 'react'
-import {fenceBottomPng, fenceMiddlePng, fenceTopPng} from '~/assets/www'
+import {fenceBottomPng, fenceMiddlePng, fenceTopPng} from 'assets/www'
 
 export interface FenceSectionProps {
   children: React.ReactNode

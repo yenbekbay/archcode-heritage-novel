@@ -1,5 +1,5 @@
-import {bgProjectsFolderJpg} from '~/assets/game'
-import {Branch, Say, Scene} from '~/lib/game-engine'
+import {bgProjectsFolderJpg} from 'assets/game'
+import {Branch, Say, Scene} from 'lib/game-engine'
 import {SCENE_AUDIO} from '../sounds'
 
 export function BranchDeveloper_Menu_Projects() {

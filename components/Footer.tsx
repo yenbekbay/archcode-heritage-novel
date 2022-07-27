@@ -10,7 +10,7 @@ import {
   logoGamePng,
   logoNonmuseumPng,
   logoSorosPng,
-} from '~/assets/www'
+} from 'assets/www'
 
 export function Footer() {
   return (

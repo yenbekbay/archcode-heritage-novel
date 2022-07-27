@@ -3,9 +3,9 @@ import toast from 'react-hot-toast'
 import {useZorm} from 'react-zorm'
 import {twMerge} from 'tailwind-merge'
 import {z} from 'zod'
-import {Spinner} from '~/lib/components'
-import type {CommandViewColorScheme} from '~/lib/game-engine'
-import {useGameContext} from '~/lib/game-engine'
+import {Spinner} from 'lib/components'
+import type {CommandViewColorScheme} from 'lib/game-engine'
+import {useGameContext} from 'lib/game-engine'
 
 export interface TextFormProps {
   inputLabel: string

@@ -2,7 +2,7 @@ import {useMeasure} from '@react-hookz/web'
 import React from 'react'
 import {twMerge} from 'tailwind-merge'
 import {useLongPress} from 'use-long-press'
-import {useStableCallback} from '~/lib/hooks'
+import {useStableCallback} from '../../hooks'
 import {useGameContext} from './GameContext'
 
 export type StatementBehavior =

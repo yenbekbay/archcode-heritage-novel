@@ -7,8 +7,8 @@ import {
   transition1Mp3,
   transition2ShortMp3,
   transition3ShortMp3,
-} from '~/assets/game'
-import {Branch, Menu, Play, Say, Scene} from '~/lib/game-engine'
+} from 'assets/game'
+import {Branch, Menu, Play, Say, Scene} from 'lib/game-engine'
 import {SCENE_AUDIO} from '../sounds'
 
 export function BranchAkim_0Menu() {

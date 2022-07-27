@@ -3,8 +3,8 @@ import {
   journalistPng,
   mayor2Png,
   sabitPng,
-} from '~/assets/game'
-import {Branch, Say, Scene} from '~/lib/game-engine'
+} from 'assets/game'
+import {Branch, Say, Scene} from 'lib/game-engine'
 import {SCENE_AUDIO} from '../sounds'
 
 export function BranchAkim_ProjZheltoksan_Approve_Debate() {

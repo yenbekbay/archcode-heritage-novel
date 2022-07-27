@@ -11,8 +11,8 @@ import {
   bgArchcodeOfficeJpg,
   bgAskBeforeJpg,
   bgPhoneHandJpg,
-} from '~/assets/game'
-import {Branch, Say, Scene} from '~/lib/game-engine'
+} from 'assets/game'
+import {Branch, Say, Scene} from 'lib/game-engine'
 import {LINKS} from '../links'
 import {SCENE_AUDIO} from '../sounds'
 

@@ -3,8 +3,8 @@ import {
   bgCityHallMayorOfficeJpg,
   developerRepB6Png,
   mayor3Png,
-} from '~/assets/game'
-import {Branch, Play, Say, Scene} from '~/lib/game-engine'
+} from 'assets/game'
+import {Branch, Play, Say, Scene} from 'lib/game-engine'
 import {GameOverMenu, GameOverTitle} from '../commands'
 import {SCENE_AUDIO} from '../sounds'
 
