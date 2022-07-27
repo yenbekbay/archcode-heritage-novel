@@ -28,9 +28,9 @@ export default function MyApp({Component, pageProps}: AppProps) {
         openGraph={{
           images: [
             {
-              url: 'https://image.thum.io/get/noanimate/width/800/crop/600/https://www.heritage-novel.com/',
-              width: 800,
-              height: 600,
+              url: 'https://image.thum.io/get/noanimate/width/1200/crop/630/https://www.heritage-novel.com/',
+              width: 1200,
+              height: 630,
               alt: 'Скриншот сайта «Снести нельзя оставить»',
             },
           ],
