@@ -6,6 +6,5 @@ export * from './Header'
 export * from './Hero'
 export * from './HeroBackground'
 export * from './Layout'
-export * from './LinkCard'
 export * from './RoughCard'
 // codegen:end

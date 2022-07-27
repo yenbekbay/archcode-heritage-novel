@@ -13,7 +13,7 @@
     "dev:next": "next dev",
     "generate:css": "tailwindcss -i ./lib/global.css -o ./__generated__/tailwind.css",
     "generate:supabase": "env-cmd --use-shell 'openapi-typescript \"${SUPABASE_URL}/rest/v1/?apikey=${SUPABASE_ANON_KEY}\" --output __generated__/supabase.ts'",
-    "generate:dep-graph": "depcruise --output-type fdot --collapse '(game/branches/Branch(Activist|Akim|Archkot|Developer)|assets/game)' --exclude '^(node_modules|react-merge-refs)' game/MyGame.tsx lib/game-engine assets/game > dep-graph.dot",
+    "generate:dep-graph": "depcruise --output-type fdot --collapse '^game/branches/Branch(Activist|Akim|Archkot|Developer)' --exclude '^node_modules' game/MyGame.tsx lib/game-engine > dep-graph.dot",
     "lint": "eslint --ext .js,.ts,.tsx --cache .",
     "preinstall": "npx only-allow pnpm",
     "postinstall": "patch-package",

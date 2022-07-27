@@ -4,11 +4,9 @@ strict digraph "dependency-cruiser output"{
     edge [arrowhead="normal" arrowsize="0.6" penwidth="2.0" color="#00000033" fontname="Helvetica" fontsize="9"]
 
     "api" [label=<./<BR/><B>api</B>> tooltip="api" color="#975031" fontcolor="#975031"]
-    "assets/game" [label=<assets/<BR/><B>game</B>> tooltip="game" color="#975031" fontcolor="#975031" shape="box3d"]
-    "components" [label=<./<BR/><B>components</B>> tooltip="components" color="#975031" fontcolor="#975031"]
+    "assets/game" [label=<assets/<BR/><B>game</B>> tooltip="game" color="#975031" fontcolor="#975031"]
     "game/LinkPrompt.tsx" [label=<game/<BR/><B>LinkPrompt.tsx</B>> tooltip="LinkPrompt.tsx" URL="game/LinkPrompt.tsx" fillcolor="#D5D5D1"]
     "game/LinkPrompt.tsx" -> "game/sounds.ts"
-    "game/LinkPrompt.tsx" -> "components"
     "game/LinkPrompt.tsx" -> "lib/components"
     "game/MyGame.tsx" [label=<game/<BR/><B>MyGame.tsx</B>> tooltip="MyGame.tsx" URL="game/MyGame.tsx" fillcolor="#D5D5D1"]
     "game/MyGame.tsx" -> "game/branches/index.ts"

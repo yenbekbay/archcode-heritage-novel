@@ -121,6 +121,17 @@ export function Footer() {
           </div>
 
           <p>© Архкод Алматы, 2022. Все права защищены</p>
+
+          <p>
+            Исходный код этого сайта находится в{' '}
+            <a
+              className="link"
+              href="https://github.com/yenbekbay/archcode-heritage-novel"
+              target="_blank"
+              rel="noopener noreferrer">
+              открытом доступе
+            </a>
+          </p>
         </div>
       </div>
     </footer>
