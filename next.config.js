@@ -13,6 +13,10 @@ const withTM = require('next-transpile-modules')([
 module.exports = withTM({
   reactStrictMode: true,
   swcMinify: true,
+  i18n: {
+    locales: ['ru'],
+    defaultLocale: 'ru',
+  },
   experimental: {
     images: {
       allowFutureImage: true,

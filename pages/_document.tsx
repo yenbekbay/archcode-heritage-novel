@@ -4,7 +4,7 @@ export default function MyDocument() {
   return (
     <Html>
       <Head>
-        <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
+        <link rel="icon" href="/favicon.ico" />
         <link
           rel="preload"
           href="/fonts/calligraph.woff2"

@@ -6,5 +6,4 @@ export * from './Scene'
 export * from './Show'
 export * from './Title'
 export * from './views/index'
-export * from './Wait'
 // codegen:end
