@@ -1,4 +1,5 @@
 const withTM = require('next-transpile-modules')([
+  '@microlink/mql',
   'path-data-parser',
   'points-on-curve',
   'points-on-path',
