@@ -64,9 +64,10 @@ export const SCENE_AUDIO = {
   }),
   generalTheme: makeAudioConfig({
     whileVisible: {
-      uri: generalThemeMp3,
+      uri: calmLoopMp3,
       loop: true,
     },
+    onEntrance: generalThemeMp3,
   }),
   hearings: makeAudioConfig({
     whileVisible: {
@@ -85,6 +86,7 @@ export const SCENE_AUDIO = {
     whileVisible: {
       uri: indoorAtmosphereMp3,
       loop: true,
+      overlap: true,
     },
   }),
   intro: makeAudioConfig({

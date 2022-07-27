@@ -41,7 +41,9 @@ export function BranchAkim_ProjZheltoksan_Approve_AskHelp() {
         `}
       </Say>
 
-      <Say image={{uri: angryCrowd2Png.src, align: 'bottom'}}>
+      <Say
+        image={{uri: angryCrowd2Png.src, align: 'bottom'}}
+        audio={SCENE_AUDIO.chatter}>
         —Продажные чуваки
       </Say>
 

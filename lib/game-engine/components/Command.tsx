@@ -87,32 +87,91 @@ export function Command({
     audioSrc?.onExit ? {uri: audioSrc.onExit, channel: 'exit'} : null,
   )
 
-  const mountedRef = React.useRef(false)
   const visibleRef = useSyncedRef(visible)
+  const mountedRef = React.useRef(false)
+  const handledStateRef = React.useRef<'visible' | 'hidden'>('hidden')
+  const playControllerRef = React.useRef<AbortController | null>(null)
+  async function handleVisible() {
+    if (handledStateRef.current === 'visible') {
+      return
+    }
+
+    handledStateRef.current = 'visible'
+
+    const controller = new AbortController()
+    playControllerRef.current?.abort()
+    playControllerRef.current = controller
+
+    onExitAudio?.stop()
+    if (onEntranceAudio) {
+      if (whileVisibleAudio?.src.overlap) {
+        onEntranceAudio.play()
+      } else {
+        await onEntranceAudio.play()
+        if (
+          !visibleRef.current ||
+          !mountedRef.current ||
+          controller.signal.aborted
+        ) {
+          return
+        }
+      }
+    }
+    whileVisibleAudio?.play()
+  }
+  async function handleHidden() {
+    if (handledStateRef.current === 'hidden') {
+      return
+    }
+
+    handledStateRef.current = 'hidden'
+
+    const controller = new AbortController()
+    playControllerRef.current?.abort()
+    playControllerRef.current = controller
+
+    onEntranceAudio?.stop()
+    if (whileVisibleAudio) {
+      if (whileVisibleAudio?.src.overlap) {
+        whileVisibleAudio.stop()
+      } else {
+        await whileVisibleAudio.stop()
+        if (
+          visibleRef.current ||
+          mountedRef.current ||
+          controller.signal.aborted
+        ) {
+          return
+        }
+      }
+    }
+    await onExitAudio?.play()
+  }
+
   useMountEffect(() => {
+    if (mountedRef.current) {
+      return
+    }
     mountedRef.current = true
     setTimeout(() => {
       setTimeout(() => {
         if (!visibleRef.current || !mountedRef.current) {
           return
         }
-        onExitAudio?.stop()
-        onEntranceAudio?.play()
-        whileVisibleAudio?.play()
+        handleVisible()
       })
     })
   })
   useUnmountEffect(() => {
+    if (!mountedRef.current) {
+      return
+    }
     mountedRef.current = false
-    // Work around double rendering caused by strict mode
-    // @see https://reactjs.org/blog/2022/03/08/react-18-upgrade-guide.html#updates-to-strict-mode
     setTimeout(() => {
-      if (!visibleRef.current || mountedRef.current) {
+      if (mountedRef.current) {
         return
       }
-      whileVisibleAudio?.stop()
-      onEntranceAudio?.stop()
-      onExitAudio?.play()
+      handleHidden()
     })
   })
   useUpdateEffect(() => {
@@ -122,9 +181,7 @@ export function Command({
           if (!visibleRef.current || !mountedRef.current) {
             return
           }
-          onExitAudio?.stop()
-          onEntranceAudio?.play()
-          whileVisibleAudio?.play()
+          handleVisible()
         })
       })
     } else {
@@ -132,9 +189,7 @@ export function Command({
         if (visibleRef.current || !mountedRef.current) {
           return
         }
-        whileVisibleAudio?.stop()
-        onEntranceAudio?.stop()
-        onExitAudio?.play()
+        handleHidden()
       })
     }
   }, [visible])

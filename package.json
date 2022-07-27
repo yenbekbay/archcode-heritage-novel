@@ -81,6 +81,7 @@
     "intrinsic-scale": "3.0.4",
     "jotai": "1.7.6",
     "mdast-util-from-markdown": "1.2.0",
+    "micro-observables": "1.7.2",
     "moize": "6.1.1",
     "next": "12.2.3",
     "next-query-params": "3.0.0",

@@ -29,10 +29,7 @@ export function BranchIntro() {
         ]}
       />
 
-      <Play
-        audio={SCENE_AUDIO.generalTheme}
-        hide={(s) => s.command === 'Menu'}
-      />
+      <Play audio={SCENE_AUDIO.generalTheme} hide={-1} />
 
       <Say>
         {`
@@ -77,7 +74,6 @@ export function BranchIntro() {
 
       <Menu
         label="Выберите персонажа"
-        audio={SCENE_AUDIO.calmLoop}
         choices={[
           {
             label: 'Активист',

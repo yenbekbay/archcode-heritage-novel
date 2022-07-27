@@ -1,4 +1,5 @@
 import {Howl} from 'howler'
+import {observable} from 'micro-observables'
 import moize from 'moize'
 import React from 'react'
 import {delay} from '../../utils'
@@ -18,62 +19,118 @@ export interface AudioSource {
 
 export interface AudioPlayer {
   src: AudioSource
-  play: () => void
+  play: () => Promise<void>
   stop: () => Promise<void>
 }
 
 export const getAudio = moize(_getAudio, {isDeepEqual: true, maxSize: Infinity})
 
 function _getAudio(_src: AudioSource): AudioPlayer {
-  let playing = false
+  const playing$ = observable(false)
+  let playP = Promise.resolve()
   let stopP = Promise.resolve()
   const src = typeof _src === 'object' ? _src : {uri: _src}
-  const howl = new Howl({
+  const onStop = src.onStop ?? ['fadeOut', 2000]
+  const sound = new Howl({
     src: src.uri,
     loop: src.loop,
     onplayerror: () => {
-      howl.once('unlock', () => {
-        if (playing && !howl.playing()) {
-          howl.seek(0)
-          howl.play()
+      sound.once('unlock', () => {
+        // `sound.playing()` returns false when sound is blocked
+        if (playing$.get() && !sound.playing()) {
+          sound.seek(0)
+          sound.play()
         }
       })
     },
   })
-  const audio = {
+  const tail = onStop[0] === 'play' ? new Howl({src: onStop[1]}) : null
+  const audio: AudioPlayer = {
     src,
     play: () => {
-      if (playing) {
-        return
+      if (playing$.get()) {
+        return playP
       }
-      console.debug('[useAudio] play', src)
-      playing = true
-      howl.volume(1)
-      howl.play()
+      playing$.set(true)
+      playP = new Promise<void>(async (resolve) => {
+        if (!src.loop) {
+          const onEnd = () => {
+            console.debug('[useAudio] play :: end', src)
+            playing$.set(false)
+            resolve()
+            unsub()
+          }
+          sound.once('end', onEnd)
+          const unsub = playing$.subscribe((playing) => {
+            if (!playing) {
+              console.debug('[useAudio] play :: stop', src)
+              resolve()
+              unsub()
+              sound.off('end', onEnd)
+            }
+          })
+        }
+        console.debug('[useAudio] play :: start', src)
+        sound.volume(1)
+        sound.seek(0)
+        sound.play()
+      })
+      return playP
     },
     stop: async () => {
-      if (!playing) {
+      if (!playing$.get()) {
         return stopP
       }
-      playing = false
-      console.debug('[useAudio] stop', src)
+      playing$.set(false)
       stopP = new Promise<void>((resolve) => {
-        const onStop = src.onStop ?? ['fadeOut', 2000]
         switch (onStop[0]) {
-          case 'fadeOut':
-            howl.once('fade', () => {
-              if (howl.volume() === 0) {
-                howl.stop()
+          case 'fadeOut': {
+            const onFade = () => {
+              if (sound.volume() === 0) {
+                console.debug('[useAudio] stop :: fade out end', src)
                 resolve()
+                unsub()
+                sound.stop()
+              }
+            }
+            sound.once('fade', onFade)
+            const unsub = playing$.subscribe((playing) => {
+              if (playing) {
+                console.debug('[useAudio] stop :: fade out abort', src)
+                resolve()
+                unsub()
+                sound.stop()
+                sound.off('fade', onFade)
               }
             })
-            howl.fade(1, 0, onStop[1])
+            console.debug('[useAudio] stop :: fade out start', src)
+            sound.fade(1, 0, onStop[1])
             break
+          }
           case 'play':
-            howl.stop()
-            const tail = new Howl({src: onStop[1]})
-            tail.once('end', () => resolve())
-            tail.play()
+            sound.stop()
+            if (tail) {
+              const onEnd = () => {
+                console.debug('[useAudio] stop :: tail end', src)
+                resolve()
+                unsub()
+              }
+              tail.once('end', onEnd)
+              const unsub = playing$.subscribe((playing) => {
+                if (playing) {
+                  console.debug('[useAudio] stop :: tail abort', src)
+                  resolve()
+                  unsub()
+                  tail.stop()
+                  tail.off('end', onEnd)
+                }
+              })
+              console.debug('[useAudio] stop :: tail start', src)
+              tail.seek(0)
+              tail.play()
+            } else {
+              resolve()
+            }
             break
         }
       })
@@ -129,9 +186,10 @@ function makeChannel(): AudioChannel {
           }
         }),
       )
-      if (playlist.has(audio)) {
-        audio.play()
+      if (!playlist.has(audio)) {
+        return
       }
+      return audio.play()
     },
     stop: async (audio: AudioPlayer) => {
       if (!playlist.has(audio)) {
@@ -151,7 +209,7 @@ function makeChannel(): AudioChannel {
       }
 
       playlist.delete(audio)
-      await audio.stop()
+      return audio.stop()
     },
   }
 }
