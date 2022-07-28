@@ -114,6 +114,9 @@ function MobileDeviceChromeFrame({
           bottom: ratio * 17,
           left: ratio * 9,
           borderRadius: ratio * 16,
+          // Fix border overflow on Safari
+          // https://stackoverflow.com/a/58283449
+          isolation: 'isolate',
         }}>
         {children}
       </div>

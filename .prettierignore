@@ -1,4 +1,5 @@
 **/__generated__/**
+**/vendor/**
 /.next/**
 /public/**
 pnpm-lock.yaml

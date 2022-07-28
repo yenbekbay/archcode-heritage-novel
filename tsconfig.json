@@ -18,6 +18,12 @@
     "noUnusedLocals": true,
     "baseUrl": "."
   },
-  "include": ["custom-env.d.ts", "next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": [
+    "custom-env.d.ts",
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "lib/game-engine/contexts/internal/vendor/unmute.js"
+  ],
   "exclude": ["node_modules"]
 }

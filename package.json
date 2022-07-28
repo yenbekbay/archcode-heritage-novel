@@ -58,6 +58,7 @@
     },
     "ignorePatterns": [
       "**/__generated__/**",
+      "**/vendor/**",
       "/.next/**",
       "/public/**"
     ]

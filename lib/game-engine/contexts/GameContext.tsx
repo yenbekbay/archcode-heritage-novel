@@ -7,6 +7,7 @@ import {
   makeGameLocationId,
   parseGameLocation,
 } from './internal'
+import {unmute} from './internal/vendor/unmute'
 
 export type SoundName = 'click' | 'mouseover' | 'skip' | 'not_allowed'
 
@@ -75,6 +76,12 @@ export function GameProvider({
     }),
   )
 
+  React.useEffect(() => {
+    // Enables web audio playback with the iOS mute switch on
+    // https://github.com/swevans/unmute
+    const handle = unmute(Howler.ctx, false, false)
+    return () => handle.dispose()
+  }, [])
   React.useEffect(() => {
     Howler.mute(muted)
   }, [muted])
