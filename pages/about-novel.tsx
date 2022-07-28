@@ -13,7 +13,7 @@ import {
   screenshot5Png,
   screenshot6Png,
 } from 'assets/www'
-import {RoughCard, FenceSection, Hero, HeroBackground, Layout} from 'components'
+import {FenceSection, Hero, HeroBackground, Layout, RoughCard} from 'components'
 import {Reveal} from 'lib/components'
 
 export default function AboutNovel() {

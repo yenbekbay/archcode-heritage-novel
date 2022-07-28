@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import {bgIntroJpg} from 'assets/game'
-import {RoughCard, FenceSection, Hero, HeroBackground, Layout} from 'components'
+import {FenceSection, Hero, HeroBackground, Layout, RoughCard} from 'components'
 import {Annotate, Reveal} from 'lib/components'
 
 export default function Home() {

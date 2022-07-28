@@ -1,5 +1,5 @@
 import {bgArchcodeOfficeJpg} from 'assets/game'
-import {RoughCard, HeroBackground, Layout} from 'components'
+import {HeroBackground, Layout, RoughCard} from 'components'
 
 export default function Custom404() {
   return (

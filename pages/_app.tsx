@@ -1,6 +1,4 @@
-import {bgArchcodeOfficeJpg} from 'assets/game'
-import {openGraphJpg} from 'assets/www'
-import {HeroBackground, Layout, RoughCard} from 'components'
+import '__generated__/tailwind.css'
 import {NextQueryParamProvider} from 'next-query-params'
 import {DefaultSeo} from 'next-seo'
 import type {AppProps} from 'next/app'
@@ -10,7 +8,9 @@ import type {FallbackProps} from 'react-error-boundary'
 import {ErrorBoundary} from 'react-error-boundary'
 import {Toaster} from 'react-hot-toast'
 import {ParallaxProvider} from 'react-scroll-parallax'
-import '__generated__/tailwind.css'
+import {bgArchcodeOfficeJpg} from 'assets/game'
+import {openGraphJpg} from 'assets/www'
+import {HeroBackground, Layout, RoughCard} from 'components'
 
 const PreloadMyGameAssets = dynamic(() => import('game/PreloadMyGameAssets'), {
   ssr: false,

@@ -1,10 +1,10 @@
 import {AnimatePresence} from 'framer-motion'
 import {useAtomValue, useSetAtom} from 'jotai'
 import {atomWithStorage} from 'jotai/utils'
-import {Dialog, LinkCard} from 'lib/components'
 import {X as XIcon} from 'phosphor-react'
 import toast from 'react-hot-toast'
 import {uniqBy} from 'remeda'
+import {Dialog, LinkCard} from 'lib/components'
 import {playSound} from './sounds'
 
 const savedLinksAtom = atomWithStorage<Link[]>('@App/savedLinks', [])
