@@ -76,13 +76,18 @@ export function GameProvider({
     }),
   )
 
-  React.useEffect(() => {
-    // Enables web audio playback with the iOS mute switch on
-    // https://github.com/swevans/unmute
-    const handle = unmute(Howler.ctx, false, false)
-    return () => handle.dispose()
-  }, [])
-  React.useEffect(() => {
+  React.useEffect(
+    () => {
+      Howler.mute(muted)
+      // Enables web audio playback with the iOS mute switch on
+      // https://github.com/swevans/unmute
+      const handle = unmute(Howler.ctx, false, false)
+      return () => handle.dispose()
+    },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [],
+  )
+  useUpdateEffect(() => {
     Howler.mute(muted)
   }, [muted])
 
