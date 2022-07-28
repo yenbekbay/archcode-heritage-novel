@@ -6,6 +6,7 @@ import logoArchcodePng from './logo-archcode.png'
 import logoGamePng from './logo-game.png'
 import logoNonmuseumPng from './logo-nonmuseum.png'
 import logoSorosPng from './logo-soros.png'
+import openGraphJpg from './open-graph.jpg'
 import paperRipPng from './paper-rip.png'
 import phoneScreenshotPng from './phone-screenshot.png'
 import phoneSwirlPng from './phone-swirl.png'
@@ -34,6 +35,7 @@ export {
   logoGamePng,
   logoNonmuseumPng,
   logoSorosPng,
+  openGraphJpg,
   paperRipPng,
   phoneScreenshotPng,
   phoneSwirlPng,

@@ -1,7 +1,8 @@
-import {DefaultSeo} from 'next-seo'
 import {bgArchcodeOfficeJpg} from 'assets/game'
+import {openGraphJpg} from 'assets/www'
 import {HeroBackground, Layout, RoughCard} from 'components'
 import {NextQueryParamProvider} from 'next-query-params'
+import {DefaultSeo} from 'next-seo'
 import type {AppProps} from 'next/app'
 import dynamic from 'next/dynamic'
 import Head from 'next/head'
@@ -28,10 +29,9 @@ export default function MyApp({Component, pageProps}: AppProps) {
         openGraph={{
           images: [
             {
-              url: 'https://image.thum.io/get/noanimate/width/1200/crop/630/https://www.heritage-novel.com/',
-              width: 1200,
-              height: 630,
-              alt: 'Скриншот сайта «Снести нельзя оставить»',
+              url: openGraphJpg.src,
+              width: openGraphJpg.width,
+              height: openGraphJpg.height,
             },
           ],
         }}
