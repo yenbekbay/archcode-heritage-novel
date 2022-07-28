@@ -126,7 +126,6 @@ function IntroScene() {
     getStatementCount,
     imgRect,
   ])
-
   return (
     <>
       <Command
