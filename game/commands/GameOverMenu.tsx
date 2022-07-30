@@ -19,6 +19,10 @@ export function GameOverMenu() {
                 onClick: () => router.push('/links'),
               },
               {
+                label: 'Оставить отзыв',
+                onClick: () => router.push('/feedback'),
+              },
+              {
                 label: 'Начать заново',
                 onClick: (ctx) =>
                   // HACK
