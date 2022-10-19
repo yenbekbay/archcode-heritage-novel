@@ -1,5 +1,6 @@
 import '__generated__/tailwind.css'
-import {NextQueryParamProvider} from 'next-query-params'
+import {NextAdapter} from 'next-query-params'
+import {QueryParamProvider} from 'use-query-params'
 import {DefaultSeo} from 'next-seo'
 import type {AppProps} from 'next/app'
 import dynamic from 'next/dynamic'
@@ -39,13 +40,13 @@ export default function MyApp({Component, pageProps}: AppProps) {
 
       {Component.name !== 'Play' && <PreloadMyGameAssets concurrency={10} />}
 
-      <NextQueryParamProvider>
+      <QueryParamProvider adapter={NextAdapter}>
         <ParallaxProvider>
           <ErrorBoundary FallbackComponent={ErrorFallback}>
             <Component {...pageProps} />
           </ErrorBoundary>
         </ParallaxProvider>
-      </NextQueryParamProvider>
+      </QueryParamProvider>
 
       <Toaster />
     </>

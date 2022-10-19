@@ -34,6 +34,7 @@ export default function AboutNovel() {
                 <Image
                   className="h-[36rem] w-auto object-contain"
                   src={phoneSwirlPng}
+                  alt=""
                 />
               </a>
             </Link>
@@ -78,6 +79,7 @@ export default function AboutNovel() {
               <Image
                 className="relative h-auto w-[30rem]"
                 src={phoneScreenshotPng}
+                alt=""
               />
 
               <RoughCard className="justify-self-center">
@@ -139,7 +141,7 @@ function ScreenshotCarousel() {
           <div
             className="relative w-[80%] flex-[0_0_auto] md:w-[40%] lg:w-[18%]"
             key={data.src}>
-            <Image src={data} />
+            <Image src={data} alt="" />
           </div>
         ))}
       </div>

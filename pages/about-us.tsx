@@ -34,6 +34,7 @@ export default function AboutUs() {
           <Image
             className="absolute bottom-0 h-auto w-full translate-y-[54%]"
             src={paperRipPng}
+            alt=""
             priority
           />
         </div>

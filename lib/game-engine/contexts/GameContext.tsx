@@ -1,5 +1,5 @@
 import {useLocalStorageValue, useUpdateEffect} from '@react-hookz/web'
-import {StringParam, useQueryParam, withDefault} from 'next-query-params'
+import {StringParam, useQueryParam, withDefault} from 'use-query-params'
 import React from 'react'
 import type {GameHistory, GameLocation} from './internal'
 import {

@@ -25,6 +25,7 @@ export default function AboutBot() {
               <Image
                 className="h-[18rem] w-auto object-contain"
                 src={telegramBotQrCodePng}
+                alt=""
               />
             </a>
           }>
