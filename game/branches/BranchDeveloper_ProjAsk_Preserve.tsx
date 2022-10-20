@@ -7,14 +7,14 @@ import {
   bgSolidJpg,
   botBuilderPng,
   developerRepAPng,
-  developerRepB10Png,
   developerRepB6Png,
   developerRepB9Png,
+  developerRepB10Png,
   hologramMp3,
   transition1Mp3,
   transition2ShortMp3,
 } from 'assets/game'
-import {Branch, Say, Scene} from 'lib/game-engine'
+import {Branch, Say, Scene} from 'react-visual-novel'
 import {GameOverMenu, GameOverTitle} from '../commands'
 import {LINKS} from '../links'
 import {SCENE_AUDIO} from '../sounds'
@@ -35,14 +35,16 @@ export function BranchDeveloper_ProjAsk_Preserve() {
 
       <Say
         tag={{text: 'Архитектор:', color: '#B4AE68CC'}}
-        image={{uri: architectPng.src, align: 'bottom'}}>
+        image={{uri: architectPng.src, align: 'bottom'}}
+      >
         Проект РЕСТАВРАЦИЯ!
       </Say>
 
       <Say
         tag={{text: 'Бот-билдер:', color: '#53C7D5'}}
         image={{uri: botBuilderPng.src, align: 'bottom'}}
-        audio={{onEntrance: hologramMp3}}>
+        audio={{onEntrance: hologramMp3}}
+      >
         {`
           Нужно подходить к вопросу грамотно. Что такое реставрация?
 
@@ -68,14 +70,16 @@ export function BranchDeveloper_ProjAsk_Preserve() {
 
       <Say
         tag={{text: 'Архитектор:', color: '#B4AE68CC'}}
-        image={{uri: architectPng.src, align: 'bottom'}}>
+        image={{uri: architectPng.src, align: 'bottom'}}
+      >
         —Для начала получить бы паспорт объекта в отделе памятников, а после
         провести экспертизу состояния здания
       </Say>
 
       <Say
         tag={{text: 'Архитектор:', color: '#B4AE68CC'}}
-        image={{uri: architectPng.src, align: 'bottom'}}>
+        image={{uri: architectPng.src, align: 'bottom'}}
+      >
         —И в нашу рабочую группу проекта надо найти специалиста по реставрации
       </Say>
 
@@ -97,7 +101,8 @@ export function BranchDeveloper_ProjAsk_Preserve() {
 
       <Say
         tag={{text: 'Архитектор:', color: '#B4AE68CC'}}
-        image={{uri: architectPng.src, align: 'bottom'}}>
+        image={{uri: architectPng.src, align: 'bottom'}}
+      >
         —Проект готов
       </Say>
 
@@ -116,13 +121,15 @@ export function BranchDeveloper_ProjAsk_Preserve() {
 
       <Say
         tag={{text: 'Менеджер проекта:', color: '#A57B55'}}
-        image={{uri: developerRepAPng.src, align: 'bottom'}}>
+        image={{uri: developerRepAPng.src, align: 'bottom'}}
+      >
         —Всем добрый день. Мы представляем наш проект по реставрации здания АСК
       </Say>
 
       <Say
         tag={{text: 'Менеджер проекта:', color: '#A57B55'}}
-        image={{uri: developerRepAPng.src, align: 'bottom'}}>
+        image={{uri: developerRepAPng.src, align: 'bottom'}}
+      >
         —Планируется деликатная реставрация с обновлением материалов максимально
         приближёнными к оригинальным
       </Say>

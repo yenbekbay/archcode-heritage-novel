@@ -1,14 +1,14 @@
-import {motion} from 'framer-motion'
-import {twMerge} from 'tailwind-merge'
 import type {definitions} from 'api'
 import {getSupabase} from 'api'
-import type {CommandViewColorScheme, Frame} from 'lib/game-engine'
+import {motion} from 'framer-motion'
+import type {BranchId, CommandViewColorScheme, Frame} from 'react-visual-novel'
 import {
   Command,
   styleForFrame,
   useBranchContext,
   useGameContext,
-} from 'lib/game-engine'
+} from 'react-visual-novel'
+import {twMerge} from 'tailwind-merge'
 import {TextForm} from './internal'
 
 export interface SubmitMonumentNominationProps {
@@ -32,12 +32,6 @@ export function SubmitMonumentNomination({
     <Command name="SubmitMonumentNomination" behavior={['non_skippable']}>
       {(controls) => (
         <motion.div
-          className={twMerge(
-            'GameEngine-text absolute flex flex-col',
-            scheme === 'dark' && 'GameEngine-text--dark',
-            !frame && 'inset-0 p-8 py-20',
-          )}
-          style={frame && styleForFrame({containerRect}, frame)}
           variants={{
             initial: {opacity: 0},
             entrance: {
@@ -50,7 +44,14 @@ export function SubmitMonumentNomination({
             },
           }}
           initial="initial"
-          animate={controls}>
+          animate={controls}
+          className={twMerge(
+            'rvn-text absolute flex flex-col',
+            scheme === 'dark' && 'rvn-text--dark',
+            !frame && 'inset-0 p-8 py-20',
+          )}
+          style={frame && styleForFrame({containerRect}, frame)}
+        >
           <TextForm
             rows={3}
             scheme={scheme}

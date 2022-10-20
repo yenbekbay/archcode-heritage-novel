@@ -5,15 +5,15 @@ import {
   bgCourtyardJpg,
   bgLaptopHandsJpg,
   bgLaptopStandaloneJpg,
+  redhead9Png,
   redhead10Png,
   redhead11Png,
   redhead12Png,
-  redhead9Png,
   transition1Mp3,
   transition2ShortMp3,
   transition3ShortMp3,
 } from 'assets/game'
-import {Branch, Say, Scene} from 'lib/game-engine'
+import {Branch, Say, Scene} from 'react-visual-novel'
 import {LINKS} from '../links'
 
 export function BranchActivist_CheckOut_Act_Self() {
@@ -57,7 +57,8 @@ export function BranchActivist_CheckOut_Act_Self() {
             objectFit: 'cover',
             transform: 'scale(2) translateY(30px)',
           },
-        }}>
+        }}
+      >
         {`[Как делать фактчекинг?](${LINKS.how_to_factcheck})`}
       </Say>
 
@@ -74,7 +75,8 @@ export function BranchActivist_CheckOut_Act_Self() {
             objectFit: 'cover',
             transform: 'scale(2) translateY(30px)',
           },
-        }}>
+        }}
+      >
         {`[Как написать пост в соц.сети и быть услышанным?](${LINKS.how_to_write_an_effective_article})`}
       </Say>
 
@@ -91,7 +93,8 @@ export function BranchActivist_CheckOut_Act_Self() {
             objectFit: 'cover',
             transform: 'scale(2) translateY(30px)',
           },
-        }}>
+        }}
+      >
         {`[Как и кому писать письма?](${LINKS.how_and_who_to_write_letters_to})`}
       </Say>
 
@@ -108,7 +111,8 @@ export function BranchActivist_CheckOut_Act_Self() {
             objectFit: 'cover',
             transform: 'scale(2) translateY(30px)',
           },
-        }}>
+        }}
+      >
         {`[Как участвовать в общественных слушаниях?](${LINKS.how_to_prepare_for_public_hearings})`}
       </Say>
 
@@ -129,7 +133,8 @@ export function BranchActivist_CheckOut_Act_Self() {
             objectFit: 'cover',
             transform: 'scale(2) translateY(30px)',
           },
-        }}>
+        }}
+      >
         {`[Что нужно знать при подготовке к митингу/одиночному пикету?](${LINKS.how_to_prepare_for_a_rally})`}
       </Say>
 
@@ -148,7 +153,8 @@ export function BranchActivist_CheckOut_Act_Self() {
             label: 'Позвонить в Архкод',
             onClick: (ctx) => ctx.goToBranch('Activist_CheckOut_Act_Org'),
           },
-        ]}>
+        ]}
+      >
         {`
           Думаю, можно обратиться к ним
           [сайт Архкода](${LINKS.archcode})

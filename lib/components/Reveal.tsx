@@ -1,8 +1,7 @@
 import {Slot} from '@radix-ui/react-slot'
 import type {HTMLMotionProps} from 'framer-motion'
-import {motion, useAnimation} from 'framer-motion'
+import {motion, useAnimation, useInView} from 'framer-motion'
 import React from 'react'
-import {useInView} from 'framer-motion'
 import {mergeRefs} from 'react-merge-refs'
 
 export interface RevealProps extends HTMLMotionProps<'div'> {
@@ -18,7 +17,7 @@ export const Reveal = React.forwardRef(function Reveal(
   const animation = useAnimation()
   React.useEffect(() => {
     if (inView) {
-      animation.start('visible')
+      void animation.start('visible')
     }
   }, [animation, inView])
   const Comp = asChild ? Slot : 'div'

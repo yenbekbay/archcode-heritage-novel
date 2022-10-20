@@ -1,4 +1,4 @@
-import {useFontLoaded} from 'lib/hooks'
+import useFontFaceObserver from 'use-font-face-observer'
 import {Footer} from './Footer'
 import {Header} from './Header'
 
@@ -7,8 +7,8 @@ export interface LayoutProps {
 }
 
 export function Layout({children}: LayoutProps) {
-  const displayFontLoaded = useFontLoaded('Moniqa')
-  if (!displayFontLoaded) {
+  const fontsLoaded = useFontFaceObserver([{family: 'Moniqa'}])
+  if (!fontsLoaded) {
     return null
   }
   return (

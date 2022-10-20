@@ -1,7 +1,3 @@
-import useEmblaCarousel from 'embla-carousel-react'
-import {WheelGesturesPlugin} from 'embla-carousel-wheel-gestures'
-import Image from 'next/future/image'
-import Link from 'next/link'
 import {bgAskBeforeJpg} from 'assets/game'
 import {
   phoneScreenshotPng,
@@ -14,7 +10,11 @@ import {
   screenshot6Png,
 } from 'assets/www'
 import {FenceSection, Hero, HeroBackground, Layout, RoughCard} from 'components'
+import useEmblaCarousel from 'embla-carousel-react'
+import {WheelGesturesPlugin} from 'embla-carousel-wheel-gestures'
 import {Reveal} from 'lib/components'
+import Image from 'next/future/image'
+import Link from 'next/link'
 
 export default function AboutNovel() {
   return (
@@ -29,16 +29,15 @@ export default function AboutNovel() {
         <Hero
           title="Визуальная новелла"
           image={
-            <Link href="/play">
-              <a aria-label="Играть">
-                <Image
-                  className="h-[36rem] w-auto object-contain"
-                  src={phoneSwirlPng}
-                  alt=""
-                />
-              </a>
+            <Link href="/play" aria-label="Играть">
+              <Image
+                src={phoneSwirlPng}
+                alt=""
+                className="h-[36rem] w-auto object-contain"
+              />
             </Link>
-          }>
+          }
+        >
           <p>
             Новелла «Снести нельзя оставить» повествует о четырёх героях,
             которые напоминают характерных персонажей типичного постсоветского
@@ -47,8 +46,8 @@ export default function AboutNovel() {
           </p>
 
           <p>
-            <Link href="/play">
-              <a className="btn-invert btn btn-outline">Играть</a>
+            <Link href="/play" className="btn-invert btn-outline btn">
+              Играть
             </Link>
           </p>
         </Hero>
@@ -77,9 +76,9 @@ export default function AboutNovel() {
 
             <div className="grid grid-flow-row gap-8 lg:grid-flow-col">
               <Image
-                className="relative h-auto w-[30rem]"
                 src={phoneScreenshotPng}
                 alt=""
+                className="relative h-auto w-[30rem]"
               />
 
               <RoughCard className="justify-self-center">
@@ -139,8 +138,9 @@ function ScreenshotCarousel() {
           screenshot6Png,
         ].map((data) => (
           <div
+            key={data.src}
             className="relative w-[80%] flex-[0_0_auto] md:w-[40%] lg:w-[18%]"
-            key={data.src}>
+          >
             <Image src={data} alt="" />
           </div>
         ))}

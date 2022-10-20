@@ -1,5 +1,5 @@
 import {calligraphyGameOverPng} from 'assets/game'
-import {Show} from 'lib/game-engine'
+import {Show} from 'react-visual-novel'
 
 export function GameOverTitle() {
   return (

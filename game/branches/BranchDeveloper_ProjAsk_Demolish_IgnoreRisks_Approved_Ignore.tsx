@@ -5,7 +5,7 @@ import {
   bgDeveloperHqInsideJpg,
   bgSolidJpg,
 } from 'assets/game'
-import {Branch, Say, Scene} from 'lib/game-engine'
+import {Branch, Say, Scene} from 'react-visual-novel'
 import {GameOverMenu, GameOverTitle} from '../commands'
 import {SCENE_AUDIO} from '../sounds'
 
@@ -16,7 +16,8 @@ export function BranchDeveloper_ProjAsk_Demolish_IgnoreRisks_Approved_Ignore() {
 
       <Say
         tag={{text: 'АрхКот:', color: '#B8AE71'}}
-        image={{uri: archkot13Png.src, align: 'bottom'}}>
+        image={{uri: archkot13Png.src, align: 'bottom'}}
+      >
         —Ну как же так…
       </Say>
 

@@ -1,15 +1,16 @@
 import {
   bgCityHallMayorOfficeJpg,
   bgMayorDoorwayJpg,
-  mayor10Png,
-  mayor11Png,
-  mayor12Png,
   mayor1Png,
   mayor2Png,
   mayor8Png,
   mayor9Png,
+  mayor10Png,
+  mayor11Png,
+  mayor12Png,
 } from 'assets/game'
-import {Branch, Say, Scene, Show} from 'lib/game-engine'
+import type {BranchId} from 'react-visual-novel'
+import {Branch, Say, Scene, Show} from 'react-visual-novel'
 import {SubmitMonumentNomination} from '../commands'
 import {LINKS} from '../links'
 import {SCENE_AUDIO} from '../sounds'
@@ -38,7 +39,8 @@ export function BranchAkim_MonumentDept_Rant() {
           uri: mayor10Png.src,
           align: 'bottom',
           style: {transform: 'scaleX(-1)'},
-        }}>
+        }}
+      >
         Привлекут больше туристов
       </Say>
 
@@ -74,7 +76,8 @@ export function BranchAkim_MonumentDept_Rant() {
             width: 720,
           },
         }}
-        style={{fontSize: 16, textAlign: 'left'}}>
+        style={{fontSize: 16, textAlign: 'left'}}
+      >
         {`
           “Какие здания уже в реестре памятников?”
 
@@ -93,7 +96,8 @@ export function BranchAkim_MonumentDept_Rant() {
             width: 720,
           },
         }}
-        style={{fontSize: 16, textAlign: 'left'}}>
+        style={{fontSize: 16, textAlign: 'left'}}
+      >
         {`
           “Какие здания хотел внести список аким Байбек?”
 
@@ -133,11 +137,13 @@ export function BranchAkim_MonumentDept_Rant() {
                 'Akim_MonumentDept_Rant_NotOk',
               ]
               ctx.goToBranch(
-                options[Math.floor(Math.random() * options.length)],
+                // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+                options[Math.floor(Math.random() * options.length)]!,
               )
             },
           },
-        ]}>
+        ]}
+      >
         Подожду коммисию, а пока выпью чая
       </Say>
     </Branch>

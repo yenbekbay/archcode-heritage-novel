@@ -10,26 +10,27 @@ const withTM = require('next-transpile-modules')([
 /**
  * @type {import('next').NextConfig}
  */
-module.exports = withTM({
-  reactStrictMode: true,
-  swcMinify: true,
-  i18n: {
-    locales: ['ru'],
-    defaultLocale: 'ru',
-  },
-  experimental: {
-    images: {
-      allowFutureImage: true,
+module.exports = withTM(
+  /** @type {import('next').NextConfig} */ ({
+    reactStrictMode: true,
+    swcMinify: true,
+    i18n: {
+      locales: ['ru'],
+      defaultLocale: 'ru',
     },
-  },
-  webpack(config) {
-    config.module.rules.push({
-      test: /\.(mp3)$/,
-      type: 'asset/resource',
-      generator: {
-        filename: 'static/chunks/[path][name].[hash][ext]',
-      },
-    })
-    return config
-  },
-})
+    experimental: {
+      newNextLinkBehavior: true,
+    },
+    webpack(config) {
+      config.module.exprContextCritical = false
+      config.module.rules.push({
+        test: /\.(mp3)$/,
+        type: 'asset/resource',
+        generator: {
+          filename: 'static/chunks/[path][name].[hash][ext]',
+        },
+      })
+      return config
+    },
+  }),
+)

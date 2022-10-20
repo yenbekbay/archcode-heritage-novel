@@ -1,11 +1,11 @@
-import Link from 'next/link'
-import {twMerge} from 'tailwind-merge'
 import {bgArchcodeOfficeJpg} from 'assets/game'
 import type {RoughCardProps} from 'components'
 import {Hero, HeroBackground, Layout, RoughCard} from 'components'
 import {useSavedLinks} from 'game/LinkPrompt'
 import type {LinkCardProps} from 'lib/components'
 import {LinkCard} from 'lib/components'
+import Link from 'next/link'
+import {twMerge} from 'tailwind-merge'
 
 export default function Links() {
   const savedLinks = useSavedLinks()
@@ -22,8 +22,8 @@ export default function Links() {
               <p>У вас ещё нет сохранённых ссылок.</p>
 
               <p>
-                <Link href="/play">
-                  <a className="btn-invert btn btn-outline">Играть</a>
+                <Link href="/play" className="btn-invert btn-outline btn">
+                  Играть
                 </Link>
               </p>
             </>
@@ -45,13 +45,14 @@ export default function Links() {
 }
 
 function RoughLinkCard(props: LinkCardProps) {
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-explicit-any
   return <LinkCard CardComponent={StyledRoughCard as any} {...props} />
 }
 
 function StyledRoughCard({contentClassName, ...restProps}: RoughCardProps) {
   return (
     <RoughCard
-      contentClassName={twMerge('p-[4px] max-w-none', contentClassName)}
+      contentClassName={twMerge('max-w-none p-[4px]', contentClassName)}
       {...restProps}
     />
   )

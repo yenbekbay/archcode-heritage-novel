@@ -9,8 +9,10 @@ export function getSupabase() {
   }
 
   supabase = createClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+    process.env['NEXT_PUBLIC_SUPABASE_URL']!,
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+    process.env['NEXT_PUBLIC_SUPABASE_ANON_KEY']!,
     {
       fetch: fetch.bind(globalThis),
     },

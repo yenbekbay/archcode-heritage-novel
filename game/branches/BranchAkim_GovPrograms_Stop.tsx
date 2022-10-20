@@ -6,11 +6,11 @@ import {
   bgCityHallMayorOfficeJpg,
   bgMayorDoorJpg,
   bgMayorDoorwayJpg,
+  mayor2Png,
   mayor12Png,
   mayor14Png,
-  mayor2Png,
 } from 'assets/game'
-import {Branch, Say, Scene, Show} from 'lib/game-engine'
+import {Branch, Say, Scene, Show} from 'react-visual-novel'
 import {LINKS} from '../links'
 import {SCENE_AUDIO} from '../sounds'
 
@@ -35,12 +35,14 @@ export function BranchAkim_GovPrograms_Stop() {
         image={{
           uri: assistant1Png.src,
           style: {height: '100%', width: '100%', objectFit: 'cover'},
-        }}>
+        }}
+      >
         —Общественность и АрхКот хотят встретиться
       </Say>
 
       <Say
-        image={{uri: mayor14Png.src, style: {width: '100%', bottom: '-12%'}}}>
+        image={{uri: mayor14Png.src, style: {width: '100%', bottom: '-12%'}}}
+      >
         {`
           -Хммм…
           Давайте назначим встречу
@@ -79,7 +81,8 @@ export function BranchAkim_GovPrograms_Stop() {
             label: 'Бред какой-то',
             onClick: (ctx) => ctx.goToBranch('Akim_GovPrograms_Stop_Dismiss'),
           },
-        ]}>
+        ]}
+      >
         -Я думаю…
       </Say>
     </Branch>

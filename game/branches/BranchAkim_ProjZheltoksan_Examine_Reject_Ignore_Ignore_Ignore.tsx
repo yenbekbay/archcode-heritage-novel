@@ -3,7 +3,7 @@ import {
   bgZheltoksanBeforeFenceGif,
   bgZheltoksanBeforeJpg,
 } from 'assets/game'
-import {Branch, Say, Scene} from 'lib/game-engine'
+import {Branch, Say, Scene} from 'react-visual-novel'
 import {GameOverMenu, GameOverTitle} from '../commands'
 import {SCENE_AUDIO} from '../sounds'
 

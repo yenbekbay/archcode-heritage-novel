@@ -7,7 +7,7 @@ import {
   bgDeveloperHqOutsideJpg,
   bgSolidJpg,
 } from 'assets/game'
-import {Branch, Say, Scene} from 'lib/game-engine'
+import {Branch, Say, Scene} from 'react-visual-novel'
 import {GameOverMenu, GameOverTitle} from '../commands'
 import {LINKS} from '../links'
 import {SCENE_AUDIO} from '../sounds'
@@ -30,7 +30,8 @@ export function BranchDeveloper_ProjAsk_Demolish_IgnoreRisks_Approved_Listen() {
 
       <Say
         tag={{text: 'АрхБот:', color: '#65506D'}}
-        image={{uri: archbot1Png.src, align: 'bottom'}}>
+        image={{uri: archbot1Png.src, align: 'bottom'}}
+      >
         {`
           А вот и протоколы встреч
 

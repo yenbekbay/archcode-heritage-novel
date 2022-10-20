@@ -3,60 +3,24 @@ import Link from 'next/link'
 import {useRouter} from 'next/router'
 import React from 'react'
 
-export interface ActiveLinkProps extends LinkProps {
-  children: React.ReactElement
-  activeClassName: string
-}
-
-export function ActiveLink({
-  children,
-  activeClassName,
-  ...restProps
-}: ActiveLinkProps) {
-  const {asPath, isReady} = useRouter()
-
-  const child = React.Children.only(children)
-  const childClassName = child.props.className ?? ''
-  const [className, setClassName] = React.useState(childClassName)
-
-  React.useEffect(() => {
-    // Check if the router fields are updated client-side
-    if (isReady) {
-      // Dynamic route will be matched via props.as
-      // Static route will be matched via props.href
-      const linkPathname = new URL(
-        (restProps.as ?? restProps.href) as string,
-        location.href,
-      ).pathname
-
-      // Using URL().pathname to get rid of query and hash
-      const activePathname = new URL(asPath, location.href).pathname
-
-      const newClassName =
-        linkPathname === activePathname
-          ? `${childClassName} ${activeClassName}`.trim()
-          : childClassName
-
-      if (newClassName !== className) {
-        setClassName(newClassName)
-      }
-    }
-  }, [
-    asPath,
-    isReady,
-    restProps.as,
-    restProps.href,
-    childClassName,
-    activeClassName,
-    setClassName,
-    className,
-  ])
-
+export const ActiveLink = React.forwardRef(function ActiveLink(
+  props: LinkProps &
+    React.ComponentPropsWithoutRef<'a'> & {
+      href: string
+      as?: string
+      children?: React.ReactNode
+    },
+  forwardedRef: React.ForwardedRef<HTMLAnchorElement>,
+) {
+  const router = useRouter()
+  const active = router.asPath.startsWith(props.as ?? props.href)
+  const exactActive = (props.as ?? props.href) === router.asPath
   return (
-    <Link {...restProps}>
-      {React.cloneElement(child, {
-        className: className ?? null,
-      })}
-    </Link>
+    <Link
+      {...props}
+      ref={forwardedRef}
+      data-link-active={active || undefined}
+      data-link-exact-active={exactActive || undefined}
+    />
   )
-}
+})

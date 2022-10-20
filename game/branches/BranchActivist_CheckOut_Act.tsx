@@ -1,5 +1,5 @@
 import {bgZheltoksanBeforeFenceJpg, redhead8Png} from 'assets/game'
-import {Branch, Say, Scene} from 'lib/game-engine'
+import {Branch, Say, Scene} from 'react-visual-novel'
 import {SCENE_AUDIO} from '../sounds'
 
 export function BranchActivist_CheckOut_Act() {
@@ -22,7 +22,8 @@ export function BranchActivist_CheckOut_Act() {
             label: 'Обратиться в организации',
             onClick: (ctx) => ctx.goToBranch('Activist_CheckOut_Act_Org'),
           },
-        ]}>
+        ]}
+      >
         Что я могу?
       </Say>
     </Branch>

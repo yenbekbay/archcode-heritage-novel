@@ -21,7 +21,6 @@ export function HeroBackground({
   return (
     <div className={twMerge('absolute inset-0 -z-10', containerClassName)}>
       <ParallaxBanner
-        className="h-full"
         layers={[
           {
             children: (
@@ -39,6 +38,7 @@ export function HeroBackground({
             speed,
           },
         ]}
+        className="h-full"
       />
       <div className="absolute inset-0 bg-black/60" />
     </div>

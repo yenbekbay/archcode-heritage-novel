@@ -3,7 +3,7 @@ import {
   developerRepAPng,
   mayor2Png,
 } from 'assets/game'
-import {Branch, Say, Scene} from 'lib/game-engine'
+import {Branch, Say, Scene} from 'react-visual-novel'
 import {SCENE_AUDIO} from '../sounds'
 
 export function BranchAkim_ProjAsk() {
@@ -13,7 +13,8 @@ export function BranchAkim_ProjAsk() {
 
       <Say
         tag={{text: 'Менеджер проекта:', color: '#A57B55'}}
-        image={{uri: developerRepAPng.src, align: 'bottom'}}>
+        image={{uri: developerRepAPng.src, align: 'bottom'}}
+      >
         —Добрый день, я — представитель Bay Shatyr Group. Представляю вашему
         вниманию проект АСК
       </Say>
@@ -29,7 +30,8 @@ export function BranchAkim_ProjAsk() {
             label: 'Одобрить',
             onClick: (ctx) => ctx.goToBranch('Akim_ProjAsk_Approve'),
           },
-        ]}>
+        ]}
+      >
         —Хммм…
       </Say>
     </Branch>

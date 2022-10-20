@@ -1,5 +1,5 @@
 import {bgZheltoksanBeforeJpg} from 'assets/game'
-import {Branch, Say, Scene} from 'lib/game-engine'
+import {Branch, Say, Scene} from 'react-visual-novel'
 import {SCENE_AUDIO} from '../sounds'
 
 export function BranchDeveloper_ProjZheltoksan_Demolish_IgnoreRisks_Approved_Silence() {
@@ -28,7 +28,8 @@ export function BranchDeveloper_ProjZheltoksan_Demolish_IgnoreRisks_Approved_Sil
                 'Developer_ProjZheltoksan_Demolish_IgnoreRisks_Approved__Continue',
               ),
           },
-        ]}>
+        ]}
+      >
         Что делать?
       </Say>
     </Branch>

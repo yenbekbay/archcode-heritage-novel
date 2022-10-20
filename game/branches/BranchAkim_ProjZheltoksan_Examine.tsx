@@ -14,7 +14,7 @@ import {
   transition1Mp3,
   transition2ShortMp3,
 } from 'assets/game'
-import {Branch, Say, Scene, Show} from 'lib/game-engine'
+import {Branch, Say, Scene, Show} from 'react-visual-novel'
 import {SCENE_AUDIO} from '../sounds'
 
 export function BranchAkim_ProjZheltoksan_Examine() {
@@ -36,13 +36,15 @@ export function BranchAkim_ProjZheltoksan_Examine() {
 
       <Say
         tag={{text: 'Эксперт:', color: '#687065'}}
-        image={{uri: expert1Png.src, align: 'bottom'}}>
+        image={{uri: expert1Png.src, align: 'bottom'}}
+      >
         —Вижу нарушения…
       </Say>
 
       <Say
         tag={{text: 'Эксперт:', color: '#687065'}}
-        image={{uri: expert2Png.src, align: 'bottom'}}>
+        image={{uri: expert2Png.src, align: 'bottom'}}
+      >
         —Ещё одно! Ещё нарушение!!!
       </Say>
 
@@ -63,7 +65,8 @@ export function BranchAkim_ProjZheltoksan_Examine() {
         image={{
           uri: assistant1Png.src,
           style: {height: '100%', width: '100%', objectFit: 'cover'},
-        }}>
+        }}
+      >
         —Экспертиза выявила несколько нарушений
       </Say>
 
@@ -92,7 +95,8 @@ export function BranchAkim_ProjZheltoksan_Examine() {
             label: 'Одобрить',
             onClick: (ctx) => ctx.goToBranch('Akim_ProjZheltoksan_Approve'),
           },
-        ]}>
+        ]}
+      >
         Что делать с проектом?
       </Say>
     </Branch>

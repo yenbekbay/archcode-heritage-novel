@@ -4,7 +4,7 @@ import {
   developerRepB6Png,
   mayor3Png,
 } from 'assets/game'
-import {Branch, Play, Say, Scene} from 'lib/game-engine'
+import {Branch, Play, Say, Scene} from 'react-visual-novel'
 import {GameOverMenu, GameOverTitle} from '../commands'
 import {SCENE_AUDIO} from '../sounds'
 
@@ -19,7 +19,8 @@ export function BranchAkim_ProjAirport_Examine_Reject_Reject() {
 
       <Say
         tag={{text: 'Девелопер:', color: '#A57B55'}}
-        image={{uri: developerRepB6Png.src, align: 'bottom'}}>
+        image={{uri: developerRepB6Png.src, align: 'bottom'}}
+      >
         —Мы учли мнение общественности и данный проект сохранияет наше
         историко-культурное наследие
       </Say>

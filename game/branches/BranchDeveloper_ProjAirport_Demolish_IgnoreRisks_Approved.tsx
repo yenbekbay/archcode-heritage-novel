@@ -16,7 +16,7 @@ import {
   stampApprovedPng,
   transition1Mp3,
 } from 'assets/game'
-import {Branch, Say, Scene, Show} from 'lib/game-engine'
+import {Branch, Say, Scene, Show} from 'react-visual-novel'
 import {SCENE_AUDIO} from '../sounds'
 
 export function BranchDeveloper_ProjAirport_Demolish_IgnoreRisks_Approved() {
@@ -53,7 +53,8 @@ export function BranchDeveloper_ProjAirport_Demolish_IgnoreRisks_Approved() {
 
       <Say
         tag={{text: 'Аким:', color: '#687065'}}
-        image={{uri: mayor7Png.src, align: 'bottom', style: {bottom: '-12%'}}}>
+        image={{uri: mayor7Png.src, align: 'bottom', style: {bottom: '-12%'}}}
+      >
         —Я согласен с вашими решениями. Можете начинать стройку
       </Say>
 
@@ -61,7 +62,8 @@ export function BranchDeveloper_ProjAirport_Demolish_IgnoreRisks_Approved() {
 
       <Say
         image={{uri: angryCrowd1Png.src, align: 'bottom'}}
-        audio={SCENE_AUDIO.chatter}>
+        audio={SCENE_AUDIO.chatter}
+      >
         Общественность возмущена
       </Say>
 
@@ -78,7 +80,8 @@ export function BranchDeveloper_ProjAirport_Demolish_IgnoreRisks_Approved() {
             label: 'Провести общественные слушаниям',
             onClick: (ctx) => ctx.goToNextStatement(1),
           },
-        ]}>
+        ]}
+      >
         Вечно всем надо совать свой нос в чужое дело… Что с этим делать?
       </Say>
 
@@ -101,14 +104,16 @@ export function BranchDeveloper_ProjAirport_Demolish_IgnoreRisks_Approved() {
 
       <Say
         tag={{text: 'Зам. акима:', color: '#687065'}}
-        image={{uri: assistant3Png.src, align: 'bottom'}}>
+        image={{uri: assistant3Png.src, align: 'bottom'}}
+      >
         —То, что есть сейчас, утратило историческую ценность. Когда-то, в 50-е
         годы, оно было таким, да, но сейчас — нет
       </Say>
 
       <Say
         tag={{text: 'Зам. акима:', color: '#687065'}}
-        image={{uri: assistant3Png.src, align: 'bottom'}}>
+        image={{uri: assistant3Png.src, align: 'bottom'}}
+      >
         —Нет никаких исторических элементов, есть стеклянные электронные двери.
         Там почти всё поменяли. Всё изменилось до неузнаваемости в худшую
         сторону. Никаким туристам здание неинтересно
@@ -116,28 +121,32 @@ export function BranchDeveloper_ProjAirport_Demolish_IgnoreRisks_Approved() {
 
       <Say
         tag={{text: 'Член Общ. совета Шарат Мибутов:', color: '#8E8379'}}
-        image={{uri: sharatMibutovPng.src, align: 'bottom'}}>
+        image={{uri: sharatMibutovPng.src, align: 'bottom'}}
+      >
         —То, что предложила турецкая фирма, выглядело не очень. То есть, это
         обычная квадратная коробка, без какой-либо связи с Казахстаном
       </Say>
 
       <Say
         tag={{text: 'Член Общ. совета Шарат Мибутов:', color: '#8E8379'}}
-        image={{uri: sharatMibutovPng.src, align: 'bottom'}}>
+        image={{uri: sharatMibutovPng.src, align: 'bottom'}}
+      >
         —Был выбран экономичный вариант, который рассчитан только на увеличение
         пропускной способности терминала и максимизацию прибыли инвесторов
       </Say>
 
       <Say
         tag={'Вице президент “Аэропорт”\nА. Кордеев:'}
-        image={{uri: aKordeevPng.src, align: 'bottom'}}>
+        image={{uri: aKordeevPng.src, align: 'bottom'}}
+      >
         —Я не считаю его великим памятником. Оно не несёт функциональной
         нагрузки и занимает огромную площадь
       </Say>
 
       <Say
         tag={{text: 'АрхКот:', color: '#B8AE71'}}
-        image={{uri: archkot1Png.src, align: 'bottom'}}>
+        image={{uri: archkot1Png.src, align: 'bottom'}}
+      >
         —Согласно закону об охране и использовании объектов историко-культурного
         наследия. Перемещёние и изменение памятника истории и культуры
         запрещаются
@@ -145,7 +154,8 @@ export function BranchDeveloper_ProjAirport_Demolish_IgnoreRisks_Approved() {
 
       <Say
         tag={{text: 'АрхКот:', color: '#B8AE71'}}
-        image={{uri: archkot4Png.src, align: 'bottom'}}>
+        image={{uri: archkot4Png.src, align: 'bottom'}}
+      >
         —Исключение допускается лишь в случаях разрушения более семидесяти
         процентов памятника истории и культуры либо утраты историко-культурной
         значимости
@@ -153,7 +163,8 @@ export function BranchDeveloper_ProjAirport_Demolish_IgnoreRisks_Approved() {
 
       <Say
         tag={{text: 'АрхКот:', color: '#B8AE71'}}
-        image={{uri: archkot4Png.src, align: 'bottom'}}>
+        image={{uri: archkot4Png.src, align: 'bottom'}}
+      >
         —или если его перемещёние и изменение повлекут улучшение условий его
         сохранения. Да и в общей сложности, это крайне дорогая процедура
       </Say>
@@ -180,7 +191,8 @@ export function BranchDeveloper_ProjAirport_Demolish_IgnoreRisks_Approved() {
                 'Developer_ProjAirport_Demolish_IgnoreRisks_Approved_Ignore',
               ),
           },
-        ]}>
+        ]}
+      >
         Что делать?
       </Say>
     </Branch>

@@ -4,7 +4,7 @@ import {
   bgZheltoksanBeforeJpg,
   redhead11Png,
 } from 'assets/game'
-import {Branch, Say, Scene} from 'lib/game-engine'
+import {Branch, Say, Scene} from 'react-visual-novel'
 import {SCENE_AUDIO} from '../sounds'
 
 export function BranchDeveloper_ProjZheltoksan_Demolish_IgnoreRisks_Approved_Boycott() {
@@ -14,7 +14,8 @@ export function BranchDeveloper_ProjZheltoksan_Demolish_IgnoreRisks_Approved_Boy
 
       <Say
         tag={{text: 'Активистка:', color: '#C2653A'}}
-        image={{uri: redhead11Png.src, align: 'bottom'}}>
+        image={{uri: redhead11Png.src, align: 'bottom'}}
+      >
         —8 сентября вы получаете задание, 15-го числа его где-то утверждают, а
         сегодня вдруг идут слушания. Здесь вы говорите о документах, — говорите
         «потом вы можете остаться и посмотреть»
@@ -22,7 +23,8 @@ export function BranchDeveloper_ProjZheltoksan_Demolish_IgnoreRisks_Approved_Boy
 
       <Say
         tag={{text: 'Активистка:', color: '#C2653A'}}
-        image={{uri: redhead11Png.src, align: 'bottom'}}>
+        image={{uri: redhead11Png.src, align: 'bottom'}}
+      >
         —Мы хотим сейчас! Почему вы это не организовали? Вы могли вывести
         документы на большой экран, чтобы каждый из нас видел!
       </Say>
@@ -31,7 +33,8 @@ export function BranchDeveloper_ProjZheltoksan_Demolish_IgnoreRisks_Approved_Boy
 
       <Say
         image={{uri: angryCrowd1Png.src, align: 'bottom'}}
-        audio={SCENE_AUDIO.chatter}>
+        audio={SCENE_AUDIO.chatter}
+      >
         Бойкот
       </Say>
 
@@ -51,7 +54,8 @@ export function BranchDeveloper_ProjZheltoksan_Demolish_IgnoreRisks_Approved_Boy
                 'Developer_ProjZheltoksan_Demolish_IgnoreRisks_Approved__Continue',
               ),
           },
-        ]}>
+        ]}
+      >
         Что делать?
       </Say>
     </Branch>

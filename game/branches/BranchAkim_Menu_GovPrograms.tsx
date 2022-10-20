@@ -14,7 +14,7 @@ import {
   mayor2Png,
   mayor3Png,
 } from 'assets/game'
-import {Branch, Label, Say, Scene, Show} from 'lib/game-engine'
+import {Branch, Label, Say, Scene, Show} from 'react-visual-novel'
 import {SCENE_AUDIO} from '../sounds'
 
 export function BranchAkim_Menu_GovPrograms() {
@@ -73,7 +73,8 @@ export function BranchAkim_Menu_GovPrograms() {
         image={{
           uri: assistant1Png.src,
           style: {height: '100%', width: '100%', objectFit: 'cover'},
-        }}>
+        }}
+      >
         —Общественность возмущена
       </Say>
 
@@ -94,7 +95,8 @@ export function BranchAkim_Menu_GovPrograms() {
             label: 'Остановить демонтаж',
             onClick: (ctx) => ctx.goToBranch('Akim_GovPrograms_Stop'),
           },
-        ]}>
+        ]}
+      >
         Что делать?
       </Say>
     </Branch>

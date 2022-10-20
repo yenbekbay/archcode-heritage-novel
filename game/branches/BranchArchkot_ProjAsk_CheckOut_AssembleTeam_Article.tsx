@@ -5,7 +5,7 @@ import {
   bgLaptopStandaloneJpg,
   bgSolidJpg,
 } from 'assets/game'
-import {Branch, Say, Scene} from 'lib/game-engine'
+import {Branch, Say, Scene} from 'react-visual-novel'
 import {GameOverMenu, GameOverTitle} from '../commands'
 import {SCENE_AUDIO} from '../sounds'
 
@@ -21,7 +21,8 @@ export function BranchArchkot_ProjAsk_CheckOut_AssembleTeam_Article() {
             objectFit: 'cover',
             transform: 'scale(2) translateY(30px)',
           },
-        }}>
+        }}
+      >
         Статья вышла неплохая. Просмотров было достаточно, а процесс
         реконструкции продолжался
       </Say>

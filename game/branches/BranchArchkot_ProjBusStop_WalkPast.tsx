@@ -8,7 +8,7 @@ import {
   fenceMp3,
   fencePng,
 } from 'assets/game'
-import {Branch, Say, Scene, Show} from 'lib/game-engine'
+import {Branch, Say, Scene, Show} from 'react-visual-novel'
 import {GameOverMenu, GameOverTitle} from '../commands'
 import {LINKS} from '../links'
 import {SCENE_AUDIO} from '../sounds'
@@ -40,7 +40,8 @@ export function BranchArchkot_ProjBusStop_WalkPast() {
           align: 'bottom',
           style: {filter: 'drop-shadow(40px 40px 5px rgba(0, 0, 0, .35))'},
         }}
-        zIndex={101}>
+        zIndex={101}
+      >
         Не стоит зря терять времени, дедлайны горят, дома кот некормленный, да
         сериал недосмотренный
       </Say>
@@ -64,7 +65,8 @@ export function BranchArchkot_ProjBusStop_WalkPast() {
 
       <Say
         tag={{text: 'АрхБот:', color: '#65506D'}}
-        image={{uri: archbot1Png.src, align: 'bottom'}}>
+        image={{uri: archbot1Png.src, align: 'bottom'}}
+      >
         {`
           —А могло бы быть вот так:
 

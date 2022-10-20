@@ -8,7 +8,7 @@ import {
   mayor2Png,
   mayor7Png,
 } from 'assets/game'
-import {Branch, Label, Say, Scene, Show} from 'lib/game-engine'
+import {Branch, Label, Say, Scene, Show} from 'react-visual-novel'
 import {SCENE_AUDIO} from '../sounds'
 
 export function BranchAkim_MonumentDept_Tea() {
@@ -32,7 +32,8 @@ export function BranchAkim_MonumentDept_Tea() {
         image={{
           uri: assistant1Png.src,
           style: {height: '100%', width: '100%', objectFit: 'cover'},
-        }}>
+        }}
+      >
         —Поступила жалоба от жильцов ЖК на шум из музея
       </Say>
 
@@ -48,7 +49,8 @@ export function BranchAkim_MonumentDept_Tea() {
             label: 'Выписать штраф за нарушение общественного спокойствия!',
             onClick: (ctx) => ctx.goToStatement('museum-b'),
           },
-        ]}>
+        ]}
+      >
         И что?
       </Say>
 
@@ -97,7 +99,8 @@ export function BranchAkim_MonumentDept_Tea() {
                 // HACK
                 ctx.goToLocation('Akim_0Menu', 5),
             },
-          ]}>
+          ]}
+        >
           Хотите продолжить работу с отделом памятников?
         </Say>
       </Label>
@@ -114,7 +117,8 @@ export function BranchAkim_MonumentDept_Tea() {
         image={{
           uri: assistant1Png.src,
           style: {height: '100%', width: '100%', objectFit: 'cover'},
-        }}>
+        }}
+      >
         —Новый проект предполагает снос Гостиницы Жетысу, которая является
         памятником
       </Say>
@@ -130,7 +134,8 @@ export function BranchAkim_MonumentDept_Tea() {
             label: 'Вынести здание из списка памятников!',
             onClick: (ctx) => ctx.goToStatement('zhetysu-b'),
           },
-        ]}>
+        ]}
+      >
         Хммм…
       </Say>
 
@@ -191,7 +196,8 @@ export function BranchAkim_MonumentDept_Tea() {
                 // HACK
                 ctx.goToLocation('Akim_0Menu', 5),
             },
-          ]}>
+          ]}
+        >
           Хотите продолжить работу с отделом памятников?
         </Say>
       </Label>
@@ -203,7 +209,8 @@ export function BranchAkim_MonumentDept_Tea() {
             label: 'Дальше',
             onClick: (ctx) => ctx.goToBranch('Akim_MonumentDept_Rant'),
           },
-        ]}>
+        ]}
+      >
         А почему это только я работаю! Пойду-ка наведу порядок
       </Say>
     </Branch>

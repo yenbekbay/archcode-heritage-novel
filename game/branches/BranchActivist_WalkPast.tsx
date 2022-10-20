@@ -6,7 +6,7 @@ import {
   redhead2Png,
   redhead3Png,
 } from 'assets/game'
-import {Branch, Say, Scene, Show} from 'lib/game-engine'
+import {Branch, Say, Scene, Show} from 'react-visual-novel'
 import {GameOverMenu, GameOverTitle} from '../commands'
 import {SCENE_AUDIO} from '../sounds'
 
@@ -37,7 +37,8 @@ export function BranchActivist_WalkPast() {
           align: 'bottom',
           style: {filter: 'drop-shadow(40px 40px 5px rgba(0, 0, 0, .35))'},
         }}
-        zIndex={101}>
+        zIndex={101}
+      >
         Скорее всего, ничего особенного. Очередное…да не важно
       </Say>
 
@@ -47,7 +48,8 @@ export function BranchActivist_WalkPast() {
           align: 'bottom',
           style: {filter: 'drop-shadow(40px 40px 5px rgba(0, 0, 0, .35))'},
         }}
-        zIndex={101}>
+        zIndex={101}
+      >
         Поберегу нервы, семья ждет, пойду дома чай попью
       </Say>
 

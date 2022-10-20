@@ -1,8 +1,8 @@
-import Image from 'next/future/image'
-import {TelegramLogo as TelegramLogoIcon} from 'phosphor-react'
 import {bgAirportJpg} from 'assets/game'
 import {telegramBotQrCodePng} from 'assets/www'
 import {Hero, HeroBackground, Layout} from 'components'
+import Image from 'next/future/image'
+import {TelegramLogo as TelegramLogoIcon} from 'phosphor-react'
 
 export default function AboutBot() {
   return (
@@ -21,14 +21,16 @@ export default function AboutBot() {
               href="https://t.me/archcode_bot"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Перейти в Телеграм">
+              aria-label="Перейти в Телеграм"
+            >
               <Image
-                className="h-[18rem] w-auto object-contain"
                 src={telegramBotQrCodePng}
                 alt=""
+                className="h-[18rem] w-auto object-contain"
               />
             </a>
-          }>
+          }
+        >
           <p>
             Это обучающий бот, который даёт представление об общей ситуации в
             области сохранения архитектурного наследия в Казахстане. Раздел
@@ -46,9 +48,10 @@ export default function AboutBot() {
 
           <p>
             <a
+              href="https://t.me/archcode_bot"
               className="btn-invert btn gap-2"
-              href="https://t.me/archcode_bot">
-              <TelegramLogoIcon className="text-xl" weight="fill" />
+            >
+              <TelegramLogoIcon weight="fill" className="text-xl" />
               Перейти в Телеграм
             </a>
           </p>

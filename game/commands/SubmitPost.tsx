@@ -1,19 +1,20 @@
-import {motion} from 'framer-motion'
-import {twMerge} from 'tailwind-merge'
 import type {definitions} from 'api'
 import {getSupabase} from 'api'
+import {motion} from 'framer-motion'
 import type {
+  BranchId,
   CommandViewColorScheme,
   Frame,
   ImageViewProps,
-} from 'lib/game-engine'
+} from 'react-visual-novel'
 import {
   Command,
   ImageView,
   styleForFrame,
   useBranchContext,
   useGameContext,
-} from 'lib/game-engine'
+} from 'react-visual-novel'
+import {twMerge} from 'tailwind-merge'
 import {TextForm} from './internal'
 
 export interface SubmitPostProps {
@@ -39,8 +40,8 @@ export function SubmitPost({onDone, frame, scheme, image}: SubmitPostProps) {
 
           <motion.div
             className={twMerge(
-              'GameEngine-text absolute flex flex-col',
-              scheme === 'dark' && 'GameEngine-text--dark',
+              'rvn-text absolute flex flex-col',
+              scheme === 'dark' && 'rvn-text--dark',
               !frame && 'inset-0 p-8 py-20',
             )}
             style={frame && styleForFrame({containerRect}, frame)}
@@ -56,7 +57,8 @@ export function SubmitPost({onDone, frame, scheme, image}: SubmitPostProps) {
               },
             }}
             initial="initial"
-            animate={controls}>
+            animate={controls}
+          >
             <TextForm
               rows={10}
               scheme={scheme}

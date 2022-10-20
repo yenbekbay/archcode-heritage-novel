@@ -3,7 +3,7 @@ import {
   developerRepB8Png,
   transition1Mp3,
 } from 'assets/game'
-import {Branch, Play, Say, Scene, Show} from 'lib/game-engine'
+import {Branch, Play, Say, Scene, Show} from 'react-visual-novel'
 import {SCENE_AUDIO} from '../sounds'
 
 export function BranchDeveloper_0Intro() {
@@ -35,7 +35,8 @@ export function BranchDeveloper_0Intro() {
             label: 'Нет',
             onClick: (ctx) => ctx.goToBranch('Developer_No'),
           },
-        ]}>
+        ]}
+      >
         Ты хочешь быть девелопером?
       </Say>
     </Branch>

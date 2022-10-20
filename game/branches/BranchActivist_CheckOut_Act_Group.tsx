@@ -9,18 +9,18 @@ import {
   bgLaptopStandaloneJpg,
   bgPhoneFingerJpg,
   bgPhoneHandJpg,
+  redhead1Png,
+  redhead5Png,
   redhead14Png,
   redhead15Png,
   redhead16Png,
   redhead17Png,
   redhead18Png,
-  redhead1Png,
-  redhead5Png,
   transition1Mp3,
   transition2ShortMp3,
   transition3ShortMp3,
 } from 'assets/game'
-import {Branch, Menu, Say, Scene, Show} from 'lib/game-engine'
+import {Branch, Menu, Say, Scene, Show} from 'react-visual-novel'
 import {LINKS} from '../links'
 import {SCENE_AUDIO} from '../sounds'
 
@@ -53,7 +53,8 @@ export function BranchActivist_CheckOut_Act_Group() {
           },
         }}
         durationMs={0}
-        hide={1}>
+        hide={1}
+      >
         *рассылка в whatsapp
       </Say>
 
@@ -67,7 +68,8 @@ export function BranchActivist_CheckOut_Act_Group() {
             transform: 'rotate(-6deg)',
           },
         }}
-        style={{fontSize: 20, textAlign: 'right'}}>
+        style={{fontSize: 20, textAlign: 'right'}}
+      >
         {`
           Беспредел!
 
@@ -81,7 +83,8 @@ export function BranchActivist_CheckOut_Act_Group() {
 
       <Say
         image={{uri: redhead16Png.src, align: 'bottom'}}
-        audio={{onEntrance: alertsMp3}}>
+        audio={{onEntrance: alertsMp3}}
+      >
         {`
           *pop up
 
@@ -101,7 +104,8 @@ export function BranchActivist_CheckOut_Act_Group() {
           },
         }}
         durationMs={0}
-        hide={1}>
+        hide={1}
+      >
         *whatsapp web
       </Say>
 
@@ -114,7 +118,8 @@ export function BranchActivist_CheckOut_Act_Group() {
             width: 800,
           },
         }}
-        style={{fontSize: 16, textAlign: 'left'}}>
+        style={{fontSize: 16, textAlign: 'left'}}
+      >
         {`
           —Здравствуйте! Меня тоже всё это возмущает! Мы должны действовать сообща!
                                       —Здравое дело! Я с вами!
@@ -175,7 +180,8 @@ export function BranchActivist_CheckOut_Act_Group() {
             objectFit: 'cover',
             transform: 'scale(2.25) translateX(-15px)',
           },
-        }}>
+        }}
+      >
         {`[Кто такие стейкхолдеры?](${LINKS.who_is_stakeholder})`}
       </Say>
 
@@ -206,7 +212,8 @@ export function BranchActivist_CheckOut_Act_Group() {
             objectFit: 'cover',
             transform: 'scale(2.25) translateX(-15px)',
           },
-        }}>
+        }}
+      >
         {`[Как делать фактчекинг?](${LINKS.how_to_factcheck})`}
       </Say>
 
@@ -237,7 +244,8 @@ export function BranchActivist_CheckOut_Act_Group() {
             objectFit: 'cover',
             transform: 'scale(2.25) translateX(-15px)',
           },
-        }}>
+        }}
+      >
         {`[Как написать пост в соц.сети и быть услышанным?](${LINKS.how_to_write_an_effective_article})`}
       </Say>
 
@@ -264,7 +272,8 @@ export function BranchActivist_CheckOut_Act_Group() {
             objectFit: 'cover',
             transform: 'scale(2.25) translateX(-15px)',
           },
-        }}>
+        }}
+      >
         {`[Как участвовать в общественных слушаниях?](${LINKS.how_to_prepare_for_public_hearings})`}
       </Say>
 
@@ -277,7 +286,8 @@ export function BranchActivist_CheckOut_Act_Group() {
           uri: activistAPng.src,
           align: 'bottom',
           style: {transform: 'scaleX(-1)'},
-        }}>
+        }}
+      >
         —А куда можно написать?
       </Say>
 
@@ -292,7 +302,8 @@ export function BranchActivist_CheckOut_Act_Group() {
           },
         }}
         durationMs={0}
-        hide={1}>
+        hide={1}
+      >
         —Вот!
       </Say>
 
@@ -306,7 +317,8 @@ export function BranchActivist_CheckOut_Act_Group() {
             transform: 'rotate(9deg) translateX(16px)',
           },
         }}
-        style={{fontSize: 20}}>
+        style={{fontSize: 20}}
+      >
         {`[Как и кому писать письма?](${LINKS.how_and_who_to_write_letters_to})`}
       </Say>
 
@@ -315,7 +327,8 @@ export function BranchActivist_CheckOut_Act_Group() {
           uri: redhead18Png.src,
           align: 'bottom',
           style: {transform: 'scaleX(-1)'},
-        }}>
+        }}
+      >
         —А если не будет дельных ответов, просто устроим протестную акцию!
       </Say>
 
@@ -335,7 +348,8 @@ export function BranchActivist_CheckOut_Act_Group() {
           },
         }}
         durationMs={0}
-        hide={1}>
+        hide={1}
+      >
         —Вот!
       </Say>
 
@@ -349,7 +363,8 @@ export function BranchActivist_CheckOut_Act_Group() {
             transform: 'rotate(9deg) translateX(16px)',
           },
         }}
-        style={{fontSize: 24}}>
+        style={{fontSize: 24}}
+      >
         {`[сайт Архкода](${LINKS.archcode})`}
       </Say>
 

@@ -14,7 +14,7 @@ import {
   stampApprovedPng,
   transition1Mp3,
 } from 'assets/game'
-import {Branch, Say, Scene, Show} from 'lib/game-engine'
+import {Branch, Say, Scene, Show} from 'react-visual-novel'
 import {SCENE_AUDIO} from '../sounds'
 
 export function BranchAkim_ProjZheltoksan_Examine_Reject_Ignore() {
@@ -53,7 +53,8 @@ export function BranchAkim_ProjZheltoksan_Examine_Reject_Ignore() {
 
       <Say
         image={{uri: angryCrowd1Png.src, align: 'bottom'}}
-        audio={SCENE_AUDIO.chatter}>
+        audio={SCENE_AUDIO.chatter}
+      >
         Общественность возмущена
       </Say>
 
@@ -66,41 +67,47 @@ export function BranchAkim_ProjZheltoksan_Examine_Reject_Ignore() {
 
       <Say
         tag={{text: 'Менеджер проекта:', color: '#A57B55'}}
-        image={{uri: developerRepAPng.src, align: 'bottom'}}>
+        image={{uri: developerRepAPng.src, align: 'bottom'}}
+      >
         —Добрый день, я — представитель Bay Shatyr Group. В рамках проекта будет
         построено девятиэтажное здание
       </Say>
 
       <Say
         tag={{text: 'Девелопер:', color: '#A57B55'}}
-        image={{uri: developerRepB6Png.src, align: 'bottom'}}>
+        image={{uri: developerRepB6Png.src, align: 'bottom'}}
+      >
         —Под галереей на последнем этаже подразумевается ресторан. Подземный
         3-уровневый паркинг на 490 авто
       </Say>
 
       <Say
         tag={{text: 'Активистка:', color: '#C2653A'}}
-        image={{uri: redhead12Png.src, align: 'bottom'}}>
+        image={{uri: redhead12Png.src, align: 'bottom'}}
+      >
         —Но ведь это создаёт огромную нагрузку на транспортную инфраструктуру и
         не только…
       </Say>
 
       <Say
         tag={{text: 'Девелопер:', color: '#A57B55'}}
-        image={{uri: developerRepB1Png.src, align: 'bottom'}}>
+        image={{uri: developerRepB1Png.src, align: 'bottom'}}
+      >
         —Всё под контролем, беспокойств не будет. Всё рассчитано и одобрено
       </Say>
 
       <Say
         tag={{text: 'Активистка:', color: '#C2653A'}}
-        image={{uri: redhead14Png.src, align: 'bottom'}}>
+        image={{uri: redhead14Png.src, align: 'bottom'}}
+      >
         —Судя по всему, предполагается вырубка всех существующих на территории
         здания деревьев???
       </Say>
 
       <Say
         tag={{text: 'Девелопер:', color: '#A57B55'}}
-        image={{uri: developerRepB7Png.src, align: 'bottom'}}>
+        image={{uri: developerRepB7Png.src, align: 'bottom'}}
+      >
         —Согласно правилам маслихата по озеленению, в качестве компенсации мы
         обязуемся высадить соответствующее количество деревьев на землях общего
         пользования. Всё по правилам, и придуманы они не нами
@@ -108,7 +115,8 @@ export function BranchAkim_ProjZheltoksan_Examine_Reject_Ignore() {
 
       <Say
         tag={{text: 'Активистка:', color: '#C2653A'}}
-        image={{uri: redhead13Png.src, align: 'bottom'}}>
+        image={{uri: redhead13Png.src, align: 'bottom'}}
+      >
         —А в целом то, здание, хоть и не является официально памятником, но это
         история города! Его непременно нужно сохранить!!!
       </Say>
@@ -133,7 +141,8 @@ export function BranchAkim_ProjZheltoksan_Examine_Reject_Ignore() {
                 'Akim_ProjZheltoksan_Examine_Reject_Ignore_Ignore',
               ),
           },
-        ]}>
+        ]}
+      >
         Что делать с мнением общественности?
       </Say>
     </Branch>

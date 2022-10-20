@@ -6,7 +6,7 @@ import {
   mayor4Png,
   stampApprovedPng,
 } from 'assets/game'
-import {Branch, Say, Scene, Show} from 'lib/game-engine'
+import {Branch, Say, Scene, Show} from 'react-visual-novel'
 import {SCENE_AUDIO} from '../sounds'
 
 export function BranchAkim_ProjZheltoksan_Examine_Reject_Ignore_Ignore() {
@@ -45,7 +45,8 @@ export function BranchAkim_ProjZheltoksan_Examine_Reject_Ignore_Ignore() {
 
       <Say
         image={{uri: angryCrowd1Png.src, align: 'bottom'}}
-        audio={SCENE_AUDIO.chatter}>
+        audio={SCENE_AUDIO.chatter}
+      >
         Массовый протест
       </Say>
 
@@ -66,7 +67,8 @@ export function BranchAkim_ProjZheltoksan_Examine_Reject_Ignore_Ignore() {
                 'Akim_ProjZheltoksan_Examine_Reject_Ignore_Ignore_Ignore',
               ),
           },
-        ]}>
+        ]}
+      >
         Что делать?
       </Say>
     </Branch>

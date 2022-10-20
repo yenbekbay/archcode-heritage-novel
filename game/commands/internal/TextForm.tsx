@@ -1,11 +1,11 @@
+import {Spinner} from 'lib/components'
 import React from 'react'
 import toast from 'react-hot-toast'
+import type {CommandViewColorScheme} from 'react-visual-novel'
+import {useGameContext} from 'react-visual-novel'
 import {useZorm} from 'react-zorm'
 import {twMerge} from 'tailwind-merge'
 import {z} from 'zod'
-import {Spinner} from 'lib/components'
-import type {CommandViewColorScheme} from 'lib/game-engine'
-import {useGameContext} from 'lib/game-engine'
 
 export interface TextFormProps {
   inputLabel: string
@@ -50,20 +50,21 @@ export function TextForm({
         className={twMerge(
           'flex flex-col space-y-4',
           submitting && 'pointer-events-none opacity-50',
-        )}>
+        )}
+      >
         <div className="flex flex-col space-y-2">
           <label className="text-sm font-bold" htmlFor="body">
             {inputLabel}
           </label>
 
           <textarea
+            id="body"
+            name="body"
+            rows={rows}
             className={twMerge(
               'rounded-md focus:border-accent focus:ring-0',
               zo.errors.body('border-error'),
             )}
-            id="body"
-            name="body"
-            rows={rows}
           />
 
           {zo.errors.body((err) => (
@@ -77,13 +78,13 @@ export function TextForm({
           </label>
 
           <input
+            id="name"
+            name="name"
+            type="text"
             className={twMerge(
               'rounded-md focus:border-accent focus:ring-0',
               zo.errors.name('border-error'),
             )}
-            id="name"
-            name="name"
-            type="text"
           />
 
           {zo.errors.name((err) => (
@@ -94,12 +95,13 @@ export function TextForm({
         <button
           type="submit"
           disabled={zo.validation?.success === false}
-          className={twMerge(
-            'GameEngine-button GameEngine-button--opaque btn btn-outline font-calligraph',
-            scheme === 'dark' && 'GameEngine-button--dark',
-          )}
           onMouseEnter={() => playSound('mouseover')}
-          onClick={() => playSound('click')}>
+          onClick={() => playSound('click')}
+          className={twMerge(
+            'rvn-button rvn-button--opaque btn-outline btn font-script',
+            scheme === 'dark' && 'rvn-button--dark',
+          )}
+        >
           {submitLabel}
         </button>
       </form>

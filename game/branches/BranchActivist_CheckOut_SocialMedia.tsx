@@ -6,7 +6,7 @@ import {
   redhead5Png,
   redhead7Png,
 } from 'assets/game'
-import {Branch, Label, Menu, Play, Say, Scene} from 'lib/game-engine'
+import {Branch, Label, Menu, Play, Say, Scene} from 'react-visual-novel'
 import {GameOverMenu, GameOverTitle, SubmitMeme, SubmitPost} from '../commands'
 import {SCENE_AUDIO} from '../sounds'
 
@@ -38,7 +38,8 @@ export function BranchActivist_CheckOut_SocialMedia() {
             label: 'Написать пост о том, как всё плохо',
             onClick: (ctx) => ctx.goToStatement('publish_post'),
           },
-        ]}>
+        ]}
+      >
         Варианты отчаяния:
       </Say>
 

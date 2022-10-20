@@ -1,5 +1,5 @@
 import {bgProjectsFolderJpg} from 'assets/game'
-import {Branch, Say, Scene} from 'lib/game-engine'
+import {Branch, Say, Scene} from 'react-visual-novel'
 import {SCENE_AUDIO} from '../sounds'
 
 export function BranchAkim_Menu_Projects() {
@@ -21,7 +21,8 @@ export function BranchAkim_Menu_Projects() {
             label: 'АСК',
             onClick: (ctx) => ctx.goToBranch('Akim_ProjAsk'),
           },
-        ]}>
+        ]}
+      >
         Выберите проект
       </Say>
     </Branch>

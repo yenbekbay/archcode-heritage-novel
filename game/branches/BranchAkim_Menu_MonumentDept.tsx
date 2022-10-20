@@ -8,7 +8,7 @@ import {
   monumentDeptStaff1Png,
   monumentDeptStaff2Png,
 } from 'assets/game'
-import {Branch, Say, Scene, Show} from 'lib/game-engine'
+import {Branch, Say, Scene, Show} from 'react-visual-novel'
 import {SCENE_AUDIO} from '../sounds'
 
 export function BranchAkim_Menu_MonumentDept() {
@@ -42,7 +42,8 @@ export function BranchAkim_Menu_MonumentDept() {
             label: 'Навести порядок',
             onClick: (ctx) => ctx.goToBranch('Akim_MonumentDept_Rant'),
           },
-        ]}>
+        ]}
+      >
         Я хочу…
       </Say>
     </Branch>

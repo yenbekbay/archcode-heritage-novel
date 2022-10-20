@@ -1,5 +1,6 @@
 import {archkot5Png, bgMapGif, fenceMp3, fencePng} from 'assets/game'
-import {Branch, Say, Scene, Show} from 'lib/game-engine'
+import type {BranchId} from 'react-visual-novel'
+import {Branch, Say, Scene, Show} from 'react-visual-novel'
 import {SCENE_AUDIO} from '../sounds'
 
 export function BranchArchkot_0Juncture() {
@@ -49,7 +50,8 @@ export function BranchArchkot_0Juncture() {
                 'Archkot_ProjBusStop_WalkPast',
               ]
               return ctx.goToBranch(
-                options[Math.floor(Math.random() * options.length)],
+                // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+                options[Math.floor(Math.random() * options.length)]!,
               )
             },
           },
@@ -62,11 +64,13 @@ export function BranchArchkot_0Juncture() {
                 'Archkot_ProjBusStop_CheckOut',
               ]
               ctx.goToBranch(
-                options[Math.floor(Math.random() * options.length)],
+                // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+                options[Math.floor(Math.random() * options.length)]!,
               )
             },
           },
-        ]}>
+        ]}
+      >
         Возмутительно это конечно, никакого паспорта объекта!
       </Say>
     </Branch>

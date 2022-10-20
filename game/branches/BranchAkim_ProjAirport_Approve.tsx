@@ -5,7 +5,7 @@ import {
   mayor3Png,
   stampApprovedPng,
 } from 'assets/game'
-import {Branch, Menu, Say, Scene, Show} from 'lib/game-engine'
+import {Branch, Menu, Say, Scene, Show} from 'react-visual-novel'
 import {SCENE_AUDIO} from '../sounds'
 
 export function BranchAkim_ProjAirport_Approve() {

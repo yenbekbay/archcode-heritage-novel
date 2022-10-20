@@ -4,7 +4,7 @@ import {
   mayor6Png,
   stampRejectedPng,
 } from 'assets/game'
-import {Branch, Menu, Say, Scene, Show} from 'lib/game-engine'
+import {Branch, Menu, Say, Scene, Show} from 'react-visual-novel'
 import {SCENE_AUDIO} from '../sounds'
 
 export function BranchDeveloper_ProjAirport_Demolish_IgnoreRisks_Rejected() {
@@ -41,7 +41,8 @@ export function BranchDeveloper_ProjAirport_Demolish_IgnoreRisks_Rejected() {
 
       <Say
         tag={{text: 'Аким:', color: '#687065'}}
-        image={{uri: mayor6Png.src, align: 'bottom'}}>
+        image={{uri: mayor6Png.src, align: 'bottom'}}
+      >
         —Я возмущён! Ведь здание представляет историческую ценность для города.
         Вам придётся разрабатывать новый проект и сохранить VIP терминал
       </Say>

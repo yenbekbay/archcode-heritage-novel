@@ -5,7 +5,7 @@ import {
   fenceMp3,
   fencePng,
 } from 'assets/game'
-import {Branch, Play, Say, Scene, Show} from 'lib/game-engine'
+import {Branch, Play, Say, Scene, Show} from 'react-visual-novel'
 import {GameOverMenu, GameOverTitle} from '../commands'
 import {LINKS} from '../links'
 import {SCENE_AUDIO} from '../sounds'
@@ -49,7 +49,8 @@ export function BranchArchkot_ProjAirport_CheckOut_AssembleTeam_Bail() {
 
       <Say
         tag={{text: 'АрхБот:', color: '#65506D'}}
-        image={{uri: archbot1Png.src, align: 'bottom'}}>
+        image={{uri: archbot1Png.src, align: 'bottom'}}
+      >
         {`
           —А могло бы быть вот так:
 
@@ -61,13 +62,15 @@ export function BranchArchkot_ProjAirport_CheckOut_AssembleTeam_Bail() {
 
       <Say
         tag={{text: 'АрхТок:', color: '#8D8C59'}}
-        image={{uri: archtok3Png.src, align: 'bottom'}}>
+        image={{uri: archtok3Png.src, align: 'bottom'}}
+      >
         —Это больше не памятник. Надо выносить его из списка
       </Say>
 
       <Say
         tag={{text: 'АрхБот:', color: '#65506D'}}
-        image={{uri: archbot1Png.src, align: 'bottom'}}>
+        image={{uri: archbot1Png.src, align: 'bottom'}}
+      >
         {`
           —Правила вынесения объекта из списка памятников историко-культурного наследия выглядят так:
 

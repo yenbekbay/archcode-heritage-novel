@@ -4,7 +4,7 @@ import {
   bgBusStop4Jpg,
   bgBusStop6Jpg,
 } from 'assets/game'
-import {Branch, Say, Scene} from 'lib/game-engine'
+import {Branch, Say, Scene} from 'react-visual-novel'
 import {GameOverMenu, GameOverTitle} from '../commands'
 import {LINKS} from '../links'
 import {SCENE_AUDIO} from '../sounds'
@@ -26,7 +26,8 @@ export function BranchArchkot_ProjBusStop_CheckOut_AssembleTeam_Bail() {
 
       <Say
         tag={{text: 'АрхБот:', color: '#65506D'}}
-        image={{uri: archbot1Png.src, align: 'bottom'}}>
+        image={{uri: archbot1Png.src, align: 'bottom'}}
+      >
         {`
           —А могло бы быть вот так:
 

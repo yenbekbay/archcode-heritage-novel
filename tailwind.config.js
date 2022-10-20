@@ -1,8 +1,8 @@
+const plugin = require('tailwindcss/plugin')
+const colors = require('tailwindcss/colors')
 const defaultTheme = require('tailwindcss/defaultTheme')
-const defaultColors = require('tailwindcss/colors')
 
-const colors = {
-  ...defaultColors,
+const palette = {
   chicago: {
     DEFAULT: '#88867B',
     50: '#DFDEDB',
@@ -45,24 +45,27 @@ const colors = {
 }
 
 /**
- * @type {import('tailwindcss/tailwind-config').TailwindConfig}
+ * @type {import('tailwindcss').Config}
  */
 module.exports = {
-  content: ['./{components,game,lib,pages}/**/*.{ts,tsx}'],
+  content: [
+    './{components,game,pages}/**/*.{ts,tsx}',
+    './node_modules/react-visual-novel/dist/index.js',
+  ],
   darkMode: 'class',
   theme: {
-    colors,
     extend: {
       colors: {
-        content: colors.chicago[700],
-        'content-focus': colors.chicago[800],
-        'content-invert': colors['rum-swizzle'][50],
-        'content-invert-focus': colors['rum-swizzle'][100],
+        ...palette,
+        content: palette.chicago[700],
+        'content-focus': palette.chicago[800],
+        'content-invert': palette['rum-swizzle'][50],
+        'content-invert-focus': palette['rum-swizzle'][100],
       },
       fontFamily: {
         display: ['Moniqa', ...defaultTheme.fontFamily.serif],
         mono: ['IBM Plex Mono', ...defaultTheme.fontFamily.mono],
-        calligraph: ['calligraph'],
+        script: ['calligraph'],
       },
       keyframes: {
         'slide-up': {
@@ -83,7 +86,9 @@ module.exports = {
   plugins: [
     require('@tailwindcss/forms'),
     require('@tailwindcss/typography'),
+    // @ts-ignore
     require('tailwindcss-radix')(),
+    // @ts-ignore
     require('tailwindcss-scrims')({
       colors: {
         default: ['rgba(0, 0, 0, 0.5)', 'rgba(0, 0, 0, 0)'],
@@ -91,24 +96,29 @@ module.exports = {
       },
     }),
     require('daisyui'),
+    // ActiveLink
+    plugin(({addVariant}) => {
+      addVariant('link-active', '&[data-link-active]')
+      addVariant('link-exact-active', '&[data-link-exact-active]')
+    }),
   ],
   daisyui: {
     styled: true,
     themes: [
       {
         light: {
-          primary: colors.crail[500],
+          primary: palette.crail[500],
           'primary-content': colors.white,
-          secondary: colors.chicago[500],
+          secondary: palette.chicago[500],
           'secondary-content': colors.white,
-          accent: colors.chicago[500],
+          accent: palette.chicago[500],
           'accent-content': colors.white,
-          neutral: colors.chicago[500],
+          neutral: palette.chicago[500],
           'neutral-content': colors.white,
           'base-100': colors.white,
-          'base-200': colors.chicago[50],
-          'base-300': colors.chicago[100],
-          'base-content': colors.chicago[700],
+          'base-200': palette.chicago[50],
+          'base-300': palette.chicago[100],
+          'base-content': palette.chicago[700],
           info: colors.blue[500],
           success: colors.green[500],
           warning: colors.yellow[500],
@@ -121,6 +131,7 @@ module.exports = {
         },
       },
     ],
+    logs: false,
     darkTheme: 'light',
   },
 }

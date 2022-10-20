@@ -1,33 +1,40 @@
 {
-  "[ignore]": {
-    "editor.defaultFormatter": null
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "[properties]": {
-    "editor.defaultFormatter": null
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[tailwindcss]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[yaml]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "css.validate": false,
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.insertSpaces": true,
   "editor.quickSuggestions": {
     "strings": true
   },
   "editor.rulers": [80],
   "editor.tabSize": 2,
-  "explorer.sortOrderLexicographicOptions": "unicode",
   "files.associations": {
     "*.css": "tailwindcss"
   },
-  "javascript.format.enable": false,
   "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": false,
-  "javascript.preferences.quoteStyle": "single",
-  "javascript.preferences.useAliasesForRenames": true,
-  "javascript.suggestionActions.enabled": false,
-  "typescript.disableAutomaticTypeAcquisition": true,
-  "typescript.format.enable": false,
+  "js/ts.implicitProjectConfig.checkJs": true,
   "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": false,
-  "typescript.preferences.jsxAttributeCompletionStyle": "none",
-  "typescript.preferences.quoteStyle": "single",
-  "typescript.preferences.useAliasesForRenames": true,
-  "typescript.tsc.autoDetect": "off",
   "typescript.tsdk": "./node_modules/typescript/lib"
 }

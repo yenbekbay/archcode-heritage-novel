@@ -12,7 +12,7 @@ import {
   transition1Mp3,
   transition2ShortMp3,
 } from 'assets/game'
-import {Branch, Say, Scene} from 'lib/game-engine'
+import {Branch, Say, Scene} from 'react-visual-novel'
 import {LINKS} from '../links'
 import {SCENE_AUDIO} from '../sounds'
 
@@ -40,7 +40,8 @@ export function BranchDeveloper_ProjAsk() {
             objectFit: 'cover',
             transform: 'scale(2.25) translateX(-15px)',
           },
-        }}>
+        }}
+      >
         {`
           Новости:
 
@@ -52,7 +53,8 @@ export function BranchDeveloper_ProjAsk() {
 
       <Say
         image={{uri: angryCrowd1Png.src, align: 'bottom'}}
-        audio={SCENE_AUDIO.chatter}>
+        audio={SCENE_AUDIO.chatter}
+      >
         Общественность возмущена
       </Say>
 
@@ -67,20 +69,23 @@ export function BranchDeveloper_ProjAsk() {
 
       <Say
         tag={{text: 'Менеджер проекта:', color: '#A57B55'}}
-        image={{uri: developerRepAPng.src, align: 'bottom'}}>
+        image={{uri: developerRepAPng.src, align: 'bottom'}}
+      >
         —Нам необходимо взвесить все “за” и “против”
       </Say>
 
       <Say
         tag={{text: 'Архитектор:', color: '#B4AE68CC'}}
-        image={{uri: architectPng.src, align: 'bottom'}}>
+        image={{uri: architectPng.src, align: 'bottom'}}
+      >
         —Первое, что нам надо выяснить — это является ли АСК памятником
       </Say>
 
       <Say
         tag={{text: 'Бот-билдер:', color: '#53C7D5'}}
         image={{uri: botBuilderPng.src, align: 'bottom'}}
-        audio={{onEntrance: hologramMp3}}>
+        audio={{onEntrance: hologramMp3}}
+      >
         {`
           Ознакомьтесь со списком
 
@@ -103,7 +108,8 @@ export function BranchDeveloper_ProjAsk() {
             label: 'Нет',
             onClick: (ctx) => ctx.goToNextStatement(),
           },
-        ]}>
+        ]}
+      >
         Является ли здание АСК памятником историко-культурного наследия?
       </Say>
 
@@ -116,7 +122,8 @@ export function BranchDeveloper_ProjAsk() {
       <Say
         tag={{text: 'Бот-билдер:', color: '#53C7D5'}}
         image={{uri: botBuilderPng.src, align: 'bottom'}}
-        audio={{onEntrance: hologramMp3}}>
+        audio={{onEntrance: hologramMp3}}
+      >
         Аким Байбек подал заявку на внесение ряда зданий Аталмы в число
         памятников историко- культурного наследия местного значения
       </Say>
@@ -124,7 +131,8 @@ export function BranchDeveloper_ProjAsk() {
       <Say
         tag={{text: 'Бот-билдер:', color: '#53C7D5'}}
         image={{uri: botBuilderPng.src, align: 'bottom'}}
-        audio={{onEntrance: hologramMp3}}>
+        audio={{onEntrance: hologramMp3}}
+      >
         {`
           На АСК распространяются те же правила, что и на действующие памятники
 
@@ -134,7 +142,8 @@ export function BranchDeveloper_ProjAsk() {
 
       <Say
         tag={{text: 'Архитектор:', color: '#B4AE68CC'}}
-        image={{uri: architectPng.src, align: 'bottom'}}>
+        image={{uri: architectPng.src, align: 'bottom'}}
+      >
         {`
           —У нас есть два варианта:
 
@@ -154,7 +163,8 @@ export function BranchDeveloper_ProjAsk() {
             label: 'Сохранить старое здание',
             onClick: (ctx) => ctx.goToBranch('Developer_ProjAsk_Preserve'),
           },
-        ]}>
+        ]}
+      >
         Что делать?
       </Say>
     </Branch>

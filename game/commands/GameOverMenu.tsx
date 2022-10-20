@@ -1,8 +1,8 @@
-import {useRouter} from 'next/router'
+import {logoArchcodePng, logoNonmuseumPng, logoSorosPng} from 'assets/game'
 import {motion} from 'framer-motion'
 import Image from 'next/future/image'
-import {logoArchcodePng, logoNonmuseumPng, logoSorosPng} from 'assets/game'
-import {Command, MenuView} from 'lib/game-engine'
+import {useRouter} from 'next/router'
+import {Command, MenuView} from 'react-visual-novel'
 
 export function GameOverMenu() {
   const router = useRouter()
@@ -31,9 +31,8 @@ export function GameOverMenu() {
             ]}
           />
 
-          <div className="absolute left-8 right-8 bottom-20 flex flex-col items-center">
+          <div className="absolute inset-x-8 bottom-20 flex flex-col items-center">
             <motion.div
-              className="GameEngine-surface flex flex-row justify-center space-x-3 rounded-md p-4"
               variants={{
                 initial: {opacity: 0},
                 entrance: {
@@ -46,40 +45,45 @@ export function GameOverMenu() {
                 },
               }}
               initial="initial"
-              animate={controls}>
+              animate={controls}
+              className="rvn-surface flex flex-row justify-center space-x-3 rounded-md p-4"
+            >
               <a
-                className="flex-shrink-0"
                 href="https://archcode.kz/journal/view?category=article&sefname=otkrytie-prostranstva"
                 target="_blank"
-                rel="noopener noreferrer">
+                rel="noopener noreferrer"
+                className="shrink-0"
+              >
                 <Image
-                  className="max-h-[4rem] w-auto"
                   src={logoNonmuseumPng}
                   alt="Логотип «Немузей Архитектуры»"
+                  className="max-h-[4rem] w-auto"
                 />
               </a>
 
               <a
-                className="flex-shrink-0"
                 href="https://archcode.kz/"
                 target="_blank"
-                rel="noopener noreferrer">
+                rel="noopener noreferrer"
+                className="shrink-0"
+              >
                 <Image
-                  className="max-h-[4rem] w-auto"
                   src={logoArchcodePng}
                   alt="Логотип «Архкод Алматы»"
+                  className="max-h-[4rem] w-auto"
                 />
               </a>
 
               <a
-                className="flex-shrink-0"
                 href="https://soros.kz"
                 target="_blank"
-                rel="noopener noreferrer">
+                rel="noopener noreferrer"
+                className="shrink-0"
+              >
                 <Image
-                  className="max-h-[4rem] w-auto"
                   src={logoSorosPng}
                   alt="Логотип «Фонд Cорос-Казахстан»"
+                  className="max-h-[4rem] w-auto"
                 />
               </a>
             </motion.div>

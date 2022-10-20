@@ -1,7 +1,3 @@
-import Image from 'next/future/image'
-import type {StaticImageData} from 'next/image'
-import React from 'react'
-import {twMerge} from 'tailwind-merge'
 import {bgMapJpg} from 'assets/game'
 import {
   paperRipPng,
@@ -16,6 +12,10 @@ import {
   teamPhotoJpg,
 } from 'assets/www'
 import {Hero, HeroBackground, Layout, RoughCard} from 'components'
+import Image from 'next/future/image'
+import type {StaticImageData} from 'next/image'
+import React from 'react'
+import {twMerge} from 'tailwind-merge'
 
 export default function AboutUs() {
   return (
@@ -23,19 +23,19 @@ export default function AboutUs() {
       <main>
         <HeroBackground
           src={teamPhotoJpg}
+          speed={-4}
           className="bg-cover bg-[position:center_top] bg-no-repeat md:bg-[position:center_top_-3rem] lg:bg-[position:center_top_-6rem]"
           containerClassName="max-h-[20rem] md:max-h-[40rem] lg:max-h-[60rem]"
-          speed={-4}
         />
 
         <div className="relative z-10">
           <Hero className="md:pt-48 lg:pt-96" title="Команда" />
 
           <Image
-            className="absolute bottom-0 h-auto w-full translate-y-[54%]"
             src={paperRipPng}
             alt=""
             priority
+            className="absolute bottom-0 h-auto w-full translate-y-[54%]"
           />
         </div>
 
@@ -202,12 +202,13 @@ function TeamMemberCard({
     <RoughCard>
       <div className="grid grid-flow-row gap-4 md:grid-flow-col">
         <Image
+          src={photoSrc}
+          // eslint-disable-next-line @typescript-eslint/no-base-to-string
+          alt={`Фотография: ${name}`}
           className={twMerge(
             'my-0 min-w-[6rem]',
             align === 'right' && 'md:order-2 lg:order-none',
           )}
-          src={photoSrc}
-          alt={`Фотография: ${name}`}
         />
 
         <div>

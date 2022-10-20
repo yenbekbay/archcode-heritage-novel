@@ -5,13 +5,14 @@ import {
   bgCityHallSignJpg,
   bgDeveloperHqInsideJpg,
   bgDeveloperHqOutsideJpg,
-  developerRepB10Png,
   developerRepB6Png,
+  developerRepB10Png,
   transition1Mp3,
   transition2ShortMp3,
   transition3ShortMp3,
 } from 'assets/game'
-import {Branch, Say, Scene} from 'lib/game-engine'
+import type {BranchId} from 'react-visual-novel'
+import {Branch, Say, Scene} from 'react-visual-novel'
 import {SCENE_AUDIO} from '../sounds'
 
 export function BranchDeveloper_ProjAirport_Demolish_IgnoreRisks() {
@@ -31,7 +32,8 @@ export function BranchDeveloper_ProjAirport_Demolish_IgnoreRisks() {
 
       <Say
         tag={{text: 'Архитектор:', color: '#B4AE68CC'}}
-        image={{uri: architectPng.src, align: 'bottom'}}>
+        image={{uri: architectPng.src, align: 'bottom'}}
+      >
         —Проект сноса готов!
       </Say>
 
@@ -63,11 +65,13 @@ export function BranchDeveloper_ProjAirport_Demolish_IgnoreRisks() {
                 'Developer_ProjAirport_Demolish_IgnoreRisks_Rejected',
               ]
               ctx.goToBranch(
-                options[Math.floor(Math.random() * options.length)],
+                // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+                options[Math.floor(Math.random() * options.length)]!,
               )
             },
           },
-        ]}>
+        ]}
+      >
         —Здесь будет большой зал. А здесь большие колонны. И ещё большая
         лестница
       </Say>

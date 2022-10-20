@@ -51,19 +51,20 @@ function LinkCardView({
   return (
     <CardComponent {...restProps}>
       <a
-        className="no-underline"
         href={url}
         target="_blank"
-        rel="noopener noreferrer">
+        rel="noopener noreferrer"
+        className="no-underline"
+      >
         {image || screenshot ? (
-          // eslint-disable-next-line @next/next/no-img-element
+          // eslint-disable-next-line @next/next/no-img-element, jsx-a11y/alt-text
           <img
-            className="my-0 h-48 w-full object-cover"
             src={
               image && image?.width < 400
                 ? screenshot?.url ?? image?.url
                 : image?.url ?? screenshot?.url
             }
+            className="my-0 h-48 w-full object-cover"
           />
         ) : (
           <div className="h-48 w-full bg-black/20" />
@@ -75,7 +76,8 @@ function LinkCardView({
               md: 'text-xl',
               sm: 'text-base',
             }[size],
-          )}>
+          )}
+        >
           {title ?? url}
         </p>
         {description && (
@@ -86,7 +88,8 @@ function LinkCardView({
                 md: 'text-base',
                 sm: 'text-sm',
               }[size],
-            )}>
+            )}
+          >
             {description}
           </p>
         )}

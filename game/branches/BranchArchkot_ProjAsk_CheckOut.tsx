@@ -6,7 +6,7 @@ import {
   fenceMp3,
   fencePng,
 } from 'assets/game'
-import {Branch, Say, Scene, Show} from 'lib/game-engine'
+import {Branch, Say, Scene, Show} from 'react-visual-novel'
 import {SCENE_AUDIO} from '../sounds'
 
 export function BranchArchkot_ProjAsk_CheckOut() {
@@ -36,7 +36,8 @@ export function BranchArchkot_ProjAsk_CheckOut() {
           align: 'bottom',
           style: {filter: 'drop-shadow(40px 40px 5px rgba(0, 0, 0, .35))'},
         }}
-        zIndex={101}>
+        zIndex={101}
+      >
         Я не усну спокойно, не посмотрев, что за забором
       </Say>
 
@@ -64,7 +65,8 @@ export function BranchArchkot_ProjAsk_CheckOut() {
             onClick: (ctx) =>
               ctx.goToBranch('Archkot_ProjAsk_CheckOut_AssembleTeam'),
           },
-        ]}>
+        ]}
+      >
         Что можно сделать мне, простому АрхКоту?
       </Say>
     </Branch>

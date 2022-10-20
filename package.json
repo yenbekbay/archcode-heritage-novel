@@ -1,9 +1,13 @@
 {
   "name": "archcode-heritage-novel",
+  "version": "0.0.0",
   "private": true,
-  "description": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yenbekbay/archcode-heritage-novel.git"
+  },
   "license": "GPL-3.0",
-  "sideEffects": false,
+  "author": "Ayan Yenbekbay <ayan.yenb@gmail.com>",
   "scripts": {
     "build": "run-s --silent build:*",
     "build:css": "npm run generate:css -- --minify",
@@ -13,10 +17,9 @@
     "dev:next": "next dev",
     "generate:css": "tailwindcss -i ./lib/global.css -o ./__generated__/tailwind.css",
     "generate:supabase": "env-cmd --use-shell 'openapi-typescript \"${SUPABASE_URL}/rest/v1/?apikey=${SUPABASE_ANON_KEY}\" --output __generated__/supabase.ts'",
-    "generate:dep-graph": "depcruise --output-type fdot --collapse '^game/branches/Branch(Activist|Akim|Archkot|Developer)' --exclude '^node_modules' game/MyGame.tsx lib/game-engine > dep-graph.dot",
+    "generate:dep-graph": "depcruise --output-type fdot --collapse '^game/branches/Branch(Activist|Akim|Archkot|Developer)' --exclude '^node_modules' game/MyGame.tsx react-visual-novel > dep-graph.dot",
     "lint": "eslint --ext .js,.ts,.tsx --cache .",
     "preinstall": "npx only-allow pnpm",
-    "postinstall": "patch-package",
     "prepare": "husky install",
     "start": "next start",
     "typecheck": "tsc --project . --noEmit"
@@ -25,67 +28,19 @@
     "**/*.{js,ts,tsx,json,yml,yaml}": "prettier --write",
     "**/*.{js,ts,tsx}": "eslint --fix"
   },
-  "eslintConfig": {
-    "plugins": [
-      "@typescript-eslint",
-      "codegen"
-    ],
-    "extends": [
-      "next/core-web-vitals",
-      "plugin:@typescript-eslint/recommended"
-    ],
-    "rules": {
-      "arrow-body-style": "warn",
-      "object-shorthand": "warn",
-      "prefer-const": "warn",
-      "quotes": [
-        "warn",
-        "single"
-      ],
-      "@typescript-eslint/ban-ts-comment": "off",
-      "@typescript-eslint/consistent-type-assertions": "warn",
-      "@typescript-eslint/consistent-type-imports": "warn",
-      "@typescript-eslint/no-empty-function": "off",
-      "@typescript-eslint/no-explicit-any": "off",
-      "@typescript-eslint/no-extra-semi": "off",
-      "@typescript-eslint/no-non-null-assertion": "off",
-      "@typescript-eslint/no-var-requires": "off",
-      "codegen/codegen": "warn",
-      "import/no-unresolved": "error",
-      "jsx-a11y/alt-text": "off",
-      "react/jsx-curly-brace-presence": "warn",
-      "react/no-unescaped-entities": "off"
-    },
-    "ignorePatterns": [
-      "**/__generated__/**",
-      "**/vendor/**",
-      "/.next/**",
-      "/public/**"
-    ]
-  },
   "dependencies": {
-    "@jsonurl/jsonurl": "1.1.7",
     "@microlink/mql": "0.10.28",
     "@radix-ui/react-dialog": "1.0.2",
-    "@radix-ui/react-popover": "1.0.2",
     "@radix-ui/react-slot": "1.0.1",
-    "@radix-ui/react-use-rect": "1.0.0",
     "@react-hookz/web": "16.0.0",
     "@supabase/supabase-js": "1.35.4",
-    "@supercharge/promise-pool": "2.3.2",
-    "async-preloader": "7.0.0",
     "disqus-react": "1.1.5",
     "embla-carousel": "7.0.3",
     "embla-carousel-react": "7.0.3",
     "embla-carousel-wheel-gestures": "3.0.0",
-    "fontfaceobserver": "2.3.0",
     "framer-motion": "7.6.1",
     "howler": "2.2.3",
-    "intrinsic-scale": "3.0.4",
     "jotai": "1.8.6",
-    "mdast-util-from-markdown": "1.2.0",
-    "micro-observables": "1.7.2",
-    "moize": "6.1.3",
     "next": "12.3.1",
     "next-query-params": "4.0.0",
     "next-seo": "5.6.0",
@@ -94,18 +49,17 @@
     "react-dom": "18.2.0",
     "react-error-boundary": "3.1.4",
     "react-hot-toast": "2.4.0",
-    "react-keyed-flatten-children": "1.3.0",
     "react-merge-refs": "2.0.1",
     "react-rough": "2.3.0",
     "react-scroll-parallax": "3.3.1",
+    "react-visual-novel": "0.1.2",
     "react-zorm": "0.6.1",
     "remeda": "1.1.0",
     "rough-notation": "0.5.1",
     "roughjs": "4.5.2",
-    "string-dedent": "3.0.1",
     "swr": "1.3.0",
     "tailwind-merge": "1.6.2",
-    "use-long-press": "2.0.2",
+    "use-font-face-observer": "1.2.1",
     "use-query-params": "2.1.1",
     "zod": "3.19.1",
     "zzfx": "1.1.8"
@@ -114,36 +68,50 @@
     "@tailwindcss/forms": "0.5.3",
     "@tailwindcss/typography": "0.5.7",
     "@trivago/prettier-plugin-sort-imports": "3.3.1",
-    "@types/fontfaceobserver": "2.1.0",
+    "@tsconfig/strictest": "1.0.2",
     "@types/howler": "2.2.7",
-    "@types/intrinsic-scale": "3.0.0",
-    "@types/mdast": "3.0.10",
+    "@types/node": "16.11.12",
     "@types/prettier": "2.7.1",
     "@types/react": "18.0.21",
     "@types/react-dom": "18.0.6",
     "@typescript-eslint/eslint-plugin": "5.40.1",
-    "@typescript-eslint/parser": "^5.40.1",
-    "autoprefixer": "10.4.12",
-    "csstype": "3.1.1",
+    "@typescript-eslint/parser": "5.40.1",
+    "autoprefixer": "*",
+    "csstype": "*",
     "daisyui": "2.31.0",
-    "dependency-cruiser": "11.17.0",
     "env-cmd": "10.1.0",
     "eslint": "8.25.0",
     "eslint-config-next": "12.3.1",
     "eslint-plugin-codegen": "0.16.1",
+    "eslint-plugin-eslint-comments": "3.2.0",
+    "eslint-plugin-promise": "6.1.1",
+    "eslint-plugin-tailwindcss": "3.6.2",
     "husky": "8.0.1",
     "lint-staged": "13.0.3",
     "next-transpile-modules": "9.1.0",
     "npm-run-all": "4.1.5",
     "openapi-typescript": "5.4.1",
-    "patch-package": "6.4.7",
-    "postcss": "8.4.18",
+    "postcss": "*",
     "prettier": "2.7.1",
     "prettier-plugin-packagejson": "2.3.0",
-    "prettier-plugin-tailwindcss": "0.1.13",
     "tailwindcss": "3.1.8",
     "tailwindcss-radix": "2.6.1",
     "tailwindcss-scrims": "1.0.0",
     "typescript": "4.8.4"
+  },
+  "engines": {
+    "node": "16",
+    "pnpm": "7"
+  },
+  "pnpm": {
+    "patchedDependencies": {
+      "eslint-plugin-codegen@0.16.1": "patches/eslint-plugin-codegen@0.16.1.patch"
+    },
+    "peerDependencyRules": {
+      "allowedVersions": {
+        "react": "18.2.0",
+        "react-dom": "18.2.0"
+      }
+    }
   }
 }

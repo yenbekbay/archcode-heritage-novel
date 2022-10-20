@@ -4,7 +4,7 @@ import {
   mayor4Png,
   portalPaperPng,
 } from 'assets/game'
-import {Branch, Say, Scene, Show} from 'lib/game-engine'
+import {Branch, Say, Scene, Show} from 'react-visual-novel'
 import {SCENE_AUDIO} from '../sounds'
 
 export function BranchAkim_ProjAirport() {
@@ -34,7 +34,8 @@ export function BranchAkim_ProjAirport() {
             label: 'Одобрить',
             onClick: (ctx) => ctx.goToBranch('Akim_ProjAirport_Approve'),
           },
-        ]}>
+        ]}
+      >
         и так, согласование переноса…
       </Say>
     </Branch>

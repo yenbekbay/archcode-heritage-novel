@@ -1,4 +1,3 @@
-import React from 'react'
 import {
   angryCrowd1Png,
   bgCityHallConferenceRoomJpg,
@@ -6,10 +5,10 @@ import {
   bgDeveloperHqOutsideJpg,
   bgZheltoksanBeforeJpg,
   developerRepAPng,
-  developerRepB10Png,
   developerRepB1Png,
   developerRepB5Png,
   developerRepB7Png,
+  developerRepB10Png,
   letterPng,
   mayor7Png,
   redhead12Png,
@@ -17,7 +16,8 @@ import {
   stampApprovedPng,
   transition1Mp3,
 } from 'assets/game'
-import {Branch, Menu, Say, Scene, Show} from 'lib/game-engine'
+import React from 'react'
+import {Branch, Menu, Say, Scene, Show} from 'react-visual-novel'
 import {SCENE_AUDIO} from '../sounds'
 
 export function BranchDeveloper_ProjZheltoksan_Demolish_IgnoreRisks_Approved() {
@@ -55,7 +55,8 @@ export function BranchDeveloper_ProjZheltoksan_Demolish_IgnoreRisks_Approved() {
 
       <Say
         tag={{text: 'Аким:', color: '#687065'}}
-        image={{uri: mayor7Png.src, align: 'bottom', style: {bottom: '-12%'}}}>
+        image={{uri: mayor7Png.src, align: 'bottom', style: {bottom: '-12%'}}}
+      >
         —Я согласен с вашими решениями. Можете начинать стройку
       </Say>
 
@@ -63,7 +64,8 @@ export function BranchDeveloper_ProjZheltoksan_Demolish_IgnoreRisks_Approved() {
 
       <Say
         image={{uri: angryCrowd1Png.src, align: 'bottom'}}
-        audio={SCENE_AUDIO.chatter}>
+        audio={SCENE_AUDIO.chatter}
+      >
         Общественность возмущена
       </Say>
 
@@ -80,7 +82,8 @@ export function BranchDeveloper_ProjZheltoksan_Demolish_IgnoreRisks_Approved() {
             label: 'Провести общественные слушаниям',
             onClick: (ctx) => ctx.goToNextStatement(1),
           },
-        ]}>
+        ]}
+      >
         Вечно всем надо совать свой нос в чужое дело… Что с этим делать?
       </Say>
 
@@ -100,7 +103,8 @@ export function BranchDeveloper_ProjZheltoksan_Demolish_IgnoreRisks_Approved() {
 
       <Say
         tag={{text: 'Менеджер проекта:', color: '#A57B55'}}
-        image={{uri: developerRepAPng.src, align: 'bottom'}}>
+        image={{uri: developerRepAPng.src, align: 'bottom'}}
+      >
         —Добрый день, Мы — представители Bay Shatyr Group
       </Say>
 
@@ -112,7 +116,8 @@ export function BranchDeveloper_ProjZheltoksan_Demolish_IgnoreRisks_Approved() {
 
       <Say
         tag={{text: 'Активистка:', color: '#C2653A'}}
-        image={{uri: redhead13Png.src, align: 'bottom'}}>
+        image={{uri: redhead13Png.src, align: 'bottom'}}
+      >
         —Но ведь это создаёт огромную нагрузку на транспортную инфраструктуру и
         не только…
       </Say>
@@ -134,13 +139,15 @@ export function BranchDeveloper_ProjZheltoksan_Demolish_IgnoreRisks_Approved() {
               ctx.goToNextStatement()
             },
           },
-        ]}>
+        ]}
+      >
         Что ответить?
       </Say>
 
       <Say
         tag={{text: 'Активистка:', color: '#C2653A'}}
-        image={{uri: redhead12Png.src, align: 'bottom'}}>
+        image={{uri: redhead12Png.src, align: 'bottom'}}
+      >
         —Судя по всему, предполагается вырубка всех существующих на территории
         здания деревьев???
       </Say>
@@ -162,13 +169,15 @@ export function BranchDeveloper_ProjZheltoksan_Demolish_IgnoreRisks_Approved() {
               ctx.goToNextStatement()
             },
           },
-        ]}>
+        ]}
+      >
         Что ответить?
       </Say>
 
       <Say
         tag={{text: 'Активистка:', color: '#C2653A'}}
-        image={{uri: redhead12Png.src, align: 'bottom'}}>
+        image={{uri: redhead12Png.src, align: 'bottom'}}
+      >
         —А в целом то, здание, хоть и не является официально памятником, но это
         история города! Его непременно нужно сохранить!!!
       </Say>
@@ -190,7 +199,8 @@ export function BranchDeveloper_ProjZheltoksan_Demolish_IgnoreRisks_Approved() {
               ctx.goToNextStatement()
             },
           },
-        ]}>
+        ]}
+      >
         Что ответить?
       </Say>
 

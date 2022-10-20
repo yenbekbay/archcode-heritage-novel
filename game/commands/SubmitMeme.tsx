@@ -1,28 +1,29 @@
 import {useLocalStorageValue} from '@react-hookz/web'
+import type {definitions} from 'api'
+import {getSupabase} from 'api'
 import {motion} from 'framer-motion'
+import {Spinner} from 'lib/components'
 import {X as XIcon} from 'phosphor-react'
 import React from 'react'
 import toast from 'react-hot-toast'
-import {useZorm} from 'react-zorm'
-import type {Fetcher} from 'swr'
-import useSWR from 'swr'
-import {twMerge} from 'tailwind-merge'
-import {z} from 'zod'
-import type {definitions} from 'api'
-import {getSupabase} from 'api'
-import {Spinner} from 'lib/components'
 import type {
+  BranchId,
   CommandViewColorScheme,
   Frame,
   ImageViewProps,
-} from 'lib/game-engine'
+} from 'react-visual-novel'
 import {
   Command,
   ImageView,
   styleForFrame,
   useBranchContext,
   useGameContext,
-} from 'lib/game-engine'
+} from 'react-visual-novel'
+import {useZorm} from 'react-zorm'
+import type {Fetcher} from 'swr'
+import useSWR from 'swr'
+import {twMerge} from 'tailwind-merge'
+import {z} from 'zod'
 
 export interface SubmitMemeProps {
   onDone: (ctx: {
@@ -47,8 +48,8 @@ export function SubmitMeme({onDone, frame, scheme, image}: SubmitMemeProps) {
 
           <motion.div
             className={twMerge(
-              'GameEngine-text absolute flex flex-col',
-              scheme === 'dark' && 'GameEngine-text--dark',
+              'rvn-text absolute flex flex-col',
+              scheme === 'dark' && 'rvn-text--dark',
               !frame && 'inset-0 p-8 py-20',
             )}
             style={frame && styleForFrame({containerRect}, frame)}
@@ -64,7 +65,8 @@ export function SubmitMeme({onDone, frame, scheme, image}: SubmitMemeProps) {
               },
             }}
             initial="initial"
-            animate={controls}>
+            animate={controls}
+          >
             <MemeForm
               scheme={scheme}
               onSubmit={async (values) => {
@@ -125,7 +127,6 @@ function MemeForm({onSubmit, onSkip, scheme}: MemeFormProps) {
         <div className="navbar">
           <div className="navbar-start">
             <button
-              className="btn btn-ghost btn-circle bg-base-100 text-xl shadow-md hover:bg-base-200"
               onMouseEnter={() => playSound('mouseover')}
               onClick={() => {
                 playSound('click')
@@ -134,7 +135,9 @@ function MemeForm({onSubmit, onSkip, scheme}: MemeFormProps) {
                 } else {
                   setActiveTemplateId('')
                 }
-              }}>
+              }}
+              className="btn-ghost btn-circle btn bg-base-100 text-xl shadow-md hover:bg-base-200"
+            >
               <XIcon />
             </button>
           </div>
@@ -143,9 +146,9 @@ function MemeForm({onSubmit, onSkip, scheme}: MemeFormProps) {
         <div className="flex flex-1 flex-col space-y-4 overflow-y-auto">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            className="h-auto max-h-64 w-full object-contain"
             src={previewUrl ?? activeTemplate.url}
             aria-label={activeTemplate.name}
+            className="h-auto max-h-64 w-full object-contain"
           />
 
           <span className="text-lg font-semibold">{activeTemplate.name}</span>
@@ -182,10 +185,6 @@ function MemeForm({onSubmit, onSkip, scheme}: MemeFormProps) {
         // eslint-disable-next-line @next/next/no-img-element
         <img
           key={t.id}
-          className={twMerge(
-            'GameEngine-surface h-auto w-full cursor-pointer object-contain',
-            scheme === 'dark' && 'GameEngine-surface--dark',
-          )}
           src={t.url}
           aria-label={t.name}
           tabIndex={-1}
@@ -194,6 +193,10 @@ function MemeForm({onSubmit, onSkip, scheme}: MemeFormProps) {
             playSound('click')
             setActiveTemplateId(t.id)
           }}
+          className={twMerge(
+            'rvn-surface h-auto w-full cursor-pointer object-contain',
+            scheme === 'dark' && 'rvn-surface--dark',
+          )}
         />
       ))}
     </div>
@@ -233,7 +236,8 @@ function MemePreview({url, onSubmit, onSkip, scheme}: MemePreviewProps) {
         className={twMerge(
           'flex flex-col space-y-2',
           submitting && 'pointer-events-none opacity-50',
-        )}>
+        )}
+      >
         <div className="flex flex-col space-y-2">
           <label className="text-sm font-bold" htmlFor="name">
             Ваше имя (необязательно)
@@ -255,27 +259,29 @@ function MemePreview({url, onSubmit, onSkip, scheme}: MemePreviewProps) {
         </div>
 
         <button
-          className={twMerge(
-            'GameEngine-button btn btn-outline font-calligraph',
-            scheme === 'dark' && 'GameEngine-button--dark',
-          )}
           onMouseEnter={() => playSound('mouseover')}
           onClick={() => {
             playSound('click')
             onSkip()
-          }}>
+          }}
+          className={twMerge(
+            'rvn-button btn-outline btn font-script',
+            scheme === 'dark' && 'rvn-button--dark',
+          )}
+        >
           Пропустить
         </button>
 
         <button
           type="submit"
           disabled={zo.validation?.success === false}
-          className={twMerge(
-            'GameEngine-button GameEngine-button--opaque btn btn-outline font-calligraph',
-            scheme === 'dark' && 'GameEngine-button--dark',
-          )}
           onMouseEnter={() => playSound('mouseover')}
-          onClick={() => playSound('click')}>
+          onClick={() => playSound('click')}
+          className={twMerge(
+            'rvn-button rvn-button--opaque btn-outline btn font-script',
+            scheme === 'dark' && 'rvn-button--dark',
+          )}
+        >
           Опубликовать мем
         </button>
 
@@ -327,8 +333,16 @@ function MemeTemplateForm({
       try {
         const formData = new FormData()
         formData.append('template_id', t.id)
-        formData.append('username', process.env.NEXT_PUBLIC_IMGFLIP_USERNAME!)
-        formData.append('password', process.env.NEXT_PUBLIC_IMGFLIP_PASSWORD!)
+        formData.append(
+          'username',
+          // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+          process.env['NEXT_PUBLIC_IMGFLIP_USERNAME']!,
+        )
+        formData.append(
+          'password',
+          // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+          process.env['NEXT_PUBLIC_IMGFLIP_PASSWORD']!,
+        )
         for (const [idx, value] of Object.values(event.data).entries()) {
           formData.append(`boxes[${idx}][text]`, value)
         }
@@ -355,7 +369,8 @@ function MemeTemplateForm({
         className={twMerge(
           'flex flex-col space-y-4',
           submitting && 'pointer-events-none opacity-50',
-        )}>
+        )}
+      >
         {Object.keys(FormSchema.shape).map((name, i) => (
           <div key={i} className="flex flex-col space-y-2">
             <label className="text-sm font-bold" htmlFor={name}>
@@ -365,14 +380,14 @@ function MemeTemplateForm({
             <input
               className={twMerge(
                 'rounded-md focus:border-accent focus:ring-0',
-                zo.errors[name]('border-error'),
+                zo.errors[name]?.('border-error'),
               )}
               id={name}
               name={name}
               type="text"
             />
 
-            {zo.errors[name]((err) => (
+            {zo.errors[name]?.((err) => (
               <span className="text-sm text-error">{err.message}</span>
             ))}
           </div>
@@ -381,12 +396,13 @@ function MemeTemplateForm({
         <button
           type="submit"
           disabled={zo.validation?.success === false}
-          className={twMerge(
-            'GameEngine-button GameEngine-button--opaque btn btn-outline font-calligraph',
-            scheme === 'dark' && 'GameEngine-button--dark',
-          )}
           onMouseEnter={() => playSound('mouseover')}
-          onClick={() => playSound('click')}>
+          onClick={() => playSound('click')}
+          className={twMerge(
+            'rvn-button rvn-button--opaque btn-outline btn font-script',
+            scheme === 'dark' && 'rvn-button--dark',
+          )}
+        >
           Посмотреть
         </button>
       </form>

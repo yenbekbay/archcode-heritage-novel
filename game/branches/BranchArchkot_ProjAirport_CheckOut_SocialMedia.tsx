@@ -6,7 +6,7 @@ import {
   bgPhoneFingerJpg,
   bgPhoneHandJpg,
 } from 'assets/game'
-import {Branch, Label, Play, Say, Scene} from 'lib/game-engine'
+import {Branch, Label, Play, Say, Scene} from 'react-visual-novel'
 import {GameOverMenu, GameOverTitle, SubmitMeme, SubmitPost} from '../commands'
 import {SCENE_AUDIO} from '../sounds'
 
@@ -38,7 +38,8 @@ export function BranchArchkot_ProjAirport_CheckOut_SocialMedia() {
             label: 'Написать пост о том, как всё плохо',
             onClick: (ctx) => ctx.goToStatement('publish_post'),
           },
-        ]}>
+        ]}
+      >
         Когда-нибудь у народа будут спрашивать, что делать
       </Say>
 
@@ -105,7 +106,8 @@ export function BranchArchkot_ProjAirport_CheckOut_SocialMedia() {
               label: 'Я сделал всё, что было в моих силах',
               onClick: (ctx) => ctx.goToNextStatement(),
             },
-          ]}>
+          ]}
+        >
           Что делать дальше?
         </Say>
       </Label>

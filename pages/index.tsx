@@ -1,7 +1,7 @@
-import Link from 'next/link'
 import {bgIntroJpg} from 'assets/game'
 import {FenceSection, Hero, HeroBackground, Layout, RoughCard} from 'components'
 import {Annotate, Reveal} from 'lib/components'
+import Link from 'next/link'
 
 export default function Home() {
   return (
@@ -24,14 +24,14 @@ export default function Home() {
             </p>
 
             <p>
-              <Link href="/play">
-                <a className="btn-invert btn btn-outline">Играть</a>
+              <Link href="/play" className="btn-invert btn-outline btn">
+                Играть
               </Link>
             </p>
           </Hero>
 
           <Reveal asChild>
-            <div className="prose prose-invert -mt-4 self-end px-4 pb-4">
+            <div className="prose-invert prose -mt-4 self-end px-4 pb-4">
               <p className="text-xs">
                 *Проект стал возможным благодаря помощи американского народа,
                 оказанной через Агентство США по международному развитию

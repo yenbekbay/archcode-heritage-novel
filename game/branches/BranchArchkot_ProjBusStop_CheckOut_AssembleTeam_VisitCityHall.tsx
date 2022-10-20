@@ -1,6 +1,6 @@
 import {
-  archkot13Png,
   archkot4Png,
+  archkot13Png,
   archtok3Png,
   bgArchcodeOfficeJpg,
   bgCityHallOutsideJpg,
@@ -11,7 +11,7 @@ import {
   transition1Mp3,
   transition2ShortMp3,
 } from 'assets/game'
-import {Branch, Menu, Say, Scene} from 'lib/game-engine'
+import {Branch, Menu, Say, Scene} from 'react-visual-novel'
 import {SCENE_AUDIO} from '../sounds'
 
 export function BranchArchkot_ProjBusStop_CheckOut_AssembleTeam_VisitCityHall() {
@@ -32,37 +32,43 @@ export function BranchArchkot_ProjBusStop_CheckOut_AssembleTeam_VisitCityHall() 
 
       <Say
         tag={{text: 'АрхКот:', color: '#B8AE71'}}
-        image={{uri: archkot4Png.src, align: 'bottom'}}>
+        image={{uri: archkot4Png.src, align: 'bottom'}}
+      >
         —Мы составили карту остановок!
       </Say>
 
       <Say
         tag={{text: 'Сотрудник:', color: '#798275'}}
-        image={{uri: monumentDeptStaff3Png.src, align: 'bottom'}}>
+        image={{uri: monumentDeptStaff3Png.src, align: 'bottom'}}
+      >
         —Да да… очень интересно
       </Say>
 
       <Say
         tag={{text: 'АрхКот:', color: '#B8AE71'}}
-        image={{uri: archkot4Png.src, align: 'bottom'}}>
+        image={{uri: archkot4Png.src, align: 'bottom'}}
+      >
         —Мы подготовили меморандум о прекращении демонтажа советских остановок
       </Say>
 
       <Say
         tag={{text: 'Сотрудник:', color: '#798275'}}
-        image={{uri: monumentDeptStaff3Png.src, align: 'bottom'}}>
+        image={{uri: monumentDeptStaff3Png.src, align: 'bottom'}}
+      >
         —Да да… очень интересно
       </Say>
 
       <Say
         tag={{text: 'АрхКот:', color: '#B8AE71'}}
-        image={{uri: archkot13Png.src, align: 'bottom'}}>
+        image={{uri: archkot13Png.src, align: 'bottom'}}
+      >
         —Сохраним остановки?!
       </Say>
 
       <Say
         tag={{text: 'Сотрудник:', color: '#798275'}}
-        image={{uri: monumentDeptStaff4Png.src, align: 'bottom'}}>
+        image={{uri: monumentDeptStaff4Png.src, align: 'bottom'}}
+      >
         —Да да… очень интересно
       </Say>
 
@@ -71,7 +77,8 @@ export function BranchArchkot_ProjBusStop_CheckOut_AssembleTeam_VisitCityHall() 
       <Say
         tag={{text: 'АрхТок:', color: '#8D8C59'}}
         image={{uri: archtok3Png.src, align: 'bottom'}}
-        hide={1}>
+        hide={1}
+      >
         —Как-то не очень обнадеживает встреча в акимате. Надо действовать самим…
       </Say>
 

@@ -6,7 +6,7 @@ import {
   mayor4Png,
   stampApprovedPng,
 } from 'assets/game'
-import {Branch, Say, Scene, Show} from 'lib/game-engine'
+import {Branch, Say, Scene, Show} from 'react-visual-novel'
 import {SCENE_AUDIO} from '../sounds'
 
 export function BranchAkim_ProjZheltoksan_Approve() {
@@ -45,7 +45,8 @@ export function BranchAkim_ProjZheltoksan_Approve() {
 
       <Say
         image={{uri: angryCrowd1Png.src, align: 'bottom'}}
-        audio={SCENE_AUDIO.chatter}>
+        audio={SCENE_AUDIO.chatter}
+      >
         Общественность возмущена
       </Say>
 
@@ -62,7 +63,8 @@ export function BranchAkim_ProjZheltoksan_Approve() {
             onClick: (ctx) =>
               ctx.goToBranch('Akim_ProjZheltoksan_Approve_Debate'),
           },
-        ]}>
+        ]}
+      >
         Что делать?
       </Say>
     </Branch>

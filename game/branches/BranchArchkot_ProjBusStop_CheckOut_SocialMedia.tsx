@@ -9,7 +9,7 @@ import {
   bgPhoneFingerJpg,
   bgPhoneHandJpg,
 } from 'assets/game'
-import {Branch, Label, Say, Scene} from 'lib/game-engine'
+import {Branch, Label, Say, Scene} from 'react-visual-novel'
 import {GameOverMenu, GameOverTitle, SubmitMeme, SubmitPost} from '../commands'
 import {LINKS} from '../links'
 import {SCENE_AUDIO} from '../sounds'
@@ -42,7 +42,8 @@ export function BranchArchkot_ProjBusStop_CheckOut_SocialMedia() {
             label: 'Написать пост о том, как всё плохо',
             onClick: (ctx) => ctx.goToStatement('publish_post'),
           },
-        ]}>
+        ]}
+      >
         Когда-нибудь у народа будут спрашивать, что делать
       </Say>
 
@@ -109,7 +110,8 @@ export function BranchArchkot_ProjBusStop_CheckOut_SocialMedia() {
               label: 'Я сделал всё, что было в моих силах',
               onClick: (ctx) => ctx.goToNextStatement(),
             },
-          ]}>
+          ]}
+        >
           Что делать дальше?
         </Say>
       </Label>
@@ -129,7 +131,8 @@ export function BranchArchkot_ProjBusStop_CheckOut_SocialMedia() {
 
       <Say
         tag={{text: 'АрхБот:', color: '#65506D'}}
-        image={{uri: archbot1Png.src, align: 'bottom'}}>
+        image={{uri: archbot1Png.src, align: 'bottom'}}
+      >
         {`
           —А могло бы быть вот так:
 

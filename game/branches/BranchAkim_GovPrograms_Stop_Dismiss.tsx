@@ -2,11 +2,11 @@ import {
   bgBusStop5Jpg,
   bgBusStop6Jpg,
   bgCityHallConferenceRoomJpg,
-  mayor15Png,
   mayor3Png,
   mayor9Png,
+  mayor15Png,
 } from 'assets/game'
-import {Branch, Say, Scene} from 'lib/game-engine'
+import {Branch, Say, Scene} from 'react-visual-novel'
 import {GameOverMenu, GameOverTitle} from '../commands'
 import {SCENE_AUDIO} from '../sounds'
 

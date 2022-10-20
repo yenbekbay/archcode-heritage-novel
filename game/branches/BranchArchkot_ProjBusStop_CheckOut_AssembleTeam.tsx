@@ -1,13 +1,13 @@
 import {
   archbot1Png,
-  archkot10Png,
-  archkot11Png,
-  archkot12Png,
-  archkot13Png,
   archkot1Png,
   archkot2Png,
   archkot3Png,
   archkot8Png,
+  archkot10Png,
+  archkot11Png,
+  archkot12Png,
+  archkot13Png,
   archtok1Png,
   archtok2Png,
   bgArchcodeOfficeJpg,
@@ -15,7 +15,7 @@ import {
   bgBusStop2Jpg,
   bgPhoneHandJpg,
 } from 'assets/game'
-import {Branch, Say, Scene} from 'lib/game-engine'
+import {Branch, Say, Scene} from 'react-visual-novel'
 import {LINKS} from '../links'
 import {SCENE_AUDIO} from '../sounds'
 
@@ -47,7 +47,8 @@ export function BranchArchkot_ProjBusStop_CheckOut_AssembleTeam() {
             objectFit: 'cover',
             transform: 'scale(2.25) translateX(-15px)',
           },
-        }}>
+        }}
+      >
         Команда Архкод: срочно собираемся в офисе
       </Say>
 
@@ -55,27 +56,31 @@ export function BranchArchkot_ProjBusStop_CheckOut_AssembleTeam() {
 
       <Say
         tag={{text: 'АрхКот:', color: '#B8AE71'}}
-        image={{uri: archkot13Png.src, align: 'bottom'}}>
+        image={{uri: archkot13Png.src, align: 'bottom'}}
+      >
         —Коллеги, экстренное дело! Разбирают остановку «Казмеханобр». Нужно это
         остановить!
       </Say>
 
       <Say
         tag={{text: 'АрхКот:', color: '#B8AE71'}}
-        image={{uri: archtok1Png.src, align: 'bottom'}}>
+        image={{uri: archtok1Png.src, align: 'bottom'}}
+      >
         —Первое, что необходимо выяснить — это является ли здание памятником
         историко-культурного наследия
       </Say>
 
       <Say
         tag={{text: 'АрхБот:', color: '#65506D'}}
-        image={{uri: archbot1Png.src, align: 'bottom'}}>
+        image={{uri: archbot1Png.src, align: 'bottom'}}
+      >
         —Загляните в ГОСУДАРСТВЕННЫЙ РЕЕСТР ПАМЯТНИКОВ
       </Say>
 
       <Say
         tag={{text: 'АрхБот:', color: '#65506D'}}
-        image={{uri: archbot1Png.src, align: 'bottom'}}>
+        image={{uri: archbot1Png.src, align: 'bottom'}}
+      >
         {`
           —Там можно поискать нужное нам здание.
 
@@ -97,7 +102,8 @@ export function BranchArchkot_ProjBusStop_CheckOut_AssembleTeam() {
             label: 'Нет',
             onClick: (ctx) => ctx.goToNextStatement(2),
           },
-        ]}>
+        ]}
+      >
         Является ли остановка «Казмеханобр» памятником?
       </Say>
 
@@ -112,7 +118,8 @@ export function BranchArchkot_ProjBusStop_CheckOut_AssembleTeam() {
         image={{
           uri: archkot10Png.src,
           style: {height: '100%', width: '100%', objectFit: 'cover'},
-        }}>
+        }}
+      >
         —ЭТО НЕ ПАМЯТНИК!!!
       </Say>
 
@@ -128,19 +135,22 @@ export function BranchArchkot_ProjBusStop_CheckOut_AssembleTeam() {
             label: 'Что ещё можно сделать?',
             onClick: (ctx) => ctx.goToNextStatement(),
           },
-        ]}>
+        ]}
+      >
         Что делать?
       </Say>
 
       <Say
         tag={{text: 'АрхТок:', color: '#8D8C59'}}
-        image={{uri: archtok1Png.src, align: 'bottom'}}>
+        image={{uri: archtok1Png.src, align: 'bottom'}}
+      >
         —Как можно быстрей вязаться с ответственными за демонтаж!
       </Say>
 
       <Say
         tag={{text: 'АрхБот:', color: '#65506D'}}
-        image={{uri: archbot1Png.src, align: 'bottom'}}>
+        image={{uri: archbot1Png.src, align: 'bottom'}}
+      >
         {`
           —Напишем статью для привлечения внимания!
 
@@ -150,13 +160,15 @@ export function BranchArchkot_ProjBusStop_CheckOut_AssembleTeam() {
 
       <Say
         tag={{text: 'АрхТок:', color: '#8D8C59'}}
-        image={{uri: archtok2Png.src, align: 'bottom'}}>
+        image={{uri: archtok2Png.src, align: 'bottom'}}
+      >
         —Мы должны действовать реактивно! Нельзя дать им уничтожить остановку…
       </Say>
 
       <Say
         tag={{text: 'АрхБот:', color: '#65506D'}}
-        image={{uri: archbot1Png.src, align: 'bottom'}}>
+        image={{uri: archbot1Png.src, align: 'bottom'}}
+      >
         —Возможно придеться ехать на место, чтобы требовать остановить демонтаж!
       </Say>
 
@@ -174,7 +186,8 @@ export function BranchArchkot_ProjBusStop_CheckOut_AssembleTeam() {
 
       <Say
         tag={{text: 'АрхКот:', color: '#B8AE71'}}
-        image={{uri: archkot3Png.src, align: 'bottom'}}>
+        image={{uri: archkot3Png.src, align: 'bottom'}}
+      >
         —Но остановка в ужасном виде. Необходимо ее реставрировать
       </Say>
 
@@ -198,13 +211,15 @@ export function BranchArchkot_ProjBusStop_CheckOut_AssembleTeam() {
             label: 'Надо довести всё до конца',
             onClick: (ctx) => ctx.goToNextStatement(),
           },
-        ]}>
+        ]}
+      >
         Что делать теперь?
       </Say>
 
       <Say
         tag={{text: 'АрхКот:', color: '#B8AE71'}}
-        image={{uri: archkot2Png.src, align: 'bottom'}}>
+        image={{uri: archkot2Png.src, align: 'bottom'}}
+      >
         {`
           —Надо довести дело до конца, ведь в городе ещё много уникальнейших остановок, которым грозит опасность
 
@@ -214,7 +229,8 @@ export function BranchArchkot_ProjBusStop_CheckOut_AssembleTeam() {
 
       <Say
         tag={{text: 'АрхКот:', color: '#B8AE71'}}
-        image={{uri: archkot12Png.src, align: 'bottom'}}>
+        image={{uri: archkot12Png.src, align: 'bottom'}}
+      >
         —Потрясающе! Чего только нет у нас в городе! Эти остановки необходимо
         внести в реестр памятников историкокультурного наследия!
       </Say>
@@ -236,7 +252,8 @@ export function BranchArchkot_ProjBusStop_CheckOut_AssembleTeam() {
                 'Archkot_ProjBusStop_CheckOut_AssembleTeam_Submit',
               ),
           },
-        ]}>
+        ]}
+      >
         Что делать?
       </Say>
     </Branch>

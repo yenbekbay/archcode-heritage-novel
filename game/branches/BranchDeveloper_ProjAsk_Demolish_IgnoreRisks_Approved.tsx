@@ -18,7 +18,7 @@ import {
   tinaShtunerPng,
   transition1Mp3,
 } from 'assets/game'
-import {Branch, Say, Scene, Show} from 'lib/game-engine'
+import {Branch, Say, Scene, Show} from 'react-visual-novel'
 import {SCENE_AUDIO} from '../sounds'
 
 export function BranchDeveloper_ProjAsk_Demolish_IgnoreRisks_Approved() {
@@ -55,7 +55,8 @@ export function BranchDeveloper_ProjAsk_Demolish_IgnoreRisks_Approved() {
 
       <Say
         tag={{text: 'Аким:', color: '#687065'}}
-        image={{uri: mayor7Png.src, align: 'bottom', style: {bottom: '-12%'}}}>
+        image={{uri: mayor7Png.src, align: 'bottom', style: {bottom: '-12%'}}}
+      >
         —Я согласен с вашими решениями. Можете начинать стройку
       </Say>
 
@@ -63,7 +64,8 @@ export function BranchDeveloper_ProjAsk_Demolish_IgnoreRisks_Approved() {
 
       <Say
         image={{uri: angryCrowd1Png.src, align: 'bottom'}}
-        audio={SCENE_AUDIO.chatter}>
+        audio={SCENE_AUDIO.chatter}
+      >
         Общественность возмущена
       </Say>
 
@@ -80,7 +82,8 @@ export function BranchDeveloper_ProjAsk_Demolish_IgnoreRisks_Approved() {
             label: 'Провести общественные слушаниям',
             onClick: (ctx) => ctx.goToNextStatement(1),
           },
-        ]}>
+        ]}
+      >
         Вечно всем надо совать свой нос в чужое дело… Что с этим делать?
       </Say>
 
@@ -100,7 +103,8 @@ export function BranchDeveloper_ProjAsk_Demolish_IgnoreRisks_Approved() {
 
       <Say
         tag={{text: 'АрхКот:', color: '#B8AE71'}}
-        image={{uri: archkot4Png.src, align: 'bottom'}}>
+        image={{uri: archkot4Png.src, align: 'bottom'}}
+      >
         —Это сейчас практически единственное здание, которое не было изменено
       </Say>
 
@@ -120,34 +124,39 @@ export function BranchDeveloper_ProjAsk_Demolish_IgnoreRisks_Approved() {
 
       <Say
         tag={{text: 'Горжемпо:', color: '#687065'}}
-        image={{uri: gorzhempoPng.src, align: 'bottom'}}>
+        image={{uri: gorzhempoPng.src, align: 'bottom'}}
+      >
         —В начале 80-х годов прошлого века я мечтал о зеркальном стекле,
         которого в СССР не было
       </Say>
 
       <Say
         tag={{text: 'Горжемпо:', color: '#687065'}}
-        image={{uri: gorzhempoPng.src, align: 'bottom'}}>
+        image={{uri: gorzhempoPng.src, align: 'bottom'}}
+      >
         —Из-за дефицита материала в итоге при строительстве было использовано
         дымчатое стекло,
       </Say>
 
       <Say
         tag={{text: 'Горжемпо:', color: '#687065'}}
-        image={{uri: gorzhempoPng.src, align: 'bottom'}}>
+        image={{uri: gorzhempoPng.src, align: 'bottom'}}
+      >
         —и в проекте, судя по рендерам, оно заменяется на зеркальное
       </Say>
 
       <Say
         tag={{text: 'Тина Штунер:', color: '#687065'}}
-        image={{uri: tinaShtunerPng.src, align: 'bottom'}}>
+        image={{uri: tinaShtunerPng.src, align: 'bottom'}}
+      >
         —Это уже исторический памятник, и сделать зеркальные окна — нарушение
         облика, к которому мы привыкли
       </Say>
 
       <Say
         tag={{text: 'Адя Пчелкина:', color: '#687065'}}
-        image={{uri: adyaPchelkinaPng.src, align: 'bottom'}}>
+        image={{uri: adyaPchelkinaPng.src, align: 'bottom'}}
+      >
         —Есть ли у Bay Shatyr Group лицензия на работу с памятниками?
       </Say>
 
@@ -155,7 +164,8 @@ export function BranchDeveloper_ProjAsk_Demolish_IgnoreRisks_Approved() {
 
       <Say
         tag={{text: 'АрхКот:', color: '#B8AE71'}}
-        image={{uri: archkot4Png.src, align: 'bottom'}}>
+        image={{uri: archkot4Png.src, align: 'bottom'}}
+      >
         —Нужен кто-то, кто будет контролировать правильность процесса!
       </Say>
 
@@ -176,7 +186,8 @@ export function BranchDeveloper_ProjAsk_Demolish_IgnoreRisks_Approved() {
                 'Developer_ProjAsk_Demolish_IgnoreRisks_Approved_Ignore',
               ),
           },
-        ]}>
+        ]}
+      >
         Что ответить?
       </Say>
     </Branch>

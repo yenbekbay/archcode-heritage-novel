@@ -5,7 +5,7 @@ import {
   redhead19Png,
   transition2ShortMp3,
 } from 'assets/game'
-import {Branch, Play, Say, Scene} from 'lib/game-engine'
+import {Branch, Play, Say, Scene} from 'react-visual-novel'
 import {GameOverMenu, GameOverTitle} from '../commands'
 import {LINKS} from '../links'
 import {SCENE_AUDIO} from '../sounds'

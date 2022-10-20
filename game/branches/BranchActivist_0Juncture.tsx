@@ -1,5 +1,5 @@
 import {bgMapGif, fenceMp3, fencePng, redhead1Png} from 'assets/game'
-import {Branch, Say, Scene, Show} from 'lib/game-engine'
+import {Branch, Say, Scene, Show} from 'react-visual-novel'
 import {SCENE_AUDIO} from '../sounds'
 
 export function BranchActivist_0Juncture() {
@@ -50,7 +50,8 @@ export function BranchActivist_0Juncture() {
             label: 'Посмотреть',
             onClick: (ctx) => ctx.goToBranch('Activist_CheckOut'),
           },
-        ]}>
+        ]}
+      >
         Это что за забор? И что за ним?
       </Say>
     </Branch>

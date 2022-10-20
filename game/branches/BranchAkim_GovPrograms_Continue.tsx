@@ -4,7 +4,7 @@ import {
   bgCityHallMayorOfficeJpg,
   mayor2Png,
 } from 'assets/game'
-import {Branch, Say, Scene} from 'lib/game-engine'
+import {Branch, Say, Scene} from 'react-visual-novel'
 import {SCENE_AUDIO} from '../sounds'
 
 export function BranchAkim_GovPrograms_Continue() {
@@ -19,7 +19,8 @@ export function BranchAkim_GovPrograms_Continue() {
 
       <Say
         image={{uri: angryCrowd1Png.src, align: 'bottom'}}
-        audio={SCENE_AUDIO.chatter}>
+        audio={SCENE_AUDIO.chatter}
+      >
         За день общественность успевает распространить информацию о демонтаже. В
         акимат пришло несколько писем от активистов с просьбой остановить
         демонтаж остановки
@@ -39,7 +40,8 @@ export function BranchAkim_GovPrograms_Continue() {
             label: 'Остановить демонтаж',
             onClick: (ctx) => ctx.goToBranch('Akim_GovPrograms_Stop'),
           },
-        ]}>
+        ]}
+      >
         Что делать?
       </Say>
     </Branch>

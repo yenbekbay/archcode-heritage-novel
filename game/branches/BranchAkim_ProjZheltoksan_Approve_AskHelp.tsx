@@ -7,7 +7,7 @@ import {
   bgZheltoksanBeforeFenceGif,
   bgZheltoksanBeforeJpg,
 } from 'assets/game'
-import {Branch, Say, Scene} from 'lib/game-engine'
+import {Branch, Say, Scene} from 'react-visual-novel'
 import {GameOverMenu, GameOverTitle} from '../commands'
 import {SCENE_AUDIO} from '../sounds'
 
@@ -25,7 +25,8 @@ export function BranchAkim_ProjZheltoksan_Approve_AskHelp() {
             objectFit: 'cover',
             transform: 'scale(1.5)',
           },
-        }}>
+        }}
+      >
         “Ребята, напишите, что реконструкция крутая”
       </Say>
 
@@ -33,7 +34,8 @@ export function BranchAkim_ProjZheltoksan_Approve_AskHelp() {
 
       <Say
         image={{uri: angryCrowd1Png.src, align: 'bottom'}}
-        audio={SCENE_AUDIO.chatter}>
+        audio={SCENE_AUDIO.chatter}
+      >
         {`
           —Надувательство
 
@@ -43,7 +45,8 @@ export function BranchAkim_ProjZheltoksan_Approve_AskHelp() {
 
       <Say
         image={{uri: angryCrowd2Png.src, align: 'bottom'}}
-        audio={SCENE_AUDIO.chatter}>
+        audio={SCENE_AUDIO.chatter}
+      >
         —Продажные чуваки
       </Say>
 

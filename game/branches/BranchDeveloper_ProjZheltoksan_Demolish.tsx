@@ -5,7 +5,7 @@ import {
   developerRepB9Png,
   hologramMp3,
 } from 'assets/game'
-import {Branch, Say, Scene} from 'lib/game-engine'
+import {Branch, Say, Scene} from 'react-visual-novel'
 import {LINKS} from '../links'
 import {SCENE_AUDIO} from '../sounds'
 
@@ -21,14 +21,16 @@ export function BranchDeveloper_ProjZheltoksan_Demolish() {
 
       <Say
         tag={{text: 'Менеджер проекта:', color: '#A57B55'}}
-        image={{uri: developerRepAPng.src, align: 'bottom'}}>
+        image={{uri: developerRepAPng.src, align: 'bottom'}}
+      >
         —В любом случае, необходимо взвесить риски
       </Say>
 
       <Say
         tag={{text: 'Бот-билдер:', color: '#53C7D5'}}
         image={{uri: botBuilderPng.src, align: 'bottom'}}
-        audio={{onEntrance: hologramMp3}}>
+        audio={{onEntrance: hologramMp3}}
+      >
         {`
           Возможные риски при изменении/сносе Желтоксан 115:
 
@@ -50,7 +52,8 @@ export function BranchDeveloper_ProjZheltoksan_Demolish() {
             onClick: (ctx) =>
               ctx.goToBranch('Developer_ProjZheltoksan_Demolish_IgnoreRisks'),
           },
-        ]}>
+        ]}
+      >
         Что делать?
       </Say>
     </Branch>

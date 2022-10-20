@@ -8,7 +8,7 @@ import {
   transition1Mp3,
   transition2ShortMp3,
 } from 'assets/game'
-import {Branch, Play, Say, Scene} from 'lib/game-engine'
+import {Branch, Play, Say, Scene} from 'react-visual-novel'
 import {GameOverMenu, GameOverTitle} from '../commands'
 import {LINKS} from '../links'
 import {SCENE_AUDIO} from '../sounds'
@@ -44,7 +44,8 @@ export function BranchDeveloper_ProjAirport_Demolish_IgnoreRisks_Approved_Ignore
             objectFit: 'cover',
             transform: 'scale(2.25) translateX(-15px)',
           },
-        }}>
+        }}
+      >
         {`
           e-mail:
 
@@ -59,7 +60,8 @@ export function BranchDeveloper_ProjAirport_Demolish_IgnoreRisks_Approved_Ignore
       <Say
         tag={{text: 'Бот-билдер:', color: '#53C7D5'}}
         image={{uri: botBuilderPng.src, align: 'bottom'}}
-        audio={{onEntrance: hologramMp3}}>
+        audio={{onEntrance: hologramMp3}}
+      >
         {`
           В результате слушаний была собрана рабочая группа по мониторингу проекта от общественности
 

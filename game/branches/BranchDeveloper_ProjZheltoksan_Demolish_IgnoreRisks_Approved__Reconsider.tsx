@@ -9,7 +9,7 @@ import {
   transition1Mp3,
   transition2ShortMp3,
 } from 'assets/game'
-import {Branch, Say, Scene} from 'lib/game-engine'
+import {Branch, Say, Scene} from 'react-visual-novel'
 import {GameOverMenu, GameOverTitle} from '../commands'
 import {LINKS} from '../links'
 import {SCENE_AUDIO} from '../sounds'
@@ -36,14 +36,16 @@ export function BranchDeveloper_ProjZheltoksan_Demolish_IgnoreRisks_Approved__Re
 
       <Say
         tag={{text: 'Архитектор:', color: '#B4AE68CC'}}
-        image={{uri: architectPng.src, align: 'bottom'}}>
+        image={{uri: architectPng.src, align: 'bottom'}}
+      >
         —Будем делать реставрацию объекта
       </Say>
 
       <Say
         tag={{text: 'Бот-билдер:', color: '#53C7D5'}}
         image={{uri: botBuilderPng.src, align: 'bottom'}}
-        audio={{onEntrance: hologramMp3}}>
+        audio={{onEntrance: hologramMp3}}
+      >
         {`
           Нужно подходить к вопросу грамотно. Что такое реставрация?
 

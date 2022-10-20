@@ -1,6 +1,6 @@
 import {Slot} from '@radix-ui/react-slot'
-import React from 'react'
 import {useInView} from 'framer-motion'
+import React from 'react'
 import {mergeRefs} from 'react-merge-refs'
 import {annotate} from 'rough-notation'
 import type {RoughAnnotationConfig} from 'rough-notation/lib/model'

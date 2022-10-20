@@ -1,7 +1,7 @@
 import {useMeasure} from '@react-hookz/web'
+import {bgIntroJpg, calligraphyLogoPng} from 'assets/game'
 import {motion, useAnimation} from 'framer-motion'
 import React from 'react'
-import {bgIntroJpg, calligraphyLogoPng} from 'assets/game'
 import {
   Branch,
   Command,
@@ -10,7 +10,7 @@ import {
   Say,
   Show,
   useBranchContext,
-} from 'lib/game-engine'
+} from 'react-visual-novel'
 import {SCENE_AUDIO} from '../sounds'
 
 export function BranchIntro() {
@@ -112,7 +112,7 @@ function IntroScene() {
       (focusedStatementIndex + 1) / getStatementCount(),
     )
     controls.stop()
-    controls.start({
+    void controls.start({
       y: `calc(${containerRect.height - imgRect.height}px * ${enteredPercent})`,
       transition: {
         duration: INTRO_SCENE_TRANSITION_DURATION_PER_STATEMENT / 1000,
@@ -131,16 +131,17 @@ function IntroScene() {
       <Command
         name="IntroScene"
         behavior={['skippable_timed', {durationMs: 0}]}
-        hide={-1}>
+        hide={-1}
+      >
         {() => null}
       </Command>
 
       <motion.img
         ref={imgRef}
-        className="w-full"
         src={bgIntroJpg.src}
         initial={{y: 0}}
         animate={controls}
+        className="w-full"
       />
     </>
   )

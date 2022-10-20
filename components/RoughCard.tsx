@@ -1,9 +1,9 @@
 import {useMeasure} from '@react-hookz/web'
 import type {HTMLMotionProps} from 'framer-motion'
+import {Reveal} from 'lib/components'
 import React from 'react'
 import ReactRough, {Rectangle} from 'react-rough'
 import {twMerge} from 'tailwind-merge'
-import {Reveal} from 'lib/components'
 
 export interface RoughCardProps extends HTMLMotionProps<'div'> {
   contentClassName?: string
@@ -17,13 +17,15 @@ export const RoughCard = React.forwardRef(function Card(
     <Reveal
       ref={forwardedRef}
       className={twMerge('relative shadow-lg', className)}
-      {...restProps}>
+      {...restProps}
+    >
       <RoughCardBackground />
       <article
         className={twMerge(
           'prose relative z-10 overflow-hidden p-8 font-mono',
           contentClassName,
-        )}>
+        )}
+      >
         {children}
       </article>
     </Reveal>
@@ -33,13 +35,14 @@ export const RoughCard = React.forwardRef(function Card(
 function RoughCardBackground() {
   const [containerRect, containerRef] = useMeasure<HTMLDivElement>()
   return (
-    <div className="absolute inset-0" ref={containerRef}>
+    <div ref={containerRef} className="absolute inset-0">
       {containerRect && (
-        // @ts-ignore
+        // @ts-expect-error
         <ReactRough
           width={containerRect.width}
           height={containerRect.height}
-          renderer="svg">
+          renderer="svg"
+        >
           <Rectangle
             x={0}
             y={0}

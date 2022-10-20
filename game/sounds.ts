@@ -1,4 +1,3 @@
-import {Howl} from 'howler'
 import {
   akimThemeMp3,
   calmLoopMp3,
@@ -16,8 +15,8 @@ import {
   introTailMp3,
   mouseoverMp3,
 } from 'assets/game'
-import type {CommandAudioConfig, SoundName} from 'lib/game-engine'
-import {delay} from 'lib/game-engine/utils'
+import {Howl} from 'howler'
+import type {CommandAudioConfig, SoundName} from 'react-visual-novel'
 
 function makeAudioConfig(config: CommandAudioConfig) {
   return config
@@ -108,19 +107,17 @@ export function playSound(name: SoundName) {
       playAudio(mouseoverMp3)
       break
     case 'skip':
-      playZzfxSound('skip')
+      void playZzfxSound('skip')
       break
     case 'not_allowed':
-      playZzfxSound('not_allowed')
+      void playZzfxSound('not_allowed')
       break
   }
 }
 
 const ZZFX_SOUNDS = {
-  /* eslint-disable no-sparse-arrays */
   skip: [, , 150, 0.05, , 0.05, , 1.3, , , , , , 3],
   not_allowed: [1.5, 0.5, 270, , 0.1, , 1, 1.5, , , , , , , , 0.1, 0.01],
-  /* eslint-enable no-sparse-arrays */
 }
 
 async function playZzfxSound(name: keyof typeof ZZFX_SOUNDS) {
@@ -139,6 +136,10 @@ async function playZzfxSound(name: keyof typeof ZZFX_SOUNDS) {
   })
 }
 
-async function playAudio(src: string) {
+function playAudio(src: string) {
   new Howl({src}).play()
+}
+
+function delay(durationMs: number) {
+  return new Promise((resolve) => setTimeout(resolve, durationMs))
 }

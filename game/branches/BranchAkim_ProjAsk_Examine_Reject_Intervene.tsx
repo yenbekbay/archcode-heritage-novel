@@ -6,7 +6,7 @@ import {
   bgSolidJpg,
   mayor1Png,
 } from 'assets/game'
-import {Branch, Say, Scene} from 'lib/game-engine'
+import {Branch, Say, Scene} from 'react-visual-novel'
 import {GameOverMenu, GameOverTitle} from '../commands'
 import {SCENE_AUDIO} from '../sounds'
 
@@ -17,13 +17,15 @@ export function BranchAkim_ProjAsk_Examine_Reject_Intervene() {
 
       <Say
         tag={{text: 'Работник акимата:', color: '#687065'}}
-        image={{uri: assistant3Png.src, align: 'bottom'}}>
+        image={{uri: assistant3Png.src, align: 'bottom'}}
+      >
         —Мы предоставим группу сотрудников для ведения мониторинга
       </Say>
 
       <Say
         tag={{text: 'Работник акимата:', color: '#687065'}}
-        image={{uri: mayor1Png.src, align: 'bottom'}}>
+        image={{uri: mayor1Png.src, align: 'bottom'}}
+      >
         —Отлично, договоримся о серии встреч с девелопером
       </Say>
 

@@ -1,5 +1,5 @@
 import * as assets from 'assets/game'
-import {usePreloadAssets} from 'lib/game-engine/components/internal'
+import {usePreloadAssets} from 'react-visual-novel'
 
 export interface PreloadMyGameAssetsProps {
   concurrency?: number
