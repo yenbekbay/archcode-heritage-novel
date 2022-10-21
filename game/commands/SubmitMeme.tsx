@@ -1,17 +1,12 @@
 import {useLocalStorageValue} from '@react-hookz/web'
 import type {definitions} from 'api'
 import {getSupabase} from 'api'
+import {Spinner} from 'components'
 import {motion} from 'framer-motion'
-import {Spinner} from 'lib/components'
 import {X as XIcon} from 'phosphor-react'
 import React from 'react'
 import toast from 'react-hot-toast'
-import type {
-  BranchId,
-  CommandViewColorScheme,
-  Frame,
-  ImageViewProps,
-} from 'react-visual-novel'
+import type {BranchId, Frame, ImageViewProps} from 'react-visual-novel'
 import {
   Command,
   ImageView,
@@ -31,12 +26,11 @@ export interface SubmitMemeProps {
     goToStatement: (statementLabel: string) => void
     goToNextStatement: (plusIndex?: number) => void
   }) => void
-  scheme?: CommandViewColorScheme
   frame?: Frame
   image?: string | Omit<ImageViewProps, 'controls'>
 }
 
-export function SubmitMeme({onDone, frame, scheme, image}: SubmitMemeProps) {
+export function SubmitMeme({onDone, frame, image}: SubmitMemeProps) {
   const {goToBranch} = useGameContext()
   const {containerRect, goToStatement, goToNextStatement} = useBranchContext()
   const imageProps = typeof image === 'string' ? {uri: image} : image
@@ -49,7 +43,6 @@ export function SubmitMeme({onDone, frame, scheme, image}: SubmitMemeProps) {
           <motion.div
             className={twMerge(
               'rvn-text absolute flex flex-col',
-              scheme === 'dark' && 'rvn-text--dark',
               !frame && 'inset-0 p-8 py-20',
             )}
             style={frame && styleForFrame({containerRect}, frame)}
@@ -68,7 +61,6 @@ export function SubmitMeme({onDone, frame, scheme, image}: SubmitMemeProps) {
             animate={controls}
           >
             <MemeForm
-              scheme={scheme}
               onSubmit={async (values) => {
                 await getSupabase()
                   .from<definitions['meme_submissions']>('meme_submissions')
@@ -94,10 +86,9 @@ export function SubmitMeme({onDone, frame, scheme, image}: SubmitMemeProps) {
 interface MemeFormProps {
   onSubmit: (values: {url: string; name: string}) => unknown | Promise<unknown>
   onSkip: () => void
-  scheme?: CommandViewColorScheme
 }
 
-function MemeForm({onSubmit, onSkip, scheme}: MemeFormProps) {
+function MemeForm({onSubmit, onSkip}: MemeFormProps) {
   const {playSound} = useGameContext()
   const [activeTemplateId, setActiveTemplateId, resetActiveTemplateId] =
     useLocalStorageValue<string | ''>('@MemeForm/activeTemplateId')
@@ -155,7 +146,6 @@ function MemeForm({onSubmit, onSkip, scheme}: MemeFormProps) {
 
           {previewUrl ? (
             <MemePreview
-              scheme={scheme}
               url={previewUrl}
               onSubmit={async (values) => {
                 await onSubmit(values)
@@ -170,7 +160,6 @@ function MemeForm({onSubmit, onSkip, scheme}: MemeFormProps) {
             />
           ) : (
             <MemeTemplateForm
-              scheme={scheme}
               template={activeTemplate}
               onPreviewUrlChange={setPreviewUrl}
             />
@@ -193,10 +182,7 @@ function MemeForm({onSubmit, onSkip, scheme}: MemeFormProps) {
             playSound('click')
             setActiveTemplateId(t.id)
           }}
-          className={twMerge(
-            'rvn-surface h-auto w-full cursor-pointer object-contain',
-            scheme === 'dark' && 'rvn-surface--dark',
-          )}
+          className="rvn-surface h-auto w-full cursor-pointer object-contain"
         />
       ))}
     </div>
@@ -209,10 +195,9 @@ interface MemePreviewProps {
   url: string
   onSubmit: (values: {url: string; name: string}) => unknown | Promise<unknown>
   onSkip: () => void
-  scheme?: CommandViewColorScheme
 }
 
-function MemePreview({url, onSubmit, onSkip, scheme}: MemePreviewProps) {
+function MemePreview({url, onSubmit, onSkip}: MemePreviewProps) {
   const {playSound} = useGameContext()
   const [submitting, setSubmitting] = React.useState(false)
   const [FormSchema] = React.useState(() => z.object({name: z.string()}))
@@ -264,10 +249,7 @@ function MemePreview({url, onSubmit, onSkip, scheme}: MemePreviewProps) {
             playSound('click')
             onSkip()
           }}
-          className={twMerge(
-            'rvn-button btn-outline btn font-script',
-            scheme === 'dark' && 'rvn-button--dark',
-          )}
+          className="GameButton btn-outline"
         >
           Пропустить
         </button>
@@ -277,10 +259,7 @@ function MemePreview({url, onSubmit, onSkip, scheme}: MemePreviewProps) {
           disabled={zo.validation?.success === false}
           onMouseEnter={() => playSound('mouseover')}
           onClick={() => playSound('click')}
-          className={twMerge(
-            'rvn-button rvn-button--opaque btn-outline btn font-script',
-            scheme === 'dark' && 'rvn-button--dark',
-          )}
+          className="GameButton GameButton--opaque btn-outline"
         >
           Опубликовать мем
         </button>
@@ -306,13 +285,11 @@ function MemePreview({url, onSubmit, onSkip, scheme}: MemePreviewProps) {
 interface MemeTemplateFormProps {
   template: ImgFlipMemeTemplate
   onPreviewUrlChange: (url: string) => void
-  scheme?: CommandViewColorScheme
 }
 
 function MemeTemplateForm({
   template: t,
   onPreviewUrlChange,
-  scheme,
 }: MemeTemplateFormProps) {
   const {playSound} = useGameContext()
   const [submitting, setSubmitting] = React.useState(false)
@@ -398,10 +375,7 @@ function MemeTemplateForm({
           disabled={zo.validation?.success === false}
           onMouseEnter={() => playSound('mouseover')}
           onClick={() => playSound('click')}
-          className={twMerge(
-            'rvn-button rvn-button--opaque btn-outline btn font-script',
-            scheme === 'dark' && 'rvn-button--dark',
-          )}
+          className="GameButton GameButton--opaque btn-outline"
         >
           Посмотреть
         </button>

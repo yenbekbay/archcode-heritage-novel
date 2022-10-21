@@ -58,7 +58,7 @@ specifiers:
   react-merge-refs: 2.0.1
   react-rough: 2.3.0
   react-scroll-parallax: 3.3.1
-  react-visual-novel: 0.1.2
+  react-visual-novel: 0.2.1
   react-zorm: 0.6.1
   remeda: 1.1.0
   rough-notation: 0.5.1
@@ -98,7 +98,7 @@ dependencies:
   react-merge-refs: 2.0.1
   react-rough: 2.3.0_mh6e6cijqyzxuzjvimsfhyhuhy
   react-scroll-parallax: 3.3.1_biqbaboplfbrettd7655fr4n2y
-  react-visual-novel: 0.1.2_hu5a4uhqavegkm3dx6asol2p4m
+  react-visual-novel: 0.2.1_2k2m53evhejb45hhfvfxdudvzy
   react-zorm: 0.6.1_ashktkqfa7u3psh3pb4lk3iwhu
   remeda: 1.1.0
   rough-notation: 0.5.1
@@ -4971,11 +4971,10 @@ packages:
       tslib: 2.4.0
     dev: false
 
-  /react-visual-novel/0.1.2_hu5a4uhqavegkm3dx6asol2p4m:
-    resolution: {integrity: sha512-UwIL19lwwQJnabHm5WVrTVrf40iJJhwscpxxxYF93RMJY2CjB2VrN9lDg+jaiQtxIWsmXBVTKmnOS5ZlQ/RKKg==}
+  /react-visual-novel/0.2.1_2k2m53evhejb45hhfvfxdudvzy:
+    resolution: {integrity: sha512-ZYiV4NKT+LWptJjROQiMvrwEWeq/Eh/eWYfqgTD3Y3u2MP91NBYDJCYyN9Go763cmr2Pecs6Pf4ddSKTu3WiVA==}
     peerDependencies:
       howler: ^2.2.0
-      next: ^12.0.0
       react: ^18.0.0 || 18.2.0
       react-dom: ^18.0.0 || 18.2.0
       use-query-params: ^2.1.0
@@ -4991,7 +4990,6 @@ packages:
       mdast-util-from-markdown: 1.2.0
       micro-observables: 1.7.2_react@18.2.0
       moize: 6.1.3
-      next: 12.3.1_biqbaboplfbrettd7655fr4n2y
       phosphor-react: 1.4.1_react@18.2.0
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0

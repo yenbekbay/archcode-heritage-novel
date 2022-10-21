@@ -1,6 +1,6 @@
-import {Reveal} from 'lib/components'
 import React from 'react'
 import {twMerge} from 'tailwind-merge'
+import {Reveal} from './Reveal'
 
 export interface HeroProps extends React.ComponentPropsWithoutRef<'section'> {
   title: string

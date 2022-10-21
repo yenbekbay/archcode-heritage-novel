@@ -1,7 +1,7 @@
 import type {definitions} from 'api'
 import {getSupabase} from 'api'
 import {motion} from 'framer-motion'
-import type {BranchId, CommandViewColorScheme, Frame} from 'react-visual-novel'
+import type {BranchId, Frame} from 'react-visual-novel'
 import {
   Command,
   styleForFrame,
@@ -18,13 +18,11 @@ export interface SubmitMonumentNominationProps {
     goToNextStatement: (plusIndex?: number) => void
   }) => void
   frame?: Frame
-  scheme?: CommandViewColorScheme
 }
 
 export function SubmitMonumentNomination({
   onDone,
   frame,
-  scheme,
 }: SubmitMonumentNominationProps) {
   const {goToBranch} = useGameContext()
   const {containerRect, goToStatement, goToNextStatement} = useBranchContext()
@@ -47,14 +45,12 @@ export function SubmitMonumentNomination({
           animate={controls}
           className={twMerge(
             'rvn-text absolute flex flex-col',
-            scheme === 'dark' && 'rvn-text--dark',
             !frame && 'inset-0 p-8 py-20',
           )}
           style={frame && styleForFrame({containerRect}, frame)}
         >
           <TextForm
             rows={3}
-            scheme={scheme}
             inputLabel="Названия зданий"
             submitLabel="Сохранить"
             onSubmit={async (values) => {

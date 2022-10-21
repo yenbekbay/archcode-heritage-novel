@@ -1,9 +1,7 @@
 import {bgArchcodeOfficeJpg} from 'assets/game'
-import type {RoughCardProps} from 'components'
-import {Hero, HeroBackground, Layout, RoughCard} from 'components'
+import type {LinkCardProps, RoughCardProps} from 'components'
+import {Hero, HeroBackground, Layout, LinkCard, RoughCard} from 'components'
 import {useSavedLinks} from 'game/LinkPrompt'
-import type {LinkCardProps} from 'lib/components'
-import {LinkCard} from 'lib/components'
 import Link from 'next/link'
 import {twMerge} from 'tailwind-merge'
 

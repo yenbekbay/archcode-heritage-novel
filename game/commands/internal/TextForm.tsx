@@ -1,7 +1,6 @@
-import {Spinner} from 'lib/components'
+import {Spinner} from 'components'
 import React from 'react'
 import toast from 'react-hot-toast'
-import type {CommandViewColorScheme} from 'react-visual-novel'
 import {useGameContext} from 'react-visual-novel'
 import {useZorm} from 'react-zorm'
 import {twMerge} from 'tailwind-merge'
@@ -12,7 +11,6 @@ export interface TextFormProps {
   submitLabel: string
   onSubmit: (values: {body: string; name: string}) => unknown | Promise<unknown>
   rows?: number
-  scheme?: CommandViewColorScheme
 }
 
 export function TextForm({
@@ -20,7 +18,6 @@ export function TextForm({
   submitLabel,
   onSubmit,
   rows = 2,
-  scheme,
 }: TextFormProps) {
   const {playSound} = useGameContext()
   const [submitting, setSubmitting] = React.useState(false)
@@ -97,10 +94,7 @@ export function TextForm({
           disabled={zo.validation?.success === false}
           onMouseEnter={() => playSound('mouseover')}
           onClick={() => playSound('click')}
-          className={twMerge(
-            'rvn-button rvn-button--opaque btn-outline btn font-script',
-            scheme === 'dark' && 'rvn-button--dark',
-          )}
+          className="GameButton GameButton--opaque btn-outline btn font-script"
         >
           {submitLabel}
         </button>

@@ -9,10 +9,16 @@ import {
   screenshot5Png,
   screenshot6Png,
 } from 'assets/www'
-import {FenceSection, Hero, HeroBackground, Layout, RoughCard} from 'components'
+import {
+  FenceSection,
+  Hero,
+  HeroBackground,
+  Layout,
+  Reveal,
+  RoughCard,
+} from 'components'
 import useEmblaCarousel from 'embla-carousel-react'
 import {WheelGesturesPlugin} from 'embla-carousel-wheel-gestures'
-import {Reveal} from 'lib/components'
 import Image from 'next/future/image'
 import Link from 'next/link'
 

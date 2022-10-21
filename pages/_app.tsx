@@ -1,4 +1,4 @@
-import '__generated__/tailwind.css'
+import '__generated__/main.css'
 import {bgArchcodeOfficeJpg} from 'assets/game'
 import {openGraphJpg} from 'assets/www'
 import {HeroBackground, Layout, RoughCard} from 'components'

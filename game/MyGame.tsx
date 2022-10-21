@@ -25,7 +25,6 @@ export default function MyGame() {
           assets={assets}
           branches={branches}
           initialBranchId="Intro"
-          onGoToRoot={() => router.push('/')}
           onLinkClick={(href, name, event) => {
             if (href.startsWith('http')) {
               event.preventDefault()
@@ -35,6 +34,7 @@ export default function MyGame() {
             }
           }}
           onPlaySound={playSound}
+          onGoHome={() => router.push('/')}
         >
           {(render, res, progress) => {
             if (res.status === 'loading') {

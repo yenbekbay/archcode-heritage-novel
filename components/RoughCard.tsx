@@ -1,9 +1,9 @@
 import {useMeasure} from '@react-hookz/web'
 import type {HTMLMotionProps} from 'framer-motion'
-import {Reveal} from 'lib/components'
 import React from 'react'
 import ReactRough, {Rectangle} from 'react-rough'
 import {twMerge} from 'tailwind-merge'
+import {Reveal} from './Reveal'
 
 export interface RoughCardProps extends HTMLMotionProps<'div'> {
   contentClassName?: string

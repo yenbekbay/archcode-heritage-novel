@@ -1,12 +1,7 @@
 import type {definitions} from 'api'
 import {getSupabase} from 'api'
 import {motion} from 'framer-motion'
-import type {
-  BranchId,
-  CommandViewColorScheme,
-  Frame,
-  ImageViewProps,
-} from 'react-visual-novel'
+import type {BranchId, Frame, ImageViewProps} from 'react-visual-novel'
 import {
   Command,
   ImageView,
@@ -23,12 +18,11 @@ export interface SubmitPostProps {
     goToStatement: (statementLabel: string) => void
     goToNextStatement: (plusIndex?: number) => void
   }) => void
-  scheme?: CommandViewColorScheme
   frame?: Frame
   image?: string | Omit<ImageViewProps, 'controls'>
 }
 
-export function SubmitPost({onDone, frame, scheme, image}: SubmitPostProps) {
+export function SubmitPost({onDone, frame, image}: SubmitPostProps) {
   const {goToBranch} = useGameContext()
   const {containerRect, goToStatement, goToNextStatement} = useBranchContext()
   const imageProps = typeof image === 'string' ? {uri: image} : image
@@ -41,7 +35,6 @@ export function SubmitPost({onDone, frame, scheme, image}: SubmitPostProps) {
           <motion.div
             className={twMerge(
               'rvn-text absolute flex flex-col',
-              scheme === 'dark' && 'rvn-text--dark',
               !frame && 'inset-0 p-8 py-20',
             )}
             style={frame && styleForFrame({containerRect}, frame)}
@@ -61,7 +54,6 @@ export function SubmitPost({onDone, frame, scheme, image}: SubmitPostProps) {
           >
             <TextForm
               rows={10}
-              scheme={scheme}
               inputLabel="Текст поста"
               submitLabel="Опубликовать пост"
               onSubmit={async (values) => {

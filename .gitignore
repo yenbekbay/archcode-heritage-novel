@@ -39,4 +39,4 @@ yarn-error.log*
 .eslintcache
 
 # tailwind
-/__generated__/tailwind.css
+/__generated__/main.css

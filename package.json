@@ -10,19 +10,18 @@
   "author": "Ayan Yenbekbay <ayan.yenb@gmail.com>",
   "scripts": {
     "build": "run-s --silent build:*",
-    "build:css": "npm run generate:css -- --minify",
+    "build:css": "pnpm run generate:css --minify",
     "build:next": "next build",
     "dev": "run-p --silent dev:*",
-    "dev:css": "npm run generate:css -- --watch",
+    "dev:css": "pnpm run generate:css --watch",
     "dev:next": "next dev",
-    "generate:css": "tailwindcss -i ./lib/global.css -o ./__generated__/tailwind.css",
+    "generate:css": "tailwindcss -i main.css -o __generated__/main.css",
     "generate:supabase": "env-cmd --use-shell 'openapi-typescript \"${SUPABASE_URL}/rest/v1/?apikey=${SUPABASE_ANON_KEY}\" --output __generated__/supabase.ts'",
-    "generate:dep-graph": "depcruise --output-type fdot --collapse '^game/branches/Branch(Activist|Akim|Archkot|Developer)' --exclude '^node_modules' game/MyGame.tsx react-visual-novel > dep-graph.dot",
     "lint": "eslint --ext .js,.ts,.tsx --cache .",
     "preinstall": "npx only-allow pnpm",
     "prepare": "husky install",
     "start": "next start",
-    "typecheck": "tsc --project . --noEmit"
+    "typecheck": "tsc --noEmit"
   },
   "lint-staged": {
     "**/*.{js,ts,tsx,json,yml,yaml}": "prettier --write",
@@ -52,7 +51,7 @@
     "react-merge-refs": "2.0.1",
     "react-rough": "2.3.0",
     "react-scroll-parallax": "3.3.1",
-    "react-visual-novel": "0.1.2",
+    "react-visual-novel": "0.2.2",
     "react-zorm": "0.6.1",
     "remeda": "1.1.0",
     "rough-notation": "0.5.1",
