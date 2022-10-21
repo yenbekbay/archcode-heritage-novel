@@ -1,6 +1,6 @@
 # archcode-heritage-novel
 
-![Vercel](https://vercelbadge.vercel.app/api/yenbekbay/archcode-heritage-novel)
+[![Vercel](https://vercelbadge.vercel.app/api/yenbekbay/archcode-heritage-novel)](https://vercel.com/yenbekbay/archcode-heritage-novel)
 
 Snesti nelʹzâ ostavitʹ is a visual novel-like interactive experience. For [Archcode Almaty](https://archcode.kz/).
 
