@@ -47,15 +47,6 @@
     url('/fonts/IBMPlexMono-MediumItalic.woff') format('woff');
 }
 
-@font-face {
-  font-family: 'Moniqa';
-  font-weight: 600;
-  font-display: swap;
-  font-style: normal;
-  src: url('/fonts/Moniqa-SemiBoldDisplay.woff2') format('woff2'),
-    url('/fonts/Moniqa-SemiBoldDisplay.woff') format('woff');
-}
-
 @layer components {
   .prose.prose-invert {
     --tw-prose-body: theme(colors.content-invert / 0.8);

@@ -102,7 +102,7 @@ export function Header() {
             </ul>
           </div>
 
-          <ul className="menu menu-horizontal hidden p-0 lg:flex">
+          <ul className="menu menu-horizontal hidden gap-2 p-0 lg:flex">
             {LINKS.map((l) => {
               const key = l.to ? l.to : l.href
               return (

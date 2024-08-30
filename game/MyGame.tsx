@@ -54,7 +54,7 @@ export default function MyGame() {
                 <div className="prose flex h-full w-full max-w-none flex-col justify-center p-8">
                   <h1 className="text-xl">Не удалось загрузить ресурсы</h1>
 
-                  <pre className="alert alert-error items-start whitespace-pre-line font-mono">
+                  <pre className="alert alert-error items-start whitespace-pre-line">
                     {res.error.message}
                   </pre>
                 </div>

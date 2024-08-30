@@ -40,13 +40,6 @@ export default function MyDocument() {
           type="font/woff2"
           crossOrigin="anonymous"
         />
-        <link
-          rel="preload"
-          href="/fonts/Moniqa-SemiBoldDisplay.woff2"
-          as="font"
-          type="font/woff2"
-          crossOrigin="anonymous"
-        />
       </Head>
       <body>
         <Main />

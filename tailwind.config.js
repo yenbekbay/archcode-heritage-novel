@@ -62,8 +62,7 @@ module.exports = {
         'content-invert-focus': palette['rum-swizzle'][100],
       },
       fontFamily: {
-        display: ['Moniqa', ...defaultTheme.fontFamily.serif],
-        mono: ['IBM Plex Mono', ...defaultTheme.fontFamily.mono],
+        sans: ['IBM Plex Mono', ...defaultTheme.fontFamily.mono],
         script: ['calligraph'],
       },
       keyframes: {
@@ -74,6 +73,13 @@ module.exports = {
       },
       animation: {
         'bounce-gentle': 'bounce-gentle 1s infinite ease-in-out',
+      },
+      typography: {
+        DEFAULT: {
+          css: {
+            lineHeight: '1.5',
+          },
+        },
       },
     },
   },

@@ -38,8 +38,8 @@ export default function Home() {
           </Hero>
 
           <Reveal asChild>
-            <div className="prose-invert prose -mt-4 self-end px-4 pb-4">
-              <p className="text-xs">
+            <div className="prose-sm prose-invert prose -mt-4 self-end px-4 pb-4 text-[0.75rem]">
+              <p>
                 *Проект стал возможным благодаря помощи американского народа,
                 оказанной через Агентство США по международному развитию
                 (USAID), и был подготовлен в рамках Центральноазиатской

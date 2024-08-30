@@ -63,7 +63,7 @@ function ErrorFallback({error}: FallbackProps) {
           <RoughCard className="self-center">
             <h1>Что-то пошло не так!</h1>
 
-            <pre className="alert alert-error items-start whitespace-pre-line font-mono">
+            <pre className="alert alert-error items-start whitespace-pre-line">
               {error.message}
             </pre>
 

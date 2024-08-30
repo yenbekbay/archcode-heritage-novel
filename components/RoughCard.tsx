@@ -22,7 +22,7 @@ export const RoughCard = React.forwardRef(function Card(
       <RoughCardBackground />
       <article
         className={twMerge(
-          'prose relative z-10 overflow-hidden p-8 font-mono',
+          'prose relative z-10 overflow-hidden p-8',
           contentClassName,
         )}
       >
