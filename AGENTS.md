@@ -6,9 +6,10 @@ Interactive visual novel and editorial website about Almaty architectural herita
 
 1. Format touched code and config with `pnpm exec eslint --fix <file>` plus `pnpm exec prettier --write <file>`.
 2. Format touched Markdown and prose with `pnpm exec prettier --write <file>`.
-3. After adding, removing, or renaming a barrel-exported module, run `pnpm run barrels-generate`, then stage the updated index files.
-4. After related source or config changes, run `pnpm run lint:typecheck`.
-5. Use a browser only when the user explicitly asks for rendered evidence.
+3. Update `README.md` in the same change when the project identity, framework summary, or license statement changes.
+4. After adding, removing, or renaming a barrel-exported module, run `pnpm run barrels-generate`, then stage the updated index files.
+5. After related source or config changes, run `pnpm run lint:typecheck`.
+6. Use a browser only when the user explicitly asks for rendered evidence.
 
 ## Boundaries
 
