@@ -11,7 +11,7 @@ import {
 import {twMerge} from 'tailwind-merge'
 import {TextForm} from './internal'
 
-export interface SubmitMonumentNominationProps {
+export type SubmitMonumentNominationProps = {
   onDone: (ctx: {
     goToBranch: (branchId: BranchId) => void
     goToStatement: (statementLabel: string) => void

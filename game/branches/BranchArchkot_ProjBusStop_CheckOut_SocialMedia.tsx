@@ -36,11 +36,15 @@ export function BranchArchkot_ProjBusStop_CheckOut_SocialMedia() {
         menu={[
           {
             label: 'Создать мем',
-            onClick: (ctx) => ctx.goToStatement('make_meme'),
+            onClick: (ctx) => {
+              ctx.goToStatement('make_meme')
+            },
           },
           {
             label: 'Написать пост о том, как всё плохо',
-            onClick: (ctx) => ctx.goToStatement('publish_post'),
+            onClick: (ctx) => {
+              ctx.goToStatement('publish_post')
+            },
           },
         ]}
       >
@@ -49,7 +53,9 @@ export function BranchArchkot_ProjBusStop_CheckOut_SocialMedia() {
 
       <Label label="make_meme">
         <SubmitMeme
-          onDone={(ctx) => ctx.goToStatement('acknowledged')}
+          onDone={(ctx) => {
+            ctx.goToStatement('acknowledged')
+          }}
           frame={{
             viewport: [1080, 1920],
             rect: {
@@ -74,7 +80,9 @@ export function BranchArchkot_ProjBusStop_CheckOut_SocialMedia() {
 
       <Label label="publish_post">
         <SubmitPost
-          onDone={(ctx) => ctx.goToStatement('acknowledged')}
+          onDone={(ctx) => {
+            ctx.goToStatement('acknowledged')
+          }}
           frame={{
             viewport: [1080, 1920],
             rect: {
@@ -103,12 +111,15 @@ export function BranchArchkot_ProjBusStop_CheckOut_SocialMedia() {
           menu={[
             {
               label: 'Собраться с командой Архкод',
-              onClick: (ctx) =>
-                ctx.goToBranch('Archkot_ProjAsk_CheckOut_AssembleTeam'),
+              onClick: (ctx) => {
+                ctx.goToBranch('Archkot_ProjAsk_CheckOut_AssembleTeam')
+              },
             },
             {
               label: 'Я сделал всё, что было в моих силах',
-              onClick: (ctx) => ctx.goToNextStatement(),
+              onClick: (ctx) => {
+                ctx.goToNextStatement()
+              },
             },
           ]}
         >

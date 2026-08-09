@@ -1,5 +1,5 @@
 import {logoGamePng} from 'assets/www'
-import Image from 'next/future/image'
+import Image from 'next/image'
 import Link from 'next/link'
 import type {IconProps} from 'phosphor-react'
 import {
@@ -65,15 +65,16 @@ export function Header() {
         </div>
 
         <div className="flex-none">
-          <div className="dropdown-end dropdown">
-            <label tabIndex={0} className="btn-ghost btn text-xl lg:hidden">
-              <ListIcon />
-            </label>
-
-            <ul
-              tabIndex={0}
-              className="dropdown-content menu rounded-box menu-compact mt-3 w-52 bg-base-100 p-2 text-content shadow-md"
+          <div className="dropdown dropdown-end">
+            <button
+              type="button"
+              aria-label="Открыть меню"
+              className="btn btn-ghost text-xl lg:hidden"
             >
+              <ListIcon />
+            </button>
+
+            <ul className="dropdown-content menu rounded-box menu-compact mt-3 w-52 bg-base-100 p-2 text-content shadow-md">
               {LINKS.map((l) => {
                 const key = l.to ? l.to : l.href
                 return (

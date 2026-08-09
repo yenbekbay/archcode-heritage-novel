@@ -56,9 +56,9 @@ export function BranchAkim_ProjAirport_Approve() {
         choices={[
           {
             label: 'Дальше',
-            onClick: (ctx) =>
-              // HACK
-              ctx.goToLocation('Akim_ProjAirport_Examine_Reject', 4),
+            onClick: (ctx) => {
+              ctx.goToLocation('Akim_ProjAirport_Examine_Reject', 4)
+            },
           },
         ]}
       />

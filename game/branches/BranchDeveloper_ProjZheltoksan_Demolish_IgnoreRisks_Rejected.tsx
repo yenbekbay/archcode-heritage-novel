@@ -51,9 +51,9 @@ export function BranchDeveloper_ProjZheltoksan_Demolish_IgnoreRisks_Rejected() {
         choices={[
           {
             label: 'Дальше',
-            onClick: (ctx) =>
-              // HACK
-              ctx.goToLocation('Developer_ProjZheltoksan_Preserve', 11),
+            onClick: (ctx) => {
+              ctx.goToLocation('Developer_ProjZheltoksan_Preserve', 11)
+            },
           },
         ]}
       />

@@ -142,13 +142,15 @@ export function BranchAkim_ProjZheltoksan_Examine_Reject() {
         menu={[
           {
             label: 'Учесть мнение',
-            onClick: (ctx) =>
-              ctx.goToBranch('Akim_ProjZheltoksan_Examine_Reject_Listen'),
+            onClick: (ctx) => {
+              ctx.goToBranch('Akim_ProjZheltoksan_Examine_Reject_Listen')
+            },
           },
           {
             label: 'Игнорировать',
-            onClick: (ctx) =>
-              ctx.goToBranch('Akim_ProjZheltoksan_Examine_Reject_Ignore'),
+            onClick: (ctx) => {
+              ctx.goToBranch('Akim_ProjZheltoksan_Examine_Reject_Ignore')
+            },
           },
         ]}
       >

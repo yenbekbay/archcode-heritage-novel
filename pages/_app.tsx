@@ -11,11 +11,17 @@ import type {FallbackProps} from 'react-error-boundary'
 import {ErrorBoundary} from 'react-error-boundary'
 import {Toaster} from 'react-hot-toast'
 import {ParallaxProvider} from 'react-scroll-parallax'
-import {QueryParamProvider} from 'use-query-params'
+import {
+  QueryParamProvider,
+  type QueryParamAdapterComponent,
+} from 'use-query-params'
 
 const PreloadMyGameAssets = dynamic(() => import('game/PreloadMyGameAssets'), {
   ssr: false,
 })
+
+// NOTE: `next-query-params` has an older React return type than its runtime peer.
+const QueryParamAdapter = NextAdapter as unknown as QueryParamAdapterComponent
 
 export default function MyApp({Component, pageProps}: AppProps) {
   return (
@@ -40,7 +46,7 @@ export default function MyApp({Component, pageProps}: AppProps) {
 
       {Component.name !== 'Play' && <PreloadMyGameAssets concurrency={10} />}
 
-      <QueryParamProvider adapter={NextAdapter}>
+      <QueryParamProvider adapter={QueryParamAdapter}>
         <ParallaxProvider>
           <ErrorBoundary FallbackComponent={ErrorFallback}>
             <Component {...pageProps} />

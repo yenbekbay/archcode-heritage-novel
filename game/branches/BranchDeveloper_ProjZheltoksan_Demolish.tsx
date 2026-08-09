@@ -43,14 +43,15 @@ export function BranchDeveloper_ProjZheltoksan_Demolish() {
         menu={[
           {
             label: 'Пересмотреть выбор',
-            onClick: (ctx) =>
-              // HACK
-              ctx.goToLocation('Developer_ProjZheltoksan', 14),
+            onClick: (ctx) => {
+              ctx.goToLocation('Developer_ProjZheltoksan', 14)
+            },
           },
           {
             label: 'Игнорировать риски',
-            onClick: (ctx) =>
-              ctx.goToBranch('Developer_ProjZheltoksan_Demolish_IgnoreRisks'),
+            onClick: (ctx) => {
+              ctx.goToBranch('Developer_ProjZheltoksan_Demolish_IgnoreRisks')
+            },
           },
         ]}
       >

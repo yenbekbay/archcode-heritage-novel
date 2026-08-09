@@ -1,6 +1,6 @@
 import {logoArchcodePng, logoNonmuseumPng, logoSorosPng} from 'assets/game'
 import {motion} from 'framer-motion'
-import Image from 'next/future/image'
+import Image from 'next/image'
 import {useRouter} from 'next/router'
 import {Command, MenuView} from 'react-visual-novel'
 
@@ -24,9 +24,9 @@ export function GameOverMenu() {
               },
               {
                 label: 'Начать заново',
-                onClick: (ctx) =>
-                  // HACK
-                  ctx.goToLocation('Intro', 13),
+                onClick: (ctx) => {
+                  ctx.goToLocation('Intro', 13)
+                },
               },
             ]}
           />
@@ -57,7 +57,7 @@ export function GameOverMenu() {
                 <Image
                   src={logoNonmuseumPng}
                   alt="Логотип «Немузей Архитектуры»"
-                  className="max-h-[4rem] w-auto"
+                  className="max-h-16 w-auto"
                 />
               </a>
 
@@ -70,7 +70,7 @@ export function GameOverMenu() {
                 <Image
                   src={logoArchcodePng}
                   alt="Логотип «Архкод Алматы»"
-                  className="max-h-[4rem] w-auto"
+                  className="max-h-16 w-auto"
                 />
               </a>
 
@@ -83,7 +83,7 @@ export function GameOverMenu() {
                 <Image
                   src={logoSorosPng}
                   alt="Логотип «Фонд Cорос-Казахстан»"
-                  className="max-h-[4rem] w-auto"
+                  className="max-h-16 w-auto"
                 />
               </a>
             </motion.div>

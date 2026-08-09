@@ -51,9 +51,9 @@ export function BranchDeveloper_ProjAirport_Demolish_IgnoreRisks_Rejected() {
         choices={[
           {
             label: 'Дальше',
-            onClick: (ctx) =>
-              // HACK
-              ctx.goToLocation('Developer_ProjAirport_Preserve', 11),
+            onClick: (ctx) => {
+              ctx.goToLocation('Developer_ProjAirport_Preserve', 11)
+            },
           },
         ]}
       />

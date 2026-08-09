@@ -36,11 +36,15 @@ export function BranchAkim_Menu_MonumentDept() {
         menu={[
           {
             label: 'Чай!',
-            onClick: (ctx) => ctx.goToBranch('Akim_MonumentDept_Tea'),
+            onClick: (ctx) => {
+              ctx.goToBranch('Akim_MonumentDept_Tea')
+            },
           },
           {
             label: 'Навести порядок',
-            onClick: (ctx) => ctx.goToBranch('Akim_MonumentDept_Rant'),
+            onClick: (ctx) => {
+              ctx.goToBranch('Akim_MonumentDept_Rant')
+            },
           },
         ]}
       >

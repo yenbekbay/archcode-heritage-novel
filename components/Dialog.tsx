@@ -2,7 +2,7 @@ import * as DialogPrimitive from '@radix-ui/react-dialog'
 import {motion} from 'framer-motion'
 import React from 'react'
 
-export interface DialogProps {
+export type DialogProps = {
   open: boolean
   onOpenChange: (open: boolean) => void
   children: React.ReactNode
@@ -40,7 +40,7 @@ export function Dialog({open, onOpenChange, children}: DialogProps) {
               scale: 0.95,
               transition: {ease: 'easeIn', duration: 0.2},
             }}
-            className="fixed top-[50%] left-[50%] z-[1010] flex max-h-[95vh] w-[95vw] max-w-md flex-col space-y-4 rounded-lg bg-base-100 p-4 md:w-full"
+            className="fixed left-1/2 top-1/2 z-[1010] flex max-h-[95vh] w-[95vw] max-w-md flex-col space-y-4 rounded-lg bg-base-100 p-4 md:w-full"
           >
             {children}
           </motion.div>

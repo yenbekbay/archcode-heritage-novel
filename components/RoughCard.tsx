@@ -5,9 +5,9 @@ import ReactRough, {Rectangle} from 'react-rough'
 import {twMerge} from 'tailwind-merge'
 import {Reveal} from './Reveal'
 
-export interface RoughCardProps extends HTMLMotionProps<'div'> {
+export type RoughCardProps = {
   contentClassName?: string
-}
+} & HTMLMotionProps<'div'>
 
 export const RoughCard = React.forwardRef(function Card(
   {children, className, contentClassName, ...restProps}: RoughCardProps,

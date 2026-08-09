@@ -11,15 +11,21 @@ export function BranchAkim_Menu_Projects() {
         menu={[
           {
             label: 'Желтоксан',
-            onClick: (ctx) => ctx.goToBranch('Akim_ProjZheltoksan'),
+            onClick: (ctx) => {
+              ctx.goToBranch('Akim_ProjZheltoksan')
+            },
           },
           {
             label: 'Аэропорт',
-            onClick: (ctx) => ctx.goToBranch('Akim_ProjAirport'),
+            onClick: (ctx) => {
+              ctx.goToBranch('Akim_ProjAirport')
+            },
           },
           {
             label: 'АСК',
-            onClick: (ctx) => ctx.goToBranch('Akim_ProjAsk'),
+            onClick: (ctx) => {
+              ctx.goToBranch('Akim_ProjAsk')
+            },
           },
         ]}
       >

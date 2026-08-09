@@ -24,11 +24,15 @@ export function BranchAkim_ProjAsk() {
         menu={[
           {
             label: 'Нужна экспертиза',
-            onClick: (ctx) => ctx.goToBranch('Akim_ProjAsk_Examine'),
+            onClick: (ctx) => {
+              ctx.goToBranch('Akim_ProjAsk_Examine')
+            },
           },
           {
             label: 'Одобрить',
-            onClick: (ctx) => ctx.goToBranch('Akim_ProjAsk_Approve'),
+            onClick: (ctx) => {
+              ctx.goToBranch('Akim_ProjAsk_Approve')
+            },
           },
         ]}
       >

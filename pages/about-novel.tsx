@@ -19,7 +19,7 @@ import {
 } from 'components'
 import useEmblaCarousel from 'embla-carousel-react'
 import {WheelGesturesPlugin} from 'embla-carousel-wheel-gestures'
-import Image from 'next/future/image'
+import Image from 'next/image'
 import Link from 'next/link'
 
 export default function AboutNovel() {
@@ -52,7 +52,7 @@ export default function AboutNovel() {
           </p>
 
           <p>
-            <Link href="/play" className="btn-invert btn-outline btn">
+            <Link href="/play" className="btn-invert btn btn-outline">
               Играть
             </Link>
           </p>
@@ -145,7 +145,7 @@ function ScreenshotCarousel() {
         ].map((data) => (
           <div
             key={data.src}
-            className="relative w-[80%] flex-[0_0_auto] md:w-[40%] lg:w-[18%]"
+            className="relative w-4/5 flex-[0_0_auto] md:w-2/5 lg:w-[18%]"
           >
             <Image src={data} alt="" />
           </div>

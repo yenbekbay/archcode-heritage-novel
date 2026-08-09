@@ -88,11 +88,15 @@ export function BranchAkim_ProjAsk_Examine() {
         menu={[
           {
             label: 'Не одобрять',
-            onClick: (ctx) => ctx.goToBranch('Akim_ProjAsk_Examine_Reject'),
+            onClick: (ctx) => {
+              ctx.goToBranch('Akim_ProjAsk_Examine_Reject')
+            },
           },
           {
             label: 'Одобрить',
-            onClick: (ctx) => ctx.goToBranch('Akim_ProjAsk_Approve'),
+            onClick: (ctx) => {
+              ctx.goToBranch('Akim_ProjAsk_Approve')
+            },
           },
         ]}
       >

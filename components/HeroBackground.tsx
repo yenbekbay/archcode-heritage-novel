@@ -1,14 +1,13 @@
-import type {StaticImageData} from 'next/future/image'
+import type {StaticImageData} from 'next/image'
 import React from 'react'
 import {ParallaxBanner} from 'react-scroll-parallax'
 import {twMerge} from 'tailwind-merge'
 
-export interface HeroBackgroundProps
-  extends React.ComponentPropsWithoutRef<'div'> {
+export type HeroBackgroundProps = {
   src?: string | StaticImageData
   speed?: number
   containerClassName?: string
-}
+} & React.ComponentPropsWithoutRef<'div'>
 
 export function HeroBackground({
   src,
@@ -25,7 +24,7 @@ export function HeroBackground({
           {
             children: (
               <div
-                className={twMerge('h-full w-full', className)}
+                className={twMerge('size-full', className)}
                 style={{
                   backgroundImage: `url(${
                     typeof src === 'object' ? src.src : src

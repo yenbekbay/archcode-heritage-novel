@@ -1,7 +1,7 @@
 import {useMeasure, useWindowSize} from '@react-hookz/web'
 import React from 'react'
 
-export interface MobileDeviceChromeProps {
+export type MobileDeviceChromeProps = {
   children?: React.ReactNode
 }
 
@@ -18,7 +18,7 @@ export function MobileDeviceChrome({children}: MobileDeviceChromeProps) {
         (containerRect.width < MD_BREAKPOINT ? (
           children
         ) : (
-          <div className="flex h-full w-full flex-col items-center justify-center p-8">
+          <div className="flex size-full flex-col items-center justify-center p-8">
             <MobileDeviceChromeFrame rect={containerRect}>
               {children}
             </MobileDeviceChromeFrame>
@@ -32,7 +32,7 @@ const MD_BREAKPOINT = 768
 
 // MARK: MobileDeviceChromeFrame
 
-interface MobileDeviceChromeFrameProps {
+type MobileDeviceChromeFrameProps = {
   rect: DOMRectReadOnly
   children?: React.ReactNode
 }

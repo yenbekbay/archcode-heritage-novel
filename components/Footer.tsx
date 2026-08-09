@@ -4,10 +4,10 @@ import {
   logoNonmuseumPng,
   logoSorosPng,
 } from 'assets/www'
-import Image from 'next/future/image'
+import Image from 'next/image'
 import Link from 'next/link'
-import {GameController as GameControllerIcon} from 'phosphor-react'
 import {
+  GameController as GameControllerIcon,
   InstagramLogo as InstagramLogoIcon,
   TelegramLogo as TelegramLogoIcon,
 } from 'phosphor-react'
@@ -23,7 +23,7 @@ export function Footer() {
               aria-label="Telegram"
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-invert btn-circle btn text-2xl"
+              className="btn-invert btn btn-circle text-2xl"
             >
               <TelegramLogoIcon />
             </a>
@@ -32,7 +32,7 @@ export function Footer() {
               aria-label="Instagram"
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-invert btn-circle btn text-2xl"
+              className="btn-invert btn btn-circle text-2xl"
             >
               <InstagramLogoIcon />
             </a>
@@ -40,31 +40,31 @@ export function Footer() {
           <div className="grid grid-flow-row items-center gap-4 lg:grid-flow-col lg:pr-4">
             <Link
               href="/play"
-              className="btn-invert btn-sm btn gap-2 normal-case"
+              className="btn-invert btn btn-sm gap-2 normal-case"
             >
               <GameControllerIcon weight="fill" />
               Играть
             </Link>
-            <Link href="/" className="link-hover link">
+            <Link href="/" className="link link-hover">
               Главная
             </Link>
-            <Link href="/about-novel" className="link-hover link">
+            <Link href="/about-novel" className="link link-hover">
               Визуальная новелла
             </Link>
-            <Link href="/about-bot" className="link-hover link">
+            <Link href="/about-bot" className="link link-hover">
               Телеграм-бот
             </Link>
-            <Link href="/about-us" className="link-hover link">
+            <Link href="/about-us" className="link link-hover">
               О команде
             </Link>
-            <Link href="/links" className="link-hover link">
+            <Link href="/links" className="link link-hover">
               Ссылки
             </Link>
             <a
               href="https://archcode.kz/"
               target="_blank"
               rel="noopener noreferrer"
-              className="link-hover link"
+              className="link link-hover"
             >
               Архкод
             </a>
@@ -78,7 +78,7 @@ export function Footer() {
                 src={logoGamePng}
                 alt="Логотип «Снести нельзя оставить»"
                 priority
-                className="h-[3rem] w-auto"
+                className="h-12 w-auto"
               />
             </Link>
 
@@ -92,7 +92,7 @@ export function Footer() {
                 src={logoNonmuseumPng}
                 alt="Логотип «Немузей Архитектуры»"
                 priority
-                className="h-[3rem] w-auto"
+                className="h-12 w-auto"
               />
             </a>
 
@@ -106,7 +106,7 @@ export function Footer() {
                 src={logoArchcodePng}
                 alt="Логотип «Архкод Алматы»"
                 priority
-                className="h-[3rem] w-auto"
+                className="h-12 w-auto"
               />
             </a>
 
@@ -120,7 +120,7 @@ export function Footer() {
                 src={logoSorosPng}
                 alt="Логотип «Фонд Cорос-Казахстан»"
                 priority
-                className="h-[3rem] w-auto bg-white"
+                className="h-12 w-auto bg-white"
               />
             </a>
           </div>

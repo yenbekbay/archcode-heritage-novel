@@ -4,7 +4,7 @@ export function Spinner() {
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 24 24"
-      className="h-5 w-5 animate-spin"
+      className="size-5 animate-spin"
     >
       <circle
         cx="12"

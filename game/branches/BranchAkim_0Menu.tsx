@@ -50,7 +50,9 @@ export function BranchAkim_0Menu() {
                 transform: 'rotate(13deg)',
               },
             },
-            onClick: (ctx) => ctx.goToBranch('Akim_Menu_Projects'),
+            onClick: (ctx) => {
+              ctx.goToBranch('Akim_Menu_Projects')
+            },
           },
           {
             label: 'Отдел памятников',
@@ -64,7 +66,9 @@ export function BranchAkim_0Menu() {
                 transform: 'rotate(-17deg)',
               },
             },
-            onClick: (ctx) => ctx.goToBranch('Akim_Menu_MonumentDept'),
+            onClick: (ctx) => {
+              ctx.goToBranch('Akim_Menu_MonumentDept')
+            },
           },
           {
             label: 'Государственные программы',
@@ -78,7 +82,9 @@ export function BranchAkim_0Menu() {
                 transform: 'rotate(13deg)',
               },
             },
-            onClick: (ctx) => ctx.goToBranch('Akim_Menu_GovPrograms'),
+            onClick: (ctx) => {
+              ctx.goToBranch('Akim_Menu_GovPrograms')
+            },
           },
         ]}
       />

@@ -20,7 +20,7 @@ import useSWR from 'swr'
 import {twMerge} from 'tailwind-merge'
 import {z} from 'zod'
 
-export interface SubmitMemeProps {
+export type SubmitMemeProps = {
   onDone: (ctx: {
     goToBranch: (branchId: BranchId) => void
     goToStatement: (statementLabel: string) => void
@@ -70,9 +70,9 @@ export function SubmitMeme({onDone, frame, image}: SubmitMemeProps) {
                   })
                 onDone({goToStatement, goToBranch, goToNextStatement})
               }}
-              onSkip={() =>
+              onSkip={() => {
                 onDone({goToStatement, goToBranch, goToNextStatement})
-              }
+              }}
             />
           </motion.div>
         </>
@@ -83,23 +83,22 @@ export function SubmitMeme({onDone, frame, image}: SubmitMemeProps) {
 
 // MARK: MemeForm
 
-interface MemeFormProps {
-  onSubmit: (values: {url: string; name: string}) => unknown | Promise<unknown>
+type MemeFormProps = {
+  onSubmit: (values: {url: string; name: string}) => unknown
   onSkip: () => void
 }
 
 function MemeForm({onSubmit, onSkip}: MemeFormProps) {
   const {playSound} = useGameContext()
   const [activeTemplateId, setActiveTemplateId, resetActiveTemplateId] =
-    useLocalStorageValue<string | ''>('@MemeForm/activeTemplateId')
-  const [previewUrl, setPreviewUrl, resetPreviewUrl] = useLocalStorageValue<
-    string | ''
-  >('@MemeForm/previewUrl')
+    useLocalStorageValue<string>('@MemeForm/activeTemplateId')
+  const [previewUrl, setPreviewUrl, resetPreviewUrl] =
+    useLocalStorageValue<string>('@MemeForm/previewUrl')
   const templatesRes = useSWR('memeTemplates', memeTemplatesFetcher)
   const templates = templatesRes.data
   const templateById = React.useMemo(
     () =>
-      templates ? Object.fromEntries(templates?.map((t) => [t.id, t])) : {},
+      templates ? Object.fromEntries(templates.map((t) => [t.id, t])) : {},
     [templates],
   )
   const activeTemplate = activeTemplateId
@@ -118,7 +117,9 @@ function MemeForm({onSubmit, onSkip}: MemeFormProps) {
         <div className="navbar">
           <div className="navbar-start">
             <button
-              onMouseEnter={() => playSound('mouseover')}
+              onMouseEnter={() => {
+                playSound('mouseover')
+              }}
               onClick={() => {
                 playSound('click')
                 if (previewUrl) {
@@ -127,7 +128,7 @@ function MemeForm({onSubmit, onSkip}: MemeFormProps) {
                   setActiveTemplateId('')
                 }
               }}
-              className="btn-ghost btn-circle btn bg-base-100 text-xl shadow-md hover:bg-base-200"
+              className="btn btn-circle btn-ghost bg-base-100 text-xl shadow-md hover:bg-base-200"
             >
               <XIcon />
             </button>
@@ -171,19 +172,22 @@ function MemeForm({onSubmit, onSkip}: MemeFormProps) {
   return (
     <div className="flex flex-1 flex-col space-y-4 overflow-y-auto">
       {templates.map((t) => (
-        // eslint-disable-next-line @next/next/no-img-element
-        <img
+        <button
           key={t.id}
-          src={t.url}
-          aria-label={t.name}
-          tabIndex={-1}
-          onMouseEnter={() => playSound('mouseover')}
+          type="button"
+          aria-label={`Выбрать шаблон «${t.name}»`}
+          onMouseEnter={() => {
+            playSound('mouseover')
+          }}
           onClick={() => {
             playSound('click')
             setActiveTemplateId(t.id)
           }}
-          className="rvn-surface h-auto w-full cursor-pointer object-contain"
-        />
+          className="rvn-surface w-full cursor-pointer"
+        >
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={t.url} alt="" className="h-auto w-full object-contain" />
+        </button>
       ))}
     </div>
   )
@@ -191,17 +195,18 @@ function MemeForm({onSubmit, onSkip}: MemeFormProps) {
 
 // MARK: MemePreview
 
-interface MemePreviewProps {
+type MemePreviewProps = {
   url: string
-  onSubmit: (values: {url: string; name: string}) => unknown | Promise<unknown>
+  onSubmit: (values: {url: string; name: string}) => unknown
   onSkip: () => void
 }
+
+const MemePreviewSchema = z.object({name: z.string()})
 
 function MemePreview({url, onSubmit, onSkip}: MemePreviewProps) {
   const {playSound} = useGameContext()
   const [submitting, setSubmitting] = React.useState(false)
-  const [FormSchema] = React.useState(() => z.object({name: z.string()}))
-  const zo = useZorm('meme-preview', FormSchema, {
+  const zo = useZorm('meme-preview', MemePreviewSchema, {
     onValidSubmit: async (event) => {
       event.preventDefault()
       setSubmitting(true)
@@ -244,7 +249,9 @@ function MemePreview({url, onSubmit, onSkip}: MemePreviewProps) {
         </div>
 
         <button
-          onMouseEnter={() => playSound('mouseover')}
+          onMouseEnter={() => {
+            playSound('mouseover')
+          }}
           onClick={() => {
             playSound('click')
             onSkip()
@@ -257,8 +264,12 @@ function MemePreview({url, onSubmit, onSkip}: MemePreviewProps) {
         <button
           type="submit"
           disabled={zo.validation?.success === false}
-          onMouseEnter={() => playSound('mouseover')}
-          onClick={() => playSound('click')}
+          onMouseEnter={() => {
+            playSound('mouseover')
+          }}
+          onClick={() => {
+            playSound('click')
+          }}
           className="GameButton GameButton--opaque btn-outline"
         >
           Опубликовать мем
@@ -282,7 +293,7 @@ function MemePreview({url, onSubmit, onSkip}: MemePreviewProps) {
 
 // MARK: MemeTemplateForm
 
-interface MemeTemplateFormProps {
+type MemeTemplateFormProps = {
   template: ImgFlipMemeTemplate
   onPreviewUrlChange: (url: string) => void
 }
@@ -293,15 +304,17 @@ function MemeTemplateForm({
 }: MemeTemplateFormProps) {
   const {playSound} = useGameContext()
   const [submitting, setSubmitting] = React.useState(false)
-  const [FormSchema] = React.useState(() =>
-    z.object(
-      Object.fromEntries(
-        Array.from({length: t.box_count}).map((_, i) => [
-          `text${i}`,
-          z.string().min(1, 'Пожалуйста, заполните поле'),
-        ]),
+  const FormSchema = React.useMemo(
+    () =>
+      z.object(
+        Object.fromEntries(
+          Array.from({length: t.box_count}).map((_, i) => [
+            `text${i}`,
+            z.string().min(1, 'Пожалуйста, заполните поле'),
+          ]),
+        ),
       ),
-    ),
+    [t.box_count],
   )
   const zo = useZorm('meme-template', FormSchema, {
     onValidSubmit: async (event) => {
@@ -312,13 +325,13 @@ function MemeTemplateForm({
         formData.append('template_id', t.id)
         formData.append(
           'username',
-          // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-          process.env['NEXT_PUBLIC_IMGFLIP_USERNAME']!,
+
+          process.env.NEXT_PUBLIC_IMGFLIP_USERNAME!,
         )
         formData.append(
           'password',
-          // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-          process.env['NEXT_PUBLIC_IMGFLIP_PASSWORD']!,
+
+          process.env.NEXT_PUBLIC_IMGFLIP_PASSWORD!,
         )
         for (const [idx, value] of Object.values(event.data).entries()) {
           formData.append(`boxes[${idx}][text]`, value)
@@ -373,8 +386,12 @@ function MemeTemplateForm({
         <button
           type="submit"
           disabled={zo.validation?.success === false}
-          onMouseEnter={() => playSound('mouseover')}
-          onClick={() => playSound('click')}
+          onMouseEnter={() => {
+            playSound('mouseover')
+          }}
+          onClick={() => {
+            playSound('click')
+          }}
           className="GameButton GameButton--opaque btn-outline"
         >
           Посмотреть
@@ -392,7 +409,7 @@ function MemeTemplateForm({
 
 // MARK: Helpers
 
-interface ImgFlipMemeTemplate {
+type ImgFlipMemeTemplate = {
   id: string
   name: string
   url: string
@@ -433,9 +450,7 @@ const memeTemplatesFetcher: Fetcher<ImgFlipMemeTemplate[]> = async () => {
   }
   const data = (await res.json()) as ImgFlipGetMemesResponse
   if (!data.success) {
-    throw new Error(
-      `Failed to get meme templates: ${data.error_message ?? 'Unknown error'}`,
-    )
+    throw new Error(`Failed to get meme templates: ${data.error_message}`)
   }
   return data.data.memes
 }

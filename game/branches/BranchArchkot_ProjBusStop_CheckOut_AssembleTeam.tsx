@@ -1,13 +1,13 @@
 import {
   archbot1Png,
-  archkot1Png,
-  archkot2Png,
-  archkot3Png,
-  archkot8Png,
   archkot10Png,
   archkot11Png,
   archkot12Png,
   archkot13Png,
+  archkot1Png,
+  archkot2Png,
+  archkot3Png,
+  archkot8Png,
   archtok1Png,
   archtok2Png,
   bgArchcodeOfficeJpg,
@@ -96,11 +96,15 @@ export function BranchArchkot_ProjBusStop_CheckOut_AssembleTeam() {
         menu={[
           {
             label: 'Да',
-            onClick: (ctx) => ctx.goToNextStatement(),
+            onClick: (ctx) => {
+              ctx.goToNextStatement()
+            },
           },
           {
             label: 'Нет',
-            onClick: (ctx) => ctx.goToNextStatement(2),
+            onClick: (ctx) => {
+              ctx.goToNextStatement(2)
+            },
           },
         ]}
       >
@@ -128,12 +132,15 @@ export function BranchArchkot_ProjBusStop_CheckOut_AssembleTeam() {
         menu={[
           {
             label: 'Сдаться',
-            onClick: (ctx) =>
-              ctx.goToBranch('Archkot_ProjBusStop_CheckOut_AssembleTeam_Bail'),
+            onClick: (ctx) => {
+              ctx.goToBranch('Archkot_ProjBusStop_CheckOut_AssembleTeam_Bail')
+            },
           },
           {
             label: 'Что ещё можно сделать?',
-            onClick: (ctx) => ctx.goToNextStatement(),
+            onClick: (ctx) => {
+              ctx.goToNextStatement()
+            },
           },
         ]}
       >
@@ -202,14 +209,17 @@ export function BranchArchkot_ProjBusStop_CheckOut_AssembleTeam() {
         menu={[
           {
             label: 'Отлично, на этом всё',
-            onClick: (ctx) =>
+            onClick: (ctx) => {
               ctx.goToBranch(
                 'Archkot_ProjBusStop_CheckOut_AssembleTeam_StopHalfway',
-              ),
+              )
+            },
           },
           {
             label: 'Надо довести всё до конца',
-            onClick: (ctx) => ctx.goToNextStatement(),
+            onClick: (ctx) => {
+              ctx.goToNextStatement()
+            },
           },
         ]}
       >
@@ -240,17 +250,17 @@ export function BranchArchkot_ProjBusStop_CheckOut_AssembleTeam() {
         menu={[
           {
             label: 'Встретиться в акимате',
-            onClick: (ctx) =>
+            onClick: (ctx) => {
               ctx.goToBranch(
                 'Archkot_ProjBusStop_CheckOut_AssembleTeam_VisitCityHall',
-              ),
+              )
+            },
           },
           {
             label: 'Действовать самим',
-            onClick: (ctx) =>
-              ctx.goToBranch(
-                'Archkot_ProjBusStop_CheckOut_AssembleTeam_Submit',
-              ),
+            onClick: (ctx) => {
+              ctx.goToBranch('Archkot_ProjBusStop_CheckOut_AssembleTeam_Submit')
+            },
           },
         ]}
       >

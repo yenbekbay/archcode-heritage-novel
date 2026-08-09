@@ -4,9 +4,9 @@ import {motion, useAnimation, useInView} from 'framer-motion'
 import React from 'react'
 import {mergeRefs} from 'react-merge-refs'
 
-export interface RevealProps extends HTMLMotionProps<'div'> {
+export type RevealProps = {
   asChild?: boolean
-}
+} & HTMLMotionProps<'div'>
 
 export const Reveal = React.forwardRef(function Reveal(
   {asChild, ...restProps}: RevealProps,

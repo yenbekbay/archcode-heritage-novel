@@ -51,11 +51,15 @@ export function BranchActivist_CheckOut() {
         menu={[
           {
             label: 'Как-то печально всё это',
-            onClick: (ctx) => ctx.goToBranch('Activist_CheckOut_SocialMedia'),
+            onClick: (ctx) => {
+              ctx.goToBranch('Activist_CheckOut_SocialMedia')
+            },
           },
           {
             label: 'Что я могу сделать?',
-            onClick: (ctx) => ctx.goToBranch('Activist_CheckOut_Act'),
+            onClick: (ctx) => {
+              ctx.goToBranch('Activist_CheckOut_Act')
+            },
           },
         ]}
       >

@@ -1,7 +1,7 @@
 import {Footer} from './Footer'
 import {Header} from './Header'
 
-export interface LayoutProps {
+export type LayoutProps = {
   children: React.ReactNode
 }
 

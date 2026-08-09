@@ -12,7 +12,7 @@ import {
 import {twMerge} from 'tailwind-merge'
 import {TextForm} from './internal'
 
-export interface SubmitPostProps {
+export type SubmitPostProps = {
   onDone: (ctx: {
     goToBranch: (branchId: BranchId) => void
     goToStatement: (statementLabel: string) => void

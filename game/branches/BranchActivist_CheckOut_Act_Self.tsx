@@ -5,10 +5,10 @@ import {
   bgCourtyardJpg,
   bgLaptopHandsJpg,
   bgLaptopStandaloneJpg,
-  redhead9Png,
   redhead10Png,
   redhead11Png,
   redhead12Png,
+  redhead9Png,
   transition1Mp3,
   transition2ShortMp3,
   transition3ShortMp3,
@@ -151,7 +151,9 @@ export function BranchActivist_CheckOut_Act_Self() {
         menu={[
           {
             label: 'Позвонить в Архкод',
-            onClick: (ctx) => ctx.goToBranch('Activist_CheckOut_Act_Org'),
+            onClick: (ctx) => {
+              ctx.goToBranch('Activist_CheckOut_Act_Org')
+            },
           },
         ]}
       >

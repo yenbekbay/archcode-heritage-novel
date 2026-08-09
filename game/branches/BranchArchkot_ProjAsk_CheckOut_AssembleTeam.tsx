@@ -2,10 +2,10 @@ import {
   archbot1Png,
   archbot2Png,
   archbot3Png,
-  archkot8Png,
-  archkot9Png,
   archkot10Png,
   archkot11Png,
+  archkot8Png,
+  archkot9Png,
   archtok1Png,
   archtok2Png,
   bgArchcodeOfficeJpg,
@@ -93,11 +93,15 @@ export function BranchArchkot_ProjAsk_CheckOut_AssembleTeam() {
         menu={[
           {
             label: 'Да',
-            onClick: (ctx) => ctx.goToNextStatement(),
+            onClick: (ctx) => {
+              ctx.goToNextStatement()
+            },
           },
           {
             label: 'Нет',
-            onClick: (ctx) => ctx.goToNextStatement(2),
+            onClick: (ctx) => {
+              ctx.goToNextStatement(2)
+            },
           },
         ]}
       >
@@ -125,12 +129,15 @@ export function BranchArchkot_ProjAsk_CheckOut_AssembleTeam() {
         menu={[
           {
             label: 'Подумаю о дальнейших действиях',
-            onClick: (ctx) => ctx.goToNextStatement(),
+            onClick: (ctx) => {
+              ctx.goToNextStatement()
+            },
           },
           {
             label: 'Ничего уже не поделаешь…',
-            onClick: (ctx) =>
-              ctx.goToBranch('Archkot_ProjAsk_CheckOut_SocialMedia'),
+            onClick: (ctx) => {
+              ctx.goToBranch('Archkot_ProjAsk_CheckOut_SocialMedia')
+            },
           },
         ]}
       >
@@ -198,13 +205,15 @@ export function BranchArchkot_ProjAsk_CheckOut_AssembleTeam() {
         menu={[
           {
             label: 'Инициировать открытое обсуждение',
-            onClick: (ctx) =>
-              ctx.goToBranch('Archkot_ProjAsk_CheckOut_AssembleTeam_Debate'),
+            onClick: (ctx) => {
+              ctx.goToBranch('Archkot_ProjAsk_CheckOut_AssembleTeam_Debate')
+            },
           },
           {
             label: 'Написать статью',
-            onClick: (ctx) =>
-              ctx.goToBranch('Archkot_ProjAsk_CheckOut_AssembleTeam_Article'),
+            onClick: (ctx) => {
+              ctx.goToBranch('Archkot_ProjAsk_CheckOut_AssembleTeam_Article')
+            },
           },
         ]}
       >

@@ -43,11 +43,15 @@ export function BranchAkim_MonumentDept_Tea() {
           {
             label:
               'Понастроили жильё, где не должны были. Нечего теперь возмущаться.',
-            onClick: (ctx) => ctx.goToStatement('museum-a'),
+            onClick: (ctx) => {
+              ctx.goToStatement('museum-a')
+            },
           },
           {
             label: 'Выписать штраф за нарушение общественного спокойствия!',
-            onClick: (ctx) => ctx.goToStatement('museum-b'),
+            onClick: (ctx) => {
+              ctx.goToStatement('museum-b')
+            },
           },
         ]}
       >
@@ -91,13 +95,15 @@ export function BranchAkim_MonumentDept_Tea() {
           menu={[
             {
               label: 'Да, продолжаю',
-              onClick: (ctx) => ctx.goToNextStatement(),
+              onClick: (ctx) => {
+                ctx.goToNextStatement()
+              },
             },
             {
               label: 'Нет, вернуться к выбору',
-              onClick: (ctx) =>
-                // HACK
-                ctx.goToLocation('Akim_0Menu', 5),
+              onClick: (ctx) => {
+                ctx.goToLocation('Akim_0Menu', 5)
+              },
             },
           ]}
         >
@@ -128,11 +134,15 @@ export function BranchAkim_MonumentDept_Tea() {
         menu={[
           {
             label: 'Не одобрять! Пусть меняют проект',
-            onClick: (ctx) => ctx.goToStatement('zhetysu-a'),
+            onClick: (ctx) => {
+              ctx.goToStatement('zhetysu-a')
+            },
           },
           {
             label: 'Вынести здание из списка памятников!',
-            onClick: (ctx) => ctx.goToStatement('zhetysu-b'),
+            onClick: (ctx) => {
+              ctx.goToStatement('zhetysu-b')
+            },
           },
         ]}
       >
@@ -188,13 +198,15 @@ export function BranchAkim_MonumentDept_Tea() {
           menu={[
             {
               label: 'Да, продолжаю',
-              onClick: (ctx) => ctx.goToNextStatement(),
+              onClick: (ctx) => {
+                ctx.goToNextStatement()
+              },
             },
             {
               label: 'Нет, вернуться к выбору',
-              onClick: (ctx) =>
-                // HACK
-                ctx.goToLocation('Akim_0Menu', 5),
+              onClick: (ctx) => {
+                ctx.goToLocation('Akim_0Menu', 5)
+              },
             },
           ]}
         >
@@ -207,7 +219,9 @@ export function BranchAkim_MonumentDept_Tea() {
         menu={[
           {
             label: 'Дальше',
-            onClick: (ctx) => ctx.goToBranch('Akim_MonumentDept_Rant'),
+            onClick: (ctx) => {
+              ctx.goToBranch('Akim_MonumentDept_Rant')
+            },
           },
         ]}
       >

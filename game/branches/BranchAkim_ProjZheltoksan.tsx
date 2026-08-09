@@ -24,11 +24,15 @@ export function BranchAkim_ProjZheltoksan() {
         menu={[
           {
             label: 'Нужна экспертиза',
-            onClick: (ctx) => ctx.goToBranch('Akim_ProjZheltoksan_Examine'),
+            onClick: (ctx) => {
+              ctx.goToBranch('Akim_ProjZheltoksan_Examine')
+            },
           },
           {
             label: 'Одобрить',
-            onClick: (ctx) => ctx.goToBranch('Akim_ProjZheltoksan_Approve'),
+            onClick: (ctx) => {
+              ctx.goToBranch('Akim_ProjZheltoksan_Approve')
+            },
           },
         ]}
       >

@@ -5,13 +5,9 @@ import type {Fetcher} from 'swr'
 import useSWR from 'swr'
 import {twMerge} from 'tailwind-merge'
 
-export interface LinkCardProps
-  extends Omit<
-    LinkCardViewProps,
-    'title' | 'description' | 'image' | 'screenshot'
-  > {
+export type LinkCardProps = {
   url: string
-}
+} & Omit<LinkCardViewProps, 'title' | 'description' | 'image' | 'screenshot'>
 
 export function LinkCard({url: href, ...restProps}: LinkCardProps) {
   const res = useSWR(href, linkMetadataFetcher)
@@ -27,8 +23,7 @@ export function LinkCard({url: href, ...restProps}: LinkCardProps) {
   )
 }
 
-interface LinkCardViewProps
-  extends Omit<React.ComponentPropsWithoutRef<'div'>, 'title' | 'lang'> {
+type LinkCardViewProps = {
   url: string
   title?: string | null
   description?: string | null
@@ -36,7 +31,7 @@ interface LinkCardViewProps
   screenshot?: ImageInfo | null
   size?: 'md' | 'sm'
   CardComponent?: React.ElementType<React.ComponentPropsWithoutRef<'div'>>
-}
+} & Omit<React.ComponentPropsWithoutRef<'div'>, 'title' | 'lang'>
 
 function LinkCardView({
   url,
@@ -60,9 +55,9 @@ function LinkCardView({
           // eslint-disable-next-line @next/next/no-img-element, jsx-a11y/alt-text
           <img
             src={
-              image && image?.width < 400
-                ? screenshot?.url ?? image?.url
-                : image?.url ?? screenshot?.url
+              image && image.width < 400
+                ? (screenshot?.url ?? image.url)
+                : (image?.url ?? screenshot?.url)
             }
             className="my-0 h-48 w-full object-cover"
           />

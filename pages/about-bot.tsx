@@ -1,7 +1,7 @@
 import {bgAirportJpg} from 'assets/game'
 import {telegramBotQrCodePng} from 'assets/www'
 import {Hero, HeroBackground, Layout} from 'components'
-import Image from 'next/future/image'
+import Image from 'next/image'
 import {TelegramLogo as TelegramLogoIcon} from 'phosphor-react'
 
 export default function AboutBot() {
@@ -26,7 +26,7 @@ export default function AboutBot() {
               <Image
                 src={telegramBotQrCodePng}
                 alt=""
-                className="h-[18rem] w-auto object-contain"
+                className="h-72 w-auto object-contain"
               />
             </a>
           }

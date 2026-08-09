@@ -124,13 +124,9 @@ async function playZzfxSound(name: keyof typeof ZZFX_SOUNDS) {
   const {zzfx} = await import('zzfx')
   return new Promise<void>((resolve) => {
     const sound = ZZFX_SOUNDS[name]
-    if (sound) {
-      const audio = zzfx(...sound)
-      audio.onended = async () => {
-        await delay(500)
-        resolve()
-      }
-    } else {
+    const audio = zzfx(...sound)
+    audio.onended = async () => {
+      await delay(500)
       resolve()
     }
   })

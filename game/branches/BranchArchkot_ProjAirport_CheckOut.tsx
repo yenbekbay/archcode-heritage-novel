@@ -59,13 +59,15 @@ export function BranchArchkot_ProjAirport_CheckOut() {
         menu={[
           {
             label: 'Погрустить',
-            onClick: (ctx) =>
-              ctx.goToBranch('Archkot_ProjAirport_CheckOut_SocialMedia'),
+            onClick: (ctx) => {
+              ctx.goToBranch('Archkot_ProjAirport_CheckOut_SocialMedia')
+            },
           },
           {
             label: 'Собрать команду',
-            onClick: (ctx) =>
-              ctx.goToBranch('Archkot_ProjAirport_CheckOut_AssembleTeam'),
+            onClick: (ctx) => {
+              ctx.goToBranch('Archkot_ProjAirport_CheckOut_AssembleTeam')
+            },
           },
         ]}
       >

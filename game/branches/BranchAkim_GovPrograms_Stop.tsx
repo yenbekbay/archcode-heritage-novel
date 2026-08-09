@@ -6,9 +6,9 @@ import {
   bgCityHallMayorOfficeJpg,
   bgMayorDoorJpg,
   bgMayorDoorwayJpg,
-  mayor2Png,
   mayor12Png,
   mayor14Png,
+  mayor2Png,
 } from 'assets/game'
 import {Branch, Say, Scene, Show} from 'react-visual-novel'
 import {LINKS} from '../links'
@@ -75,11 +75,15 @@ export function BranchAkim_GovPrograms_Stop() {
         menu={[
           {
             label: 'Он прав!',
-            onClick: (ctx) => ctx.goToBranch('Akim_GovPrograms_Stop_Agree'),
+            onClick: (ctx) => {
+              ctx.goToBranch('Akim_GovPrograms_Stop_Agree')
+            },
           },
           {
             label: 'Бред какой-то',
-            onClick: (ctx) => ctx.goToBranch('Akim_GovPrograms_Stop_Dismiss'),
+            onClick: (ctx) => {
+              ctx.goToBranch('Akim_GovPrograms_Stop_Dismiss')
+            },
           },
         ]}
       >

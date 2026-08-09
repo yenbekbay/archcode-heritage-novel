@@ -12,15 +12,21 @@ export function BranchDeveloper_Menu_Projects() {
         menu={[
           {
             label: 'Желтоксан',
-            onClick: (ctx) => ctx.goToBranch('Developer_ProjZheltoksan'),
+            onClick: (ctx) => {
+              ctx.goToBranch('Developer_ProjZheltoksan')
+            },
           },
           {
             label: 'Аэропорт',
-            onClick: (ctx) => ctx.goToBranch('Developer_ProjAirport'),
+            onClick: (ctx) => {
+              ctx.goToBranch('Developer_ProjAirport')
+            },
           },
           {
             label: 'АСК',
-            onClick: (ctx) => ctx.goToBranch('Developer_ProjAsk'),
+            onClick: (ctx) => {
+              ctx.goToBranch('Developer_ProjAsk')
+            },
           },
         ]}
       >

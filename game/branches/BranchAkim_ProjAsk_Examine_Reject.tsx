@@ -160,13 +160,15 @@ export function BranchAkim_ProjAsk_Examine_Reject() {
         menu={[
           {
             label: 'Выдвинуть группу от акимата',
-            onClick: (ctx) =>
-              ctx.goToBranch('Akim_ProjAsk_Examine_Reject_Intervene'),
+            onClick: (ctx) => {
+              ctx.goToBranch('Akim_ProjAsk_Examine_Reject_Intervene')
+            },
           },
           {
             label: 'Проигнорировать',
-            onClick: (ctx) =>
-              ctx.goToBranch('Akim_ProjAsk_Examine_Reject_Ignore'),
+            onClick: (ctx) => {
+              ctx.goToBranch('Akim_ProjAsk_Examine_Reject_Ignore')
+            },
           },
         ]}
       >

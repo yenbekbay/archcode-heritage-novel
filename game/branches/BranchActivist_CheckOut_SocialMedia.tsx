@@ -32,11 +32,15 @@ export function BranchActivist_CheckOut_SocialMedia() {
         menu={[
           {
             label: 'Создать мем',
-            onClick: (ctx) => ctx.goToStatement('make_meme'),
+            onClick: (ctx) => {
+              ctx.goToStatement('make_meme')
+            },
           },
           {
             label: 'Написать пост о том, как всё плохо',
-            onClick: (ctx) => ctx.goToStatement('publish_post'),
+            onClick: (ctx) => {
+              ctx.goToStatement('publish_post')
+            },
           },
         ]}
       >
@@ -45,7 +49,9 @@ export function BranchActivist_CheckOut_SocialMedia() {
 
       <Label label="make_meme">
         <SubmitMeme
-          onDone={(ctx) => ctx.goToStatement('acknowledged')}
+          onDone={(ctx) => {
+            ctx.goToStatement('acknowledged')
+          }}
           frame={{
             viewport: [1080, 1920],
             rect: {
@@ -70,7 +76,9 @@ export function BranchActivist_CheckOut_SocialMedia() {
 
       <Label label="publish_post">
         <SubmitPost
-          onDone={(ctx) => ctx.goToStatement('acknowledged')}
+          onDone={(ctx) => {
+            ctx.goToStatement('acknowledged')
+          }}
           frame={{
             viewport: [1080, 1920],
             rect: {
@@ -105,11 +113,15 @@ export function BranchActivist_CheckOut_SocialMedia() {
         choices={[
           {
             label: 'Что я ещё могу сделать?',
-            onClick: (ctx) => ctx.goToBranch('Activist_CheckOut_Act'),
+            onClick: (ctx) => {
+              ctx.goToBranch('Activist_CheckOut_Act')
+            },
           },
           {
             label: 'Я сделала всё что было в моих силах',
-            onClick: (ctx) => ctx.goToNextStatement(),
+            onClick: (ctx) => {
+              ctx.goToNextStatement()
+            },
           },
         ]}
         image={{uri: redhead2Png.src, align: 'bottom'}}

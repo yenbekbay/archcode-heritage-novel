@@ -9,13 +9,13 @@ import {
   bgLaptopStandaloneJpg,
   bgPhoneFingerJpg,
   bgPhoneHandJpg,
-  redhead1Png,
-  redhead5Png,
   redhead14Png,
   redhead15Png,
   redhead16Png,
   redhead17Png,
   redhead18Png,
+  redhead1Png,
+  redhead5Png,
   transition1Mp3,
   transition2ShortMp3,
   transition3ShortMp3,
@@ -376,7 +376,9 @@ export function BranchActivist_CheckOut_Act_Group() {
         choices={[
           {
             label: 'Позвонить в Архкод',
-            onClick: (ctx) => ctx.goToBranch('Activist_CheckOut_Act_Org'),
+            onClick: (ctx) => {
+              ctx.goToBranch('Activist_CheckOut_Act_Org')
+            },
           },
         ]}
       />

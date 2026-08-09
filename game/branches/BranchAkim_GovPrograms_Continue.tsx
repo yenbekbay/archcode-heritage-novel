@@ -33,12 +33,15 @@ export function BranchAkim_GovPrograms_Continue() {
         menu={[
           {
             label: 'Продолжить демонтаж',
-            onClick: (ctx) =>
-              ctx.goToBranch('Akim_GovPrograms_Continue_Continue'),
+            onClick: (ctx) => {
+              ctx.goToBranch('Akim_GovPrograms_Continue_Continue')
+            },
           },
           {
             label: 'Остановить демонтаж',
-            onClick: (ctx) => ctx.goToBranch('Akim_GovPrograms_Stop'),
+            onClick: (ctx) => {
+              ctx.goToBranch('Akim_GovPrograms_Stop')
+            },
           },
         ]}
       >

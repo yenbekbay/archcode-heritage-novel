@@ -43,14 +43,15 @@ export function BranchDeveloper_ProjAsk_Demolish() {
         menu={[
           {
             label: 'Пересмотреть выбор',
-            onClick: (ctx) =>
-              // HACK
-              ctx.goToLocation('Developer_ProjAsk', 16),
+            onClick: (ctx) => {
+              ctx.goToLocation('Developer_ProjAsk', 16)
+            },
           },
           {
             label: 'Игнорировать риски',
-            onClick: (ctx) =>
-              ctx.goToBranch('Developer_ProjAsk_Demolish_IgnoreRisks'),
+            onClick: (ctx) => {
+              ctx.goToBranch('Developer_ProjAsk_Demolish_IgnoreRisks')
+            },
           },
         ]}
       >

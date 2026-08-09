@@ -7,7 +7,8 @@
   font-weight: normal;
   font-display: block;
   font-style: normal;
-  src: url('/fonts/calligraph.woff2') format('woff2'),
+  src:
+    url('/fonts/calligraph.woff2') format('woff2'),
     url('/fonts/calligraph.woff') format('woff');
 }
 
@@ -16,7 +17,8 @@
   font-weight: 400;
   font-display: swap;
   font-style: normal;
-  src: url('/fonts/IBMPlexMono-Regular.woff2') format('woff2'),
+  src:
+    url('/fonts/IBMPlexMono-Regular.woff2') format('woff2'),
     url('/fonts/IBMPlexMono-Regular.woff') format('woff');
 }
 
@@ -25,7 +27,8 @@
   font-weight: 400;
   font-display: swap;
   font-style: italic;
-  src: url('/fonts/IBMPlexMono-Italic.woff2') format('woff2'),
+  src:
+    url('/fonts/IBMPlexMono-Italic.woff2') format('woff2'),
     url('/fonts/IBMPlexMono-Italic.woff') format('woff');
 }
 
@@ -34,7 +37,8 @@
   font-weight: 700;
   font-display: swap;
   font-style: normal;
-  src: url('/fonts/IBMPlexMono-Medium.woff2') format('woff2'),
+  src:
+    url('/fonts/IBMPlexMono-Medium.woff2') format('woff2'),
     url('/fonts/IBMPlexMono-Medium.woff') format('woff');
 }
 
@@ -43,7 +47,8 @@
   font-weight: 700;
   font-display: swap;
   font-style: italic;
-  src: url('/fonts/IBMPlexMono-MediumItalic.woff2') format('woff2'),
+  src:
+    url('/fonts/IBMPlexMono-MediumItalic.woff2') format('woff2'),
     url('/fonts/IBMPlexMono-MediumItalic.woff') format('woff');
 }
 
@@ -98,15 +103,22 @@
   }
 
   .rvn-text {
-    @apply font-script text-center;
+    @apply text-center font-script;
     color: rgb(17, 24, 28);
-    text-shadow: 0 1px rgb(236, 238, 240), 0 0 4px rgba(255, 255, 255),
-      0 0 4px rgba(255, 255, 255), 0 0 4px rgba(255, 255, 255);
+    text-shadow:
+      0 1px rgb(236, 238, 240),
+      0 0 4px rgba(255, 255, 255),
+      0 0 4px rgba(255, 255, 255),
+      0 0 4px rgba(255, 255, 255);
   }
   .rvn-text[data-scheme='dark'] {
     color: rgb(251, 249, 223);
-    text-shadow: 0 -1px rgba(0, 0, 0, 0.35), 0 2px rgb(17, 24, 28),
-      0 0 4px rgba(0, 0, 0), 0 0 4px rgba(0, 0, 0), 0 0 4px rgba(0, 0, 0);
+    text-shadow:
+      0 -1px rgba(0, 0, 0, 0.35),
+      0 2px rgb(17, 24, 28),
+      0 0 4px rgba(0, 0, 0),
+      0 0 4px rgba(0, 0, 0),
+      0 0 4px rgba(0, 0, 0);
   }
   .rvn-text[data-size='md'] {
     @apply text-base;
@@ -119,20 +131,23 @@
   }
 
   .rvn-tag {
-    @apply font-script rounded-md px-1 text-center text-base;
+    @apply rounded-md px-1 text-center font-script text-base;
     color: rgb(251, 249, 223);
     background-color: rgba(165, 123, 85, 0.75);
   }
 
   .rvn-menu-label {
-    @apply font-script text-center text-lg;
+    @apply text-center font-script text-lg;
     color: rgb(17, 24, 28);
-    text-shadow: 0 1px rgb(236, 238, 240), 0 0 4px rgba(255, 255, 255),
-      0 0 4px rgba(255, 255, 255), 0 0 4px rgba(255, 255, 255);
+    text-shadow:
+      0 1px rgb(236, 238, 240),
+      0 0 4px rgba(255, 255, 255),
+      0 0 4px rgba(255, 255, 255),
+      0 0 4px rgba(255, 255, 255);
   }
 
   .rvn-menu-item-surface {
-    @apply btn-ghost btn border;
+    @apply btn btn-ghost border;
     border-color: rgb(17, 24, 28);
     background-color: rgba(255, 255, 255, 0.5);
     box-shadow: 0 2px rgba(0, 0, 0, 0.35);
@@ -144,44 +159,58 @@
   }
 
   .rvn-menu-item-button {
-    @apply font-script btn-ghost btn h-auto min-h-0 animate-bounce-gentle py-2 shadow-md;
+    @apply btn btn-ghost h-auto min-h-0 animate-bounce-gentle py-2 font-script shadow-md;
     color: rgb(17, 24, 28);
     background-color: rgba(255, 255, 255, 0.5);
-    text-shadow: 0 1px rgb(236, 238, 240), 0 0 4px rgba(255, 255, 255),
-      0 0 4px rgba(255, 255, 255), 0 0 4px rgba(255, 255, 255);
+    text-shadow:
+      0 1px rgb(236, 238, 240),
+      0 0 4px rgba(255, 255, 255),
+      0 0 4px rgba(255, 255, 255),
+      0 0 4px rgba(255, 255, 255);
     box-shadow: 0 2px rgba(0, 0, 0, 0.35);
   }
   .rvn-menu-item-button[data-scheme='dark'] {
     color: rgb(251, 249, 223);
     background-color: rgba(0, 0, 0, 0.35);
-    text-shadow: 0 -1px rgba(0, 0, 0, 0.35), 0 2px rgb(17, 24, 28),
-      0 0 4px rgba(0, 0, 0), 0 0 4px rgba(0, 0, 0), 0 0 4px rgba(0, 0, 0);
+    text-shadow:
+      0 -1px rgba(0, 0, 0, 0.35),
+      0 2px rgb(17, 24, 28),
+      0 0 4px rgba(0, 0, 0),
+      0 0 4px rgba(0, 0, 0),
+      0 0 4px rgba(0, 0, 0);
     box-shadow: 0 2px rgba(0, 0, 0, 0.35);
   }
   .rvn-menu-item-button[data-size='md'] {
-    @apply btn-lg text-base h-auto min-h-0;
+    @apply btn-lg h-auto min-h-0 text-base;
   }
   .rvn-menu-item-button[data-size='lg'] {
-    @apply btn-xl text-2xl h-auto min-h-0;
+    @apply btn-xl h-auto min-h-0 text-2xl;
   }
 
   .rvn-title {
-    @apply font-script font-semibold text-center text-5xl;
+    @apply text-center font-script text-5xl font-semibold;
     color: rgb(239, 68, 68);
-    text-shadow: 0 -1px rgba(0, 0, 0, 0.35), 0 2px rgb(17, 24, 28),
-      0 0 4px rgba(0, 0, 0), 0 0 4px rgba(0, 0, 0), 0 0 4px rgba(0, 0, 0);
+    text-shadow:
+      0 -1px rgba(0, 0, 0, 0.35),
+      0 2px rgb(17, 24, 28),
+      0 0 4px rgba(0, 0, 0),
+      0 0 4px rgba(0, 0, 0),
+      0 0 4px rgba(0, 0, 0);
   }
 
   .rvn-icon-button {
-    @apply btn-ghost btn-circle btn bg-base-100 text-xl shadow-md hover:bg-base-200;
+    @apply btn btn-circle btn-ghost bg-base-100 text-xl shadow-md hover:bg-base-200;
   }
 
   .GameButton {
     @apply btn font-script;
     color: rgb(17, 24, 28);
     background-color: rgba(255, 255, 255, 0.5);
-    text-shadow: 0 1px rgb(236, 238, 240), 0 0 4px rgba(255, 255, 255),
-      0 0 4px rgba(255, 255, 255), 0 0 4px rgba(255, 255, 255);
+    text-shadow:
+      0 1px rgb(236, 238, 240),
+      0 0 4px rgba(255, 255, 255),
+      0 0 4px rgba(255, 255, 255),
+      0 0 4px rgba(255, 255, 255);
     box-shadow: 0 2px rgba(0, 0, 0, 0.35);
   }
   .GameButton--opaque {

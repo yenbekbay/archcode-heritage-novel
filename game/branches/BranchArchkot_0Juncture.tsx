@@ -49,8 +49,7 @@ export function BranchArchkot_0Juncture() {
                 'Archkot_ProjAirport_WalkPast',
                 'Archkot_ProjBusStop_WalkPast',
               ]
-              return ctx.goToBranch(
-                // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+              ctx.goToBranch(
                 options[Math.floor(Math.random() * options.length)]!,
               )
             },
@@ -64,7 +63,6 @@ export function BranchArchkot_0Juncture() {
                 'Archkot_ProjBusStop_CheckOut',
               ]
               ctx.goToBranch(
-                // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
                 options[Math.floor(Math.random() * options.length)]!,
               )
             },

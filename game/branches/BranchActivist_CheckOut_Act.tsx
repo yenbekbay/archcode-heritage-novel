@@ -12,15 +12,21 @@ export function BranchActivist_CheckOut_Act() {
         menu={[
           {
             label: 'Разберусь сама',
-            onClick: (ctx) => ctx.goToBranch('Activist_CheckOut_Act_Self'),
+            onClick: (ctx) => {
+              ctx.goToBranch('Activist_CheckOut_Act_Self')
+            },
           },
           {
             label: 'Объединиться в команду',
-            onClick: (ctx) => ctx.goToBranch('Activist_CheckOut_Act_Group'),
+            onClick: (ctx) => {
+              ctx.goToBranch('Activist_CheckOut_Act_Group')
+            },
           },
           {
             label: 'Обратиться в организации',
-            onClick: (ctx) => ctx.goToBranch('Activist_CheckOut_Act_Org'),
+            onClick: (ctx) => {
+              ctx.goToBranch('Activist_CheckOut_Act_Org')
+            },
           },
         ]}
       >

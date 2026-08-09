@@ -1,7 +1,7 @@
 import * as assets from 'assets/game'
 import {usePreloadAssets} from 'react-visual-novel'
 
-export interface PreloadMyGameAssetsProps {
+export type PreloadMyGameAssetsProps = {
   concurrency?: number
   onLoaded?: () => void
 }

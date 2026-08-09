@@ -29,11 +29,15 @@ export function BranchDeveloper_0Intro() {
         menu={[
           {
             label: 'Да',
-            onClick: (ctx) => ctx.goToBranch('Developer_Menu_Projects'),
+            onClick: (ctx) => {
+              ctx.goToBranch('Developer_Menu_Projects')
+            },
           },
           {
             label: 'Нет',
-            onClick: (ctx) => ctx.goToBranch('Developer_No'),
+            onClick: (ctx) => {
+              ctx.goToBranch('Developer_No')
+            },
           },
         ]}
       >

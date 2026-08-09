@@ -13,12 +13,12 @@ export function useSavedLinks() {
   return useAtomValue(savedLinksAtom)
 }
 
-export interface Link {
+export type Link = {
   href: string
   name: string
 }
 
-export interface LinkPromptProps {
+export type LinkPromptProps = {
   link: Link | null
   onClose: () => void
 }
@@ -38,9 +38,13 @@ export function LinkPrompt({link, onClose}: LinkPromptProps) {
         >
           <Dialog.Close asChild>
             <button
-              onMouseEnter={() => playSound('mouseover')}
-              onClick={() => playSound('click')}
-              className="btn-ghost btn-circle btn bg-base-100 text-xl shadow-md hover:bg-base-200"
+              onMouseEnter={() => {
+                playSound('mouseover')
+              }}
+              onClick={() => {
+                playSound('click')
+              }}
+              className="btn btn-circle btn-ghost bg-base-100 text-xl shadow-md hover:bg-base-200"
             >
               <XIcon />
             </button>
@@ -55,18 +59,22 @@ export function LinkPrompt({link, onClose}: LinkPromptProps) {
 
             <div className="btn-group">
               <Dialog.Close
-                onMouseEnter={() => playSound('mouseover')}
+                onMouseEnter={() => {
+                  playSound('mouseover')
+                }}
                 onClick={() => {
                   playSound('click')
                   window.open(link.href, '_blank')
                 }}
-                className="btn-outline btn"
+                className="btn btn-outline"
               >
                 Читать сейчас
               </Dialog.Close>
 
               <Dialog.Close
-                onMouseEnter={() => playSound('mouseover')}
+                onMouseEnter={() => {
+                  playSound('mouseover')
+                }}
                 onClick={() => {
                   playSound('click')
                   setSavedLinks((prev) =>
@@ -80,7 +88,7 @@ export function LinkPrompt({link, onClose}: LinkPromptProps) {
               </Dialog.Close>
             </div>
 
-            <div className="prose-sm prose">
+            <div className="prose prose-sm">
               <blockquote>
                 Доступ к сохранённым ссылкам можно получить в конце игры.
               </blockquote>

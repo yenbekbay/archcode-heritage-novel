@@ -44,11 +44,15 @@ export function BranchActivist_0Juncture() {
         menu={[
           {
             label: 'Пройти мимо',
-            onClick: (ctx) => ctx.goToBranch('Activist_WalkPast'),
+            onClick: (ctx) => {
+              ctx.goToBranch('Activist_WalkPast')
+            },
           },
           {
             label: 'Посмотреть',
-            onClick: (ctx) => ctx.goToBranch('Activist_CheckOut'),
+            onClick: (ctx) => {
+              ctx.goToBranch('Activist_CheckOut')
+            },
           },
         ]}
       >

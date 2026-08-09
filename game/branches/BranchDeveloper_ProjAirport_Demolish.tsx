@@ -57,14 +57,15 @@ export function BranchDeveloper_ProjAirport_Demolish() {
         menu={[
           {
             label: 'Пересмотреть выбор',
-            onClick: (ctx) =>
-              // HACK
-              ctx.goToLocation('Developer_ProjAirport', 14),
+            onClick: (ctx) => {
+              ctx.goToLocation('Developer_ProjAirport', 14)
+            },
           },
           {
             label: 'Игнорировать риски',
-            onClick: (ctx) =>
-              ctx.goToBranch('Developer_ProjAirport_Demolish_IgnoreRisks'),
+            onClick: (ctx) => {
+              ctx.goToBranch('Developer_ProjAirport_Demolish_IgnoreRisks')
+            },
           },
         ]}
       >

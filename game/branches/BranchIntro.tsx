@@ -24,7 +24,9 @@ export function BranchIntro() {
         choices={[
           {
             label: 'Начать',
-            onClick: (ctx) => ctx.goToNextStatement(),
+            onClick: (ctx) => {
+              ctx.goToNextStatement()
+            },
           },
         ]}
       />
@@ -77,19 +79,27 @@ export function BranchIntro() {
         choices={[
           {
             label: 'Активист',
-            onClick: (ctx) => ctx.goToBranch('Activist_0Juncture'),
+            onClick: (ctx) => {
+              ctx.goToBranch('Activist_0Juncture')
+            },
           },
           {
             label: 'АрхКот',
-            onClick: (ctx) => ctx.goToBranch('Archkot_0Juncture'),
+            onClick: (ctx) => {
+              ctx.goToBranch('Archkot_0Juncture')
+            },
           },
           {
             label: 'Девелопер',
-            onClick: (ctx) => ctx.goToBranch('Developer_0Intro'),
+            onClick: (ctx) => {
+              ctx.goToBranch('Developer_0Intro')
+            },
           },
           {
             label: 'Аким',
-            onClick: (ctx) => ctx.goToBranch('Akim_0Menu'),
+            onClick: (ctx) => {
+              ctx.goToBranch('Akim_0Menu')
+            },
           },
         ]}
       />

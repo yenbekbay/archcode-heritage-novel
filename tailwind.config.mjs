@@ -1,9 +1,14 @@
-const plugin = require('tailwindcss/plugin')
-const colors = require('tailwindcss/colors')
-const defaultTheme = require('tailwindcss/defaultTheme')
+import forms from '@tailwindcss/forms'
+import typography from '@tailwindcss/typography'
+import daisyui from 'daisyui'
+import radix from 'tailwindcss-radix'
+import scrims from 'tailwindcss-scrims'
+import colors from 'tailwindcss/colors'
+import defaultTheme from 'tailwindcss/defaultTheme'
+import plugin from 'tailwindcss/plugin'
 
 const palette = {
-  chicago: {
+  'chicago': {
     DEFAULT: '#88867B',
     50: '#DFDEDB',
     100: '#D5D5D1',
@@ -16,7 +21,7 @@ const palette = {
     800: '#403F39',
     900: '#22221F',
   },
-  crail: {
+  'crail': {
     DEFAULT: '#C1673F',
     50: '#EED5CA',
     100: '#E9C9BA',
@@ -47,7 +52,7 @@ const palette = {
 /**
  * @type {import('tailwindcss').Config}
  */
-module.exports = {
+const config = {
   content: [
     './{components,game,pages}/**/*.{ts,tsx}',
     './node_modules/react-visual-novel/dist/index.js',
@@ -56,7 +61,7 @@ module.exports = {
     extend: {
       colors: {
         ...palette,
-        content: palette.chicago[700],
+        'content': palette.chicago[700],
         'content-focus': palette.chicago[800],
         'content-invert': palette['rum-swizzle'][50],
         'content-invert-focus': palette['rum-swizzle'][100],
@@ -84,18 +89,17 @@ module.exports = {
     },
   },
   plugins: [
-    require('@tailwindcss/forms'),
-    require('@tailwindcss/typography'),
-    // @ts-ignore
-    require('tailwindcss-radix')(),
-    // @ts-ignore
-    require('tailwindcss-scrims')({
+    forms,
+    typography,
+    // @ts-expect-error The CommonJS package's declaration omits its options factory.
+    radix(),
+    scrims({
       colors: {
         default: ['rgba(0, 0, 0, 0.5)', 'rgba(0, 0, 0, 0)'],
         light: ['rgba(255, 255, 255, 0.5)', 'rgba(255, 255, 255, 0)'],
       },
     }),
-    require('daisyui'),
+    daisyui,
     // ActiveLink
     plugin(({addVariant}) => {
       addVariant('link-active', '&[data-link-active]')
@@ -108,22 +112,22 @@ module.exports = {
     themes: [
       {
         light: {
-          primary: palette.crail[500],
+          'primary': palette.crail[500],
           'primary-content': colors.white,
-          secondary: palette.chicago[500],
+          'secondary': palette.chicago[500],
           'secondary-content': colors.white,
-          accent: palette.chicago[500],
+          'accent': palette.chicago[500],
           'accent-content': colors.white,
-          neutral: palette.chicago[500],
+          'neutral': palette.chicago[500],
           'neutral-content': colors.white,
           'base-100': colors.white,
           'base-200': palette.chicago[50],
           'base-300': palette.chicago[100],
           'base-content': palette.chicago[700],
-          info: colors.blue[500],
-          success: colors.green[500],
-          warning: colors.yellow[500],
-          error: colors.red[500],
+          'info': colors.blue[500],
+          'success': colors.green[500],
+          'warning': colors.yellow[500],
+          'error': colors.red[500],
 
           '--rounded-box': '0.4rem',
           '--rounded-btn': '0.4rem',
@@ -135,3 +139,5 @@ module.exports = {
     darkTheme: 'light',
   },
 }
+
+export default config

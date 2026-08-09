@@ -6,12 +6,17 @@ import {useZorm} from 'react-zorm'
 import {twMerge} from 'tailwind-merge'
 import {z} from 'zod'
 
-export interface TextFormProps {
+export type TextFormProps = {
   inputLabel: string
   submitLabel: string
-  onSubmit: (values: {body: string; name: string}) => unknown | Promise<unknown>
+  onSubmit: (values: {body: string; name: string}) => unknown
   rows?: number
 }
+
+const TextFormSchema = z.object({
+  body: z.string().min(1, 'Пожалуйста, напишите что-нибудь'),
+  name: z.string(),
+})
 
 export function TextForm({
   inputLabel,
@@ -21,13 +26,7 @@ export function TextForm({
 }: TextFormProps) {
   const {playSound} = useGameContext()
   const [submitting, setSubmitting] = React.useState(false)
-  const [FormSchema] = React.useState(() =>
-    z.object({
-      body: z.string().min(1, 'Пожалуйста, напишите что-нибудь'),
-      name: z.string(),
-    }),
-  )
-  const zo = useZorm('text', FormSchema, {
+  const zo = useZorm('text', TextFormSchema, {
     onValidSubmit: async (event) => {
       event.preventDefault()
       setSubmitting(true)
@@ -92,9 +91,13 @@ export function TextForm({
         <button
           type="submit"
           disabled={zo.validation?.success === false}
-          onMouseEnter={() => playSound('mouseover')}
-          onClick={() => playSound('click')}
-          className="GameButton GameButton--opaque btn-outline btn font-script"
+          onMouseEnter={() => {
+            playSound('mouseover')
+          }}
+          onClick={() => {
+            playSound('click')
+          }}
+          className="GameButton GameButton--opaque btn btn-outline font-script"
         >
           {submitLabel}
         </button>

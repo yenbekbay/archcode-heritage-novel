@@ -55,11 +55,15 @@ export function BranchAkim_ProjAsk_Approve() {
         menu={[
           {
             label: 'Попросить помощи у блоггеров',
-            onClick: (ctx) => ctx.goToBranch('Akim_ProjAsk_Approve_AskHelp'),
+            onClick: (ctx) => {
+              ctx.goToBranch('Akim_ProjAsk_Approve_AskHelp')
+            },
           },
           {
             label: 'Вступить в диалог',
-            onClick: (ctx) => ctx.goToBranch('Akim_ProjAsk_Examine_Reject'),
+            onClick: (ctx) => {
+              ctx.goToBranch('Akim_ProjAsk_Examine_Reject')
+            },
           },
         ]}
       >

@@ -74,11 +74,15 @@ export function BranchDeveloper_ProjAirport_Demolish_IgnoreRisks_Approved() {
         menu={[
           {
             label: 'Игнорировать',
-            onClick: (ctx) => ctx.goToNextStatement(),
+            onClick: (ctx) => {
+              ctx.goToNextStatement()
+            },
           },
           {
             label: 'Провести общественные слушаниям',
-            onClick: (ctx) => ctx.goToNextStatement(1),
+            onClick: (ctx) => {
+              ctx.goToNextStatement(1)
+            },
           },
         ]}
       >
@@ -179,17 +183,19 @@ export function BranchDeveloper_ProjAirport_Demolish_IgnoreRisks_Approved() {
         menu={[
           {
             label: 'Учесть мнения',
-            onClick: (ctx) =>
+            onClick: (ctx) => {
               ctx.goToBranch(
                 'Developer_ProjAirport_Demolish_IgnoreRisks_Approved_Listen',
-              ),
+              )
+            },
           },
           {
             label: 'Игнорировать',
-            onClick: (ctx) =>
+            onClick: (ctx) => {
               ctx.goToBranch(
                 'Developer_ProjAirport_Demolish_IgnoreRisks_Approved_Ignore',
-              ),
+              )
+            },
           },
         ]}
       >

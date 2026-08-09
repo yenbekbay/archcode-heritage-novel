@@ -88,12 +88,15 @@ export function BranchAkim_ProjZheltoksan_Examine() {
         menu={[
           {
             label: 'Не одобрять',
-            onClick: (ctx) =>
-              ctx.goToBranch('Akim_ProjZheltoksan_Examine_Reject'),
+            onClick: (ctx) => {
+              ctx.goToBranch('Akim_ProjZheltoksan_Examine_Reject')
+            },
           },
           {
             label: 'Одобрить',
-            onClick: (ctx) => ctx.goToBranch('Akim_ProjZheltoksan_Approve'),
+            onClick: (ctx) => {
+              ctx.goToBranch('Akim_ProjZheltoksan_Approve')
+            },
           },
         ]}
       >

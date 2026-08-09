@@ -5,10 +5,10 @@ import {
   bgDeveloperHqOutsideJpg,
   bgZheltoksanBeforeJpg,
   developerRepAPng,
+  developerRepB10Png,
   developerRepB1Png,
   developerRepB5Png,
   developerRepB7Png,
-  developerRepB10Png,
   letterPng,
   mayor7Png,
   redhead12Png,
@@ -21,7 +21,7 @@ import {Branch, Menu, Say, Scene, Show} from 'react-visual-novel'
 import {SCENE_AUDIO} from '../sounds'
 
 export function BranchDeveloper_ProjZheltoksan_Demolish_IgnoreRisks_Approved() {
-  const [answers] = React.useState(() => new Map<number, 'a' | 'b'>())
+  const answersRef = React.useRef(new Map<number, 'a' | 'b'>())
   return (
     <Branch>
       <Scene src={bgCityHallConferenceRoomJpg.src} audio={SCENE_AUDIO.indoor} />
@@ -76,11 +76,15 @@ export function BranchDeveloper_ProjZheltoksan_Demolish_IgnoreRisks_Approved() {
         menu={[
           {
             label: 'Игнорировать',
-            onClick: (ctx) => ctx.goToNextStatement(),
+            onClick: (ctx) => {
+              ctx.goToNextStatement()
+            },
           },
           {
             label: 'Провести общественные слушаниям',
-            onClick: (ctx) => ctx.goToNextStatement(1),
+            onClick: (ctx) => {
+              ctx.goToNextStatement(1)
+            },
           },
         ]}
       >
@@ -128,14 +132,14 @@ export function BranchDeveloper_ProjZheltoksan_Demolish_IgnoreRisks_Approved() {
           {
             label: 'А) Всё под контролем, беспокойств не будет',
             onClick: (ctx) => {
-              answers.set(0, 'a')
+              answersRef.current.set(0, 'a')
               ctx.goToNextStatement()
             },
           },
           {
             label: 'Б) Мы учтем ваше замечание и пересмотрим расчеты',
             onClick: (ctx) => {
-              answers.set(0, 'b')
+              answersRef.current.set(0, 'b')
               ctx.goToNextStatement()
             },
           },
@@ -158,14 +162,14 @@ export function BranchDeveloper_ProjZheltoksan_Demolish_IgnoreRisks_Approved() {
           {
             label: 'А) Всё по правилам, и придуманы они не нами',
             onClick: (ctx) => {
-              answers.set(1, 'a')
+              answersRef.current.set(1, 'a')
               ctx.goToNextStatement()
             },
           },
           {
             label: 'Б) В проекте возможны поправки, учтём ваши пожелания',
             onClick: (ctx) => {
-              answers.set(1, 'b')
+              answersRef.current.set(1, 'b')
               ctx.goToNextStatement()
             },
           },
@@ -188,14 +192,14 @@ export function BranchDeveloper_ProjZheltoksan_Demolish_IgnoreRisks_Approved() {
           {
             label: 'А) На уровне законодательства нет никаких наращений',
             onClick: (ctx) => {
-              answers.set(2, 'a')
+              answersRef.current.set(2, 'a')
               ctx.goToNextStatement()
             },
           },
           {
             label: 'Б) Благодарим за ваши пожелания. Они заставляют задуматься',
             onClick: (ctx) => {
-              answers.set(2, 'b')
+              answersRef.current.set(2, 'b')
               ctx.goToNextStatement()
             },
           },
@@ -209,9 +213,9 @@ export function BranchDeveloper_ProjZheltoksan_Demolish_IgnoreRisks_Approved() {
           {
             label: 'Дальше',
             onClick: (ctx) => {
-              const values = [...answers.values()]
-              const aCount = values.filter((v) => v === 'a')
-              const bCount = values.filter((v) => v === 'b')
+              const values = [...answersRef.current.values()]
+              const aCount = values.filter((value) => value === 'a').length
+              const bCount = values.filter((value) => value === 'b').length
               ctx.goToBranch(
                 aCount > bCount
                   ? 'Developer_ProjZheltoksan_Demolish_IgnoreRisks_Approved_Boycott'

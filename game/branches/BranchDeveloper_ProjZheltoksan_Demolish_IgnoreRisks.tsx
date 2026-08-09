@@ -5,8 +5,8 @@ import {
   bgCityHallSignJpg,
   bgDeveloperHqInsideJpg,
   bgDeveloperHqOutsideJpg,
-  developerRepB6Png,
   developerRepB10Png,
+  developerRepB6Png,
   transition1Mp3,
   transition2ShortMp3,
   transition3ShortMp3,
@@ -65,7 +65,6 @@ export function BranchDeveloper_ProjZheltoksan_Demolish_IgnoreRisks() {
                 'Developer_ProjZheltoksan_Demolish_IgnoreRisks_Rejected',
               ]
               ctx.goToBranch(
-                // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
                 options[Math.floor(Math.random() * options.length)]!,
               )
             },

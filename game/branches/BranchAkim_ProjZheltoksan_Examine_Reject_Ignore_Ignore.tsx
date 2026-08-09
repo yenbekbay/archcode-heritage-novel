@@ -55,17 +55,19 @@ export function BranchAkim_ProjZheltoksan_Examine_Reject_Ignore_Ignore() {
         menu={[
           {
             label: 'Учесть мнение',
-            onClick: (ctx) =>
+            onClick: (ctx) => {
               ctx.goToBranch(
                 'Akim_ProjZheltoksan_Examine_Reject_Ignore_Ignore_Listen',
-              ),
+              )
+            },
           },
           {
             label: 'Игнорировать',
-            onClick: (ctx) =>
+            onClick: (ctx) => {
               ctx.goToBranch(
                 'Akim_ProjZheltoksan_Examine_Reject_Ignore_Ignore_Ignore',
-              ),
+              )
+            },
           },
         ]}
       >

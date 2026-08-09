@@ -1,14 +1,14 @@
 import {fenceBottomPng, fenceMiddlePng, fenceTopPng} from 'assets/www'
-import Image from 'next/future/image'
+import Image from 'next/image'
 import React from 'react'
 
-export interface FenceSectionProps {
+export type FenceSectionProps = {
   children: React.ReactNode
 }
 
 export function FenceSection({children}: FenceSectionProps) {
   return (
-    <section className="relative flex flex-col pt-28 pb-[26rem]">
+    <section className="relative flex flex-col pb-[26rem] pt-28">
       <div className="absolute inset-0 ml-[-10%] flex w-[120%] flex-col">
         <Image src={fenceTopPng} alt="" priority className="w-full" />
         <div

@@ -5,10 +5,10 @@ import {mergeRefs} from 'react-merge-refs'
 import {annotate} from 'rough-notation'
 import type {RoughAnnotationConfig} from 'rough-notation/lib/model'
 
-export interface AnnotateProps extends React.ComponentPropsWithoutRef<'span'> {
+export type AnnotateProps = {
   asChild?: boolean
   config?: RoughAnnotationConfig
-}
+} & React.ComponentPropsWithoutRef<'span'>
 
 export const Annotate = React.forwardRef(function Annotate(
   {asChild, config, ...restProps}: AnnotateProps,

@@ -1,6 +1,6 @@
 import {
-  archkot4Png,
   archkot13Png,
+  archkot4Png,
   archtok3Png,
   bgArchcodeOfficeJpg,
   bgCityHallOutsideJpg,
@@ -86,10 +86,9 @@ export function BranchArchkot_ProjBusStop_CheckOut_AssembleTeam_VisitCityHall() 
         choices={[
           {
             label: 'Дальше',
-            onClick: (ctx) =>
-              ctx.goToBranch(
-                'Archkot_ProjBusStop_CheckOut_AssembleTeam_Submit',
-              ),
+            onClick: (ctx) => {
+              ctx.goToBranch('Archkot_ProjBusStop_CheckOut_AssembleTeam_Submit')
+            },
           },
         ]}
       />

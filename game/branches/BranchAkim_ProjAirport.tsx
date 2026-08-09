@@ -28,11 +28,15 @@ export function BranchAkim_ProjAirport() {
         menu={[
           {
             label: 'Нужна экспертиза',
-            onClick: (ctx) => ctx.goToBranch('Akim_ProjAirport_Examine'),
+            onClick: (ctx) => {
+              ctx.goToBranch('Akim_ProjAirport_Examine')
+            },
           },
           {
             label: 'Одобрить',
-            onClick: (ctx) => ctx.goToBranch('Akim_ProjAirport_Approve'),
+            onClick: (ctx) => {
+              ctx.goToBranch('Akim_ProjAirport_Approve')
+            },
           },
         ]}
       >

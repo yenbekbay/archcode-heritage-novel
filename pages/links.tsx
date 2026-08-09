@@ -20,7 +20,7 @@ export default function Links() {
               <p>У вас ещё нет сохранённых ссылок.</p>
 
               <p>
-                <Link href="/play" className="btn-invert btn-outline btn">
+                <Link href="/play" className="btn-invert btn btn-outline">
                   Играть
                 </Link>
               </p>

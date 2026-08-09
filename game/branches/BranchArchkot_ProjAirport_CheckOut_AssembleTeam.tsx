@@ -3,13 +3,13 @@ import {
   archbot1Png,
   archbot2Png,
   archbot3Png,
+  archkot11Png,
+  archkot12Png,
   archkot1Png,
   archkot2Png,
   archkot4Png,
   archkot8Png,
   archkot9Png,
-  archkot11Png,
-  archkot12Png,
   archtok1Png,
   archtok2Png,
   archtok3Png,
@@ -106,11 +106,15 @@ export function BranchArchkot_ProjAirport_CheckOut_AssembleTeam() {
         menu={[
           {
             label: 'Да',
-            onClick: (ctx) => ctx.goToNextStatement(),
+            onClick: (ctx) => {
+              ctx.goToNextStatement()
+            },
           },
           {
             label: 'Нет',
-            onClick: (ctx) => ctx.goToNextStatement(),
+            onClick: (ctx) => {
+              ctx.goToNextStatement()
+            },
           },
         ]}
       >
@@ -129,12 +133,15 @@ export function BranchArchkot_ProjAirport_CheckOut_AssembleTeam() {
         menu={[
           {
             label: 'Это памятник – значит всё с ним хорошо будет',
-            onClick: (ctx) =>
-              ctx.goToBranch('Archkot_ProjAirport_CheckOut_AssembleTeam_Bail'),
+            onClick: (ctx) => {
+              ctx.goToBranch('Archkot_ProjAirport_CheckOut_AssembleTeam_Bail')
+            },
           },
           {
             label: 'Что ещё можно сделать?',
-            onClick: (ctx) => ctx.goToNextStatement(),
+            onClick: (ctx) => {
+              ctx.goToNextStatement()
+            },
           },
         ]}
       >

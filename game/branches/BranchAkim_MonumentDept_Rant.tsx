@@ -1,13 +1,13 @@
 import {
   bgCityHallMayorOfficeJpg,
   bgMayorDoorwayJpg,
+  mayor10Png,
+  mayor11Png,
+  mayor12Png,
   mayor1Png,
   mayor2Png,
   mayor8Png,
   mayor9Png,
-  mayor10Png,
-  mayor11Png,
-  mayor12Png,
 } from 'assets/game'
 import type {BranchId} from 'react-visual-novel'
 import {Branch, Say, Scene, Show} from 'react-visual-novel'
@@ -110,7 +110,9 @@ export function BranchAkim_MonumentDept_Rant() {
       </Say>
 
       <SubmitMonumentNomination
-        onDone={(ctx) => ctx.goToNextStatement()}
+        onDone={(ctx) => {
+          ctx.goToNextStatement()
+        }}
         frame={{
           viewport: [1080, 1920],
           rect: {
@@ -137,7 +139,6 @@ export function BranchAkim_MonumentDept_Rant() {
                 'Akim_MonumentDept_Rant_NotOk',
               ]
               ctx.goToBranch(
-                // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
                 options[Math.floor(Math.random() * options.length)]!,
               )
             },

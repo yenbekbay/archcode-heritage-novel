@@ -42,17 +42,19 @@ export function BranchDeveloper_ProjZheltoksan_Demolish_IgnoreRisks_Approved_Boy
         menu={[
           {
             label: 'Учесть мнения',
-            onClick: (ctx) =>
+            onClick: (ctx) => {
               ctx.goToBranch(
                 'Developer_ProjZheltoksan_Demolish_IgnoreRisks_Approved__Reconsider',
-              ),
+              )
+            },
           },
           {
             label: 'Продолжить стройку',
-            onClick: (ctx) =>
+            onClick: (ctx) => {
               ctx.goToBranch(
                 'Developer_ProjZheltoksan_Demolish_IgnoreRisks_Approved__Continue',
-              ),
+              )
+            },
           },
         ]}
       >

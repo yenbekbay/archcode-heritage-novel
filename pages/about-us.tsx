@@ -12,8 +12,8 @@ import {
   teamPhotoJpg,
 } from 'assets/www'
 import {Hero, HeroBackground, Layout, RoughCard} from 'components'
-import Image from 'next/future/image'
 import type {StaticImageData} from 'next/image'
+import Image from 'next/image'
 import React from 'react'
 import {twMerge} from 'tailwind-merge'
 
@@ -39,7 +39,7 @@ export default function AboutUs() {
           />
         </div>
 
-        <section className="relative flex flex-col pt-28 pb-[26rem]">
+        <section className="relative flex flex-col pb-[26rem] pt-28">
           <div
             className="absolute inset-0 bg-cover bg-no-repeat"
             style={{backgroundImage: `url(${bgMapJpg.src})`}}
@@ -50,7 +50,7 @@ export default function AboutUs() {
             <TeamMemberCard
               photoSrc={polaroidAnelPng}
               name="Анель Молдахметова"
-              role="Креативное продюсирование"
+              jobTitle="Креативное продюсирование"
               bio={
                 <>
                   Для меня это проект, который позволяет мне упаковать и
@@ -66,7 +66,7 @@ export default function AboutUs() {
               align="right"
               photoSrc={polaroidInzhuPng}
               name="Инжу Сыдыкова"
-              role="Сценарий, архитектура игры"
+              jobTitle="Сценарий, архитектура игры"
               bio={
                 <>
                   Мой интерес зажигают вопросы о том, что создает любимую сердцу
@@ -83,7 +83,7 @@ export default function AboutUs() {
             <TeamMemberCard
               photoSrc={polaroidAyanPng}
               name="Аян Енбекбай"
-              role="Реализация игры, разработка сайта"
+              jobTitle="Реализация игры, разработка сайта"
               bio={
                 <>
                   Алматы — уникальный, полный жизни город. Город очень близкий
@@ -104,7 +104,7 @@ export default function AboutUs() {
               align="right"
               photoSrc={polaroidNadiraPng}
               name="Надира Жадыраева"
-              role="Визуальный нарратив, иллюстрации и дизайн"
+              jobTitle="Визуальный нарратив, иллюстрации и дизайн"
               bio={
                 <>
                   С Archcode мы уже работали над проектом Koktem Shaqyrady/The
@@ -119,7 +119,7 @@ export default function AboutUs() {
             <TeamMemberCard
               photoSrc={polaroidAruzhanPng}
               name="Аружан Шотай"
-              role="Визуальный нарратив, иллюстрации и дизайн"
+              jobTitle="Визуальный нарратив, иллюстрации и дизайн"
               bio={
                 <>
                   Это один из самых уникальных и интересных проектов про наш
@@ -136,7 +136,7 @@ export default function AboutUs() {
               align="right"
               photoSrc={polaroidYaroslavPng}
               name="Ярослав Самойлов"
-              role="Разработка Телеграм-бота"
+              jobTitle="Разработка Телеграм-бота"
               bio={
                 <>
                   Проект заинтересовал возможностью сделать что-то полезное и
@@ -151,7 +151,7 @@ export default function AboutUs() {
             <TeamMemberCard
               photoSrc={polaroidZamanbekPng}
               name="Заманбек Мукасали"
-              role="Технический продюссер, дизайнер выставки"
+              jobTitle="Технический продюссер, дизайнер выставки"
               bio={
                 <>
                   Мне нравится, что в этом проекте я делаю то, что люблю — делаю
@@ -164,7 +164,7 @@ export default function AboutUs() {
               align="right"
               photoSrc={polaroidYuliaPng}
               name="Юлия Петухова"
-              role="Композитор и саунд дизайнер"
+              jobTitle="Композитор и саунд дизайнер"
               bio={
                 <>
                   Моя роль на проекте была в том, чтобы написать музыку и
@@ -183,10 +183,10 @@ export default function AboutUs() {
   )
 }
 
-interface TeamMemberCardProps {
+type TeamMemberCardProps = {
   photoSrc: string | StaticImageData
   name: string | React.ReactElement
-  role: string | React.ReactElement
+  jobTitle: string | React.ReactElement
   bio: string | React.ReactElement
   align?: 'left' | 'right'
 }
@@ -194,7 +194,7 @@ interface TeamMemberCardProps {
 function TeamMemberCard({
   photoSrc,
   name,
-  role,
+  jobTitle,
   bio,
   align = 'left',
 }: TeamMemberCardProps) {
@@ -206,14 +206,14 @@ function TeamMemberCard({
           // eslint-disable-next-line @typescript-eslint/no-base-to-string
           alt={`Фотография: ${name}`}
           className={twMerge(
-            'my-0 min-w-[6rem]',
+            'my-0 min-w-24',
             align === 'right' && 'md:order-2 lg:order-none',
           )}
         />
 
         <div>
           <h2 className="mb-0 md:mt-0">{name}</h2>
-          <h3 className="text-base italic">{role}</h3>
+          <h3 className="text-base italic">{jobTitle}</h3>
           <p className="md:text-sm">{bio}</p>
         </div>
       </div>

@@ -39,7 +39,7 @@ export default function MyGame() {
           {(render, res, progress) => {
             if (res.status === 'loading') {
               return (
-                <div className="prose flex h-full w-full max-w-none flex-col justify-center p-8">
+                <div className="prose flex size-full max-w-none flex-col justify-center p-8">
                   <h1 className="text-center text-xl">Загрузка…</h1>
                   <progress
                     value={progress * 100}
@@ -51,7 +51,7 @@ export default function MyGame() {
             }
             if (res.status === 'failure') {
               return (
-                <div className="prose flex h-full w-full max-w-none flex-col justify-center p-8">
+                <div className="prose flex size-full max-w-none flex-col justify-center p-8">
                   <h1 className="text-xl">Не удалось загрузить ресурсы</h1>
 
                   <pre className="alert alert-error items-start whitespace-pre-line">
@@ -60,12 +60,17 @@ export default function MyGame() {
                 </div>
               )
             }
-            return <div className="flex h-full w-full flex-col">{render()}</div>
+            return <div className="flex size-full flex-col">{render()}</div>
           }}
         </Game>
       </MobileDeviceChrome>
 
-      <LinkPrompt link={activeLink} onClose={() => setActiveLink(null)} />
+      <LinkPrompt
+        link={activeLink}
+        onClose={() => {
+          setActiveLink(null)
+        }}
+      />
     </>
   )
 }

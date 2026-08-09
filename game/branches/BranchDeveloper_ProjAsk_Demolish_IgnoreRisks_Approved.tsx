@@ -76,11 +76,15 @@ export function BranchDeveloper_ProjAsk_Demolish_IgnoreRisks_Approved() {
         menu={[
           {
             label: 'Игнорировать',
-            onClick: (ctx) => ctx.goToNextStatement(),
+            onClick: (ctx) => {
+              ctx.goToNextStatement()
+            },
           },
           {
             label: 'Провести общественные слушаниям',
-            onClick: (ctx) => ctx.goToNextStatement(1),
+            onClick: (ctx) => {
+              ctx.goToNextStatement(1)
+            },
           },
         ]}
       >
@@ -174,17 +178,19 @@ export function BranchDeveloper_ProjAsk_Demolish_IgnoreRisks_Approved() {
         menu={[
           {
             label: 'Конечно, отлично!',
-            onClick: (ctx) =>
+            onClick: (ctx) => {
               ctx.goToBranch(
                 'Developer_ProjAsk_Demolish_IgnoreRisks_Approved_Listen',
-              ),
+              )
+            },
           },
           {
             label: 'Мониторинговая группа уже представлена от Акимата',
-            onClick: (ctx) =>
+            onClick: (ctx) => {
               ctx.goToBranch(
                 'Developer_ProjAsk_Demolish_IgnoreRisks_Approved_Ignore',
-              ),
+              )
+            },
           },
         ]}
       >

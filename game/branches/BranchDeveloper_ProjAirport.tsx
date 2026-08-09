@@ -102,11 +102,15 @@ export function BranchDeveloper_ProjAirport() {
         menu={[
           {
             label: 'Да',
-            onClick: (ctx) => ctx.goToNextStatement(),
+            onClick: (ctx) => {
+              ctx.goToNextStatement()
+            },
           },
           {
             label: 'Нет',
-            onClick: (ctx) => ctx.goToNextStatement(),
+            onClick: (ctx) => {
+              ctx.goToNextStatement()
+            },
           },
         ]}
       >
@@ -137,11 +141,15 @@ export function BranchDeveloper_ProjAirport() {
         menu={[
           {
             label: 'Построить новое',
-            onClick: (ctx) => ctx.goToBranch('Developer_ProjAirport_Demolish'),
+            onClick: (ctx) => {
+              ctx.goToBranch('Developer_ProjAirport_Demolish')
+            },
           },
           {
             label: 'Сохранить старое здание',
-            onClick: (ctx) => ctx.goToBranch('Developer_ProjAirport_Preserve'),
+            onClick: (ctx) => {
+              ctx.goToBranch('Developer_ProjAirport_Preserve')
+            },
           },
         ]}
       >

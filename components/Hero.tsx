@@ -2,11 +2,11 @@ import React from 'react'
 import {twMerge} from 'tailwind-merge'
 import {Reveal} from './Reveal'
 
-export interface HeroProps extends React.ComponentPropsWithoutRef<'section'> {
+export type HeroProps = {
   title: string
   image?: React.ReactNode
   children?: React.ReactNode
-}
+} & React.ComponentPropsWithoutRef<'section'>
 
 export function Hero({
   title,
@@ -24,7 +24,7 @@ export function Hero({
         )}
         {...restProps}
       >
-        <div className="prose-invert prose flex flex-col space-y-4">
+        <div className="prose prose-invert flex flex-col space-y-4">
           <h1 className="mb-2">{title}</h1>
           {children}
         </div>
