@@ -1,6 +1,7 @@
 [tools]
 "aqua:pnpm/pnpm" = "11.21.0"
 "core:node" = "24.15.0"
+"github:jdx/fnox" = "1.33.1"
 
 [settings]
 lockfile = true

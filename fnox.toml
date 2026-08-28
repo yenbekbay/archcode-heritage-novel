@@ -1,0 +1,10 @@
+[providers.onepassword]
+type = "1password"
+vault = "Personal"
+daemon_cache = false
+
+[secrets]
+NEXT_PUBLIC_IMGFLIP_PASSWORD = { provider = "onepassword", value = "op://Personal/ywvfx7ion24gw5aotr5fxqxh6q/NEXT_PUBLIC_IMGFLIP_PASSWORD" }
+NEXT_PUBLIC_IMGFLIP_USERNAME = { provider = "onepassword", value = "op://Personal/ywvfx7ion24gw5aotr5fxqxh6q/NEXT_PUBLIC_IMGFLIP_USERNAME" }
+NEXT_PUBLIC_SUPABASE_ANON_KEY = { provider = "onepassword", value = "op://Personal/ywvfx7ion24gw5aotr5fxqxh6q/NEXT_PUBLIC_SUPABASE_ANON_KEY" }
+NEXT_PUBLIC_SUPABASE_URL = { provider = "onepassword", value = "op://Personal/ywvfx7ion24gw5aotr5fxqxh6q/NEXT_PUBLIC_SUPABASE_URL" }
