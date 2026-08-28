@@ -21,16 +21,12 @@
     "fix:eslint": "pnpm run lint:eslint --fix",
     "fix:prettier": "pnpm run lint:prettier --write",
     "generate-artifacts": "pnpm run barrels-generate && pnpm run css-generate",
-    "postinstall": "if [ -z \"$CI\" ]; then simple-git-hooks; fi",
     "lint": "pnpm run generate-artifacts && pnpm run --sequential '/^lint:[^:]+$/'",
     "lint:eslint": "eslint .",
     "lint:prettier": "prettier --check --cache .",
     "lint:typecheck": "pnpm run generate-artifacts && tsc --pretty --noEmit",
     "start": "next start",
     "supabase-generate": "env-cmd --use-shell 'openapi-typescript \"${SUPABASE_URL}/rest/v1/?apikey=${SUPABASE_ANON_KEY}\" --output __generated__/supabase.ts'"
-  },
-  "simple-git-hooks": {
-    "pre-commit": "pnpm run barrels-check && pnpm exec lint-staged && pnpm run lint:typecheck"
   },
   "dependencies": {
     "@microlink/mql": "0.10.28",
@@ -93,7 +89,6 @@
     "eslint-plugin-react-hooks": "^7.1.1",
     "eslint-plugin-tailwindcss": "3.18.2",
     "globals": "^17.9.0",
-    "lint-staged": "^17.3.0",
     "openapi-typescript": "5.4.1",
     "postcss": "^8.5.14",
     "prettier": "^3.9.6",
@@ -102,7 +97,6 @@
     "prettier-plugin-sh": "^0.19.0",
     "prettier-plugin-sort-json": "^4.2.0",
     "prettier-plugin-tailwindcss": "^0.7.4",
-    "simple-git-hooks": "^2.13.1",
     "tailwindcss": "3.4.19",
     "tailwindcss-radix": "2.6.1",
     "tailwindcss-scrims": "1.0.0",
