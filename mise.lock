@@ -3,20 +3,20 @@
 lockfile_version = 1
 
 [[tools."aqua:pnpm/pnpm"]]
-version = "11.21.0"
+version = "12.0.0"
 backend = "aqua:pnpm/pnpm"
-specifiers = ["11.21.0"]
+specifiers = ["12.0.0"]
 
 [tools."aqua:pnpm/pnpm"."platforms.linux-x64"]
-checksum = "sha256:aadc489ce4473c2af0fec06a5c19e113b5793d404eac49853c8153bf4b0d8263"
-url = "https://github.com/pnpm/pnpm/releases/download/v11.21.0/pnpm-linux-x64.tar.gz"
-url_api = "https://api.github.com/repos/pnpm/pnpm/releases/assets/507585503"
+checksum = "sha256:d93497ba07d5dfc7d527b30905fdd24f55c87618ea23ea3af287cdff061510e0"
+url = "https://github.com/pnpm/pnpm/releases/download/v12.0.0/pnpm-linux-x64.tar.gz"
+url_api = "https://api.github.com/repos/pnpm/pnpm/releases/assets/530962211"
 provenance = "github-attestations"
 
 [tools."aqua:pnpm/pnpm"."platforms.macos-arm64"]
-checksum = "sha256:860a96978a79ca5132bdc247375f94150a3c98edbecbee36e9f8e0c9e2f7f056"
-url = "https://github.com/pnpm/pnpm/releases/download/v11.21.0/pnpm-darwin-arm64.tar.gz"
-url_api = "https://api.github.com/repos/pnpm/pnpm/releases/assets/507585526"
+checksum = "sha256:c31f5abe796dfc8489ea980cb438844053ad6b402bb4f3eb9abd71086279d75b"
+url = "https://github.com/pnpm/pnpm/releases/download/v12.0.0/pnpm-darwin-arm64.tar.gz"
+url_api = "https://api.github.com/repos/pnpm/pnpm/releases/assets/530962213"
 provenance = "github-attestations"
 
 [[tools."github:jdx/fnox"]]
