@@ -12,7 +12,7 @@ export const Reveal = React.forwardRef(function Reveal(
   {asChild, ...restProps}: RevealProps,
   forwardedRef: React.ForwardedRef<HTMLDivElement>,
 ) {
-  const internalRef = React.useRef<HTMLElement>(null)
+  const internalRef = React.useRef<HTMLDivElement>(null)
   const inView = useInView(internalRef, {once: true})
   const animation = useAnimation()
   React.useEffect(() => {

@@ -60,6 +60,8 @@ export default function MyApp({Component, pageProps}: AppProps) {
 }
 
 function ErrorFallback({error}: FallbackProps) {
+  const errorMessage = error instanceof Error ? error.message : String(error)
+
   return (
     <Layout>
       <main>
@@ -70,7 +72,7 @@ function ErrorFallback({error}: FallbackProps) {
             <h1>Что-то пошло не так!</h1>
 
             <pre className="alert alert-error items-start whitespace-pre-line">
-              {error.message}
+              {errorMessage}
             </pre>
 
             <p>
