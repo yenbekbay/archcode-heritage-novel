@@ -16,8 +16,9 @@
     "jsx": "preserve",
     "noUncheckedIndexedAccess": true,
     "exactOptionalPropertyTypes": false,
-    "baseUrl": ".",
-    "ignoreDeprecations": "6.0",
+    "paths": {
+      "*": ["./*"]
+    },
     "plugins": [
       {
         "name": "next"
