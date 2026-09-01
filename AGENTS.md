@@ -11,6 +11,9 @@ Interactive visual novel and editorial website about Almaty architectural herita
 5. After adding, removing, or renaming a barrel-exported module, run `pnpm run barrels-generate`, then stage the updated index files.
 6. After related source or config changes, run `pnpm run lint:typecheck`.
 7. Use a browser only when the user explicitly asks for rendered evidence.
+8. Do not run commands with substantial CPU, memory, wall-time, network, or disk cost as routine or speculative checks. Run an expensive command only when the user explicitly asks or no cheaper targeted signal can settle a task-required claim.
+9. Treat full application builds such as `next build`, development servers such as `next dev`, broad test or lint suites, dependency installs, and benchmarks as expensive commands.
+10. Stop verification work when the user declines it.
 
 ## Test retention
 
