@@ -1,13 +1,28 @@
-# archcode-heritage-novel
+# Снести нельзя оставить
 
-[![Vercel](https://vercelbadge.vercel.app/api/yenbekbay/archcode-heritage-novel)](https://vercel.com/yenbekbay/archcode-heritage-novel)
-[![License](https://img.shields.io/badge/license-GPL--3.0-blue.svg)](/LICENSE)
+[![Vercel](https://vercelbadge.vercel.app/api/yenbekbay/archcode-heritage-novel)](https://vercel.com/yenbekbay/archcode-heritage-novel) [![License](https://img.shields.io/badge/license-GPL--3.0-blue.svg)](/LICENSE)
 
-Snesti nelʹzâ ostavitʹ is a visual novel-like interactive experience. For [Archcode Almaty](https://archcode.kz/).
+«Снести нельзя оставить» is a Russian-language editorial website and interactive visual novel about Almaty architectural heritage and collective memory. It was created for [Archcode Almaty](https://archcode.kz/).
 
-Powered by [Next.js](https://nextjs.org/), [react-visual-novel](https://github.com/utility-first/react-visual-novel), [Tailwind CSS](https://tailwindcss.com/), and [Framer Motion](https://www.framer.com/motion/).
+The repository contains the Next.js Pages Router website, the `react-visual-novel` story and assets, optional Supabase and Imgflip participation flows, generated source artifacts, and the living product, architecture, UI-design, capability, and setup contracts.
 
 ![Snesti nelʹzâ ostavitʹ website and game](.github/showcase.jpeg)
+
+## Start
+
+```sh
+mise install
+pnpm install
+pnpm run dev
+```
+
+## Documentation
+
+- [Product](docs/product.md) defines the purpose, audience, shared vocabulary, product surfaces, and acceptance.
+- [Architecture](docs/architecture.md) maps routes, runtime ownership, generated artifacts, provider boundaries, and failure behavior.
+- [UI design](docs/ui-design.md) defines the editorial and game presentation grammar.
+- [Visual novel](docs/specs/visual-novel.md) defines playable roles, progression, saved links, optional submissions, and game states.
+- [Local setup](docs/runbooks/local-setup.md) covers toolchain preparation, environment recovery, and the local smoke check.
 
 ## License
 
