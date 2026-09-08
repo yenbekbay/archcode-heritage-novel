@@ -1,10 +1,14 @@
 # Local setup
 
-This runbook owns repeatable checkout preparation, local environment recovery, and the local runtime smoke check. [Product](../product.md) owns accepted outcomes, [Architecture](../architecture.md) owns system boundaries, and project `AGENTS.md` owns approval and task-routing rules.
+Prepare the Archcode Heritage Novel checkout, local environment, and development runtime. [Product](../product.md) owns accepted outcomes, [Architecture](../architecture.md) owns system boundaries, and project `AGENTS.md` owns approval and task-routing rules. This runbook owns verification that the editorial and game entry surfaces start with the selected local environment. Unfinished work stays in task context. Provider mutations, content submission, and production delivery remain separate transitions.
 
 ## Target and preconditions
 
 Run the procedure from the repository root on a platform supported by `mise.lock`. The operator needs access to the 1Password Secure Note mapped by `fnox.toml` before recovering the local environment. The procedure installs repository dependencies and writes `.env.local`. It does not submit game content or mutate provider state.
+
+## Audit
+
+Read `mise.toml`, `package.json`, `fnox.toml`, and the environment schema before changing local state. Confirm the selected checkout, supported platform, tool versions, Secure Note, and required environment names still match this procedure.
 
 ## Prepare the toolchain
 
