@@ -7,3 +7,5 @@ allowBuilds:
   sharp: true
   unrs-resolver: true
   utf-8-validate: true
+minimumReleaseAgeExclude:
+  - '@utilfirst/eslint-plugin@0.4.7'

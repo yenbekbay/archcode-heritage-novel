@@ -79,7 +79,7 @@ importers:
         version: 3.5.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react-visual-novel:
         specifier: 0.2.2
-        version: 0.2.2(@types/react@18.3.31)(howler@2.2.4)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(use-query-params@2.2.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
+        version: 0.2.2(@types/react@18.3.31)(howler@2.2.4)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(supports-color@10.2.2)(use-query-params@2.2.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
       react-zorm:
         specifier: 0.9.0
         version: 0.9.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(zod@3.19.1)
@@ -133,8 +133,8 @@ importers:
         specifier: 18.3.7
         version: 18.3.7(@types/react@18.3.31)
       '@utilfirst/eslint-plugin':
-        specifier: 0.4.4
-        version: 0.4.4(eslint@10.9.1(jiti@1.21.7)(supports-color@10.2.2))(oxlint@1.80.0(oxlint-tsgolint@7.0.2001))(supports-color@10.2.2)(typescript@6.0.3)
+        specifier: 0.4.7
+        version: 0.4.7(eslint@10.9.1(jiti@1.21.7)(supports-color@10.2.2))(oxlint@1.80.0(oxlint-tsgolint@7.0.2001))(supports-color@10.2.2)(typescript@6.0.3)
       '@utilfirst/prettier-plugin':
         specifier: 0.1.1
         version: 0.1.1(prettier@3.9.6)
@@ -789,8 +789,8 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@oxlint/plugins@1.78.0':
-    resolution: {integrity: sha512-Ypt8KeRYw+4jUtlPirfcHWMrn5ms12VrrFPD+Mds477/7tJxG1Kcz2Yrg2nVcTQEUx/GdlhS+BUg1kmxNm04Ug==}
+  '@oxlint/plugins@1.80.0':
+    resolution: {integrity: sha512-QRgH1XqQEYNHa4f1vvPQ5fAdNdncHGIUG1ZWLlGIZHky3qwCEeAKYitZNbZMtaXtAQAAFFTOwqUfzESvimqZNA==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
 
   '@pkgjs/parseargs@0.11.0':
@@ -1253,8 +1253,8 @@ packages:
     resolution: {integrity: sha512-YR65gGdGvTUAWLldC3xLOvOzamdGzB4A5/N8rehEaHs3Zvoe39BhgY+u0SPch1OvrVTfLcc55wsSgK2NcnTS/A==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
-  '@utilfirst/eslint-plugin@0.4.4':
-    resolution: {integrity: sha512-kE4jz/VDXkAX3HKV4UcCrHR9p6zOSSlrg6kiWzS5na+PVQc5urkl2Lg62FTCuL2jNMi0YlkCwqxIWczyHMsyzw==}
+  '@utilfirst/eslint-plugin@0.4.7':
+    resolution: {integrity: sha512-JUIVm3TpRGsWFce5em8mImPSLJjmY7Ph0iGwkEfSrxGrIghATxiqOj6ywGda4CAS6IRiKbG9IQ+HBoYOYJwZBQ==}
     engines: {node: '>=24.11.0'}
     peerDependencies:
       eslint: ^10.0.0
@@ -3657,7 +3657,7 @@ snapshots:
   '@oxlint/binding-win32-x64-msvc@1.80.0':
     optional: true
 
-  '@oxlint/plugins@1.78.0': {}
+  '@oxlint/plugins@1.80.0': {}
 
   '@pkgjs/parseargs@0.11.0':
     optional: true
@@ -4179,9 +4179,9 @@ snapshots:
       '@typescript-eslint/types': 8.68.0
       eslint-visitor-keys: 5.0.1
 
-  '@utilfirst/eslint-plugin@0.4.4(eslint@10.9.1(jiti@1.21.7)(supports-color@10.2.2))(oxlint@1.80.0(oxlint-tsgolint@7.0.2001))(supports-color@10.2.2)(typescript@6.0.3)':
+  '@utilfirst/eslint-plugin@0.4.7(eslint@10.9.1(jiti@1.21.7)(supports-color@10.2.2))(oxlint@1.80.0(oxlint-tsgolint@7.0.2001))(supports-color@10.2.2)(typescript@6.0.3)':
     dependencies:
-      '@oxlint/plugins': 1.78.0
+      '@oxlint/plugins': 1.80.0
       '@typescript-eslint/utils': 8.68.0(eslint@10.9.1(jiti@1.21.7)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
       eslint: 10.9.1(jiti@1.21.7)(supports-color@10.2.2)
       zod: 4.5.4
@@ -4934,13 +4934,13 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  mdast-util-from-markdown@1.2.0:
+  mdast-util-from-markdown@1.2.0(supports-color@10.2.2):
     dependencies:
       '@types/mdast': 3.0.15
       '@types/unist': 2.0.11
       decode-named-character-reference: 1.3.0
       mdast-util-to-string: 3.2.0
-      micromark: 3.2.0
+      micromark: 3.2.0(supports-color@10.2.2)
       micromark-util-decode-numeric-character-reference: 1.1.0
       micromark-util-decode-string: 1.1.0
       micromark-util-normalize-identifier: 1.1.0
@@ -5075,7 +5075,7 @@ snapshots:
 
   micromark-util-types@1.1.0: {}
 
-  micromark@3.2.0:
+  micromark@3.2.0(supports-color@10.2.2):
     dependencies:
       '@types/debug': 4.1.13
       debug: 4.4.3(supports-color@10.2.2)
@@ -5572,7 +5572,7 @@ snapshots:
     optionalDependencies:
       '@types/react': 18.3.31
 
-  react-visual-novel@0.2.2(@types/react@18.3.31)(howler@2.2.4)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(use-query-params@2.2.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)):
+  react-visual-novel@0.2.2(@types/react@18.3.31)(howler@2.2.4)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(supports-color@10.2.2)(use-query-params@2.2.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)):
     dependencies:
       '@radix-ui/react-popover': 1.0.2(@types/react@18.3.31)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@radix-ui/react-use-rect': 1.0.0(react@18.3.1)
@@ -5582,7 +5582,7 @@ snapshots:
       framer-motion: 7.6.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       howler: 2.2.4
       intrinsic-scale: 3.0.4
-      mdast-util-from-markdown: 1.2.0
+      mdast-util-from-markdown: 1.2.0(supports-color@10.2.2)
       micro-observables: 1.7.2(react@18.3.1)
       moize: 6.1.3
       phosphor-react: 1.4.1(react@18.3.1)
