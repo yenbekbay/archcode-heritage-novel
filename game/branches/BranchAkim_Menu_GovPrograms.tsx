@@ -13,16 +13,16 @@ import {
   bgMayorDoorwayJpg,
   mayor2Png,
   mayor3Png,
-} from 'assets/game'
-import {Branch, Label, Say, Scene, Show} from 'react-visual-novel'
-import {SCENE_AUDIO} from '../sounds'
+} from "assets/game";
+import { Branch, Label, Say, Scene, Show } from "react-visual-novel";
+import { SCENE_AUDIO } from "../sounds";
 
 export function BranchAkim_Menu_GovPrograms() {
   return (
     <Branch>
       <Scene src={bgCityHallConferenceRoomJpg.src} audio={SCENE_AUDIO.indoor} />
 
-      <Say image={{uri: mayor3Png.src, align: 'bottom'}}>
+      <Say image={{ uri: mayor3Png.src, align: "bottom" }}>
         С 25 числа начать реализацию обновления остановок на территории г.
         Аталма
       </Say>
@@ -42,7 +42,7 @@ export function BranchAkim_Menu_GovPrograms() {
 
       <Label label="crowd">
         <Show
-          src={{uri: angryCrowd1Png.src, align: 'bottom'}}
+          src={{ uri: angryCrowd1Png.src, align: "bottom" }}
           audio={SCENE_AUDIO.chatter}
           hide={2}
         />
@@ -50,7 +50,7 @@ export function BranchAkim_Menu_GovPrograms() {
 
       <Say>Общественность возмущена</Say>
 
-      <Say image={{uri: archkot1Png.src, align: 'bottom'}}>
+      <Say image={{ uri: archkot1Png.src, align: "bottom" }}>
         *АрхКот тоже здесь
       </Say>
 
@@ -63,16 +63,16 @@ export function BranchAkim_Menu_GovPrograms() {
       <Show
         src={{
           uri: assistant2Png.src,
-          style: {height: '100%', width: '100%', objectFit: 'cover'},
+          style: { height: "100%", width: "100%", objectFit: "cover" },
         }}
       />
 
       <Say
         scheme="dark"
-        tag={{text: 'Помощник:', color: '#687065'}}
+        tag={{ text: "Помощник:", color: "#687065" }}
         image={{
           uri: assistant1Png.src,
-          style: {height: '100%', width: '100%', objectFit: 'cover'},
+          style: { height: "100%", width: "100%", objectFit: "cover" },
         }}
       >
         —Общественность возмущена
@@ -85,18 +85,18 @@ export function BranchAkim_Menu_GovPrograms() {
       <Scene src={bgCityHallMayorOfficeJpg.src} audio={SCENE_AUDIO.indoor} />
 
       <Say
-        image={{uri: mayor2Png.src, align: 'bottom'}}
+        image={{ uri: mayor2Png.src, align: "bottom" }}
         menu={[
           {
-            label: 'Продолжить демонтаж',
+            label: "Продолжить демонтаж",
             onClick: (ctx) => {
-              ctx.goToBranch('Akim_GovPrograms_Continue')
+              ctx.goToBranch("Akim_GovPrograms_Continue");
             },
           },
           {
-            label: 'Остановить демонтаж',
+            label: "Остановить демонтаж",
             onClick: (ctx) => {
-              ctx.goToBranch('Akim_GovPrograms_Stop')
+              ctx.goToBranch("Akim_GovPrograms_Stop");
             },
           },
         ]}
@@ -104,5 +104,5 @@ export function BranchAkim_Menu_GovPrograms() {
         Что делать?
       </Say>
     </Branch>
-  )
+  );
 }

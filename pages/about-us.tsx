@@ -1,4 +1,4 @@
-import {bgMapJpg} from 'assets/game'
+import { bgMapJpg } from "assets/game";
 import {
   paperRipPng,
   polaroidAnelPng,
@@ -10,12 +10,12 @@ import {
   polaroidYuliaPng,
   polaroidZamanbekPng,
   teamPhotoJpg,
-} from 'assets/www'
-import {Hero, HeroBackground, Layout, RoughCard} from 'components'
-import type {StaticImageData} from 'next/image'
-import Image from 'next/image'
-import React from 'react'
-import {twMerge} from 'tailwind-merge'
+} from "assets/www";
+import { Hero, HeroBackground, Layout, RoughCard } from "components";
+import type { StaticImageData } from "next/image";
+import Image from "next/image";
+import React from "react";
+import { twMerge } from "tailwind-merge";
 
 export default function AboutUs() {
   return (
@@ -42,7 +42,7 @@ export default function AboutUs() {
         <section className="relative flex flex-col pb-[26rem] pt-28">
           <div
             className="absolute inset-0 bg-cover bg-no-repeat"
-            style={{backgroundImage: `url(${bgMapJpg.src})`}}
+            style={{ backgroundImage: `url(${bgMapJpg.src})` }}
           />
           <div className="absolute inset-0 bg-black/50" />
 
@@ -180,23 +180,23 @@ export default function AboutUs() {
         </section>
       </main>
     </Layout>
-  )
+  );
 }
 
 type TeamMemberCardProps = {
-  photoSrc: string | StaticImageData
-  name: string | React.ReactElement
-  jobTitle: string | React.ReactElement
-  bio: string | React.ReactElement
-  align?: 'left' | 'right'
-}
+  photoSrc: string | StaticImageData;
+  name: string | React.ReactElement;
+  jobTitle: string | React.ReactElement;
+  bio: string | React.ReactElement;
+  align?: "left" | "right";
+};
 
 function TeamMemberCard({
   photoSrc,
   name,
   jobTitle,
   bio,
-  align = 'left',
+  align = "left",
 }: TeamMemberCardProps) {
   return (
     <RoughCard>
@@ -206,8 +206,8 @@ function TeamMemberCard({
           // eslint-disable-next-line @typescript-eslint/no-base-to-string
           alt={`Фотография: ${name}`}
           className={twMerge(
-            'my-0 min-w-24',
-            align === 'right' && 'md:order-2 lg:order-none',
+            "my-0 min-w-24",
+            align === "right" && "md:order-2 lg:order-none",
           )}
         />
 
@@ -218,5 +218,5 @@ function TeamMemberCard({
         </div>
       </div>
     </RoughCard>
-  )
+  );
 }

@@ -15,13 +15,13 @@ import {
   redhead13Png,
   stampApprovedPng,
   transition1Mp3,
-} from 'assets/game'
-import React from 'react'
-import {Branch, Menu, Say, Scene, Show} from 'react-visual-novel'
-import {SCENE_AUDIO} from '../sounds'
+} from "assets/game";
+import React from "react";
+import { Branch, Menu, Say, Scene, Show } from "react-visual-novel";
+import { SCENE_AUDIO } from "../sounds";
 
 export function BranchDeveloper_ProjZheltoksan_Demolish_IgnoreRisks_Approved() {
-  const answersRef = React.useRef(new Map<number, 'a' | 'b'>())
+  const answersRef = React.useRef(new Map<number, "a" | "b">());
   return (
     <Branch>
       <Scene src={bgCityHallConferenceRoomJpg.src} audio={SCENE_AUDIO.indoor} />
@@ -30,12 +30,12 @@ export function BranchDeveloper_ProjZheltoksan_Demolish_IgnoreRisks_Approved() {
         src={{
           uri: letterPng.src,
           style: {
-            height: '100%',
-            width: '100%',
-            objectFit: 'cover',
-            backgroundColor: '#e7dbab',
-            transform: 'scale(2.5)',
-            transformOrigin: '50% 35%',
+            height: "100%",
+            width: "100%",
+            objectFit: "cover",
+            backgroundColor: "#e7dbab",
+            transform: "scale(2.5)",
+            transformOrigin: "50% 35%",
           },
         }}
         hide={1}
@@ -45,17 +45,21 @@ export function BranchDeveloper_ProjZheltoksan_Demolish_IgnoreRisks_Approved() {
         src={{
           uri: stampApprovedPng.src,
           style: {
-            height: '100%',
-            width: '100%',
-            objectFit: 'cover',
-            transform: 'translateY(-15%)',
+            height: "100%",
+            width: "100%",
+            objectFit: "cover",
+            transform: "translateY(-15%)",
           },
         }}
       />
 
       <Say
-        tag={{text: 'Аким:', color: '#687065'}}
-        image={{uri: mayor7Png.src, align: 'bottom', style: {bottom: '-12%'}}}
+        tag={{ text: "Аким:", color: "#687065" }}
+        image={{
+          uri: mayor7Png.src,
+          align: "bottom",
+          style: { bottom: "-12%" },
+        }}
       >
         —Я согласен с вашими решениями. Можете начинать стройку
       </Say>
@@ -63,7 +67,7 @@ export function BranchDeveloper_ProjZheltoksan_Demolish_IgnoreRisks_Approved() {
       <Scene src={bgZheltoksanBeforeJpg.src} audio={SCENE_AUDIO.city} />
 
       <Say
-        image={{uri: angryCrowd1Png.src, align: 'bottom'}}
+        image={{ uri: angryCrowd1Png.src, align: "bottom" }}
         audio={SCENE_AUDIO.chatter}
       >
         Общественность возмущена
@@ -72,18 +76,18 @@ export function BranchDeveloper_ProjZheltoksan_Demolish_IgnoreRisks_Approved() {
       <Scene src={bgDeveloperHqInsideJpg.src} audio={SCENE_AUDIO.indoor} />
 
       <Say
-        image={{uri: developerRepB7Png.src, align: 'bottom'}}
+        image={{ uri: developerRepB7Png.src, align: "bottom" }}
         menu={[
           {
-            label: 'Игнорировать',
+            label: "Игнорировать",
             onClick: (ctx) => {
-              ctx.goToNextStatement()
+              ctx.goToNextStatement();
             },
           },
           {
-            label: 'Провести общественные слушаниям',
+            label: "Провести общественные слушаниям",
             onClick: (ctx) => {
-              ctx.goToNextStatement(1)
+              ctx.goToNextStatement(1);
             },
           },
         ]}
@@ -98,7 +102,7 @@ export function BranchDeveloper_ProjZheltoksan_Demolish_IgnoreRisks_Approved() {
 
       <Scene
         src={bgDeveloperHqOutsideJpg.src}
-        audio={{onEntrance: transition1Mp3}}
+        audio={{ onEntrance: transition1Mp3 }}
       />
 
       <Say>Общественные слушания</Say>
@@ -106,41 +110,41 @@ export function BranchDeveloper_ProjZheltoksan_Demolish_IgnoreRisks_Approved() {
       <Scene src={bgDeveloperHqInsideJpg.src} audio={SCENE_AUDIO.hearings} />
 
       <Say
-        tag={{text: 'Менеджер проекта:', color: '#A57B55'}}
-        image={{uri: developerRepAPng.src, align: 'bottom'}}
+        tag={{ text: "Менеджер проекта:", color: "#A57B55" }}
+        image={{ uri: developerRepAPng.src, align: "bottom" }}
       >
         —Добрый день, Мы — представители Bay Shatyr Group
       </Say>
 
-      <Say image={{uri: developerRepB10Png.src, align: 'bottom'}}>
+      <Say image={{ uri: developerRepB10Png.src, align: "bottom" }}>
         —В рамках проекта будет построено девятиэтажное здание. Под галереей на
         последнем этаже подразумевается ресторан. Подземный 3-уровневый паркинг
         на 490 авто
       </Say>
 
       <Say
-        tag={{text: 'Активистка:', color: '#C2653A'}}
-        image={{uri: redhead13Png.src, align: 'bottom'}}
+        tag={{ text: "Активистка:", color: "#C2653A" }}
+        image={{ uri: redhead13Png.src, align: "bottom" }}
       >
         —Но ведь это создаёт огромную нагрузку на транспортную инфраструктуру и
         не только…
       </Say>
 
       <Say
-        image={{uri: developerRepB1Png.src, align: 'bottom'}}
+        image={{ uri: developerRepB1Png.src, align: "bottom" }}
         menu={[
           {
-            label: 'А) Всё под контролем, беспокойств не будет',
+            label: "А) Всё под контролем, беспокойств не будет",
             onClick: (ctx) => {
-              answersRef.current.set(0, 'a')
-              ctx.goToNextStatement()
+              answersRef.current.set(0, "a");
+              ctx.goToNextStatement();
             },
           },
           {
-            label: 'Б) Мы учтем ваше замечание и пересмотрим расчеты',
+            label: "Б) Мы учтем ваше замечание и пересмотрим расчеты",
             onClick: (ctx) => {
-              answersRef.current.set(0, 'b')
-              ctx.goToNextStatement()
+              answersRef.current.set(0, "b");
+              ctx.goToNextStatement();
             },
           },
         ]}
@@ -149,28 +153,28 @@ export function BranchDeveloper_ProjZheltoksan_Demolish_IgnoreRisks_Approved() {
       </Say>
 
       <Say
-        tag={{text: 'Активистка:', color: '#C2653A'}}
-        image={{uri: redhead12Png.src, align: 'bottom'}}
+        tag={{ text: "Активистка:", color: "#C2653A" }}
+        image={{ uri: redhead12Png.src, align: "bottom" }}
       >
         —Судя по всему, предполагается вырубка всех существующих на территории
         здания деревьев???
       </Say>
 
       <Say
-        image={{uri: developerRepB5Png.src, align: 'bottom'}}
+        image={{ uri: developerRepB5Png.src, align: "bottom" }}
         menu={[
           {
-            label: 'А) Всё по правилам, и придуманы они не нами',
+            label: "А) Всё по правилам, и придуманы они не нами",
             onClick: (ctx) => {
-              answersRef.current.set(1, 'a')
-              ctx.goToNextStatement()
+              answersRef.current.set(1, "a");
+              ctx.goToNextStatement();
             },
           },
           {
-            label: 'Б) В проекте возможны поправки, учтём ваши пожелания',
+            label: "Б) В проекте возможны поправки, учтём ваши пожелания",
             onClick: (ctx) => {
-              answersRef.current.set(1, 'b')
-              ctx.goToNextStatement()
+              answersRef.current.set(1, "b");
+              ctx.goToNextStatement();
             },
           },
         ]}
@@ -179,28 +183,28 @@ export function BranchDeveloper_ProjZheltoksan_Demolish_IgnoreRisks_Approved() {
       </Say>
 
       <Say
-        tag={{text: 'Активистка:', color: '#C2653A'}}
-        image={{uri: redhead12Png.src, align: 'bottom'}}
+        tag={{ text: "Активистка:", color: "#C2653A" }}
+        image={{ uri: redhead12Png.src, align: "bottom" }}
       >
         —А в целом то, здание, хоть и не является официально памятником, но это
         история города! Его непременно нужно сохранить!!!
       </Say>
 
       <Say
-        image={{uri: developerRepB5Png.src, align: 'bottom'}}
+        image={{ uri: developerRepB5Png.src, align: "bottom" }}
         menu={[
           {
-            label: 'А) На уровне законодательства нет никаких наращений',
+            label: "А) На уровне законодательства нет никаких наращений",
             onClick: (ctx) => {
-              answersRef.current.set(2, 'a')
-              ctx.goToNextStatement()
+              answersRef.current.set(2, "a");
+              ctx.goToNextStatement();
             },
           },
           {
-            label: 'Б) Благодарим за ваши пожелания. Они заставляют задуматься',
+            label: "Б) Благодарим за ваши пожелания. Они заставляют задуматься",
             onClick: (ctx) => {
-              answersRef.current.set(2, 'b')
-              ctx.goToNextStatement()
+              answersRef.current.set(2, "b");
+              ctx.goToNextStatement();
             },
           },
         ]}
@@ -211,20 +215,20 @@ export function BranchDeveloper_ProjZheltoksan_Demolish_IgnoreRisks_Approved() {
       <Menu
         choices={[
           {
-            label: 'Дальше',
+            label: "Дальше",
             onClick: (ctx) => {
-              const values = [...answersRef.current.values()]
-              const aCount = values.filter((value) => value === 'a').length
-              const bCount = values.filter((value) => value === 'b').length
+              const values = [...answersRef.current.values()];
+              const aCount = values.filter((value) => value === "a").length;
+              const bCount = values.filter((value) => value === "b").length;
               ctx.goToBranch(
                 aCount > bCount
-                  ? 'Developer_ProjZheltoksan_Demolish_IgnoreRisks_Approved_Boycott'
-                  : 'Developer_ProjZheltoksan_Demolish_IgnoreRisks_Approved_Silence',
-              )
+                  ? "Developer_ProjZheltoksan_Demolish_IgnoreRisks_Approved_Boycott"
+                  : "Developer_ProjZheltoksan_Demolish_IgnoreRisks_Approved_Silence",
+              );
             },
           },
         ]}
       />
     </Branch>
-  )
+  );
 }

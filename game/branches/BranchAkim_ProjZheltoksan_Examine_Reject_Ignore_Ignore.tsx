@@ -5,9 +5,9 @@ import {
   letterPng,
   mayor4Png,
   stampApprovedPng,
-} from 'assets/game'
-import {Branch, Say, Scene, Show} from 'react-visual-novel'
-import {SCENE_AUDIO} from '../sounds'
+} from "assets/game";
+import { Branch, Say, Scene, Show } from "react-visual-novel";
+import { SCENE_AUDIO } from "../sounds";
 
 export function BranchAkim_ProjZheltoksan_Examine_Reject_Ignore_Ignore() {
   return (
@@ -18,12 +18,12 @@ export function BranchAkim_ProjZheltoksan_Examine_Reject_Ignore_Ignore() {
         src={{
           uri: letterPng.src,
           style: {
-            height: '100%',
-            width: '100%',
-            objectFit: 'cover',
-            backgroundColor: '#e7dbab',
-            transform: 'scale(2.5)',
-            transformOrigin: '50% 35%',
+            height: "100%",
+            width: "100%",
+            objectFit: "cover",
+            backgroundColor: "#e7dbab",
+            transform: "scale(2.5)",
+            transformOrigin: "50% 35%",
           },
         }}
         hide={2}
@@ -33,10 +33,10 @@ export function BranchAkim_ProjZheltoksan_Examine_Reject_Ignore_Ignore() {
         src={{
           uri: stampApprovedPng.src,
           style: {
-            height: '100%',
-            width: '100%',
-            objectFit: 'cover',
-            transform: 'translateY(-15%)',
+            height: "100%",
+            width: "100%",
+            objectFit: "cover",
+            transform: "translateY(-15%)",
           },
         }}
       />
@@ -44,29 +44,29 @@ export function BranchAkim_ProjZheltoksan_Examine_Reject_Ignore_Ignore() {
       <Scene src={bgZheltoksanBeforeJpg.src} audio={SCENE_AUDIO.city} />
 
       <Say
-        image={{uri: angryCrowd1Png.src, align: 'bottom'}}
+        image={{ uri: angryCrowd1Png.src, align: "bottom" }}
         audio={SCENE_AUDIO.chatter}
       >
         Массовый протест
       </Say>
 
       <Say
-        image={{uri: mayor4Png.src, align: 'bottom'}}
+        image={{ uri: mayor4Png.src, align: "bottom" }}
         menu={[
           {
-            label: 'Учесть мнение',
+            label: "Учесть мнение",
             onClick: (ctx) => {
               ctx.goToBranch(
-                'Akim_ProjZheltoksan_Examine_Reject_Ignore_Ignore_Listen',
-              )
+                "Akim_ProjZheltoksan_Examine_Reject_Ignore_Ignore_Listen",
+              );
             },
           },
           {
-            label: 'Игнорировать',
+            label: "Игнорировать",
             onClick: (ctx) => {
               ctx.goToBranch(
-                'Akim_ProjZheltoksan_Examine_Reject_Ignore_Ignore_Ignore',
-              )
+                "Akim_ProjZheltoksan_Examine_Reject_Ignore_Ignore_Ignore",
+              );
             },
           },
         ]}
@@ -74,5 +74,5 @@ export function BranchAkim_ProjZheltoksan_Examine_Reject_Ignore_Ignore() {
         Что делать?
       </Say>
     </Branch>
-  )
+  );
 }

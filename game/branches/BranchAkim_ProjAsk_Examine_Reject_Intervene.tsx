@@ -5,10 +5,10 @@ import {
   bgDeveloperHqInsideJpg,
   bgSolidJpg,
   mayor1Png,
-} from 'assets/game'
-import {Branch, Say, Scene} from 'react-visual-novel'
-import {GameOverMenu, GameOverTitle} from '../commands'
-import {SCENE_AUDIO} from '../sounds'
+} from "assets/game";
+import { Branch, Say, Scene } from "react-visual-novel";
+import { GameOverMenu, GameOverTitle } from "../commands";
+import { SCENE_AUDIO } from "../sounds";
 
 export function BranchAkim_ProjAsk_Examine_Reject_Intervene() {
   return (
@@ -16,15 +16,15 @@ export function BranchAkim_ProjAsk_Examine_Reject_Intervene() {
       <Scene src={bgDeveloperHqInsideJpg.src} audio={SCENE_AUDIO.indoor} />
 
       <Say
-        tag={{text: 'Работник акимата:', color: '#687065'}}
-        image={{uri: assistant3Png.src, align: 'bottom'}}
+        tag={{ text: "Работник акимата:", color: "#687065" }}
+        image={{ uri: assistant3Png.src, align: "bottom" }}
       >
         —Мы предоставим группу сотрудников для ведения мониторинга
       </Say>
 
       <Say
-        tag={{text: 'Работник акимата:', color: '#687065'}}
-        image={{uri: mayor1Png.src, align: 'bottom'}}
+        tag={{ text: "Работник акимата:", color: "#687065" }}
+        image={{ uri: mayor1Png.src, align: "bottom" }}
       >
         —Отлично, договоримся о серии встреч с девелопером
       </Say>
@@ -62,5 +62,5 @@ export function BranchAkim_ProjAsk_Examine_Reject_Intervene() {
       <GameOverTitle />
       <GameOverMenu />
     </Branch>
-  )
+  );
 }

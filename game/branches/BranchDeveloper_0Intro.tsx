@@ -2,21 +2,21 @@ import {
   bgDeveloperHqInsideJpg,
   developerRepB8Png,
   transition1Mp3,
-} from 'assets/game'
-import {Branch, Play, Say, Scene, Show} from 'react-visual-novel'
-import {SCENE_AUDIO} from '../sounds'
+} from "assets/game";
+import { Branch, Play, Say, Scene, Show } from "react-visual-novel";
+import { SCENE_AUDIO } from "../sounds";
 
 export function BranchDeveloper_0Intro() {
   return (
     <Branch>
       <Scene
         src={bgDeveloperHqInsideJpg.src}
-        audio={{onEntrance: transition1Mp3}}
+        audio={{ onEntrance: transition1Mp3 }}
       />
 
       <Play audio={SCENE_AUDIO.developerTheme} hide={-1} />
 
-      <Show src={{uri: developerRepB8Png.src, align: 'bottom'}} hide={-1} />
+      <Show src={{ uri: developerRepB8Png.src, align: "bottom" }} hide={-1} />
 
       <Say>Кто такой девелопер?</Say>
 
@@ -28,15 +28,15 @@ export function BranchDeveloper_0Intro() {
       <Say
         menu={[
           {
-            label: 'Да',
+            label: "Да",
             onClick: (ctx) => {
-              ctx.goToBranch('Developer_Menu_Projects')
+              ctx.goToBranch("Developer_Menu_Projects");
             },
           },
           {
-            label: 'Нет',
+            label: "Нет",
             onClick: (ctx) => {
-              ctx.goToBranch('Developer_No')
+              ctx.goToBranch("Developer_No");
             },
           },
         ]}
@@ -44,5 +44,5 @@ export function BranchDeveloper_0Intro() {
         Ты хочешь быть девелопером?
       </Say>
     </Branch>
-  )
+  );
 }

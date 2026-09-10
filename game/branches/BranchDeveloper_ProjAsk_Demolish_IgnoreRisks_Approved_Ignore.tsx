@@ -4,10 +4,10 @@ import {
   bgAskBeforeFenceGif,
   bgDeveloperHqInsideJpg,
   bgSolidJpg,
-} from 'assets/game'
-import {Branch, Say, Scene} from 'react-visual-novel'
-import {GameOverMenu, GameOverTitle} from '../commands'
-import {SCENE_AUDIO} from '../sounds'
+} from "assets/game";
+import { Branch, Say, Scene } from "react-visual-novel";
+import { GameOverMenu, GameOverTitle } from "../commands";
+import { SCENE_AUDIO } from "../sounds";
 
 export function BranchDeveloper_ProjAsk_Demolish_IgnoreRisks_Approved_Ignore() {
   return (
@@ -15,8 +15,8 @@ export function BranchDeveloper_ProjAsk_Demolish_IgnoreRisks_Approved_Ignore() {
       <Scene src={bgDeveloperHqInsideJpg.src} audio={SCENE_AUDIO.indoor} />
 
       <Say
-        tag={{text: 'АрхКот:', color: '#B8AE71'}}
-        image={{uri: archkot13Png.src, align: 'bottom'}}
+        tag={{ text: "АрхКот:", color: "#B8AE71" }}
+        image={{ uri: archkot13Png.src, align: "bottom" }}
       >
         —Ну как же так…
       </Say>
@@ -48,5 +48,5 @@ export function BranchDeveloper_ProjAsk_Demolish_IgnoreRisks_Approved_Ignore() {
       <GameOverTitle />
       <GameOverMenu />
     </Branch>
-  )
+  );
 }

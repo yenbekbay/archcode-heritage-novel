@@ -1,53 +1,54 @@
-import type {definitions} from 'api'
-import {getSupabase} from 'api'
-import {motion} from 'framer-motion'
-import type {BranchId, Frame} from 'react-visual-novel'
+import type { definitions } from "api";
+import { getSupabase } from "api";
+import { motion } from "framer-motion";
+import type { BranchId, Frame } from "react-visual-novel";
 import {
   Command,
   styleForFrame,
   useBranchContext,
   useGameContext,
-} from 'react-visual-novel'
-import {twMerge} from 'tailwind-merge'
-import {TextForm} from './internal'
+} from "react-visual-novel";
+import { twMerge } from "tailwind-merge";
+import { TextForm } from "./internal";
 
 export type SubmitMonumentNominationProps = {
   onDone: (ctx: {
-    goToBranch: (branchId: BranchId) => void
-    goToStatement: (statementLabel: string) => void
-    goToNextStatement: (plusIndex?: number) => void
-  }) => void
-  frame?: Frame
-}
+    goToBranch: (branchId: BranchId) => void;
+    goToStatement: (statementLabel: string) => void;
+    goToNextStatement: (plusIndex?: number) => void;
+  }) => void;
+  frame?: Frame;
+};
 
 export function SubmitMonumentNomination({
   onDone,
   frame,
 }: SubmitMonumentNominationProps) {
-  const {goToBranch} = useGameContext()
-  const {containerRect, goToStatement, goToNextStatement} = useBranchContext()
+  const { goToBranch } = useGameContext();
+  const { containerRect, goToStatement, goToNextStatement } =
+    useBranchContext();
   return (
-    <Command name="SubmitMonumentNomination" behavior={['non_skippable']}>
+    <Command name="SubmitMonumentNomination" behavior={["non_skippable"]}>
       {(controls) => (
         <motion.div
           variants={{
-            initial: {opacity: 0},
+            initial: { opacity: 0 },
             entrance: {
               opacity: 1,
-              transition: {duration: 1},
+              transition: { duration: 1 },
             },
             exit: {
               opacity: 0,
-              transition: {duration: 0.5, ease: 'easeOut'},
+              transition: { duration: 0.5, ease: "easeOut" },
             },
           }}
           initial="initial"
           animate={controls}
           className={twMerge(
-            'rvn-text absolute flex flex-col',
-            !frame && 'inset-0 p-8 py-20',
+            "rvn-text absolute flex flex-col",
+            !frame && "inset-0 p-8 py-20",
           )}
-          style={frame && styleForFrame({containerRect}, frame)}
+          style={frame && styleForFrame({ containerRect }, frame)}
         >
           <TextForm
             rows={3}
@@ -55,18 +56,18 @@ export function SubmitMonumentNomination({
             submitLabel="Сохранить"
             onSubmit={async (values) => {
               await getSupabase()
-                .from<definitions['monument_nominations']>(
-                  'monument_nominations',
+                .from<definitions["monument_nominations"]>(
+                  "monument_nominations",
                 )
                 .insert({
                   body: values.body,
                   name: values.name || undefined,
-                })
-              onDone({goToStatement, goToBranch, goToNextStatement})
+                });
+              onDone({ goToStatement, goToBranch, goToNextStatement });
             }}
           />
         </motion.div>
       )}
     </Command>
-  )
+  );
 }

@@ -1,29 +1,29 @@
-import '__generated__/main.css'
-import {bgArchcodeOfficeJpg} from 'assets/game'
-import {openGraphJpg} from 'assets/www'
-import {HeroBackground, Layout, RoughCard} from 'components'
-import {NextAdapter} from 'next-query-params'
-import {DefaultSeo} from 'next-seo'
-import type {AppProps} from 'next/app'
-import dynamic from 'next/dynamic'
-import Head from 'next/head'
-import type {FallbackProps} from 'react-error-boundary'
-import {ErrorBoundary} from 'react-error-boundary'
-import {Toaster} from 'react-hot-toast'
-import {ParallaxProvider} from 'react-scroll-parallax'
+import "__generated__/main.css";
+import { bgArchcodeOfficeJpg } from "assets/game";
+import { openGraphJpg } from "assets/www";
+import { HeroBackground, Layout, RoughCard } from "components";
+import { NextAdapter } from "next-query-params";
+import { DefaultSeo } from "next-seo";
+import type { AppProps } from "next/app";
+import dynamic from "next/dynamic";
+import Head from "next/head";
+import type { FallbackProps } from "react-error-boundary";
+import { ErrorBoundary } from "react-error-boundary";
+import { Toaster } from "react-hot-toast";
+import { ParallaxProvider } from "react-scroll-parallax";
 import {
   QueryParamProvider,
   type QueryParamAdapterComponent,
-} from 'use-query-params'
+} from "use-query-params";
 
-const PreloadMyGameAssets = dynamic(() => import('game/PreloadMyGameAssets'), {
+const PreloadMyGameAssets = dynamic(() => import("game/PreloadMyGameAssets"), {
   ssr: false,
-})
+});
 
 // NOTE: `next-query-params` has an older React return type than its runtime peer.
-const QueryParamAdapter = NextAdapter as unknown as QueryParamAdapterComponent
+const QueryParamAdapter = NextAdapter as unknown as QueryParamAdapterComponent;
 
-export default function MyApp({Component, pageProps}: AppProps) {
+export default function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
@@ -44,7 +44,7 @@ export default function MyApp({Component, pageProps}: AppProps) {
         }}
       />
 
-      {Component.name !== 'Play' && <PreloadMyGameAssets concurrency={10} />}
+      {Component.name !== "Play" && <PreloadMyGameAssets concurrency={10} />}
 
       <QueryParamProvider adapter={QueryParamAdapter}>
         <ParallaxProvider>
@@ -56,11 +56,11 @@ export default function MyApp({Component, pageProps}: AppProps) {
 
       <Toaster />
     </>
-  )
+  );
 }
 
-function ErrorFallback({error}: FallbackProps) {
-  const errorMessage = error instanceof Error ? error.message : String(error)
+function ErrorFallback({ error }: FallbackProps) {
+  const errorMessage = error instanceof Error ? error.message : String(error);
 
   return (
     <Layout>
@@ -83,5 +83,5 @@ function ErrorFallback({error}: FallbackProps) {
         </section>
       </main>
     </Layout>
-  )
+  );
 }

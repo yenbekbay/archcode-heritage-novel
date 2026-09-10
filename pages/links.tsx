@@ -1,12 +1,12 @@
-import {bgArchcodeOfficeJpg} from 'assets/game'
-import type {LinkCardProps, RoughCardProps} from 'components'
-import {Hero, HeroBackground, Layout, LinkCard, RoughCard} from 'components'
-import {useSavedLinks} from 'game/LinkPrompt'
-import Link from 'next/link'
-import {twMerge} from 'tailwind-merge'
+import { bgArchcodeOfficeJpg } from "assets/game";
+import type { LinkCardProps, RoughCardProps } from "components";
+import { Hero, HeroBackground, Layout, LinkCard, RoughCard } from "components";
+import { useSavedLinks } from "game/LinkPrompt";
+import Link from "next/link";
+import { twMerge } from "tailwind-merge";
 
 export default function Links() {
-  const savedLinks = useSavedLinks()
+  const savedLinks = useSavedLinks();
   return (
     <Layout>
       <main>
@@ -39,19 +39,19 @@ export default function Links() {
         )}
       </main>
     </Layout>
-  )
+  );
 }
 
 function RoughLinkCard(props: LinkCardProps) {
   // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-explicit-any
-  return <LinkCard CardComponent={StyledRoughCard as any} {...props} />
+  return <LinkCard CardComponent={StyledRoughCard as any} {...props} />;
 }
 
-function StyledRoughCard({contentClassName, ...restProps}: RoughCardProps) {
+function StyledRoughCard({ contentClassName, ...restProps }: RoughCardProps) {
   return (
     <RoughCard
-      contentClassName={twMerge('max-w-none p-[4px]', contentClassName)}
+      contentClassName={twMerge("max-w-none p-[4px]", contentClassName)}
       {...restProps}
     />
-  )
+  );
 }

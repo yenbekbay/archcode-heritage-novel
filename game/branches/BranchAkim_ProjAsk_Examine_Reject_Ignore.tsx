@@ -5,10 +5,10 @@ import {
   bgAskBeforeFenceGif,
   bgDeveloperHqInsideJpg,
   bgSolidJpg,
-} from 'assets/game'
-import {Branch, Say, Scene} from 'react-visual-novel'
-import {GameOverMenu, GameOverTitle} from '../commands'
-import {SCENE_AUDIO} from '../sounds'
+} from "assets/game";
+import { Branch, Say, Scene } from "react-visual-novel";
+import { GameOverMenu, GameOverTitle } from "../commands";
+import { SCENE_AUDIO } from "../sounds";
 
 export function BranchAkim_ProjAsk_Examine_Reject_Ignore() {
   return (
@@ -16,15 +16,15 @@ export function BranchAkim_ProjAsk_Examine_Reject_Ignore() {
       <Scene src={bgDeveloperHqInsideJpg.src} audio={SCENE_AUDIO.indoor} />
 
       <Say
-        tag={{text: 'АрхКот:', color: '#B8AE71'}}
-        image={{uri: archkot2Png.src, align: 'bottom'}}
+        tag={{ text: "АрхКот:", color: "#B8AE71" }}
+        image={{ uri: archkot2Png.src, align: "bottom" }}
       >
         —Мы предлагаем свою кандидатуру в качестве мониторинговой группы
       </Say>
 
       <Say
-        tag={{text: 'АрхКот:', color: '#B8AE71'}}
-        image={{uri: archkot3Png.src, align: 'bottom'}}
+        tag={{ text: "АрхКот:", color: "#B8AE71" }}
+        image={{ uri: archkot3Png.src, align: "bottom" }}
       >
         —Давайте договоримся о серии встреч с девелопером.
       </Say>
@@ -61,5 +61,5 @@ export function BranchAkim_ProjAsk_Examine_Reject_Ignore() {
       <GameOverTitle />
       <GameOverMenu />
     </Branch>
-  )
+  );
 }

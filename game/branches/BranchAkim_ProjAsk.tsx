@@ -2,9 +2,9 @@ import {
   bgCityHallConferenceRoomJpg,
   developerRepAPng,
   mayor2Png,
-} from 'assets/game'
-import {Branch, Say, Scene} from 'react-visual-novel'
-import {SCENE_AUDIO} from '../sounds'
+} from "assets/game";
+import { Branch, Say, Scene } from "react-visual-novel";
+import { SCENE_AUDIO } from "../sounds";
 
 export function BranchAkim_ProjAsk() {
   return (
@@ -12,26 +12,26 @@ export function BranchAkim_ProjAsk() {
       <Scene src={bgCityHallConferenceRoomJpg.src} audio={SCENE_AUDIO.indoor} />
 
       <Say
-        tag={{text: 'Менеджер проекта:', color: '#A57B55'}}
-        image={{uri: developerRepAPng.src, align: 'bottom'}}
+        tag={{ text: "Менеджер проекта:", color: "#A57B55" }}
+        image={{ uri: developerRepAPng.src, align: "bottom" }}
       >
         —Добрый день, я — представитель Bay Shatyr Group. Представляю вашему
         вниманию проект АСК
       </Say>
 
       <Say
-        image={{uri: mayor2Png.src, align: 'bottom'}}
+        image={{ uri: mayor2Png.src, align: "bottom" }}
         menu={[
           {
-            label: 'Нужна экспертиза',
+            label: "Нужна экспертиза",
             onClick: (ctx) => {
-              ctx.goToBranch('Akim_ProjAsk_Examine')
+              ctx.goToBranch("Akim_ProjAsk_Examine");
             },
           },
           {
-            label: 'Одобрить',
+            label: "Одобрить",
             onClick: (ctx) => {
-              ctx.goToBranch('Akim_ProjAsk_Approve')
+              ctx.goToBranch("Akim_ProjAsk_Approve");
             },
           },
         ]}
@@ -39,5 +39,5 @@ export function BranchAkim_ProjAsk() {
         —Хммм…
       </Say>
     </Branch>
-  )
+  );
 }

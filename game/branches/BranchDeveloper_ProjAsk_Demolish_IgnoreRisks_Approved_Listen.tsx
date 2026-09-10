@@ -6,11 +6,11 @@ import {
   bgDeveloperHqInsideJpg,
   bgDeveloperHqOutsideJpg,
   bgSolidJpg,
-} from 'assets/game'
-import {Branch, Say, Scene} from 'react-visual-novel'
-import {GameOverMenu, GameOverTitle} from '../commands'
-import {LINKS} from '../links'
-import {SCENE_AUDIO} from '../sounds'
+} from "assets/game";
+import { Branch, Say, Scene } from "react-visual-novel";
+import { GameOverMenu, GameOverTitle } from "../commands";
+import { LINKS } from "../links";
+import { SCENE_AUDIO } from "../sounds";
 
 export function BranchDeveloper_ProjAsk_Demolish_IgnoreRisks_Approved_Listen() {
   return (
@@ -29,8 +29,8 @@ export function BranchDeveloper_ProjAsk_Demolish_IgnoreRisks_Approved_Listen() {
       <Scene src={bgArchcodeOfficeJpg.src} audio={SCENE_AUDIO.indoor} />
 
       <Say
-        tag={{text: 'АрхБот:', color: '#65506D'}}
-        image={{uri: archbot1Png.src, align: 'bottom'}}
+        tag={{ text: "АрхБот:", color: "#65506D" }}
+        image={{ uri: archbot1Png.src, align: "bottom" }}
       >
         {`
           А вот и протоколы встреч
@@ -73,5 +73,5 @@ export function BranchDeveloper_ProjAsk_Demolish_IgnoreRisks_Approved_Listen() {
       <GameOverTitle />
       <GameOverMenu />
     </Branch>
-  )
+  );
 }

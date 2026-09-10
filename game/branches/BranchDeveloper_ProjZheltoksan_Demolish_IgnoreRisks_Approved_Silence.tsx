@@ -1,6 +1,6 @@
-import {bgZheltoksanBeforeJpg} from 'assets/game'
-import {Branch, Say, Scene} from 'react-visual-novel'
-import {SCENE_AUDIO} from '../sounds'
+import { bgZheltoksanBeforeJpg } from "assets/game";
+import { Branch, Say, Scene } from "react-visual-novel";
+import { SCENE_AUDIO } from "../sounds";
 
 export function BranchDeveloper_ProjZheltoksan_Demolish_IgnoreRisks_Approved_Silence() {
   return (
@@ -15,19 +15,19 @@ export function BranchDeveloper_ProjZheltoksan_Demolish_IgnoreRisks_Approved_Sil
       <Say
         menu={[
           {
-            label: 'Учесть мнения',
+            label: "Учесть мнения",
             onClick: (ctx) => {
               ctx.goToBranch(
-                'Developer_ProjZheltoksan_Demolish_IgnoreRisks_Approved__Reconsider',
-              )
+                "Developer_ProjZheltoksan_Demolish_IgnoreRisks_Approved__Reconsider",
+              );
             },
           },
           {
-            label: 'Продолжить стройку',
+            label: "Продолжить стройку",
             onClick: (ctx) => {
               ctx.goToBranch(
-                'Developer_ProjZheltoksan_Demolish_IgnoreRisks_Approved__Continue',
-              )
+                "Developer_ProjZheltoksan_Demolish_IgnoreRisks_Approved__Continue",
+              );
             },
           },
         ]}
@@ -35,5 +35,5 @@ export function BranchDeveloper_ProjZheltoksan_Demolish_IgnoreRisks_Approved_Sil
         Что делать?
       </Say>
     </Branch>
-  )
+  );
 }

@@ -15,9 +15,9 @@ import {
   sharatMibutovPng,
   stampApprovedPng,
   transition1Mp3,
-} from 'assets/game'
-import {Branch, Say, Scene, Show} from 'react-visual-novel'
-import {SCENE_AUDIO} from '../sounds'
+} from "assets/game";
+import { Branch, Say, Scene, Show } from "react-visual-novel";
+import { SCENE_AUDIO } from "../sounds";
 
 export function BranchDeveloper_ProjAirport_Demolish_IgnoreRisks_Approved() {
   return (
@@ -28,12 +28,12 @@ export function BranchDeveloper_ProjAirport_Demolish_IgnoreRisks_Approved() {
         src={{
           uri: letterPng.src,
           style: {
-            height: '100%',
-            width: '100%',
-            objectFit: 'cover',
-            backgroundColor: '#e7dbab',
-            transform: 'scale(2.5)',
-            transformOrigin: '50% 35%',
+            height: "100%",
+            width: "100%",
+            objectFit: "cover",
+            backgroundColor: "#e7dbab",
+            transform: "scale(2.5)",
+            transformOrigin: "50% 35%",
           },
         }}
         hide={1}
@@ -43,17 +43,21 @@ export function BranchDeveloper_ProjAirport_Demolish_IgnoreRisks_Approved() {
         src={{
           uri: stampApprovedPng.src,
           style: {
-            height: '100%',
-            width: '100%',
-            objectFit: 'cover',
-            transform: 'translateY(-15%)',
+            height: "100%",
+            width: "100%",
+            objectFit: "cover",
+            transform: "translateY(-15%)",
           },
         }}
       />
 
       <Say
-        tag={{text: 'Аким:', color: '#687065'}}
-        image={{uri: mayor7Png.src, align: 'bottom', style: {bottom: '-12%'}}}
+        tag={{ text: "Аким:", color: "#687065" }}
+        image={{
+          uri: mayor7Png.src,
+          align: "bottom",
+          style: { bottom: "-12%" },
+        }}
       >
         —Я согласен с вашими решениями. Можете начинать стройку
       </Say>
@@ -61,7 +65,7 @@ export function BranchDeveloper_ProjAirport_Demolish_IgnoreRisks_Approved() {
       <Scene src={bgAirportJpg.src} audio={SCENE_AUDIO.city} />
 
       <Say
-        image={{uri: angryCrowd1Png.src, align: 'bottom'}}
+        image={{ uri: angryCrowd1Png.src, align: "bottom" }}
         audio={SCENE_AUDIO.chatter}
       >
         Общественность возмущена
@@ -70,18 +74,18 @@ export function BranchDeveloper_ProjAirport_Demolish_IgnoreRisks_Approved() {
       <Scene src={bgDeveloperHqInsideJpg.src} audio={SCENE_AUDIO.indoor} />
 
       <Say
-        image={{uri: developerRepB7Png.src, align: 'bottom'}}
+        image={{ uri: developerRepB7Png.src, align: "bottom" }}
         menu={[
           {
-            label: 'Игнорировать',
+            label: "Игнорировать",
             onClick: (ctx) => {
-              ctx.goToNextStatement()
+              ctx.goToNextStatement();
             },
           },
           {
-            label: 'Провести общественные слушаниям',
+            label: "Провести общественные слушаниям",
             onClick: (ctx) => {
-              ctx.goToNextStatement(1)
+              ctx.goToNextStatement(1);
             },
           },
         ]}
@@ -96,7 +100,7 @@ export function BranchDeveloper_ProjAirport_Demolish_IgnoreRisks_Approved() {
 
       <Scene
         src={bgCityHallOutsideJpg.src}
-        audio={{onEntrance: transition1Mp3}}
+        audio={{ onEntrance: transition1Mp3 }}
       />
 
       <Say>Общественные слушания</Say>
@@ -107,16 +111,16 @@ export function BranchDeveloper_ProjAirport_Demolish_IgnoreRisks_Approved() {
       />
 
       <Say
-        tag={{text: 'Зам. акима:', color: '#687065'}}
-        image={{uri: assistant3Png.src, align: 'bottom'}}
+        tag={{ text: "Зам. акима:", color: "#687065" }}
+        image={{ uri: assistant3Png.src, align: "bottom" }}
       >
         —То, что есть сейчас, утратило историческую ценность. Когда-то, в 50-е
         годы, оно было таким, да, но сейчас — нет
       </Say>
 
       <Say
-        tag={{text: 'Зам. акима:', color: '#687065'}}
-        image={{uri: assistant3Png.src, align: 'bottom'}}
+        tag={{ text: "Зам. акима:", color: "#687065" }}
+        image={{ uri: assistant3Png.src, align: "bottom" }}
       >
         —Нет никаких исторических элементов, есть стеклянные электронные двери.
         Там почти всё поменяли. Всё изменилось до неузнаваемости в худшую
@@ -124,32 +128,32 @@ export function BranchDeveloper_ProjAirport_Demolish_IgnoreRisks_Approved() {
       </Say>
 
       <Say
-        tag={{text: 'Член Общ. совета Шарат Мибутов:', color: '#8E8379'}}
-        image={{uri: sharatMibutovPng.src, align: 'bottom'}}
+        tag={{ text: "Член Общ. совета Шарат Мибутов:", color: "#8E8379" }}
+        image={{ uri: sharatMibutovPng.src, align: "bottom" }}
       >
         —То, что предложила турецкая фирма, выглядело не очень. То есть, это
         обычная квадратная коробка, без какой-либо связи с Казахстаном
       </Say>
 
       <Say
-        tag={{text: 'Член Общ. совета Шарат Мибутов:', color: '#8E8379'}}
-        image={{uri: sharatMibutovPng.src, align: 'bottom'}}
+        tag={{ text: "Член Общ. совета Шарат Мибутов:", color: "#8E8379" }}
+        image={{ uri: sharatMibutovPng.src, align: "bottom" }}
       >
         —Был выбран экономичный вариант, который рассчитан только на увеличение
         пропускной способности терминала и максимизацию прибыли инвесторов
       </Say>
 
       <Say
-        tag={'Вице президент “Аэропорт”\nА. Кордеев:'}
-        image={{uri: aKordeevPng.src, align: 'bottom'}}
+        tag={"Вице президент “Аэропорт”\nА. Кордеев:"}
+        image={{ uri: aKordeevPng.src, align: "bottom" }}
       >
         —Я не считаю его великим памятником. Оно не несёт функциональной
         нагрузки и занимает огромную площадь
       </Say>
 
       <Say
-        tag={{text: 'АрхКот:', color: '#B8AE71'}}
-        image={{uri: archkot1Png.src, align: 'bottom'}}
+        tag={{ text: "АрхКот:", color: "#B8AE71" }}
+        image={{ uri: archkot1Png.src, align: "bottom" }}
       >
         —Согласно закону об охране и использовании объектов историко-культурного
         наследия. Перемещёние и изменение памятника истории и культуры
@@ -157,8 +161,8 @@ export function BranchDeveloper_ProjAirport_Demolish_IgnoreRisks_Approved() {
       </Say>
 
       <Say
-        tag={{text: 'АрхКот:', color: '#B8AE71'}}
-        image={{uri: archkot4Png.src, align: 'bottom'}}
+        tag={{ text: "АрхКот:", color: "#B8AE71" }}
+        image={{ uri: archkot4Png.src, align: "bottom" }}
       >
         —Исключение допускается лишь в случаях разрушения более семидесяти
         процентов памятника истории и культуры либо утраты историко-культурной
@@ -166,8 +170,8 @@ export function BranchDeveloper_ProjAirport_Demolish_IgnoreRisks_Approved() {
       </Say>
 
       <Say
-        tag={{text: 'АрхКот:', color: '#B8AE71'}}
-        image={{uri: archkot4Png.src, align: 'bottom'}}
+        tag={{ text: "АрхКот:", color: "#B8AE71" }}
+        image={{ uri: archkot4Png.src, align: "bottom" }}
       >
         —или если его перемещёние и изменение повлекут улучшение условий его
         сохранения. Да и в общей сложности, это крайне дорогая процедура
@@ -179,22 +183,22 @@ export function BranchDeveloper_ProjAirport_Demolish_IgnoreRisks_Approved() {
       </Say>
 
       <Say
-        image={{uri: developerRepB9Png.src, align: 'bottom'}}
+        image={{ uri: developerRepB9Png.src, align: "bottom" }}
         menu={[
           {
-            label: 'Учесть мнения',
+            label: "Учесть мнения",
             onClick: (ctx) => {
               ctx.goToBranch(
-                'Developer_ProjAirport_Demolish_IgnoreRisks_Approved_Listen',
-              )
+                "Developer_ProjAirport_Demolish_IgnoreRisks_Approved_Listen",
+              );
             },
           },
           {
-            label: 'Игнорировать',
+            label: "Игнорировать",
             onClick: (ctx) => {
               ctx.goToBranch(
-                'Developer_ProjAirport_Demolish_IgnoreRisks_Approved_Ignore',
-              )
+                "Developer_ProjAirport_Demolish_IgnoreRisks_Approved_Ignore",
+              );
             },
           },
         ]}
@@ -202,5 +206,5 @@ export function BranchDeveloper_ProjAirport_Demolish_IgnoreRisks_Approved() {
         Что делать?
       </Say>
     </Branch>
-  )
+  );
 }

@@ -1,22 +1,22 @@
-import {Spinner} from 'components'
-import React from 'react'
-import toast from 'react-hot-toast'
-import {useGameContext} from 'react-visual-novel'
-import {useZorm} from 'react-zorm'
-import {twMerge} from 'tailwind-merge'
-import {z} from 'zod'
+import { Spinner } from "components";
+import React from "react";
+import toast from "react-hot-toast";
+import { useGameContext } from "react-visual-novel";
+import { useZorm } from "react-zorm";
+import { twMerge } from "tailwind-merge";
+import { z } from "zod";
 
 export type TextFormProps = {
-  inputLabel: string
-  submitLabel: string
-  onSubmit: (values: {body: string; name: string}) => unknown
-  rows?: number
-}
+  inputLabel: string;
+  submitLabel: string;
+  onSubmit: (values: { body: string; name: string }) => unknown;
+  rows?: number;
+};
 
 const TextFormSchema = z.object({
-  body: z.string().min(1, 'Пожалуйста, напишите что-нибудь'),
+  body: z.string().min(1, "Пожалуйста, напишите что-нибудь"),
   name: z.string(),
-})
+});
 
 export function TextForm({
   inputLabel,
@@ -24,28 +24,28 @@ export function TextForm({
   onSubmit,
   rows = 2,
 }: TextFormProps) {
-  const {playSound} = useGameContext()
-  const [submitting, setSubmitting] = React.useState(false)
-  const zo = useZorm('text', TextFormSchema, {
+  const { playSound } = useGameContext();
+  const [submitting, setSubmitting] = React.useState(false);
+  const zo = useZorm("text", TextFormSchema, {
     onValidSubmit: async (event) => {
-      event.preventDefault()
-      setSubmitting(true)
+      event.preventDefault();
+      setSubmitting(true);
       try {
-        await onSubmit(event.data)
+        await onSubmit(event.data);
       } catch (err) {
-        toast.error('Что-то пошло не так. Попробуйте ещё раз')
+        toast.error("Что-то пошло не так. Попробуйте ещё раз");
       } finally {
-        setSubmitting(false)
+        setSubmitting(false);
       }
     },
-  })
+  });
   return (
     <div className="relative flex flex-1 flex-col overflow-y-auto">
       <form
         ref={zo.ref}
         className={twMerge(
-          'flex flex-col space-y-4',
-          submitting && 'pointer-events-none opacity-50',
+          "flex flex-col space-y-4",
+          submitting && "pointer-events-none opacity-50",
         )}
       >
         <div className="flex flex-col space-y-2">
@@ -58,8 +58,8 @@ export function TextForm({
             name="body"
             rows={rows}
             className={twMerge(
-              'rounded-md focus:border-accent focus:ring-0',
-              zo.errors.body('border-error'),
+              "rounded-md focus:border-accent focus:ring-0",
+              zo.errors.body("border-error"),
             )}
           />
 
@@ -78,8 +78,8 @@ export function TextForm({
             name="name"
             type="text"
             className={twMerge(
-              'rounded-md focus:border-accent focus:ring-0',
-              zo.errors.name('border-error'),
+              "rounded-md focus:border-accent focus:ring-0",
+              zo.errors.name("border-error"),
             )}
           />
 
@@ -92,10 +92,10 @@ export function TextForm({
           type="submit"
           disabled={zo.validation?.success === false}
           onMouseEnter={() => {
-            playSound('mouseover')
+            playSound("mouseover");
           }}
           onClick={() => {
-            playSound('click')
+            playSound("click");
           }}
           className="GameButton GameButton--opaque btn btn-outline font-script"
         >
@@ -109,5 +109,5 @@ export function TextForm({
         </div>
       )}
     </div>
-  )
+  );
 }

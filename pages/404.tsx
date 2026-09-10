@@ -1,5 +1,5 @@
-import {bgArchcodeOfficeJpg} from 'assets/game'
-import {HeroBackground, Layout, RoughCard} from 'components'
+import { bgArchcodeOfficeJpg } from "assets/game";
+import { HeroBackground, Layout, RoughCard } from "components";
 
 export default function Custom404() {
   return (
@@ -18,5 +18,5 @@ export default function Custom404() {
         </section>
       </main>
     </Layout>
-  )
+  );
 }

@@ -13,16 +13,16 @@ import {
   portalMp3,
   transition1Mp3,
   transition2ShortMp3,
-} from 'assets/game'
-import {Branch, Say, Scene, Show} from 'react-visual-novel'
-import {SCENE_AUDIO} from '../sounds'
+} from "assets/game";
+import { Branch, Say, Scene, Show } from "react-visual-novel";
+import { SCENE_AUDIO } from "../sounds";
 
 export function BranchAkim_ProjAsk_Examine() {
   return (
     <Branch>
       <Scene
         src={bgCityHallOutsideJpg.src}
-        audio={{onEntrance: transition1Mp3}}
+        audio={{ onEntrance: transition1Mp3 }}
       />
 
       <Say placement="middle" scheme="dark">
@@ -31,26 +31,26 @@ export function BranchAkim_ProjAsk_Examine() {
 
       <Scene
         src={bgCityHallConferenceRoomJpg.src}
-        audio={{...SCENE_AUDIO.indoor, onEntrance: transition2ShortMp3}}
+        audio={{ ...SCENE_AUDIO.indoor, onEntrance: transition2ShortMp3 }}
       />
 
       <Say
-        tag={{text: 'Эксперт:', color: '#687065'}}
-        image={{uri: expert1Png.src, align: 'bottom'}}
+        tag={{ text: "Эксперт:", color: "#687065" }}
+        image={{ uri: expert1Png.src, align: "bottom" }}
       >
         —Вижу нарушения…
       </Say>
 
       <Say
-        tag={{text: 'Эксперт:', color: '#687065'}}
-        image={{uri: expert2Png.src, align: 'bottom'}}
+        tag={{ text: "Эксперт:", color: "#687065" }}
+        image={{ uri: expert2Png.src, align: "bottom" }}
       >
         —Ещё одно! Ещё нарушение!!!
       </Say>
 
       <Show
-        src={{uri: expert3Png.src, align: 'bottom'}}
-        audio={{onEntrance: portalMp3}}
+        src={{ uri: expert3Png.src, align: "bottom" }}
+        audio={{ onEntrance: portalMp3 }}
       />
 
       <Scene src={bgMayorDoorJpg.src} audio={SCENE_AUDIO.indoor} />
@@ -61,10 +61,10 @@ export function BranchAkim_ProjAsk_Examine() {
 
       <Say
         scheme="dark"
-        tag={{text: 'Помощник:', color: '#687065'}}
+        tag={{ text: "Помощник:", color: "#687065" }}
         image={{
           uri: assistant1Png.src,
-          style: {height: '100%', width: '100%', objectFit: 'cover'},
+          style: { height: "100%", width: "100%", objectFit: "cover" },
         }}
       >
         —Экспертиза выявила несколько нарушений
@@ -73,7 +73,7 @@ export function BranchAkim_ProjAsk_Examine() {
       <Show
         src={{
           uri: assistant2Png.src,
-          style: {height: '100%', width: '100%', objectFit: 'cover'},
+          style: { height: "100%", width: "100%", objectFit: "cover" },
         }}
       />
 
@@ -84,18 +84,18 @@ export function BranchAkim_ProjAsk_Examine() {
       <Scene src={bgCityHallMayorOfficeJpg.src} audio={SCENE_AUDIO.indoor} />
 
       <Say
-        image={{uri: mayor2Png.src, align: 'bottom'}}
+        image={{ uri: mayor2Png.src, align: "bottom" }}
         menu={[
           {
-            label: 'Не одобрять',
+            label: "Не одобрять",
             onClick: (ctx) => {
-              ctx.goToBranch('Akim_ProjAsk_Examine_Reject')
+              ctx.goToBranch("Akim_ProjAsk_Examine_Reject");
             },
           },
           {
-            label: 'Одобрить',
+            label: "Одобрить",
             onClick: (ctx) => {
-              ctx.goToBranch('Akim_ProjAsk_Approve')
+              ctx.goToBranch("Akim_ProjAsk_Approve");
             },
           },
         ]}
@@ -103,5 +103,5 @@ export function BranchAkim_ProjAsk_Examine() {
         Что делать с проектом?
       </Say>
     </Branch>
-  )
+  );
 }

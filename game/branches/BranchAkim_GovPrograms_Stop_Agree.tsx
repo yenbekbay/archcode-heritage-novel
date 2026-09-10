@@ -2,21 +2,21 @@ import {
   bgBusStop1Jpg,
   bgCityHallConferenceRoomJpg,
   mayor3Png,
-} from 'assets/game'
-import {Branch, Say, Scene} from 'react-visual-novel'
-import {GameOverMenu, GameOverTitle} from '../commands'
-import {SCENE_AUDIO} from '../sounds'
+} from "assets/game";
+import { Branch, Say, Scene } from "react-visual-novel";
+import { GameOverMenu, GameOverTitle } from "../commands";
+import { SCENE_AUDIO } from "../sounds";
 
 export function BranchAkim_GovPrograms_Stop_Agree() {
   return (
     <Branch>
       <Scene src={bgCityHallConferenceRoomJpg.src} audio={SCENE_AUDIO.indoor} />
 
-      <Say image={{uri: mayor3Png.src, align: 'bottom'}}>
+      <Say image={{ uri: mayor3Png.src, align: "bottom" }}>
         —Спасибо, отличная работа!
       </Say>
 
-      <Say image={{uri: mayor3Png.src, align: 'bottom'}}>
+      <Say image={{ uri: mayor3Png.src, align: "bottom" }}>
         —Мы возьмем этот процесс под свой контроль и позаботимся о том, чтобы
         придать этим остановкам особый статус
       </Say>
@@ -28,5 +28,5 @@ export function BranchAkim_GovPrograms_Stop_Agree() {
       <GameOverTitle />
       <GameOverMenu />
     </Branch>
-  )
+  );
 }

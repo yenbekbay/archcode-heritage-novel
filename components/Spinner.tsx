@@ -20,5 +20,5 @@ export function Spinner() {
         className="opacity-75"
       />
     </svg>
-  )
+  );
 }

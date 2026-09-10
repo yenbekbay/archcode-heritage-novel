@@ -1,23 +1,23 @@
-import * as assets from 'assets/game'
-import {useRouter} from 'next/router'
-import React from 'react'
-import {Game, prepareBranches} from 'react-visual-novel'
-import * as _branches from './branches'
-import type {Link} from './LinkPrompt'
-import {LinkPrompt} from './LinkPrompt'
-import {MobileDeviceChrome} from './MobileDeviceChrome'
-import {playSound} from './sounds'
+import * as assets from "assets/game";
+import { useRouter } from "next/router";
+import React from "react";
+import { Game, prepareBranches } from "react-visual-novel";
+import * as _branches from "./branches";
+import type { Link } from "./LinkPrompt";
+import { LinkPrompt } from "./LinkPrompt";
+import { MobileDeviceChrome } from "./MobileDeviceChrome";
+import { playSound } from "./sounds";
 
-const branches = prepareBranches(_branches)
+const branches = prepareBranches(_branches);
 
-type MyBranches = typeof branches
-declare module 'react-visual-novel' {
+type MyBranches = typeof branches;
+declare module "react-visual-novel" {
   interface Branches extends MyBranches {}
 }
 
 export default function MyGame() {
-  const router = useRouter()
-  const [activeLink, setActiveLink] = React.useState<Link | null>(null)
+  const router = useRouter();
+  const [activeLink, setActiveLink] = React.useState<Link | null>(null);
   return (
     <>
       <MobileDeviceChrome>
@@ -26,18 +26,18 @@ export default function MyGame() {
           branches={branches}
           initialBranchId="Intro"
           onLinkClick={(href, name, event) => {
-            if (href.startsWith('http')) {
-              event.preventDefault()
-              setActiveLink({href, name})
+            if (href.startsWith("http")) {
+              event.preventDefault();
+              setActiveLink({ href, name });
             } else {
               // noop
             }
           }}
           onPlaySound={playSound}
-          onGoHome={() => router.push('/')}
+          onGoHome={() => router.push("/")}
         >
           {(render, res, progress) => {
-            if (res.status === 'loading') {
+            if (res.status === "loading") {
               return (
                 <div className="prose flex size-full max-w-none flex-col justify-center p-8">
                   <h1 className="text-center text-xl">Загрузка…</h1>
@@ -47,9 +47,9 @@ export default function MyGame() {
                     className="progress w-full"
                   />
                 </div>
-              )
+              );
             }
-            if (res.status === 'failure') {
+            if (res.status === "failure") {
               return (
                 <div className="prose flex size-full max-w-none flex-col justify-center p-8">
                   <h1 className="text-xl">Не удалось загрузить ресурсы</h1>
@@ -58,9 +58,9 @@ export default function MyGame() {
                     {res.error.message}
                   </pre>
                 </div>
-              )
+              );
             }
-            return <div className="flex size-full flex-col">{render()}</div>
+            return <div className="flex size-full flex-col">{render()}</div>;
           }}
         </Game>
       </MobileDeviceChrome>
@@ -68,9 +68,9 @@ export default function MyGame() {
       <LinkPrompt
         link={activeLink}
         onClose={() => {
-          setActiveLink(null)
+          setActiveLink(null);
         }}
       />
     </>
-  )
+  );
 }

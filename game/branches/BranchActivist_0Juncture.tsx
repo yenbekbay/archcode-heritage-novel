@@ -1,6 +1,6 @@
-import {bgMapGif, fenceMp3, fencePng, redhead1Png} from 'assets/game'
-import {Branch, Say, Scene, Show} from 'react-visual-novel'
-import {SCENE_AUDIO} from '../sounds'
+import { bgMapGif, fenceMp3, fencePng, redhead1Png } from "assets/game";
+import { Branch, Say, Scene, Show } from "react-visual-novel";
+import { SCENE_AUDIO } from "../sounds";
 
 export function BranchActivist_0Juncture() {
   return (
@@ -12,17 +12,17 @@ export function BranchActivist_0Juncture() {
       <Show
         src={{
           uri: fencePng.src,
-          style: {height: '100%', transform: 'translate(-50%) scale(1.15)'},
+          style: { height: "100%", transform: "translate(-50%) scale(1.15)" },
           animation: {
-            initial: {x: '250%', scale: 0.5, originY: 1},
+            initial: { x: "250%", scale: 0.5, originY: 1 },
             entrance: {
               x: 0,
               scale: 1,
-              transition: {duration: 2},
+              transition: { duration: 2 },
             },
             exit: {
               opacity: 0,
-              transition: {duration: 0.5, ease: 'easeOut'},
+              transition: { duration: 0.5, ease: "easeOut" },
             },
           },
         }}
@@ -36,22 +36,22 @@ export function BranchActivist_0Juncture() {
       <Say
         image={{
           uri: redhead1Png.src,
-          align: 'bottom',
+          align: "bottom",
           style: {
-            filter: 'drop-shadow(40px 40px 5px rgba(0, 0, 0, .35))',
+            filter: "drop-shadow(40px 40px 5px rgba(0, 0, 0, .35))",
           },
         }}
         menu={[
           {
-            label: 'Пройти мимо',
+            label: "Пройти мимо",
             onClick: (ctx) => {
-              ctx.goToBranch('Activist_WalkPast')
+              ctx.goToBranch("Activist_WalkPast");
             },
           },
           {
-            label: 'Посмотреть',
+            label: "Посмотреть",
             onClick: (ctx) => {
-              ctx.goToBranch('Activist_CheckOut')
+              ctx.goToBranch("Activist_CheckOut");
             },
           },
         ]}
@@ -59,5 +59,5 @@ export function BranchActivist_0Juncture() {
         Это что за забор? И что за ним?
       </Say>
     </Branch>
-  )
+  );
 }

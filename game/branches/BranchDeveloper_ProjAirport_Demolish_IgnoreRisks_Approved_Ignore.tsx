@@ -7,22 +7,22 @@ import {
   hologramMp3,
   transition1Mp3,
   transition2ShortMp3,
-} from 'assets/game'
-import {Branch, Play, Say, Scene} from 'react-visual-novel'
-import {GameOverMenu, GameOverTitle} from '../commands'
-import {LINKS} from '../links'
-import {SCENE_AUDIO} from '../sounds'
+} from "assets/game";
+import { Branch, Play, Say, Scene } from "react-visual-novel";
+import { GameOverMenu, GameOverTitle } from "../commands";
+import { LINKS } from "../links";
+import { SCENE_AUDIO } from "../sounds";
 
 export function BranchDeveloper_ProjAirport_Demolish_IgnoreRisks_Approved_Ignore() {
   return (
     <Branch>
       <Scene
         src={bgDeveloperHqOutsideJpg.src}
-        audio={{onEntrance: transition1Mp3}}
+        audio={{ onEntrance: transition1Mp3 }}
       />
       <Scene
         src={bgDeveloperHqInsideJpg.src}
-        audio={{...SCENE_AUDIO.indoor, onEntrance: transition2ShortMp3}}
+        audio={{ ...SCENE_AUDIO.indoor, onEntrance: transition2ShortMp3 }}
       />
 
       <Say
@@ -32,17 +32,17 @@ export function BranchDeveloper_ProjAirport_Demolish_IgnoreRisks_Approved_Ignore
             y: 400,
             x: 260,
             width: 540,
-            transform: 'rotate(-6deg)',
+            transform: "rotate(-6deg)",
           },
         }}
-        style={{fontSize: 24}}
+        style={{ fontSize: 24 }}
         image={{
           uri: bgPhoneHandJpg.src,
           style: {
-            height: '100%',
-            width: '100%',
-            objectFit: 'cover',
-            transform: 'scale(2.25) translateX(-15px)',
+            height: "100%",
+            width: "100%",
+            objectFit: "cover",
+            transform: "scale(2.25) translateX(-15px)",
           },
         }}
       >
@@ -53,14 +53,14 @@ export function BranchDeveloper_ProjAirport_Demolish_IgnoreRisks_Approved_Ignore
         `}
       </Say>
 
-      <Say image={{uri: developerRepB11Png.src, align: 'bottom'}}>
+      <Say image={{ uri: developerRepB11Png.src, align: "bottom" }}>
         —ЧТО СЛУЧИЛОСЬ??!
       </Say>
 
       <Say
-        tag={{text: 'Бот-билдер:', color: '#53C7D5'}}
-        image={{uri: botBuilderPng.src, align: 'bottom'}}
-        audio={{onEntrance: hologramMp3}}
+        tag={{ text: "Бот-билдер:", color: "#53C7D5" }}
+        image={{ uri: botBuilderPng.src, align: "bottom" }}
+        audio={{ onEntrance: hologramMp3 }}
       >
         {`
           В результате слушаний была собрана рабочая группа по мониторингу проекта от общественности
@@ -81,5 +81,5 @@ export function BranchDeveloper_ProjAirport_Demolish_IgnoreRisks_Approved_Ignore
       <GameOverTitle />
       <GameOverMenu />
     </Branch>
-  )
+  );
 }

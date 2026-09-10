@@ -13,9 +13,9 @@ import {
   redhead14Png,
   stampApprovedPng,
   transition1Mp3,
-} from 'assets/game'
-import {Branch, Say, Scene, Show} from 'react-visual-novel'
-import {SCENE_AUDIO} from '../sounds'
+} from "assets/game";
+import { Branch, Say, Scene, Show } from "react-visual-novel";
+import { SCENE_AUDIO } from "../sounds";
 
 export function BranchAkim_ProjZheltoksan_Examine_Reject_Ignore() {
   return (
@@ -26,12 +26,12 @@ export function BranchAkim_ProjZheltoksan_Examine_Reject_Ignore() {
         src={{
           uri: letterPng.src,
           style: {
-            height: '100%',
-            width: '100%',
-            objectFit: 'cover',
-            backgroundColor: '#e7dbab',
-            transform: 'scale(2.5)',
-            transformOrigin: '50% 35%',
+            height: "100%",
+            width: "100%",
+            objectFit: "cover",
+            backgroundColor: "#e7dbab",
+            transform: "scale(2.5)",
+            transformOrigin: "50% 35%",
           },
         }}
         hide={2}
@@ -41,10 +41,10 @@ export function BranchAkim_ProjZheltoksan_Examine_Reject_Ignore() {
         src={{
           uri: stampApprovedPng.src,
           style: {
-            height: '100%',
-            width: '100%',
-            objectFit: 'cover',
-            transform: 'translateY(-15%)',
+            height: "100%",
+            width: "100%",
+            objectFit: "cover",
+            transform: "translateY(-15%)",
           },
         }}
       />
@@ -52,13 +52,13 @@ export function BranchAkim_ProjZheltoksan_Examine_Reject_Ignore() {
       <Scene src={bgZheltoksanBeforeJpg.src} audio={SCENE_AUDIO.city} />
 
       <Say
-        image={{uri: angryCrowd1Png.src, align: 'bottom'}}
+        image={{ uri: angryCrowd1Png.src, align: "bottom" }}
         audio={SCENE_AUDIO.chatter}
       >
         Общественность возмущена
       </Say>
 
-      <Say audio={{onEntrance: transition1Mp3}}>Общественные слушания</Say>
+      <Say audio={{ onEntrance: transition1Mp3 }}>Общественные слушания</Say>
 
       <Scene
         src={bgCityHallConferenceRoomJpg.src}
@@ -66,47 +66,47 @@ export function BranchAkim_ProjZheltoksan_Examine_Reject_Ignore() {
       />
 
       <Say
-        tag={{text: 'Менеджер проекта:', color: '#A57B55'}}
-        image={{uri: developerRepAPng.src, align: 'bottom'}}
+        tag={{ text: "Менеджер проекта:", color: "#A57B55" }}
+        image={{ uri: developerRepAPng.src, align: "bottom" }}
       >
         —Добрый день, я — представитель Bay Shatyr Group. В рамках проекта будет
         построено девятиэтажное здание
       </Say>
 
       <Say
-        tag={{text: 'Девелопер:', color: '#A57B55'}}
-        image={{uri: developerRepB6Png.src, align: 'bottom'}}
+        tag={{ text: "Девелопер:", color: "#A57B55" }}
+        image={{ uri: developerRepB6Png.src, align: "bottom" }}
       >
         —Под галереей на последнем этаже подразумевается ресторан. Подземный
         3-уровневый паркинг на 490 авто
       </Say>
 
       <Say
-        tag={{text: 'Активистка:', color: '#C2653A'}}
-        image={{uri: redhead12Png.src, align: 'bottom'}}
+        tag={{ text: "Активистка:", color: "#C2653A" }}
+        image={{ uri: redhead12Png.src, align: "bottom" }}
       >
         —Но ведь это создаёт огромную нагрузку на транспортную инфраструктуру и
         не только…
       </Say>
 
       <Say
-        tag={{text: 'Девелопер:', color: '#A57B55'}}
-        image={{uri: developerRepB1Png.src, align: 'bottom'}}
+        tag={{ text: "Девелопер:", color: "#A57B55" }}
+        image={{ uri: developerRepB1Png.src, align: "bottom" }}
       >
         —Всё под контролем, беспокойств не будет. Всё рассчитано и одобрено
       </Say>
 
       <Say
-        tag={{text: 'Активистка:', color: '#C2653A'}}
-        image={{uri: redhead14Png.src, align: 'bottom'}}
+        tag={{ text: "Активистка:", color: "#C2653A" }}
+        image={{ uri: redhead14Png.src, align: "bottom" }}
       >
         —Судя по всему, предполагается вырубка всех существующих на территории
         здания деревьев???
       </Say>
 
       <Say
-        tag={{text: 'Девелопер:', color: '#A57B55'}}
-        image={{uri: developerRepB7Png.src, align: 'bottom'}}
+        tag={{ text: "Девелопер:", color: "#A57B55" }}
+        image={{ uri: developerRepB7Png.src, align: "bottom" }}
       >
         —Согласно правилам маслихата по озеленению, в качестве компенсации мы
         обязуемся высадить соответствующее количество деревьев на землях общего
@@ -114,8 +114,8 @@ export function BranchAkim_ProjZheltoksan_Examine_Reject_Ignore() {
       </Say>
 
       <Say
-        tag={{text: 'Активистка:', color: '#C2653A'}}
-        image={{uri: redhead13Png.src, align: 'bottom'}}
+        tag={{ text: "Активистка:", color: "#C2653A" }}
+        image={{ uri: redhead13Png.src, align: "bottom" }}
       >
         —А в целом то, здание, хоть и не является официально памятником, но это
         история города! Его непременно нужно сохранить!!!
@@ -127,18 +127,20 @@ export function BranchAkim_ProjZheltoksan_Examine_Reject_Ignore() {
       </Say>
 
       <Say
-        image={{uri: mayor2Png.src, align: 'bottom'}}
+        image={{ uri: mayor2Png.src, align: "bottom" }}
         menu={[
           {
-            label: 'Учесть мнение',
+            label: "Учесть мнение",
             onClick: (ctx) => {
-              ctx.goToBranch('Akim_ProjZheltoksan_Examine_Reject_Listen')
+              ctx.goToBranch("Akim_ProjZheltoksan_Examine_Reject_Listen");
             },
           },
           {
-            label: 'Игнорировать',
+            label: "Игнорировать",
             onClick: (ctx) => {
-              ctx.goToBranch('Akim_ProjZheltoksan_Examine_Reject_Ignore_Ignore')
+              ctx.goToBranch(
+                "Akim_ProjZheltoksan_Examine_Reject_Ignore_Ignore",
+              );
             },
           },
         ]}
@@ -146,5 +148,5 @@ export function BranchAkim_ProjZheltoksan_Examine_Reject_Ignore() {
         Что делать с мнением общественности?
       </Say>
     </Branch>
-  )
+  );
 }

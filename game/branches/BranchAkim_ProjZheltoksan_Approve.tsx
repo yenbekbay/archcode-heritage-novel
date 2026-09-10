@@ -5,9 +5,9 @@ import {
   letterPng,
   mayor4Png,
   stampApprovedPng,
-} from 'assets/game'
-import {Branch, Say, Scene, Show} from 'react-visual-novel'
-import {SCENE_AUDIO} from '../sounds'
+} from "assets/game";
+import { Branch, Say, Scene, Show } from "react-visual-novel";
+import { SCENE_AUDIO } from "../sounds";
 
 export function BranchAkim_ProjZheltoksan_Approve() {
   return (
@@ -18,12 +18,12 @@ export function BranchAkim_ProjZheltoksan_Approve() {
         src={{
           uri: letterPng.src,
           style: {
-            height: '100%',
-            width: '100%',
-            objectFit: 'cover',
-            backgroundColor: '#e7dbab',
-            transform: 'scale(2.5)',
-            transformOrigin: '50% 35%',
+            height: "100%",
+            width: "100%",
+            objectFit: "cover",
+            backgroundColor: "#e7dbab",
+            transform: "scale(2.5)",
+            transformOrigin: "50% 35%",
           },
         }}
         hide={2}
@@ -33,10 +33,10 @@ export function BranchAkim_ProjZheltoksan_Approve() {
         src={{
           uri: stampApprovedPng.src,
           style: {
-            height: '100%',
-            width: '100%',
-            objectFit: 'cover',
-            transform: 'translateY(-15%)',
+            height: "100%",
+            width: "100%",
+            objectFit: "cover",
+            transform: "translateY(-15%)",
           },
         }}
       />
@@ -44,25 +44,25 @@ export function BranchAkim_ProjZheltoksan_Approve() {
       <Scene src={bgZheltoksanBeforeJpg.src} audio={SCENE_AUDIO.city} />
 
       <Say
-        image={{uri: angryCrowd1Png.src, align: 'bottom'}}
+        image={{ uri: angryCrowd1Png.src, align: "bottom" }}
         audio={SCENE_AUDIO.chatter}
       >
         Общественность возмущена
       </Say>
 
       <Say
-        image={{uri: mayor4Png.src, align: 'bottom'}}
+        image={{ uri: mayor4Png.src, align: "bottom" }}
         menu={[
           {
-            label: 'Попросить помощи у блоггеров',
+            label: "Попросить помощи у блоггеров",
             onClick: (ctx) => {
-              ctx.goToBranch('Akim_ProjZheltoksan_Approve_AskHelp')
+              ctx.goToBranch("Akim_ProjZheltoksan_Approve_AskHelp");
             },
           },
           {
-            label: 'Вступить в диалог',
+            label: "Вступить в диалог",
             onClick: (ctx) => {
-              ctx.goToBranch('Akim_ProjZheltoksan_Approve_Debate')
+              ctx.goToBranch("Akim_ProjZheltoksan_Approve_Debate");
             },
           },
         ]}
@@ -70,5 +70,5 @@ export function BranchAkim_ProjZheltoksan_Approve() {
         Что делать?
       </Say>
     </Branch>
-  )
+  );
 }

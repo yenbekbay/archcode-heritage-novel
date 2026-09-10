@@ -7,10 +7,10 @@ import {
   bgCityHallMayorOfficeJpg,
   bgPhoneFingerJpg,
   bgSolidJpg,
-} from 'assets/game'
-import {Branch, Say, Scene} from 'react-visual-novel'
-import {GameOverMenu, GameOverTitle} from '../commands'
-import {SCENE_AUDIO} from '../sounds'
+} from "assets/game";
+import { Branch, Say, Scene } from "react-visual-novel";
+import { GameOverMenu, GameOverTitle } from "../commands";
+import { SCENE_AUDIO } from "../sounds";
 
 export function BranchAkim_ProjAsk_Approve_AskHelp() {
   return (
@@ -21,10 +21,10 @@ export function BranchAkim_ProjAsk_Approve_AskHelp() {
         image={{
           uri: bgPhoneFingerJpg.src,
           style: {
-            width: '100%',
-            height: '100%',
-            objectFit: 'cover',
-            transform: 'scale(1.5)',
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+            transform: "scale(1.5)",
           },
         }}
       >
@@ -34,7 +34,7 @@ export function BranchAkim_ProjAsk_Approve_AskHelp() {
       <Scene src={bgAskBeforeJpg.src} audio={SCENE_AUDIO.city} />
 
       <Say
-        image={{uri: angryCrowd1Png.src, align: 'bottom'}}
+        image={{ uri: angryCrowd1Png.src, align: "bottom" }}
         audio={SCENE_AUDIO.chatter}
       >
         {`
@@ -45,7 +45,7 @@ export function BranchAkim_ProjAsk_Approve_AskHelp() {
       </Say>
 
       <Say
-        image={{uri: angryCrowd2Png.src, align: 'bottom'}}
+        image={{ uri: angryCrowd2Png.src, align: "bottom" }}
         audio={SCENE_AUDIO.chatter}
       >
         —Продажные чуваки
@@ -78,5 +78,5 @@ export function BranchAkim_ProjAsk_Approve_AskHelp() {
       <GameOverTitle />
       <GameOverMenu />
     </Branch>
-  )
+  );
 }

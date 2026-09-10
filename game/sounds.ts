@@ -14,12 +14,12 @@ import {
   introMp3,
   introTailMp3,
   mouseoverMp3,
-} from 'assets/game'
-import {Howl} from 'howler'
-import type {CommandAudioConfig, SoundName} from 'react-visual-novel'
+} from "assets/game";
+import { Howl } from "howler";
+import type { CommandAudioConfig, SoundName } from "react-visual-novel";
 
 function makeAudioConfig(config: CommandAudioConfig) {
-  return config
+  return config;
 }
 
 export const SCENE_AUDIO = {
@@ -46,7 +46,7 @@ export const SCENE_AUDIO = {
       uri: cityAtmosMp3,
       loop: true,
       overlap: true,
-      onStop: ['play', cityAtmosTailMp3],
+      onStop: ["play", cityAtmosTailMp3],
     },
   }),
   construction: makeAudioConfig({
@@ -93,49 +93,49 @@ export const SCENE_AUDIO = {
       uri: introMp3,
       loop: true,
       overlap: true,
-      onStop: ['play', introTailMp3],
+      onStop: ["play", introTailMp3],
     },
   }),
-}
+};
 
 export function playSound(name: SoundName) {
   switch (name) {
-    case 'click':
-      playAudio(clickMp3)
-      break
-    case 'mouseover':
-      playAudio(mouseoverMp3)
-      break
-    case 'skip':
-      void playZzfxSound('skip')
-      break
-    case 'not_allowed':
-      void playZzfxSound('not_allowed')
-      break
+    case "click":
+      playAudio(clickMp3);
+      break;
+    case "mouseover":
+      playAudio(mouseoverMp3);
+      break;
+    case "skip":
+      void playZzfxSound("skip");
+      break;
+    case "not_allowed":
+      void playZzfxSound("not_allowed");
+      break;
   }
 }
 
 const ZZFX_SOUNDS = {
   skip: [, , 150, 0.05, , 0.05, , 1.3, , , , , , 3],
   not_allowed: [1.5, 0.5, 270, , 0.1, , 1, 1.5, , , , , , , , 0.1, 0.01],
-}
+};
 
 async function playZzfxSound(name: keyof typeof ZZFX_SOUNDS) {
-  const {zzfx} = await import('zzfx')
+  const { zzfx } = await import("zzfx");
   return new Promise<void>((resolve) => {
-    const sound = ZZFX_SOUNDS[name]
-    const audio = zzfx(...sound)
+    const sound = ZZFX_SOUNDS[name];
+    const audio = zzfx(...sound);
     audio.onended = async () => {
-      await delay(500)
-      resolve()
-    }
-  })
+      await delay(500);
+      resolve();
+    };
+  });
 }
 
 function playAudio(src: string) {
-  new Howl({src}).play()
+  new Howl({ src }).play();
 }
 
 function delay(durationMs: number) {
-  return new Promise((resolve) => setTimeout(resolve, durationMs))
+  return new Promise((resolve) => setTimeout(resolve, durationMs));
 }

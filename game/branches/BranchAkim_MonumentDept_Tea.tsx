@@ -7,9 +7,9 @@ import {
   bgSolidJpg,
   mayor2Png,
   mayor7Png,
-} from 'assets/game'
-import {Branch, Label, Say, Scene, Show} from 'react-visual-novel'
-import {SCENE_AUDIO} from '../sounds'
+} from "assets/game";
+import { Branch, Label, Say, Scene, Show } from "react-visual-novel";
+import { SCENE_AUDIO } from "../sounds";
 
 export function BranchAkim_MonumentDept_Tea() {
   return (
@@ -17,7 +17,7 @@ export function BranchAkim_MonumentDept_Tea() {
       <Scene src={bgCityHallMayorOfficeJpg.src} audio={SCENE_AUDIO.indoor} />
 
       <Show
-        src={{uri: mayor7Png.src, style: {width: '100%', bottom: '-12%'}}}
+        src={{ uri: mayor7Png.src, style: { width: "100%", bottom: "-12%" } }}
       />
 
       <Scene src={bgMayorDoorJpg.src} audio={SCENE_AUDIO.indoor} />
@@ -28,29 +28,29 @@ export function BranchAkim_MonumentDept_Tea() {
 
       <Say
         scheme="dark"
-        tag={{text: 'Помощник:', color: '#687065'}}
+        tag={{ text: "Помощник:", color: "#687065" }}
         image={{
           uri: assistant1Png.src,
-          style: {height: '100%', width: '100%', objectFit: 'cover'},
+          style: { height: "100%", width: "100%", objectFit: "cover" },
         }}
       >
         —Поступила жалоба от жильцов ЖК на шум из музея
       </Say>
 
       <Say
-        image={{uri: mayor2Png.src, align: 'bottom'}}
+        image={{ uri: mayor2Png.src, align: "bottom" }}
         menu={[
           {
             label:
-              'Понастроили жильё, где не должны были. Нечего теперь возмущаться.',
+              "Понастроили жильё, где не должны были. Нечего теперь возмущаться.",
             onClick: (ctx) => {
-              ctx.goToStatement('museum-a')
+              ctx.goToStatement("museum-a");
             },
           },
           {
-            label: 'Выписать штраф за нарушение общественного спокойствия!',
+            label: "Выписать штраф за нарушение общественного спокойствия!",
             onClick: (ctx) => {
-              ctx.goToStatement('museum-b')
+              ctx.goToStatement("museum-b");
             },
           },
         ]}
@@ -94,15 +94,15 @@ export function BranchAkim_MonumentDept_Tea() {
         <Say
           menu={[
             {
-              label: 'Да, продолжаю',
+              label: "Да, продолжаю",
               onClick: (ctx) => {
-                ctx.goToNextStatement()
+                ctx.goToNextStatement();
               },
             },
             {
-              label: 'Нет, вернуться к выбору',
+              label: "Нет, вернуться к выбору",
               onClick: (ctx) => {
-                ctx.goToLocation('Akim_0Menu', 5)
+                ctx.goToLocation("Akim_0Menu", 5);
               },
             },
           ]}
@@ -119,10 +119,10 @@ export function BranchAkim_MonumentDept_Tea() {
 
       <Say
         scheme="dark"
-        tag={{text: 'Помощник:', color: '#687065'}}
+        tag={{ text: "Помощник:", color: "#687065" }}
         image={{
           uri: assistant1Png.src,
-          style: {height: '100%', width: '100%', objectFit: 'cover'},
+          style: { height: "100%", width: "100%", objectFit: "cover" },
         }}
       >
         —Новый проект предполагает снос Гостиницы Жетысу, которая является
@@ -130,18 +130,18 @@ export function BranchAkim_MonumentDept_Tea() {
       </Say>
 
       <Say
-        image={{uri: mayor2Png.src, align: 'bottom'}}
+        image={{ uri: mayor2Png.src, align: "bottom" }}
         menu={[
           {
-            label: 'Не одобрять! Пусть меняют проект',
+            label: "Не одобрять! Пусть меняют проект",
             onClick: (ctx) => {
-              ctx.goToStatement('zhetysu-a')
+              ctx.goToStatement("zhetysu-a");
             },
           },
           {
-            label: 'Вынести здание из списка памятников!',
+            label: "Вынести здание из списка памятников!",
             onClick: (ctx) => {
-              ctx.goToStatement('zhetysu-b')
+              ctx.goToStatement("zhetysu-b");
             },
           },
         ]}
@@ -197,15 +197,15 @@ export function BranchAkim_MonumentDept_Tea() {
         <Say
           menu={[
             {
-              label: 'Да, продолжаю',
+              label: "Да, продолжаю",
               onClick: (ctx) => {
-                ctx.goToNextStatement()
+                ctx.goToNextStatement();
               },
             },
             {
-              label: 'Нет, вернуться к выбору',
+              label: "Нет, вернуться к выбору",
               onClick: (ctx) => {
-                ctx.goToLocation('Akim_0Menu', 5)
+                ctx.goToLocation("Akim_0Menu", 5);
               },
             },
           ]}
@@ -215,12 +215,12 @@ export function BranchAkim_MonumentDept_Tea() {
       </Label>
 
       <Say
-        image={{uri: mayor2Png.src, align: 'bottom'}}
+        image={{ uri: mayor2Png.src, align: "bottom" }}
         menu={[
           {
-            label: 'Дальше',
+            label: "Дальше",
             onClick: (ctx) => {
-              ctx.goToBranch('Akim_MonumentDept_Rant')
+              ctx.goToBranch("Akim_MonumentDept_Rant");
             },
           },
         ]}
@@ -228,5 +228,5 @@ export function BranchAkim_MonumentDept_Tea() {
         А почему это только я работаю! Пойду-ка наведу порядок
       </Say>
     </Branch>
-  )
+  );
 }

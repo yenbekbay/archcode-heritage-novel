@@ -1,4 +1,4 @@
-import {bgAskBeforeJpg} from 'assets/game'
+import { bgAskBeforeJpg } from "assets/game";
 import {
   phoneScreenshotPng,
   phoneSwirlPng,
@@ -8,7 +8,7 @@ import {
   screenshot4Png,
   screenshot5Png,
   screenshot6Png,
-} from 'assets/www'
+} from "assets/www";
 import {
   FenceSection,
   Hero,
@@ -16,11 +16,11 @@ import {
   Layout,
   Reveal,
   RoughCard,
-} from 'components'
-import useEmblaCarousel from 'embla-carousel-react'
-import {WheelGesturesPlugin} from 'embla-carousel-wheel-gestures'
-import Image from 'next/image'
-import Link from 'next/link'
+} from "components";
+import useEmblaCarousel from "embla-carousel-react";
+import { WheelGesturesPlugin } from "embla-carousel-wheel-gestures";
+import Image from "next/image";
+import Link from "next/link";
 
 export default function AboutNovel() {
   return (
@@ -124,14 +124,14 @@ export default function AboutNovel() {
         </FenceSection>
       </main>
     </Layout>
-  )
+  );
 }
 
 function ScreenshotCarousel() {
   const [viewportRef] = useEmblaCarousel(
-    {align: 'start', loop: false, skipSnaps: true},
+    { align: "start", loop: false, skipSnaps: true },
     [WheelGesturesPlugin()],
-  )
+  );
   return (
     <Reveal className="ScreenshotCarousel overflow-hidden" ref={viewportRef}>
       <div className="flex">
@@ -152,5 +152,5 @@ function ScreenshotCarousel() {
         ))}
       </div>
     </Reveal>
-  )
+  );
 }

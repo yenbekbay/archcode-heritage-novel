@@ -1,5 +1,5 @@
 allowBuilds:
-  '@swc/core': true
+  "@swc/core": true
   bufferutil: true
   es5-ext: true
   esbuild: true
@@ -8,4 +8,4 @@ allowBuilds:
   unrs-resolver: true
   utf-8-validate: true
 minimumReleaseAgeExclude:
-  - '@utilfirst/eslint-plugin@0.4.7 || 0.4.8'
+  - "@utilfirst/eslint-plugin@0.4.7 || 0.4.8"

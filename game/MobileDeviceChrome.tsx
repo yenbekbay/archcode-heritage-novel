@@ -1,18 +1,18 @@
-import {useMeasure, useWindowSize} from '@react-hookz/web'
-import React from 'react'
+import { useMeasure, useWindowSize } from "@react-hookz/web";
+import React from "react";
 
 export type MobileDeviceChromeProps = {
-  children?: React.ReactNode
-}
+  children?: React.ReactNode;
+};
 
-export function MobileDeviceChrome({children}: MobileDeviceChromeProps) {
-  const [containerRect, containerRef] = useMeasure<HTMLDivElement>()
-  const windowSize = useWindowSize()
+export function MobileDeviceChrome({ children }: MobileDeviceChromeProps) {
+  const [containerRect, containerRef] = useMeasure<HTMLDivElement>();
+  const windowSize = useWindowSize();
   return (
     <div
       ref={containerRef}
       className="flex w-screen flex-col bg-base-100"
-      style={{height: windowSize.height}}
+      style={{ height: windowSize.height }}
     >
       {containerRect &&
         (containerRect.width < MD_BREAKPOINT ? (
@@ -25,28 +25,28 @@ export function MobileDeviceChrome({children}: MobileDeviceChromeProps) {
           </div>
         ))}
     </div>
-  )
+  );
 }
 
-const MD_BREAKPOINT = 768
+const MD_BREAKPOINT = 768;
 
 // MARK: MobileDeviceChromeFrame
 
 type MobileDeviceChromeFrameProps = {
-  rect: DOMRectReadOnly
-  children?: React.ReactNode
-}
+  rect: DOMRectReadOnly;
+  children?: React.ReactNode;
+};
 
 function MobileDeviceChromeFrame({
   rect,
   children,
 }: MobileDeviceChromeFrameProps) {
-  const height = rect.height - 2 * 32
-  const ratio = height / CHROME_ORIGINAL_SIZE[1]
+  const height = rect.height - 2 * 32;
+  const ratio = height / CHROME_ORIGINAL_SIZE[1];
   return (
     <div
       className="relative text-base-content"
-      style={{width: ratio * CHROME_ORIGINAL_SIZE[0], height}}
+      style={{ width: ratio * CHROME_ORIGINAL_SIZE[0], height }}
     >
       <svg
         width={ratio * CHROME_ORIGINAL_SIZE[0]}
@@ -83,7 +83,7 @@ function MobileDeviceChromeFrame({
         />
         <mask
           id="mask0_93_565"
-          style={{maskType: 'alpha'}}
+          style={{ maskType: "alpha" }}
           maskUnits="userSpaceOnUse"
           x="8"
           y="31"
@@ -120,13 +120,13 @@ function MobileDeviceChromeFrame({
           borderRadius: ratio * 16,
           // Fix border overflow on Safari
           // https://stackoverflow.com/a/58283449
-          isolation: 'isolate',
+          isolation: "isolate",
         }}
       >
         {children}
       </div>
     </div>
-  )
+  );
 }
 
-const CHROME_ORIGINAL_SIZE = [212, 451] as const
+const CHROME_ORIGINAL_SIZE = [212, 451] as const;

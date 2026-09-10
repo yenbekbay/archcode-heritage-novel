@@ -9,10 +9,10 @@ import {
   mayor12Png,
   mayor14Png,
   mayor2Png,
-} from 'assets/game'
-import {Branch, Say, Scene, Show} from 'react-visual-novel'
-import {LINKS} from '../links'
-import {SCENE_AUDIO} from '../sounds'
+} from "assets/game";
+import { Branch, Say, Scene, Show } from "react-visual-novel";
+import { LINKS } from "../links";
+import { SCENE_AUDIO } from "../sounds";
 
 export function BranchAkim_GovPrograms_Stop() {
   return (
@@ -20,7 +20,7 @@ export function BranchAkim_GovPrograms_Stop() {
       <Scene src={bgCityHallMayorOfficeJpg.src} audio={SCENE_AUDIO.indoor} />
 
       <Show
-        src={{uri: mayor12Png.src, style: {width: '100%', bottom: '-12%'}}}
+        src={{ uri: mayor12Png.src, style: { width: "100%", bottom: "-12%" } }}
       />
 
       <Scene src={bgMayorDoorJpg.src} audio={SCENE_AUDIO.indoor} />
@@ -31,17 +31,20 @@ export function BranchAkim_GovPrograms_Stop() {
 
       <Say
         scheme="dark"
-        tag={{text: 'Помощник:', color: '#687065'}}
+        tag={{ text: "Помощник:", color: "#687065" }}
         image={{
           uri: assistant1Png.src,
-          style: {height: '100%', width: '100%', objectFit: 'cover'},
+          style: { height: "100%", width: "100%", objectFit: "cover" },
         }}
       >
         —Общественность и АрхКот хотят встретиться
       </Say>
 
       <Say
-        image={{uri: mayor14Png.src, style: {width: '100%', bottom: '-12%'}}}
+        image={{
+          uri: mayor14Png.src,
+          style: { width: "100%", bottom: "-12%" },
+        }}
       >
         {`
           -Хммм…
@@ -56,11 +59,11 @@ export function BranchAkim_GovPrograms_Stop() {
 
       <Say>Встреча с АрхКотом</Say>
 
-      <Say image={{uri: archkot2Png.src, align: 'bottom'}}>
+      <Say image={{ uri: archkot2Png.src, align: "bottom" }}>
         -Мы провели исследование темы и инвентаризацию советских остановок
       </Say>
 
-      <Say image={{uri: archkot3Png.src, align: 'bottom'}}>
+      <Say image={{ uri: archkot3Png.src, align: "bottom" }}>
         {`
           -Вот карта остановок.
 
@@ -71,18 +74,18 @@ export function BranchAkim_GovPrograms_Stop() {
       </Say>
 
       <Say
-        image={{uri: mayor2Png.src, align: 'bottom'}}
+        image={{ uri: mayor2Png.src, align: "bottom" }}
         menu={[
           {
-            label: 'Он прав!',
+            label: "Он прав!",
             onClick: (ctx) => {
-              ctx.goToBranch('Akim_GovPrograms_Stop_Agree')
+              ctx.goToBranch("Akim_GovPrograms_Stop_Agree");
             },
           },
           {
-            label: 'Бред какой-то',
+            label: "Бред какой-то",
             onClick: (ctx) => {
-              ctx.goToBranch('Akim_GovPrograms_Stop_Dismiss')
+              ctx.goToBranch("Akim_GovPrograms_Stop_Dismiss");
             },
           },
         ]}
@@ -90,5 +93,5 @@ export function BranchAkim_GovPrograms_Stop() {
         -Я думаю…
       </Say>
     </Branch>
-  )
+  );
 }

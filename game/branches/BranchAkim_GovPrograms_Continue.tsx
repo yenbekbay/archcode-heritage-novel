@@ -3,9 +3,9 @@ import {
   bgBusStop4Jpg,
   bgCityHallMayorOfficeJpg,
   mayor2Png,
-} from 'assets/game'
-import {Branch, Say, Scene} from 'react-visual-novel'
-import {SCENE_AUDIO} from '../sounds'
+} from "assets/game";
+import { Branch, Say, Scene } from "react-visual-novel";
+import { SCENE_AUDIO } from "../sounds";
 
 export function BranchAkim_GovPrograms_Continue() {
   return (
@@ -18,7 +18,7 @@ export function BranchAkim_GovPrograms_Continue() {
       </Say>
 
       <Say
-        image={{uri: angryCrowd1Png.src, align: 'bottom'}}
+        image={{ uri: angryCrowd1Png.src, align: "bottom" }}
         audio={SCENE_AUDIO.chatter}
       >
         За день общественность успевает распространить информацию о демонтаже. В
@@ -29,18 +29,18 @@ export function BranchAkim_GovPrograms_Continue() {
       <Scene src={bgCityHallMayorOfficeJpg.src} audio={SCENE_AUDIO.indoor} />
 
       <Say
-        image={{uri: mayor2Png.src, align: 'bottom'}}
+        image={{ uri: mayor2Png.src, align: "bottom" }}
         menu={[
           {
-            label: 'Продолжить демонтаж',
+            label: "Продолжить демонтаж",
             onClick: (ctx) => {
-              ctx.goToBranch('Akim_GovPrograms_Continue_Continue')
+              ctx.goToBranch("Akim_GovPrograms_Continue_Continue");
             },
           },
           {
-            label: 'Остановить демонтаж',
+            label: "Остановить демонтаж",
             onClick: (ctx) => {
-              ctx.goToBranch('Akim_GovPrograms_Stop')
+              ctx.goToBranch("Akim_GovPrograms_Stop");
             },
           },
         ]}
@@ -48,5 +48,5 @@ export function BranchAkim_GovPrograms_Continue() {
         Что делать?
       </Say>
     </Branch>
-  )
+  );
 }

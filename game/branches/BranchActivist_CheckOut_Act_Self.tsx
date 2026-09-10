@@ -12,21 +12,21 @@ import {
   transition1Mp3,
   transition2ShortMp3,
   transition3ShortMp3,
-} from 'assets/game'
-import {Branch, Say, Scene} from 'react-visual-novel'
-import {LINKS} from '../links'
+} from "assets/game";
+import { Branch, Say, Scene } from "react-visual-novel";
+import { LINKS } from "../links";
 
 export function BranchActivist_CheckOut_Act_Self() {
   return (
     <Branch>
-      <Scene src={bgCourtyardJpg.src} audio={{onEntrance: transition1Mp3}} />
+      <Scene src={bgCourtyardJpg.src} audio={{ onEntrance: transition1Mp3 }} />
       <Scene
         src={bgAptOutsideWindowJpg.src}
-        audio={{onEntrance: transition2ShortMp3}}
+        audio={{ onEntrance: transition2ShortMp3 }}
       />
       <Scene
         src={bgAptEntranceJpg.src}
-        audio={{onEntrance: transition3ShortMp3}}
+        audio={{ onEntrance: transition3ShortMp3 }}
       />
       <Scene src={bgAptKitchenJpg.src} />
 
@@ -40,7 +40,7 @@ export function BranchActivist_CheckOut_Act_Self() {
 
       <Scene src={bgAptKitchenJpg.src} />
 
-      <Say image={{uri: redhead9Png.src, align: 'bottom'}} hide={1}>
+      <Say image={{ uri: redhead9Png.src, align: "bottom" }} hide={1}>
         Узнать надо побольше…
       </Say>
 
@@ -52,17 +52,17 @@ export function BranchActivist_CheckOut_Act_Self() {
         image={{
           uri: bgLaptopHandsJpg.src,
           style: {
-            height: '100%',
-            width: '100%',
-            objectFit: 'cover',
-            transform: 'scale(2) translateY(30px)',
+            height: "100%",
+            width: "100%",
+            objectFit: "cover",
+            transform: "scale(2) translateY(30px)",
           },
         }}
       >
         {`[Как делать фактчекинг?](${LINKS.how_to_factcheck})`}
       </Say>
 
-      <Say image={{uri: redhead10Png.src, align: 'bottom'}}>
+      <Say image={{ uri: redhead10Png.src, align: "bottom" }}>
         А теперь как запилю пост, что весь город на уши встанет!!!
       </Say>
 
@@ -70,17 +70,17 @@ export function BranchActivist_CheckOut_Act_Self() {
         image={{
           uri: bgLaptopHandsJpg.src,
           style: {
-            height: '100%',
-            width: '100%',
-            objectFit: 'cover',
-            transform: 'scale(2) translateY(30px)',
+            height: "100%",
+            width: "100%",
+            objectFit: "cover",
+            transform: "scale(2) translateY(30px)",
           },
         }}
       >
         {`[Как написать пост в соц.сети и быть услышанным?](${LINKS.how_to_write_an_effective_article})`}
       </Say>
 
-      <Say image={{uri: redhead11Png.src, align: 'bottom'}}>
+      <Say image={{ uri: redhead11Png.src, align: "bottom" }}>
         Буду писать во все инстанции!
       </Say>
 
@@ -88,17 +88,17 @@ export function BranchActivist_CheckOut_Act_Self() {
         image={{
           uri: bgLaptopHandsJpg.src,
           style: {
-            height: '100%',
-            width: '100%',
-            objectFit: 'cover',
-            transform: 'scale(2) translateY(30px)',
+            height: "100%",
+            width: "100%",
+            objectFit: "cover",
+            transform: "scale(2) translateY(30px)",
           },
         }}
       >
         {`[Как и кому писать письма?](${LINKS.how_and_who_to_write_letters_to})`}
       </Say>
 
-      <Say image={{uri: redhead9Png.src, align: 'bottom'}}>
+      <Say image={{ uri: redhead9Png.src, align: "bottom" }}>
         Таксссссс, а слушания-то будут??
       </Say>
 
@@ -106,21 +106,21 @@ export function BranchActivist_CheckOut_Act_Self() {
         image={{
           uri: bgLaptopHandsJpg.src,
           style: {
-            height: '100%',
-            width: '100%',
-            objectFit: 'cover',
-            transform: 'scale(2) translateY(30px)',
+            height: "100%",
+            width: "100%",
+            objectFit: "cover",
+            transform: "scale(2) translateY(30px)",
           },
         }}
       >
         {`[Как участвовать в общественных слушаниях?](${LINKS.how_to_prepare_for_public_hearings})`}
       </Say>
 
-      <Say image={{uri: redhead12Png.src, align: 'bottom'}}>
+      <Say image={{ uri: redhead12Png.src, align: "bottom" }}>
         И вообще, если не будет диалога, я готова действовать!!!
       </Say>
 
-      <Say image={{uri: redhead11Png.src, align: 'bottom'}}>
+      <Say image={{ uri: redhead11Png.src, align: "bottom" }}>
         Устрою протест!!!
       </Say>
 
@@ -128,10 +128,10 @@ export function BranchActivist_CheckOut_Act_Self() {
         image={{
           uri: bgLaptopHandsJpg.src,
           style: {
-            height: '100%',
-            width: '100%',
-            objectFit: 'cover',
-            transform: 'scale(2) translateY(30px)',
+            height: "100%",
+            width: "100%",
+            objectFit: "cover",
+            transform: "scale(2) translateY(30px)",
           },
         }}
       >
@@ -142,17 +142,17 @@ export function BranchActivist_CheckOut_Act_Self() {
         image={{
           uri: bgLaptopStandaloneJpg.src,
           style: {
-            height: '100%',
-            width: '100%',
-            objectFit: 'cover',
-            transform: 'scale(2) translateY(30px)',
+            height: "100%",
+            width: "100%",
+            objectFit: "cover",
+            transform: "scale(2) translateY(30px)",
           },
         }}
         menu={[
           {
-            label: 'Позвонить в Архкод',
+            label: "Позвонить в Архкод",
             onClick: (ctx) => {
-              ctx.goToBranch('Activist_CheckOut_Act_Org')
+              ctx.goToBranch("Activist_CheckOut_Act_Org");
             },
           },
         ]}
@@ -163,5 +163,5 @@ export function BranchActivist_CheckOut_Act_Self() {
         `}
       </Say>
     </Branch>
-  )
+  );
 }

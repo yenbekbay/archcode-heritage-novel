@@ -4,11 +4,11 @@ import {
   bgAirportFenceGif,
   fenceMp3,
   fencePng,
-} from 'assets/game'
-import {Branch, Play, Say, Scene, Show} from 'react-visual-novel'
-import {GameOverMenu, GameOverTitle} from '../commands'
-import {LINKS} from '../links'
-import {SCENE_AUDIO} from '../sounds'
+} from "assets/game";
+import { Branch, Play, Say, Scene, Show } from "react-visual-novel";
+import { GameOverMenu, GameOverTitle } from "../commands";
+import { LINKS } from "../links";
+import { SCENE_AUDIO } from "../sounds";
 
 export function BranchArchkot_ProjAirport_CheckOut_AssembleTeam_Bail() {
   return (
@@ -27,29 +27,29 @@ export function BranchArchkot_ProjAirport_CheckOut_AssembleTeam_Bail() {
       <Show
         src={{
           uri: fencePng.src,
-          style: {height: '100%', transform: 'translate(-50%) scale(1.15)'},
+          style: { height: "100%", transform: "translate(-50%) scale(1.15)" },
           animation: {
-            initial: {x: '250%', scale: 0.5, originY: 1},
+            initial: { x: "250%", scale: 0.5, originY: 1 },
             entrance: {
               x: 0,
               scale: 1,
-              transition: {duration: 2},
+              transition: { duration: 2 },
             },
             exit: {
               opacity: 0,
-              transition: {duration: 0.5, ease: 'easeOut'},
+              transition: { duration: 0.5, ease: "easeOut" },
             },
           },
         }}
-        audio={{onEntrance: fenceMp3}}
+        audio={{ onEntrance: fenceMp3 }}
         hide={-1}
       />
 
       <Play audio={SCENE_AUDIO.calmLoop} hide={-1} />
 
       <Say
-        tag={{text: 'АрхБот:', color: '#65506D'}}
-        image={{uri: archbot1Png.src, align: 'bottom'}}
+        tag={{ text: "АрхБот:", color: "#65506D" }}
+        image={{ uri: archbot1Png.src, align: "bottom" }}
       >
         {`
           —А могло бы быть вот так:
@@ -61,15 +61,15 @@ export function BranchArchkot_ProjAirport_CheckOut_AssembleTeam_Bail() {
       </Say>
 
       <Say
-        tag={{text: 'АрхТок:', color: '#8D8C59'}}
-        image={{uri: archtok3Png.src, align: 'bottom'}}
+        tag={{ text: "АрхТок:", color: "#8D8C59" }}
+        image={{ uri: archtok3Png.src, align: "bottom" }}
       >
         —Это больше не памятник. Надо выносить его из списка
       </Say>
 
       <Say
-        tag={{text: 'АрхБот:', color: '#65506D'}}
-        image={{uri: archbot1Png.src, align: 'bottom'}}
+        tag={{ text: "АрхБот:", color: "#65506D" }}
+        image={{ uri: archbot1Png.src, align: "bottom" }}
       >
         {`
           —Правила вынесения объекта из списка памятников историко-культурного наследия выглядят так:
@@ -81,5 +81,5 @@ export function BranchArchkot_ProjAirport_CheckOut_AssembleTeam_Bail() {
       <GameOverTitle />
       <GameOverMenu />
     </Branch>
-  )
+  );
 }

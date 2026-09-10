@@ -1,33 +1,33 @@
-import {Slot} from '@radix-ui/react-slot'
-import type {HTMLMotionProps} from 'framer-motion'
-import {motion, useAnimation, useInView} from 'framer-motion'
-import React from 'react'
-import {mergeRefs} from 'react-merge-refs'
+import { Slot } from "@radix-ui/react-slot";
+import type { HTMLMotionProps } from "framer-motion";
+import { motion, useAnimation, useInView } from "framer-motion";
+import React from "react";
+import { mergeRefs } from "react-merge-refs";
 
 export type RevealProps = {
-  asChild?: boolean
-} & HTMLMotionProps<'div'>
+  asChild?: boolean;
+} & HTMLMotionProps<"div">;
 
 export const Reveal = React.forwardRef(function Reveal(
-  {asChild, ...restProps}: RevealProps,
+  { asChild, ...restProps }: RevealProps,
   forwardedRef: React.ForwardedRef<HTMLDivElement>,
 ) {
-  const internalRef = React.useRef<HTMLDivElement>(null)
-  const inView = useInView(internalRef, {once: true})
-  const animation = useAnimation()
+  const internalRef = React.useRef<HTMLDivElement>(null);
+  const inView = useInView(internalRef, { once: true });
+  const animation = useAnimation();
   React.useEffect(() => {
     if (inView) {
-      void animation.start('visible')
+      void animation.start("visible");
     }
-  }, [animation, inView])
-  const Comp = asChild ? Slot : 'div'
+  }, [animation, inView]);
+  const Comp = asChild ? Slot : "div";
   const MotionComp = React.useMemo(
     () =>
       motion(Comp) as React.ComponentType<
-        HTMLMotionProps<'div'> & {ref?: React.Ref<HTMLDivElement>}
+        HTMLMotionProps<"div"> & { ref?: React.Ref<HTMLDivElement> }
       >,
     [Comp],
-  )
+  );
   return (
     <MotionComp
       ref={mergeRefs([internalRef, forwardedRef])}
@@ -36,11 +36,11 @@ export const Reveal = React.forwardRef(function Reveal(
       initial="hidden"
       {...restProps}
     />
-  )
-})
+  );
+});
 
 const variants = {
-  hidden: {opacity: 0, y: 20},
+  hidden: { opacity: 0, y: 20 },
   visible: {
     opacity: 1,
     y: 0,
@@ -49,4 +49,4 @@ const variants = {
       duration: 0.8,
     },
   },
-}
+};

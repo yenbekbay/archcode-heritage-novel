@@ -7,11 +7,11 @@ import {
   bgBusStop6Jpg,
   fenceMp3,
   fencePng,
-} from 'assets/game'
-import {Branch, Say, Scene, Show} from 'react-visual-novel'
-import {GameOverMenu, GameOverTitle} from '../commands'
-import {LINKS} from '../links'
-import {SCENE_AUDIO} from '../sounds'
+} from "assets/game";
+import { Branch, Say, Scene, Show } from "react-visual-novel";
+import { GameOverMenu, GameOverTitle } from "../commands";
+import { LINKS } from "../links";
+import { SCENE_AUDIO } from "../sounds";
 
 export function BranchArchkot_ProjBusStop_WalkPast() {
   return (
@@ -19,11 +19,11 @@ export function BranchArchkot_ProjBusStop_WalkPast() {
       <Show
         src={{
           uri: fencePng.src,
-          style: {height: '100%', transform: 'translate(-50%) scale(1.15)'},
+          style: { height: "100%", transform: "translate(-50%) scale(1.15)" },
           animation: {
             initial: {},
             entrance: {},
-            exit: {x: '-400%', transition: {duration: 2}},
+            exit: { x: "-400%", transition: { duration: 2 } },
           },
         }}
         audio={{
@@ -37,8 +37,8 @@ export function BranchArchkot_ProjBusStop_WalkPast() {
       <Say
         image={{
           uri: archkot6Png.src,
-          align: 'bottom',
-          style: {filter: 'drop-shadow(40px 40px 5px rgba(0, 0, 0, .35))'},
+          align: "bottom",
+          style: { filter: "drop-shadow(40px 40px 5px rgba(0, 0, 0, .35))" },
         }}
         zIndex={101}
       >
@@ -59,13 +59,13 @@ export function BranchArchkot_ProjBusStop_WalkPast() {
         отношения к историко-культурному наследию
       </Say>
 
-      <Say image={{uri: archkot7Png.src, align: 'bottom'}}>
+      <Say image={{ uri: archkot7Png.src, align: "bottom" }}>
         Была история, и нет истории. Зря Дядь Юра старался
       </Say>
 
       <Say
-        tag={{text: 'АрхБот:', color: '#65506D'}}
-        image={{uri: archbot1Png.src, align: 'bottom'}}
+        tag={{ text: "АрхБот:", color: "#65506D" }}
+        image={{ uri: archbot1Png.src, align: "bottom" }}
       >
         {`
           —А могло бы быть вот так:
@@ -79,5 +79,5 @@ export function BranchArchkot_ProjBusStop_WalkPast() {
       <GameOverTitle />
       <GameOverMenu />
     </Branch>
-  )
+  );
 }

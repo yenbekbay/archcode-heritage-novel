@@ -11,17 +11,17 @@ import {
   bgArchcodeOfficeJpg,
   bgAskBeforeJpg,
   bgPhoneHandJpg,
-} from 'assets/game'
-import {Branch, Say, Scene} from 'react-visual-novel'
-import {LINKS} from '../links'
-import {SCENE_AUDIO} from '../sounds'
+} from "assets/game";
+import { Branch, Say, Scene } from "react-visual-novel";
+import { LINKS } from "../links";
+import { SCENE_AUDIO } from "../sounds";
 
 export function BranchArchkot_ProjAsk_CheckOut_AssembleTeam() {
   return (
     <Branch>
       <Scene src={bgAskBeforeJpg.src} audio={SCENE_AUDIO.city} />
 
-      <Say image={{uri: archkot8Png.src, align: 'bottom'}}>
+      <Say image={{ uri: archkot8Png.src, align: "bottom" }}>
         Быстро! Быстро! Надо собрать команду и разобраться, что тут происходит!
       </Say>
 
@@ -32,17 +32,17 @@ export function BranchArchkot_ProjAsk_CheckOut_AssembleTeam() {
             y: 400,
             x: 260,
             width: 540,
-            transform: 'rotate(-6deg)',
+            transform: "rotate(-6deg)",
           },
         }}
-        style={{fontSize: 24}}
+        style={{ fontSize: 24 }}
         image={{
           uri: bgPhoneHandJpg.src,
           style: {
-            height: '100%',
-            width: '100%',
-            objectFit: 'cover',
-            transform: 'scale(2.25) translateX(-15px)',
+            height: "100%",
+            width: "100%",
+            objectFit: "cover",
+            transform: "scale(2.25) translateX(-15px)",
           },
         }}
       >
@@ -52,31 +52,31 @@ export function BranchArchkot_ProjAsk_CheckOut_AssembleTeam() {
       <Scene src={bgArchcodeOfficeJpg.src} audio={SCENE_AUDIO.indoor} />
 
       <Say
-        tag={{text: 'АрхКот:', color: '#B8AE71'}}
-        image={{uri: archkot9Png.src, align: 'bottom'}}
+        tag={{ text: "АрхКот:", color: "#B8AE71" }}
+        image={{ uri: archkot9Png.src, align: "bottom" }}
       >
         —В городе беда. Здание АСК обнесено забором, и никто ничего об этом не
         знает! Мы должны что-то делать
       </Say>
 
       <Say
-        tag={{text: 'АрхТок:', color: '#8D8C59'}}
-        image={{uri: archtok1Png.src, align: 'bottom'}}
+        tag={{ text: "АрхТок:", color: "#8D8C59" }}
+        image={{ uri: archtok1Png.src, align: "bottom" }}
       >
         —Первое, что необходимо выяснить — это является ли здание АСК памятником
         историко-культурного наследия
       </Say>
 
       <Say
-        tag={{text: 'АрхБот:', color: '#65506D'}}
-        image={{uri: archbot1Png.src, align: 'bottom'}}
+        tag={{ text: "АрхБот:", color: "#65506D" }}
+        image={{ uri: archbot1Png.src, align: "bottom" }}
       >
         —Загляните в ГОСУДАРСТВЕННЫЙ РЕЕСТР ПАМЯТНИКОВ
       </Say>
 
       <Say
-        tag={{text: 'АрхБот:', color: '#65506D'}}
-        image={{uri: archbot1Png.src, align: 'bottom'}}
+        tag={{ text: "АрхБот:", color: "#65506D" }}
+        image={{ uri: archbot1Png.src, align: "bottom" }}
       >
         {`
           —Там можно поискать нужное нам здание.
@@ -88,19 +88,19 @@ export function BranchArchkot_ProjAsk_CheckOut_AssembleTeam() {
       </Say>
 
       <Say
-        tag={{text: 'АрхТок:', color: '#8D8C59'}}
-        image={{uri: archtok2Png.src, align: 'bottom'}}
+        tag={{ text: "АрхТок:", color: "#8D8C59" }}
+        image={{ uri: archtok2Png.src, align: "bottom" }}
         menu={[
           {
-            label: 'Да',
+            label: "Да",
             onClick: (ctx) => {
-              ctx.goToNextStatement()
+              ctx.goToNextStatement();
             },
           },
           {
-            label: 'Нет',
+            label: "Нет",
             onClick: (ctx) => {
-              ctx.goToNextStatement(2)
+              ctx.goToNextStatement(2);
             },
           },
         ]}
@@ -115,28 +115,28 @@ export function BranchArchkot_ProjAsk_CheckOut_AssembleTeam() {
       <Scene src={bgArchcodeOfficeJpg.src} audio={SCENE_AUDIO.indoor} />
 
       <Say
-        tag={{text: 'АрхКот:', color: '#B8AE71'}}
+        tag={{ text: "АрхКот:", color: "#B8AE71" }}
         image={{
           uri: archkot10Png.src,
-          style: {height: '100%', width: '100%', objectFit: 'cover'},
+          style: { height: "100%", width: "100%", objectFit: "cover" },
         }}
       >
         —ЭТО НЕ ПАМЯТНИК!!!
       </Say>
 
       <Say
-        image={{uri: archkot11Png.src, align: 'bottom'}}
+        image={{ uri: archkot11Png.src, align: "bottom" }}
         menu={[
           {
-            label: 'Подумаю о дальнейших действиях',
+            label: "Подумаю о дальнейших действиях",
             onClick: (ctx) => {
-              ctx.goToNextStatement()
+              ctx.goToNextStatement();
             },
           },
           {
-            label: 'Ничего уже не поделаешь…',
+            label: "Ничего уже не поделаешь…",
             onClick: (ctx) => {
-              ctx.goToBranch('Archkot_ProjAsk_CheckOut_SocialMedia')
+              ctx.goToBranch("Archkot_ProjAsk_CheckOut_SocialMedia");
             },
           },
         ]}
@@ -145,24 +145,24 @@ export function BranchArchkot_ProjAsk_CheckOut_AssembleTeam() {
       </Say>
 
       <Say
-        tag={{text: 'АрхТок:', color: '#8D8C59'}}
-        image={{uri: archtok1Png.src, align: 'bottom'}}
+        tag={{ text: "АрхТок:", color: "#8D8C59" }}
+        image={{ uri: archtok1Png.src, align: "bottom" }}
       >
         —Надо вести мониторинг ситуации. Проверить информацию, которая есть в
         СМИ
       </Say>
 
       <Say
-        tag={{text: 'АрхБот:', color: '#65506D'}}
-        image={{uri: archbot2Png.src, align: 'bottom'}}
+        tag={{ text: "АрхБот:", color: "#65506D" }}
+        image={{ uri: archbot2Png.src, align: "bottom" }}
       >
         —Я проверил различные СМИ. В результате отслеживания статей в СМИ
         найдено то, что нужно
       </Say>
 
       <Say
-        tag={{text: 'АрхБот:', color: '#65506D'}}
-        image={{uri: archbot3Png.src, align: 'bottom'}}
+        tag={{ text: "АрхБот:", color: "#65506D" }}
+        image={{ uri: archbot3Png.src, align: "bottom" }}
       >
         {`
           —Представляю вам документ, который я условно назвал “Список Байбека”
@@ -172,15 +172,15 @@ export function BranchArchkot_ProjAsk_CheckOut_AssembleTeam() {
       </Say>
 
       <Say
-        tag={{text: 'АрхТок:', color: '#8D8C59'}}
-        image={{uri: archtok2Png.src, align: 'bottom'}}
+        tag={{ text: "АрхТок:", color: "#8D8C59" }}
+        image={{ uri: archtok2Png.src, align: "bottom" }}
       >
         —Значит, это не памятник, но и не совсем непамятник?
       </Say>
 
       <Say
-        tag={{text: 'АрхБот:', color: '#65506D'}}
-        image={{uri: archbot1Png.src, align: 'bottom'}}
+        tag={{ text: "АрхБот:", color: "#65506D" }}
+        image={{ uri: archbot1Png.src, align: "bottom" }}
       >
         {`
           —Я нашел закон, в котором говорится о зданиях, которые заявлены как возможные памятники
@@ -204,15 +204,15 @@ export function BranchArchkot_ProjAsk_CheckOut_AssembleTeam() {
       <Say
         menu={[
           {
-            label: 'Инициировать открытое обсуждение',
+            label: "Инициировать открытое обсуждение",
             onClick: (ctx) => {
-              ctx.goToBranch('Archkot_ProjAsk_CheckOut_AssembleTeam_Debate')
+              ctx.goToBranch("Archkot_ProjAsk_CheckOut_AssembleTeam_Debate");
             },
           },
           {
-            label: 'Написать статью',
+            label: "Написать статью",
             onClick: (ctx) => {
-              ctx.goToBranch('Archkot_ProjAsk_CheckOut_AssembleTeam_Article')
+              ctx.goToBranch("Archkot_ProjAsk_CheckOut_AssembleTeam_Article");
             },
           },
         ]}
@@ -220,5 +220,5 @@ export function BranchArchkot_ProjAsk_CheckOut_AssembleTeam() {
         Что делать?
       </Say>
     </Branch>
-  )
+  );
 }

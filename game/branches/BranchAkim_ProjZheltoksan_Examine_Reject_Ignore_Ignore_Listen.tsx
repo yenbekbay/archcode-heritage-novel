@@ -1,7 +1,7 @@
-import {bgZheltoksanBeforeJpg} from 'assets/game'
-import {Branch, Say, Scene} from 'react-visual-novel'
-import {GameOverMenu, GameOverTitle} from '../commands'
-import {SCENE_AUDIO} from '../sounds'
+import { bgZheltoksanBeforeJpg } from "assets/game";
+import { Branch, Say, Scene } from "react-visual-novel";
+import { GameOverMenu, GameOverTitle } from "../commands";
+import { SCENE_AUDIO } from "../sounds";
 
 export function BranchAkim_ProjZheltoksan_Examine_Reject_Ignore_Ignore_Listen() {
   return (
@@ -16,5 +16,5 @@ export function BranchAkim_ProjZheltoksan_Examine_Reject_Ignore_Ignore_Listen() 
       <GameOverTitle />
       <GameOverMenu />
     </Branch>
-  )
+  );
 }

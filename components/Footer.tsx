@@ -3,14 +3,14 @@ import {
   logoGamePng,
   logoNonmuseumPng,
   logoSorosPng,
-} from 'assets/www'
-import Image from 'next/image'
-import Link from 'next/link'
+} from "assets/www";
+import Image from "next/image";
+import Link from "next/link";
 import {
   GameController as GameControllerIcon,
   InstagramLogo as InstagramLogoIcon,
   TelegramLogo as TelegramLogoIcon,
-} from 'phosphor-react'
+} from "phosphor-react";
 
 export function Footer() {
   return (
@@ -128,7 +128,7 @@ export function Footer() {
           <p>© Архкод Алматы, 2022. Все права защищены</p>
 
           <p>
-            Исходный код этого сайта находится в{' '}
+            Исходный код этого сайта находится в{" "}
             <a
               href="https://github.com/yenbekbay/archcode-heritage-novel"
               target="_blank"
@@ -141,5 +141,5 @@ export function Footer() {
         </div>
       </div>
     </footer>
-  )
+  );
 }

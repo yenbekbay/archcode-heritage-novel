@@ -1,7 +1,7 @@
-import {bgBusStop4Jpg, bgBusStop5Jpg, bgBusStop6Jpg} from 'assets/game'
-import {Branch, Say, Scene} from 'react-visual-novel'
-import {GameOverMenu, GameOverTitle} from '../commands'
-import {SCENE_AUDIO} from '../sounds'
+import { bgBusStop4Jpg, bgBusStop5Jpg, bgBusStop6Jpg } from "assets/game";
+import { Branch, Say, Scene } from "react-visual-novel";
+import { GameOverMenu, GameOverTitle } from "../commands";
+import { SCENE_AUDIO } from "../sounds";
 
 export function BranchAkim_GovPrograms_Continue_Continue() {
   return (
@@ -18,5 +18,5 @@ export function BranchAkim_GovPrograms_Continue_Continue() {
       <GameOverTitle />
       <GameOverMenu />
     </Branch>
-  )
+  );
 }

@@ -1,7 +1,7 @@
-import {bgCityHallMayorOfficeJpg, bgCityHallOutsideJpg} from 'assets/game'
-import {Branch, Say, Scene} from 'react-visual-novel'
-import {GameOverMenu, GameOverTitle} from '../commands'
-import {SCENE_AUDIO} from '../sounds'
+import { bgCityHallMayorOfficeJpg, bgCityHallOutsideJpg } from "assets/game";
+import { Branch, Say, Scene } from "react-visual-novel";
+import { GameOverMenu, GameOverTitle } from "../commands";
+import { SCENE_AUDIO } from "../sounds";
 
 export function BranchAkim_MonumentDept_Rant_Ok() {
   return (
@@ -19,5 +19,5 @@ export function BranchAkim_MonumentDept_Rant_Ok() {
       <GameOverTitle />
       <GameOverMenu />
     </Branch>
-  )
+  );
 }

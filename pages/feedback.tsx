@@ -1,6 +1,6 @@
-import {bgArchcodeOfficeJpg} from 'assets/game'
-import {Hero, HeroBackground, Layout, RoughCard} from 'components'
-import {DiscussionEmbed} from 'disqus-react'
+import { bgArchcodeOfficeJpg } from "assets/game";
+import { Hero, HeroBackground, Layout, RoughCard } from "components";
+import { DiscussionEmbed } from "disqus-react";
 
 export default function Feedback() {
   return (
@@ -18,10 +18,10 @@ export default function Feedback() {
               <DiscussionEmbed
                 shortname="archcode-heritage-novel"
                 config={{
-                  url: 'https://heritage-novel.com',
-                  identifier: 'default',
-                  title: 'Визуальная новелла «Снести нельзя оставить»',
-                  language: 'ru',
+                  url: "https://heritage-novel.com",
+                  identifier: "default",
+                  title: "Визуальная новелла «Снести нельзя оставить»",
+                  language: "ru",
                 }}
               />
             </RoughCard>
@@ -29,5 +29,5 @@ export default function Feedback() {
         </section>
       </main>
     </Layout>
-  )
+  );
 }

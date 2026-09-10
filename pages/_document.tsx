@@ -1,4 +1,4 @@
-import {Head, Html, Main, NextScript} from 'next/document'
+import { Head, Html, Main, NextScript } from "next/document";
 
 export default function MyDocument() {
   return (
@@ -47,7 +47,7 @@ export default function MyDocument() {
         <GoatCounter />
       </body>
     </Html>
-  )
+  );
 }
 
 function GoatCounter() {
@@ -57,5 +57,5 @@ function GoatCounter() {
       async
       src="//gc.zgo.at/count.js"
     />
-  )
+  );
 }

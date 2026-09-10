@@ -1,7 +1,7 @@
-import {bgZheltoksanAfterJpg, bgZheltoksanBeforeFenceGif} from 'assets/game'
-import {Branch, Say, Scene} from 'react-visual-novel'
-import {GameOverMenu, GameOverTitle} from '../commands'
-import {SCENE_AUDIO} from '../sounds'
+import { bgZheltoksanAfterJpg, bgZheltoksanBeforeFenceGif } from "assets/game";
+import { Branch, Say, Scene } from "react-visual-novel";
+import { GameOverMenu, GameOverTitle } from "../commands";
+import { SCENE_AUDIO } from "../sounds";
 
 export function BranchDeveloper_ProjZheltoksan_Demolish_IgnoreRisks_Approved__Continue() {
   return (
@@ -24,5 +24,5 @@ export function BranchDeveloper_ProjZheltoksan_Demolish_IgnoreRisks_Approved__Co
       <GameOverTitle />
       <GameOverMenu />
     </Branch>
-  )
+  );
 }

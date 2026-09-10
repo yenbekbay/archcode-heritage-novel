@@ -31,14 +31,14 @@ Interactive visual novel and editorial website about Almaty architectural herita
 
 The documentation map accounts for each living owner and dynamic family. Read the named owner before the governed change. Update it in the same change when its owned contract changes.
 
-| Path                           | Family               | Read before changing                                                                                                   | Update in the same change when changing                                              |
-| ------------------------------ | -------------------- | ---------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------ |
-| `README.md`                    | Repository entry     | First local start or common document retrieval                                                                         | Project identity, first local start, common document retrieval, or license statement |
-| `docs/product.md`              | Product              | Purpose, audience, vocabulary, product surfaces, participation outcomes, states, or acceptance                         | Those product decisions or the specification boundary                                |
-| `docs/architecture.md`         | Architecture         | Routes, state ownership, generated artifacts, provider interfaces, trust, compatibility, failure, or delivery topology | Those system relationships or implementation owners                                  |
-| `docs/ui-design.md`            | UI design            | Shared editorial or game layout, typography, material, navigation, motion, sound, responsive, or accessibility grammar | That recurring visual or interaction grammar or an approved exception                |
-| `docs/specs/*.md`              | Specification family | The named product capability's behavior, states, failure, or acceptance                                                | That capability contract or its source-owner boundary                                |
-| `docs/runbooks/local-setup.md` | Local setup runbook  | Toolchain bootstrap, dependency installation, environment recovery, or smoke checks                                    | The procedure's target, preconditions, commands, recovery, or verification           |
+| Path | Family | Read before changing | Update in the same change when changing |
+| --- | --- | --- | --- |
+| `README.md` | Repository entry | First local start or common document retrieval | Project identity, first local start, common document retrieval, or license statement |
+| `docs/product.md` | Product | Purpose, audience, vocabulary, product surfaces, participation outcomes, states, or acceptance | Those product decisions or the specification boundary |
+| `docs/architecture.md` | Architecture | Routes, state ownership, generated artifacts, provider interfaces, trust, compatibility, failure, or delivery topology | Those system relationships or implementation owners |
+| `docs/ui-design.md` | UI design | Shared editorial or game layout, typography, material, navigation, motion, sound, responsive, or accessibility grammar | That recurring visual or interaction grammar or an approved exception |
+| `docs/specs/*.md` | Specification family | The named product capability's behavior, states, failure, or acceptance | That capability contract or its source-owner boundary |
+| `docs/runbooks/local-setup.md` | Local setup runbook | Toolchain bootstrap, dependency installation, environment recovery, or smoke checks | The procedure's target, preconditions, commands, recovery, or verification |
 
 - Let `pnpm-workspace.yaml` own allowed dependency builds.
 - Keep user-facing routes under `pages/`, shared website components under `components/`, and visual-novel state and branches under `game/`.

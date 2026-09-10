@@ -1,8 +1,8 @@
-import {bgBusStop1Jpg} from 'assets/game'
-import {Branch, Say, Scene} from 'react-visual-novel'
-import {GameOverMenu, GameOverTitle} from '../commands'
-import {LINKS} from '../links'
-import {SCENE_AUDIO} from '../sounds'
+import { bgBusStop1Jpg } from "assets/game";
+import { Branch, Say, Scene } from "react-visual-novel";
+import { GameOverMenu, GameOverTitle } from "../commands";
+import { LINKS } from "../links";
+import { SCENE_AUDIO } from "../sounds";
 
 export function BranchArchkot_ProjBusStop_CheckOut_AssembleTeam_StopHalfway() {
   return (
@@ -22,5 +22,5 @@ export function BranchArchkot_ProjBusStop_CheckOut_AssembleTeam_StopHalfway() {
       <GameOverTitle />
       <GameOverMenu />
     </Branch>
-  )
+  );
 }

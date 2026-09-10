@@ -7,29 +7,29 @@ import {
   transition1Mp3,
   transition2ShortMp3,
   transition3ShortMp3,
-} from 'assets/game'
-import {Branch, Menu, Play, Say, Scene} from 'react-visual-novel'
-import {SCENE_AUDIO} from '../sounds'
+} from "assets/game";
+import { Branch, Menu, Play, Say, Scene } from "react-visual-novel";
+import { SCENE_AUDIO } from "../sounds";
 
 export function BranchAkim_0Menu() {
   return (
     <Branch>
       <Scene
         src={bgCityHallOutsideJpg.src}
-        audio={{onEntrance: transition1Mp3}}
+        audio={{ onEntrance: transition1Mp3 }}
       />
       <Scene
         src={bgCityHallSignJpg.src}
-        audio={{onEntrance: transition2ShortMp3}}
+        audio={{ onEntrance: transition2ShortMp3 }}
       />
       <Scene
         src={bgCityHallMayorOfficeJpg.src}
-        audio={{onEntrance: transition3ShortMp3}}
+        audio={{ onEntrance: transition3ShortMp3 }}
       />
 
       <Play audio={SCENE_AUDIO.akimTheme} hide={-1} />
 
-      <Say image={{uri: mayor1Png.src, align: 'bottom'}}>
+      <Say image={{ uri: mayor1Png.src, align: "bottom" }}>
         Так-с…Что у нас на повестке дня?
       </Say>
 
@@ -39,7 +39,7 @@ export function BranchAkim_0Menu() {
         scheme="dark"
         choices={[
           {
-            label: 'Проекты девелопера',
+            label: "Проекты девелопера",
             frame: {
               viewport: [1080, 1920],
               rect: {
@@ -47,15 +47,15 @@ export function BranchAkim_0Menu() {
                 y: 680,
                 width: 420,
                 height: 500,
-                transform: 'rotate(13deg)',
+                transform: "rotate(13deg)",
               },
             },
             onClick: (ctx) => {
-              ctx.goToBranch('Akim_Menu_Projects')
+              ctx.goToBranch("Akim_Menu_Projects");
             },
           },
           {
-            label: 'Отдел памятников',
+            label: "Отдел памятников",
             frame: {
               viewport: [1080, 1920],
               rect: {
@@ -63,15 +63,15 @@ export function BranchAkim_0Menu() {
                 y: 1000,
                 width: 400,
                 height: 500,
-                transform: 'rotate(-17deg)',
+                transform: "rotate(-17deg)",
               },
             },
             onClick: (ctx) => {
-              ctx.goToBranch('Akim_Menu_MonumentDept')
+              ctx.goToBranch("Akim_Menu_MonumentDept");
             },
           },
           {
-            label: 'Государственные программы',
+            label: "Государственные программы",
             frame: {
               viewport: [1080, 1920],
               rect: {
@@ -79,15 +79,15 @@ export function BranchAkim_0Menu() {
                 y: 1320,
                 width: 400,
                 height: 500,
-                transform: 'rotate(13deg)',
+                transform: "rotate(13deg)",
               },
             },
             onClick: (ctx) => {
-              ctx.goToBranch('Akim_Menu_GovPrograms')
+              ctx.goToBranch("Akim_Menu_GovPrograms");
             },
           },
         ]}
       />
     </Branch>
-  )
+  );
 }

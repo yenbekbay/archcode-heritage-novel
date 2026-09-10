@@ -1,39 +1,39 @@
-import {useMeasure} from '@react-hookz/web'
-import type {HTMLMotionProps} from 'framer-motion'
-import React from 'react'
-import ReactRough, {Rectangle} from 'react-rough'
-import {twMerge} from 'tailwind-merge'
-import {Reveal} from './Reveal'
+import { useMeasure } from "@react-hookz/web";
+import type { HTMLMotionProps } from "framer-motion";
+import React from "react";
+import ReactRough, { Rectangle } from "react-rough";
+import { twMerge } from "tailwind-merge";
+import { Reveal } from "./Reveal";
 
 export type RoughCardProps = {
-  contentClassName?: string
-} & HTMLMotionProps<'div'>
+  contentClassName?: string;
+} & HTMLMotionProps<"div">;
 
 export const RoughCard = React.forwardRef(function Card(
-  {children, className, contentClassName, ...restProps}: RoughCardProps,
+  { children, className, contentClassName, ...restProps }: RoughCardProps,
   forwardedRef: React.ForwardedRef<HTMLDivElement>,
 ) {
   return (
     <Reveal
       ref={forwardedRef}
-      className={twMerge('relative shadow-lg', className)}
+      className={twMerge("relative shadow-lg", className)}
       {...restProps}
     >
       <RoughCardBackground />
       <article
         className={twMerge(
-          'prose relative z-10 overflow-hidden p-8',
+          "prose relative z-10 overflow-hidden p-8",
           contentClassName,
         )}
       >
         {children}
       </article>
     </Reveal>
-  )
-})
+  );
+});
 
 function RoughCardBackground() {
-  const [containerRect, containerRef] = useMeasure<HTMLDivElement>()
+  const [containerRect, containerRef] = useMeasure<HTMLDivElement>();
   return (
     <div ref={containerRef} className="absolute inset-0">
       {containerRect && (
@@ -56,5 +56,5 @@ function RoughCardBackground() {
         </ReactRough>
       )}
     </div>
-  )
+  );
 }

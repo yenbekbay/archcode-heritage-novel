@@ -1,30 +1,30 @@
-import {Dialog, LinkCard} from 'components'
-import {AnimatePresence} from 'framer-motion'
-import {useAtomValue, useSetAtom} from 'jotai'
-import {atomWithStorage} from 'jotai/utils'
-import {X as XIcon} from 'phosphor-react'
-import toast from 'react-hot-toast'
-import {uniqBy} from 'remeda'
-import {playSound} from './sounds'
+import { Dialog, LinkCard } from "components";
+import { AnimatePresence } from "framer-motion";
+import { useAtomValue, useSetAtom } from "jotai";
+import { atomWithStorage } from "jotai/utils";
+import { X as XIcon } from "phosphor-react";
+import toast from "react-hot-toast";
+import { uniqBy } from "remeda";
+import { playSound } from "./sounds";
 
-const savedLinksAtom = atomWithStorage<Link[]>('@App/savedLinks', [])
+const savedLinksAtom = atomWithStorage<Link[]>("@App/savedLinks", []);
 
 export function useSavedLinks() {
-  return useAtomValue(savedLinksAtom)
+  return useAtomValue(savedLinksAtom);
 }
 
 export type Link = {
-  href: string
-  name: string
-}
+  href: string;
+  name: string;
+};
 
 export type LinkPromptProps = {
-  link: Link | null
-  onClose: () => void
-}
+  link: Link | null;
+  onClose: () => void;
+};
 
-export function LinkPrompt({link, onClose}: LinkPromptProps) {
-  const setSavedLinks = useSetAtom(savedLinksAtom)
+export function LinkPrompt({ link, onClose }: LinkPromptProps) {
+  const setSavedLinks = useSetAtom(savedLinksAtom);
   return (
     <AnimatePresence>
       {link && (
@@ -32,17 +32,17 @@ export function LinkPrompt({link, onClose}: LinkPromptProps) {
           open
           onOpenChange={(newOpen) => {
             if (!newOpen) {
-              onClose()
+              onClose();
             }
           }}
         >
           <Dialog.Close asChild>
             <button
               onMouseEnter={() => {
-                playSound('mouseover')
+                playSound("mouseover");
               }}
               onClick={() => {
-                playSound('click')
+                playSound("click");
               }}
               className="btn btn-circle btn-ghost bg-base-100 text-xl shadow-md hover:bg-base-200"
             >
@@ -60,11 +60,11 @@ export function LinkPrompt({link, onClose}: LinkPromptProps) {
             <div className="btn-group">
               <Dialog.Close
                 onMouseEnter={() => {
-                  playSound('mouseover')
+                  playSound("mouseover");
                 }}
                 onClick={() => {
-                  playSound('click')
-                  window.open(link.href, '_blank')
+                  playSound("click");
+                  window.open(link.href, "_blank");
                 }}
                 className="btn btn-outline"
               >
@@ -73,14 +73,14 @@ export function LinkPrompt({link, onClose}: LinkPromptProps) {
 
               <Dialog.Close
                 onMouseEnter={() => {
-                  playSound('mouseover')
+                  playSound("mouseover");
                 }}
                 onClick={() => {
-                  playSound('click')
+                  playSound("click");
                   setSavedLinks((prev) =>
                     uniqBy([...prev, link], (l) => l.href),
-                  )
-                  toast.success('Ссылка сохранена')
+                  );
+                  toast.success("Ссылка сохранена");
                 }}
                 className="btn border-base-content hover:border-base-content"
               >
@@ -97,5 +97,5 @@ export function LinkPrompt({link, onClose}: LinkPromptProps) {
         </Dialog>
       )}
     </AnimatePresence>
-  )
+  );
 }

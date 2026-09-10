@@ -1,5 +1,5 @@
-declare module 'zzfx' {
+declare module "zzfx" {
   export function zzfx(
     ...samples: (number | undefined)[]
-  ): AudioBufferSourceNode
+  ): AudioBufferSourceNode;
 }

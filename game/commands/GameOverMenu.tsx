@@ -1,31 +1,31 @@
-import {logoArchcodePng, logoNonmuseumPng, logoSorosPng} from 'assets/game'
-import {motion} from 'framer-motion'
-import Image from 'next/image'
-import {useRouter} from 'next/router'
-import {Command, MenuView} from 'react-visual-novel'
+import { logoArchcodePng, logoNonmuseumPng, logoSorosPng } from "assets/game";
+import { motion } from "framer-motion";
+import Image from "next/image";
+import { useRouter } from "next/router";
+import { Command, MenuView } from "react-visual-novel";
 
 export function GameOverMenu() {
-  const router = useRouter()
+  const router = useRouter();
   return (
-    <Command name="Menu" behavior={['non_skippable']}>
+    <Command name="Menu" behavior={["non_skippable"]}>
       {(controls) => (
         <>
           <MenuView
-            style={{marginBottom: '7rem'}}
+            style={{ marginBottom: "7rem" }}
             controls={controls}
             choices={[
               {
-                label: 'Сохранённые ссылки',
-                onClick: () => router.push('/links'),
+                label: "Сохранённые ссылки",
+                onClick: () => router.push("/links"),
               },
               {
-                label: 'Оставить отзыв',
-                onClick: () => router.push('/feedback'),
+                label: "Оставить отзыв",
+                onClick: () => router.push("/feedback"),
               },
               {
-                label: 'Начать заново',
+                label: "Начать заново",
                 onClick: (ctx) => {
-                  ctx.goToLocation('Intro', 13)
+                  ctx.goToLocation("Intro", 13);
                 },
               },
             ]}
@@ -34,14 +34,14 @@ export function GameOverMenu() {
           <div className="absolute inset-x-8 bottom-20 flex flex-col items-center">
             <motion.div
               variants={{
-                initial: {opacity: 0},
+                initial: { opacity: 0 },
                 entrance: {
                   opacity: 1,
-                  transition: {duration: 1},
+                  transition: { duration: 1 },
                 },
                 exit: {
                   opacity: 0,
-                  transition: {duration: 0.5, ease: 'easeOut'},
+                  transition: { duration: 0.5, ease: "easeOut" },
                 },
               }}
               initial="initial"
@@ -91,5 +91,5 @@ export function GameOverMenu() {
         </>
       )}
     </Command>
-  )
+  );
 }

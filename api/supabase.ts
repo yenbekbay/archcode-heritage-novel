@@ -1,11 +1,11 @@
-import type {SupabaseClient} from '@supabase/supabase-js'
-import {createClient} from '@supabase/supabase-js'
+import type { SupabaseClient } from "@supabase/supabase-js";
+import { createClient } from "@supabase/supabase-js";
 
-let supabase: SupabaseClient | undefined
+let supabase: SupabaseClient | undefined;
 
 export function getSupabase() {
   if (supabase) {
-    return supabase
+    return supabase;
   }
 
   supabase = createClient(
@@ -15,8 +15,8 @@ export function getSupabase() {
     {
       fetch: fetch.bind(globalThis),
     },
-  )
-  return supabase
+  );
+  return supabase;
 }
 
-export * from '../__generated__/supabase'
+export * from "../__generated__/supabase";

@@ -1,4 +1,4 @@
-import {bgIntroJpg} from 'assets/game'
+import { bgIntroJpg } from "assets/game";
 import {
   Annotate,
   FenceSection,
@@ -7,8 +7,8 @@ import {
   Layout,
   Reveal,
   RoughCard,
-} from 'components'
-import Link from 'next/link'
+} from "components";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -66,8 +66,10 @@ export default function Home() {
 
             <p>
               Ценные строения охраняются законом как культурное наследие, но
-              официальные списки памятников архитектурного наследия города{' '}
-              <Annotate config={{type: 'circle', padding: 6}}>Алматы</Annotate>{' '}
+              официальные списки памятников архитектурного наследия города{" "}
+              <Annotate config={{ type: "circle", padding: 6 }}>
+                Алматы
+              </Annotate>{" "}
               практически не менялись со времен Советского Союза (с 1991 года).
             </p>
 
@@ -174,7 +176,7 @@ export default function Home() {
             </p>
 
             <p>
-              <Annotate config={{type: 'underline', padding: 4}}>
+              <Annotate config={{ type: "underline", padding: 4 }}>
                 Мы имеем право на память!
               </Annotate>
             </p>
@@ -182,5 +184,5 @@ export default function Home() {
         </FenceSection>
       </main>
     </Layout>
-  )
+  );
 }

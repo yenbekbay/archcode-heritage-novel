@@ -9,11 +9,11 @@ import {
   archtok2Png,
   bgArchcodeOfficeJpg,
   bgBusStop1Jpg,
-} from 'assets/game'
-import {Branch, Say, Scene} from 'react-visual-novel'
-import {GameOverMenu, GameOverTitle} from '../commands'
-import {LINKS} from '../links'
-import {SCENE_AUDIO} from '../sounds'
+} from "assets/game";
+import { Branch, Say, Scene } from "react-visual-novel";
+import { GameOverMenu, GameOverTitle } from "../commands";
+import { LINKS } from "../links";
+import { SCENE_AUDIO } from "../sounds";
 
 export function BranchArchkot_ProjBusStop_CheckOut_AssembleTeam_Submit() {
   return (
@@ -21,8 +21,8 @@ export function BranchArchkot_ProjBusStop_CheckOut_AssembleTeam_Submit() {
       <Scene src={bgArchcodeOfficeJpg.src} audio={SCENE_AUDIO.indoor} />
 
       <Say
-        tag={{text: 'АрхКот:', color: '#B8AE71'}}
-        image={{uri: archkot9Png.src, align: 'bottom'}}
+        tag={{ text: "АрхКот:", color: "#B8AE71" }}
+        image={{ uri: archkot9Png.src, align: "bottom" }}
       >
         {`
           —Мы сами можем разобраться! Памятниками должны стать…
@@ -32,8 +32,8 @@ export function BranchArchkot_ProjBusStop_CheckOut_AssembleTeam_Submit() {
       </Say>
 
       <Say
-        tag={{text: 'АрхКот:', color: '#B8AE71'}}
-        image={{uri: archkot9Png.src, align: 'bottom'}}
+        tag={{ text: "АрхКот:", color: "#B8AE71" }}
+        image={{ uri: archkot9Png.src, align: "bottom" }}
       >
         {`
           —Хмм… Посмотрим критерии ЮНЕСКО?
@@ -43,16 +43,16 @@ export function BranchArchkot_ProjBusStop_CheckOut_AssembleTeam_Submit() {
       </Say>
 
       <Say
-        tag={{text: 'АрхТок:', color: '#8D8C59'}}
-        image={{uri: archtok1Png.src, align: 'bottom'}}
+        tag={{ text: "АрхТок:", color: "#8D8C59" }}
+        image={{ uri: archtok1Png.src, align: "bottom" }}
       >
         —На самом деле, точных критериев, по которым можно определить, какие
         здания внести в список памятников нет, поэтому…
       </Say>
 
       <Say
-        tag={{text: 'АрхБот:', color: '#65506D'}}
-        image={{uri: archbot2Png.src, align: 'bottom'}}
+        tag={{ text: "АрхБот:", color: "#65506D" }}
+        image={{ uri: archbot2Png.src, align: "bottom" }}
       >
         {`
           —Идея! Мы проведем опрос среди горожан. Я уже составил пару вопросов
@@ -62,8 +62,8 @@ export function BranchArchkot_ProjBusStop_CheckOut_AssembleTeam_Submit() {
       </Say>
 
       <Say
-        tag={{text: 'АрхТок:', color: '#8D8C59'}}
-        image={{uri: archtok1Png.src, align: 'bottom'}}
+        tag={{ text: "АрхТок:", color: "#8D8C59" }}
+        image={{ uri: archtok1Png.src, align: "bottom" }}
       >
         {`
           —Ну, неплохо… А вообще конечно, есть Конвенция ЮНЕСКО… Вполне логичный вариант — опираться на нее
@@ -73,22 +73,22 @@ export function BranchArchkot_ProjBusStop_CheckOut_AssembleTeam_Submit() {
       </Say>
 
       <Say
-        tag={{text: 'АрхБот:', color: '#65506D'}}
-        image={{uri: archbot3Png.src, align: 'bottom'}}
+        tag={{ text: "АрхБот:", color: "#65506D" }}
+        image={{ uri: archbot3Png.src, align: "bottom" }}
       >
         —Мы составили список зданий, необходимых для внесения в список....
       </Say>
 
       <Say
-        tag={{text: 'АрхКот:', color: '#B8AE71'}}
-        image={{uri: archkot12Png.src, align: 'bottom'}}
+        tag={{ text: "АрхКот:", color: "#B8AE71" }}
+        image={{ uri: archkot12Png.src, align: "bottom" }}
       >
         —Дааааа! Можем нести его в акимат!
       </Say>
 
       <Say
-        tag={{text: 'АрхТок:', color: '#8D8C59'}}
-        image={{uri: archtok2Png.src, align: 'bottom'}}
+        tag={{ text: "АрхТок:", color: "#8D8C59" }}
+        image={{ uri: archtok2Png.src, align: "bottom" }}
       >
         {`
           —Погоди…Теперь необходимо провести экспертизу
@@ -98,15 +98,15 @@ export function BranchArchkot_ProjBusStop_CheckOut_AssembleTeam_Submit() {
       </Say>
 
       <Say
-        tag={{text: 'АрхКот:', color: '#B8AE71'}}
-        image={{uri: archkot11Png.src, align: 'bottom'}}
+        tag={{ text: "АрхКот:", color: "#B8AE71" }}
+        image={{ uri: archkot11Png.src, align: "bottom" }}
       >
         —Фух…
       </Say>
 
       <Say
-        tag={{text: 'АрхБот:', color: '#65506D'}}
-        image={{uri: archbot1Png.src, align: 'bottom'}}
+        tag={{ text: "АрхБот:", color: "#65506D" }}
+        image={{ uri: archbot1Png.src, align: "bottom" }}
       >
         {`
           —Поздравляем! документы готовы
@@ -116,16 +116,16 @@ export function BranchArchkot_ProjBusStop_CheckOut_AssembleTeam_Submit() {
       </Say>
 
       <Say
-        tag={{text: 'АрхКот:', color: '#B8AE71'}}
-        image={{uri: archkot11Png.src, align: 'bottom'}}
+        tag={{ text: "АрхКот:", color: "#B8AE71" }}
+        image={{ uri: archkot11Png.src, align: "bottom" }}
       >
         —Не всё так просто в этом мире, милый кот. Не всё так просто в этом
         городе
       </Say>
 
       <Say
-        tag={{text: 'АрхКот:', color: '#B8AE71'}}
-        image={{uri: archkot9Png.src, align: 'bottom'}}
+        tag={{ text: "АрхКот:", color: "#B8AE71" }}
+        image={{ uri: archkot9Png.src, align: "bottom" }}
       >
         —Нееет, я не отчаиваюсь…
       </Say>
@@ -145,5 +145,5 @@ export function BranchArchkot_ProjBusStop_CheckOut_AssembleTeam_Submit() {
       <GameOverTitle />
       <GameOverMenu />
     </Branch>
-  )
+  );
 }

@@ -5,17 +5,22 @@ import {
   redhead2Png,
   redhead5Png,
   redhead7Png,
-} from 'assets/game'
-import {Branch, Label, Menu, Play, Say, Scene} from 'react-visual-novel'
-import {GameOverMenu, GameOverTitle, SubmitMeme, SubmitPost} from '../commands'
-import {SCENE_AUDIO} from '../sounds'
+} from "assets/game";
+import { Branch, Label, Menu, Play, Say, Scene } from "react-visual-novel";
+import {
+  GameOverMenu,
+  GameOverTitle,
+  SubmitMeme,
+  SubmitPost,
+} from "../commands";
+import { SCENE_AUDIO } from "../sounds";
 
 export function BranchActivist_CheckOut_SocialMedia() {
   return (
     <Branch>
       <Scene src={bgZheltoksanBeforeFenceJpg.src} audio={SCENE_AUDIO.city} />
 
-      <Say image={{uri: redhead5Png.src, align: 'bottom'}}>
+      <Say image={{ uri: redhead5Png.src, align: "bottom" }}>
         В моменты отчаяния всегда можно вылить свою боль в соц. сети
       </Say>
 
@@ -23,23 +28,23 @@ export function BranchActivist_CheckOut_SocialMedia() {
         image={{
           uri: bgPhoneFingerJpg.src,
           style: {
-            width: '100%',
-            height: '100%',
-            objectFit: 'cover',
-            transform: 'scale(1.5)',
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+            transform: "scale(1.5)",
           },
         }}
         menu={[
           {
-            label: 'Создать мем',
+            label: "Создать мем",
             onClick: (ctx) => {
-              ctx.goToStatement('make_meme')
+              ctx.goToStatement("make_meme");
             },
           },
           {
-            label: 'Написать пост о том, как всё плохо',
+            label: "Написать пост о том, как всё плохо",
             onClick: (ctx) => {
-              ctx.goToStatement('publish_post')
+              ctx.goToStatement("publish_post");
             },
           },
         ]}
@@ -50,7 +55,7 @@ export function BranchActivist_CheckOut_SocialMedia() {
       <Label label="make_meme">
         <SubmitMeme
           onDone={(ctx) => {
-            ctx.goToStatement('acknowledged')
+            ctx.goToStatement("acknowledged");
           }}
           frame={{
             viewport: [1080, 1920],
@@ -64,11 +69,11 @@ export function BranchActivist_CheckOut_SocialMedia() {
           image={{
             uri: bgPhoneHandJpg.src,
             style: {
-              height: '100%',
-              width: '100%',
-              objectFit: 'cover',
+              height: "100%",
+              width: "100%",
+              objectFit: "cover",
               transform:
-                'scale(2.5) rotate(5deg) translateX(-6%) translateY(3%)',
+                "scale(2.5) rotate(5deg) translateX(-6%) translateY(3%)",
             },
           }}
         />
@@ -77,7 +82,7 @@ export function BranchActivist_CheckOut_SocialMedia() {
       <Label label="publish_post">
         <SubmitPost
           onDone={(ctx) => {
-            ctx.goToStatement('acknowledged')
+            ctx.goToStatement("acknowledged");
           }}
           frame={{
             viewport: [1080, 1920],
@@ -91,18 +96,18 @@ export function BranchActivist_CheckOut_SocialMedia() {
           image={{
             uri: bgPhoneHandJpg.src,
             style: {
-              height: '100%',
-              width: '100%',
-              objectFit: 'cover',
+              height: "100%",
+              width: "100%",
+              objectFit: "cover",
               transform:
-                'scale(2.5) rotate(5deg) translateX(-6%) translateY(3%)',
+                "scale(2.5) rotate(5deg) translateX(-6%) translateY(3%)",
             },
           }}
         />
       </Label>
 
       <Label label="acknowledged">
-        <Say image={{uri: redhead7Png.src, align: 'bottom'}}>
+        <Say image={{ uri: redhead7Png.src, align: "bottom" }}>
           ПОЗДРАВЛЯЕМ!!! ВАШИ ПОСТЫ/МЕМЫ УВИДЕЛА ИЗВЕСТНАЯ АКТИВИСТКА ТИНА
           ШТУНЕР, И ТЕПЕРЬ ОНА БУДЕТ ДОБИВАТЬСЯ СПРАВЕДЛИВОСТИ
         </Say>
@@ -112,19 +117,19 @@ export function BranchActivist_CheckOut_SocialMedia() {
         placement="top"
         choices={[
           {
-            label: 'Что я ещё могу сделать?',
+            label: "Что я ещё могу сделать?",
             onClick: (ctx) => {
-              ctx.goToBranch('Activist_CheckOut_Act')
+              ctx.goToBranch("Activist_CheckOut_Act");
             },
           },
           {
-            label: 'Я сделала всё что было в моих силах',
+            label: "Я сделала всё что было в моих силах",
             onClick: (ctx) => {
-              ctx.goToNextStatement()
+              ctx.goToNextStatement();
             },
           },
         ]}
-        image={{uri: redhead2Png.src, align: 'bottom'}}
+        image={{ uri: redhead2Png.src, align: "bottom" }}
       />
 
       <Play audio={SCENE_AUDIO.calmLoop} hide={-1} />
@@ -132,5 +137,5 @@ export function BranchActivist_CheckOut_SocialMedia() {
       <GameOverTitle />
       <GameOverMenu />
     </Branch>
-  )
+  );
 }

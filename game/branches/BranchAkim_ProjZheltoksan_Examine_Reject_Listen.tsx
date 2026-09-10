@@ -2,17 +2,17 @@ import {
   bgCityHallConferenceRoomJpg,
   bgZheltoksanBeforeJpg,
   mayor3Png,
-} from 'assets/game'
-import {Branch, Say, Scene} from 'react-visual-novel'
-import {GameOverMenu, GameOverTitle} from '../commands'
-import {SCENE_AUDIO} from '../sounds'
+} from "assets/game";
+import { Branch, Say, Scene } from "react-visual-novel";
+import { GameOverMenu, GameOverTitle } from "../commands";
+import { SCENE_AUDIO } from "../sounds";
 
 export function BranchAkim_ProjZheltoksan_Examine_Reject_Listen() {
   return (
     <Branch>
       <Scene src={bgCityHallConferenceRoomJpg.src} audio={SCENE_AUDIO.indoor} />
 
-      <Say image={{uri: mayor3Png.src, align: 'bottom'}}>
+      <Say image={{ uri: mayor3Png.src, align: "bottom" }}>
         Выявлен ряд нарушений! Девелопер должен пересмотреть проект
       </Say>
 
@@ -27,5 +27,5 @@ export function BranchAkim_ProjZheltoksan_Examine_Reject_Listen() {
       <GameOverTitle />
       <GameOverMenu />
     </Branch>
-  )
+  );
 }

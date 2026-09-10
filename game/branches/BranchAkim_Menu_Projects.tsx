@@ -1,6 +1,6 @@
-import {bgProjectsFolderJpg} from 'assets/game'
-import {Branch, Say, Scene} from 'react-visual-novel'
-import {SCENE_AUDIO} from '../sounds'
+import { bgProjectsFolderJpg } from "assets/game";
+import { Branch, Say, Scene } from "react-visual-novel";
+import { SCENE_AUDIO } from "../sounds";
 
 export function BranchAkim_Menu_Projects() {
   return (
@@ -10,21 +10,21 @@ export function BranchAkim_Menu_Projects() {
       <Say
         menu={[
           {
-            label: 'Желтоксан',
+            label: "Желтоксан",
             onClick: (ctx) => {
-              ctx.goToBranch('Akim_ProjZheltoksan')
+              ctx.goToBranch("Akim_ProjZheltoksan");
             },
           },
           {
-            label: 'Аэропорт',
+            label: "Аэропорт",
             onClick: (ctx) => {
-              ctx.goToBranch('Akim_ProjAirport')
+              ctx.goToBranch("Akim_ProjAirport");
             },
           },
           {
-            label: 'АСК',
+            label: "АСК",
             onClick: (ctx) => {
-              ctx.goToBranch('Akim_ProjAsk')
+              ctx.goToBranch("Akim_ProjAsk");
             },
           },
         ]}
@@ -32,5 +32,5 @@ export function BranchAkim_Menu_Projects() {
         Выберите проект
       </Say>
     </Branch>
-  )
+  );
 }

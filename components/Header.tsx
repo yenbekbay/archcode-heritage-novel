@@ -1,53 +1,53 @@
-import {logoGamePng} from 'assets/www'
-import Image from 'next/image'
-import Link from 'next/link'
-import type {IconProps} from 'phosphor-react'
+import { logoGamePng } from "assets/www";
+import Image from "next/image";
+import Link from "next/link";
+import type { IconProps } from "phosphor-react";
 import {
   GameController as GameControllerIcon,
   List as ListIcon,
-} from 'phosphor-react'
-import React from 'react'
-import {twMerge} from 'tailwind-merge'
-import {ActiveLink} from './ActiveLink'
+} from "phosphor-react";
+import React from "react";
+import { twMerge } from "tailwind-merge";
+import { ActiveLink } from "./ActiveLink";
 
-type Link = {label: string; icon?: React.ComponentType<IconProps>} & (
+type Link = { label: string; icon?: React.ComponentType<IconProps> } & (
   | {
-      to: string
-      href?: never
+      to: string;
+      href?: never;
     }
   | {
-      to?: never
-      href: string
+      to?: never;
+      href: string;
     }
-)
+);
 
 const LINKS: Link[] = [
   {
-    to: '/about-novel',
-    label: 'Визуальная новелла',
+    to: "/about-novel",
+    label: "Визуальная новелла",
   },
   {
-    to: '/about-bot',
-    label: 'Телеграм-бот',
+    to: "/about-bot",
+    label: "Телеграм-бот",
   },
   {
-    to: '/about-us',
-    label: 'О команде',
+    to: "/about-us",
+    label: "О команде",
   },
   {
-    to: '/links',
-    label: 'Ссылки',
+    to: "/links",
+    label: "Ссылки",
   },
   {
-    href: 'https://archcode.kz/',
-    label: 'Архкод',
+    href: "https://archcode.kz/",
+    label: "Архкод",
   },
   {
-    to: '/play',
-    label: 'Играть',
+    to: "/play",
+    label: "Играть",
     icon: GameControllerIcon,
   },
-]
+];
 
 export function Header() {
   return (
@@ -76,7 +76,7 @@ export function Header() {
 
             <ul className="dropdown-content menu rounded-box menu-compact mt-3 w-52 bg-base-100 p-2 text-content shadow-md">
               {LINKS.map((l) => {
-                const key = l.to ? l.to : l.href
+                const key = l.to ? l.to : l.href;
                 return (
                   <li key={key}>
                     {l.to ? (
@@ -98,16 +98,16 @@ export function Header() {
                       </a>
                     )}
                   </li>
-                )
+                );
               })}
             </ul>
           </div>
 
           <ul className="menu menu-horizontal hidden gap-2 p-0 lg:flex">
             {LINKS.map((l) => {
-              const key = l.to ? l.to : l.href
+              const key = l.to ? l.to : l.href;
               return (
-                <li key={key} className={twMerge(l.icon && 'item-invert')}>
+                <li key={key} className={twMerge(l.icon && "item-invert")}>
                   {l.to ? (
                     <ActiveLink
                       href={l.to}
@@ -123,11 +123,11 @@ export function Header() {
                     </a>
                   )}
                 </li>
-              )
+              );
             })}
           </ul>
         </div>
       </div>
     </header>
-  )
+  );
 }

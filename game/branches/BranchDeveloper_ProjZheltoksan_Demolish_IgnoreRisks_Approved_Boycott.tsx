@@ -3,9 +3,9 @@ import {
   bgDeveloperHqInsideJpg,
   bgZheltoksanBeforeJpg,
   redhead11Png,
-} from 'assets/game'
-import {Branch, Say, Scene} from 'react-visual-novel'
-import {SCENE_AUDIO} from '../sounds'
+} from "assets/game";
+import { Branch, Say, Scene } from "react-visual-novel";
+import { SCENE_AUDIO } from "../sounds";
 
 export function BranchDeveloper_ProjZheltoksan_Demolish_IgnoreRisks_Approved_Boycott() {
   return (
@@ -13,8 +13,8 @@ export function BranchDeveloper_ProjZheltoksan_Demolish_IgnoreRisks_Approved_Boy
       <Scene src={bgDeveloperHqInsideJpg.src} audio={SCENE_AUDIO.indoor} />
 
       <Say
-        tag={{text: 'Активистка:', color: '#C2653A'}}
-        image={{uri: redhead11Png.src, align: 'bottom'}}
+        tag={{ text: "Активистка:", color: "#C2653A" }}
+        image={{ uri: redhead11Png.src, align: "bottom" }}
       >
         —8 сентября вы получаете задание, 15-го числа его где-то утверждают, а
         сегодня вдруг идут слушания. Здесь вы говорите о документах, — говорите
@@ -22,8 +22,8 @@ export function BranchDeveloper_ProjZheltoksan_Demolish_IgnoreRisks_Approved_Boy
       </Say>
 
       <Say
-        tag={{text: 'Активистка:', color: '#C2653A'}}
-        image={{uri: redhead11Png.src, align: 'bottom'}}
+        tag={{ text: "Активистка:", color: "#C2653A" }}
+        image={{ uri: redhead11Png.src, align: "bottom" }}
       >
         —Мы хотим сейчас! Почему вы это не организовали? Вы могли вывести
         документы на большой экран, чтобы каждый из нас видел!
@@ -32,7 +32,7 @@ export function BranchDeveloper_ProjZheltoksan_Demolish_IgnoreRisks_Approved_Boy
       <Scene src={bgZheltoksanBeforeJpg.src} audio={SCENE_AUDIO.city} />
 
       <Say
-        image={{uri: angryCrowd1Png.src, align: 'bottom'}}
+        image={{ uri: angryCrowd1Png.src, align: "bottom" }}
         audio={SCENE_AUDIO.chatter}
       >
         Бойкот
@@ -41,19 +41,19 @@ export function BranchDeveloper_ProjZheltoksan_Demolish_IgnoreRisks_Approved_Boy
       <Say
         menu={[
           {
-            label: 'Учесть мнения',
+            label: "Учесть мнения",
             onClick: (ctx) => {
               ctx.goToBranch(
-                'Developer_ProjZheltoksan_Demolish_IgnoreRisks_Approved__Reconsider',
-              )
+                "Developer_ProjZheltoksan_Demolish_IgnoreRisks_Approved__Reconsider",
+              );
             },
           },
           {
-            label: 'Продолжить стройку',
+            label: "Продолжить стройку",
             onClick: (ctx) => {
               ctx.goToBranch(
-                'Developer_ProjZheltoksan_Demolish_IgnoreRisks_Approved__Continue',
-              )
+                "Developer_ProjZheltoksan_Demolish_IgnoreRisks_Approved__Continue",
+              );
             },
           },
         ]}
@@ -61,5 +61,5 @@ export function BranchDeveloper_ProjZheltoksan_Demolish_IgnoreRisks_Approved_Boy
         Что делать?
       </Say>
     </Branch>
-  )
+  );
 }

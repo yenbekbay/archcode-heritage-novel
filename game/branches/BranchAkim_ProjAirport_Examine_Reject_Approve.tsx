@@ -3,18 +3,18 @@ import {
   bgCityHallConferenceRoomJpg,
   bgCityHallMayorOfficeJpg,
   mayor4Png,
-} from 'assets/game'
-import {Branch, Play, Say, Scene} from 'react-visual-novel'
-import {GameOverMenu, GameOverTitle} from '../commands'
-import {LINKS} from '../links'
-import {SCENE_AUDIO} from '../sounds'
+} from "assets/game";
+import { Branch, Play, Say, Scene } from "react-visual-novel";
+import { GameOverMenu, GameOverTitle } from "../commands";
+import { LINKS } from "../links";
+import { SCENE_AUDIO } from "../sounds";
 
 export function BranchAkim_ProjAirport_Examine_Reject_Approve() {
   return (
     <Branch>
       <Scene src={bgCityHallMayorOfficeJpg.src} audio={SCENE_AUDIO.indoor} />
 
-      <Say image={{uri: mayor4Png.src, align: 'bottom'}}>
+      <Say image={{ uri: mayor4Png.src, align: "bottom" }}>
         Тише едешь — дальше будешь, пусть строят как хотят!
       </Say>
 
@@ -51,5 +51,5 @@ export function BranchAkim_ProjAirport_Examine_Reject_Approve() {
       <GameOverTitle />
       <GameOverMenu />
     </Branch>
-  )
+  );
 }

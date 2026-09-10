@@ -5,9 +5,9 @@ import {
   bgAskBeforeJpg,
   fenceMp3,
   fencePng,
-} from 'assets/game'
-import {Branch, Say, Scene, Show} from 'react-visual-novel'
-import {SCENE_AUDIO} from '../sounds'
+} from "assets/game";
+import { Branch, Say, Scene, Show } from "react-visual-novel";
+import { SCENE_AUDIO } from "../sounds";
 
 export function BranchArchkot_ProjAsk_CheckOut() {
   return (
@@ -15,11 +15,11 @@ export function BranchArchkot_ProjAsk_CheckOut() {
       <Show
         src={{
           uri: fencePng.src,
-          style: {height: '100%', transform: 'translate(-50%) scale(1.15)'},
+          style: { height: "100%", transform: "translate(-50%) scale(1.15)" },
           animation: {
             initial: {},
             entrance: {},
-            exit: {x: '-400%', transition: {duration: 2}},
+            exit: { x: "-400%", transition: { duration: 2 } },
           },
         }}
         audio={{
@@ -33,8 +33,8 @@ export function BranchArchkot_ProjAsk_CheckOut() {
       <Say
         image={{
           uri: archkot1Png.src,
-          align: 'bottom',
-          style: {filter: 'drop-shadow(40px 40px 5px rgba(0, 0, 0, .35))'},
+          align: "bottom",
+          style: { filter: "drop-shadow(40px 40px 5px rgba(0, 0, 0, .35))" },
         }}
         zIndex={101}
       >
@@ -43,28 +43,28 @@ export function BranchArchkot_ProjAsk_CheckOut() {
 
       <Scene src={bgAskBeforeJpg.src} audio={SCENE_AUDIO.city} />
 
-      <Say image={{uri: archkot8Png.src, align: 'bottom'}}>
+      <Say image={{ uri: archkot8Png.src, align: "bottom" }}>
         Что за напасть! Здание аппаратно-студийного комплекса перестроить решили
       </Say>
 
-      <Say image={{uri: archkot2Png.src, align: 'bottom'}}>
+      <Say image={{ uri: archkot2Png.src, align: "bottom" }}>
         А я был здесь ребенком ещё, у мамы на работе, мне по лестницам этим так
         бегать нравилось
       </Say>
 
       <Say
-        image={{uri: archkot1Png.src, align: 'bottom'}}
+        image={{ uri: archkot1Png.src, align: "bottom" }}
         menu={[
           {
-            label: 'Погрустить',
+            label: "Погрустить",
             onClick: (ctx) => {
-              ctx.goToBranch('Archkot_ProjAsk_CheckOut_SocialMedia')
+              ctx.goToBranch("Archkot_ProjAsk_CheckOut_SocialMedia");
             },
           },
           {
-            label: 'Собрать команду',
+            label: "Собрать команду",
             onClick: (ctx) => {
-              ctx.goToBranch('Archkot_ProjAsk_CheckOut_AssembleTeam')
+              ctx.goToBranch("Archkot_ProjAsk_CheckOut_AssembleTeam");
             },
           },
         ]}
@@ -72,5 +72,5 @@ export function BranchArchkot_ProjAsk_CheckOut() {
         Что можно сделать мне, простому АрхКоту?
       </Say>
     </Branch>
-  )
+  );
 }

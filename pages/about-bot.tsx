@@ -1,8 +1,8 @@
-import {bgAirportJpg} from 'assets/game'
-import {telegramBotQrCodePng} from 'assets/www'
-import {Hero, HeroBackground, Layout} from 'components'
-import Image from 'next/image'
-import {TelegramLogo as TelegramLogoIcon} from 'phosphor-react'
+import { bgAirportJpg } from "assets/game";
+import { telegramBotQrCodePng } from "assets/www";
+import { Hero, HeroBackground, Layout } from "components";
+import Image from "next/image";
+import { TelegramLogo as TelegramLogoIcon } from "phosphor-react";
 
 export default function AboutBot() {
   return (
@@ -58,5 +58,5 @@ export default function AboutBot() {
         </Hero>
       </main>
     </Layout>
-  )
+  );
 }

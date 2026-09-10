@@ -4,44 +4,44 @@ import {
   developerRepAPng,
   developerRepB9Png,
   hologramMp3,
-} from 'assets/game'
-import {Branch, Say, Scene} from 'react-visual-novel'
-import {LINKS} from '../links'
-import {SCENE_AUDIO} from '../sounds'
+} from "assets/game";
+import { Branch, Say, Scene } from "react-visual-novel";
+import { LINKS } from "../links";
+import { SCENE_AUDIO } from "../sounds";
 
 export function BranchDeveloper_ProjAirport_Demolish() {
   return (
     <Branch>
       <Scene src={bgDeveloperHqInsideJpg.src} audio={SCENE_AUDIO.indoor} />
 
-      <Say image={{uri: developerRepB9Png.src, align: 'bottom'}}>
+      <Say image={{ uri: developerRepB9Png.src, align: "bottom" }}>
         —Здание старое, никакой ценности не представляет. В проекте важно что?
         Успех! Больше площади — больше успеха
       </Say>
 
       <Say
-        tag={{text: 'Бот-билдер:', color: '#53C7D5'}}
-        image={{uri: botBuilderPng.src, align: 'bottom'}}
-        audio={{onEntrance: hologramMp3}}
+        tag={{ text: "Бот-билдер:", color: "#53C7D5" }}
+        image={{ uri: botBuilderPng.src, align: "bottom" }}
+        audio={{ onEntrance: hologramMp3 }}
       >
         —Но это же памятник
       </Say>
 
-      <Say image={{uri: developerRepB9Png.src, align: 'bottom'}}>
+      <Say image={{ uri: developerRepB9Png.src, align: "bottom" }}>
         —Ну должен же быть какой-нибудь вариант переноса
       </Say>
 
       <Say
-        tag={{text: 'Менеджер проекта:', color: '#A57B55'}}
-        image={{uri: developerRepAPng.src, align: 'bottom'}}
+        tag={{ text: "Менеджер проекта:", color: "#A57B55" }}
+        image={{ uri: developerRepAPng.src, align: "bottom" }}
       >
         —В любом случае, необходимо взвесить риски
       </Say>
 
       <Say
-        tag={{text: 'Бот-билдер:', color: '#53C7D5'}}
-        image={{uri: botBuilderPng.src, align: 'bottom'}}
-        audio={{onEntrance: hologramMp3}}
+        tag={{ text: "Бот-билдер:", color: "#53C7D5" }}
+        image={{ uri: botBuilderPng.src, align: "bottom" }}
+        audio={{ onEntrance: hologramMp3 }}
       >
         {`
           —Перенос памятника возможен, но при повреждении 70% здания, к тому же это чрезвычайно дорогое решение…
@@ -53,18 +53,18 @@ export function BranchDeveloper_ProjAirport_Demolish() {
       </Say>
 
       <Say
-        image={{uri: developerRepB9Png.src, align: 'bottom'}}
+        image={{ uri: developerRepB9Png.src, align: "bottom" }}
         menu={[
           {
-            label: 'Пересмотреть выбор',
+            label: "Пересмотреть выбор",
             onClick: (ctx) => {
-              ctx.goToLocation('Developer_ProjAirport', 14)
+              ctx.goToLocation("Developer_ProjAirport", 14);
             },
           },
           {
-            label: 'Игнорировать риски',
+            label: "Игнорировать риски",
             onClick: (ctx) => {
-              ctx.goToBranch('Developer_ProjAirport_Demolish_IgnoreRisks')
+              ctx.goToBranch("Developer_ProjAirport_Demolish_IgnoreRisks");
             },
           },
         ]}
@@ -72,5 +72,5 @@ export function BranchDeveloper_ProjAirport_Demolish() {
         Что делать?
       </Say>
     </Branch>
-  )
+  );
 }

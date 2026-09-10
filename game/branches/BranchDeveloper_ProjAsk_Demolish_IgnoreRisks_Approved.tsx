@@ -17,9 +17,9 @@ import {
   stampApprovedPng,
   tinaShtunerPng,
   transition1Mp3,
-} from 'assets/game'
-import {Branch, Say, Scene, Show} from 'react-visual-novel'
-import {SCENE_AUDIO} from '../sounds'
+} from "assets/game";
+import { Branch, Say, Scene, Show } from "react-visual-novel";
+import { SCENE_AUDIO } from "../sounds";
 
 export function BranchDeveloper_ProjAsk_Demolish_IgnoreRisks_Approved() {
   return (
@@ -30,12 +30,12 @@ export function BranchDeveloper_ProjAsk_Demolish_IgnoreRisks_Approved() {
         src={{
           uri: letterPng.src,
           style: {
-            height: '100%',
-            width: '100%',
-            objectFit: 'cover',
-            backgroundColor: '#e7dbab',
-            transform: 'scale(2.5)',
-            transformOrigin: '50% 35%',
+            height: "100%",
+            width: "100%",
+            objectFit: "cover",
+            backgroundColor: "#e7dbab",
+            transform: "scale(2.5)",
+            transformOrigin: "50% 35%",
           },
         }}
         hide={1}
@@ -45,17 +45,21 @@ export function BranchDeveloper_ProjAsk_Demolish_IgnoreRisks_Approved() {
         src={{
           uri: stampApprovedPng.src,
           style: {
-            height: '100%',
-            width: '100%',
-            objectFit: 'cover',
-            transform: 'translateY(-15%)',
+            height: "100%",
+            width: "100%",
+            objectFit: "cover",
+            transform: "translateY(-15%)",
           },
         }}
       />
 
       <Say
-        tag={{text: 'Аким:', color: '#687065'}}
-        image={{uri: mayor7Png.src, align: 'bottom', style: {bottom: '-12%'}}}
+        tag={{ text: "Аким:", color: "#687065" }}
+        image={{
+          uri: mayor7Png.src,
+          align: "bottom",
+          style: { bottom: "-12%" },
+        }}
       >
         —Я согласен с вашими решениями. Можете начинать стройку
       </Say>
@@ -63,7 +67,7 @@ export function BranchDeveloper_ProjAsk_Demolish_IgnoreRisks_Approved() {
       <Scene src={bgAskBeforeJpg.src} audio={SCENE_AUDIO.city} />
 
       <Say
-        image={{uri: angryCrowd1Png.src, align: 'bottom'}}
+        image={{ uri: angryCrowd1Png.src, align: "bottom" }}
         audio={SCENE_AUDIO.chatter}
       >
         Общественность возмущена
@@ -72,18 +76,18 @@ export function BranchDeveloper_ProjAsk_Demolish_IgnoreRisks_Approved() {
       <Scene src={bgDeveloperHqInsideJpg.src} audio={SCENE_AUDIO.indoor} />
 
       <Say
-        image={{uri: developerRepB7Png.src, align: 'bottom'}}
+        image={{ uri: developerRepB7Png.src, align: "bottom" }}
         menu={[
           {
-            label: 'Игнорировать',
+            label: "Игнорировать",
             onClick: (ctx) => {
-              ctx.goToNextStatement()
+              ctx.goToNextStatement();
             },
           },
           {
-            label: 'Провести общественные слушаниям',
+            label: "Провести общественные слушаниям",
             onClick: (ctx) => {
-              ctx.goToNextStatement(1)
+              ctx.goToNextStatement(1);
             },
           },
         ]}
@@ -98,7 +102,7 @@ export function BranchDeveloper_ProjAsk_Demolish_IgnoreRisks_Approved() {
 
       <Scene
         src={bgDeveloperHqOutsideJpg.src}
-        audio={{onEntrance: transition1Mp3}}
+        audio={{ onEntrance: transition1Mp3 }}
       />
 
       <Say>Общественные слушания</Say>
@@ -106,90 +110,90 @@ export function BranchDeveloper_ProjAsk_Demolish_IgnoreRisks_Approved() {
       <Scene src={bgDeveloperHqInsideJpg.src} audio={SCENE_AUDIO.hearings} />
 
       <Say
-        tag={{text: 'АрхКот:', color: '#B8AE71'}}
-        image={{uri: archkot4Png.src, align: 'bottom'}}
+        tag={{ text: "АрхКот:", color: "#B8AE71" }}
+        image={{ uri: archkot4Png.src, align: "bottom" }}
       >
         —Это сейчас практически единственное здание, которое не было изменено
       </Say>
 
-      <Say image={{uri: developerRepB1Png.src, align: 'bottom'}}>
+      <Say image={{ uri: developerRepB1Png.src, align: "bottom" }}>
         —Внутри мы хотим создать современные, удобные помещения, увеличить
         свободную площадь
       </Say>
 
-      <Say image={{uri: developerRepB2Png.src, align: 'bottom'}}>
+      <Say image={{ uri: developerRepB2Png.src, align: "bottom" }}>
         —А ещё сделать open space — с учетом прозрачного фасада, будет больше
         света!
       </Say>
 
-      <Say image={{uri: developerRepB3Png.src, align: 'bottom'}}>
+      <Say image={{ uri: developerRepB3Png.src, align: "bottom" }}>
         —Стёкла на фасаде сделаем зеркальными!
       </Say>
 
       <Say
-        tag={{text: 'Горжемпо:', color: '#687065'}}
-        image={{uri: gorzhempoPng.src, align: 'bottom'}}
+        tag={{ text: "Горжемпо:", color: "#687065" }}
+        image={{ uri: gorzhempoPng.src, align: "bottom" }}
       >
         —В начале 80-х годов прошлого века я мечтал о зеркальном стекле,
         которого в СССР не было
       </Say>
 
       <Say
-        tag={{text: 'Горжемпо:', color: '#687065'}}
-        image={{uri: gorzhempoPng.src, align: 'bottom'}}
+        tag={{ text: "Горжемпо:", color: "#687065" }}
+        image={{ uri: gorzhempoPng.src, align: "bottom" }}
       >
         —Из-за дефицита материала в итоге при строительстве было использовано
         дымчатое стекло,
       </Say>
 
       <Say
-        tag={{text: 'Горжемпо:', color: '#687065'}}
-        image={{uri: gorzhempoPng.src, align: 'bottom'}}
+        tag={{ text: "Горжемпо:", color: "#687065" }}
+        image={{ uri: gorzhempoPng.src, align: "bottom" }}
       >
         —и в проекте, судя по рендерам, оно заменяется на зеркальное
       </Say>
 
       <Say
-        tag={{text: 'Тина Штунер:', color: '#687065'}}
-        image={{uri: tinaShtunerPng.src, align: 'bottom'}}
+        tag={{ text: "Тина Штунер:", color: "#687065" }}
+        image={{ uri: tinaShtunerPng.src, align: "bottom" }}
       >
         —Это уже исторический памятник, и сделать зеркальные окна — нарушение
         облика, к которому мы привыкли
       </Say>
 
       <Say
-        tag={{text: 'Адя Пчелкина:', color: '#687065'}}
-        image={{uri: adyaPchelkinaPng.src, align: 'bottom'}}
+        tag={{ text: "Адя Пчелкина:", color: "#687065" }}
+        image={{ uri: adyaPchelkinaPng.src, align: "bottom" }}
       >
         —Есть ли у Bay Shatyr Group лицензия на работу с памятниками?
       </Say>
 
-      <Say image={{uri: developerRepB4Png.src, align: 'bottom'}}>…</Say>
+      <Say image={{ uri: developerRepB4Png.src, align: "bottom" }}>…</Say>
 
       <Say
-        tag={{text: 'АрхКот:', color: '#B8AE71'}}
-        image={{uri: archkot4Png.src, align: 'bottom'}}
+        tag={{ text: "АрхКот:", color: "#B8AE71" }}
+        image={{ uri: archkot4Png.src, align: "bottom" }}
       >
         —Нужен кто-то, кто будет контролировать правильность процесса!
       </Say>
 
       <Say
-        image={{uri: developerRepB4Png.src, align: 'bottom'}}
+        image={{ uri: developerRepB4Png.src, align: "bottom" }}
         menu={[
           {
-            label: 'Конечно, отлично!',
+            label: "Конечно, отлично!",
             onClick: (ctx) => {
               ctx.goToBranch(
-                'Developer_ProjAsk_Demolish_IgnoreRisks_Approved_Listen',
-              )
+                "Developer_ProjAsk_Demolish_IgnoreRisks_Approved_Listen",
+              );
             },
           },
           {
-            label: 'Мониторинговая группа уже представлена от Акимата',
+            label: "Мониторинговая группа уже представлена от Акимата",
             onClick: (ctx) => {
               ctx.goToBranch(
-                'Developer_ProjAsk_Demolish_IgnoreRisks_Approved_Ignore',
-              )
+                "Developer_ProjAsk_Demolish_IgnoreRisks_Approved_Ignore",
+              );
             },
           },
         ]}
@@ -197,5 +201,5 @@ export function BranchDeveloper_ProjAsk_Demolish_IgnoreRisks_Approved() {
         Что ответить?
       </Say>
     </Branch>
-  )
+  );
 }

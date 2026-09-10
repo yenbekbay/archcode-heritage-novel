@@ -4,9 +4,9 @@ import {
   bgBusStop2Jpg,
   fenceMp3,
   fencePng,
-} from 'assets/game'
-import {Branch, Say, Scene, Show} from 'react-visual-novel'
-import {SCENE_AUDIO} from '../sounds'
+} from "assets/game";
+import { Branch, Say, Scene, Show } from "react-visual-novel";
+import { SCENE_AUDIO } from "../sounds";
 
 export function BranchArchkot_ProjBusStop_CheckOut() {
   return (
@@ -14,11 +14,11 @@ export function BranchArchkot_ProjBusStop_CheckOut() {
       <Show
         src={{
           uri: fencePng.src,
-          style: {height: '100%', transform: 'translate(-50%) scale(1.15)'},
+          style: { height: "100%", transform: "translate(-50%) scale(1.15)" },
           animation: {
             initial: {},
             entrance: {},
-            exit: {x: '-400%', transition: {duration: 2}},
+            exit: { x: "-400%", transition: { duration: 2 } },
           },
         }}
         audio={{
@@ -32,8 +32,8 @@ export function BranchArchkot_ProjBusStop_CheckOut() {
       <Say
         image={{
           uri: archkot1Png.src,
-          align: 'bottom',
-          style: {filter: 'drop-shadow(40px 40px 5px rgba(0, 0, 0, .35))'},
+          align: "bottom",
+          style: { filter: "drop-shadow(40px 40px 5px rgba(0, 0, 0, .35))" },
         }}
         zIndex={101}
       >
@@ -54,18 +54,18 @@ export function BranchArchkot_ProjBusStop_CheckOut() {
       </Say>
 
       <Say
-        image={{uri: archkot8Png.src, align: 'bottom'}}
+        image={{ uri: archkot8Png.src, align: "bottom" }}
         menu={[
           {
-            label: 'Погрустить',
+            label: "Погрустить",
             onClick: (ctx) => {
-              ctx.goToBranch('Archkot_ProjBusStop_CheckOut_SocialMedia')
+              ctx.goToBranch("Archkot_ProjBusStop_CheckOut_SocialMedia");
             },
           },
           {
-            label: 'Собрать команду',
+            label: "Собрать команду",
             onClick: (ctx) => {
-              ctx.goToBranch('Archkot_ProjBusStop_CheckOut_AssembleTeam')
+              ctx.goToBranch("Archkot_ProjBusStop_CheckOut_AssembleTeam");
             },
           },
         ]}
@@ -73,5 +73,5 @@ export function BranchArchkot_ProjBusStop_CheckOut() {
         И что же я, АрхКот, сделать-то могу?
       </Say>
     </Branch>
-  )
+  );
 }

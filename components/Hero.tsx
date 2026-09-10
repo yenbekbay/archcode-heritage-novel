@@ -1,12 +1,12 @@
-import React from 'react'
-import {twMerge} from 'tailwind-merge'
-import {Reveal} from './Reveal'
+import React from "react";
+import { twMerge } from "tailwind-merge";
+import { Reveal } from "./Reveal";
 
 export type HeroProps = {
-  title: string
-  image?: React.ReactNode
-  children?: React.ReactNode
-} & React.ComponentPropsWithoutRef<'section'>
+  title: string;
+  image?: React.ReactNode;
+  children?: React.ReactNode;
+} & React.ComponentPropsWithoutRef<"section">;
 
 export function Hero({
   title,
@@ -19,7 +19,7 @@ export function Hero({
     <Reveal asChild>
       <div
         className={twMerge(
-          'container mx-auto grid grid-flow-row gap-8 p-8 pb-16 lg:grid-flow-col lg:justify-items-start',
+          "container mx-auto grid grid-flow-row gap-8 p-8 pb-16 lg:grid-flow-col lg:justify-items-start",
           className,
         )}
         {...restProps}
@@ -32,5 +32,5 @@ export function Hero({
         {image}
       </div>
     </Reveal>
-  )
+  );
 }

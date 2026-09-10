@@ -1,16 +1,16 @@
-import type {ImageInfo, MqlResponseData} from '@microlink/mql'
-import mql from '@microlink/mql'
-import React from 'react'
-import type {Fetcher} from 'swr'
-import useSWR from 'swr'
-import {twMerge} from 'tailwind-merge'
+import type { ImageInfo, MqlResponseData } from "@microlink/mql";
+import mql from "@microlink/mql";
+import React from "react";
+import type { Fetcher } from "swr";
+import useSWR from "swr";
+import { twMerge } from "tailwind-merge";
 
 export type LinkCardProps = {
-  url: string
-} & Omit<LinkCardViewProps, 'title' | 'description' | 'image' | 'screenshot'>
+  url: string;
+} & Omit<LinkCardViewProps, "title" | "description" | "image" | "screenshot">;
 
-export function LinkCard({url: href, ...restProps}: LinkCardProps) {
-  const res = useSWR(href, linkMetadataFetcher)
+export function LinkCard({ url: href, ...restProps }: LinkCardProps) {
+  const res = useSWR(href, linkMetadataFetcher);
   return (
     <LinkCardView
       url={href}
@@ -20,18 +20,18 @@ export function LinkCard({url: href, ...restProps}: LinkCardProps) {
       screenshot={res.data?.screenshot}
       {...restProps}
     />
-  )
+  );
 }
 
 type LinkCardViewProps = {
-  url: string
-  title?: string | null
-  description?: string | null
-  image?: ImageInfo | null
-  screenshot?: ImageInfo | null
-  size?: 'md' | 'sm'
-  CardComponent?: React.ElementType<React.ComponentPropsWithoutRef<'div'>>
-} & Omit<React.ComponentPropsWithoutRef<'div'>, 'title' | 'lang'>
+  url: string;
+  title?: string | null;
+  description?: string | null;
+  image?: ImageInfo | null;
+  screenshot?: ImageInfo | null;
+  size?: "md" | "sm";
+  CardComponent?: React.ElementType<React.ComponentPropsWithoutRef<"div">>;
+} & Omit<React.ComponentPropsWithoutRef<"div">, "title" | "lang">;
 
 function LinkCardView({
   url,
@@ -39,8 +39,8 @@ function LinkCardView({
   description,
   image,
   screenshot,
-  size = 'md',
-  CardComponent = 'div',
+  size = "md",
+  CardComponent = "div",
   ...restProps
 }: LinkCardViewProps) {
   return (
@@ -66,10 +66,10 @@ function LinkCardView({
         )}
         <p
           className={twMerge(
-            'px-4 underline',
+            "px-4 underline",
             {
-              md: 'text-xl',
-              sm: 'text-base',
+              md: "text-xl",
+              sm: "text-base",
             }[size],
           )}
         >
@@ -78,10 +78,10 @@ function LinkCardView({
         {description && (
           <p
             className={twMerge(
-              'px-4',
+              "px-4",
               {
-                md: 'text-base',
-                sm: 'text-sm',
+                md: "text-base",
+                sm: "text-sm",
               }[size],
             )}
           >
@@ -90,15 +90,15 @@ function LinkCardView({
         )}
       </a>
     </CardComponent>
-  )
+  );
 }
 
 const linkMetadataFetcher: Fetcher<MqlResponseData, string> = async (href) => {
   const res = await mql(href, {
     screenshot: true,
-  })
-  if (res.status === 'fail') {
-    throw new Error('Failed to get link metadata')
+  });
+  if (res.status === "fail") {
+    throw new Error("Failed to get link metadata");
   }
-  return res.data
-}
+  return res.data;
+};

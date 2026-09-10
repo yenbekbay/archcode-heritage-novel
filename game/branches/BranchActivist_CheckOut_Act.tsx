@@ -1,6 +1,6 @@
-import {bgZheltoksanBeforeFenceJpg, redhead8Png} from 'assets/game'
-import {Branch, Say, Scene} from 'react-visual-novel'
-import {SCENE_AUDIO} from '../sounds'
+import { bgZheltoksanBeforeFenceJpg, redhead8Png } from "assets/game";
+import { Branch, Say, Scene } from "react-visual-novel";
+import { SCENE_AUDIO } from "../sounds";
 
 export function BranchActivist_CheckOut_Act() {
   return (
@@ -8,24 +8,24 @@ export function BranchActivist_CheckOut_Act() {
       <Scene src={bgZheltoksanBeforeFenceJpg.src} audio={SCENE_AUDIO.city} />
 
       <Say
-        image={{uri: redhead8Png.src, align: 'bottom'}}
+        image={{ uri: redhead8Png.src, align: "bottom" }}
         menu={[
           {
-            label: 'Разберусь сама',
+            label: "Разберусь сама",
             onClick: (ctx) => {
-              ctx.goToBranch('Activist_CheckOut_Act_Self')
+              ctx.goToBranch("Activist_CheckOut_Act_Self");
             },
           },
           {
-            label: 'Объединиться в команду',
+            label: "Объединиться в команду",
             onClick: (ctx) => {
-              ctx.goToBranch('Activist_CheckOut_Act_Group')
+              ctx.goToBranch("Activist_CheckOut_Act_Group");
             },
           },
           {
-            label: 'Обратиться в организации',
+            label: "Обратиться в организации",
             onClick: (ctx) => {
-              ctx.goToBranch('Activist_CheckOut_Act_Org')
+              ctx.goToBranch("Activist_CheckOut_Act_Org");
             },
           },
         ]}
@@ -33,5 +33,5 @@ export function BranchActivist_CheckOut_Act() {
         Что я могу?
       </Say>
     </Branch>
-  )
+  );
 }

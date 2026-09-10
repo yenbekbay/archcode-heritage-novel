@@ -4,32 +4,32 @@ import {
   developerRepAPng,
   developerRepB9Png,
   hologramMp3,
-} from 'assets/game'
-import {Branch, Say, Scene} from 'react-visual-novel'
-import {LINKS} from '../links'
-import {SCENE_AUDIO} from '../sounds'
+} from "assets/game";
+import { Branch, Say, Scene } from "react-visual-novel";
+import { LINKS } from "../links";
+import { SCENE_AUDIO } from "../sounds";
 
 export function BranchDeveloper_ProjAsk_Demolish() {
   return (
     <Branch>
       <Scene src={bgDeveloperHqInsideJpg.src} audio={SCENE_AUDIO.indoor} />
 
-      <Say image={{uri: developerRepB9Png.src, align: 'bottom'}}>
+      <Say image={{ uri: developerRepB9Png.src, align: "bottom" }}>
         —Здание старое, никакой ценности не представляет. В проекте важно что?
         Успех! Больше площади — больше успеха
       </Say>
 
       <Say
-        tag={{text: 'Менеджер проекта:', color: '#A57B55'}}
-        image={{uri: developerRepAPng.src, align: 'bottom'}}
+        tag={{ text: "Менеджер проекта:", color: "#A57B55" }}
+        image={{ uri: developerRepAPng.src, align: "bottom" }}
       >
         —В любом случае, необходимо взвесить риски
       </Say>
 
       <Say
-        tag={{text: 'Бот-билдер:', color: '#53C7D5'}}
-        image={{uri: botBuilderPng.src, align: 'bottom'}}
-        audio={{onEntrance: hologramMp3}}
+        tag={{ text: "Бот-билдер:", color: "#53C7D5" }}
+        image={{ uri: botBuilderPng.src, align: "bottom" }}
+        audio={{ onEntrance: hologramMp3 }}
       >
         {`
           Возможные риски при изменении/сносе АСК:
@@ -39,18 +39,18 @@ export function BranchDeveloper_ProjAsk_Demolish() {
       </Say>
 
       <Say
-        image={{uri: developerRepB9Png.src, align: 'bottom'}}
+        image={{ uri: developerRepB9Png.src, align: "bottom" }}
         menu={[
           {
-            label: 'Пересмотреть выбор',
+            label: "Пересмотреть выбор",
             onClick: (ctx) => {
-              ctx.goToLocation('Developer_ProjAsk', 16)
+              ctx.goToLocation("Developer_ProjAsk", 16);
             },
           },
           {
-            label: 'Игнорировать риски',
+            label: "Игнорировать риски",
             onClick: (ctx) => {
-              ctx.goToBranch('Developer_ProjAsk_Demolish_IgnoreRisks')
+              ctx.goToBranch("Developer_ProjAsk_Demolish_IgnoreRisks");
             },
           },
         ]}
@@ -58,5 +58,5 @@ export function BranchDeveloper_ProjAsk_Demolish() {
         Что делать?
       </Say>
     </Branch>
-  )
+  );
 }

@@ -3,11 +3,11 @@ import {
   archkot7Png,
   bgBusStop4Jpg,
   bgBusStop6Jpg,
-} from 'assets/game'
-import {Branch, Say, Scene} from 'react-visual-novel'
-import {GameOverMenu, GameOverTitle} from '../commands'
-import {LINKS} from '../links'
-import {SCENE_AUDIO} from '../sounds'
+} from "assets/game";
+import { Branch, Say, Scene } from "react-visual-novel";
+import { GameOverMenu, GameOverTitle } from "../commands";
+import { LINKS } from "../links";
+import { SCENE_AUDIO } from "../sounds";
 
 export function BranchArchkot_ProjBusStop_CheckOut_AssembleTeam_Bail() {
   return (
@@ -20,13 +20,13 @@ export function BranchArchkot_ProjBusStop_CheckOut_AssembleTeam_Bail() {
         отношения к историко-культурному наследию
       </Say>
 
-      <Say image={{uri: archkot7Png.src, align: 'bottom'}}>
+      <Say image={{ uri: archkot7Png.src, align: "bottom" }}>
         Была история, и нет истории. Зря Дядь Юра старался
       </Say>
 
       <Say
-        tag={{text: 'АрхБот:', color: '#65506D'}}
-        image={{uri: archbot1Png.src, align: 'bottom'}}
+        tag={{ text: "АрхБот:", color: "#65506D" }}
+        image={{ uri: archbot1Png.src, align: "bottom" }}
       >
         {`
           —А могло бы быть вот так:
@@ -40,5 +40,5 @@ export function BranchArchkot_ProjBusStop_CheckOut_AssembleTeam_Bail() {
       <GameOverTitle />
       <GameOverMenu />
     </Branch>
-  )
+  );
 }

@@ -6,17 +6,22 @@ import {
   bgPhoneFingerJpg,
   bgPhoneHandJpg,
   bgSolidJpg,
-} from 'assets/game'
-import {Branch, Label, Say, Scene} from 'react-visual-novel'
-import {GameOverMenu, GameOverTitle, SubmitMeme, SubmitPost} from '../commands'
-import {SCENE_AUDIO} from '../sounds'
+} from "assets/game";
+import { Branch, Label, Say, Scene } from "react-visual-novel";
+import {
+  GameOverMenu,
+  GameOverTitle,
+  SubmitMeme,
+  SubmitPost,
+} from "../commands";
+import { SCENE_AUDIO } from "../sounds";
 
 export function BranchArchkot_ProjAsk_CheckOut_SocialMedia() {
   return (
     <Branch>
       <Scene src={bgAskBeforeJpg.src} audio={SCENE_AUDIO.city} />
 
-      <Say image={{uri: archkot2Png.src, align: 'bottom'}}>
+      <Say image={{ uri: archkot2Png.src, align: "bottom" }}>
         Видимо, процесс уже запущен, что же
       </Say>
 
@@ -24,23 +29,23 @@ export function BranchArchkot_ProjAsk_CheckOut_SocialMedia() {
         image={{
           uri: bgPhoneFingerJpg.src,
           style: {
-            width: '100%',
-            height: '100%',
-            objectFit: 'cover',
-            transform: 'scale(1.5)',
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+            transform: "scale(1.5)",
           },
         }}
         menu={[
           {
-            label: 'Создать мем',
+            label: "Создать мем",
             onClick: (ctx) => {
-              ctx.goToStatement('make_meme')
+              ctx.goToStatement("make_meme");
             },
           },
           {
-            label: 'Написать пост о том, как всё плохо',
+            label: "Написать пост о том, как всё плохо",
             onClick: (ctx) => {
-              ctx.goToStatement('publish_post')
+              ctx.goToStatement("publish_post");
             },
           },
         ]}
@@ -51,7 +56,7 @@ export function BranchArchkot_ProjAsk_CheckOut_SocialMedia() {
       <Label label="make_meme">
         <SubmitMeme
           onDone={(ctx) => {
-            ctx.goToStatement('acknowledged')
+            ctx.goToStatement("acknowledged");
           }}
           frame={{
             viewport: [1080, 1920],
@@ -65,11 +70,11 @@ export function BranchArchkot_ProjAsk_CheckOut_SocialMedia() {
           image={{
             uri: bgPhoneHandJpg.src,
             style: {
-              height: '100%',
-              width: '100%',
-              objectFit: 'cover',
+              height: "100%",
+              width: "100%",
+              objectFit: "cover",
               transform:
-                'scale(2.5) rotate(5deg) translateX(-6%) translateY(3%)',
+                "scale(2.5) rotate(5deg) translateX(-6%) translateY(3%)",
             },
           }}
         />
@@ -78,7 +83,7 @@ export function BranchArchkot_ProjAsk_CheckOut_SocialMedia() {
       <Label label="publish_post">
         <SubmitPost
           onDone={(ctx) => {
-            ctx.goToStatement('acknowledged')
+            ctx.goToStatement("acknowledged");
           }}
           frame={{
             viewport: [1080, 1920],
@@ -92,11 +97,11 @@ export function BranchArchkot_ProjAsk_CheckOut_SocialMedia() {
           image={{
             uri: bgPhoneHandJpg.src,
             style: {
-              height: '100%',
-              width: '100%',
-              objectFit: 'cover',
+              height: "100%",
+              width: "100%",
+              objectFit: "cover",
               transform:
-                'scale(2.5) rotate(5deg) translateX(-6%) translateY(3%)',
+                "scale(2.5) rotate(5deg) translateX(-6%) translateY(3%)",
             },
           }}
         />
@@ -104,18 +109,18 @@ export function BranchArchkot_ProjAsk_CheckOut_SocialMedia() {
 
       <Label label="acknowledged">
         <Say
-          image={{uri: archkot1Png.src, align: 'bottom'}}
+          image={{ uri: archkot1Png.src, align: "bottom" }}
           menu={[
             {
-              label: 'Собраться с командой Архкод',
+              label: "Собраться с командой Архкод",
               onClick: (ctx) => {
-                ctx.goToBranch('Archkot_ProjAsk_CheckOut_AssembleTeam')
+                ctx.goToBranch("Archkot_ProjAsk_CheckOut_AssembleTeam");
               },
             },
             {
-              label: 'Я сделал всё, что было в моих силах',
+              label: "Я сделал всё, что было в моих силах",
               onClick: (ctx) => {
-                ctx.goToNextStatement()
+                ctx.goToNextStatement();
               },
             },
           ]}
@@ -143,5 +148,5 @@ export function BranchArchkot_ProjAsk_CheckOut_SocialMedia() {
       <GameOverTitle />
       <GameOverMenu />
     </Branch>
-  )
+  );
 }

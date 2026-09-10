@@ -3,23 +3,23 @@ import {
   bgCityHallMayorOfficeJpg,
   developerRepB6Png,
   mayor3Png,
-} from 'assets/game'
-import {Branch, Play, Say, Scene} from 'react-visual-novel'
-import {GameOverMenu, GameOverTitle} from '../commands'
-import {SCENE_AUDIO} from '../sounds'
+} from "assets/game";
+import { Branch, Play, Say, Scene } from "react-visual-novel";
+import { GameOverMenu, GameOverTitle } from "../commands";
+import { SCENE_AUDIO } from "../sounds";
 
 export function BranchAkim_ProjAirport_Examine_Reject_Reject() {
   return (
     <Branch>
       <Scene src={bgCityHallMayorOfficeJpg.src} audio={SCENE_AUDIO.indoor} />
 
-      <Say image={{uri: mayor3Png.src, align: 'bottom'}}>
+      <Say image={{ uri: mayor3Png.src, align: "bottom" }}>
         —В проекте действительно есть ряд нарушений, нужно его изменить
       </Say>
 
       <Say
-        tag={{text: 'Девелопер:', color: '#A57B55'}}
-        image={{uri: developerRepB6Png.src, align: 'bottom'}}
+        tag={{ text: "Девелопер:", color: "#A57B55" }}
+        image={{ uri: developerRepB6Png.src, align: "bottom" }}
       >
         —Мы учли мнение общественности и данный проект сохранияет наше
         историко-культурное наследие
@@ -43,5 +43,5 @@ export function BranchAkim_ProjAirport_Examine_Reject_Reject() {
       <GameOverTitle />
       <GameOverMenu />
     </Branch>
-  )
+  );
 }
