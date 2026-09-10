@@ -15,7 +15,6 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "noUncheckedIndexedAccess": true,
-    "exactOptionalPropertyTypes": false,
     "paths": {
       "*": ["./*"]
     },
