@@ -1,4 +1,4 @@
-/** @type {import("prettier").Config & {tailwindFunctions?: string[]} */
+/** @type {import("prettier").Config & {tailwindFunctions?: string[]}} */
 const config = {
   proseWrap: "never",
   quoteProps: "consistent",
