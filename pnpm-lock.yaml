@@ -136,8 +136,8 @@ importers:
         specifier: 0.4.8
         version: 0.4.8(eslint@10.9.1(jiti@1.21.7)(supports-color@10.2.2))(oxlint@1.80.0(oxlint-tsgolint@7.0.2001))(supports-color@10.2.2)(typescript@6.0.3)
       '@utilfirst/prettier-plugin':
-        specifier: 0.1.1
-        version: 0.1.1(prettier@3.9.6)
+        specifier: 0.1.2
+        version: 0.1.2(prettier@3.9.6)
       autoprefixer:
         specifier: 10.5.4
         version: 10.5.4(postcss@8.5.26)
@@ -1263,9 +1263,9 @@ packages:
       oxlint:
         optional: true
 
-  '@utilfirst/prettier-plugin@0.1.1':
-    resolution: {integrity: sha512-WbZNvKyFeQ8nOKQsEkwB7ZbUJi9JHvupjj1GwkKQViP4kbTJpM6VE+y/Wy7+saHgd+DunTsuzw0dBDPJ8LDkvA==}
-    engines: {node: '>=20.19.0'}
+  '@utilfirst/prettier-plugin@0.1.2':
+    resolution: {integrity: sha512-TvZYVB+Vvyq4T9N3q/4J4mzIXP1gZtw2Btmkp6+LAEhhwtDDI969qZDAq5uMi8roBEZzMEhIMyEI6Cq4ng3f4Q==}
+    engines: {node: '>=24.11.0'}
     peerDependencies:
       prettier: ^3.0.0
 
@@ -4191,7 +4191,7 @@ snapshots:
       - supports-color
       - typescript
 
-  '@utilfirst/prettier-plugin@0.1.1(prettier@3.9.6)':
+  '@utilfirst/prettier-plugin@0.1.2(prettier@3.9.6)':
     dependencies:
       prettier: 3.9.6
 
