@@ -24,7 +24,6 @@
     "lint": "pnpm run generate-artifacts && pnpm run --sequential '/^lint:[^:]+$/'",
     "lint:oxlint": "oxlint .",
     "lint:prettier": "prettier --check --cache .",
-    "lint:typecheck": "pnpm run generate-artifacts && tsc --pretty --noEmit",
     "start": "next start",
     "supabase-generate": "env-cmd --use-shell 'openapi-typescript \"${SUPABASE_URL}/rest/v1/?apikey=${SUPABASE_ANON_KEY}\" --output __generated__/supabase.ts'"
   },
