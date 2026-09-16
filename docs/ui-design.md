@@ -2,6 +2,13 @@
 
 This document owns the product's recurring visual and interaction grammar across the editorial website and visual novel. Exact classes, tokens, component APIs, assets, and motion values remain in `main.css`, the Tailwind configuration, `components/`, and `game/`.
 
+| Decision | Read |
+| --- | --- |
+| Product purpose, participation, or shared behavior | [Product](product.md) |
+| Runtime ownership, providers, or generated artifacts | [Architecture](architecture.md) |
+| Visual-novel behavior, progression, or states | [Visual novel](specs/visual-novel.md) |
+| Recurring editorial and game presentation | This document |
+
 ## Direction and vocabulary
 
 The editorial website combines civic-poster directness with hand-made archival material. Dark photographic fields, torn-paper dividers, rough paper cards, annotated prose, documentary images, and large calls to action make the heritage argument feel assembled and contested rather than institutional.

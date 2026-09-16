@@ -13,6 +13,8 @@ The repository contains the Next.js Pages Router website, the `react-visual-nove
 ```sh
 mise install
 pnpm install
+mise exec -- fnox export --output .env.local
+chmod 600 .env.local
 pnpm run dev
 ```
 
