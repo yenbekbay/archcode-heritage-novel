@@ -14,7 +14,7 @@ The branch modules under `game/branches/` define the story graph. `react-visual-
 
 Jotai's storage-backed `@App/savedLinks` atom owns saved external reading in browser storage. The active external-link prompt is transient React state. Submission forms own their input and in-flight state. Supabase owns accepted nomination, post, and meme-submission records after a successful insert.
 
-`scripts/generate-barrels.mjs` owns the generated export indexes listed in project `AGENTS.md`. `pnpm run css-generate` compiles `main.css` into `__generated__/main.css`. The approved Supabase schema command owns `__generated__/supabase.ts`. Generated artifacts remain consumers of their generators rather than independent edit targets.
+`scripts/generate-barrels.mjs` owns the generated export indexes listed in project `AGENTS.md`. `pnpm run generate:css` compiles `main.css` into `__generated__/main.css`. The approved Supabase schema command owns `__generated__/supabase.ts`. Generated artifacts remain consumers of their generators rather than independent edit targets.
 
 ## Interfaces and data flow
 

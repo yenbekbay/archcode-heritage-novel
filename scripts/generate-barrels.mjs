@@ -29,7 +29,7 @@ async function generateBarrel({ directory, prefix }) {
     })
     .map((entry) => basename(entry.name, extname(entry.name)))
     .sort((left, right) => left.localeCompare(right, "en"))
-    .map((name) => `export * from './${name}'`);
+    .map((name) => `export * from "./${name}";`);
 
   await writeFile(join(directory, "index.ts"), `${exports.join("\n")}\n`);
 }

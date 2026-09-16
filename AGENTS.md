@@ -8,7 +8,7 @@ Interactive visual novel and editorial website about Almaty architectural herita
 2. Format touched code and config with `pnpm exec oxlint --fix <file...>` and `pnpm exec prettier --write <file...>`.
 3. Format touched Markdown and prose with `pnpm exec prettier --write <file>`.
 4. Update `README.md` in the same change when the project identity, framework summary, or license statement changes.
-5. After adding, removing, or renaming a barrel-exported module, run `pnpm run barrels-generate`, then stage the updated index files.
+5. After adding, removing, or renaming a barrel-exported module, run `pnpm run generate:barrels`, then stage the updated index files.
 6. After related source or config changes, run `pnpm run lint:oxlint`.
 7. Launch a browser only when the user explicitly asks for rendered evidence.
 8. Verify changes with the lowest-cost sufficient check. Start with direct source inspection or a targeted check, and escalate only when it cannot establish the required result. Skip routine or speculative verification.
@@ -43,7 +43,7 @@ The documentation map accounts for each living owner and dynamic family. Read th
 - Let `pnpm-workspace.yaml` own allowed dependency builds.
 - Keep user-facing routes under `pages/`, shared website components under `components/`, and visual-novel state and branches under `game/`.
 - Keep imported images and audio under `assets/`, global Tailwind source in `main.css`, and generated artifacts under `__generated__/`.
-- Treat `api/index.ts`, `components/index.ts`, `game/branches/index.ts`, `game/commands/index.ts`, and `game/commands/internal/index.ts` as durable generated outputs owned by `pnpm run barrels-generate`.
+- Treat `api/index.ts`, `components/index.ts`, `game/branches/index.ts`, `game/commands/index.ts`, and `game/commands/internal/index.ts` as durable generated outputs owned by `pnpm run generate:barrels`.
 
 ## Commands
 
