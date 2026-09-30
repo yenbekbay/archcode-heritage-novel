@@ -13,16 +13,18 @@ const config = {
     locales: ["ru"],
     defaultLocale: "ru",
   },
-  webpack(config) {
-    config.module.exprContextCritical = false;
-    config.module.rules.push({
-      test: /\.(mp3)$/,
-      type: "asset/resource",
-      generator: {
-        filename: "static/chunks/[path][name].[hash][ext]",
+  headers() {
+    return Promise.resolve([
+      {
+        source: "/__generated__/audio/:filename",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=31536000, immutable",
+          },
+        ],
       },
-    });
-    return config;
+    ]);
   },
 };
 

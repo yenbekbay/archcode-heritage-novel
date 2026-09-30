@@ -7,12 +7,14 @@
 /.tmp/
 /.vercel/
 /*.tsbuildinfo
+/__generated__/audio.ts
 /__generated__/main.css
 /build
 /coverage
 /next-env.d.ts
 /node_modules
 /out/
+/public/__generated__/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*

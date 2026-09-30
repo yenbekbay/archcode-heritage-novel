@@ -16,6 +16,8 @@ Jotai's storage-backed `@App/savedLinks` atom owns saved external reading in bro
 
 `scripts/generate-barrels.mjs` owns the generated export indexes listed in project `AGENTS.md`. `pnpm run generate:css` compiles `main.css` into `__generated__/main.css`. The approved Supabase schema command owns `__generated__/supabase.ts`. Generated artifacts remain consumers of their generators rather than independent edit targets.
 
+`scripts/generate-audio.mjs` copies retained MP3 sources into ignored, content-hashed public assets and writes the ignored URL exports in `__generated__/audio.ts`. The sound index preserves its existing export names. Generation runs before development, builds, and checks. Audio URLs have immutable cache headers because a byte change produces a new URL.
+
 ## Interfaces and data flow
 
 The website routes exchange navigation through Next.js links and the router. Query-parameter state is adapted through `next-query-params`. The game imports every generated branch export, prepares the graph, and starts at `Intro`. External HTTP links opened inside the story stop at `LinkPrompt`, where the player chooses immediate navigation or local retention.

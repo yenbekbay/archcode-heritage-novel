@@ -7,10 +7,11 @@ export default defineConfig({
     ".local/**",
     ".next/**",
     ".tmp/**",
+    "__generated__/**",
     "next-env.d.ts",
     "node_modules/**",
     "pnpm-lock.yaml",
-    "src/__generated__/**",
+    "public/**",
   ],
   plugins: ["nextjs", "node"],
 });

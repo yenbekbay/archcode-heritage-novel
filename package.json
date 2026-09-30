@@ -20,6 +20,7 @@
     "fix:oxlint": "pnpm run lint:oxlint --fix",
     "fix:prettier": "pnpm run lint:prettier --write",
     "generate": "pnpm run --sequential '/^generate:[^:]+$/'",
+    "generate:audio": "node scripts/generate-audio.mjs",
     "generate:barrels": "node scripts/generate-barrels.mjs",
     "generate:css": "tailwindcss -i main.css -o __generated__/main.css",
     "lint": "pnpm run generate && pnpm run '/^lint:[^:]+$/'",
