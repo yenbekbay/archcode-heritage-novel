@@ -300,7 +300,7 @@ function MemePreview({ url, onSubmit, onSkip }: MemePreviewProps) {
           Опубликовать мем
         </Button>
 
-        <span className="prose text-xs">
+        <span className="max-w-[65ch] text-xs/[1.5] text-gray-700">
           Нажав на кнопку «Опубликовать мем», вы даёте нам разрешение
           копировать, изменять, распространять и исполнять ваше произведение,
           даже в коммерческих целях.

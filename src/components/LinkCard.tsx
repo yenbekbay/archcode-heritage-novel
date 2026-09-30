@@ -49,7 +49,8 @@ function LinkCardView({
       href={url}
       target="_blank"
       rel="noopener noreferrer"
-      className={twMerge("no-underline", restProps.className)}
+      data-prose-preview
+      className={twMerge("block no-underline", restProps.className)}
     >
       {image || screenshot ? (
         // oxlint-disable-next-line nextjs/no-img-element -- Preview providers return arbitrary external image hosts.
@@ -60,7 +61,7 @@ function LinkCardView({
               ? (screenshot?.url ?? image.url)
               : (image?.url ?? screenshot?.url)
           }
-          className="my-0 h-48 w-full object-cover"
+          className="h-48 w-full object-cover"
         />
       ) : (
         <div className="h-48 w-full bg-black/20" />

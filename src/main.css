@@ -3,7 +3,6 @@
 /* NOTE: The story runtime publishes utility classes inside its distribution. */
 @source "../node_modules/react-visual-novel/dist/index.js";
 
-@plugin "@tailwindcss/typography";
 @plugin "tailwindcss-react-aria-components";
 
 @theme {
@@ -146,54 +145,6 @@
 }
 @utility action-sm {
   @apply h-8 min-h-8 px-3 text-xs/[1];
-}
-
-@utility prose {
-  line-height: 1.5;
-  &.prose-invert {
-    --tw-prose-body: color-mix(
-      in oklab,
-      var(--color-content-invert) 80%,
-      transparent
-    );
-    --tw-prose-headings: var(--color-content-invert);
-    --tw-prose-lead: var(--color-content-invert);
-    --tw-prose-links: var(--color-content-invert);
-    --tw-prose-bold: var(--color-content-invert);
-    --tw-prose-counters: var(--color-content-invert);
-    --tw-prose-bullets: color-mix(
-      in oklab,
-      var(--color-content-invert) 50%,
-      transparent
-    );
-    --tw-prose-hr: color-mix(
-      in oklab,
-      var(--color-content-invert) 20%,
-      transparent
-    );
-    --tw-prose-quotes: var(--color-content-invert);
-    --tw-prose-quote-borders: color-mix(
-      in oklab,
-      var(--color-content-invert) 20%,
-      transparent
-    );
-    --tw-prose-captions: color-mix(
-      in oklab,
-      var(--color-content-invert) 50%,
-      transparent
-    );
-    --tw-prose-code: var(--color-content-invert);
-    --tw-prose-th-borders: color-mix(
-      in oklab,
-      var(--color-content-invert) 50%,
-      transparent
-    );
-    --tw-prose-td-borders: color-mix(
-      in oklab,
-      var(--color-content-invert) 20%,
-      transparent
-    );
-  }
 }
 
 @utility rvn-text {

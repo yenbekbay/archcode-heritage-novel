@@ -23,7 +23,7 @@ The wide header exposes the full navigation. Narrow layouts collapse it into a l
 
 ## Type, color, and material
 
-IBM Plex Mono carries editorial body text and interface labels. The calligraphic face carries story dialogue, game labels, and title moments. Near-black fields and warm paper surfaces form the main contrast. Red marks titles and high-attention moments. Rough borders, physical shadows, torn edges, stamps, and drawn annotations establish the hand-made material system.
+IBM Plex Mono carries editorial body text and interface labels. The calligraphic face carries story dialogue, game labels, and title moments. `ProseView` owns editorial heading hierarchy, paragraph and list rhythm, compact disclosures, quotations, and inverted reading colors. Near-black fields and warm paper surfaces form the main contrast. Red marks titles and high-attention moments. Rough borders, physical shadows, torn edges, stamps, and drawn annotations establish the hand-made material system.
 
 Photography and illustrations remain attached to their narrative context. Screenshot carousels preserve a visible continuation cue and direct dragging. Credits, disclosures, and source context use smaller prose without losing their relationship to the qualified content.
 

@@ -5,6 +5,7 @@ import type { HTMLMotionProps } from "framer-motion";
 import React from "react";
 import { ReactRough, Rectangle } from "react-rough";
 import { twMerge } from "tailwind-merge";
+import { ProseArticle } from "./ProseView";
 import { Reveal } from "./Reveal";
 
 export type RoughCardProps = {
@@ -20,14 +21,14 @@ export function RoughCard(props: RoughCardProps) {
     <Reveal {...restProps} className={twMerge("relative shadow-lg", className)}>
       <RoughCardBackground />
 
-      <article
+      <ProseArticle
         className={twMerge(
-          "prose relative z-10 overflow-hidden p-8",
+          "relative z-10 overflow-hidden p-8",
           contentClassName,
         )}
       >
         {children}
-      </article>
+      </ProseArticle>
     </Reveal>
   );
 }

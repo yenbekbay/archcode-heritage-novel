@@ -48,7 +48,7 @@ export default function AboutUs() {
         />
       </div>
 
-      <section className="relative flex flex-col pb-[26rem] pt-28">
+      <section className="relative flex flex-col pt-28 pb-[26rem]">
         <div
           className="absolute inset-0 bg-cover bg-no-repeat"
           style={{ backgroundImage: `url(${bgMapJpg.src})` }}
@@ -206,18 +206,21 @@ function TeamMemberCard({
 }: TeamMemberCardProps) {
   return (
     <RoughCard>
-      <div className="grid grid-flow-row gap-4 md:grid-flow-col">
+      <div
+        data-prose-profile
+        className="grid grid-flow-row gap-4 md:grid-flow-col"
+      >
         <Image
           src={photoSrc}
           alt={`Фотография: ${name}`}
           className={twMerge(
-            "my-0 min-w-24",
+            "min-w-24",
             align === "right" && "md:order-2 lg:order-none",
           )}
         />
 
         <div>
-          <h2 className="mb-0 md:mt-0">{name}</h2>
+          <h2>{name}</h2>
           <h3 className="text-base italic">{jobTitle}</h3>
           <p className="md:text-sm">{bio}</p>
         </div>

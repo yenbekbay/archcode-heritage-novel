@@ -8,6 +8,7 @@ import {
   RoughCard,
 } from "#components/index.ts";
 import { Link } from "#components/Link.tsx";
+import { ProseView } from "#components/ProseView.tsx";
 import { buildPageMetadata } from "#lib/metadata.ts";
 import { buildHomeHref, buildPlayHref } from "#lib/routes.ts";
 
@@ -28,7 +29,7 @@ export default function Home() {
       />
 
       <div className="flex flex-col">
-        <Hero title="Снести нельзя оставить">
+        <Hero title="Снести нельзя оставить" className="pb-12">
           <p>
             Проект посвящённый сохранению архитектурного наследия и права на
             коллективную память, запечатлённую в архитектуре города. Проект
@@ -46,16 +47,22 @@ export default function Home() {
           </p>
         </Hero>
 
-        <Reveal className="prose prose-sm -mt-4 self-end px-4 pb-4 text-[0.75rem] prose-invert">
-          <p>
-            *Проект стал возможным благодаря помощи американского народа,
-            оказанной через Агентство США по международному развитию (USAID), и
-            был подготовлен в рамках Центральноазиатской программы MediaCAMP,
-            реализуемой Internews при финансовой поддержке USAID. Archcode
-            Almaty несёт ответственность за его содержание, которое не
-            обязательно отражает позицию USAID или Правительства США, или
-            Internews.
-          </p>
+        <Reveal className="max-w-[65ch] self-end text-xs/[1.5]">
+          <ProseView
+            size="compact"
+            tone="invert"
+            className="px-4 pb-4 text-xs/[1.5]"
+          >
+            <p>
+              *Проект стал возможным благодаря помощи американского народа,
+              оказанной через Агентство США по международному развитию (USAID),
+              и был подготовлен в рамках Центральноазиатской программы
+              MediaCAMP, реализуемой Internews при финансовой поддержке USAID.
+              Archcode Almaty несёт ответственность за его содержание, которое
+              не обязательно отражает позицию USAID или Правительства США, или
+              Internews.
+            </p>
+          </ProseView>
         </Reveal>
       </div>
 

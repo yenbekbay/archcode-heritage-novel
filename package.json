@@ -67,7 +67,6 @@
   },
   "devDependencies": {
     "@tailwindcss/postcss": "4.3.3",
-    "@tailwindcss/typography": "0.5.20",
     "@types/howler": "2.2.13",
     "@types/node": "24.13.3",
     "@types/react": "19.2.18",

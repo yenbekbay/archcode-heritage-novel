@@ -12,6 +12,7 @@ export * from "./Image";
 export * from "./Layout";
 export * from "./Link";
 export * from "./LinkCard";
+export * from "./ProseView";
 export * from "./Reveal";
 export * from "./RootProviders";
 export * from "./RoughCard";

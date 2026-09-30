@@ -1,3 +1,4 @@
+import { ProseView } from "#components/ProseView.tsx";
 import { Dialog, LinkCard } from "#components/index.ts";
 import { Button } from "#components/ui/Button.tsx";
 import { AnimatePresence } from "framer-motion";
@@ -45,11 +46,13 @@ export function LinkPrompt({ link, onClose }: LinkPromptProps) {
           </Button>
 
           <div className="flex flex-col gap-4 overflow-auto">
-            <LinkCard
-              url={link.href}
-              size="sm"
-              className="prose shrink-0 overflow-hidden rounded-md border border-content"
-            />
+            <ProseView className="shrink-0">
+              <LinkCard
+                url={link.href}
+                size="sm"
+                className="overflow-hidden rounded-md border border-content"
+              />
+            </ProseView>
 
             <div className="flex w-fit [&>button:first-child]:rounded-r-none [&>button:last-child]:rounded-l-none [&>button:last-child]:border-l-0">
               <Button
@@ -84,11 +87,11 @@ export function LinkPrompt({ link, onClose }: LinkPromptProps) {
               </Button>
             </div>
 
-            <div className="prose prose-sm">
+            <ProseView size="compact">
               <blockquote>
                 Доступ к сохранённым ссылкам можно получить в конце игры.
               </blockquote>
-            </div>
+            </ProseView>
           </div>
         </Dialog>
       )}

@@ -1,0 +1,89 @@
+@layer components {
+  .root {
+    --reading-flow: 1.25em;
+    --quote-space: 1.6em;
+    --quote-inset: 1em;
+
+    & :where(p) {
+      margin-block: var(--reading-flow);
+    }
+    & :where(a:not(.action-button)) {
+      font-weight: 500;
+      text-decoration: underline;
+    }
+    & :where(strong) {
+      font-weight: 600;
+    }
+    & :where(h1, h2, h3) {
+      text-wrap: balance;
+    }
+    & :where(h1) {
+      margin-block: 0 0.8888889em;
+      font-size: 2.25em;
+      font-weight: 800;
+      line-height: 1.1111111;
+    }
+    & :where(h2) {
+      margin-block: 2em 1em;
+      font-size: 1.5em;
+      font-weight: 700;
+      line-height: 1.3333333;
+    }
+    & :where(h3) {
+      margin-block: 1.6em 0.6em;
+      font-size: 1.25em;
+      font-weight: 600;
+      line-height: 1.6;
+    }
+    & :where(h2 + *, h3 + *) {
+      margin-block-start: 0;
+    }
+    & :where(ol) {
+      margin-block: var(--reading-flow);
+      padding-inline-start: 1.625em;
+      list-style-type: decimal;
+    }
+    & :where(li) {
+      margin-block: 0.5em;
+      padding-inline-start: 0.375em;
+    }
+    & :where(img) {
+      margin-block: 2em;
+    }
+    & :where(blockquote) {
+      margin-block: var(--quote-space);
+      border-inline-start-width: 0.25rem;
+      padding-inline-start: var(--quote-inset);
+      font-weight: 500;
+      font-style: italic;
+    }
+    & :where(pre) {
+      margin-block: 1.7142857em;
+      font-size: 0.875rem;
+      line-height: 1.7142857;
+    }
+    & > :where(:first-child) {
+      margin-block-start: 0;
+    }
+    & > :where(:last-child) {
+      margin-block-end: 0;
+    }
+
+    /* NOTE: Portraits and previews retain their card-owned spacing. */
+    & :where([data-prose-preview] img, [data-prose-profile] img) {
+      margin-block: 0;
+    }
+    & :where([data-prose-profile] h2) {
+      margin-block-end: 0;
+      @media (width >= 48rem) {
+        margin-block-start: 0;
+      }
+    }
+  }
+
+  .compact {
+    --reading-flow: 1.1428571em;
+    --quote-space: 1.3333333em;
+    --quote-inset: 1.1111111em;
+  }
+}

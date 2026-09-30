@@ -1,5 +1,6 @@
 import React from "react";
 import { twMerge } from "tailwind-merge";
+import { ProseView } from "./ProseView";
 import { Reveal } from "./Reveal";
 
 export type HeroProps = {
@@ -23,10 +24,13 @@ export function Hero({
       )}
       {...restProps}
     >
-      <div className="prose flex flex-col gap-y-4 prose-invert">
-        <h1 className="mb-2">{title}</h1>
+      <ProseView
+        tone="invert"
+        className="flex flex-col gap-y-4 [&>h1]:[margin-block-end:0] [&>h1]:pb-2"
+      >
+        <h1>{title}</h1>
         {children}
-      </div>
+      </ProseView>
 
       {image}
     </Reveal>
