@@ -20,8 +20,8 @@ export default function Feedback() {
         <p>Здесь вы можете оставить отзыв, пожелание или предложение.</p>
       </Hero>
 
-      <section className="container mx-auto">
-        <div className="mx-auto flex max-w-full flex-col py-8 md:w-[640px] md:px-8 lg:mx-0">
+      <section className="container flex flex-col items-center lg:items-start">
+        <div className="flex w-full max-w-full flex-col py-8 md:w-[640px] md:px-8">
           <RoughCard contentClassName="max-w-none">
             <FeedbackDiscussion />
           </RoughCard>

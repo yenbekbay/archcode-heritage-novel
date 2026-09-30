@@ -10,7 +10,7 @@ overrides:
 packageExtensionsChecksum: sha256-kaDpL+1STO2QkvWCUpjAo/pIoXmyfGQdGDDUFZOppWk=
 
 patchedDependencies:
-  react-visual-novel@0.2.2: 93b7a3e07a0a217e3d6c69c0f729cc97164a1c71347e69c9a8d3db6273573641
+  react-visual-novel@0.2.2: 8d8e9d30d77bd1bcbee78a142c43608b5b1aee82661a04cfa1517eaf93e26324
 
 importers:
 
@@ -78,7 +78,7 @@ importers:
         version: 3.5.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       react-visual-novel:
         specifier: 0.2.2
-        version: 0.2.2(patch_hash=93b7a3e07a0a217e3d6c69c0f729cc97164a1c71347e69c9a8d3db6273573641)(@types/react@19.2.18)(howler@2.2.4)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(supports-color@10.2.2)(use-query-params@2.2.2(react-dom@19.2.8(react@19.2.8))(react@19.2.8))
+        version: 0.2.2(patch_hash=8d8e9d30d77bd1bcbee78a142c43608b5b1aee82661a04cfa1517eaf93e26324)(@types/react@19.2.18)(howler@2.2.4)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(supports-color@10.2.2)(use-query-params@2.2.2(react-dom@19.2.8(react@19.2.8))(react@19.2.8))
       react-zorm:
         specifier: 0.9.0
         version: 0.9.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(zod@3.25.76)
@@ -5049,7 +5049,7 @@ snapshots:
     optionalDependencies:
       '@types/react': 19.2.18
 
-  react-visual-novel@0.2.2(patch_hash=93b7a3e07a0a217e3d6c69c0f729cc97164a1c71347e69c9a8d3db6273573641)(@types/react@19.2.18)(howler@2.2.4)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(supports-color@10.2.2)(use-query-params@2.2.2(react-dom@19.2.8(react@19.2.8))(react@19.2.8)):
+  react-visual-novel@0.2.2(patch_hash=8d8e9d30d77bd1bcbee78a142c43608b5b1aee82661a04cfa1517eaf93e26324)(@types/react@19.2.18)(howler@2.2.4)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(supports-color@10.2.2)(use-query-params@2.2.2(react-dom@19.2.8(react@19.2.8))(react@19.2.8)):
     dependencies:
       '@radix-ui/react-popover': 1.0.2(@types/react@19.2.18)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       '@radix-ui/react-use-rect': 1.0.0(react@19.2.8)

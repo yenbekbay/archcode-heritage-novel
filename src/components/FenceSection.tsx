@@ -12,8 +12,8 @@ export type FenceSectionProps = {
 
 export function FenceSection({ children }: FenceSectionProps) {
   return (
-    <section className="relative flex flex-col pb-[26rem] pt-28">
-      <div className="absolute inset-0 ml-[-10%] flex w-[120%] flex-col">
+    <section className="relative flex flex-col pt-28 pb-[26rem]">
+      <div className="absolute top-0 -bottom-4 -left-[10%] flex w-[120%] flex-col">
         <Image
           src={fenceTopPng}
           sizes="120vw"
@@ -32,7 +32,7 @@ export function FenceSection({ children }: FenceSectionProps) {
           sizes="120vw"
           alt=""
           eager
-          className="-mb-4 w-full"
+          className="w-full"
         />
       </div>
 

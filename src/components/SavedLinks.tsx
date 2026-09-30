@@ -36,8 +36,8 @@ export function SavedLinks() {
       </Hero>
 
       {savedLinks.length > 0 && (
-        <section className="container mx-auto">
-          <div className="mx-auto flex max-w-full flex-col gap-y-4 py-8 md:w-[640px] md:px-8 lg:mx-0">
+        <section className="container flex flex-col items-center lg:items-start">
+          <div className="flex w-full max-w-full flex-col gap-y-4 py-8 md:w-[640px] md:px-8">
             {savedLinks.map((l) => (
               <RoughCard
                 className="w-full"

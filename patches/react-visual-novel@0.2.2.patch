@@ -1,5 +1,5 @@
 diff --git a/dist/index.d.ts b/dist/index.d.ts
-index 381d4d5..1436be8 100644
+index 381d4d5cfe0b9e605cab2216fa74e76dd480360e..1436be89e841efafbac9c7b85a889598485b0db5 100644
 --- a/dist/index.d.ts
 +++ b/dist/index.d.ts
 @@ -1,16 +1,16 @@
@@ -139,3 +139,52 @@ index 381d4d5..1436be8 100644
 +declare function Title({ children, durationMs, hide }: TitleProps): React$1.JSX.Element;
  
  export { Branch, BranchContextValue, BranchId, BranchProps, BranchProvider, BranchProviderProps, Branches, CharGroup, Choice, Command, CommandAudioConfig, CommandProps, CommandViewAnimation, CommandViewColorScheme, Frame, Game, GameContextValue, GameOptions, GameProps, GameProvider, GameProviderProps, ImageView, ImageViewProps, Label, LabelProps, Menu, MenuPlacement, MenuProps, MenuSize, MenuView, MenuViewProps, Play, PlayProps, Say, SayProps, Scene, SceneProps, SceneSource, Show, ShowProps, ShowSource, SoundName, Statement, StatementBehavior, StatementContextValue, StatementProvider, StatementProviderProps, TextPlacement, TextView, TextViewProps, Title, TitleProps, charGroupsForMarkdown, prepareBranches, styleForFrame, useBranchContext, useGameContext, usePreloadAssets, useStatementContext };
+diff --git a/dist/index.js b/dist/index.js
+index 709cfe7b8067120da6cded0061dc4233d7e6b687..7ad3beeb64ce746d0004f26dc11afe47b83268d5 100644
+--- a/dist/index.js
++++ b/dist/index.js
+@@ -1264,7 +1264,7 @@ function GameView({
+         className: "absolute z-[120] flex w-full p-4",
+         children: [
+           /* @__PURE__ */ jsx6("div", {
+-            className: "flex flex-1 space-x-2",
++            className: "flex flex-1 gap-2",
+             children: preloaded && canGoBack() && /* @__PURE__ */ jsx6("button", {
+               onMouseEnter: () => playSound("mouseover"),
+               onClick: () => {
+@@ -1276,7 +1276,7 @@ function GameView({
+             })
+           }),
+           /* @__PURE__ */ jsxs3("div", {
+-            className: "flex flex-1 justify-end space-x-2",
++            className: "flex flex-1 justify-end gap-2",
+             children: [
+               preloaded && /* @__PURE__ */ jsx6("button", {
+                 onMouseEnter: () => playSound("mouseover"),
+@@ -1301,7 +1301,7 @@ function GameView({
+         ]
+       }),
+       /* @__PURE__ */ jsx6("div", {
+-        className: "absolute bottom-4 right-4 z-[120] space-x-2",
++        className: "absolute bottom-4 right-4 z-[120] flex gap-2",
+         children: preloaded && /* @__PURE__ */ jsxs3(Fragment2, {
+           children: [
+             /* @__PURE__ */ jsx6("button", {
+@@ -1540,7 +1540,7 @@ function MenuView({
+     ),
+     style,
+     children: /* @__PURE__ */ jsxs4("div", {
+-      className: "pointer-events-auto flex flex-col items-center space-y-2",
++      className: "pointer-events-auto flex flex-col items-center gap-2",
+       children: [
+         !!label && /* @__PURE__ */ jsx8(motion3.span, {
+           variants: itemAnimation,
+@@ -1643,7 +1643,7 @@ function TextView({
+       }[placement]
+     ),
+     children: /* @__PURE__ */ jsxs5("div", {
+-      className: "pointer-events-auto z-10 flex flex-col items-center space-y-2",
++      className: "pointer-events-auto z-10 flex flex-col items-center gap-2",
+       children: [
+         tag && /* @__PURE__ */ jsx9(motion4.span, {
+           variants: {

@@ -19,7 +19,7 @@ export function Hero({
   return (
     <Reveal
       className={twMerge(
-        "container mx-auto grid grid-flow-row gap-8 p-8 pb-16 lg:grid-flow-col lg:justify-items-start",
+        "container grid grid-flow-row gap-8 p-8 pb-16 lg:grid-flow-col lg:justify-items-start",
         className,
       )}
       {...restProps}

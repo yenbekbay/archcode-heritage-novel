@@ -16,6 +16,6 @@ packageExtensions:
     dependencies:
       prop-types: 15.8.1
 patchedDependencies:
-  # Preserve the game API while correcting its pre-React 19 JSX namespace and
-  # Motion control type. The runtime exports already use the upgraded Motion.
+  # Preserve the game API while correcting React and Motion declarations.
+  # Native gaps retain label and toolbar spacing across Tailwind versions.
   react-visual-novel@0.2.2: patches/react-visual-novel@0.2.2.patch

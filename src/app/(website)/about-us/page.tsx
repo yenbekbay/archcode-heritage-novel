@@ -56,7 +56,7 @@ export default function AboutUs() {
 
         <div className="absolute inset-0 bg-black/50" />
 
-        <div className="container mx-auto grid grid-cols-1 justify-items-center gap-8 lg:grid-cols-2">
+        <div className="container grid grid-cols-1 justify-items-center gap-8 lg:grid-cols-2">
           <TeamMemberCard
             photoSrc={polaroidAnelPng}
             name="Анель Молдахметова"

@@ -110,6 +110,10 @@
   }
 }
 
+@utility container {
+  margin-inline: auto;
+}
+
 /* NOTE: Editorial actions and story controls share focus, press, and disabled states. */
 @utility action-button {
   --button-bg: var(--color-chicago-500);
