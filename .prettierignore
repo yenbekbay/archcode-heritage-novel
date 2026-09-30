@@ -4,7 +4,9 @@
 /.next/
 /.tmp/
 /.vercel/
-/__generated__/
+/src/__generated__/
 /node_modules/
 /pnpm-lock.yaml
 /public/
+
+/.pnpm-store/

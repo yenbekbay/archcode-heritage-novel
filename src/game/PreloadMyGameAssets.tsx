@@ -1,0 +1,16 @@
+import * as assets from "#assets/game/index.ts";
+import { usePreloadAssets } from "react-visual-novel";
+
+export type PreloadMyGameAssetsProps = {
+  concurrency?: number;
+  onLoaded?: () => void;
+};
+
+export default function PreloadMyGameAssets({
+  concurrency,
+  onLoaded,
+}: PreloadMyGameAssetsProps) {
+  usePreloadAssets(assets, { concurrency, onLoaded });
+
+  return null;
+}

@@ -14,9 +14,11 @@
   },
   "files.readonlyInclude": {
     ".next/**": true,
+    ".pnpm-store/**": true,
+    "public/__generated__/**": true,
     ".tmp/**": true,
     ".vercel/**": true,
-    "__generated__/**": true,
+    "src/__generated__/**": true,
     "next-env.d.ts": true,
     "node_modules/**": true,
     "pnpm-lock.yaml": true

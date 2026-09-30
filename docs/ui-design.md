@@ -1,6 +1,6 @@
 # UI design
 
-This document owns the product's recurring visual and interaction grammar across the editorial website and visual novel. Exact classes, tokens, component APIs, assets, and motion values remain in `main.css`, the Tailwind configuration, `components/`, and `game/`.
+This document owns the product's recurring visual and interaction grammar across the editorial website and visual novel. Exact classes, tokens, component APIs, assets, and motion values remain in `src/main.css`, the Tailwind configuration, `src/components/`, and `src/game/`.
 
 | Decision | Read |
 | --- | --- |

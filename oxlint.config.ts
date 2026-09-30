@@ -6,8 +6,9 @@ export default defineConfig({
   ignorePatterns: [
     ".local/**",
     ".next/**",
+    ".pnpm-store/**",
     ".tmp/**",
-    "__generated__/**",
+    "src/__generated__/**",
     "next-env.d.ts",
     "node_modules/**",
     "pnpm-lock.yaml",

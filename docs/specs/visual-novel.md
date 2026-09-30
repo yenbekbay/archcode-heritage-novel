@@ -10,7 +10,7 @@ The play route loads the complete game asset set before starting the story at th
 
 A branch sequences backgrounds, character images, dialogue, sound, timed statements, commands, and player choices. A choice advances within the branch or names another branch destination. The runtime must present one current statement or choice state and must not claim a later outcome before the associated command completes.
 
-Game completion can return the player home, open the saved-links surface, or open feedback when the ending provides those actions. The exact ending and branch text remain in `game/branches/` and `game/commands/`.
+Game completion can return the player home, open the saved-links surface, or open feedback when the ending provides those actions. The exact ending and branch text remain in `src/game/branches/` and `src/game/commands/`.
 
 ## External reading
 
@@ -34,12 +34,12 @@ The capability is acceptable when the asset set reaches a ready state, each offe
 
 ## Implementation owners
 
-- `game/MyGame.tsx` owns game assembly, initial branch selection, loading states, external-link interception, sound binding, and home navigation.
-- `game/branches/` owns exact story content and branch destinations.
-- `game/commands/` owns optional participation flows and ending actions.
-- `game/LinkPrompt.tsx` owns saved-link persistence and the external destination decision.
-- `assets/game/` owns the source-controlled visual and audio set.
-- `api/supabase.ts` and provider-facing code in `game/commands/SubmitMeme.tsx` own exact external requests.
+- `src/game/MyGame.tsx` owns game assembly, initial branch selection, loading states, external-link interception, sound binding, and home navigation.
+- `src/game/branches/` owns exact story content and branch destinations.
+- `src/game/commands/` owns optional participation flows and ending actions.
+- `src/game/LinkPrompt.tsx` owns saved-link persistence and the external destination decision.
+- `src/assets/game/` owns the source-controlled visual and audio set.
+- `src/api/supabase.ts` and provider-facing code in `src/game/commands/SubmitMeme.tsx` own exact external requests.
 
 ## Maintenance
 

@@ -13,21 +13,21 @@
     "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "preserve",
+    "jsx": "react-jsx",
     "noUncheckedIndexedAccess": true,
-    "paths": {
-      "*": ["./*"]
-    },
     "plugins": [
       {
         "name": "next"
       }
-    ]
+    ],
+    "allowImportingTsExtensions": true,
+    "verbatimModuleSyntax": true,
+    "tsBuildInfoFile": "node_modules/.tmp/tsconfig.tsbuildinfo"
   },
-  "exclude": ["node_modules"],
+  "exclude": ["node_modules", "public", ".tmp", ".pnpm-store"],
   "include": [
     ".next/types/**/*.ts",
-    "custom-env.d.ts",
+    ".next/dev/types/**/*.ts",
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",

@@ -1,0 +1,141 @@
+diff --git a/dist/index.d.ts b/dist/index.d.ts
+index 381d4d5..1436be8 100644
+--- a/dist/index.d.ts
++++ b/dist/index.d.ts
+@@ -1,16 +1,16 @@
+-import { Variant, AnimationControls } from 'framer-motion';
++import { Variant, LegacyAnimationControls as AnimationControls } from 'framer-motion';
+ import React$1 from 'react';
+ import { Property } from 'csstype';
+ 
+ interface BranchProps {
+     children?: React$1.ReactElement[] | React$1.ReactElement;
+ }
+-declare function Branch({ children: childrenProp }: BranchProps): JSX.Element;
++declare function Branch({ children: childrenProp }: BranchProps): React$1.JSX.Element;
+ interface LabelProps {
+     label: string;
+     children: React$1.ReactNode;
+ }
+-declare function Label({ children }: LabelProps): JSX.Element;
++declare function Label({ children }: LabelProps): React$1.JSX.Element;
+ 
+ interface Branches {
+ }
+@@ -44,7 +44,7 @@ interface BranchProviderProps {
+     branchId: BranchId;
+     children: React$1.ReactNode;
+ }
+-declare function BranchProvider({ branchId, children }: BranchProviderProps): JSX.Element;
++declare function BranchProvider({ branchId, children }: BranchProviderProps): React$1.JSX.Element;
+ declare function useBranchContext(): BranchContextValue;
+ 
+ interface GameLocation {
+@@ -79,7 +79,7 @@ interface GameProviderProps {
+     onPlaySound?: (name: SoundName) => void;
+     onGoHome?: () => void;
+ }
+-declare function GameProvider({ children, initialBranchId, onLinkClick, onPlaySound, onGoHome, }: GameProviderProps): JSX.Element;
++declare function GameProvider({ children, initialBranchId, onLinkClick, onPlaySound, onGoHome, }: GameProviderProps): React$1.JSX.Element;
+ declare function useGameContext(): GameContextValue;
+ 
+ interface StatementContextValue {
+@@ -96,7 +96,7 @@ interface StatementProviderProps {
+     statementLabel?: string | null;
+     children: React$1.ReactNode;
+ }
+-declare function StatementProvider({ statementIndex, statementLabel, children, }: StatementProviderProps): JSX.Element;
++declare function StatementProvider({ statementIndex, statementLabel, children, }: StatementProviderProps): React$1.JSX.Element;
+ declare function useStatementContext(): StatementContextValue;
+ 
+ interface AudioSource {
+@@ -148,7 +148,7 @@ interface CommandProps {
+     next?: number | string;
+     zIndex?: number | 'auto';
+ }
+-declare function Command({ name: command, children, behavior, audio: audioSrc, hide, next, zIndex, }: CommandProps): JSX.Element;
++declare function Command({ name: command, children, behavior, audio: audioSrc, hide, next, zIndex, }: CommandProps): React$1.JSX.Element;
+ 
+ interface GameProps {
+     assets: Record<string, string | {
+@@ -161,7 +161,7 @@ interface GameProps {
+     onGoHome?: () => void;
+     children?: (render: () => React$1.ReactNode, preloadRes: Result<Error, undefined>, preloadProgress: number) => React$1.ReactNode;
+ }
+-declare function Game({ assets, branches, initialBranchId, onLinkClick, onPlaySound, onGoHome, children, }: GameProps): JSX.Element;
++declare function Game({ assets, branches, initialBranchId, onLinkClick, onPlaySound, onGoHome, children, }: GameProps): React$1.JSX.Element;
+ declare function prepareBranches<TRawBranches extends Record<string, React$1.ComponentType>>(_branches: TRawBranches): { [K in keyof TRawBranches as K extends `Branch${infer TId}` ? TId : never]: TRawBranches[K]; };
+ 
+ declare type CharGroup = {
+@@ -197,7 +197,7 @@ interface ImageViewProps {
+     animation?: CommandViewAnimation;
+     controls: AnimationControls;
+ }
+-declare function ImageView({ uri, align, style, animation, controls, }: ImageViewProps): JSX.Element;
++declare function ImageView({ uri, align, style, animation, controls, }: ImageViewProps): React$1.JSX.Element;
+ 
+ interface MenuContext {
+     goToBranch: (branchId: BranchId) => void;
+@@ -221,7 +221,7 @@ interface MenuViewProps {
+     scheme?: CommandViewColorScheme;
+     controls: AnimationControls;
+ }
+-declare function MenuView({ choices, label, size, placement, style, scheme, controls, }: MenuViewProps): JSX.Element;
++declare function MenuView({ choices, label, size, placement, style, scheme, controls, }: MenuViewProps): React$1.JSX.Element;
+ 
+ declare type TextPlacement = 'top' | 'middle' | 'bottom';
+ interface TextViewProps {
+@@ -237,18 +237,18 @@ interface TextViewProps {
+     frame?: Frame;
+     scheme?: CommandViewColorScheme;
+ }
+-declare function TextView({ groups, controls, tag, placement, style, frame, scheme, }: TextViewProps): JSX.Element;
++declare function TextView({ groups, controls, tag, placement, style, frame, scheme, }: TextViewProps): React$1.JSX.Element;
+ 
+ interface MenuProps extends Pick<CommandProps, 'audio' | 'hide' | 'next' | 'zIndex'>, Omit<MenuViewProps, 'controls'> {
+     image?: string | Omit<ImageViewProps, 'controls'>;
+ }
+-declare function Menu({ image, audio, hide, next, zIndex, ...menuProps }: MenuProps): JSX.Element;
++declare function Menu({ image, audio, hide, next, zIndex, ...menuProps }: MenuProps): React$1.JSX.Element;
+ 
+ interface PlayProps {
+     audio?: CommandAudioConfig;
+     hide?: number | ((statement: Statement) => boolean);
+ }
+-declare function Play({ audio, hide }: PlayProps): JSX.Element;
++declare function Play({ audio, hide }: PlayProps): React$1.JSX.Element;
+ 
+ interface SayProps extends Pick<CommandProps, 'audio' | 'hide' | 'next' | 'zIndex'>, Omit<TextViewProps, 'groups' | 'controls'> {
+     children: string;
+@@ -257,7 +257,7 @@ interface SayProps extends Pick<CommandProps, 'audio' | 'hide' | 'next' | 'zInde
+     durationMs?: number;
+     scrim?: boolean;
+ }
+-declare function Say({ children, placement, scheme, image, menu, durationMs, scrim, audio, hide, next, zIndex, ...textProps }: SayProps): JSX.Element;
++declare function Say({ children, placement, scheme, image, menu, durationMs, scrim, audio, hide, next, zIndex, ...textProps }: SayProps): React$1.JSX.Element;
+ 
+ interface SceneSource {
+     uri: string;
+@@ -269,19 +269,19 @@ interface SceneProps {
+     audio?: CommandAudioConfig;
+     durationMs?: number;
+ }
+-declare function Scene({ src: srcProp, audio, durationMs }: SceneProps): JSX.Element;
++declare function Scene({ src: srcProp, audio, durationMs }: SceneProps): React$1.JSX.Element;
+ 
+ declare type ShowSource = Omit<ImageViewProps, 'controls'>;
+ interface ShowProps extends Pick<CommandProps, 'audio' | 'hide' | 'next' | 'zIndex'> {
+     src: string | ShowSource | Array<string | ShowSource>;
+     durationMs?: number;
+ }
+-declare function Show({ src: srcProp, durationMs, audio, hide, next, zIndex, }: ShowProps): JSX.Element;
++declare function Show({ src: srcProp, durationMs, audio, hide, next, zIndex, }: ShowProps): React$1.JSX.Element;
+ 
+ interface TitleProps extends Pick<CommandProps, 'hide'> {
+     children: string;
+     durationMs?: number;
+ }
+-declare function Title({ children, durationMs, hide }: TitleProps): JSX.Element;
++declare function Title({ children, durationMs, hide }: TitleProps): React$1.JSX.Element;
+ 
+ export { Branch, BranchContextValue, BranchId, BranchProps, BranchProvider, BranchProviderProps, Branches, CharGroup, Choice, Command, CommandAudioConfig, CommandProps, CommandViewAnimation, CommandViewColorScheme, Frame, Game, GameContextValue, GameOptions, GameProps, GameProvider, GameProviderProps, ImageView, ImageViewProps, Label, LabelProps, Menu, MenuPlacement, MenuProps, MenuSize, MenuView, MenuViewProps, Play, PlayProps, Say, SayProps, Scene, SceneProps, SceneSource, Show, ShowProps, ShowSource, SoundName, Statement, StatementBehavior, StatementContextValue, StatementProvider, StatementProviderProps, TextPlacement, TextView, TextViewProps, Title, TitleProps, charGroupsForMarkdown, prepareBranches, styleForFrame, useBranchContext, useGameContext, usePreloadAssets, useStatementContext };

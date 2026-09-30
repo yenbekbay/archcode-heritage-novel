@@ -1,6 +1,16 @@
 /** @type {import('next').NextConfig} */
 const config = {
   reactStrictMode: true,
+  agentRules: false,
+  cacheComponents: true,
+  partialPrefetching: true,
+  images: {
+    formats: ["image/avif", "image/webp"],
+    minimumCacheTTL: 31_536_000,
+  },
+  experimental: {
+    optimizePackageImports: ["phosphor-react"],
+  },
   transpilePackages: [
     "@microlink/mql",
     "path-data-parser",
@@ -9,9 +19,13 @@ const config = {
     "react-rough",
     "roughjs",
   ],
-  i18n: {
-    locales: ["ru"],
-    defaultLocale: "ru",
+  redirects() {
+    // NOTE: Keep the former explicit default-locale URLs reachable without
+    // introducing a second canonical copy of this Russian-only website.
+    return Promise.resolve([
+      { source: "/ru", destination: "/", permanent: true },
+      { source: "/ru/:path*", destination: "/:path*", permanent: true },
+    ]);
   },
   headers() {
     return Promise.resolve([

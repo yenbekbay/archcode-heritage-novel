@@ -2,7 +2,7 @@ import { createHash } from "node:crypto";
 import { mkdir, readFile, readdir, writeFile } from "node:fs/promises";
 import { basename, join } from "node:path";
 
-const sourceDirectory = "assets/game/sounds";
+const sourceDirectory = "src/assets/game/sounds";
 const outputDirectory = "public/__generated__/audio";
 const entries = await readdir(sourceDirectory);
 
@@ -11,13 +11,13 @@ const filenames = entries
   .toSorted();
 
 await mkdir(outputDirectory, { recursive: true });
-await mkdir("__generated__", { recursive: true });
+await mkdir("src/__generated__", { recursive: true });
 
 const declarations = await Promise.all(
   filenames.map((filename) => generateAudio(filename)),
 );
 
-await writeFile("__generated__/audio.ts", `${declarations.join("\n")}\n`);
+await writeFile("src/__generated__/audio.ts", `${declarations.join("\n")}\n`);
 
 /** @param {string} filename - Retained source audio filename. */
 async function generateAudio(filename) {

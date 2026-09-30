@@ -18,13 +18,13 @@ Interactive visual novel and editorial website about Almaty architectural herita
 ## Boundaries
 
 - Ask first before regenerating the Supabase schema, submitting game content to Supabase or Imgflip, deploying, or mutating another provider.
-- Always treat `__generated__/supabase.ts` as durable generated output owned by `pnpm run supabase-generate`; do not hand-edit it.
+- Always treat `src/__generated__/supabase.ts` as durable generated output owned by `pnpm run supabase-generate`; do not hand-edit it.
 - Always preserve the Russian-only route contract unless the task explicitly changes localization.
-- Never add an `app/` directory, React Server Components, `'use client'` directives, or `layout.tsx` files because this project uses the Next.js Pages Router.
+- Always keep route files under `src/app/`. Keep editorial pages as Server Components and mark browser-dependent component boundaries with `'use client'`.
 
 ## Stack
 
-- Next.js Pages Router with React, TypeScript, Tailwind CSS, DaisyUI, Framer Motion, and React Visual Novel.
+- Next.js App Router with React, TypeScript, Tailwind CSS, DaisyUI, Framer Motion, and React Visual Novel.
 - Supabase for submitted game content and Imgflip for meme generation.
 
 ## Structure
@@ -41,9 +41,9 @@ The documentation map accounts for each living owner and dynamic family. Read th
 | `docs/runbooks/local-setup.md` | Local setup runbook | Toolchain bootstrap, dependency installation, environment recovery, or smoke checks | The procedure's target, preconditions, commands, recovery, or verification |
 
 - Let `pnpm-workspace.yaml` own allowed dependency builds.
-- Keep user-facing routes under `pages/`, shared website components under `components/`, and visual-novel state and branches under `game/`.
-- Keep imported images and audio under `assets/`, global Tailwind source in `main.css`, and generated artifacts under `__generated__/`.
-- Treat `api/index.ts`, `components/index.ts`, `game/branches/index.ts`, `game/commands/index.ts`, and `game/commands/internal/index.ts` as durable generated outputs owned by `pnpm run generate:barrels`.
+- Keep user-facing routes under `src/app/`, shared website components under `src/components/`, and visual-novel state and branches under `src/game/`.
+- Keep imported images and audio under `src/assets/`, global Tailwind source in `src/main.css`, and generated artifacts under `src/__generated__/`.
+- Treat `src/api/index.ts`, `src/components/index.ts`, `src/game/branches/index.ts`, `src/game/commands/index.ts`, and `src/game/commands/internal/index.ts` as durable generated outputs owned by `pnpm run generate:barrels`.
 
 ## Commands
 

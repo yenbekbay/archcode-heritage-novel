@@ -4,11 +4,12 @@
 /.env
 /.env*.local
 /.next/
+/.pnpm-store/
 /.tmp/
 /.vercel/
 /*.tsbuildinfo
-/__generated__/audio.ts
-/__generated__/main.css
+/src/__generated__/audio.ts
+/src/__generated__/main.css
 /build
 /coverage
 /next-env.d.ts

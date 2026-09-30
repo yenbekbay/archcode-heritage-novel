@@ -6,3 +6,16 @@ allowBuilds:
   utf-8-validate: true
 minimumReleaseAgeExclude:
   - "@utilfirst/eslint-plugin@0.4.7 || 0.4.8"
+overrides:
+  # The game and its commands exchange animation controls. Both must resolve
+  # the same React 19-compatible Motion implementation.
+  react-visual-novel>framer-motion: 13.1.1
+packageExtensions:
+  # The published Disqus modules import this development-only dependency.
+  disqus-react@1.1.7:
+    dependencies:
+      prop-types: 15.8.1
+patchedDependencies:
+  # Preserve the game API while correcting its pre-React 19 JSX namespace and
+  # Motion control type. The runtime exports already use the upgraded Motion.
+  react-visual-novel@0.2.2: patches/react-visual-novel@0.2.2.patch

@@ -1,0 +1,91 @@
+import { Dialog, LinkCard } from "#components/index.ts";
+import { AnimatePresence } from "framer-motion";
+import { useSetAtom } from "jotai";
+import { X as XIcon } from "phosphor-react";
+import { toast } from "react-hot-toast";
+import { uniqBy } from "remeda";
+import { savedLinksAtom, type SavedLink } from "./saved-links";
+import { playSound } from "./sounds";
+
+export type LinkPromptProps = {
+  link: SavedLink | null;
+  onClose: () => void;
+};
+
+export function LinkPrompt({ link, onClose }: LinkPromptProps) {
+  const setSavedLinks = useSetAtom(savedLinksAtom);
+
+  return (
+    <AnimatePresence>
+      {link && (
+        <Dialog
+          open
+          onOpenChange={(newOpen) => {
+            if (!newOpen) {
+              onClose();
+            }
+          }}
+        >
+          <Dialog.Close asChild>
+            <button
+              onMouseEnter={() => {
+                playSound("mouseover");
+              }}
+              onClick={() => {
+                playSound("click");
+              }}
+              className="btn btn-circle btn-ghost bg-base-100 text-xl shadow-md hover:bg-base-200"
+            >
+              <XIcon />
+            </button>
+          </Dialog.Close>
+
+          <div className="flex flex-col space-y-4 overflow-auto">
+            <LinkCard
+              url={link.href}
+              size="sm"
+              className="prose shrink-0 overflow-hidden rounded-md border border-content"
+            />
+
+            <div className="btn-group">
+              <Dialog.Close
+                onMouseEnter={() => {
+                  playSound("mouseover");
+                }}
+                onClick={() => {
+                  playSound("click");
+                  window.open(link.href, "_blank");
+                }}
+                className="btn btn-outline"
+              >
+                Читать сейчас
+              </Dialog.Close>
+
+              <Dialog.Close
+                onMouseEnter={() => {
+                  playSound("mouseover");
+                }}
+                onClick={() => {
+                  playSound("click");
+                  setSavedLinks((prev) =>
+                    uniqBy([...prev, link], (l) => l.href),
+                  );
+                  toast.success("Ссылка сохранена");
+                }}
+                className="btn border-base-content hover:border-base-content"
+              >
+                Сохранить
+              </Dialog.Close>
+            </div>
+
+            <div className="prose prose-sm">
+              <blockquote>
+                Доступ к сохранённым ссылкам можно получить в конце игры.
+              </blockquote>
+            </div>
+          </div>
+        </Dialog>
+      )}
+    </AnimatePresence>
+  );
+}

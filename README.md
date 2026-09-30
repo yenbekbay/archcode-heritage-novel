@@ -4,7 +4,7 @@
 
 «Снести нельзя оставить» is a Russian-language editorial website and interactive visual novel about Almaty architectural heritage and collective memory. It was created for [Archcode Almaty](https://archcode.kz/).
 
-The repository contains the Next.js Pages Router website, the `react-visual-novel` story and assets, optional Supabase and Imgflip participation flows, generated source artifacts, and the living product, architecture, UI-design, capability, and setup contracts.
+The repository contains the Next.js 16.3 App Router website, server-rendered editorial routes, the browser-run `react-visual-novel` story and assets under `src/`, optional Supabase and Imgflip participation flows, generated source artifacts, and the living product, architecture, UI-design, capability, and setup contracts.
 
 ![Snesti nelʹzâ ostavitʹ website and game](.github/showcase.jpeg)
 

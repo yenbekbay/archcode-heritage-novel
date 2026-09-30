@@ -54,7 +54,7 @@ const palette = {
  */
 const config = {
   content: [
-    "./{components,game,pages}/**/*.{ts,tsx}",
+    "./src/{app,components,game}/**/*.{ts,tsx}",
     "./node_modules/react-visual-novel/dist/index.js",
   ],
   theme: {
@@ -67,8 +67,8 @@ const config = {
         "content-invert-focus": palette["rum-swizzle"][100],
       },
       fontFamily: {
-        sans: ["IBM Plex Mono", ...defaultTheme.fontFamily.mono],
-        script: ["calligraph"],
+        sans: ["var(--font-ibm-plex-mono)", ...defaultTheme.fontFamily.mono],
+        script: ["var(--font-calligraph)"],
       },
       keyframes: {
         "bounce-gentle": {
