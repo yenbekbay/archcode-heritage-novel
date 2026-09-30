@@ -12,6 +12,7 @@
   "scripts": {
     "barrels-check": "pnpm run generate:barrels && git diff --quiet -- api/index.ts components/index.ts game/branches/index.ts game/commands/index.ts game/commands/internal/index.ts",
     "build": "pnpm run generate && next build",
+    "check": "pnpm run generate && pnpm run '/^lint:[^:]+$/'",
     "dev": "pnpm run generate && pnpm run --parallel '/^dev:[^:]+$/'",
     "dev:css": "pnpm run generate:css --watch",
     "dev:next": "next dev",
@@ -21,7 +22,7 @@
     "generate": "pnpm run --sequential '/^generate:[^:]+$/'",
     "generate:barrels": "node scripts/generate-barrels.mjs",
     "generate:css": "tailwindcss -i main.css -o __generated__/main.css",
-    "lint": "pnpm run generate && pnpm run --sequential '/^lint:[^:]+$/'",
+    "lint": "pnpm run generate && pnpm run '/^lint:[^:]+$/'",
     "lint:oxlint": "oxlint .",
     "lint:prettier": "prettier --check --cache .",
     "start": "next start",
