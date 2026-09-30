@@ -28,7 +28,8 @@ pnpm install
 Restore the ignored canonical environment file and restrict it to the current user:
 
 ```sh
-mise exec -- fnox export > .env.local
+umask 077
+mise exec -- fnox export --if-missing error --output .env.local
 chmod 600 .env.local
 ```
 

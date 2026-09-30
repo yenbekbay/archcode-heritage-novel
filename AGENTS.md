@@ -47,7 +47,7 @@ The documentation map accounts for each living owner and dynamic family. Read th
 
 ## Commands
 
-- `mise exec -- fnox export > .env.local`: restore the canonical ignored local environment.
+- `(umask 077; mise exec -- fnox export --if-missing error --output .env.local) && chmod 600 .env.local`: restore the canonical ignored local environment.
 - `pnpm run dev`: generate local artifacts and start the CSS and Next.js watchers.
 - `pnpm run build`: generate local artifacts and create a production build.
 - `pnpm run check` / `pnpm run lint`: generate local artifacts, then run the Oxlint and Prettier leaves concurrently. Oxlint includes the TypeScript check.
