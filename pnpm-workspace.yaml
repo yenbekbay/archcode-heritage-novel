@@ -7,6 +7,9 @@ allowBuilds:
 minimumReleaseAgeExclude:
   - "@utilfirst/eslint-plugin@0.4.7 || 0.4.8"
 overrides:
+  # The published 0.2.2 runtime and declarations import neither package.
+  "react-visual-novel@0.2.2>@radix-ui/react-popover": "-"
+  "react-visual-novel@0.2.2>@radix-ui/react-use-rect": "-"
   # The game and its commands exchange animation controls. Both must resolve
   # the same React 19-compatible Motion implementation.
   react-visual-novel>framer-motion: 13.1.1
