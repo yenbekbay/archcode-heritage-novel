@@ -1,10 +1,9 @@
 "use client";
 
-import { buildPlayHref } from "#lib/routes.ts";
-
 import { bgArchcodeOfficeJpg } from "#assets/game/index.ts";
 import { Link } from "#components/Link.tsx";
 import { useSavedLinks } from "#game/saved-links.ts";
+import { buildPlayHref } from "#lib/routes.ts";
 import { Hero } from "./Hero";
 import { HeroBackground } from "./HeroBackground";
 import { LinkCard } from "./LinkCard";
@@ -45,7 +44,7 @@ export function SavedLinks() {
                 key={l.href}
                 contentClassName="max-w-none p-1"
               >
-                <LinkCard url={l.href} />
+                <LinkCard url={l.href} asChild />
               </RoughCard>
             ))}
           </div>

@@ -209,10 +209,9 @@ function TeamMemberCard({
       <div className="grid grid-flow-row gap-4 md:grid-flow-col">
         <Image
           src={photoSrc}
-          sizes="(min-width: 768px) 192px, min(560px, calc(100vw - 64px))"
           alt={`Фотография: ${name}`}
           className={twMerge(
-            "my-0 w-[min(35rem,calc(100vw-4rem))] md:w-48 md:min-w-48",
+            "my-0 min-w-24",
             align === "right" && "md:order-2 lg:order-none",
           )}
         />

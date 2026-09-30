@@ -2,6 +2,7 @@
 
 import type { ImageInfo, MqlResponseData } from "@microlink/mql";
 import mql from "@microlink/mql";
+import { Slot } from "@radix-ui/react-slot";
 import React from "react";
 import useSWR from "swr";
 import { twMerge } from "tailwind-merge";
@@ -32,6 +33,7 @@ type LinkCardViewProps = {
   image?: ImageInfo | null;
   screenshot?: ImageInfo | null;
   size?: "md" | "sm";
+  asChild?: boolean;
 } & Omit<React.ComponentPropsWithoutRef<"div">, "title" | "lang">;
 
 function LinkCardView({
@@ -41,10 +43,13 @@ function LinkCardView({
   image,
   screenshot,
   size = "md",
+  asChild,
   ...restProps
 }: LinkCardViewProps) {
+  const Container = asChild === true ? Slot : "div";
+
   return (
-    <div {...restProps}>
+    <Container {...restProps}>
       <a
         href={url}
         target="_blank"
@@ -92,7 +97,7 @@ function LinkCardView({
           </p>
         )}
       </a>
-    </div>
+    </Container>
   );
 }
 

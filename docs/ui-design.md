@@ -39,7 +39,7 @@ Motion supports reveals, scene progression, dialog presence, and game-state tran
 
 ## Responsive and accessibility behavior
 
-Team portraits fill their card width on narrow viewports and use a fixed 12rem width from the medium breakpoint. The shared image component uses retained image dimensions and blur placeholders, and each caller declares its rendered width. Editorial content keeps a coherent source order as the hero, cards, and navigation change layout. Controls require accessible names and keyboard-operable semantics. Dialog focus and dismissal remain within the shared dialog primitive. Text cannot rely on an image or sound alone to communicate the next required action. The Russian-only product keeps its interface language consistent across website and game surfaces.
+Preserve the existing card proportions, portrait sizing, reveal timing, annotation treatment, parallax backgrounds, dialog transitions, and game controls during framework changes. The shared image component keeps retained dimensions and the existing empty-placeholder presentation. Responsive widths are declared when the layout fixes them. Editorial content keeps a coherent source order as the hero, cards, and navigation change layout. Controls require accessible names and keyboard-operable semantics. Dialog focus and dismissal remain within the shared dialog primitive. Text cannot rely on an image or sound alone to communicate the next required action. The Russian-only product keeps its interface language consistent across website and game surfaces.
 
 ## Exceptions
 

@@ -26,11 +26,11 @@ export function Reveal(props: RevealProps) {
 
   return (
     <MotionComponent
-      {...restProps}
       ref={mergeRefs([internalRef, ref])}
       animate={isInView ? "visible" : "hidden"}
       variants={variants}
       initial="hidden"
+      {...restProps}
     />
   );
 }

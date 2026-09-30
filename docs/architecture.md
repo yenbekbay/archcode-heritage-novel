@@ -48,7 +48,7 @@ The repository build generates audio, barrels, CSS, and Next.js route declaratio
 
 - `next.config.mjs` owns Cache Components, partial prefetching, asset caching, and former locale redirects.
 - `src/app/` and `src/components/` own website routing and editorial composition. The small shared component family stays flat, and the game has its own source owner.
-- `src/lib/routes.ts` owns internal URL construction, and `src/components/Link.tsx` owns the framework link handoff and keyboard focus outline. `src/components/Image.tsx` owns local-image placeholders and eager loading, with rendered widths declared by callers.
+- `src/lib/routes.ts` owns internal URL construction, and `src/components/Link.tsx` owns the framework link handoff and keyboard focus outline. `src/components/Image.tsx` owns local-image loading, preserves the empty-placeholder presentation, and accepts rendered widths from callers.
 - `src/config/env.ts` owns environment validation.
 - `src/config/website.ts` owns website identity. `src/lib/metadata.ts` owns static metadata, and `src/proxy.ts` owns the host indexing boundary.
 - `src/game/branches/`, `src/game/commands/`, and `src/game/MyGame.tsx` own the playable graph and runtime binding.

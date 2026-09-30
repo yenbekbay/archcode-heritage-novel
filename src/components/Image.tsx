@@ -8,18 +8,11 @@ type ImageProps = Omit<
   "src" | "priority" | "preload" | "placeholder" | "sizes"
 > & {
   src: StaticImageData;
-  sizes: string;
+  sizes?: string;
   eager?: boolean;
 };
 
 export function Image(props: ImageProps) {
   const { eager, ...restProps } = props;
-
-  return (
-    <NextImage
-      {...restProps}
-      preload={eager}
-      placeholder={props.src.blurDataURL === undefined ? "empty" : "blur"}
-    />
-  );
+  return <NextImage {...restProps} preload={eager} placeholder="empty" />;
 }

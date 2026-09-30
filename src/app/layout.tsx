@@ -31,12 +31,14 @@ const ibmPlexMono = localFont({
     },
   ],
   display: "swap",
+  adjustFontFallback: false,
   variable: "--font-ibm-plex-mono",
 });
 
 const calligraph = localFont({
   src: "../../public/fonts/calligraph.woff2",
   display: "block",
+  adjustFontFallback: false,
   variable: "--font-calligraph",
 });
 
