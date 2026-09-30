@@ -38,7 +38,7 @@ export function Dialog(props: DialogProps) {
               scale: 0.95,
               transition: { ease: "easeIn", duration: 0.2 },
             }}
-            className="fixed left-1/2 top-1/2 z-[1010] flex max-h-[95vh] w-[95vw] max-w-md flex-col space-y-4 rounded-lg bg-base-100 p-4 md:w-full"
+            className="fixed top-1/2 left-1/2 z-[1010] flex max-h-[95vh] w-[95vw] max-w-md flex-col gap-y-4 rounded-lg bg-white p-4 md:w-full"
           >
             {props.children}
           </motion.div>

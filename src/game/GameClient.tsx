@@ -19,7 +19,7 @@ export function GameClient() {
 
 export function GameLoading() {
   return (
-    <main className="h-screen-safe flex items-center justify-center">
+    <main className="flex h-dvh items-center justify-center">
       <output>Загрузка игры…</output>
     </main>
   );

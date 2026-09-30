@@ -24,7 +24,7 @@ Interactive visual novel and editorial website about Almaty architectural herita
 
 ## Stack
 
-- Next.js App Router with React, TypeScript, Tailwind CSS, DaisyUI, Framer Motion, and React Visual Novel.
+- Next.js App Router with React, TypeScript, Tailwind CSS 4, Framer Motion, and React Visual Novel.
 - Supabase for submitted game content and Imgflip for meme generation.
 
 ## Structure
@@ -48,7 +48,7 @@ The documentation map accounts for each living owner and dynamic family. Read th
 ## Commands
 
 - `(umask 077; mise exec -- fnox export --if-missing error --output .env.local) && chmod 600 .env.local`: restore the canonical ignored local environment.
-- `pnpm run dev`: generate local artifacts and start the CSS and Next.js watchers.
+- `pnpm run dev`: generate local artifacts and start Next.js with PostCSS stylesheet compilation.
 - `pnpm run build`: generate local artifacts and create a production build.
 - `pnpm run check` / `pnpm run lint`: generate local artifacts, then run the Oxlint and Prettier leaves concurrently. Oxlint includes the TypeScript check.
 - `pnpm run fix`: apply Oxlint and Prettier formatting.

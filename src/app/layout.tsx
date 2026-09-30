@@ -1,4 +1,4 @@
-import "#__generated__/main.css";
+import "#main.css";
 
 import { RootProviders } from "#components/RootProviders.tsx";
 import { buildRootMetadata } from "#lib/metadata.ts";

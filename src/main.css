@@ -1,67 +1,210 @@
-@import "tailwindcss/base";
-@import "tailwindcss/components";
-@import "tailwindcss/utilities";
+@import "tailwindcss" source(".");
 
-@layer components {
-  .prose.prose-invert {
-    --tw-prose-body: theme(colors.content-invert / 0.8);
-    --tw-prose-headings: theme(colors.content-invert);
-    --tw-prose-lead: theme(colors.content-invert);
-    --tw-prose-links: theme(colors.content-invert);
-    --tw-prose-bold: theme(colors.content-invert);
-    --tw-prose-counters: theme(colors.content-invert);
-    --tw-prose-bullets: theme(colors.content-invert / 0.5);
-    --tw-prose-hr: theme(colors.content-invert / 0.2);
-    --tw-prose-quotes: theme(colors.content-invert);
-    --tw-prose-quote-borders: theme(colors.content-invert / 0.2);
-    --tw-prose-captions: theme(colors.content-invert / 0.5);
-    --tw-prose-code: theme(colors.content-invert);
-    --tw-prose-th-borders: theme(colors.content-invert / 0.5);
-    --tw-prose-td-borders: theme(colors.content-invert / 0.2);
-  }
+/* NOTE: The story runtime publishes utility classes inside its distribution. */
+@source "../node_modules/react-visual-novel/dist/index.js";
 
-  .btn-invert {
-    @apply border-content-invert bg-content-invert text-content;
-  }
+@plugin "@tailwindcss/forms";
+@plugin "@tailwindcss/typography";
 
-  .btn-invert:hover,
-  .btn-invert.btn-active {
-    @apply border-content-invert-focus bg-content-invert-focus;
-  }
+@theme {
+  --color-chicago: #88867b;
+  --color-chicago-50: #dfdedb;
+  --color-chicago-100: #d5d5d1;
+  --color-chicago-200: #c2c1bb;
+  --color-chicago-300: #aeada6;
+  --color-chicago-400: #9b9a90;
+  --color-chicago-500: #88867b;
+  --color-chicago-600: #727167;
+  --color-chicago-700: #5d5c54;
+  --color-chicago-800: #403f39;
+  --color-chicago-900: #22221f;
+  --color-crail: #c1673f;
+  --color-crail-50: #eed5ca;
+  --color-crail-100: #e9c9ba;
+  --color-crail-200: #dfb09c;
+  --color-crail-300: #d5987d;
+  --color-crail-400: #cb7f5e;
+  --color-crail-500: #c1673f;
+  --color-crail-600: #975031;
+  --color-crail-700: #6d3a23;
+  --color-crail-800: #422315;
+  --color-crail-900: #180d08;
+  --color-rum-swizzle: #c1b12c;
+  --color-rum-swizzle-50: #f7f4dc;
+  --color-rum-swizzle-100: #f2edc7;
+  --color-rum-swizzle-200: #e9e09e;
+  --color-rum-swizzle-300: #dfd374;
+  --color-rum-swizzle-400: #d6c64b;
+  --color-rum-swizzle-500: #c1b12c;
+  --color-rum-swizzle-600: #988b23;
+  --color-rum-swizzle-700: #6e6519;
+  --color-rum-swizzle-800: #453f10;
+  --color-rum-swizzle-900: #1b1906;
+  --color-content: #5d5c54;
+  --color-content-focus: #403f39;
+  --color-content-invert: #f7f4dc;
+  --color-content-invert-focus: #f2edc7;
+  --color-primary: #c1673f;
+  --color-accent: #88867b;
+  --color-error: #ef4444;
+  --radius-control: 0.4rem;
+  --animate-bounce-gentle: bounce-gentle 1s infinite ease-in-out;
 
-  .btn-outline.btn-invert {
-    @apply bg-transparent;
-    color: theme(colors.content-invert / var(--tw-text-opacity));
+  @keyframes bounce-gentle {
+    0%,
+    100% {
+      transform: translateY(-5%);
+    }
+    50% {
+      transform: translateY(0);
+    }
   }
+}
 
-  .btn-outline.btn-invert:hover,
-  .btn-outline.btn-invert.btn-active {
-    @apply bg-content-invert text-content;
-  }
+@theme inline {
+  --font-sans:
+    var(--font-ibm-plex-mono), ui-monospace, SFMono-Regular, Menlo, Monaco,
+    Consolas, "Liberation Mono", "Courier New", monospace;
+  --font-script: var(--font-calligraph);
+}
 
-  .menu :where(li:not(.menu-title):not(:empty)) > :where(:not(ul).active),
-  .menu :where(li:not(.menu-title):not(:empty)) > :where(*:not(ul):active) {
-    @apply shadow-md;
+@layer base {
+  html {
+    color-scheme: only light;
   }
+  /* NOTE: Keep the existing editorial border and field placeholder contrast. */
+  *,
+  ::before,
+  ::after,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200);
+  }
+  input::placeholder,
+  textarea::placeholder {
+    color: var(--color-gray-400);
+  }
+}
 
-  .menu li.item-invert > * {
-    @apply bg-content-invert text-content shadow-md;
-  }
+/* NOTE: Editorial actions and story controls share focus, press, and disabled states. */
+@utility action-button {
+  --button-bg: var(--color-chicago-500);
+  --button-hover-bg: var(--color-chicago-600);
+  --button-fg: var(--color-white);
+  --button-outline: var(--color-content);
+  --button-border: var(--button-bg);
+  @apply inline-flex h-12 min-h-12 shrink-0 cursor-pointer flex-wrap items-center justify-center rounded-control border px-4 text-sm/[1] font-semibold uppercase no-underline transition-colors duration-200 select-none;
+  border-color: var(--button-border);
+  background-color: var(--button-bg);
+  color: var(--button-fg);
 
-  .menu li.item-invert:hover > * {
-    @apply bg-content-invert-focus;
+  @media (hover: hover) {
+    &:hover {
+      background-color: var(--button-hover-bg);
+    }
   }
+  &:active {
+    translate: 0 1px;
+  }
+  &:focus-visible {
+    @apply outline-2 outline-offset-2 outline-accent;
+  }
+  &:disabled,
+  &[aria-disabled="true"] {
+    @apply pointer-events-none opacity-50;
+  }
+}
 
-  .rvn-text {
-    @apply text-center font-script;
-    color: rgb(17, 24, 28);
-    text-shadow:
-      0 1px rgb(236, 238, 240),
-      0 0 4px rgba(255, 255, 255),
-      0 0 4px rgba(255, 255, 255),
-      0 0 4px rgba(255, 255, 255);
+@utility action-invert {
+  --button-bg: var(--color-content-invert);
+  --button-hover-bg: var(--color-content-invert-focus);
+  --button-fg: var(--color-content);
+  --button-outline: var(--color-content-invert);
+}
+
+@utility action-outline {
+  background-color: transparent;
+  border-color: var(--button-outline);
+  color: var(--button-outline);
+  @media (hover: hover) {
+    &:hover {
+      background-color: var(--button-hover-bg);
+      color: var(--button-fg);
+    }
   }
-  .rvn-text[data-scheme="dark"] {
+}
+
+@utility action-ghost {
+  --button-bg: transparent;
+  --button-hover-bg: color-mix(in oklab, currentColor 20%, transparent);
+  --button-fg: currentColor;
+  --button-border: transparent;
+}
+
+@utility action-circle {
+  @apply size-12 rounded-full px-0;
+}
+@utility action-sm {
+  @apply h-8 min-h-8 px-3 text-xs/[1];
+}
+
+@utility prose {
+  line-height: 1.5;
+  &.prose-invert {
+    --tw-prose-body: color-mix(
+      in oklab,
+      var(--color-content-invert) 80%,
+      transparent
+    );
+    --tw-prose-headings: var(--color-content-invert);
+    --tw-prose-lead: var(--color-content-invert);
+    --tw-prose-links: var(--color-content-invert);
+    --tw-prose-bold: var(--color-content-invert);
+    --tw-prose-counters: var(--color-content-invert);
+    --tw-prose-bullets: color-mix(
+      in oklab,
+      var(--color-content-invert) 50%,
+      transparent
+    );
+    --tw-prose-hr: color-mix(
+      in oklab,
+      var(--color-content-invert) 20%,
+      transparent
+    );
+    --tw-prose-quotes: var(--color-content-invert);
+    --tw-prose-quote-borders: color-mix(
+      in oklab,
+      var(--color-content-invert) 20%,
+      transparent
+    );
+    --tw-prose-captions: color-mix(
+      in oklab,
+      var(--color-content-invert) 50%,
+      transparent
+    );
+    --tw-prose-code: var(--color-content-invert);
+    --tw-prose-th-borders: color-mix(
+      in oklab,
+      var(--color-content-invert) 50%,
+      transparent
+    );
+    --tw-prose-td-borders: color-mix(
+      in oklab,
+      var(--color-content-invert) 20%,
+      transparent
+    );
+  }
+}
+
+@utility rvn-text {
+  @apply text-center font-script;
+  color: rgb(17, 24, 28);
+  text-shadow:
+    0 1px rgb(236, 238, 240),
+    0 0 4px rgba(255, 255, 255),
+    0 0 4px rgba(255, 255, 255),
+    0 0 4px rgba(255, 255, 255);
+  &[data-scheme="dark"] {
     color: rgb(251, 249, 223);
     text-shadow:
       0 -1px rgba(0, 0, 0, 0.35),
@@ -70,56 +213,56 @@
       0 0 4px rgba(0, 0, 0),
       0 0 4px rgba(0, 0, 0);
   }
-  .rvn-text[data-size="md"] {
+  &[data-size="md"] {
     @apply text-base;
   }
-  .rvn-text[data-size="lg"] {
+  &[data-size="lg"] {
     @apply text-xl;
   }
-  .rvn-text[data-size="xl"] {
+  &[data-size="xl"] {
     @apply text-3xl;
   }
+}
 
-  .rvn-tag {
-    @apply rounded-md px-1 text-center font-script text-base;
-    color: rgb(251, 249, 223);
-    background-color: rgba(165, 123, 85, 0.75);
-  }
+@utility rvn-tag {
+  @apply rounded-md px-1 text-center font-script text-base;
+  color: rgb(251, 249, 223);
+  background-color: rgba(165, 123, 85, 0.75);
+}
 
-  .rvn-menu-label {
-    @apply text-center font-script text-lg;
-    color: rgb(17, 24, 28);
-    text-shadow:
-      0 1px rgb(236, 238, 240),
-      0 0 4px rgba(255, 255, 255),
-      0 0 4px rgba(255, 255, 255),
-      0 0 4px rgba(255, 255, 255);
-  }
+@utility rvn-menu-label {
+  @apply text-center font-script text-lg;
+  color: rgb(17, 24, 28);
+  text-shadow:
+    0 1px rgb(236, 238, 240),
+    0 0 4px rgba(255, 255, 255),
+    0 0 4px rgba(255, 255, 255),
+    0 0 4px rgba(255, 255, 255);
+}
 
-  .rvn-menu-item-surface {
-    @apply btn btn-ghost border;
-    border-color: rgb(17, 24, 28);
-    background-color: rgba(255, 255, 255, 0.5);
-    box-shadow: 0 2px rgba(0, 0, 0, 0.35);
-  }
-  .rvn-menu-item-surface[data-scheme="dark"] {
+@utility rvn-menu-item-surface {
+  @apply action-button border action-ghost;
+  border-color: rgb(17, 24, 28);
+  background-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 2px rgba(0, 0, 0, 0.35);
+  &[data-scheme="dark"] {
     border-color: white;
     background-color: rgba(0, 0, 0, 0.5);
     box-shadow: 0 2px rgba(0, 0, 0, 0.35);
   }
+}
 
-  .rvn-menu-item-button {
-    @apply btn btn-ghost h-auto min-h-0 animate-bounce-gentle py-2 font-script shadow-md;
-    color: rgb(17, 24, 28);
-    background-color: rgba(255, 255, 255, 0.5);
-    text-shadow:
-      0 1px rgb(236, 238, 240),
-      0 0 4px rgba(255, 255, 255),
-      0 0 4px rgba(255, 255, 255),
-      0 0 4px rgba(255, 255, 255);
-    box-shadow: 0 2px rgba(0, 0, 0, 0.35);
-  }
-  .rvn-menu-item-button[data-scheme="dark"] {
+@utility rvn-menu-item-button {
+  @apply action-button h-auto min-h-0 animate-bounce-gentle py-2 font-script shadow-md action-ghost;
+  color: rgb(17, 24, 28);
+  background-color: rgba(255, 255, 255, 0.5);
+  text-shadow:
+    0 1px rgb(236, 238, 240),
+    0 0 4px rgba(255, 255, 255),
+    0 0 4px rgba(255, 255, 255),
+    0 0 4px rgba(255, 255, 255);
+  box-shadow: 0 2px rgba(0, 0, 0, 0.35);
+  &[data-scheme="dark"] {
     color: rgb(251, 249, 223);
     background-color: rgba(0, 0, 0, 0.35);
     text-shadow:
@@ -130,49 +273,52 @@
       0 0 4px rgba(0, 0, 0);
     box-shadow: 0 2px rgba(0, 0, 0, 0.35);
   }
-  .rvn-menu-item-button[data-size="md"] {
-    @apply btn-lg h-auto min-h-0 text-base;
+  &[data-size="md"] {
+    @apply h-auto min-h-0 px-6 text-base/[1.5];
   }
-  .rvn-menu-item-button[data-size="lg"] {
-    @apply btn-xl h-auto min-h-0 text-2xl;
+  &[data-size="lg"] {
+    @apply h-auto min-h-0 text-2xl/[1.333333];
   }
+}
 
-  .rvn-title {
-    @apply text-center font-script text-5xl font-semibold;
-    color: rgb(239, 68, 68);
-    text-shadow:
-      0 -1px rgba(0, 0, 0, 0.35),
-      0 2px rgb(17, 24, 28),
-      0 0 4px rgba(0, 0, 0),
-      0 0 4px rgba(0, 0, 0),
-      0 0 4px rgba(0, 0, 0);
-  }
+@utility rvn-title {
+  @apply text-center font-script text-5xl font-semibold;
+  color: rgb(239, 68, 68);
+  text-shadow:
+    0 -1px rgba(0, 0, 0, 0.35),
+    0 2px rgb(17, 24, 28),
+    0 0 4px rgba(0, 0, 0),
+    0 0 4px rgba(0, 0, 0),
+    0 0 4px rgba(0, 0, 0);
+}
 
-  .rvn-icon-button {
-    @apply btn btn-circle btn-ghost bg-base-100 text-xl shadow-md hover:bg-base-200;
-  }
+@utility rvn-icon-button {
+  @apply action-button action-circle bg-white text-xl shadow-md action-ghost hover:bg-chicago-50;
+}
 
-  .GameButton {
-    @apply btn font-script;
-    color: rgb(17, 24, 28);
-    background-color: rgba(255, 255, 255, 0.5);
-    text-shadow:
-      0 1px rgb(236, 238, 240),
-      0 0 4px rgba(255, 255, 255),
-      0 0 4px rgba(255, 255, 255),
-      0 0 4px rgba(255, 255, 255);
-    box-shadow: 0 2px rgba(0, 0, 0, 0.35);
-  }
-  .GameButton--opaque {
-    background-color: rgba(255, 255, 255);
-  }
-  .GameButton--opaque:hover {
+@utility game-button {
+  @apply action-button font-script;
+  color: rgb(17, 24, 28);
+  background-color: rgba(255, 255, 255, 0.5);
+  text-shadow:
+    0 1px rgb(236, 238, 240),
+    0 0 4px rgba(255, 255, 255),
+    0 0 4px rgba(255, 255, 255),
+    0 0 4px rgba(255, 255, 255);
+  box-shadow: 0 2px rgba(0, 0, 0, 0.35);
+}
+
+@utility game-button-opaque {
+  background-color: rgba(255, 255, 255);
+  &:hover {
     text-shadow: none;
   }
-  .GameButton--opaque.GameButton[data-scheme="dark"] {
+  &.game-button[data-scheme="dark"] {
     background-color: rgb(157, 157, 137);
   }
+}
 
+@layer components {
   .ScreenshotCarousel.is-draggable {
     cursor: move;
     cursor: grab;
@@ -186,32 +332,33 @@
     cursor: move;
     cursor: grab;
   }
-}
-
-@layer utilities {
-  .h-screen-safe {
-    height: 100vh;
+  /* NOTE: These four class names are fixed by the story runtime's scrim contract. */
+  .scrim-t-3\/4,
+  .scrim-b-3\/4,
+  .scrim-t-3\/4-light,
+  .scrim-b-3\/4-light {
+    --scrim-color: rgb(0 0 0 / 50%);
+    --scrim-direction: to bottom;
   }
-
-  .min-h-screen-safe {
-    min-height: 100vh;
+  .scrim-t-3\/4-light,
+  .scrim-b-3\/4-light {
+    --scrim-color: rgb(255 255 255 / 50%);
   }
-
-  .max-h-screen-safe {
-    max-height: 100vh;
+  .scrim-b-3\/4,
+  .scrim-b-3\/4-light {
+    --scrim-direction: to top;
   }
-
-  @supports (height: 100dvh) {
-    .h-screen-safe {
-      height: 100dvh;
-    }
-
-    .min-h-screen-safe {
-      min-height: 100dvh;
-    }
-
-    .max-h-screen-safe {
-      max-height: 100dvh;
-    }
+  .scrim-t-3\/4::after,
+  .scrim-b-3\/4::after,
+  .scrim-t-3\/4-light::after,
+  .scrim-b-3\/4-light::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(
+      var(--scrim-direction),
+      var(--scrim-color),
+      transparent 75%
+    );
   }
 }

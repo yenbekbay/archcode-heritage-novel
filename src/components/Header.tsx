@@ -1,3 +1,5 @@
+"use client";
+
 import { logoGamePng } from "#assets/www/index.ts";
 import { Image } from "#components/Image.tsx";
 import { Link } from "#components/Link.tsx";
@@ -10,6 +12,7 @@ import {
   buildSavedLinksHref,
 } from "#lib/routes.ts";
 import type { IconProps } from "phosphor-react";
+import type { MouseEvent } from "react";
 import React from "react";
 import { twMerge } from "tailwind-merge";
 import { ActiveLink } from "./ActiveLink";
@@ -62,8 +65,8 @@ const LINKS: NavigationLink[] = [
 
 export function Header() {
   return (
-    <header className="container mx-auto text-content-invert">
-      <div className="navbar p-4">
+    <header className="container self-center text-content-invert">
+      <div className="flex min-h-16 w-full items-center p-4">
         <div className="flex-1">
           <Link href={buildHomeHref()} className="shrink-0">
             <Image
@@ -77,16 +80,15 @@ export function Header() {
         </div>
 
         <div className="flex-none">
-          <div className="dropdown dropdown-end">
-            <button
-              type="button"
+          <details className="relative lg:hidden">
+            <summary
               aria-label="Открыть меню"
-              className="btn btn-ghost text-xl lg:hidden"
+              className="action-button list-none text-xl action-ghost [&::-webkit-details-marker]:hidden"
             >
               <ListIcon />
-            </button>
+            </summary>
 
-            <ul className="dropdown-content menu rounded-box menu-compact mt-3 w-52 bg-base-100 p-2 text-content shadow-md">
+            <ul className="absolute top-full right-0 z-10 flex w-52 translate-y-3 flex-col rounded-control bg-white p-2 text-content shadow-md">
               {LINKS.map((l) => {
                 const key = l.to ?? l.href;
 
@@ -95,18 +97,33 @@ export function Header() {
                     {l.to !== undefined ? (
                       <ActiveLink
                         href={l.to}
-                        className="link-exact-active:bg-primary link-exact-active:text-primary-content"
+                        onClick={closeNavigationMenu}
+                        className="flex min-h-11 items-center gap-2 rounded-control px-3 py-2 text-sm/[1.5] hover:bg-chicago-50 data-link-exact-active:bg-primary data-link-exact-active:text-white data-link-exact-active:shadow-md data-link-exact-active:hover:bg-primary"
                       >
-                        {l.icon && <l.icon size="1.25em" weight="fill" />}
+                        {l.icon && (
+                          <l.icon
+                            className="size-[1.25em] shrink-0"
+                            weight="fill"
+                          />
+                        )}
+
                         {l.label}
                       </ActiveLink>
                     ) : (
                       <a
                         href={l.href}
+                        onClick={closeNavigationMenu}
                         target="_blank"
                         rel="noopener noreferrer"
+                        className="flex min-h-11 items-center gap-2 rounded-control px-3 py-2 text-sm/[1.5] hover:bg-chicago-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
                       >
-                        {l.icon && <l.icon size="1.25em" weight="fill" />}
+                        {l.icon && (
+                          <l.icon
+                            className="size-[1.25em] shrink-0"
+                            weight="fill"
+                          />
+                        )}
+
                         {l.label}
                       </a>
                     )}
@@ -114,25 +131,46 @@ export function Header() {
                 );
               })}
             </ul>
-          </div>
+          </details>
 
-          <ul className="menu menu-horizontal hidden gap-2 p-0 lg:flex">
+          <ul className="hidden items-center gap-2 lg:flex">
             {LINKS.map((l) => {
               const key = l.to ?? l.href;
 
               return (
-                <li key={key} className={twMerge(l.icon && "item-invert")}>
+                <li key={key}>
                   {l.to !== undefined ? (
                     <ActiveLink
                       href={l.to}
-                      className="link-exact-active:bg-primary link-exact-active:text-primary-content"
+                      className={twMerge(
+                        "flex items-center gap-2 rounded-control px-4 py-3 text-base/[1.5] hover:bg-white/10 data-link-exact-active:bg-primary data-link-exact-active:text-white data-link-exact-active:shadow-md data-link-exact-active:hover:bg-primary",
+                        l.icon !== undefined &&
+                          "bg-content-invert text-content shadow-md hover:bg-content-invert-focus",
+                      )}
                     >
-                      {l.icon && <l.icon size="1.25em" weight="fill" />}
+                      {l.icon && (
+                        <l.icon
+                          className="size-[1.25em] shrink-0"
+                          weight="fill"
+                        />
+                      )}
+
                       {l.label}
                     </ActiveLink>
                   ) : (
-                    <a href={l.href} target="_blank" rel="noopener noreferrer">
-                      {l.icon && <l.icon size="1.25em" weight="fill" />}
+                    <a
+                      href={l.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 rounded-control px-4 py-3 text-base/[1.5] hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+                    >
+                      {l.icon && (
+                        <l.icon
+                          className="size-[1.25em] shrink-0"
+                          weight="fill"
+                        />
+                      )}
+
                       {l.label}
                     </a>
                   )}
@@ -144,4 +182,8 @@ export function Header() {
       </div>
     </header>
   );
+}
+
+function closeNavigationMenu(event: MouseEvent<HTMLAnchorElement>) {
+  event.currentTarget.closest("details")?.removeAttribute("open");
 }

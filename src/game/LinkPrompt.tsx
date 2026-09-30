@@ -34,20 +34,20 @@ export function LinkPrompt({ link, onClose }: LinkPromptProps) {
               onClick={() => {
                 playSound("click");
               }}
-              className="btn btn-circle btn-ghost bg-base-100 text-xl shadow-md hover:bg-base-200"
+              className="action-button action-circle bg-white text-xl shadow-md action-ghost hover:bg-chicago-50"
             >
               <XIcon />
             </button>
           </Dialog.Close>
 
-          <div className="flex flex-col space-y-4 overflow-auto">
+          <div className="flex flex-col gap-y-4 overflow-auto">
             <LinkCard
               url={link.href}
               size="sm"
               className="prose shrink-0 overflow-hidden rounded-md border border-content"
             />
 
-            <div className="btn-group">
+            <div className="flex w-fit [&>button:first-child]:rounded-r-none [&>button:last-child]:rounded-l-none [&>button:last-child]:border-l-0">
               <Dialog.Close
                 onMouseEnter={() => {
                   playSound("mouseover");
@@ -56,7 +56,7 @@ export function LinkPrompt({ link, onClose }: LinkPromptProps) {
                   playSound("click");
                   window.open(link.href, "_blank");
                 }}
-                className="btn btn-outline"
+                className="action-button action-outline"
               >
                 Читать сейчас
               </Dialog.Close>
@@ -72,7 +72,7 @@ export function LinkPrompt({ link, onClose }: LinkPromptProps) {
                   );
                   toast.success("Ссылка сохранена");
                 }}
-                className="btn border-base-content hover:border-base-content"
+                className="action-button border-content hover:border-content"
               >
                 Сохранить
               </Dialog.Close>

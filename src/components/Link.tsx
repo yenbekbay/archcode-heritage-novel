@@ -7,7 +7,7 @@ export function Link(props: ComponentPropsWithRef<typeof NextLink>) {
     <NextLink
       {...props}
       className={twMerge(
-        "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent",
+        "focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent",
         props.className,
       )}
     />

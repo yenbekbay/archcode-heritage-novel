@@ -4,6 +4,7 @@ const config = {
   quoteProps: "consistent",
   tailwindAttributes: ["className"],
   tailwindFunctions: ["twMerge"],
+  tailwindStylesheet: "./src/main.css",
   plugins: [
     "@utilfirst/prettier-plugin",
     "prettier-plugin-organize-imports",

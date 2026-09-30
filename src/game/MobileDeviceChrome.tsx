@@ -12,7 +12,7 @@ export function MobileDeviceChrome({ children }: MobileDeviceChromeProps) {
   return (
     <div
       ref={containerRef}
-      className="flex w-screen flex-col bg-base-100"
+      className="flex w-screen flex-col bg-white"
       style={{ height: windowSize.height }}
     >
       {containerRect &&
@@ -47,7 +47,7 @@ function MobileDeviceChromeFrame({
 
   return (
     <div
-      className="relative text-base-content"
+      className="text-base-content relative"
       style={{ width: ratio * CHROME_ORIGINAL_SIZE[0], height }}
     >
       <svg
@@ -117,7 +117,7 @@ function MobileDeviceChromeFrame({
       </svg>
 
       <div
-        className="absolute flex flex-col overflow-hidden bg-base-100"
+        className="absolute flex flex-col overflow-hidden bg-white"
         style={{
           top: ratio * 32,
           right: ratio * 9,

@@ -7,7 +7,7 @@ export type LayoutProps = {
 
 export function Layout({ children }: LayoutProps) {
   return (
-    <div className="min-h-screen-safe relative flex flex-col overflow-hidden">
+    <div className="relative flex min-h-dvh flex-col overflow-hidden">
       <Header />
       {children}
       <Footer />

@@ -56,7 +56,7 @@ export function GameOverMenu() {
               }}
               initial="initial"
               animate={controls}
-              className="rvn-surface flex flex-row justify-center space-x-3 rounded-md p-4"
+              className="rvn-surface flex flex-row justify-center gap-x-3 rounded-md p-4"
             >
               <a
                 href="https://archcode.kz/journal/view?category=article&sefname=otkrytie-prostranstva"

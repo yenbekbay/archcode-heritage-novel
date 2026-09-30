@@ -48,11 +48,11 @@ export function TextForm({
       <form
         ref={zo.ref}
         className={twMerge(
-          "flex flex-col space-y-4",
+          "flex flex-col gap-y-4",
           submitting && "pointer-events-none opacity-50",
         )}
       >
-        <div className="flex flex-col space-y-2">
+        <div className="flex flex-col gap-y-2">
           <label className="text-sm font-bold" htmlFor="body">
             {inputLabel}
           </label>
@@ -72,7 +72,7 @@ export function TextForm({
           ))}
         </div>
 
-        <div className="flex flex-col space-y-2">
+        <div className="flex flex-col gap-y-2">
           <label className="text-sm font-bold" htmlFor="name">
             Ваше имя (необязательно)
           </label>
@@ -101,7 +101,7 @@ export function TextForm({
           onClick={() => {
             playSound("click");
           }}
-          className="GameButton GameButton--opaque btn btn-outline font-script"
+          className="game-button game-button-opaque font-script"
         >
           {submitLabel}
         </button>

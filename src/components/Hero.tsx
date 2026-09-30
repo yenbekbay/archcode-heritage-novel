@@ -24,7 +24,7 @@ export function Hero({
         )}
         {...restProps}
       >
-        <div className="prose prose-invert flex flex-col space-y-4">
+        <div className="prose flex flex-col gap-y-4 prose-invert">
           <h1 className="mb-2">{title}</h1>
           {children}
         </div>

@@ -22,8 +22,8 @@ import {
 
 export function Footer() {
   return (
-    <footer className="flex-1 bg-chicago-900 text-content-invert">
-      <div className="container footer mx-auto bg-chicago-900 px-8 py-16">
+    <footer className="flex flex-1 flex-col bg-chicago-900 text-content-invert">
+      <div className="container grid w-full grid-flow-row place-items-start gap-x-4 gap-y-10 self-center bg-chicago-900 px-8 py-16 text-sm/[1.25] md:grid-flow-col">
         <div className="grid grid-flow-row gap-8 lg:grid-flow-col lg:items-center">
           <div className="grid grid-flow-col gap-4">
             <a
@@ -31,7 +31,7 @@ export function Footer() {
               aria-label="Telegram"
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-invert btn btn-circle text-2xl"
+              className="action-button action-circle text-2xl action-invert"
             >
               <TelegramLogoIcon />
             </a>
@@ -41,7 +41,7 @@ export function Footer() {
               aria-label="Instagram"
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-invert btn btn-circle text-2xl"
+              className="action-button action-circle text-2xl action-invert"
             >
               <InstagramLogoIcon />
             </a>
@@ -50,29 +50,29 @@ export function Footer() {
           <div className="grid grid-flow-row items-center gap-4 lg:grid-flow-col lg:pr-4">
             <Link
               href={buildPlayHref()}
-              className="btn-invert btn btn-sm gap-2 normal-case"
+              className="action-button action-sm gap-2 normal-case action-invert"
             >
               <GameControllerIcon weight="fill" />
               Играть
             </Link>
 
-            <Link href={buildHomeHref()} className="link link-hover">
+            <Link href={buildHomeHref()} className="hover:underline">
               Главная
             </Link>
 
-            <Link href={buildAboutNovelHref()} className="link link-hover">
+            <Link href={buildAboutNovelHref()} className="hover:underline">
               Визуальная новелла
             </Link>
 
-            <Link href={buildAboutBotHref()} className="link link-hover">
+            <Link href={buildAboutBotHref()} className="hover:underline">
               Телеграм-бот
             </Link>
 
-            <Link href={buildAboutUsHref()} className="link link-hover">
+            <Link href={buildAboutUsHref()} className="hover:underline">
               О команде
             </Link>
 
-            <Link href={buildSavedLinksHref()} className="link link-hover">
+            <Link href={buildSavedLinksHref()} className="hover:underline">
               Ссылки
             </Link>
 
@@ -80,15 +80,15 @@ export function Footer() {
               href="https://archcode.kz/"
               target="_blank"
               rel="noopener noreferrer"
-              className="link link-hover"
+              className="hover:underline"
             >
               Архкод
             </a>
           </div>
         </div>
 
-        <div className="space-y-4">
-          <div className="flex flex-row space-x-3">
+        <div className="flex flex-col gap-y-4">
+          <div className="flex flex-row gap-x-3">
             <Link href={buildHomeHref()} className="shrink-0">
               <Image
                 src={logoGamePng}
@@ -149,7 +149,7 @@ export function Footer() {
               href="https://github.com/yenbekbay/archcode-heritage-novel"
               target="_blank"
               rel="noopener noreferrer"
-              className="link"
+              className="underline"
             >
               открытом доступе
             </a>

@@ -49,14 +49,17 @@ export default function AboutNovelPage() {
         </p>
 
         <p>
-          <Link href={buildPlayHref()} className="btn-invert btn btn-outline">
+          <Link
+            href={buildPlayHref()}
+            className="action-button action-outline action-invert"
+          >
             Играть
           </Link>
         </p>
       </Hero>
 
       <FenceSection>
-        <div className="flex flex-col space-y-8">
+        <div className="flex flex-col gap-y-8">
           <RoughCard className="self-center">
             <h2>Об игре</h2>
 

@@ -53,7 +53,7 @@ export default function MyGame() {
                   <progress
                     value={progress * 100}
                     max={100}
-                    className="progress w-full"
+                    className="h-2 w-full appearance-none overflow-hidden rounded-control bg-chicago-50 text-content [&::-moz-progress-bar]:bg-content [&::-webkit-progress-bar]:bg-chicago-50 [&::-webkit-progress-value]:bg-content"
                   />
                 </div>
               );
@@ -63,7 +63,7 @@ export default function MyGame() {
                 <div className="prose flex size-full max-w-none flex-col justify-center p-8">
                   <h1 className="text-xl">Не удалось загрузить ресурсы</h1>
 
-                  <pre className="alert alert-error items-start whitespace-pre-line">
+                  <pre className="rounded-control border border-error bg-error p-4 whitespace-pre-line text-black shadow-lg">
                     {res.error.message}
                   </pre>
                 </div>

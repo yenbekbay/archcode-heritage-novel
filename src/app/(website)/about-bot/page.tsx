@@ -56,7 +56,10 @@ export default function AboutBot() {
         </p>
 
         <p>
-          <a href="https://t.me/archcode_bot" className="btn-invert btn gap-2">
+          <a
+            href="https://t.me/archcode_bot"
+            className="action-button gap-2 action-invert"
+          >
             <TelegramLogoIcon weight="fill" className="text-xl" />
             Перейти в Телеграм
           </a>

@@ -26,7 +26,11 @@ export default function ErrorPage(props: {
               <h1>Что-то пошло не так!</h1>
               <p>Не удалось открыть страницу. Попробуйте еще раз.</p>
 
-              <button type="button" className="btn" onClick={props.retry}>
+              <button
+                type="button"
+                className="action-button"
+                onClick={props.retry}
+              >
                 Попробовать снова
               </button>
             </RoughCard>

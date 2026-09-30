@@ -47,7 +47,7 @@ export function SubmitMeme({ onDone, frame, image }: SubmitMemeProps) {
 
           <motion.div
             className={twMerge(
-              "rvn-text absolute flex flex-col",
+              "absolute flex flex-col rvn-text",
               !frame && "inset-0 p-8 py-20",
             )}
             style={frame && styleForFrame({ containerRect }, frame)}
@@ -125,9 +125,9 @@ function MemeForm({ onSubmit, onSkip }: MemeFormProps) {
   }
   if (activeTemplate) {
     return (
-      <div className="flex min-h-0 flex-1 flex-col space-y-4">
-        <div className="navbar">
-          <div className="navbar-start">
+      <div className="flex min-h-0 flex-1 flex-col gap-y-4">
+        <div className="flex min-h-16 w-full items-center p-2">
+          <div className="flex w-1/2 items-center">
             <button
               onMouseEnter={() => {
                 playSound("mouseover");
@@ -140,14 +140,14 @@ function MemeForm({ onSubmit, onSkip }: MemeFormProps) {
                   setActiveTemplateId("");
                 }
               }}
-              className="btn btn-circle btn-ghost bg-base-100 text-xl shadow-md hover:bg-base-200"
+              className="action-button action-circle bg-white text-xl shadow-md action-ghost hover:bg-chicago-50"
             >
               <XIcon />
             </button>
           </div>
         </div>
 
-        <div className="flex flex-1 flex-col space-y-4 overflow-y-auto">
+        <div className="flex flex-1 flex-col gap-y-4 overflow-y-auto">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={previewUrl ?? activeTemplate.url}
@@ -183,7 +183,7 @@ function MemeForm({ onSubmit, onSkip }: MemeFormProps) {
   }
 
   return (
-    <div className="flex flex-1 flex-col space-y-4 overflow-y-auto">
+    <div className="flex flex-1 flex-col gap-y-4 overflow-y-auto">
       {templates.map((t) => (
         <button
           key={t.id}
@@ -241,11 +241,11 @@ function MemePreview({ url, onSubmit, onSkip }: MemePreviewProps) {
       <form
         ref={zo.ref}
         className={twMerge(
-          "flex flex-col space-y-2",
+          "flex flex-col gap-y-2",
           submitting && "pointer-events-none opacity-50",
         )}
       >
-        <div className="flex flex-col space-y-2">
+        <div className="flex flex-col gap-y-2">
           <label className="text-sm font-bold" htmlFor="name">
             Ваше имя (необязательно)
           </label>
@@ -273,7 +273,7 @@ function MemePreview({ url, onSubmit, onSkip }: MemePreviewProps) {
             playSound("click");
             onSkip();
           }}
-          className="GameButton btn-outline"
+          className="game-button"
         >
           Пропустить
         </button>
@@ -287,7 +287,7 @@ function MemePreview({ url, onSubmit, onSkip }: MemePreviewProps) {
           onClick={() => {
             playSound("click");
           }}
-          className="GameButton GameButton--opaque btn-outline"
+          className="game-button game-button-opaque"
         >
           Опубликовать мем
         </button>
@@ -382,12 +382,12 @@ function MemeTemplateForm({
       <form
         ref={zo.ref}
         className={twMerge(
-          "flex flex-col space-y-4",
+          "flex flex-col gap-y-4",
           submitting && "pointer-events-none opacity-50",
         )}
       >
         {Object.keys(FormSchema.shape).map((name, i) => (
-          <div key={i} className="flex flex-col space-y-2">
+          <div key={i} className="flex flex-col gap-y-2">
             <label className="text-sm font-bold" htmlFor={name}>
               Текст {i + 1}
             </label>
@@ -417,7 +417,7 @@ function MemeTemplateForm({
           onClick={() => {
             playSound("click");
           }}
-          className="GameButton GameButton--opaque btn-outline"
+          className="game-button game-button-opaque"
         >
           Посмотреть
         </button>

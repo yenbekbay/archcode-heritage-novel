@@ -9,7 +9,6 @@
 /.vercel/
 /*.tsbuildinfo
 /src/__generated__/audio.ts
-/src/__generated__/main.css
 /build
 /coverage
 /next-env.d.ts

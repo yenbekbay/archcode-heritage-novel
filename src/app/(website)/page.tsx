@@ -37,14 +37,17 @@ export default function Home() {
           </p>
 
           <p>
-            <Link href={buildPlayHref()} className="btn-invert btn btn-outline">
+            <Link
+              href={buildPlayHref()}
+              className="action-button action-outline action-invert"
+            >
               Играть
             </Link>
           </p>
         </Hero>
 
         <Reveal asChild>
-          <div className="prose prose-sm prose-invert -mt-4 self-end px-4 pb-4 text-[0.75rem]">
+          <div className="prose prose-sm -mt-4 self-end px-4 pb-4 text-[0.75rem] prose-invert">
             <p>
               *Проект стал возможным благодаря помощи американского народа,
               оказанной через Агентство США по международному развитию (USAID),
