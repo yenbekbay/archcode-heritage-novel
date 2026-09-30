@@ -2,6 +2,7 @@ import type { definitions } from "#api/index.ts";
 import { getSupabase } from "#api/index.ts";
 import { Spinner } from "#components/index.ts";
 import { Button } from "#components/ui/Button.tsx";
+import { Input } from "#components/ui/Input.tsx";
 import { env } from "#config/env.ts";
 import { useLocalStorageValue } from "@react-hookz/web";
 import { motion } from "framer-motion";
@@ -254,18 +255,21 @@ function MemePreview({ url, onSubmit, onSkip }: MemePreviewProps) {
             Ваше имя (необязательно)
           </label>
 
-          <input
-            className={twMerge(
-              "rounded-md focus:border-accent focus:ring-0",
-              zo.errors.name("border-error"),
-            )}
+          <Input
+            aria-invalid={zo.errors.name() !== undefined}
+            aria-describedby={zo.errors.name(zo.fields.name("errorid"))}
             id="name"
             name="name"
             type="text"
           />
 
           {zo.errors.name((err) => (
-            <span className="text-sm text-error">{err.message}</span>
+            <span
+              id={zo.fields.name("errorid")}
+              className="text-sm/[1.5] text-error"
+            >
+              {err.message}
+            </span>
           ))}
         </div>
 
@@ -396,18 +400,25 @@ function MemeTemplateForm({
               Текст {i + 1}
             </label>
 
-            <input
-              className={twMerge(
-                "rounded-md focus:border-accent focus:ring-0",
-                zo.errors[name]?.("border-error"),
-              )}
+            <Input
+              aria-invalid={zo.errors[name]?.() !== undefined}
+              aria-describedby={
+                zo.errors[name]?.() !== undefined
+                  ? zo.fields[name]?.("errorid")
+                  : undefined
+              }
               id={name}
               name={name}
               type="text"
             />
 
             {zo.errors[name]?.((err) => (
-              <span className="text-sm text-error">{err.message}</span>
+              <span
+                id={zo.fields[name]?.("errorid")}
+                className="text-sm/[1.5] text-error"
+              >
+                {err.message}
+              </span>
             ))}
           </div>
         ))}

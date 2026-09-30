@@ -33,6 +33,8 @@ The game occupies a viewport-bound surface that scales its scenes and controls t
 
 External story links open a named React Aria confirmation dialog. The dialog shows the destination preview and separates immediate reading from saving for later. Escape, the backdrop, and the close action dismiss it. Focus remains inside the open dialog and returns after dismissal. React Aria buttons expose disabled, keyboard focus, and press states. Optional forms expose labels, submission progress, failure feedback, and the branch action that continues play.
 
+Text inputs and textareas use explicit white surfaces, borders, padding, and keyboard focus outlines. Zorm errors set the invalid state and link each field to its visible error message. Validation and submission continue through the native form.
+
 ## Motion and sound
 
 Motion supports reveals, scene progression, dialog presence, and game-state transitions. It must preserve the current reading or choice state during interruption. Pointer hover and selection can trigger short interface sounds. Scene audio belongs to the active story context and must stop or transition with that context.

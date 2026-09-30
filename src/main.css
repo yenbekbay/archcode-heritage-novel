@@ -3,7 +3,6 @@
 /* NOTE: The story runtime publishes utility classes inside its distribution. */
 @source "../node_modules/react-visual-novel/dist/index.js";
 
-@plugin "@tailwindcss/forms";
 @plugin "@tailwindcss/typography";
 @plugin "tailwindcss-react-aria-components";
 

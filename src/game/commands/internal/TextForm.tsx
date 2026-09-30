@@ -1,5 +1,7 @@
 import { Spinner } from "#components/index.ts";
 import { Button } from "#components/ui/Button.tsx";
+import { Input } from "#components/ui/Input.tsx";
+import { TextArea } from "#components/ui/TextArea.tsx";
 import React from "react";
 import toast from "react-hot-toast";
 import { useGameContext } from "react-visual-novel";
@@ -58,18 +60,21 @@ export function TextForm({
             {inputLabel}
           </label>
 
-          <textarea
+          <TextArea
             id="body"
             name="body"
             rows={rows}
-            className={twMerge(
-              "rounded-md focus:border-accent focus:ring-0",
-              zo.errors.body("border-error"),
-            )}
+            aria-invalid={zo.errors.body() !== undefined}
+            aria-describedby={zo.errors.body(zo.fields.body("errorid"))}
           />
 
           {zo.errors.body((err) => (
-            <span className="text-sm text-error">{err.message}</span>
+            <span
+              id={zo.fields.body("errorid")}
+              className="text-sm/[1.5] text-error"
+            >
+              {err.message}
+            </span>
           ))}
         </div>
 
@@ -78,18 +83,21 @@ export function TextForm({
             Ваше имя (необязательно)
           </label>
 
-          <input
+          <Input
             id="name"
             name="name"
             type="text"
-            className={twMerge(
-              "rounded-md focus:border-accent focus:ring-0",
-              zo.errors.name("border-error"),
-            )}
+            aria-invalid={zo.errors.name() !== undefined}
+            aria-describedby={zo.errors.name(zo.fields.name("errorid"))}
           />
 
           {zo.errors.name((err) => (
-            <span className="text-sm text-error">{err.message}</span>
+            <span
+              id={zo.fields.name("errorid")}
+              className="text-sm/[1.5] text-error"
+            >
+              {err.message}
+            </span>
           ))}
         </div>
 

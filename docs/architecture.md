@@ -48,13 +48,13 @@ The repository build generates audio, barrels, and Next.js route declarations be
 
 - `next.config.mjs` owns Cache Components, partial prefetching, asset caching, and former locale redirects.
 - `src/app/` and `src/components/` own website routing and editorial composition. The small shared component family stays flat, and the game has its own source owner.
-- `src/components/ui/Button.tsx` owns React Aria action variants and render-prop class merging. `src/components/Dialog.tsx` owns the React Aria modal, dismissal, focus containment, and Motion transitions. `Reveal`, `Annotate`, and `LinkCard` render their own DOM elements and refs.
+- `src/components/ui/` owns React Aria action variants, text field styles, and render-prop class merging. Native forms and Zorm retain validation and submission ownership. `src/components/Dialog.tsx` owns the React Aria modal, dismissal, focus containment, and Motion transitions. `Reveal`, `Annotate`, and `LinkCard` render their own DOM elements and refs.
 - `src/lib/routes.ts` owns internal URL construction, and `src/components/Link.tsx` owns the framework link handoff and keyboard focus outline. `src/components/Image.tsx` owns local-image loading, preserves the empty-placeholder presentation, and accepts rendered widths from callers.
 - `src/config/env.ts` owns environment validation.
 - `src/config/website.ts` owns website identity. `src/lib/metadata.ts` owns static metadata, and `src/proxy.ts` owns the host indexing boundary.
 - `src/game/branches/`, `src/game/commands/`, and `src/game/MyGame.tsx` own the playable graph and runtime binding.
 - `src/api/supabase.ts` and `src/__generated__/supabase.ts` own the Supabase client boundary and generated schema types.
-- `src/main.css` owns Tailwind theme variables, forms and typography plugins, story-runtime source detection, and shared control states. The React Aria Tailwind plugin supplies control state variants. Components own their layout utilities. `postcss.config.mjs` connects Tailwind to Next.js. `prettier.config.mjs` uses that stylesheet to sort classes. [UI design](ui-design.md) owns recurring visual and interaction grammar.
+- `src/main.css` owns Tailwind theme variables, the typography plugin, story-runtime source detection, and shared control states. The React Aria Tailwind plugin supplies control state variants. Components own their layout utilities and field styles. `postcss.config.mjs` connects Tailwind to Next.js. `prettier.config.mjs` uses that stylesheet to sort classes. [UI design](ui-design.md) owns recurring visual and interaction grammar.
 - `package.json` and the generation scripts own generation and verification commands. `pnpm-workspace.yaml` forces the game and its commands to share Motion controls, supplies Disqus’s missing runtime dependency, and registers the visual-novel declaration patch. `patches/react-visual-novel@0.2.2.patch` corrects the React JSX namespace and Motion control type without changing library runtime code.
 - `fnox.toml` owns local environment recovery mappings. [Local setup](runbooks/local-setup.md) owns the procedure.
 
