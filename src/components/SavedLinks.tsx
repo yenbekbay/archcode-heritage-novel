@@ -1,8 +1,10 @@
 "use client";
 
+import { buildPlayHref } from "#lib/routes.ts";
+
 import { bgArchcodeOfficeJpg } from "#assets/game/index.ts";
+import { Link } from "#components/Link.tsx";
 import { useSavedLinks } from "#game/saved-links.ts";
-import Link from "next/link";
 import { Hero } from "./Hero";
 import { HeroBackground } from "./HeroBackground";
 import { LinkCard } from "./LinkCard";
@@ -23,7 +25,10 @@ export function SavedLinks() {
             <p>У вас ещё нет сохранённых ссылок.</p>
 
             <p>
-              <Link href="/play" className="btn-invert btn btn-outline">
+              <Link
+                href={buildPlayHref()}
+                className="btn-invert btn btn-outline"
+              >
                 Играть
               </Link>
             </p>

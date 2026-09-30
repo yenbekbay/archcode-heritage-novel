@@ -1,3 +1,4 @@
+import { env } from "#config/env.ts";
 import type { SupabaseClient } from "@supabase/supabase-js";
 import { createClient } from "@supabase/supabase-js";
 
@@ -9,9 +10,9 @@ export function getSupabase() {
   }
 
   supabase = createClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    env.NEXT_PUBLIC_SUPABASE_URL,
 
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+    env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
     {
       fetch: fetch.bind(globalThis),
     },

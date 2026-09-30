@@ -1,6 +1,7 @@
 import type { definitions } from "#api/index.ts";
 import { getSupabase } from "#api/index.ts";
 import { Spinner } from "#components/index.ts";
+import { env } from "#config/env.ts";
 import { useLocalStorageValue } from "@react-hookz/web";
 import { motion } from "framer-motion";
 import { X as XIcon } from "phosphor-react";
@@ -346,12 +347,12 @@ function MemeTemplateForm({
         formData.append(
           "username",
 
-          process.env.NEXT_PUBLIC_IMGFLIP_USERNAME!,
+          env.NEXT_PUBLIC_IMGFLIP_USERNAME,
         );
         formData.append(
           "password",
 
-          process.env.NEXT_PUBLIC_IMGFLIP_PASSWORD!,
+          env.NEXT_PUBLIC_IMGFLIP_PASSWORD,
         );
 
         for (const [idx, value] of Object.values(event.data).entries()) {

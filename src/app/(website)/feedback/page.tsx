@@ -2,9 +2,10 @@ import { bgArchcodeOfficeJpg } from "#assets/game/index.ts";
 import { FeedbackDiscussion } from "#components/FeedbackDiscussion.tsx";
 import { Hero, HeroBackground, RoughCard } from "#components/index.ts";
 import { buildPageMetadata } from "#lib/metadata.ts";
+import { buildFeedbackHref } from "#lib/routes.ts";
 
 export const metadata = buildPageMetadata({
-  pathname: "/feedback",
+  pathname: buildFeedbackHref(),
   title: "Отзывы",
   description:
     "Отзывы, пожелания и предложения об игре «Снести нельзя оставить».",

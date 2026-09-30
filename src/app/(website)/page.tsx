@@ -7,11 +7,12 @@ import {
   Reveal,
   RoughCard,
 } from "#components/index.ts";
+import { Link } from "#components/Link.tsx";
 import { buildPageMetadata } from "#lib/metadata.ts";
-import Link from "next/link";
+import { buildHomeHref, buildPlayHref } from "#lib/routes.ts";
 
 export const metadata = buildPageMetadata({
-  pathname: "/",
+  pathname: buildHomeHref(),
   title: "Снести нельзя оставить!",
   description: "Сохраняем архитектурную идентичность Алматы",
 });
@@ -36,7 +37,7 @@ export default function Home() {
           </p>
 
           <p>
-            <Link href="/play" className="btn-invert btn btn-outline">
+            <Link href={buildPlayHref()} className="btn-invert btn btn-outline">
               Играть
             </Link>
           </p>

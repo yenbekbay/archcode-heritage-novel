@@ -1,4 +1,5 @@
 import * as assets from "#assets/game/index.ts";
+import { buildHomeHref } from "#lib/routes.ts";
 import { useRouter } from "next/navigation";
 import React from "react";
 import { Game, prepareBranches } from "react-visual-novel";
@@ -40,7 +41,7 @@ export default function MyGame() {
           }}
           onPlaySound={playSound}
           onGoHome={() => {
-            router.push("/");
+            router.push(buildHomeHref());
           }}
         >
           {(render, res, progress) => {

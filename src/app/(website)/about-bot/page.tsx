@@ -1,12 +1,13 @@
 import { bgAirportJpg } from "#assets/game/index.ts";
 import { telegramBotQrCodePng } from "#assets/www/index.ts";
 import { TelegramLogo as TelegramLogoIcon } from "#components/Icons.tsx";
+import { Image } from "#components/Image.tsx";
 import { Hero, HeroBackground } from "#components/index.ts";
 import { buildPageMetadata } from "#lib/metadata.ts";
-import Image from "next/image";
+import { buildAboutBotHref } from "#lib/routes.ts";
 
 export const metadata = buildPageMetadata({
-  pathname: "/about-bot",
+  pathname: buildAboutBotHref(),
   title: "Телеграм-бот",
   description:
     "Телеграм-бот проекта «Снести нельзя оставить» об архитектурном наследии Алматы.",
@@ -32,6 +33,7 @@ export default function AboutBot() {
           >
             <Image
               src={telegramBotQrCodePng}
+              sizes={`${Math.ceil((288 * telegramBotQrCodePng.width) / telegramBotQrCodePng.height)}px`}
               alt=""
               className="h-72 w-auto object-contain"
             />

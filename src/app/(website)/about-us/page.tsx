@@ -11,15 +11,16 @@ import {
   polaroidZamanbekPng,
   teamPhotoJpg,
 } from "#assets/www/index.ts";
+import { Image } from "#components/Image.tsx";
 import { Hero, HeroBackground, RoughCard } from "#components/index.ts";
 import { buildPageMetadata } from "#lib/metadata.ts";
+import { buildAboutUsHref } from "#lib/routes.ts";
 import type { StaticImageData } from "next/image";
-import Image from "next/image";
 import React from "react";
 import { twMerge } from "tailwind-merge";
 
 export const metadata = buildPageMetadata({
-  pathname: "/about-us",
+  pathname: buildAboutUsHref(),
   title: "О команде",
   description:
     "Команда проекта «Снести нельзя оставить»: сценарий, иллюстрации, музыка и разработка.",
@@ -40,8 +41,9 @@ export default function AboutUs() {
 
         <Image
           src={paperRipPng}
+          sizes="100vw"
           alt=""
-          priority
+          eager
           className="absolute bottom-0 h-auto w-full translate-y-[54%]"
         />
       </div>
@@ -188,7 +190,7 @@ export default function AboutUs() {
 }
 
 type TeamMemberCardProps = {
-  photoSrc: string | StaticImageData;
+  photoSrc: StaticImageData;
   name: string;
   jobTitle: string | React.ReactElement;
   bio: string | React.ReactElement;
@@ -207,9 +209,10 @@ function TeamMemberCard({
       <div className="grid grid-flow-row gap-4 md:grid-flow-col">
         <Image
           src={photoSrc}
+          sizes="(min-width: 768px) 192px, min(560px, calc(100vw - 64px))"
           alt={`Фотография: ${name}`}
           className={twMerge(
-            "my-0 min-w-24",
+            "my-0 w-[min(35rem,calc(100vw-4rem))] md:w-48 md:min-w-48",
             align === "right" && "md:order-2 lg:order-none",
           )}
         />

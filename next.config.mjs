@@ -1,3 +1,5 @@
+import "#config/env.ts";
+
 /** @type {import('next').NextConfig} */
 const config = {
   reactStrictMode: true,

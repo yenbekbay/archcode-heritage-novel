@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import { Link } from "#components/Link.tsx";
 import { usePathname } from "next/navigation";
 import type { ComponentPropsWithRef } from "react";
 

@@ -1,18 +1,19 @@
 import { bgAskBeforeJpg } from "#assets/game/index.ts";
 import { phoneScreenshotPng, phoneSwirlPng } from "#assets/www/index.ts";
+import { Image } from "#components/Image.tsx";
 import {
   FenceSection,
   Hero,
   HeroBackground,
   RoughCard,
 } from "#components/index.ts";
+import { Link } from "#components/Link.tsx";
 import { ScreenshotCarousel } from "#components/ScreenshotCarousel.tsx";
 import { buildPageMetadata } from "#lib/metadata.ts";
-import Image from "next/image";
-import Link from "next/link";
+import { buildAboutNovelHref, buildPlayHref } from "#lib/routes.ts";
 
 export const metadata = buildPageMetadata({
-  pathname: "/about-novel",
+  pathname: buildAboutNovelHref(),
   title: "Визуальная новелла",
   description:
     "Четыре героя, архитектурное наследие и право на коллективную память в игре «Снести нельзя оставить».",
@@ -30,9 +31,10 @@ export default function AboutNovelPage() {
       <Hero
         title="Визуальная новелла"
         image={
-          <Link href="/play" aria-label="Играть">
+          <Link href={buildPlayHref()} aria-label="Играть">
             <Image
               src={phoneSwirlPng}
+              sizes={`${Math.ceil((576 * phoneSwirlPng.width) / phoneSwirlPng.height)}px`}
               alt=""
               className="h-[36rem] w-auto object-contain"
             />
@@ -47,7 +49,7 @@ export default function AboutNovelPage() {
         </p>
 
         <p>
-          <Link href="/play" className="btn-invert btn btn-outline">
+          <Link href={buildPlayHref()} className="btn-invert btn btn-outline">
             Играть
           </Link>
         </p>
@@ -78,6 +80,7 @@ export default function AboutNovelPage() {
           <div className="grid grid-flow-row gap-8 lg:grid-flow-col">
             <Image
               src={phoneScreenshotPng}
+              sizes="480px"
               alt=""
               className="relative h-auto w-[30rem]"
             />

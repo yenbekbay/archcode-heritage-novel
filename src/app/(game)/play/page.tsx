@@ -1,9 +1,10 @@
 import { GameClient, GameLoading } from "#game/GameClient.tsx";
 import { buildPageMetadata } from "#lib/metadata.ts";
+import { buildPlayHref } from "#lib/routes.ts";
 import { Suspense } from "react";
 
 export const metadata = buildPageMetadata({
-  pathname: "/play",
+  pathname: buildPlayHref(),
   title: "Играть",
   description:
     "Пройдите визуальную новеллу об архитектурном наследии в роли Активиста, АрхКота, Девелопера или Акима.",

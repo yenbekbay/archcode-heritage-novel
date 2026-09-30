@@ -37,7 +37,7 @@ The capability is acceptable when the asset set reaches a ready state, each offe
 - `src/game/MyGame.tsx` owns game assembly, initial branch selection, loading states, external-link interception, sound binding, and home navigation.
 - `src/game/branches/` owns exact story content and branch destinations.
 - `src/game/commands/` owns optional participation flows and ending actions.
-- `src/game/LinkPrompt.tsx` owns saved-link persistence and the external destination decision.
+- `src/game/saved-links.ts` owns saved-link persistence. `src/game/LinkPrompt.tsx` owns the external destination decision. `src/game/GameQueryAdapter.tsx` owns URL query updates.
 - `src/assets/game/` owns the source-controlled visual and audio set.
 - `src/api/supabase.ts` and provider-facing code in `src/game/commands/SubmitMeme.tsx` own exact external requests.
 

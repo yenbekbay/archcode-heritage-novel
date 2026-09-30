@@ -28,13 +28,13 @@ Jotai's storage-backed `@App/savedLinks` atom owns saved external reading in bro
 
 ## Interfaces and data flow
 
-The website routes exchange navigation through Next.js links and the router. Query-parameter state is adapted through the App Router adapter from `next-query-params`, scoped to the game route. The game imports every generated branch export, prepares the graph, and starts at `Intro`. External HTTP links opened inside the story stop at `LinkPrompt`, where the player chooses immediate navigation or local retention.
+The website routes exchange navigation through Next.js links and the router. The game-scoped query adapter uses native history updates for the `location` parameter. Next.js synchronizes those updates with its search-parameter state and browser Back/Forward navigation. Story progression does not request server route data. The game imports every generated branch export, prepares the graph, and starts at `Intro`. External HTTP links opened inside the story stop at `LinkPrompt`, where the player chooses immediate navigation or local retention.
 
-`getSupabase()` creates one browser client from the public Supabase URL and anonymous key. Submission commands validate their form data, write to the matching table, and advance only after the insert promise resolves. Meme creation first reads available templates from Imgflip, then requests a captioned image before an optional Supabase record write.
+`src/config/env.ts` validates the existing Supabase and Imgflip environment contract. `getSupabase()` creates one browser client from the public Supabase URL and anonymous key. Submission commands validate their form data, write to the matching table, and advance only after the insert promise resolves. Meme creation first reads available templates from Imgflip, then requests a captioned image before an optional Supabase record write.
 
 ## Trust, privacy, and failure boundaries
 
-All game branches, editorial copy, assets, and built-in destinations are repository-controlled inputs. Saved links remain in the visitor's browser. Optional forms can send visitor-entered text, names, selected meme data, and generated image URLs to external services. Source and provider policy own the exact accepted fields, authorization, retention, and access rules.
+All game branches, editorial copy, assets, and built-in destinations are repository-controlled inputs. Saved links remain in the visitor's browser. The existing Imgflip credentials are browser-visible through `NEXT_PUBLIC_*` variables. Moving meme creation behind a server boundary and rotating those credentials is a separate security change. Optional forms can send visitor-entered text, names, selected meme data, and generated image URLs to external services. Source and provider policy own the exact accepted fields, authorization, retention, and access rules.
 
 Supabase and Imgflip are separate failure boundaries. A provider response or thrown request can stop an optional action. Form owners must keep in-flight controls from producing duplicate intent and must show a failure without advancing as though the write succeeded. The visual-novel loader distinguishes progress, success, and asset failure. App Router error boundaries expose retry controls for render failures. The root fallback is independent of the editorial shell and font styles.
 
@@ -48,6 +48,8 @@ The repository build generates audio, barrels, CSS, and Next.js route declaratio
 
 - `next.config.mjs` owns Cache Components, partial prefetching, asset caching, and former locale redirects.
 - `src/app/` and `src/components/` own website routing and editorial composition. The small shared component family stays flat, and the game has its own source owner.
+- `src/lib/routes.ts` owns internal URL construction, and `src/components/Link.tsx` owns the framework link handoff and keyboard focus outline. `src/components/Image.tsx` owns local-image placeholders and eager loading, with rendered widths declared by callers.
+- `src/config/env.ts` owns environment validation.
 - `src/config/website.ts` owns website identity. `src/lib/metadata.ts` owns static metadata, and `src/proxy.ts` owns the host indexing boundary.
 - `src/game/branches/`, `src/game/commands/`, and `src/game/MyGame.tsx` own the playable graph and runtime binding.
 - `src/api/supabase.ts` and `src/__generated__/supabase.ts` own the Supabase client boundary and generated schema types.

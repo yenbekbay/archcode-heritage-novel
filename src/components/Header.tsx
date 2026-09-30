@@ -1,6 +1,14 @@
 import { logoGamePng } from "#assets/www/index.ts";
-import Image from "next/image";
-import Link from "next/link";
+import { Image } from "#components/Image.tsx";
+import { Link } from "#components/Link.tsx";
+import {
+  buildAboutBotHref,
+  buildAboutNovelHref,
+  buildAboutUsHref,
+  buildHomeHref,
+  buildPlayHref,
+  buildSavedLinksHref,
+} from "#lib/routes.ts";
 import type { IconProps } from "phosphor-react";
 import React from "react";
 import { twMerge } from "tailwind-merge";
@@ -26,19 +34,19 @@ type NavigationLink = {
 
 const LINKS: NavigationLink[] = [
   {
-    to: "/about-novel",
+    to: buildAboutNovelHref(),
     label: "Визуальная новелла",
   },
   {
-    to: "/about-bot",
+    to: buildAboutBotHref(),
     label: "Телеграм-бот",
   },
   {
-    to: "/about-us",
+    to: buildAboutUsHref(),
     label: "О команде",
   },
   {
-    to: "/links",
+    to: buildSavedLinksHref(),
     label: "Ссылки",
   },
   {
@@ -46,7 +54,7 @@ const LINKS: NavigationLink[] = [
     label: "Архкод",
   },
   {
-    to: "/play",
+    to: buildPlayHref(),
     label: "Играть",
     icon: GameControllerIcon,
   },
@@ -57,11 +65,12 @@ export function Header() {
     <header className="container mx-auto text-content-invert">
       <div className="navbar p-4">
         <div className="flex-1">
-          <Link href="/" className="shrink-0">
+          <Link href={buildHomeHref()} className="shrink-0">
             <Image
               src={logoGamePng}
+              sizes={`${Math.ceil((128 * logoGamePng.width) / logoGamePng.height)}px`}
               alt="Логотип «Снести нельзя оставить»"
-              priority
+              eager
               className="h-32 w-auto"
             />
           </Link>

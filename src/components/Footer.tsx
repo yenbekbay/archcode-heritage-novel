@@ -4,8 +4,16 @@ import {
   logoNonmuseumPng,
   logoSorosPng,
 } from "#assets/www/index.ts";
-import Image from "next/image";
-import Link from "next/link";
+import { Image } from "#components/Image.tsx";
+import { Link } from "#components/Link.tsx";
+import {
+  buildAboutBotHref,
+  buildAboutNovelHref,
+  buildAboutUsHref,
+  buildHomeHref,
+  buildPlayHref,
+  buildSavedLinksHref,
+} from "#lib/routes.ts";
 import {
   GameController as GameControllerIcon,
   InstagramLogo as InstagramLogoIcon,
@@ -41,30 +49,30 @@ export function Footer() {
 
           <div className="grid grid-flow-row items-center gap-4 lg:grid-flow-col lg:pr-4">
             <Link
-              href="/play"
+              href={buildPlayHref()}
               className="btn-invert btn btn-sm gap-2 normal-case"
             >
               <GameControllerIcon weight="fill" />
               Играть
             </Link>
 
-            <Link href="/" className="link link-hover">
+            <Link href={buildHomeHref()} className="link link-hover">
               Главная
             </Link>
 
-            <Link href="/about-novel" className="link link-hover">
+            <Link href={buildAboutNovelHref()} className="link link-hover">
               Визуальная новелла
             </Link>
 
-            <Link href="/about-bot" className="link link-hover">
+            <Link href={buildAboutBotHref()} className="link link-hover">
               Телеграм-бот
             </Link>
 
-            <Link href="/about-us" className="link link-hover">
+            <Link href={buildAboutUsHref()} className="link link-hover">
               О команде
             </Link>
 
-            <Link href="/links" className="link link-hover">
+            <Link href={buildSavedLinksHref()} className="link link-hover">
               Ссылки
             </Link>
 
@@ -81,11 +89,11 @@ export function Footer() {
 
         <div className="space-y-4">
           <div className="flex flex-row space-x-3">
-            <Link href="/" className="shrink-0">
+            <Link href={buildHomeHref()} className="shrink-0">
               <Image
                 src={logoGamePng}
+                sizes={`${Math.ceil((48 * logoGamePng.width) / logoGamePng.height)}px`}
                 alt="Логотип «Снести нельзя оставить»"
-                priority
                 className="h-12 w-auto"
               />
             </Link>
@@ -98,8 +106,8 @@ export function Footer() {
             >
               <Image
                 src={logoNonmuseumPng}
+                sizes={`${Math.ceil((48 * logoNonmuseumPng.width) / logoNonmuseumPng.height)}px`}
                 alt="Логотип «Немузей Архитектуры»"
-                priority
                 className="h-12 w-auto"
               />
             </a>
@@ -112,8 +120,8 @@ export function Footer() {
             >
               <Image
                 src={logoArchcodePng}
+                sizes={`${Math.ceil((48 * logoArchcodePng.width) / logoArchcodePng.height)}px`}
                 alt="Логотип «Архкод Алматы»"
-                priority
                 className="h-12 w-auto"
               />
             </a>
@@ -126,8 +134,8 @@ export function Footer() {
             >
               <Image
                 src={logoSorosPng}
+                sizes={`${Math.ceil((48 * logoSorosPng.width) / logoSorosPng.height)}px`}
                 alt="Логотип «Фонд Cорос-Казахстан»"
-                priority
                 className="h-12 w-auto bg-white"
               />
             </a>

@@ -1,8 +1,8 @@
 "use client";
 
-import NextAdapter from "next-query-params/app";
 import dynamic from "next/dynamic";
 import { QueryParamProvider } from "use-query-params";
+import { GameQueryAdapter } from "./GameQueryAdapter";
 
 const MyGame = dynamic(() => import("./MyGame"), {
   ssr: false,
@@ -11,7 +11,7 @@ const MyGame = dynamic(() => import("./MyGame"), {
 
 export function GameClient() {
   return (
-    <QueryParamProvider adapter={NextAdapter}>
+    <QueryParamProvider adapter={GameQueryAdapter}>
       <MyGame />
     </QueryParamProvider>
   );

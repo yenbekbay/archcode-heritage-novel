@@ -8,7 +8,7 @@ Run the procedure from the repository root on a platform supported by `mise.lock
 
 ## Audit
 
-Read `mise.toml`, `package.json`, `fnox.toml`, and the environment schema before changing local state. Confirm the selected checkout, supported platform, tool versions, Secure Note, and required environment names still match this procedure.
+Read `mise.toml`, `package.json`, `fnox.toml`, and `src/config/env.ts` before changing local state. Confirm the selected checkout, supported platform, tool versions, Secure Note, and required environment names still match this procedure.
 
 ## Prepare the toolchain
 
@@ -48,7 +48,7 @@ Open the local URL printed by Next.js. Confirm the editorial home page, visual-n
 
 ## Failure recovery
 
-If tool installation or dependency restoration fails, preserve the lockfiles and inspect the failing artifact or package before retrying. If environment recovery fails, leave any existing `.env.local` in place and restore access through the mapped Secure Note. If artifact generation is interrupted, rerun the owning generator before using the development or lint command and inspect the generated-path diff.
+If tool installation or dependency restoration fails, preserve the lockfiles and inspect the failing artifact or package before retrying. If environment recovery fails, leave any existing `.env.local` in place and restore access through the mapped Secure Note. If environment validation reports missing or invalid names, restore the canonical environment through the mapped Secure Note. Do not bypass validation or substitute a new provider account. If artifact generation is interrupted, rerun the owning generator before using the development or lint command and inspect the generated-path diff.
 
 ## Verification
 

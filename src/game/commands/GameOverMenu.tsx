@@ -3,8 +3,9 @@ import {
   logoNonmuseumPng,
   logoSorosPng,
 } from "#assets/game/index.ts";
+import { Image } from "#components/Image.tsx";
+import { buildFeedbackHref, buildSavedLinksHref } from "#lib/routes.ts";
 import { motion } from "framer-motion";
-import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { Command, MenuView } from "react-visual-novel";
 
@@ -22,13 +23,13 @@ export function GameOverMenu() {
               {
                 label: "Сохранённые ссылки",
                 onClick: () => {
-                  router.push("/links");
+                  router.push(buildSavedLinksHref());
                 },
               },
               {
                 label: "Оставить отзыв",
                 onClick: () => {
-                  router.push("/feedback");
+                  router.push(buildFeedbackHref());
                 },
               },
               {
@@ -65,6 +66,7 @@ export function GameOverMenu() {
               >
                 <Image
                   src={logoNonmuseumPng}
+                  sizes={`${Math.ceil((64 * logoNonmuseumPng.width) / logoNonmuseumPng.height)}px`}
                   alt="Логотип «Немузей Архитектуры»"
                   className="max-h-16 w-auto"
                 />
@@ -78,6 +80,7 @@ export function GameOverMenu() {
               >
                 <Image
                   src={logoArchcodePng}
+                  sizes={`${Math.ceil((64 * logoArchcodePng.width) / logoArchcodePng.height)}px`}
                   alt="Логотип «Архкод Алматы»"
                   className="max-h-16 w-auto"
                 />
@@ -91,6 +94,7 @@ export function GameOverMenu() {
               >
                 <Image
                   src={logoSorosPng}
+                  sizes={`${Math.ceil((64 * logoSorosPng.width) / logoSorosPng.height)}px`}
                   alt="Логотип «Фонд Cорос-Казахстан»"
                   className="max-h-16 w-auto"
                 />

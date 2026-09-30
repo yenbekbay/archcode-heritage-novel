@@ -8,9 +8,9 @@ import {
   screenshot5Png,
   screenshot6Png,
 } from "#assets/www/index.ts";
+import { Image } from "#components/Image.tsx";
 import useEmblaCarousel from "embla-carousel-react";
 import { WheelGesturesPlugin as createWheelGesturesPlugin } from "embla-carousel-wheel-gestures";
-import Image from "next/image";
 import { Reveal } from "./Reveal";
 
 export function ScreenshotCarousel() {
@@ -34,7 +34,11 @@ export function ScreenshotCarousel() {
             key={data.src}
             className="relative w-4/5 flex-[0_0_auto] md:w-2/5 lg:w-[18%]"
           >
-            <Image src={data} alt="" />
+            <Image
+              src={data}
+              sizes="(min-width: 1024px) 18vw, (min-width: 768px) 40vw, 80vw"
+              alt=""
+            />
           </div>
         ))}
       </div>
