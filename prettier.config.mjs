@@ -3,7 +3,7 @@ const config = {
   proseWrap: "never",
   quoteProps: "consistent",
   tailwindAttributes: ["className"],
-  tailwindFunctions: ["twMerge"],
+  tailwindFunctions: ["twMerge", "tv"],
   tailwindStylesheet: "./src/main.css",
   plugins: [
     "@utilfirst/prettier-plugin",

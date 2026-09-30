@@ -1,6 +1,7 @@
 import type { definitions } from "#api/index.ts";
 import { getSupabase } from "#api/index.ts";
 import { Spinner } from "#components/index.ts";
+import { Button } from "#components/ui/Button.tsx";
 import { env } from "#config/env.ts";
 import { useLocalStorageValue } from "@react-hookz/web";
 import { motion } from "framer-motion";
@@ -128,11 +129,11 @@ function MemeForm({ onSubmit, onSkip }: MemeFormProps) {
       <div className="flex min-h-0 flex-1 flex-col gap-y-4">
         <div className="flex min-h-16 w-full items-center p-2">
           <div className="flex w-1/2 items-center">
-            <button
-              onMouseEnter={() => {
+            <Button
+              onHoverStart={() => {
                 playSound("mouseover");
               }}
-              onClick={() => {
+              onPress={() => {
                 playSound("click");
                 if (previewUrl) {
                   setPreviewUrl("");
@@ -140,10 +141,13 @@ function MemeForm({ onSubmit, onSkip }: MemeFormProps) {
                   setActiveTemplateId("");
                 }
               }}
-              className="action-button action-circle bg-white text-xl shadow-md action-ghost hover:bg-chicago-50"
+              variant="ghost"
+              shape="circle"
+              aria-label="Вернуться к шаблонам"
+              className="bg-white text-xl shadow-md hover:bg-chicago-50"
             >
               <XIcon />
-            </button>
+            </Button>
           </div>
         </div>
 
@@ -265,32 +269,32 @@ function MemePreview({ url, onSubmit, onSkip }: MemePreviewProps) {
           ))}
         </div>
 
-        <button
-          onMouseEnter={() => {
+        <Button
+          onHoverStart={() => {
             playSound("mouseover");
           }}
-          onClick={() => {
+          onPress={() => {
             playSound("click");
             onSkip();
           }}
-          className="game-button"
+          variant="game"
         >
           Пропустить
-        </button>
+        </Button>
 
-        <button
+        <Button
           type="submit"
-          disabled={zo.validation?.success === false}
-          onMouseEnter={() => {
+          isDisabled={zo.validation?.success === false}
+          onHoverStart={() => {
             playSound("mouseover");
           }}
-          onClick={() => {
+          onPress={() => {
             playSound("click");
           }}
-          className="game-button game-button-opaque"
+          variant="game_opaque"
         >
           Опубликовать мем
-        </button>
+        </Button>
 
         <span className="prose text-xs">
           Нажав на кнопку «Опубликовать мем», вы даёте нам разрешение
@@ -408,19 +412,19 @@ function MemeTemplateForm({
           </div>
         ))}
 
-        <button
+        <Button
           type="submit"
-          disabled={zo.validation?.success === false}
-          onMouseEnter={() => {
+          isDisabled={zo.validation?.success === false}
+          onHoverStart={() => {
             playSound("mouseover");
           }}
-          onClick={() => {
+          onPress={() => {
             playSound("click");
           }}
-          className="game-button game-button-opaque"
+          variant="game_opaque"
         >
           Посмотреть
-        </button>
+        </Button>
       </form>
 
       {submitting && (

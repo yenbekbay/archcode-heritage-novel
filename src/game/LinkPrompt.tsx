@@ -1,4 +1,5 @@
 import { Dialog, LinkCard } from "#components/index.ts";
+import { Button } from "#components/ui/Button.tsx";
 import { AnimatePresence } from "framer-motion";
 import { useSetAtom } from "jotai";
 import { X as XIcon } from "phosphor-react";
@@ -19,28 +20,31 @@ export function LinkPrompt({ link, onClose }: LinkPromptProps) {
     <AnimatePresence>
       {link && (
         <Dialog
-          open
-          onOpenChange={(newOpen) => {
-            if (!newOpen) {
+          isOpen
+          aria-label="Внешняя ссылка"
+          onOpenChange={(isOpen) => {
+            if (!isOpen) {
               onClose();
             }
           }}
         >
-          <Dialog.Close asChild>
-            <button
-              onMouseEnter={() => {
-                playSound("mouseover");
-              }}
-              onClick={() => {
-                playSound("click");
-              }}
-              className="action-button action-circle bg-white text-xl shadow-md action-ghost hover:bg-chicago-50"
-            >
-              <XIcon />
-            </button>
-          </Dialog.Close>
+          <Button
+            variant="ghost"
+            shape="circle"
+            aria-label="Закрыть диалог"
+            onHoverStart={() => {
+              playSound("mouseover");
+            }}
+            onPress={() => {
+              playSound("click");
+              onClose();
+            }}
+            className="bg-white text-xl shadow-md hover:bg-chicago-50"
+          >
+            <XIcon />
+          </Button>
 
-          <div className="flex flex-col gap-y-4 overflow-auto">
+          <div className="flex flex-col gap-4 overflow-auto">
             <LinkCard
               url={link.href}
               size="sm"
@@ -48,34 +52,36 @@ export function LinkPrompt({ link, onClose }: LinkPromptProps) {
             />
 
             <div className="flex w-fit [&>button:first-child]:rounded-r-none [&>button:last-child]:rounded-l-none [&>button:last-child]:border-l-0">
-              <Dialog.Close
-                onMouseEnter={() => {
+              <Button
+                variant="outline"
+                onHoverStart={() => {
                   playSound("mouseover");
                 }}
-                onClick={() => {
+                onPress={() => {
                   playSound("click");
                   window.open(link.href, "_blank");
+                  onClose();
                 }}
-                className="action-button action-outline"
               >
                 Читать сейчас
-              </Dialog.Close>
+              </Button>
 
-              <Dialog.Close
-                onMouseEnter={() => {
+              <Button
+                onHoverStart={() => {
                   playSound("mouseover");
                 }}
-                onClick={() => {
+                onPress={() => {
                   playSound("click");
                   setSavedLinks((prev) =>
                     uniqBy([...prev, link], (l) => l.href),
                   );
                   toast.success("Ссылка сохранена");
+                  onClose();
                 }}
-                className="action-button border-content hover:border-content"
+                className="border-content hover:border-content"
               >
                 Сохранить
-              </Dialog.Close>
+              </Button>
             </div>
 
             <div className="prose prose-sm">

@@ -1,4 +1,5 @@
 import { Spinner } from "#components/index.ts";
+import { Button } from "#components/ui/Button.tsx";
 import React from "react";
 import toast from "react-hot-toast";
 import { useGameContext } from "react-visual-novel";
@@ -92,19 +93,19 @@ export function TextForm({
           ))}
         </div>
 
-        <button
+        <Button
           type="submit"
-          disabled={zo.validation?.success === false}
-          onMouseEnter={() => {
+          isDisabled={zo.validation?.success === false}
+          onHoverStart={() => {
             playSound("mouseover");
           }}
-          onClick={() => {
+          onPress={() => {
             playSound("click");
           }}
-          className="game-button game-button-opaque font-script"
+          variant="game_opaque"
         >
           {submitLabel}
-        </button>
+        </Button>
       </form>
 
       {submitting && (

@@ -1,5 +1,7 @@
 "use client";
 
+import { Button } from "#components/ui/Button.tsx";
+
 import { bgArchcodeOfficeJpg } from "#assets/game/index.ts";
 import { HeroBackground } from "#components/HeroBackground.tsx";
 import { Layout } from "#components/Layout.tsx";
@@ -26,13 +28,9 @@ export default function ErrorPage(props: {
               <h1>Что-то пошло не так!</h1>
               <p>Не удалось открыть страницу. Попробуйте еще раз.</p>
 
-              <button
-                type="button"
-                className="action-button"
-                onClick={props.retry}
-              >
+              <Button type="button" onPress={props.retry}>
                 Попробовать снова
-              </button>
+              </Button>
             </RoughCard>
           </section>
         </main>

@@ -6,7 +6,7 @@ export type HeroProps = {
   title: string;
   image?: React.ReactNode;
   children?: React.ReactNode;
-} & React.ComponentPropsWithoutRef<"section">;
+} & Omit<React.ComponentPropsWithRef<typeof Reveal>, "title" | "children">;
 
 export function Hero({
   title,
@@ -16,21 +16,19 @@ export function Hero({
   ...restProps
 }: HeroProps) {
   return (
-    <Reveal asChild>
-      <div
-        className={twMerge(
-          "container mx-auto grid grid-flow-row gap-8 p-8 pb-16 lg:grid-flow-col lg:justify-items-start",
-          className,
-        )}
-        {...restProps}
-      >
-        <div className="prose flex flex-col gap-y-4 prose-invert">
-          <h1 className="mb-2">{title}</h1>
-          {children}
-        </div>
-
-        {image}
+    <Reveal
+      className={twMerge(
+        "container mx-auto grid grid-flow-row gap-8 p-8 pb-16 lg:grid-flow-col lg:justify-items-start",
+        className,
+      )}
+      {...restProps}
+    >
+      <div className="prose flex flex-col gap-y-4 prose-invert">
+        <h1 className="mb-2">{title}</h1>
+        {children}
       </div>
+
+      {image}
     </Reveal>
   );
 }

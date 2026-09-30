@@ -1,54 +1,47 @@
 "use client";
 
-import * as DialogPrimitive from "@radix-ui/react-dialog";
 import { motion } from "framer-motion";
-import React from "react";
+import type { ComponentPropsWithRef, ReactNode } from "react";
+import {
+  Modal,
+  ModalOverlay,
+  Dialog as RACDialog,
+} from "react-aria-components";
 
-export type DialogProps = React.ComponentProps<typeof DialogPrimitive.Root>;
+const MotionModalOverlay = motion.create(ModalOverlay);
+const MotionModal = motion.create(Modal);
 
-export function Dialog(props: DialogProps) {
+export function Dialog(
+  props: Pick<
+    ComponentPropsWithRef<typeof ModalOverlay>,
+    "isOpen" | "onOpenChange"
+  > & {
+    "children": ReactNode;
+    "aria-label": string;
+  },
+) {
   return (
-    <DialogPrimitive.Root {...props}>
-      <DialogPrimitive.Portal>
-        <DialogPrimitive.Overlay asChild forceMount>
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{
-              opacity: 100,
-              transition: { ease: "easeOut", duration: 0.3 },
-            }}
-            exit={{
-              opacity: 0,
-              transition: { ease: "easeIn", duration: 0.2 },
-            }}
-            className="fixed inset-0 z-[1000] bg-black/30"
-          />
-        </DialogPrimitive.Overlay>
-
-        <DialogPrimitive.Content asChild forceMount>
-          <motion.div
-            initial={{ opacity: 0, x: "-50%", y: "-50%", scale: 0.95 }}
-            animate={{
-              opacity: 1,
-              scale: 1,
-              transition: { ease: "easeOut", duration: 0.3 },
-            }}
-            exit={{
-              opacity: 0,
-              scale: 0.95,
-              transition: { ease: "easeIn", duration: 0.2 },
-            }}
-            className="fixed top-1/2 left-1/2 z-[1010] flex max-h-[95vh] w-[95vw] max-w-md flex-col gap-y-4 rounded-lg bg-white p-4 md:w-full"
-          >
-            {props.children}
-          </motion.div>
-        </DialogPrimitive.Content>
-      </DialogPrimitive.Portal>
-    </DialogPrimitive.Root>
+    <MotionModalOverlay
+      isOpen={props.isOpen}
+      onOpenChange={props.onOpenChange}
+      isDismissable
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1, transition: { ease: "easeOut", duration: 0.3 } }}
+      exit={{ opacity: 0, transition: { ease: "easeIn", duration: 0.2 } }}
+      className="fixed inset-0 z-[1000] flex items-center justify-center bg-black/30"
+    >
+      <MotionModal
+        initial={{ scale: 0.95 }}
+        animate={{ scale: 1, transition: { ease: "easeOut", duration: 0.3 } }}
+        exit={{ scale: 0.95, transition: { ease: "easeIn", duration: 0.2 } }}
+      >
+        <RACDialog
+          aria-label={props["aria-label"]}
+          className="flex max-h-[95dvh] w-[95vw] max-w-md flex-col gap-4 rounded-lg bg-white p-4 outline-hidden md:w-md"
+        >
+          {props.children}
+        </RACDialog>
+      </MotionModal>
+    </MotionModalOverlay>
   );
 }
-
-Dialog.Close = DialogPrimitive.Close;
-Dialog.Description = DialogPrimitive.Description;
-Dialog.Title = DialogPrimitive.Title;
-Dialog.Trigger = DialogPrimitive.Trigger;

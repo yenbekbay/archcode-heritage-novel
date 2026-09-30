@@ -44,7 +44,7 @@ export function SavedLinks() {
                 key={l.href}
                 contentClassName="max-w-none p-1"
               >
-                <LinkCard url={l.href} asChild />
+                <LinkCard url={l.href} />
               </RoughCard>
             ))}
           </div>

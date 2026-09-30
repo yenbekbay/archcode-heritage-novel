@@ -31,7 +31,7 @@ Photography and illustrations remain attached to their narrative context. Screen
 
 The game occupies a viewport-bound surface that scales its scenes and controls together. Story statements sequence text, character images, backgrounds, and audio. Choice buttons must remain distinct from passive dialogue. Loading exposes both a label and progress control. Asset failure replaces the game with a readable error state.
 
-External story links open a confirmation dialog. The dialog shows the destination preview and separates immediate reading from saving for later. Optional forms expose labels, submission progress, failure feedback, and the branch action that continues play.
+External story links open a named React Aria confirmation dialog. The dialog shows the destination preview and separates immediate reading from saving for later. Escape, the backdrop, and the close action dismiss it. Focus remains inside the open dialog and returns after dismissal. React Aria buttons expose disabled, keyboard focus, and press states. Optional forms expose labels, submission progress, failure feedback, and the branch action that continues play.
 
 ## Motion and sound
 

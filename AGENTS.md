@@ -24,7 +24,7 @@ Interactive visual novel and editorial website about Almaty architectural herita
 
 ## Stack
 
-- Next.js App Router with React, TypeScript, Tailwind CSS 4, Framer Motion, and React Visual Novel.
+- Next.js App Router with React, TypeScript, Tailwind CSS 4, React Aria Components, Framer Motion, and React Visual Novel.
 - Supabase for submitted game content and Imgflip for meme generation.
 
 ## Structure

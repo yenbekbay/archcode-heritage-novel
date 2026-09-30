@@ -1,6 +1,5 @@
 "use client";
 
-import { Slot } from "@radix-ui/react-slot";
 import {
   motion,
   useInView,
@@ -10,22 +9,14 @@ import {
 import { useRef } from "react";
 import { mergeRefs } from "react-merge-refs";
 
-export type RevealProps = {
-  asChild?: boolean;
-} & HTMLMotionProps<"div">;
-
-const MotionSlot = motion.create(Slot);
-
-export function Reveal(props: RevealProps) {
-  const { asChild, ref, ...restProps } = props;
+export function Reveal(props: HTMLMotionProps<"div">) {
+  const { ref, ...restProps } = props;
 
   const internalRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(internalRef, { once: true });
 
-  const MotionComponent = asChild === true ? MotionSlot : motion.div;
-
   return (
-    <MotionComponent
+    <motion.div
       ref={mergeRefs([internalRef, ref])}
       animate={isInView ? "visible" : "hidden"}
       variants={variants}

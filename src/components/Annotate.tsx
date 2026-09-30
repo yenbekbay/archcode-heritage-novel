@@ -1,6 +1,5 @@
 "use client";
 
-import { Slot } from "@radix-ui/react-slot";
 import { useInView } from "framer-motion";
 import { useEffect, useRef, type ComponentPropsWithRef } from "react";
 import { mergeRefs } from "react-merge-refs";
@@ -8,17 +7,14 @@ import { annotate } from "rough-notation";
 import type { RoughAnnotationConfig } from "rough-notation/lib/model";
 
 export type AnnotateProps = {
-  asChild?: boolean;
   config?: RoughAnnotationConfig;
 } & ComponentPropsWithRef<"span">;
 
 export function Annotate(props: AnnotateProps) {
-  const { asChild, config, ref, ...restProps } = props;
+  const { config, ref, ...restProps } = props;
 
   const internalRef = useRef<HTMLSpanElement>(null);
   const isInView = useInView(internalRef, { once: true });
-
-  const Component = asChild === true ? Slot : "span";
 
   useEffect(() => {
     if (!isInView) {
@@ -46,7 +42,7 @@ export function Annotate(props: AnnotateProps) {
     };
   }, [isInView, config]);
 
-  return <Component {...restProps} ref={mergeRefs([internalRef, ref])} />;
+  return <span {...restProps} ref={mergeRefs([internalRef, ref])} />;
 }
 
 const SHOW_DELAY_MS = 1000;
