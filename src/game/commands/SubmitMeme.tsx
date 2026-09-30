@@ -143,7 +143,7 @@ function MemeForm({ onSubmit, onSkip }: MemeFormProps) {
                 }
               }}
               variant="ghost"
-              shape="circle"
+              isIconOnly
               aria-label="Вернуться к шаблонам"
               className="bg-white text-xl shadow-md hover:bg-chicago-50"
             >

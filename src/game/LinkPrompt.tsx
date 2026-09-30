@@ -31,7 +31,7 @@ export function LinkPrompt({ link, onClose }: LinkPromptProps) {
         >
           <Button
             variant="ghost"
-            shape="circle"
+            isIconOnly
             aria-label="Закрыть диалог"
             onHoverStart={() => {
               playSound("mouseover");

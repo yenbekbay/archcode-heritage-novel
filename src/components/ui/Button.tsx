@@ -14,25 +14,25 @@ const buttonStyles = tv({
       game: "game-button",
       game_opaque: "game-button game-button-opaque",
     },
-    shape: {
-      default: "",
-      circle: "action-circle",
+    isIconOnly: {
+      false: "",
+      true: "action-circle",
     },
   },
-  defaultVariants: { variant: "solid", shape: "default" },
+  defaultVariants: { variant: "solid", isIconOnly: false },
 });
 
 export function Button(
   props: ComponentPropsWithRef<typeof RACButton> &
     VariantProps<typeof buttonStyles>,
 ) {
-  const { variant, shape, ...buttonProps } = props;
+  const { variant, isIconOnly, ...buttonProps } = props;
 
   return (
     <RACButton
       {...buttonProps}
       className={composeRenderProps(props.className, (className) =>
-        buttonStyles({ variant, shape, className }),
+        buttonStyles({ variant, isIconOnly, className }),
       )}
     >
       {props.children}
