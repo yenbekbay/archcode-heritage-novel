@@ -20,7 +20,7 @@ The links route reads the stored collection. Saved links remain local to the bro
 
 ## Optional participation
 
-Authored branches may ask the player to submit a monument nomination, simulated social post, or meme. Text submissions require their main body and may accept a name. Meme creation lets the player choose an Imgflip template, enter caption text, preview the generated result, and optionally attach a name before saving the result.
+Authored branches may ask the player to submit a monument nomination, simulated social post, or meme. Text submissions require their main body and may accept a name. Meme creation lets the player choose an Imgflip template, enter caption text, preview the generated result, and optionally attach a name before saving the result. Template-loading failure exposes an error and a skip action. Caption or save failure keeps the form available for retry.
 
 Submission is an external write. The player action must start the write, keep the interface from accepting a second concurrent submission, and advance the story only after the expected provider operation resolves. A rejected write must expose a failure state and leave the player able to retry or use an explicitly authored skip path where one exists.
 

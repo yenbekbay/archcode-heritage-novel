@@ -3,7 +3,7 @@ import { Button } from "#components/ui/Button.tsx";
 import { Input } from "#components/ui/Input.tsx";
 import { TextArea } from "#components/ui/TextArea.tsx";
 import React from "react";
-import toast from "react-hot-toast";
+import { toast } from "react-hot-toast";
 import { useGameContext } from "react-visual-novel";
 import { useZorm } from "react-zorm";
 import { twMerge } from "tailwind-merge";
@@ -12,7 +12,7 @@ import { z } from "zod";
 export type TextFormProps = {
   inputLabel: string;
   submitLabel: string;
-  onSubmit: (values: { body: string; name: string }) => unknown;
+  onSubmit: (values: z.infer<typeof TextFormSchema>) => Promise<void>;
   rows?: number;
 };
 
@@ -21,27 +21,28 @@ const TextFormSchema = z.object({
   name: z.string(),
 });
 
-export function TextForm({
-  inputLabel,
-  submitLabel,
-  onSubmit,
-  rows = 2,
-}: TextFormProps) {
+export function TextForm(props: TextFormProps) {
   const { playSound } = useGameContext();
 
-  const [submitting, setSubmitting] = React.useState(false);
+  const [isSubmitting, setIsSubmitting] = React.useState(false);
 
   const zo = useZorm("text", TextFormSchema, {
     onValidSubmit: async (event) => {
       event.preventDefault();
-      setSubmitting(true);
+
+      if (isSubmitting) {
+        return;
+      }
+
+      setIsSubmitting(true);
 
       try {
-        await onSubmit(event.data);
+        await props.onSubmit(event.data);
       } catch {
+        console.error("Failed to submit text");
         toast.error("Что-то пошло не так. Попробуйте ещё раз");
       } finally {
-        setSubmitting(false);
+        setIsSubmitting(false);
       }
     },
   });
@@ -52,18 +53,18 @@ export function TextForm({
         ref={zo.ref}
         className={twMerge(
           "flex flex-col gap-y-4",
-          submitting && "pointer-events-none opacity-50",
+          isSubmitting && "pointer-events-none opacity-50",
         )}
       >
         <div className="flex flex-col gap-y-2">
           <label className="text-sm font-bold" htmlFor="body">
-            {inputLabel}
+            {props.inputLabel}
           </label>
 
           <TextArea
             id="body"
             name="body"
-            rows={rows}
+            rows={props.rows ?? 2}
             aria-invalid={zo.errors.body() !== undefined}
             aria-describedby={zo.errors.body(zo.fields.body("errorid"))}
           />
@@ -103,7 +104,7 @@ export function TextForm({
 
         <Button
           type="submit"
-          isDisabled={zo.validation?.success === false}
+          isDisabled={isSubmitting || zo.validation?.success === false}
           onHoverStart={() => {
             playSound("mouseover");
           }}
@@ -112,11 +113,11 @@ export function TextForm({
           }}
           variant="game_opaque"
         >
-          {submitLabel}
+          {props.submitLabel}
         </Button>
       </form>
 
-      {submitting && (
+      {isSubmitting && (
         <div className="absolute inset-0 flex flex-col items-center justify-center">
           <Spinner />
         </div>

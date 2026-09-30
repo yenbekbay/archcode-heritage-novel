@@ -8,7 +8,7 @@ import { useLocalStorageValue } from "@react-hookz/web";
 import { motion } from "framer-motion";
 import { X as XIcon } from "phosphor-react";
 import React from "react";
-import toast from "react-hot-toast";
+import { toast } from "react-hot-toast";
 import type { BranchId, Frame, ImageViewProps } from "react-visual-novel";
 import {
   Command,
@@ -18,7 +18,6 @@ import {
   useGameContext,
 } from "react-visual-novel";
 import { useZorm } from "react-zorm";
-import type { Fetcher } from "swr";
 import useSWR from "swr";
 import { twMerge } from "tailwind-merge";
 import { z } from "zod";
@@ -33,13 +32,14 @@ export type SubmitMemeProps = {
   image?: string | Omit<ImageViewProps, "controls">;
 };
 
-export function SubmitMeme({ onDone, frame, image }: SubmitMemeProps) {
+export function SubmitMeme(props: SubmitMemeProps) {
   const { goToBranch } = useGameContext();
 
   const { containerRect, goToStatement, goToNextStatement } =
     useBranchContext();
 
-  const imageProps = typeof image === "string" ? { uri: image } : image;
+  const imageProps =
+    typeof props.image === "string" ? { uri: props.image } : props.image;
 
   return (
     <Command name="SubmitMeme" behavior={["non_skippable"]}>
@@ -50,9 +50,9 @@ export function SubmitMeme({ onDone, frame, image }: SubmitMemeProps) {
           <motion.div
             className={twMerge(
               "absolute flex flex-col rvn-text",
-              !frame && "inset-0 p-8 py-20",
+              props.frame == null && "inset-0 p-8 py-20",
             )}
-            style={frame && styleForFrame({ containerRect }, frame)}
+            style={props.frame && styleForFrame({ containerRect }, props.frame)}
             variants={{
               initial: { opacity: 0 },
               entrance: {
@@ -69,16 +69,27 @@ export function SubmitMeme({ onDone, frame, image }: SubmitMemeProps) {
           >
             <MemeForm
               onSubmit={async (values) => {
-                await getSupabase()
+                const meme: Pick<
+                  definitions["meme_submissions"],
+                  "url" | "name"
+                > = { url: values.url };
+
+                if (values.name !== "") {
+                  meme.name = values.name;
+                }
+
+                const { error } = await getSupabase()
                   .from<definitions["meme_submissions"]>("meme_submissions")
-                  .insert({
-                    url: values.url,
-                    name: values.name || undefined,
-                  });
-                onDone({ goToStatement, goToBranch, goToNextStatement });
+                  .insert(meme);
+
+                if (error != null) {
+                  throw new Error("Failed to save meme", { cause: error });
+                }
+
+                props.onDone({ goToStatement, goToBranch, goToNextStatement });
               }}
               onSkip={() => {
-                onDone({ goToStatement, goToBranch, goToNextStatement });
+                props.onDone({ goToStatement, goToBranch, goToNextStatement });
               }}
             />
           </motion.div>
@@ -90,12 +101,17 @@ export function SubmitMeme({ onDone, frame, image }: SubmitMemeProps) {
 
 // MARK: MemeForm
 
+type MemeSubmission = {
+  url: string;
+  name: string;
+};
+
 type MemeFormProps = {
-  onSubmit: (values: { url: string; name: string }) => unknown;
+  onSubmit: (values: MemeSubmission) => Promise<void>;
   onSkip: () => void;
 };
 
-function MemeForm({ onSubmit, onSkip }: MemeFormProps) {
+function MemeForm(props: MemeFormProps) {
   const { playSound } = useGameContext();
 
   const [activeTemplateId, setActiveTemplateId, resetActiveTemplateId] =
@@ -104,28 +120,38 @@ function MemeForm({ onSubmit, onSkip }: MemeFormProps) {
   const [previewUrl, setPreviewUrl, resetPreviewUrl] =
     useLocalStorageValue<string>("@MemeForm/previewUrl");
 
-  const templatesRes = useSWR("memeTemplates", memeTemplatesFetcher);
+  const templatesRes = useSWR<ImgFlipMemeTemplate[], Error>(
+    "memeTemplates",
+    getMemeTemplates,
+  );
 
   const templates = templatesRes.data;
 
-  const templateById = React.useMemo(
-    () =>
-      templates ? Object.fromEntries(templates.map((t) => [t.id, t])) : {},
-    [templates],
+  const activeTemplate = templates?.find(
+    (template) => template.id === activeTemplateId,
   );
 
-  const activeTemplate = activeTemplateId
-    ? templateById[activeTemplateId]
-    : null;
+  const hasPreview = previewUrl != null && previewUrl !== "";
 
-  if (!templates) {
+  if (templatesRes.error != null && templates == null) {
+    return (
+      <div className="flex flex-1 flex-col items-center justify-center gap-y-4">
+        <span role="alert">Что-то пошло не так. Попробуйте ещё раз</span>
+
+        <Button onPress={props.onSkip} variant="game">
+          Пропустить
+        </Button>
+      </div>
+    );
+  }
+  if (templates == null) {
     return (
       <div className="flex flex-1 items-center justify-center">
         <Spinner />
       </div>
     );
   }
-  if (activeTemplate) {
+  if (activeTemplate != null) {
     return (
       <div className="flex min-h-0 flex-1 flex-col gap-y-4">
         <div className="flex min-h-16 w-full items-center p-2">
@@ -136,7 +162,7 @@ function MemeForm({ onSubmit, onSkip }: MemeFormProps) {
               }}
               onPress={() => {
                 playSound("click");
-                if (previewUrl) {
+                if (hasPreview) {
                   setPreviewUrl("");
                 } else {
                   setActiveTemplateId("");
@@ -153,25 +179,25 @@ function MemeForm({ onSubmit, onSkip }: MemeFormProps) {
         </div>
 
         <div className="flex flex-1 flex-col gap-y-4 overflow-y-auto">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
+          {/* oxlint-disable-next-line nextjs/no-img-element -- Imgflip supplies dynamic remote images outside the local image pipeline. */}
           <img
-            src={previewUrl ?? activeTemplate.url}
-            aria-label={activeTemplate.name}
+            src={hasPreview ? previewUrl : activeTemplate.url}
+            alt={activeTemplate.name}
             className="h-auto max-h-64 w-full object-contain"
           />
 
           <span className="text-lg font-semibold">{activeTemplate.name}</span>
 
-          {previewUrl ? (
+          {hasPreview ? (
             <MemePreview
               url={previewUrl}
               onSubmit={async (values) => {
-                await onSubmit(values);
+                await props.onSubmit(values);
                 resetPreviewUrl();
                 resetActiveTemplateId();
               }}
               onSkip={() => {
-                onSkip();
+                props.onSkip();
                 resetPreviewUrl();
                 resetActiveTemplateId();
               }}
@@ -189,22 +215,26 @@ function MemeForm({ onSubmit, onSkip }: MemeFormProps) {
 
   return (
     <div className="flex flex-1 flex-col gap-y-4 overflow-y-auto">
-      {templates.map((t) => (
+      {templates.map((template) => (
         <button
-          key={t.id}
+          key={template.id}
           type="button"
-          aria-label={`Выбрать шаблон «${t.name}»`}
+          aria-label={`Выбрать шаблон «${template.name}»`}
           onMouseEnter={() => {
             playSound("mouseover");
           }}
           onClick={() => {
             playSound("click");
-            setActiveTemplateId(t.id);
+            setActiveTemplateId(template.id);
           }}
           className="rvn-surface w-full cursor-pointer"
         >
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={t.url} alt="" className="h-auto w-full object-contain" />
+          {/* oxlint-disable-next-line nextjs/no-img-element -- Imgflip supplies dynamic remote images outside the local image pipeline. */}
+          <img
+            src={template.url}
+            alt=""
+            className="h-auto w-full object-contain"
+          />
         </button>
       ))}
     </div>
@@ -215,28 +245,34 @@ function MemeForm({ onSubmit, onSkip }: MemeFormProps) {
 
 type MemePreviewProps = {
   url: string;
-  onSubmit: (values: { url: string; name: string }) => unknown;
+  onSubmit: (values: MemeSubmission) => Promise<void>;
   onSkip: () => void;
 };
 
 const MemePreviewSchema = z.object({ name: z.string() });
 
-function MemePreview({ url, onSubmit, onSkip }: MemePreviewProps) {
+function MemePreview(props: MemePreviewProps) {
   const { playSound } = useGameContext();
 
-  const [submitting, setSubmitting] = React.useState(false);
+  const [isSubmitting, setIsSubmitting] = React.useState(false);
 
   const zo = useZorm("meme-preview", MemePreviewSchema, {
     onValidSubmit: async (event) => {
       event.preventDefault();
-      setSubmitting(true);
+
+      if (isSubmitting) {
+        return;
+      }
+
+      setIsSubmitting(true);
 
       try {
-        await onSubmit({ url, name: event.data.name });
+        await props.onSubmit({ url: props.url, name: event.data.name });
       } catch {
+        console.error("Failed to save meme");
         toast.error("Что-то пошло не так. Попробуйте ещё раз");
       } finally {
-        setSubmitting(false);
+        setIsSubmitting(false);
       }
     },
   });
@@ -247,7 +283,7 @@ function MemePreview({ url, onSubmit, onSkip }: MemePreviewProps) {
         ref={zo.ref}
         className={twMerge(
           "flex flex-col gap-y-2",
-          submitting && "pointer-events-none opacity-50",
+          isSubmitting && "pointer-events-none opacity-50",
         )}
       >
         <div className="flex flex-col gap-y-2">
@@ -279,16 +315,17 @@ function MemePreview({ url, onSubmit, onSkip }: MemePreviewProps) {
           }}
           onPress={() => {
             playSound("click");
-            onSkip();
+            props.onSkip();
           }}
           variant="game"
+          isDisabled={isSubmitting}
         >
           Пропустить
         </Button>
 
         <Button
           type="submit"
-          isDisabled={zo.validation?.success === false}
+          isDisabled={isSubmitting || zo.validation?.success === false}
           onHoverStart={() => {
             playSound("mouseover");
           }}
@@ -307,7 +344,7 @@ function MemePreview({ url, onSubmit, onSkip }: MemePreviewProps) {
         </span>
       </form>
 
-      {submitting && (
+      {isSubmitting && (
         <div className="absolute inset-0 flex flex-col items-center justify-center">
           <Spinner />
         </div>
@@ -323,35 +360,39 @@ type MemeTemplateFormProps = {
   onPreviewUrlChange: (url: string) => void;
 };
 
-function MemeTemplateForm({
-  template: t,
-  onPreviewUrlChange,
-}: MemeTemplateFormProps) {
+function MemeTemplateForm(props: MemeTemplateFormProps) {
+  const { template } = props;
+
   const { playSound } = useGameContext();
 
-  const [submitting, setSubmitting] = React.useState(false);
+  const [isSubmitting, setIsSubmitting] = React.useState(false);
 
   const FormSchema = React.useMemo(
     () =>
       z.object(
         Object.fromEntries(
-          Array.from({ length: t.box_count }).map((_, i) => [
+          Array.from({ length: template.box_count }).map((_, i) => [
             `text${i}`,
             z.string().min(1, "Пожалуйста, заполните поле"),
           ]),
         ),
       ),
-    [t.box_count],
+    [template.box_count],
   );
 
   const zo = useZorm("meme-template", FormSchema, {
     onValidSubmit: async (event) => {
       event.preventDefault();
-      setSubmitting(true);
+
+      if (isSubmitting) {
+        return;
+      }
+
+      setIsSubmitting(true);
 
       try {
         const formData = new FormData();
-        formData.append("template_id", t.id);
+        formData.append("template_id", template.id);
         formData.append(
           "username",
 
@@ -372,15 +413,22 @@ function MemeTemplateForm({
           body: formData,
         });
 
-        const data = (await res.json()) as ImgFlipCaptionResponse;
-        if (data.success) {
-          onPreviewUrlChange(data.data.url);
+        if (!res.ok) {
+          throw new Error(`Failed to caption image: ${res.status}`);
+        }
+
+        const caption = ImgFlipCaptionResponseSchema.parse(await res.json());
+        if (caption.success) {
+          props.onPreviewUrlChange(caption.data.url);
         } else {
-          console.warn("Failed to caption image", data.error_message);
+          console.warn("Imgflip rejected image caption");
           toast.error("Что-то пошло не так. Попробуйте ещё раз");
         }
+      } catch {
+        console.error("Failed to caption image");
+        toast.error("Что-то пошло не так. Попробуйте ещё раз");
       } finally {
-        setSubmitting(false);
+        setIsSubmitting(false);
       }
     },
   });
@@ -391,11 +439,11 @@ function MemeTemplateForm({
         ref={zo.ref}
         className={twMerge(
           "flex flex-col gap-y-4",
-          submitting && "pointer-events-none opacity-50",
+          isSubmitting && "pointer-events-none opacity-50",
         )}
       >
         {Object.keys(FormSchema.shape).map((name, i) => (
-          <div key={i} className="flex flex-col gap-y-2">
+          <div key={name} className="flex flex-col gap-y-2">
             <label className="text-sm font-bold" htmlFor={name}>
               Текст {i + 1}
             </label>
@@ -425,7 +473,7 @@ function MemeTemplateForm({
 
         <Button
           type="submit"
-          isDisabled={zo.validation?.success === false}
+          isDisabled={isSubmitting || zo.validation?.success === false}
           onHoverStart={() => {
             playSound("mouseover");
           }}
@@ -438,7 +486,7 @@ function MemeTemplateForm({
         </Button>
       </form>
 
-      {submitting && (
+      {isSubmitting && (
         <div className="absolute inset-0 flex flex-col items-center justify-center">
           <Spinner />
         </div>
@@ -449,50 +497,48 @@ function MemeTemplateForm({
 
 // MARK: Helpers
 
-type ImgFlipMemeTemplate = {
-  id: string;
-  name: string;
-  url: string;
-  width: number;
-  height: number;
-  box_count: number;
-};
+const ImgFlipMemeTemplateSchema = z.object({
+  id: z.string().min(1),
+  name: z.string(),
+  url: z.string().url(),
+  width: z.number().positive(),
+  height: z.number().positive(),
+  box_count: z.number().int().positive(),
+});
 
-type ImgFlipGetMemesResponse =
-  | {
-      success: true;
-      data: {
-        memes: ImgFlipMemeTemplate[];
-      };
-    }
-  | {
-      success: false;
-      error_message: string;
-    };
+type ImgFlipMemeTemplate = z.infer<typeof ImgFlipMemeTemplateSchema>;
 
-type ImgFlipCaptionResponse =
-  | {
-      success: true;
-      data: {
-        url: string;
-        page_url: string;
-      };
-    }
-  | {
-      success: false;
-      error_message: string;
-    };
+const ImgFlipErrorSchema = z.object({
+  success: z.literal(false),
+  error_message: z.string(),
+});
 
-const memeTemplatesFetcher: Fetcher<ImgFlipMemeTemplate[]> = async () => {
+const ImgFlipGetMemesResponseSchema = z.discriminatedUnion("success", [
+  z.object({
+    success: z.literal(true),
+    data: z.object({ memes: z.array(ImgFlipMemeTemplateSchema) }),
+  }),
+  ImgFlipErrorSchema,
+]);
+
+const ImgFlipCaptionResponseSchema = z.discriminatedUnion("success", [
+  z.object({
+    success: z.literal(true),
+    data: z.object({ url: z.string().url(), page_url: z.string().url() }),
+  }),
+  ImgFlipErrorSchema,
+]);
+
+async function getMemeTemplates(): Promise<ImgFlipMemeTemplate[]> {
   const res = await fetch("https://api.imgflip.com/get_memes");
   if (!res.ok) {
-    throw new Error(`Failed to get meme templates: ${res.statusText}`);
+    throw new Error(`Failed to get meme templates: ${res.status}`);
   }
 
-  const data = (await res.json()) as ImgFlipGetMemesResponse;
-  if (!data.success) {
-    throw new Error(`Failed to get meme templates: ${data.error_message}`);
+  const response = ImgFlipGetMemesResponseSchema.parse(await res.json());
+  if (!response.success) {
+    throw new Error("Imgflip rejected meme template request");
   }
 
-  return data.data.memes;
-};
+  return response.data.memes;
+}

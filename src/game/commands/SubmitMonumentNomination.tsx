@@ -1,5 +1,6 @@
 import type { definitions } from "#api/index.ts";
 import { getSupabase } from "#api/index.ts";
+import { TextForm } from "#game/commands/internal/index.ts";
 import { motion } from "framer-motion";
 import type { BranchId, Frame } from "react-visual-novel";
 import {
@@ -9,7 +10,6 @@ import {
   useGameContext,
 } from "react-visual-novel";
 import { twMerge } from "tailwind-merge";
-import { TextForm } from "./internal";
 
 export type SubmitMonumentNominationProps = {
   onDone: (ctx: {
@@ -20,10 +20,7 @@ export type SubmitMonumentNominationProps = {
   frame?: Frame;
 };
 
-export function SubmitMonumentNomination({
-  onDone,
-  frame,
-}: SubmitMonumentNominationProps) {
+export function SubmitMonumentNomination(props: SubmitMonumentNominationProps) {
   const { goToBranch } = useGameContext();
 
   const { containerRect, goToStatement, goToNextStatement } =
@@ -47,25 +44,38 @@ export function SubmitMonumentNomination({
           initial="initial"
           animate={controls}
           className={twMerge(
-            "rvn-text absolute flex flex-col",
-            !frame && "inset-0 p-8 py-20",
+            "absolute flex flex-col rvn-text",
+            props.frame == null && "inset-0 p-8 py-20",
           )}
-          style={frame && styleForFrame({ containerRect }, frame)}
+          style={props.frame && styleForFrame({ containerRect }, props.frame)}
         >
           <TextForm
             rows={3}
             inputLabel="Названия зданий"
             submitLabel="Сохранить"
             onSubmit={async (values) => {
-              await getSupabase()
+              const nomination: Pick<
+                definitions["monument_nominations"],
+                "body" | "name"
+              > = { body: values.body };
+
+              if (values.name !== "") {
+                nomination.name = values.name;
+              }
+
+              const { error } = await getSupabase()
                 .from<definitions["monument_nominations"]>(
                   "monument_nominations",
                 )
-                .insert({
-                  body: values.body,
-                  name: values.name || undefined,
+                .insert(nomination);
+
+              if (error != null) {
+                throw new Error("Failed to save monument nomination", {
+                  cause: error,
                 });
-              onDone({ goToStatement, goToBranch, goToNextStatement });
+              }
+
+              props.onDone({ goToStatement, goToBranch, goToNextStatement });
             }}
           />
         </motion.div>

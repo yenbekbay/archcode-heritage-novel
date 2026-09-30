@@ -1,5 +1,6 @@
 import type { definitions } from "#api/index.ts";
 import { getSupabase } from "#api/index.ts";
+import { TextForm } from "#game/commands/internal/index.ts";
 import { motion } from "framer-motion";
 import type { BranchId, Frame, ImageViewProps } from "react-visual-novel";
 import {
@@ -10,7 +11,6 @@ import {
   useGameContext,
 } from "react-visual-novel";
 import { twMerge } from "tailwind-merge";
-import { TextForm } from "./internal";
 
 export type SubmitPostProps = {
   onDone: (ctx: {
@@ -22,13 +22,14 @@ export type SubmitPostProps = {
   image?: string | Omit<ImageViewProps, "controls">;
 };
 
-export function SubmitPost({ onDone, frame, image }: SubmitPostProps) {
+export function SubmitPost(props: SubmitPostProps) {
   const { goToBranch } = useGameContext();
 
   const { containerRect, goToStatement, goToNextStatement } =
     useBranchContext();
 
-  const imageProps = typeof image === "string" ? { uri: image } : image;
+  const imageProps =
+    typeof props.image === "string" ? { uri: props.image } : props.image;
 
   return (
     <Command name="SubmitPost" behavior={["non_skippable"]}>
@@ -38,10 +39,10 @@ export function SubmitPost({ onDone, frame, image }: SubmitPostProps) {
 
           <motion.div
             className={twMerge(
-              "rvn-text absolute flex flex-col",
-              !frame && "inset-0 p-8 py-20",
+              "absolute flex flex-col rvn-text",
+              props.frame == null && "inset-0 p-8 py-20",
             )}
-            style={frame && styleForFrame({ containerRect }, frame)}
+            style={props.frame && styleForFrame({ containerRect }, props.frame)}
             variants={{
               initial: { opacity: 0 },
               entrance: {
@@ -61,13 +62,24 @@ export function SubmitPost({ onDone, frame, image }: SubmitPostProps) {
               inputLabel="Текст поста"
               submitLabel="Опубликовать пост"
               onSubmit={async (values) => {
-                await getSupabase()
+                const post: Pick<
+                  definitions["post_submissions"],
+                  "body" | "name"
+                > = { body: values.body };
+
+                if (values.name !== "") {
+                  post.name = values.name;
+                }
+
+                const { error } = await getSupabase()
                   .from<definitions["post_submissions"]>("post_submissions")
-                  .insert({
-                    body: values.body,
-                    name: values.name || undefined,
-                  });
-                onDone({ goToStatement, goToBranch, goToNextStatement });
+                  .insert(post);
+
+                if (error != null) {
+                  throw new Error("Failed to save post", { cause: error });
+                }
+
+                props.onDone({ goToStatement, goToBranch, goToNextStatement });
               }}
             />
           </motion.div>
