@@ -1,0 +1,9 @@
+/.env
+/.env*.local
+/.claude/
+/.local/
+/.tmp/
+/.vscode/
+/docs/
+/AGENTS.md
+/CLAUDE.md
