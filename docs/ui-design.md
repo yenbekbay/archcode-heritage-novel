@@ -19,7 +19,7 @@ The visual novel uses illustrated scenes, character sprites, calligraphic story 
 
 `Layout` provides the header, page content, and footer. Editorial routes place a large hero over an image field, followed by paper-like content surfaces. `FenceSection` and rough-rendered cards separate long arguments and supporting material. Reveal and parallax behavior add depth without changing reading order.
 
-The wide header exposes the full navigation. Narrow layouts collapse it into a labeled native disclosure menu that closes when a link is selected. Primary play actions use the inverted button treatment. Current navigation uses a stronger filled state than ordinary links. Editorial actions and story controls share keyboard focus, pressed, and disabled treatments through the stylesheet's control utilities.
+The wide header exposes the full navigation. Narrow layouts collapse it into a labeled React Aria navigation popover that closes on selection, outside interaction, or Escape. Primary play actions use the inverted button treatment. Current navigation uses a stronger filled state than ordinary links. Editorial actions and story controls share keyboard focus, pressed, and disabled treatments through the stylesheet's control utilities.
 
 ## Type, color, and material
 

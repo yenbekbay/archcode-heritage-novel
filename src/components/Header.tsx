@@ -3,6 +3,7 @@
 import { logoGamePng } from "#assets/www/index.ts";
 import { Image } from "#components/Image.tsx";
 import { Link } from "#components/Link.tsx";
+import { NavigationDisclosure } from "#components/ui/NavigationDisclosure.tsx";
 import {
   buildAboutBotHref,
   buildAboutNovelHref,
@@ -12,14 +13,10 @@ import {
   buildSavedLinksHref,
 } from "#lib/routes.ts";
 import type { IconProps } from "phosphor-react";
-import type { MouseEvent } from "react";
 import React from "react";
 import { twMerge } from "tailwind-merge";
 import { ActiveLink } from "./ActiveLink";
-import {
-  GameController as GameControllerIcon,
-  List as ListIcon,
-} from "./Icons";
+import { GameController as GameControllerIcon } from "./Icons";
 
 type NavigationLink = {
   label: string;
@@ -80,58 +77,53 @@ export function Header() {
         </div>
 
         <div className="flex-none">
-          <details className="relative lg:hidden">
-            <summary
-              aria-label="Открыть меню"
-              className="action-button list-none text-xl action-ghost [&::-webkit-details-marker]:hidden"
-            >
-              <ListIcon />
-            </summary>
+          <NavigationDisclosure>
+            {(close) => (
+              <ul className="flex flex-col">
+                {LINKS.map((l) => {
+                  const key = l.to ?? l.href;
 
-            <ul className="absolute top-full right-0 z-10 flex w-52 translate-y-3 flex-col rounded-control bg-white p-2 text-content shadow-md">
-              {LINKS.map((l) => {
-                const key = l.to ?? l.href;
+                  return (
+                    <li key={key}>
+                      {l.to !== undefined ? (
+                        <ActiveLink
+                          href={l.to}
+                          onClick={close}
+                          className="flex min-h-11 items-center gap-2 rounded-sm px-3 py-2 text-sm/5 hover:bg-chicago-50 data-link-exact-active:bg-primary data-link-exact-active:text-white data-link-exact-active:shadow-md data-link-exact-active:hover:bg-primary"
+                        >
+                          {l.icon && (
+                            <l.icon
+                              className="size-[1.25em] shrink-0"
+                              weight="fill"
+                            />
+                          )}
 
-                return (
-                  <li key={key}>
-                    {l.to !== undefined ? (
-                      <ActiveLink
-                        href={l.to}
-                        onClick={closeNavigationMenu}
-                        className="flex min-h-11 items-center gap-2 rounded-control px-3 py-2 text-sm/[1.5] hover:bg-chicago-50 data-link-exact-active:bg-primary data-link-exact-active:text-white data-link-exact-active:shadow-md data-link-exact-active:hover:bg-primary"
-                      >
-                        {l.icon && (
-                          <l.icon
-                            className="size-[1.25em] shrink-0"
-                            weight="fill"
-                          />
-                        )}
+                          {l.label}
+                        </ActiveLink>
+                      ) : (
+                        <a
+                          href={l.href}
+                          onClick={close}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex min-h-11 items-center gap-2 rounded-sm px-3 py-2 text-sm/5 hover:bg-chicago-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+                        >
+                          {l.icon && (
+                            <l.icon
+                              className="size-[1.25em] shrink-0"
+                              weight="fill"
+                            />
+                          )}
 
-                        {l.label}
-                      </ActiveLink>
-                    ) : (
-                      <a
-                        href={l.href}
-                        onClick={closeNavigationMenu}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex min-h-11 items-center gap-2 rounded-control px-3 py-2 text-sm/[1.5] hover:bg-chicago-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
-                      >
-                        {l.icon && (
-                          <l.icon
-                            className="size-[1.25em] shrink-0"
-                            weight="fill"
-                          />
-                        )}
-
-                        {l.label}
-                      </a>
-                    )}
-                  </li>
-                );
-              })}
-            </ul>
-          </details>
+                          {l.label}
+                        </a>
+                      )}
+                    </li>
+                  );
+                })}
+              </ul>
+            )}
+          </NavigationDisclosure>
 
           <ul className="hidden items-center gap-2 lg:flex">
             {LINKS.map((l) => {
@@ -182,8 +174,4 @@ export function Header() {
       </div>
     </header>
   );
-}
-
-function closeNavigationMenu(event: MouseEvent<HTMLAnchorElement>) {
-  event.currentTarget.closest("details")?.removeAttribute("open");
 }

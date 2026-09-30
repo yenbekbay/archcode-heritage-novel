@@ -48,7 +48,7 @@ The repository build generates audio, barrels, and Next.js route declarations be
 
 - `next.config.mjs` owns Cache Components, partial prefetching, asset caching, and former locale redirects.
 - `src/app/` and `src/components/` own website routing and editorial composition. The small shared component family stays flat, and the game has its own source owner.
-- `src/components/ui/` owns React Aria action variants, text field styles, and render-prop class merging. Native forms and Zorm retain validation and submission ownership. `src/components/Dialog.tsx` owns the React Aria modal, dismissal, focus containment, and Motion transitions. `Reveal`, `Annotate`, and `LinkCard` render their own DOM elements and refs.
+- `src/components/ui/` owns React Aria action variants, text field styles, navigation disclosure, and render-prop class merging. Native forms and Zorm retain validation and submission ownership. `src/components/Dialog.tsx` owns the React Aria modal, dismissal, focus containment, and Motion transitions. `Reveal`, `Annotate`, and `LinkCard` render their own DOM elements and refs.
 - `src/lib/routes.ts` owns internal URL construction, and `src/components/Link.tsx` owns the framework link handoff and keyboard focus outline. `src/components/Image.tsx` owns local-image loading, preserves the empty-placeholder presentation, and accepts rendered widths from callers.
 - `src/config/env.ts` owns environment validation.
 - `src/config/website.ts` owns website identity. `src/lib/metadata.ts` owns static metadata, and `src/proxy.ts` owns the host indexing boundary.
