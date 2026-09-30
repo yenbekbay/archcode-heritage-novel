@@ -4,6 +4,7 @@ import {
   fenceMp3,
   fencePng,
 } from "#assets/game/index.ts";
+import { getRandomBranch } from "#game/random-branch.ts";
 import { SCENE_AUDIO } from "#game/sounds.ts";
 import type { BranchId } from "react-visual-novel";
 import { Branch, Say, Scene, Show } from "react-visual-novel";
@@ -48,29 +49,25 @@ export function BranchArchkot_0Juncture() {
           {
             label: "Пройти мимо",
             onClick: (ctx) => {
-              const options: BranchId[] = [
+              const options: [BranchId, ...BranchId[]] = [
                 "Archkot_ProjAsk_WalkPast",
                 "Archkot_ProjAirport_WalkPast",
                 "Archkot_ProjBusStop_WalkPast",
               ];
 
-              ctx.goToBranch(
-                options[Math.floor(Math.random() * options.length)]!,
-              );
+              ctx.goToBranch(getRandomBranch(options));
             },
           },
           {
             label: "Посмотреть",
             onClick: (ctx) => {
-              const options: BranchId[] = [
+              const options: [BranchId, ...BranchId[]] = [
                 "Archkot_ProjAsk_CheckOut",
                 "Archkot_ProjAirport_CheckOut",
                 "Archkot_ProjBusStop_CheckOut",
               ];
 
-              ctx.goToBranch(
-                options[Math.floor(Math.random() * options.length)]!,
-              );
+              ctx.goToBranch(getRandomBranch(options));
             },
           },
         ]}

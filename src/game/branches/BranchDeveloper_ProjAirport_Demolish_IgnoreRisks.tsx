@@ -11,6 +11,7 @@ import {
   transition2ShortMp3,
   transition3ShortMp3,
 } from "#assets/game/index.ts";
+import { getRandomBranch } from "#game/random-branch.ts";
 import { SCENE_AUDIO } from "#game/sounds.ts";
 import type { BranchId } from "react-visual-novel";
 import { Branch, Say, Scene } from "react-visual-novel";
@@ -62,14 +63,12 @@ export function BranchDeveloper_ProjAirport_Demolish_IgnoreRisks() {
           {
             label: "Дальше",
             onClick: (ctx) => {
-              const options: BranchId[] = [
+              const options: [BranchId, ...BranchId[]] = [
                 "Developer_ProjAirport_Demolish_IgnoreRisks_Approved",
                 "Developer_ProjAirport_Demolish_IgnoreRisks_Rejected",
               ];
 
-              ctx.goToBranch(
-                options[Math.floor(Math.random() * options.length)]!,
-              );
+              ctx.goToBranch(getRandomBranch(options));
             },
           },
         ]}

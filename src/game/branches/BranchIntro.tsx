@@ -118,13 +118,17 @@ function IntroScene() {
     );
 
     controls.stop();
-    void controls.start({
-      y: `calc(${containerRect.height - imgRect.height}px * ${enteredPercent})`,
-      transition: {
-        duration: INTRO_SCENE_TRANSITION_DURATION_PER_STATEMENT / 1000,
-        ease: "easeOut",
-      },
-    });
+    void controls
+      .start({
+        y: `calc(${containerRect.height - imgRect.height}px * ${enteredPercent})`,
+        transition: {
+          duration: INTRO_SCENE_TRANSITION_DURATION_PER_STATEMENT / 1000,
+          ease: "easeOut",
+        },
+      })
+      .catch((error: unknown) => {
+        console.error("Failed to animate intro scene", error);
+      });
   }, [
     containerRect,
     controls,

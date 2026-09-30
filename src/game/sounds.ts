@@ -109,32 +109,74 @@ export function playSound(name: SoundName) {
       break;
     }
     case "skip": {
-      void playZzfxSound("skip");
+      void playZzfxSound("skip").catch((error: unknown) => {
+        console.error("Failed to play skip sound", error);
+      });
       break;
     }
     case "not_allowed": {
-      void playZzfxSound("not_allowed");
+      void playZzfxSound("not_allowed").catch((error: unknown) => {
+        console.error("Failed to play not_allowed sound", error);
+      });
       break;
     }
   }
 }
 
 const ZZFX_SOUNDS = {
-  skip: [, , 150, 0.05, , 0.05, , 1.3, , , , , , 3],
-  not_allowed: [1.5, 0.5, 270, , 0.1, , 1, 1.5, , , , , , , , 0.1, 0.01],
+  // NOTE: `undefined` preserves ZzFX defaults at each parameter position.
+  skip: [
+    undefined,
+    undefined,
+    150,
+    0.05,
+    undefined,
+    0.05,
+    undefined,
+    1.3,
+    undefined,
+    undefined,
+    undefined,
+    undefined,
+    undefined,
+    3,
+  ],
+  not_allowed: [
+    1.5,
+    0.5,
+    270,
+    undefined,
+    0.1,
+    undefined,
+    1,
+    1.5,
+    undefined,
+    undefined,
+    undefined,
+    undefined,
+    undefined,
+    undefined,
+    undefined,
+    0.1,
+    0.01,
+  ],
 };
 
 async function playZzfxSound(name: keyof typeof ZZFX_SOUNDS) {
   const { zzfx } = await import("zzfx");
-
-  return new Promise<void>((resolve) => {
+  await new Promise<void>((resolve) => {
     const sound = ZZFX_SOUNDS[name];
     const audio = zzfx(...sound);
-    audio.onended = async () => {
-      await delay(500);
-      resolve();
-    };
+    audio.addEventListener(
+      "ended",
+      () => {
+        resolve();
+      },
+      { once: true },
+    );
   });
+
+  await delay(500);
 }
 
 function playAudio(src: string) {
@@ -142,5 +184,7 @@ function playAudio(src: string) {
 }
 
 function delay(durationMs: number) {
-  return new Promise((resolve) => setTimeout(resolve, durationMs));
+  return new Promise<void>((resolve) => {
+    setTimeout(resolve, durationMs);
+  });
 }

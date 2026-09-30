@@ -11,6 +11,7 @@ import {
 } from "#assets/game/index.ts";
 import { SubmitMonumentNomination } from "#game/commands/index.ts";
 import { LINKS } from "#game/links.ts";
+import { getRandomBranch } from "#game/random-branch.ts";
 import { SCENE_AUDIO } from "#game/sounds.ts";
 import type { BranchId } from "react-visual-novel";
 import { Branch, Say, Scene, Show } from "react-visual-novel";
@@ -139,14 +140,12 @@ export function BranchAkim_MonumentDept_Rant() {
           {
             label: "Дальше",
             onClick: (ctx) => {
-              const options: BranchId[] = [
+              const options: [BranchId, ...BranchId[]] = [
                 "Akim_MonumentDept_Rant_Ok",
                 "Akim_MonumentDept_Rant_NotOk",
               ];
 
-              ctx.goToBranch(
-                options[Math.floor(Math.random() * options.length)]!,
-              );
+              ctx.goToBranch(getRandomBranch(options));
             },
           },
         ]}
