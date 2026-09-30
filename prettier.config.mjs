@@ -2,6 +2,7 @@
 const config = {
   proseWrap: "never",
   quoteProps: "consistent",
+  tailwindAttributes: ["className"],
   tailwindFunctions: ["twMerge"],
   plugins: [
     "@utilfirst/prettier-plugin",
@@ -11,12 +12,7 @@ const config = {
     "prettier-plugin-sort-json",
     "prettier-plugin-tailwindcss",
   ],
-  overrides: [
-    {
-      files: [".env", ".env.*"],
-      options: { parser: "sh" },
-    },
-  ],
+  overrides: [{ files: [".env", ".env.*"], options: { parser: "sh" } }],
 };
 
 export default config;
