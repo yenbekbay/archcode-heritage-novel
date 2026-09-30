@@ -49,3 +49,8 @@ url = "https://nodejs.org/dist/v24.15.0/node-v24.15.0-linux-x64.tar.gz"
 [tools.node."platforms.macos-arm64"]
 checksum = "sha256:372331b969779ab5d15b949884fc6eaf88d5afe87bde8ba881d6400b9100ffc4"
 url = "https://nodejs.org/dist/v24.15.0/node-v24.15.0-darwin-arm64.tar.gz"
+
+[[tools."npm:vercel"]]
+version = "59.11.2"
+backend = "npm:vercel"
+specifiers = ["59.11.2"]

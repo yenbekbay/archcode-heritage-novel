@@ -2,6 +2,7 @@
 "aqua:pnpm/pnpm" = "11.21.0"
 "core:node" = "24.15.0"
 "github:jdx/fnox" = "1.33.1"
+"npm:vercel" = "59.11.2"
 
 [settings]
 lockfile = true
