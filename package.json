@@ -71,7 +71,7 @@
     "@types/node": "24.13.3",
     "@types/react": "19.2.18",
     "@types/react-dom": "19.2.5",
-    "@utilfirst/eslint-plugin": "0.4.8",
+    "@utilfirst/eslint-plugin": "0.4.10",
     "@utilfirst/prettier-plugin": "0.1.2",
     "csstype": "3.2.3",
     "env-cmd": "11.0.0",

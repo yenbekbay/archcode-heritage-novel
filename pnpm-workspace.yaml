@@ -5,7 +5,7 @@ allowBuilds:
   sharp: true
   utf-8-validate: true
 minimumReleaseAgeExclude:
-  - "@utilfirst/eslint-plugin@0.4.7 || 0.4.8"
+  - "@utilfirst/eslint-plugin@0.4.10"
 overrides:
   # The published 0.2.2 runtime and declarations import neither package.
   "react-visual-novel@0.2.2>@radix-ui/react-popover": "-"

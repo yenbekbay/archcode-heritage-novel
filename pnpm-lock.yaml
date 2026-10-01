@@ -131,8 +131,8 @@ importers:
         specifier: 19.2.5
         version: 19.2.5(@types/react@19.2.18)
       '@utilfirst/eslint-plugin':
-        specifier: 0.4.8
-        version: 0.4.8(eslint@10.9.1(jiti@2.7.0)(supports-color@10.2.2))(oxlint@1.80.0(oxlint-tsgolint@7.0.2001))(supports-color@10.2.2)(typescript@6.0.3)
+        specifier: 0.4.10
+        version: 0.4.10(eslint@10.9.1(jiti@2.7.0)(supports-color@10.2.2))(oxlint@1.80.0(oxlint-tsgolint@7.0.2001))(supports-color@10.2.2)(typescript@6.0.3)
       '@utilfirst/prettier-plugin':
         specifier: 0.1.2
         version: 0.1.2(prettier@3.9.6)
@@ -1285,8 +1285,8 @@ packages:
     resolution: {integrity: sha512-YR65gGdGvTUAWLldC3xLOvOzamdGzB4A5/N8rehEaHs3Zvoe39BhgY+u0SPch1OvrVTfLcc55wsSgK2NcnTS/A==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
-  '@utilfirst/eslint-plugin@0.4.8':
-    resolution: {integrity: sha512-2lbNQtrmmBK6PbsTskm6qamRXLF65BrYKcqmifOL+2cCiP9hfLdLxvZKzme9zrphEvxWOiRVfLsilZXUdX9vhA==}
+  '@utilfirst/eslint-plugin@0.4.10':
+    resolution: {integrity: sha512-XVwEwfqB06eI+LEaVGyEfq103twQndO0qEEdhjBZhwfgB7Dp0bKpg6L9e0u4p3MuXVz0XEYvoQ6GotGKQdE3Aw==}
     engines: {node: '>=24.11.0'}
     peerDependencies:
       eslint: ^10.0.0
@@ -3856,7 +3856,7 @@ snapshots:
       '@typescript-eslint/types': 8.68.0
       eslint-visitor-keys: 5.0.1
 
-  '@utilfirst/eslint-plugin@0.4.8(eslint@10.9.1(jiti@2.7.0)(supports-color@10.2.2))(oxlint@1.80.0(oxlint-tsgolint@7.0.2001))(supports-color@10.2.2)(typescript@6.0.3)':
+  '@utilfirst/eslint-plugin@0.4.10(eslint@10.9.1(jiti@2.7.0)(supports-color@10.2.2))(oxlint@1.80.0(oxlint-tsgolint@7.0.2001))(supports-color@10.2.2)(typescript@6.0.3)':
     dependencies:
       '@oxlint/plugins': 1.80.0
       '@typescript-eslint/utils': 8.68.0(eslint@10.9.1(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
