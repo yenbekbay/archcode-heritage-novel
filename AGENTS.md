@@ -28,7 +28,7 @@ Interactive visual novel and editorial website about Almaty architectural herita
 
 ## Structure
 
-The documentation map accounts for each living owner and dynamic family. Read the named owner before the governed change. Update it in the same change when its owned contract changes.
+The documentation map accounts for each living owner and dynamic family. Read the named owner before its governed change and update it in the same change when its contract changes.
 
 | Path | Family | Read before changing | Update in the same change when changing |
 | --- | --- | --- | --- |
