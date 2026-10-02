@@ -1,13 +1,9 @@
 {
-  "css.validate": false,
   "editor.codeActionsOnSave": {
     "source.fixAll.oxc": "explicit"
   },
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
-  "editor.quickSuggestions": {
-    "strings": true
-  },
   "editor.rulers": [80],
   "files.associations": {
     "*.css": "tailwindcss"
@@ -30,12 +26,8 @@
     "**/node_modules/**": true,
     "/.next/**": true
   },
-  "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": false,
-  "javascript.preferences.quoteStyle": "single",
-  "js/ts.implicitProjectConfig.checkJs": true,
   "js/ts.tsdk.path": "node_modules/typescript/lib",
   "js/ts.tsdk.promptToUseWorkspaceVersion": true,
   "tailwindCSS.classFunctions": ["twMerge", "tv"],
-  "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": false,
-  "typescript.preferences.quoteStyle": "single"
+  "tailwindCSS.rootFontSize": 16
 }
