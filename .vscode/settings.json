@@ -21,13 +21,6 @@
     "public/__generated__/**": true,
     "src/__generated__/**": true
   },
-  "files.watcherExclude": {
-    "**/.git/objects/**": true,
-    "**/.git/subtree-cache/**": true,
-    "**/__generated__/**": true,
-    "**/node_modules/**": true,
-    "/.next/**": true
-  },
   "js/ts.tsdk.path": "node_modules/typescript/lib",
   "js/ts.tsdk.promptToUseWorkspaceVersion": true,
   "tailwindCSS.classFunctions": ["twMerge", "tv"],
