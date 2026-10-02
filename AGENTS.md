@@ -5,15 +5,14 @@ Interactive visual novel and editorial website about Almaty architectural herita
 ## Workflow
 
 1. Read the document listed in `Structure` before changing the files or behavior it covers. Update it in the same change when its maintenance trigger applies.
-2. Format touched code and config with `pnpm exec oxlint --fix <file...>` and `pnpm exec prettier --write <file...>`.
-3. Format touched Markdown and prose with `pnpm exec prettier --write <file>`.
-4. Update `README.md` in the same change when the project identity, framework summary, or license statement changes.
-5. After adding, removing, or renaming a barrel-exported module, run `pnpm run generate:barrels`, then stage the updated index files.
-6. After related source or config changes, run `pnpm run lint:oxlint`.
-7. Launch a browser only when the user explicitly asks for rendered evidence.
-8. Verify changes with the lowest-cost sufficient check. Start with direct source inspection or a targeted check, and escalate only when it cannot establish the required result. Skip routine or speculative verification.
-9. Treat full builds, development servers, broad test or lint suites, dependency installs, and benchmarks as expensive commands. Run one only when the user explicitly asks or no cheaper targeted signal can settle the claim.
-10. Stop verification work when the user declines it.
+2. Format touched JavaScript and TypeScript with `pnpm exec oxlint --fix <file>` and `pnpm exec prettier --write <file>`.
+3. Format touched JSON, Markdown, and prose with `pnpm exec prettier --write <file>`.
+4. After adding, removing, or renaming a barrel-exported module, run `pnpm run generate:barrels`, then stage the updated index files.
+5. Run the affected lint leaves for bounded work. Run `pnpm run check` before reporting broad cross-owner work complete when no cheaper targeted signal can cover the changed contracts.
+6. Review website UI changes through source and authoritative documentation. Do not propose or require agent-run browser acceptance. Launch a browser only when the user explicitly asks for rendered evidence.
+7. Verify changes with the lowest-cost sufficient check. Start with direct source inspection or a targeted check, and escalate only when it cannot establish the required result. Skip routine or speculative verification.
+8. Treat full builds, development servers, broad test or lint suites, dependency installs, and benchmarks as expensive commands. Run one only when the user explicitly asks or no cheaper targeted signal can settle the claim.
+9. Stop verification work when the user declines it.
 
 ## Boundaries
 
