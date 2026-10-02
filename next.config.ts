@@ -1,7 +1,7 @@
-import "#config/env.ts";
+import type { NextConfig } from "next";
+import "./src/config/env.ts";
 
-/** @type {import('next').NextConfig} */
-const config = {
+const config: NextConfig = {
   reactStrictMode: true,
   agentRules: false,
   cacheComponents: true,

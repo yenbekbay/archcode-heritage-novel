@@ -1,5 +1,7 @@
-/** @type {import("prettier").Config & {tailwindFunctions?: string[]}} */
-const config = {
+import type { Config } from "prettier";
+import type { PluginOptions } from "prettier-plugin-tailwindcss";
+
+const config: Config & PluginOptions = {
   proseWrap: "never",
   quoteProps: "consistent",
   tailwindAttributes: ["className"],
