@@ -1,7 +1,12 @@
 import { readdir, writeFile } from "node:fs/promises";
 import { basename, extname, join } from "node:path";
 
-const barrels = [
+type Barrel = {
+  directory: string;
+  prefix: string;
+};
+
+const barrels: Barrel[] = [
   { directory: "src/api", prefix: "" },
   { directory: "src/components", prefix: "" },
   { directory: "src/game/branches", prefix: "Branch" },
@@ -9,12 +14,9 @@ const barrels = [
   { directory: "src/game/commands/internal", prefix: "" },
 ];
 
-async function main() {
-  await Promise.all(barrels.map((barrel) => generateBarrel(barrel)));
-}
+await Promise.all(barrels.map((barrel) => generateBarrel(barrel)));
 
-/** @param {{directory: string; prefix: string}} options - Barrel source owner. */
-async function generateBarrel({ directory, prefix }) {
+async function generateBarrel({ directory, prefix }: Barrel) {
   const entries = await readdir(directory, { withFileTypes: true });
 
   const exports = entries
@@ -34,5 +36,3 @@ async function generateBarrel({ directory, prefix }) {
 
   await writeFile(join(directory, "index.ts"), `${exports.join("\n")}\n`);
 }
-
-await main();

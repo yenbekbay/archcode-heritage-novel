@@ -19,8 +19,7 @@ const declarations = await Promise.all(
 
 await writeFile("src/__generated__/audio.ts", `${declarations.join("\n")}\n`);
 
-/** @param {string} filename - Retained source audio filename. */
-async function generateAudio(filename) {
+async function generateAudio(filename: string) {
   const bytes = await readFile(join(sourceDirectory, filename));
   const hash = createHash("sha256").update(bytes).digest("hex");
   const outputFilename = `${basename(filename, ".mp3")}.${hash}.mp3`;

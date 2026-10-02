@@ -22,9 +22,9 @@ The branch modules under `src/game/branches/` define the story graph. `react-vis
 
 Jotai's storage-backed `@App/savedLinks` atom owns saved external reading in browser storage. The active external-link prompt is transient React state. Submission forms own their input and in-flight state. Supabase owns accepted nomination, post, and meme-submission records after a successful insert.
 
-`scripts/generate-barrels.mjs` owns the generated export indexes listed in project `AGENTS.md`. The root layout imports `src/main.css`, which Next.js compiles through the Tailwind 4 PostCSS plugin. The approved Supabase schema command owns `src/__generated__/supabase.ts`. Generated artifacts remain consumers of their generators rather than independent edit targets.
+`scripts/generate-barrels.ts` owns the generated export indexes listed in project `AGENTS.md`. The root layout imports `src/main.css`, which Next.js compiles through the Tailwind 4 PostCSS plugin. The approved Supabase schema command owns `src/__generated__/supabase.ts`. Generated artifacts remain consumers of their generators rather than independent edit targets.
 
-`scripts/generate-audio.mjs` copies retained MP3 sources into ignored, content-hashed public assets and writes the ignored URL exports in `src/__generated__/audio.ts`. The sound index preserves its existing export names. Generation runs before development, builds, and checks. Audio URLs have immutable cache headers because a byte change produces a new URL.
+`scripts/generate-audio.ts` copies retained MP3 sources into ignored, content-hashed public assets and writes the ignored URL exports in `src/__generated__/audio.ts`. The sound index preserves its existing export names. Generation runs before development, builds, and checks. Audio URLs have immutable cache headers because a byte change produces a new URL.
 
 ## Interfaces and data flow
 
