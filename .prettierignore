@@ -1,12 +1,6 @@
-/.env
-/.env*.local
-/.husky/_/
-/.next/
-/.tmp/
-/.vercel/
-/src/__generated__/
-/node_modules/
+# Prettier reads `.gitignore` by default, so this file only adds tracked paths
+# that must stay unformatted.
 /pnpm-lock.yaml
 /public/
-
-/.pnpm-store/
+/src/__generated__/
+/.husky/_/
