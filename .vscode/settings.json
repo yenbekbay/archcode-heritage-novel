@@ -9,15 +9,17 @@
     "*.css": "tailwindcss"
   },
   "files.readonlyInclude": {
+    ".local/**": true,
     ".next/**": true,
     ".pnpm-store/**": true,
-    "public/__generated__/**": true,
+    ".swc/**": true,
     ".tmp/**": true,
     ".vercel/**": true,
-    "src/__generated__/**": true,
     "next-env.d.ts": true,
     "node_modules/**": true,
-    "pnpm-lock.yaml": true
+    "pnpm-lock.yaml": true,
+    "public/__generated__/**": true,
+    "src/__generated__/**": true
   },
   "files.watcherExclude": {
     "**/.git/objects/**": true,
