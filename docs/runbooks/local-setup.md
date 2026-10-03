@@ -25,6 +25,8 @@ pnpm install
 
 `fnox.toml` maps the Supabase and Imgflip variables consumed by repository code to concealed fields in the Personal-vault Secure Note `archcode-heritage-novel/.env.local`. Vercel-generated fields are excluded.
 
+Imgflip exports use server-only `IMGFLIP_USERNAME` and `IMGFLIP_PASSWORD`. Their Secure Note field labels retain the former `NEXT_PUBLIC_IMGFLIP_*` names until a separately approved credential rotation. These labels are recovery references, not browser environment names. Hosting environments must supply the server-only names before captioning is available. Credential rotation and hosting environment writes require separate approval.
+
 Restore the ignored canonical environment file and restrict it to the current user:
 
 ```sh

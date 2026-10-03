@@ -2,6 +2,7 @@ import { Spinner } from "#components/index.ts";
 import { Button } from "#components/ui/Button.tsx";
 import { Input } from "#components/ui/Input.tsx";
 import { TextArea } from "#components/ui/TextArea.tsx";
+import { decodeSubmissionError } from "#game/submission-error.ts";
 import React from "react";
 import { toast } from "react-hot-toast";
 import { useGameContext } from "react-visual-novel";
@@ -38,8 +39,8 @@ export function TextForm(props: TextFormProps) {
 
       try {
         await props.onSubmit(event.data);
-      } catch {
-        console.error("Failed to submit text");
+      } catch (error) {
+        console.error("Failed to submit text", decodeSubmissionError(error));
         toast.error("Что-то пошло не так. Попробуйте ещё раз");
       } finally {
         setIsSubmitting(false);

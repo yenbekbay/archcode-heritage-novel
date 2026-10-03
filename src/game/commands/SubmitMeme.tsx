@@ -3,7 +3,8 @@ import { getSupabase } from "#api/index.ts";
 import { Spinner } from "#components/index.ts";
 import { Button } from "#components/ui/Button.tsx";
 import { Input } from "#components/ui/Input.tsx";
-import { env } from "#config/env.ts";
+import { decodeSubmissionError } from "#game/submission-error.ts";
+import { MemeCaptionResponseSchema } from "#lib/meme-caption.ts";
 import { useLocalStorageValue } from "@react-hookz/web";
 import { motion } from "framer-motion";
 import { X as XIcon } from "phosphor-react";
@@ -85,10 +86,8 @@ export function SubmitMeme(props: SubmitMemeProps) {
                 if (error != null) {
                   throw new Error("Failed to save meme", { cause: error });
                 }
-
-                props.onDone({ goToStatement, goToBranch, goToNextStatement });
               }}
-              onSkip={() => {
+              onDone={() => {
                 props.onDone({ goToStatement, goToBranch, goToNextStatement });
               }}
             />
@@ -99,8 +98,6 @@ export function SubmitMeme(props: SubmitMemeProps) {
   );
 }
 
-// MARK: MemeForm
-
 type MemeSubmission = {
   url: string;
   name: string;
@@ -108,7 +105,7 @@ type MemeSubmission = {
 
 type MemeFormProps = {
   onSubmit: (values: MemeSubmission) => Promise<void>;
-  onSkip: () => void;
+  onDone: () => void;
 };
 
 function MemeForm(props: MemeFormProps) {
@@ -133,12 +130,53 @@ function MemeForm(props: MemeFormProps) {
 
   const hasPreview = previewUrl != null && previewUrl !== "";
 
+  const [isSubmitting, setIsSubmitting] = React.useState(false);
+
+  const pending = React.useRef<AbortController | null>(null);
+  const connected = React.useRef(false);
+  React.useEffect(() => {
+    connected.current = true;
+    setIsSubmitting(false);
+
+    return () => {
+      connected.current = false;
+      pending.current?.abort();
+      pending.current = null;
+    };
+  }, [activeTemplate?.id]);
+
+  // NOTE: The parent owns intent across caption, preview, Back, and save.
+  // A disconnected form cannot persist a result or advance the story.
+  async function runSubmission(action: (signal: AbortSignal) => Promise<void>) {
+    if (pending.current || !connected.current) {
+      return;
+    }
+
+    const controller = new AbortController();
+    pending.current = controller;
+    setIsSubmitting(true);
+
+    try {
+      await action(controller.signal);
+    } catch (error) {
+      if (!controller.signal.aborted) {
+        console.error("Meme submission failed", decodeSubmissionError(error));
+        toast.error("Что-то пошло не так. Попробуйте ещё раз");
+      }
+    } finally {
+      if (pending.current === controller) {
+        pending.current = null;
+        setIsSubmitting(false);
+      }
+    }
+  }
+
   if (templatesRes.error != null && templates == null) {
     return (
       <div className="flex flex-1 flex-col items-center justify-center gap-y-4">
         <span role="alert">Что-то пошло не так. Попробуйте ещё раз</span>
 
-        <Button onPress={props.onSkip} variant="game">
+        <Button onPress={props.onDone} variant="game">
           Пропустить
         </Button>
       </div>
@@ -161,6 +199,10 @@ function MemeForm(props: MemeFormProps) {
                 playSound("mouseover");
               }}
               onPress={() => {
+                if (pending.current) {
+                  return;
+                }
+
                 playSound("click");
                 if (hasPreview) {
                   setPreviewUrl("");
@@ -170,7 +212,10 @@ function MemeForm(props: MemeFormProps) {
               }}
               variant="ghost"
               isIconOnly
-              aria-label="Вернуться к шаблонам"
+              aria-label={
+                hasPreview ? "Вернуться к тексту мема" : "Вернуться к шаблонам"
+              }
+              isDisabled={isSubmitting}
               className="bg-white text-xl shadow-md hover:bg-chicago-50"
             >
               <XIcon />
@@ -191,21 +236,62 @@ function MemeForm(props: MemeFormProps) {
           {hasPreview ? (
             <MemePreview
               url={previewUrl}
-              onSubmit={async (values) => {
-                await props.onSubmit(values);
-                resetPreviewUrl();
-                resetActiveTemplateId();
-              }}
+              isSubmitting={isSubmitting}
+              onSubmit={(values) =>
+                runSubmission(async (signal) => {
+                  await props.onSubmit(values);
+
+                  if (signal.aborted) {
+                    return;
+                  }
+
+                  resetPreviewUrl();
+                  resetActiveTemplateId();
+                  props.onDone();
+                })
+              }
               onSkip={() => {
-                props.onSkip();
+                if (pending.current) {
+                  return;
+                }
+
+                props.onDone();
                 resetPreviewUrl();
                 resetActiveTemplateId();
               }}
             />
           ) : (
             <MemeTemplateForm
+              key={activeTemplate.id}
               template={activeTemplate}
-              onPreviewUrlChange={setPreviewUrl}
+              isSubmitting={isSubmitting}
+              onSubmit={(captions) =>
+                runSubmission(async (signal) => {
+                  const response = await fetch("/api/meme-captions", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                      templateId: activeTemplate.id,
+                      captions,
+                    }),
+                    signal,
+                  });
+
+                  if (!response.ok) {
+                    throw new Error("Caption request failed", {
+                      cause: { status: response.status },
+                    });
+                  }
+
+                  const result = MemeCaptionResponseSchema.parse(
+                    await response.json(),
+                  );
+
+                  if (!signal.aborted) {
+                    setPreviewUrl(result.url);
+                  }
+                })
+              }
             />
           )}
         </div>
@@ -241,12 +327,11 @@ function MemeForm(props: MemeFormProps) {
   );
 }
 
-// MARK: MemePreview
-
 type MemePreviewProps = {
   url: string;
   onSubmit: (values: MemeSubmission) => Promise<void>;
   onSkip: () => void;
+  isSubmitting: boolean;
 };
 
 const MemePreviewSchema = z.object({ name: z.string() });
@@ -254,7 +339,7 @@ const MemePreviewSchema = z.object({ name: z.string() });
 function MemePreview(props: MemePreviewProps) {
   const { playSound } = useGameContext();
 
-  const [isSubmitting, setIsSubmitting] = React.useState(false);
+  const { isSubmitting } = props;
 
   const zo = useZorm("meme-preview", MemePreviewSchema, {
     onValidSubmit: async (event) => {
@@ -264,16 +349,7 @@ function MemePreview(props: MemePreviewProps) {
         return;
       }
 
-      setIsSubmitting(true);
-
-      try {
-        await props.onSubmit({ url: props.url, name: event.data.name });
-      } catch {
-        console.error("Failed to save meme");
-        toast.error("Что-то пошло не так. Попробуйте ещё раз");
-      } finally {
-        setIsSubmitting(false);
-      }
+      await props.onSubmit({ url: props.url, name: event.data.name });
     },
   });
 
@@ -353,11 +429,10 @@ function MemePreview(props: MemePreviewProps) {
   );
 }
 
-// MARK: MemeTemplateForm
-
 type MemeTemplateFormProps = {
   template: ImgFlipMemeTemplate;
-  onPreviewUrlChange: (url: string) => void;
+  isSubmitting: boolean;
+  onSubmit: (captions: string[]) => Promise<void>;
 };
 
 function MemeTemplateForm(props: MemeTemplateFormProps) {
@@ -365,7 +440,7 @@ function MemeTemplateForm(props: MemeTemplateFormProps) {
 
   const { playSound } = useGameContext();
 
-  const [isSubmitting, setIsSubmitting] = React.useState(false);
+  const { isSubmitting } = props;
 
   const FormSchema = React.useMemo(
     () =>
@@ -373,7 +448,11 @@ function MemeTemplateForm(props: MemeTemplateFormProps) {
         Object.fromEntries(
           Array.from({ length: template.box_count }).map((_, i) => [
             `text${i}`,
-            z.string().min(1, "Пожалуйста, заполните поле"),
+            z
+              .string()
+              .trim()
+              .min(1, "Пожалуйста, заполните поле")
+              .max(500, "Не больше 500 символов"),
           ]),
         ),
       ),
@@ -388,48 +467,7 @@ function MemeTemplateForm(props: MemeTemplateFormProps) {
         return;
       }
 
-      setIsSubmitting(true);
-
-      try {
-        const formData = new FormData();
-        formData.append("template_id", template.id);
-        formData.append(
-          "username",
-
-          env.NEXT_PUBLIC_IMGFLIP_USERNAME,
-        );
-        formData.append(
-          "password",
-
-          env.NEXT_PUBLIC_IMGFLIP_PASSWORD,
-        );
-
-        for (const [idx, value] of Object.values(event.data).entries()) {
-          formData.append(`boxes[${idx}][text]`, value);
-        }
-
-        const res = await fetch("https://api.imgflip.com/caption_image", {
-          method: "POST",
-          body: formData,
-        });
-
-        if (!res.ok) {
-          throw new Error(`Failed to caption image: ${res.status}`);
-        }
-
-        const caption = ImgFlipCaptionResponseSchema.parse(await res.json());
-        if (caption.success) {
-          props.onPreviewUrlChange(caption.data.url);
-        } else {
-          console.warn("Imgflip rejected image caption");
-          toast.error("Что-то пошло не так. Попробуйте ещё раз");
-        }
-      } catch {
-        console.error("Failed to caption image");
-        toast.error("Что-то пошло не так. Попробуйте ещё раз");
-      } finally {
-        setIsSubmitting(false);
-      }
+      await props.onSubmit(Object.values(event.data));
     },
   });
 
@@ -495,8 +533,6 @@ function MemeTemplateForm(props: MemeTemplateFormProps) {
   );
 }
 
-// MARK: Helpers
-
 const ImgFlipMemeTemplateSchema = z.object({
   id: z.string().min(1),
   name: z.string(),
@@ -517,14 +553,6 @@ const ImgFlipGetMemesResponseSchema = z.discriminatedUnion("success", [
   z.object({
     success: z.literal(true),
     data: z.object({ memes: z.array(ImgFlipMemeTemplateSchema) }),
-  }),
-  ImgFlipErrorSchema,
-]);
-
-const ImgFlipCaptionResponseSchema = z.discriminatedUnion("success", [
-  z.object({
-    success: z.literal(true),
-    data: z.object({ url: z.string().url(), page_url: z.string().url() }),
   }),
   ImgFlipErrorSchema,
 ]);

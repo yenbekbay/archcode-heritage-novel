@@ -24,6 +24,8 @@ Authored branches may ask the player to submit a monument nomination, simulated 
 
 Submission is an external write. The player action must start the write, keep the interface from accepting a second concurrent submission, and advance the story only after the expected provider operation resolves. A rejected write must expose a failure state and leave the player able to retry or use an explicitly authored skip path where one exists.
 
+Meme captioning uses a server endpoint without exposing provider credentials to the player. Back and skip controls cannot race with pending caption or save work. A result from a disconnected meme form cannot overwrite its stored preview or advance the story. Missing server credentials, request limits, and provider failures preserve the retry state.
+
 ## Loading and failure
 
 Before play, the capability exposes asset-loading progress. Asset failure replaces play with an error that identifies the load failure. The outer error boundary contains unexpected rendering failures. A provider failure remains local to the optional command and must not be reported as a successful nomination, post, meme, or story advance.
@@ -39,7 +41,7 @@ The capability is acceptable when the asset set reaches a ready state, each offe
 - `src/game/commands/` owns optional participation flows and ending actions.
 - `src/game/saved-links.ts` owns saved-link persistence. `src/game/LinkPrompt.tsx` owns the external destination decision. `src/game/GameQueryAdapter.tsx` owns URL query updates.
 - `src/assets/game/` owns the source-controlled visual and audio set.
-- `src/api/supabase.ts` and provider-facing code in `src/game/commands/SubmitMeme.tsx` own exact external requests.
+- `src/api/supabase.ts` owns submission storage requests. `src/game/commands/SubmitMeme.tsx` owns public template reads and caption/save intent. `src/app/api/meme-captions/route.ts` owns authenticated caption requests to Imgflip.
 
 ## Maintenance
 
