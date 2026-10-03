@@ -12,6 +12,7 @@ overrides:
 packageExtensionsChecksum: sha256-kaDpL+1STO2QkvWCUpjAo/pIoXmyfGQdGDDUFZOppWk=
 
 patchedDependencies:
+  '@react-hookz/web@16.0.0': a8b7f0df71412dc4f181579c667c6eae981398d95dad4827704a9635235460f1
   react-visual-novel@0.2.2: 8d8e9d30d77bd1bcbee78a142c43608b5b1aee82661a04cfa1517eaf93e26324
 
 importers:
@@ -23,7 +24,7 @@ importers:
         version: 0.10.28(supports-color@10.2.2)
       '@react-hookz/web':
         specifier: 16.0.0
-        version: 16.0.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+        version: 16.0.0(patch_hash=a8b7f0df71412dc4f181579c667c6eae981398d95dad4827704a9635235460f1)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       '@supabase/supabase-js':
         specifier: 1.35.4
         version: 1.35.4(encoding@0.1.13)(supports-color@10.2.2)
@@ -3562,7 +3563,7 @@ snapshots:
 
   '@react-hookz/deep-equal@1.0.4': {}
 
-  '@react-hookz/web@16.0.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
+  '@react-hookz/web@16.0.0(patch_hash=a8b7f0df71412dc4f181579c667c6eae981398d95dad4827704a9635235460f1)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
     dependencies:
       '@react-hookz/deep-equal': 1.0.4
       react: 19.2.8
@@ -5159,7 +5160,7 @@ snapshots:
 
   react-visual-novel@0.2.2(patch_hash=8d8e9d30d77bd1bcbee78a142c43608b5b1aee82661a04cfa1517eaf93e26324)(howler@2.2.4)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(supports-color@10.2.2)(use-query-params@2.2.2(react-dom@19.2.8(react@19.2.8))(react@19.2.8)):
     dependencies:
-      '@react-hookz/web': 16.0.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@react-hookz/web': 16.0.0(patch_hash=a8b7f0df71412dc4f181579c667c6eae981398d95dad4827704a9635235460f1)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       '@supercharge/promise-pool': 2.3.2
       async-preloader: 7.0.0
       framer-motion: 13.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)

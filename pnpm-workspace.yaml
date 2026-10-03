@@ -19,6 +19,8 @@ packageExtensions:
     dependencies:
       prop-types: 15.8.1
 patchedDependencies:
+  # Ref registration precedes passive effect reconnection in React 19.
+  "@react-hookz/web@16.0.0": patches/@react-hookz__web@16.0.0.patch
   # Preserve the game API while correcting React and Motion declarations.
   # Native gaps retain label and toolbar spacing across Tailwind versions.
   react-visual-novel@0.2.2: patches/react-visual-novel@0.2.2.patch

@@ -1,0 +1,66 @@
+diff --git a/cjs/useMeasure/useMeasure.js b/cjs/useMeasure/useMeasure.js
+--- a/cjs/useMeasure/useMeasure.js
++++ b/cjs/useMeasure/useMeasure.js
+@@ -4,6 +4,7 @@ exports.useMeasure = void 0;
+ var useResizeObserver_1 = require("../useResizeObserver/useResizeObserver");
+ var useHookableRef_1 = require("../useHookableRef/useHookableRef");
+ var useRafCallback_1 = require("../useRafCallback/useRafCallback");
++var react_1 = require("react");
+ var useSafeState_1 = require("../useSafeState/useSafeState");
+ /**
+  * Uses ResizeObserver to track element dimensions and re-render component when they change.
+@@ -12,7 +13,9 @@ var useSafeState_1 = require("../useSafeState/useSafeState");
+  */
+ function useMeasure(enabled) {
+     if (enabled === void 0) { enabled = true; }
+-    var _a = (0, useSafeState_1.useSafeState)(null), element = _a[0], setElement = _a[1];
++    // NOTE: React 19 reattaches refs before passive mount effects reconnect.
++    // Element registration must survive that interval in Strict Mode and Activity.
++    var _a = (0, react_1.useState)(null), element = _a[0], setElement = _a[1];
+     var elementRef = (0, useHookableRef_1.useHookableRef)(null, function (v) {
+         setElement(v);
+         return v;
+diff --git a/esm/useMeasure/useMeasure.js b/esm/useMeasure/useMeasure.js
+--- a/esm/useMeasure/useMeasure.js
++++ b/esm/useMeasure/useMeasure.js
+@@ -1,6 +1,7 @@
+ import { useResizeObserver, } from "../useResizeObserver/useResizeObserver.js";
+ import { useHookableRef } from "../useHookableRef/useHookableRef.js";
+ import { useRafCallback } from "../useRafCallback/useRafCallback.js";
++import { useState } from "react";
+ import { useSafeState } from "../useSafeState/useSafeState.js";
+ /**
+  * Uses ResizeObserver to track element dimensions and re-render component when they change.
+@@ -9,7 +10,9 @@ import { useSafeState } from "../useSafeState/useSafeState.js";
+  */
+ export function useMeasure(enabled) {
+     if (enabled === void 0) { enabled = true; }
+-    var _a = useSafeState(null), element = _a[0], setElement = _a[1];
++    // NOTE: React 19 reattaches refs before passive mount effects reconnect.
++    // Element registration must survive that interval in Strict Mode and Activity.
++    var _a = useState(null), element = _a[0], setElement = _a[1];
+     var elementRef = useHookableRef(null, function (v) {
+         setElement(v);
+         return v;
+diff --git a/esnext/useMeasure/useMeasure.js b/esnext/useMeasure/useMeasure.js
+--- a/esnext/useMeasure/useMeasure.js
++++ b/esnext/useMeasure/useMeasure.js
+@@ -1,6 +1,7 @@
+ import { useResizeObserver, } from "../useResizeObserver/useResizeObserver.js";
+ import { useHookableRef } from "../useHookableRef/useHookableRef.js";
+ import { useRafCallback } from "../useRafCallback/useRafCallback.js";
++import { useState } from "react";
+ import { useSafeState } from "../useSafeState/useSafeState.js";
+ /**
+  * Uses ResizeObserver to track element dimensions and re-render component when they change.
+@@ -8,7 +9,9 @@ import { useSafeState } from "../useSafeState/useSafeState.js";
+  * @param enabled Whether resize observer is enabled or not.
+  */
+ export function useMeasure(enabled = true) {
+-    const [element, setElement] = useSafeState(null);
++    // NOTE: React 19 reattaches refs before passive mount effects reconnect.
++    // Element registration must survive that interval in Strict Mode and Activity.
++    const [element, setElement] = useState(null);
+     const elementRef = useHookableRef(null, (v) => {
+         setElement(v);
+         return v;
