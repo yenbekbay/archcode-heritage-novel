@@ -54,6 +54,6 @@ If tool installation or dependency restoration fails, preserve the lockfiles and
 
 ## Verification
 
-After explicit approval for Supabase schema regeneration, recover the canonical local environment, then run `pnpm run supabase-generate`. The command deliberately reads the exported `.env.local` snapshot and uses its `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_ANON_KEY` to fetch the schema. Inspect the generated type diff before committing. Do not hand-edit `src/__generated__/supabase.ts`.
+After explicit approval for Supabase schema regeneration, recover the canonical local environment, then run `pnpm run supabase-generate`. The command deliberately reads the exported `.env.local` snapshot through Node's native dotenv parser and uses its `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_ANON_KEY` to fetch the schema. Snapshot values override inherited environment values. Inspect the generated type diff before committing. Do not hand-edit `src/__generated__/supabase.ts`.
 
 Confirm `pnpm run lint` passes and the development server reaches the editorial and game entry surfaces. Treat these results as local checkout evidence. Supabase writes, Imgflip writes, and production delivery remain outside this runbook.

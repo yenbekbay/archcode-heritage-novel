@@ -18,7 +18,6 @@ const config: NextConfig = {
     "path-data-parser",
     "points-on-curve",
     "points-on-path",
-    "react-rough",
     "roughjs",
   ],
   redirects() {

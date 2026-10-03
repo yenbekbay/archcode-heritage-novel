@@ -9,7 +9,7 @@ const config: KnipConfig = {
   ignoreDependencies: [
     // patches/react-visual-novel@0.2.2.patch imports its types.
     "csstype",
-    // The supabase-generate script runs it inside an env-cmd shell string.
+    // scripts/generate-supabase.ts spawns this CLI by name.
     "openapi-typescript",
   ],
 };

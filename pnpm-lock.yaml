@@ -22,9 +22,6 @@ importers:
       '@microlink/mql':
         specifier: 0.10.28
         version: 0.10.28(supports-color@10.2.2)
-      '@react-hookz/web':
-        specifier: 16.0.0
-        version: 16.0.0(patch_hash=a8b7f0df71412dc4f181579c667c6eae981398d95dad4827704a9635235460f1)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       '@supabase/supabase-js':
         specifier: 1.35.4
         version: 1.35.4(encoding@0.1.13)(supports-color@10.2.2)
@@ -73,9 +70,6 @@ importers:
       react-merge-refs:
         specifier: 3.0.2
         version: 3.0.2(react@19.2.8)
-      react-rough:
-        specifier: 2.3.0
-        version: 2.3.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(roughjs@4.6.6)
       react-scroll-parallax:
         specifier: 3.5.0
         version: 3.5.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
@@ -85,9 +79,6 @@ importers:
       react-zorm:
         specifier: 0.9.0
         version: 0.9.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(zod@3.25.76)
-      remeda:
-        specifier: 1.1.0
-        version: 1.1.0
       rough-notation:
         specifier: 0.5.1
         version: 0.5.1
@@ -140,9 +131,6 @@ importers:
       csstype:
         specifier: 3.2.3
         version: 3.2.3
-      env-cmd:
-        specifier: 11.0.0
-        version: 11.0.0
       knip:
         specifier: 6.33.0
         version: 6.33.0
@@ -247,10 +235,6 @@ packages:
     engines: {node: '>=6.0.0'}
     hasBin: true
 
-  '@babel/runtime@7.29.7':
-    resolution: {integrity: sha512-Nq8OhGWiZIZGV6hLHoyAKLLcJihP/xFeBMGJoUrxTX2psI8dCifzLhZISFb+VWS3wFMRDmCGw5R+dOySCqPLhw==}
-    engines: {node: '>=6.9.0'}
-
   '@babel/template@7.29.7':
     resolution: {integrity: sha512-puq+Gf35oI24FeN11LkoUQFqv9uwNeWpxXZi/Ji3rRIoKAzKnxRaZ+Gkj0vKS9ZCiTESfng1N9LyOyXvo+m+Gg==}
     engines: {node: '>=6.9.0'}
@@ -262,11 +246,6 @@ packages:
   '@babel/types@7.29.8':
     resolution: {integrity: sha512-Vj1jF3cPfxg7OAfoI7QnVKLoILlm2JF9pnVHrX8qx7AHMiYWT+NDAA7jChlNgRS4WTLc/fD1lXLmPixluj+3Gg==}
     engines: {node: '>=6.9.0'}
-
-  '@commander-js/extra-typings@13.1.0':
-    resolution: {integrity: sha512-q5P52BYb1hwVWE6dtID7VvuJWrlfbCv4klj7BjUUOqMz4jbSZD4C9fJ9lRjL2jnBGTg+gDDlaXN51rkWcLk4fg==}
-    peerDependencies:
-      commander: ~13.1.0
 
   '@emnapi/core@1.11.2':
     resolution: {integrity: sha512-TC8MkTuZUtcTSiFeuC0ksCh9QIJ5+F21MvZ4Wn4ORfYaFJ/0dsiudv5tVkejgwZlwQ39jL9WWDe2lz8x0WglOA==}
@@ -1442,10 +1421,6 @@ packages:
   colorette@1.4.0:
     resolution: {integrity: sha512-Y2oEozpomLn7Q3HFP7dpww7AtMJplbM9lGZP6RDfHqmbeRjiwRg4n6VM6j4KLmRke85uWEI7JqF17f3pqdRA0g==}
 
-  commander@13.1.0:
-    resolution: {integrity: sha512-/rFeCpNJQbhSZjGVwO9RFV3xPqbnERS8MmIQzCtD/zl6gpJuV/bMLuN92oG3F7d8oDEHHRrujSXNUr8fpjntKw==}
-    engines: {node: '>=18'}
-
   convert-source-map@2.0.0:
     resolution: {integrity: sha512-Kvp459HrV2FEJ1CAsi1Ku+MY3kasH19TFykTz2xWmMeq6bk2NU3XXvfJ+Q61m0xktWwt+1HSYf3JZsTms3aRJg==}
 
@@ -1560,11 +1535,6 @@ packages:
   enhanced-resolve@5.26.0:
     resolution: {integrity: sha512-9vhedylFonb2YGogzUKX6+Ja72gOJbN1QHAqdrvqLwhdl/QWbKopzoUC9EbQNVsAns/bx/4uyqalrQAoy1IByw==}
     engines: {node: '>=10.13.0'}
-
-  env-cmd@11.0.0:
-    resolution: {integrity: sha512-gnG7H1PlwPqsGhFJNTv68lsDGyQdK+U9DwLVitcj1+wGq7LeOBgUzZd2puZ710bHcH9NfNeGWe2sbw7pdvAqDw==}
-    engines: {node: '>=20.10.0'}
-    hasBin: true
 
   env-paths@2.2.1:
     resolution: {integrity: sha512-+h1lkLKhZMTYjog1VEpJNG7NZJWcuc2DDk/qsqSTRRCOXiLjeQ1d1/udrUGhqMxUgAlwKNZ0cf2uqan5GLuS2A==}
@@ -2529,13 +2499,6 @@ packages:
       react:
         optional: true
 
-  react-rough@2.3.0:
-    resolution: {integrity: sha512-c+sSchwgBYZXM3MuuXaPjzHirFT8LOOzu7H+fhJQEz9OnfZ0P/2xHzyJiUoVh7/q1aQLj8WLmrq3DxiSrhyK6g==}
-    peerDependencies:
-      react: ^16.13.1
-      react-dom: ^16.13.1
-      roughjs: ^4.3.1
-
   react-scroll-parallax@3.5.0:
     resolution: {integrity: sha512-cUyBTFfTMA/4jweZB4j06LQnUQdZlGgVKX2hmZ5a/BuHZsnp85MEo6ygD2otCQH734VJ9xXPVZ3WfiAiF2TesQ==}
     engines: {node: '>=10'}
@@ -2566,9 +2529,6 @@ packages:
   react@19.2.8:
     resolution: {integrity: sha512-PWaYA1L/q9u2u7xYQi+Y3L3Yfnie7XyLeaJICV1MGD6LprsBxcAqGjYyr0eY3p+QdsA+x/Irkt4Qif8D63+Sbw==}
     engines: {node: '>=0.10.0'}
-
-  remeda@1.1.0:
-    resolution: {integrity: sha512-dtPAM1fP1HEorGDYyJiZUYfgzswyey0S1sD1FpCOhfgmpTJmnLz32q2WeEB1EyNLMENJuXSKWY8Hrm1CKM9lpw==}
 
   require-from-string@2.0.2:
     resolution: {integrity: sha512-Xf0nWe6RseziFMu+Ap9biiUbmplq6S9/p+7w7YXP/JBHhrUDDUhwa+vANyubuqfZWTveU//DYVGsDG7RKL/vEw==}
@@ -2838,12 +2798,6 @@ packages:
       re2:
         optional: true
 
-  use-deep-compare-effect@1.8.1:
-    resolution: {integrity: sha512-kbeNVZ9Zkc0RFGpfMN3MNfaKNvcLNyxOAAd9O4CBZ+kCBXXscn9s/4I+8ytUER4RDpEYs5+O6Rs4PqiZ+rHr5Q==}
-    engines: {node: '>=10', npm: '>=6'}
-    peerDependencies:
-      react: '>=16.13'
-
   use-event-callback@0.1.0:
     resolution: {integrity: sha512-5fTzY5UEXHMK5UR0NRkUz6TPfWmmX9fO8Tx3SnHrfMPdrQ7Rna0gDBy0r56SP68TwsP9DgwSBzeysCu3A/Z2NA==}
     peerDependencies:
@@ -3058,8 +3012,6 @@ snapshots:
       '@babel/types': 7.29.8
     optional: true
 
-  '@babel/runtime@7.29.7': {}
-
   '@babel/template@7.29.7':
     dependencies:
       '@babel/code-frame': 7.29.7
@@ -3085,10 +3037,6 @@ snapshots:
       '@babel/helper-string-parser': 7.29.7
       '@babel/helper-validator-identifier': 7.29.7
     optional: true
-
-  '@commander-js/extra-typings@13.1.0(commander@13.1.0)':
-    dependencies:
-      commander: 13.1.0
 
   '@emnapi/core@1.11.2':
     dependencies:
@@ -4004,8 +3952,6 @@ snapshots:
 
   colorette@1.4.0: {}
 
-  commander@13.1.0: {}
-
   convert-source-map@2.0.0:
     optional: true
 
@@ -4107,12 +4053,6 @@ snapshots:
     dependencies:
       graceful-fs: 4.2.11
       tapable: 2.3.3
-
-  env-cmd@11.0.0:
-    dependencies:
-      '@commander-js/extra-typings': 13.1.0(commander@13.1.0)
-      commander: 13.1.0
-      cross-spawn: 7.0.6
 
   env-paths@2.2.1: {}
 
@@ -5135,13 +5075,6 @@ snapshots:
     optionalDependencies:
       react: 19.2.8
 
-  react-rough@2.3.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(roughjs@4.6.6):
-    dependencies:
-      react: 19.2.8
-      react-dom: 19.2.8(react@19.2.8)
-      roughjs: 4.6.6
-      use-deep-compare-effect: 1.8.1(react@19.2.8)
-
   react-scroll-parallax@3.5.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8):
     dependencies:
       parallax-controller: 1.7.1
@@ -5189,8 +5122,6 @@ snapshots:
       zod: 3.25.76
 
   react@19.2.8: {}
-
-  remeda@1.1.0: {}
 
   require-from-string@2.0.2: {}
 
@@ -5446,12 +5377,6 @@ snapshots:
       tlds: 1.261.0
     optionalDependencies:
       re2: 1.20.12(supports-color@10.2.2)
-
-  use-deep-compare-effect@1.8.1(react@19.2.8):
-    dependencies:
-      '@babel/runtime': 7.29.7
-      dequal: 2.0.3
-      react: 19.2.8
 
   use-event-callback@0.1.0(react@19.2.8):
     dependencies:

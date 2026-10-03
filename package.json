@@ -29,11 +29,10 @@
     "lint:oxlint": "oxlint .",
     "lint:prettier": "prettier --check .",
     "start": "next start",
-    "supabase-generate": "env-cmd --file .env.local --use-shell 'openapi-typescript \"${NEXT_PUBLIC_SUPABASE_URL}/rest/v1/?apikey=${NEXT_PUBLIC_SUPABASE_ANON_KEY}\" --output src/__generated__/supabase.ts'"
+    "supabase-generate": "node scripts/generate-supabase.ts"
   },
   "dependencies": {
     "@microlink/mql": "0.10.28",
-    "@react-hookz/web": "16.0.0",
     "@supabase/supabase-js": "1.35.4",
     "@t3-oss/env-nextjs": "0.13.11",
     "disqus-react": "1.1.7",
@@ -50,11 +49,9 @@
     "react-dom": "19.2.8",
     "react-hot-toast": "2.6.0",
     "react-merge-refs": "3.0.2",
-    "react-rough": "2.3.0",
     "react-scroll-parallax": "3.5.0",
     "react-visual-novel": "0.2.2",
     "react-zorm": "0.9.0",
-    "remeda": "1.1.0",
     "rough-notation": "0.5.1",
     "roughjs": "4.6.6",
     "server-only": "0.0.1",
@@ -74,7 +71,6 @@
     "@utilfirst/eslint-plugin": "0.4.10",
     "@utilfirst/prettier-plugin": "0.1.2",
     "csstype": "3.2.3",
-    "env-cmd": "11.0.0",
     "knip": "6.33.0",
     "openapi-typescript": "7.13.0",
     "oxlint": "1.80.0",

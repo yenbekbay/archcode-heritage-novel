@@ -3,10 +3,12 @@ import { getSupabase } from "#api/index.ts";
 import { Spinner } from "#components/index.ts";
 import { Button } from "#components/ui/Button.tsx";
 import { Input } from "#components/ui/Input.tsx";
+import { memePreviewUrlAtom, memeTemplateIdAtom } from "#game/meme-draft.ts";
 import { decodeSubmissionError } from "#game/submission-error.ts";
 import { MemeCaptionResponseSchema } from "#lib/meme-caption.ts";
-import { useLocalStorageValue } from "@react-hookz/web";
 import { motion } from "framer-motion";
+import { useAtom } from "jotai";
+import { RESET } from "jotai/utils";
 import { X as XIcon } from "phosphor-react";
 import React from "react";
 import { toast } from "react-hot-toast";
@@ -110,12 +112,8 @@ type MemeFormProps = {
 
 function MemeForm(props: MemeFormProps) {
   const { playSound } = useGameContext();
-
-  const [activeTemplateId, setActiveTemplateId, resetActiveTemplateId] =
-    useLocalStorageValue<string>("@MemeForm/activeTemplateId");
-
-  const [previewUrl, setPreviewUrl, resetPreviewUrl] =
-    useLocalStorageValue<string>("@MemeForm/previewUrl");
+  const [activeTemplateId, setActiveTemplateId] = useAtom(memeTemplateIdAtom);
+  const [previewUrl, setPreviewUrl] = useAtom(memePreviewUrlAtom);
 
   const templatesRes = useSWR<ImgFlipMemeTemplate[], Error>(
     "memeTemplates",
@@ -245,8 +243,8 @@ function MemeForm(props: MemeFormProps) {
                     return;
                   }
 
-                  resetPreviewUrl();
-                  resetActiveTemplateId();
+                  setPreviewUrl(RESET);
+                  setActiveTemplateId(RESET);
                   props.onDone();
                 })
               }
@@ -256,8 +254,8 @@ function MemeForm(props: MemeFormProps) {
                 }
 
                 props.onDone();
-                resetPreviewUrl();
-                resetActiveTemplateId();
+                setPreviewUrl(RESET);
+                setActiveTemplateId(RESET);
               }}
             />
           ) : (

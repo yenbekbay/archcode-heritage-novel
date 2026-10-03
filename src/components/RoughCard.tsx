@@ -1,9 +1,9 @@
 "use client";
 
-import { useMeasure } from "@react-hookz/web";
+import { useElementRect } from "#lib/use-element-rect.ts";
 import type { HTMLMotionProps } from "framer-motion";
-import React from "react";
-import { ReactRough, Rectangle } from "react-rough";
+import React, { useEffect, useRef } from "react";
+import rough from "roughjs/bin/rough";
 import { twMerge } from "tailwind-merge";
 import { ProseArticle } from "./ProseView.tsx";
 import { Reveal } from "./Reveal.tsx";
@@ -34,29 +34,36 @@ export function RoughCard(props: RoughCardProps) {
 }
 
 function RoughCardBackground() {
-  const [containerRect, containerRef] = useMeasure<HTMLDivElement>();
+  const containerRef = useRef<HTMLDivElement>(null);
+  const svgRef = useRef<SVGSVGElement>(null);
+  const containerRect = useElementRect(containerRef);
+
+  const width = containerRect?.width;
+  const height = containerRect?.height;
+
+  useEffect(() => {
+    const svg = svgRef.current;
+    if (svg === null || width === undefined || height === undefined) {
+      return;
+    }
+
+    const rectangle = rough.svg(svg).rectangle(0, 0, width, height, {
+      fill: "#F7F4DC",
+      fillStyle: "solid",
+      strokeWidth: 2,
+      roughness: 2,
+    });
+
+    svg.append(rectangle);
+
+    return () => {
+      rectangle.remove();
+    };
+  }, [width, height]);
 
   return (
     <div ref={containerRef} className="absolute inset-0">
-      {containerRect && (
-        // @ts-expect-error The library renders children but omits them from its props declaration.
-        <ReactRough
-          width={containerRect.width}
-          height={containerRect.height}
-          renderer="svg"
-        >
-          <Rectangle
-            x={0}
-            y={0}
-            width={containerRect.width}
-            height={containerRect.height}
-            fill="#F7F4DC"
-            fillStyle="solid"
-            strokeWidth={2}
-            roughness={2}
-          />
-        </ReactRough>
-      )}
+      <svg ref={svgRef} className="size-full" aria-hidden="true" />
     </div>
   );
 }

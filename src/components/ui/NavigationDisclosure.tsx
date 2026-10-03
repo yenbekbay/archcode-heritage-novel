@@ -1,15 +1,29 @@
 "use client";
 
 import { List as ListIcon } from "#components/Icons.tsx";
-import { useMediaQuery } from "@react-hookz/web";
-import type { ReactNode } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 import { Dialog, DialogTrigger, Popover } from "react-aria-components";
 import { Button } from "./Button.tsx";
 
 export function NavigationDisclosure(props: {
   children: (close: () => void) => ReactNode;
 }) {
-  const isWide = useMediaQuery("(min-width: 64rem)");
+  const [isWide, setIsWide] = useState<boolean>();
+
+  useEffect(() => {
+    const query = window.matchMedia("(min-width: 64rem)");
+
+    function updateMatches() {
+      setIsWide(query.matches);
+    }
+
+    updateMatches();
+    query.addEventListener("change", updateMatches);
+
+    return () => {
+      query.removeEventListener("change", updateMatches);
+    };
+  }, []);
 
   // NOTE: Unmount the overlay at the desktop breakpoint to release its focus scope.
   if (isWide === true) {

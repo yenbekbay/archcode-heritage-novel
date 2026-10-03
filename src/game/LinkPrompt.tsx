@@ -5,7 +5,6 @@ import { AnimatePresence } from "framer-motion";
 import { useSetAtom } from "jotai";
 import { X as XIcon } from "phosphor-react";
 import { toast } from "react-hot-toast";
-import { uniqBy } from "remeda";
 import { savedLinksAtom, type SavedLink } from "./saved-links.ts";
 import { playSound } from "./sounds.ts";
 
@@ -75,9 +74,18 @@ export function LinkPrompt({ link, onClose }: LinkPromptProps) {
                 }}
                 onPress={() => {
                   playSound("click");
-                  setSavedLinks((prev) =>
-                    uniqBy([...prev, link], (l) => l.href),
-                  );
+                  setSavedLinks((previousLinks) => {
+                    const seenHrefs = new Set<string>();
+
+                    return [...previousLinks, link].filter((savedLink) => {
+                      if (seenHrefs.has(savedLink.href)) {
+                        return false;
+                      }
+
+                      seenHrefs.add(savedLink.href);
+                      return true;
+                    });
+                  });
                   toast.success("Ссылка сохранена");
                   onClose();
                 }}

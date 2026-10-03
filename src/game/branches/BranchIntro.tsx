@@ -1,6 +1,6 @@
 import { bgIntroJpg, calligraphyLogoPng } from "#assets/game/index.ts";
 import { SCENE_AUDIO } from "#game/sounds.ts";
-import { useMeasure } from "@react-hookz/web";
+import { useElementRect } from "#lib/use-element-rect.ts";
 import { motion, useAnimation } from "framer-motion";
 import React from "react";
 import {
@@ -105,7 +105,10 @@ function IntroScene() {
     useBranchContext();
 
   const controls = useAnimation();
-  const [imgRect, imgRef] = useMeasure<HTMLImageElement>();
+
+  const imgRef = React.useRef<HTMLImageElement>(null);
+
+  const imgRect = useElementRect(imgRef);
 
   React.useLayoutEffect(() => {
     if (!imgRect) {

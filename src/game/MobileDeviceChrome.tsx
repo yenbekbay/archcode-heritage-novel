@@ -1,19 +1,25 @@
-import { useMeasure, useWindowSize } from "@react-hookz/web";
-import React from "react";
+import { useElementRect } from "#lib/use-element-rect.ts";
+import React, { useRef, useSyncExternalStore } from "react";
 
 export type MobileDeviceChromeProps = {
   children?: React.ReactNode;
 };
 
 export function MobileDeviceChrome({ children }: MobileDeviceChromeProps) {
-  const [containerRect, containerRef] = useMeasure<HTMLDivElement>();
-  const windowSize = useWindowSize();
+  const containerRef = useRef<HTMLDivElement>(null);
+  const containerRect = useElementRect(containerRef);
+
+  const windowHeight = useSyncExternalStore(
+    subscribeWindowHeight,
+    getWindowHeight,
+    getServerWindowHeight,
+  );
 
   return (
     <div
       ref={containerRef}
       className="flex w-screen flex-col bg-white"
-      style={{ height: windowSize.height }}
+      style={{ height: windowHeight }}
     >
       {containerRect &&
         (containerRect.width < MD_BREAKPOINT ? (
@@ -30,6 +36,22 @@ export function MobileDeviceChrome({ children }: MobileDeviceChromeProps) {
 }
 
 const MD_BREAKPOINT = 768;
+
+function subscribeWindowHeight(onChange: () => void) {
+  window.addEventListener("resize", onChange, { passive: true });
+
+  return () => {
+    window.removeEventListener("resize", onChange);
+  };
+}
+
+function getWindowHeight() {
+  return window.innerHeight;
+}
+
+function getServerWindowHeight() {
+  return 0;
+}
 
 type MobileDeviceChromeFrameProps = {
   rect: DOMRectReadOnly;
