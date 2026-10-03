@@ -18,7 +18,7 @@ import {
   GameController as GameControllerIcon,
   InstagramLogo as InstagramLogoIcon,
   TelegramLogo as TelegramLogoIcon,
-} from "./Icons";
+} from "./Icons.tsx";
 
 export function Footer() {
   return (

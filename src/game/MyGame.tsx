@@ -4,11 +4,11 @@ import { buildHomeHref } from "#lib/routes.ts";
 import { useRouter } from "next/navigation";
 import React from "react";
 import { Game, prepareBranches } from "react-visual-novel";
-import * as _branches from "./branches";
-import { LinkPrompt } from "./LinkPrompt";
-import { MobileDeviceChrome } from "./MobileDeviceChrome";
-import type { SavedLink } from "./saved-links";
-import { playSound } from "./sounds";
+import * as _branches from "./branches/index.ts";
+import { LinkPrompt } from "./LinkPrompt.tsx";
+import { MobileDeviceChrome } from "./MobileDeviceChrome.tsx";
+import type { SavedLink } from "./saved-links.ts";
+import { playSound } from "./sounds.ts";
 
 const branches = prepareBranches(_branches);
 

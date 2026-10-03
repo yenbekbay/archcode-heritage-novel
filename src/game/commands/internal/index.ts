@@ -1,1 +1,1 @@
-export * from "./TextForm";
+export * from "./TextForm.tsx";

@@ -4,7 +4,7 @@ import { List as ListIcon } from "#components/Icons.tsx";
 import { useMediaQuery } from "@react-hookz/web";
 import type { ReactNode } from "react";
 import { Dialog, DialogTrigger, Popover } from "react-aria-components";
-import { Button } from "./Button";
+import { Button } from "./Button.tsx";
 
 export function NavigationDisclosure(props: {
   children: (close: () => void) => ReactNode;

@@ -1,7 +1,7 @@
 import React from "react";
 import { twMerge } from "tailwind-merge";
-import { ProseView } from "./ProseView";
-import { Reveal } from "./Reveal";
+import { ProseView } from "./ProseView.tsx";
+import { Reveal } from "./Reveal.tsx";
 
 export type HeroProps = {
   title: string;

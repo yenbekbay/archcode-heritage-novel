@@ -5,8 +5,8 @@ import type { HTMLMotionProps } from "framer-motion";
 import React from "react";
 import { ReactRough, Rectangle } from "react-rough";
 import { twMerge } from "tailwind-merge";
-import { ProseArticle } from "./ProseView";
-import { Reveal } from "./Reveal";
+import { ProseArticle } from "./ProseView.tsx";
+import { Reveal } from "./Reveal.tsx";
 
 export type RoughCardProps = {
   contentClassName?: string;

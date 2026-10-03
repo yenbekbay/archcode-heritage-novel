@@ -11,7 +11,7 @@ import {
 import { Image } from "#components/Image.tsx";
 import useEmblaCarousel from "embla-carousel-react";
 import { WheelGesturesPlugin as createWheelGesturesPlugin } from "embla-carousel-wheel-gestures";
-import { Reveal } from "./Reveal";
+import { Reveal } from "./Reveal.tsx";
 
 export function ScreenshotCarousel() {
   const [viewportRef] = useEmblaCarousel(

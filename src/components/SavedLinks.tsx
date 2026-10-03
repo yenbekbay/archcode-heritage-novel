@@ -4,10 +4,10 @@ import { bgArchcodeOfficeJpg } from "#assets/game/index.ts";
 import { Link } from "#components/Link.tsx";
 import { useSavedLinks } from "#game/saved-links.ts";
 import { buildPlayHref } from "#lib/routes.ts";
-import { Hero } from "./Hero";
-import { HeroBackground } from "./HeroBackground";
-import { LinkCard } from "./LinkCard";
-import { RoughCard } from "./RoughCard";
+import { Hero } from "./Hero.tsx";
+import { HeroBackground } from "./HeroBackground.tsx";
+import { LinkCard } from "./LinkCard.tsx";
+import { RoughCard } from "./RoughCard.tsx";
 
 export function SavedLinks() {
   const savedLinks = useSavedLinks();

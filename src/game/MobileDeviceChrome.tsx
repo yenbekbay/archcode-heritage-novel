@@ -31,8 +31,6 @@ export function MobileDeviceChrome({ children }: MobileDeviceChromeProps) {
 
 const MD_BREAKPOINT = 768;
 
-// MARK: MobileDeviceChromeFrame
-
 type MobileDeviceChromeFrameProps = {
   rect: DOMRectReadOnly;
   children?: React.ReactNode;

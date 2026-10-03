@@ -2,9 +2,9 @@
 
 import dynamic from "next/dynamic";
 import { QueryParamProvider } from "use-query-params";
-import { GameQueryAdapter } from "./GameQueryAdapter";
+import { GameQueryAdapter } from "./GameQueryAdapter.tsx";
 
-const MyGame = dynamic(() => import("./MyGame"), {
+const MyGame = dynamic(() => import("./MyGame.tsx"), {
   ssr: false,
   loading: GameLoading,
 });

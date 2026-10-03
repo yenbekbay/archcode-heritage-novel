@@ -15,8 +15,8 @@ import {
 import type { IconProps } from "phosphor-react";
 import React from "react";
 import { twMerge } from "tailwind-merge";
-import { ActiveLink } from "./ActiveLink";
-import { GameController as GameControllerIcon } from "./Icons";
+import { ActiveLink } from "./ActiveLink.tsx";
+import { GameController as GameControllerIcon } from "./Icons.tsx";
 
 type NavigationLink = {
   label: string;

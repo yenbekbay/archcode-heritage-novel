@@ -29,7 +29,7 @@
     "lint:oxlint": "oxlint .",
     "lint:prettier": "prettier --check .",
     "start": "next start",
-    "supabase-generate": "env-cmd --use-shell 'openapi-typescript \"${SUPABASE_URL}/rest/v1/?apikey=${SUPABASE_ANON_KEY}\" --output src/__generated__/supabase.ts'"
+    "supabase-generate": "env-cmd --file .env.local --use-shell 'openapi-typescript \"${NEXT_PUBLIC_SUPABASE_URL}/rest/v1/?apikey=${NEXT_PUBLIC_SUPABASE_ANON_KEY}\" --output src/__generated__/supabase.ts'"
   },
   "dependencies": {
     "@microlink/mql": "0.10.28",

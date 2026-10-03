@@ -30,8 +30,13 @@ async function generateBarrel({ directory, prefix }: Barrel) {
         entry.name.startsWith(prefix)
       );
     })
-    .map((entry) => basename(entry.name, extname(entry.name)))
-    .toSorted((left, right) => left.localeCompare(right, "en"))
+    .map((entry) => entry.name)
+    .toSorted((left, right) =>
+      basename(left, extname(left)).localeCompare(
+        basename(right, extname(right)),
+        "en",
+      ),
+    )
     .map((name) => `export * from "./${name}";`);
 
   await writeFile(join(directory, "index.ts"), `${exports.join("\n")}\n`);

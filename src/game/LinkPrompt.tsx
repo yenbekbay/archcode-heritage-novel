@@ -6,8 +6,8 @@ import { useSetAtom } from "jotai";
 import { X as XIcon } from "phosphor-react";
 import { toast } from "react-hot-toast";
 import { uniqBy } from "remeda";
-import { savedLinksAtom, type SavedLink } from "./saved-links";
-import { playSound } from "./sounds";
+import { savedLinksAtom, type SavedLink } from "./saved-links.ts";
+import { playSound } from "./sounds.ts";
 
 export type LinkPromptProps = {
   link: SavedLink | null;
