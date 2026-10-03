@@ -22,7 +22,7 @@ The branch modules under `src/game/branches/` define the story graph. `react-vis
 
 Jotai's storage-backed `@App/savedLinks` atom owns saved external reading in browser storage. The active external-link prompt is transient React state. Submission forms own their input and in-flight state. Supabase owns accepted nomination, post, and meme-submission records after a successful insert.
 
-`scripts/generate-barrels.ts` owns the generated export indexes listed in project `AGENTS.md`. The root layout imports `src/main.css`, which Next.js compiles through the Tailwind 4 PostCSS plugin. The approved Supabase schema command owns `src/__generated__/supabase.ts`. Generated artifacts remain consumers of their generators rather than independent edit targets.
+`scripts/generate-barrels.ts` owns the generated export indexes listed in project `AGENTS.md`. The root layout imports `src/styles/globals.css`, which Next.js compiles through the Tailwind 4 PostCSS plugin. The approved Supabase schema command owns `src/__generated__/supabase.ts`. Generated artifacts remain consumers of their generators rather than independent edit targets.
 
 `scripts/generate-audio.ts` copies retained MP3 sources into ignored, content-hashed public assets and writes the ignored URL exports in `src/__generated__/audio.ts`. The sound index preserves its existing export names. Generation runs before development, builds, and checks. Audio URLs have immutable cache headers because a byte change produces a new URL.
 
@@ -55,7 +55,7 @@ The repository build generates audio, barrels, and Next.js route declarations be
 - `src/game/branches/`, `src/game/commands/`, and `src/game/MyGame.tsx` own the playable graph and runtime binding.
 - `src/api/supabase.ts` and `src/__generated__/supabase.ts` own the Supabase client boundary and generated schema types.
 - `src/components/ProseView.tsx` and its CSS module own shared editorial reading styles and compact and inverted variants. Paper cards retain article semantics through `ProseArticle`.
-- `src/main.css` owns Tailwind theme variables, story-runtime source detection, and shared control states. The React Aria Tailwind plugin supplies control state variants. Components own their layout utilities and field styles. `postcss.config.mjs` connects Tailwind to Next.js. `prettier.config.ts` uses that stylesheet to sort classes. [UI design](ui-design.md) owns recurring visual and interaction grammar.
+- `src/styles/globals.css` owns Tailwind theme variables, story-runtime source detection, and shared control states. The React Aria Tailwind plugin supplies control state variants. Components own their layout utilities and field styles. `postcss.config.mjs` connects Tailwind to Next.js. `prettier.config.ts` uses that stylesheet to sort classes. [UI design](ui-design.md) owns recurring visual and interaction grammar.
 - `package.json` and the generation scripts own generation and verification commands. `pnpm-workspace.yaml` forces the game and its commands to share Motion controls, omits unused Radix dependencies from the pinned story package, supplies Disqus’s missing runtime dependency, and registers the visual-novel compatibility patch. `patches/react-visual-novel@0.2.2.patch` corrects the React JSX namespace and Motion control type. It also replaces runtime spacing utilities with native gaps to preserve label and toolbar geometry.
 - `fnox.toml` owns local environment recovery mappings. [Local setup](runbooks/local-setup.md) owns the procedure.
 

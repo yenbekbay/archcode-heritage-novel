@@ -41,7 +41,7 @@ The documentation map accounts for each living owner and dynamic family. Read th
 
 - Let `pnpm-workspace.yaml` own allowed dependency builds.
 - Keep user-facing routes under `src/app/`, shared website components under `src/components/`, and visual-novel state and branches under `src/game/`.
-- Keep imported images and audio under `src/assets/`, global Tailwind source in `src/main.css`, and generated artifacts under `src/__generated__/`.
+- Keep imported images and audio under `src/assets/`, global Tailwind source in `src/styles/globals.css`, and generated artifacts under `src/__generated__/`.
 - Treat `src/api/index.ts`, `src/components/index.ts`, `src/game/branches/index.ts`, `src/game/commands/index.ts`, and `src/game/commands/internal/index.ts` as durable generated outputs owned by `pnpm run generate:barrels`.
 
 ## Commands

@@ -1,4 +1,4 @@
-import "#main.css";
+import "#styles/globals.css";
 
 import { RootProviders } from "#components/RootProviders.tsx";
 import { buildRootMetadata } from "#lib/metadata.ts";

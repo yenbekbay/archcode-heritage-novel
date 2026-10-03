@@ -1,6 +1,6 @@
 # UI design
 
-This document owns the product's recurring visual and interaction grammar across the editorial website and visual novel. Exact classes, CSS theme variables, component APIs, assets, and motion values remain in `src/main.css`, `src/components/`, and `src/game/`.
+This document owns the product's recurring visual and interaction grammar across the editorial website and visual novel. Exact classes, CSS theme variables, component APIs, assets, and motion values remain in `src/styles/globals.css`, `src/components/`, and `src/game/`.
 
 | Decision | Read |
 | --- | --- |

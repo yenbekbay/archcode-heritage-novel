@@ -6,7 +6,7 @@ const config: Config & PluginOptions = {
   quoteProps: "consistent",
   tailwindAttributes: ["className"],
   tailwindFunctions: ["twMerge", "tv"],
-  tailwindStylesheet: "./src/main.css",
+  tailwindStylesheet: "./src/styles/globals.css",
   plugins: [
     "@utilfirst/prettier-plugin",
     "prettier-plugin-organize-imports",

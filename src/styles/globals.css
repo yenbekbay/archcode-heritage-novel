@@ -1,7 +1,7 @@
-@import "tailwindcss" source(".");
+@import "tailwindcss" source("..");
 
 /* NOTE: The story runtime publishes utility classes inside its distribution. */
-@source "../node_modules/react-visual-novel/dist/index.js";
+@source "../../node_modules/react-visual-novel/dist/index.js";
 
 @plugin "tailwindcss-react-aria-components";
 
