@@ -7,8 +7,6 @@ const config: KnipConfig = {
   // schema instead of local consumers.
   ignore: ["src/__generated__/supabase.ts"],
   ignoreDependencies: [
-    // patches/react-visual-novel@0.2.2.patch imports its types.
-    "csstype",
     // scripts/generate-supabase.ts spawns this CLI by name.
     "openapi-typescript",
   ],

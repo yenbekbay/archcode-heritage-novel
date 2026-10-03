@@ -6,10 +6,9 @@ allowBuilds:
   utf-8-validate: true
 minimumReleaseAgeExclude:
   - "@utilfirst/eslint-plugin@0.4.10"
+  # Immediate adoption approved for the story runtime upgrade.
+  - "react-visual-novel@0.3.0"
 overrides:
-  # The published 0.2.2 runtime and declarations import neither package.
-  "react-visual-novel@0.2.2>@radix-ui/react-popover": "-"
-  "react-visual-novel@0.2.2>@radix-ui/react-use-rect": "-"
   # The game and its commands exchange animation controls. Both must resolve
   # the same React 19-compatible Motion implementation.
   react-visual-novel>framer-motion: 13.1.1
@@ -18,9 +17,3 @@ packageExtensions:
   disqus-react@1.1.7:
     dependencies:
       prop-types: 15.8.1
-patchedDependencies:
-  # Ref registration precedes passive effect reconnection in React 19.
-  "@react-hookz/web@16.0.0": patches/@react-hookz__web@16.0.0.patch
-  # Preserve the game API while correcting React and Motion declarations.
-  # Native gaps retain label and toolbar spacing across Tailwind versions.
-  react-visual-novel@0.2.2: patches/react-visual-novel@0.2.2.patch

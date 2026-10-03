@@ -1,8 +1,6 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import { QueryParamProvider } from "use-query-params";
-import { GameQueryAdapter } from "./GameQueryAdapter.tsx";
 
 const MyGame = dynamic(() => import("./MyGame.tsx"), {
   ssr: false,
@@ -10,11 +8,7 @@ const MyGame = dynamic(() => import("./MyGame.tsx"), {
 });
 
 export function GameClient() {
-  return (
-    <QueryParamProvider adapter={GameQueryAdapter}>
-      <MyGame />
-    </QueryParamProvider>
-  );
+  return <MyGame />;
 }
 
 export function GameLoading() {
