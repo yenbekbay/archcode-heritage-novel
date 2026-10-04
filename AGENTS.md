@@ -49,7 +49,7 @@ The documentation map accounts for each living owner and dynamic family. Read th
 - `(umask 077; mise exec -- fnox export --if-missing error --output .env.local) && chmod 600 .env.local`: restore the canonical ignored local environment.
 - `pnpm run dev`: generate local artifacts and start Next.js with PostCSS stylesheet compilation.
 - `pnpm run build`: generate local artifacts and create a production build.
-- `pnpm run check` / `pnpm run lint`: generate local artifacts, then run the Oxlint and Prettier leaves concurrently. Oxlint includes the TypeScript check.
+- `pnpm run check` / `pnpm run lint`: generate local artifacts, then check generated barrel drift and run the Knip, Oxlint, and Prettier leaves concurrently. Oxlint includes the TypeScript check.
 - `pnpm run fix`: apply Oxlint and Prettier formatting.
 - `pnpm run supabase-generate`: refresh the committed Supabase API types after explicit approval.
 
