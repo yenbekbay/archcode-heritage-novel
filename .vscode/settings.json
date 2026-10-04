@@ -19,7 +19,8 @@
     "node_modules/**": true,
     "pnpm-lock.yaml": true,
     "public/__generated__/**": true,
-    "src/__generated__/**": true
+    "src/__generated__/**": true,
+    "public/**": true
   },
   "js/ts.tsdk.path": "node_modules/typescript/lib",
   "js/ts.tsdk.promptToUseWorkspaceVersion": true,
