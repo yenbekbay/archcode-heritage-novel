@@ -2,6 +2,14 @@
 
 «Снести нельзя оставить» is a Russian-language editorial website and interactive visual novel for people exploring Almaty architectural heritage and collective memory. This document owns the whole-product purpose, shared vocabulary, capabilities, states, and accepted outcomes.
 
+| Decision | Read |
+| --- | --- |
+| Audience, shared vocabulary, or product surfaces | [Purpose and audience](#purpose-and-audience) and [Product surfaces](#product-surfaces) |
+| Editorial or participation outcomes | [Editorial and participation outcomes](#editorial-and-participation-outcomes) |
+| States or acceptance | [States and failure](#states-and-failure) and [Acceptance](#acceptance) |
+| Game capability or product maintenance | [Specification map](#specification-map) and [Maintenance](#maintenance) |
+| Runtime ownership or shared presentation | [Architecture](architecture.md) and [UI design](ui-design.md) |
+
 ## Purpose and audience
 
 The product explains Archcode Almaty's heritage advocacy and lets visitors explore how residents, activists, developers, and public officials can affect the fate of city buildings. It is intended for Russian-speaking visitors who need an accessible introduction to architectural identity, preservation, and public participation.
