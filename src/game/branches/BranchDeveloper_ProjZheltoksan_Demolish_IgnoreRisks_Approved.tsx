@@ -16,9 +16,10 @@ import {
   stampApprovedPng,
   transition1Mp3,
 } from "#assets/game/index.ts";
+import { Menu, Say } from "#game/runtime.ts";
 import { SCENE_AUDIO } from "#game/sounds.ts";
 import React from "react";
-import { Branch, Menu, Say, Scene, Show } from "react-visual-novel";
+import { Branch, Scene, Show } from "react-visual-novel";
 
 export function BranchDeveloper_ProjZheltoksan_Demolish_IgnoreRisks_Approved() {
   const answersRef = React.useRef(new Map<number, "a" | "b">());

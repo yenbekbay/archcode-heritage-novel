@@ -1,4 +1,4 @@
-import type { BranchId } from "react-visual-novel";
+import type { BranchId } from "./runtime.ts";
 
 export function getRandomBranch(
   options: readonly [BranchId, ...BranchId[]],

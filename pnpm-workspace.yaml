@@ -7,11 +7,7 @@ allowBuilds:
 minimumReleaseAgeExclude:
   - "@utilfirst/eslint-plugin@0.4.10"
   # Immediate adoption approved for the story runtime upgrade.
-  - "react-visual-novel@0.3.0"
-overrides:
-  # The game and its commands exchange animation controls. Both must resolve
-  # the same React 19-compatible Motion implementation.
-  react-visual-novel>framer-motion: 13.1.1
+  - "react-visual-novel@0.4.0"
 packageExtensions:
   # The published Disqus modules import this development-only dependency.
   disqus-react@1.1.7:

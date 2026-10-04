@@ -1,48 +1,26 @@
 import type { definitions } from "#api/index.ts";
 import { getSupabase } from "#api/index.ts";
 import { TextForm } from "#game/commands/internal/index.ts";
-import { motion } from "framer-motion";
-import type { BranchId, Frame } from "react-visual-novel";
-import {
-  Command,
-  styleForFrame,
-  useBranchContext,
-  useGameContext,
-} from "react-visual-novel";
+import type { Navigation } from "#game/runtime.ts";
+import { useBranchContext, useNavigation } from "#game/runtime.ts";
+import type { Frame } from "react-visual-novel";
+import { Command, CommandSurface, styleForFrame } from "react-visual-novel";
 import { twMerge } from "tailwind-merge";
 
 export type SubmitMonumentNominationProps = {
-  onDone: (ctx: {
-    goToBranch: (branchId: BranchId) => void;
-    goToStatement: (statementLabel: string) => void;
-    goToNextStatement: (plusIndex?: number) => void;
-  }) => void;
+  onDone: (ctx: Navigation) => void;
   frame?: Frame;
 };
 
 export function SubmitMonumentNomination(props: SubmitMonumentNominationProps) {
-  const { goToBranch } = useGameContext();
-
-  const { containerRect, goToStatement, goToNextStatement } =
-    useBranchContext();
+  const navigation = useNavigation();
+  const { containerRect } = useBranchContext();
 
   return (
     <Command name="SubmitMonumentNomination" behavior={["non_skippable"]}>
       {(controls) => (
-        <motion.div
-          variants={{
-            initial: { opacity: 0 },
-            entrance: {
-              opacity: 1,
-              transition: { duration: 1 },
-            },
-            exit: {
-              opacity: 0,
-              transition: { duration: 0.5, ease: "easeOut" },
-            },
-          }}
-          initial="initial"
-          animate={controls}
+        <CommandSurface
+          controls={controls}
           className={twMerge(
             "absolute flex flex-col rvn-text",
             props.frame == null && "inset-0 p-8 py-20",
@@ -75,10 +53,10 @@ export function SubmitMonumentNomination(props: SubmitMonumentNominationProps) {
                 });
               }
 
-              props.onDone({ goToStatement, goToBranch, goToNextStatement });
+              props.onDone(navigation);
             }}
           />
-        </motion.div>
+        </CommandSurface>
       )}
     </Command>
   );

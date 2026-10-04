@@ -14,8 +14,9 @@ import {
   stampApprovedPng,
   transition1Mp3,
 } from "#assets/game/index.ts";
+import { Say } from "#game/runtime.ts";
 import { SCENE_AUDIO } from "#game/sounds.ts";
-import { Branch, Say, Scene, Show } from "react-visual-novel";
+import { Branch, Scene, Show } from "react-visual-novel";
 
 export function BranchAkim_ProjZheltoksan_Examine_Reject_Ignore() {
   return (

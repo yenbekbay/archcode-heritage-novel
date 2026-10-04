@@ -12,8 +12,9 @@ import {
   SubmitMeme,
   SubmitPost,
 } from "#game/commands/index.ts";
+import { Menu, Say } from "#game/runtime.ts";
 import { SCENE_AUDIO } from "#game/sounds.ts";
-import { Branch, Label, Menu, Play, Say, Scene } from "react-visual-novel";
+import { Branch, Label, Play, Scene } from "react-visual-novel";
 
 export function BranchActivist_CheckOut_SocialMedia() {
   return (

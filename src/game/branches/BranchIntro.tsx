@@ -1,17 +1,10 @@
 import { bgIntroJpg, calligraphyLogoPng } from "#assets/game/index.ts";
+import { Menu, Say, useBranchContext } from "#game/runtime.ts";
 import { SCENE_AUDIO } from "#game/sounds.ts";
 import { useElementRect } from "#lib/use-element-rect.ts";
 import { motion, useAnimation } from "framer-motion";
 import React from "react";
-import {
-  Branch,
-  Command,
-  Menu,
-  Play,
-  Say,
-  Show,
-  useBranchContext,
-} from "react-visual-novel";
+import { Branch, Command, Play, Show } from "react-visual-novel";
 
 export function BranchIntro() {
   return (

@@ -8,8 +8,10 @@ import {
   mayor2Png,
   mayor7Png,
 } from "#assets/game/index.ts";
+import { destinations } from "#game/destinations.ts";
+import { Say } from "#game/runtime.ts";
 import { SCENE_AUDIO } from "#game/sounds.ts";
-import { Branch, Label, Say, Scene, Show } from "react-visual-novel";
+import { Branch, Label, Scene, Show } from "react-visual-novel";
 
 export function BranchAkim_MonumentDept_Tea() {
   return (
@@ -100,7 +102,7 @@ export function BranchAkim_MonumentDept_Tea() {
             {
               label: "Нет, вернуться к выбору",
               onClick: (ctx) => {
-                ctx.goToLocation("Akim_0Menu", 5);
+                ctx.goToLocation(destinations.akimMenuEntry);
               },
             },
           ]}
@@ -200,7 +202,7 @@ export function BranchAkim_MonumentDept_Tea() {
             {
               label: "Нет, вернуться к выбору",
               onClick: (ctx) => {
-                ctx.goToLocation("Akim_0Menu", 5);
+                ctx.goToLocation(destinations.akimMenuEntry);
               },
             },
           ]}

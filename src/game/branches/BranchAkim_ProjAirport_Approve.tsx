@@ -5,8 +5,10 @@ import {
   mayor3Png,
   stampApprovedPng,
 } from "#assets/game/index.ts";
+import { destinations } from "#game/destinations.ts";
+import { Menu, Say } from "#game/runtime.ts";
 import { SCENE_AUDIO } from "#game/sounds.ts";
-import { Branch, Menu, Say, Scene, Show } from "react-visual-novel";
+import { Branch, Scene, Show } from "react-visual-novel";
 
 export function BranchAkim_ProjAirport_Approve() {
   return (
@@ -57,7 +59,7 @@ export function BranchAkim_ProjAirport_Approve() {
           {
             label: "Дальше",
             onClick: (ctx) => {
-              ctx.goToLocation("Akim_ProjAirport_Examine_Reject", 4);
+              ctx.goToLocation(destinations.airportPublicDiscussion);
             },
           },
         ]}

@@ -12,9 +12,11 @@ import {
   transition3ShortMp3,
 } from "#assets/game/index.ts";
 import { getRandomBranch } from "#game/random-branch.ts";
+import type { BranchId } from "#game/runtime.ts";
+import { Say } from "#game/runtime.ts";
 import { SCENE_AUDIO } from "#game/sounds.ts";
-import type { BranchId } from "react-visual-novel";
-import { Branch, Say, Scene } from "react-visual-novel";
+
+import { Branch, Scene } from "react-visual-novel";
 
 export function BranchDeveloper_ProjAsk_Demolish_IgnoreRisks() {
   return (

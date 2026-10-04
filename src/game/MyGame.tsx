@@ -3,22 +3,15 @@ import { ProseView } from "#components/ProseView.tsx";
 import { buildHomeHref } from "#lib/routes.ts";
 import { useRouter } from "next/navigation";
 import React from "react";
-import { Game, prepareBranches } from "react-visual-novel";
+import { prepareBranches } from "react-visual-novel";
 import * as _branches from "./branches/index.ts";
 import { LinkPrompt } from "./LinkPrompt.tsx";
 import { MobileDeviceChrome } from "./MobileDeviceChrome.tsx";
+import { Game } from "./runtime.ts";
 import type { SavedLink } from "./saved-links.ts";
 import { playSound } from "./sounds.ts";
 
 const branches = prepareBranches(_branches);
-
-type MyBranches = typeof branches;
-
-declare module "react-visual-novel" {
-  // NOTE: The game library discovers branch IDs through declaration merging.
-  // oxlint-disable-next-line typescript/consistent-type-definitions, typescript/no-empty-object-type -- Augment the library's branch registry without replacing its interface.
-  interface Branches extends MyBranches {}
-}
 
 export default function MyGame() {
   const router = useRouter();

@@ -12,9 +12,11 @@ import {
 import { SubmitMonumentNomination } from "#game/commands/index.ts";
 import { LINKS } from "#game/links.ts";
 import { getRandomBranch } from "#game/random-branch.ts";
+import type { BranchId } from "#game/runtime.ts";
+import { Say } from "#game/runtime.ts";
 import { SCENE_AUDIO } from "#game/sounds.ts";
-import type { BranchId } from "react-visual-novel";
-import { Branch, Say, Scene, Show } from "react-visual-novel";
+
+import { Branch, Scene, Show } from "react-visual-novel";
 
 export function BranchAkim_MonumentDept_Rant() {
   return (

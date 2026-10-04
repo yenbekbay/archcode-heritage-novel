@@ -5,8 +5,9 @@ import {
   fenceMp3,
   fencePng,
 } from "#assets/game/index.ts";
+import { Say } from "#game/runtime.ts";
 import { SCENE_AUDIO } from "#game/sounds.ts";
-import { Branch, Say, Scene, Show } from "react-visual-novel";
+import { Branch, Scene, Show } from "react-visual-novel";
 
 export function BranchArchkot_ProjAirport_CheckOut() {
   return (

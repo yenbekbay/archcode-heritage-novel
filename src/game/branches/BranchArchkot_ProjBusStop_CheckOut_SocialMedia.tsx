@@ -16,8 +16,9 @@ import {
   SubmitPost,
 } from "#game/commands/index.ts";
 import { LINKS } from "#game/links.ts";
+import { Say } from "#game/runtime.ts";
 import { SCENE_AUDIO } from "#game/sounds.ts";
-import { Branch, Label, Say, Scene } from "react-visual-novel";
+import { Branch, Label, Scene } from "react-visual-novel";
 
 export function BranchArchkot_ProjBusStop_CheckOut_SocialMedia() {
   return (

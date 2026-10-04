@@ -14,7 +14,8 @@ import {
   transition3ShortMp3,
 } from "#assets/game/index.ts";
 import { LINKS } from "#game/links.ts";
-import { Branch, Say, Scene } from "react-visual-novel";
+import { Say } from "#game/runtime.ts";
+import { Branch, Scene } from "react-visual-novel";
 
 export function BranchActivist_CheckOut_Act_Self() {
   return (

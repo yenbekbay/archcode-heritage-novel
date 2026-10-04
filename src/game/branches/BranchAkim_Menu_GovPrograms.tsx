@@ -14,8 +14,9 @@ import {
   mayor2Png,
   mayor3Png,
 } from "#assets/game/index.ts";
+import { Say } from "#game/runtime.ts";
 import { SCENE_AUDIO } from "#game/sounds.ts";
-import { Branch, Label, Say, Scene, Show } from "react-visual-novel";
+import { Branch, Label, Scene, Show } from "react-visual-novel";
 
 export function BranchAkim_Menu_GovPrograms() {
   return (

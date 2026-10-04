@@ -3,8 +3,9 @@ import {
   developerRepAPng,
   mayor2Png,
 } from "#assets/game/index.ts";
+import { Say } from "#game/runtime.ts";
 import { SCENE_AUDIO } from "#game/sounds.ts";
-import { Branch, Say, Scene } from "react-visual-novel";
+import { Branch, Scene } from "react-visual-novel";
 
 export function BranchAkim_ProjAsk() {
   return (

@@ -2,10 +2,11 @@ import { Spinner } from "#components/index.ts";
 import { Button } from "#components/ui/Button.tsx";
 import { Input } from "#components/ui/Input.tsx";
 import { TextArea } from "#components/ui/TextArea.tsx";
+import { useGameContext } from "#game/runtime.ts";
 import { decodeSubmissionError } from "#game/submission-error.ts";
 import React from "react";
 import { toast } from "react-hot-toast";
-import { useGameContext } from "react-visual-novel";
+
 import { useZorm } from "react-zorm";
 import { twMerge } from "tailwind-merge";
 import { z } from "zod";

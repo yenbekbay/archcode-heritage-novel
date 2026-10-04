@@ -3,8 +3,9 @@ import {
   developerRepB8Png,
   transition1Mp3,
 } from "#assets/game/index.ts";
+import { Say } from "#game/runtime.ts";
 import { SCENE_AUDIO } from "#game/sounds.ts";
-import { Branch, Play, Say, Scene, Show } from "react-visual-novel";
+import { Branch, Play, Scene, Show } from "react-visual-novel";
 
 export function BranchDeveloper_0Intro() {
   return (

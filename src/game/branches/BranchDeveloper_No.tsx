@@ -2,8 +2,10 @@ import {
   bgDeveloperHqInsideJpg,
   developerRepB9Png,
 } from "#assets/game/index.ts";
+import { destinations } from "#game/destinations.ts";
+import { Menu } from "#game/runtime.ts";
 import { SCENE_AUDIO } from "#game/sounds.ts";
-import { Branch, Menu, Scene, Show } from "react-visual-novel";
+import { Branch, Scene, Show } from "react-visual-novel";
 
 export function BranchDeveloper_No() {
   return (
@@ -16,7 +18,7 @@ export function BranchDeveloper_No() {
           {
             label: "Вернуться к выбору",
             onClick: (ctx) => {
-              ctx.goToLocation("Intro", 13);
+              ctx.goToLocation(destinations.roleSelection);
             },
           },
         ]}

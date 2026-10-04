@@ -7,8 +7,9 @@ import {
   sabitPng,
   stampRejectedPng,
 } from "#assets/game/index.ts";
+import { Say } from "#game/runtime.ts";
 import { SCENE_AUDIO } from "#game/sounds.ts";
-import { Branch, Say, Scene, Show } from "react-visual-novel";
+import { Branch, Scene, Show } from "react-visual-novel";
 
 export function BranchAkim_ProjZheltoksan_Examine_Reject() {
   return (

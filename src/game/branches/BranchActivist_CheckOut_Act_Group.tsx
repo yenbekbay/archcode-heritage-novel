@@ -21,8 +21,9 @@ import {
   transition3ShortMp3,
 } from "#assets/game/index.ts";
 import { LINKS } from "#game/links.ts";
+import { Menu, Say } from "#game/runtime.ts";
 import { SCENE_AUDIO } from "#game/sounds.ts";
-import { Branch, Menu, Say, Scene, Show } from "react-visual-novel";
+import { Branch, Scene, Show } from "react-visual-novel";
 
 export function BranchActivist_CheckOut_Act_Group() {
   return (

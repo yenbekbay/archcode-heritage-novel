@@ -5,9 +5,11 @@ import {
   developerRepB9Png,
   hologramMp3,
 } from "#assets/game/index.ts";
+import { destinations } from "#game/destinations.ts";
 import { LINKS } from "#game/links.ts";
+import { Say } from "#game/runtime.ts";
 import { SCENE_AUDIO } from "#game/sounds.ts";
-import { Branch, Say, Scene } from "react-visual-novel";
+import { Branch, Scene } from "react-visual-novel";
 
 export function BranchDeveloper_ProjAsk_Demolish() {
   return (
@@ -44,7 +46,7 @@ export function BranchDeveloper_ProjAsk_Demolish() {
           {
             label: "Пересмотреть выбор",
             onClick: (ctx) => {
-              ctx.goToLocation("Developer_ProjAsk", 16);
+              ctx.goToLocation(destinations.askProjectChoice);
             },
           },
           {

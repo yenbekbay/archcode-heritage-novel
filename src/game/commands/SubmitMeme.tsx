@@ -4,21 +4,25 @@ import { Spinner } from "#components/index.ts";
 import { Button } from "#components/ui/Button.tsx";
 import { Input } from "#components/ui/Input.tsx";
 import { memePreviewUrlAtom, memeTemplateIdAtom } from "#game/meme-draft.ts";
+import type { Navigation } from "#game/runtime.ts";
+import {
+  useBranchContext,
+  useGameContext,
+  useNavigation,
+} from "#game/runtime.ts";
 import { decodeSubmissionError } from "#game/submission-error.ts";
 import { MemeCaptionResponseSchema } from "#lib/meme-caption.ts";
-import { motion } from "framer-motion";
 import { useAtom } from "jotai";
 import { RESET } from "jotai/utils";
 import { X as XIcon } from "phosphor-react";
 import React from "react";
 import { toast } from "react-hot-toast";
-import type { BranchId, Frame, ImageViewProps } from "react-visual-novel";
+import type { Frame, ImageViewProps } from "react-visual-novel";
 import {
   Command,
+  CommandSurface,
   ImageView,
   styleForFrame,
-  useBranchContext,
-  useGameContext,
 } from "react-visual-novel";
 import { useZorm } from "react-zorm";
 import useSWR from "swr";
@@ -26,20 +30,14 @@ import { twMerge } from "tailwind-merge";
 import { z } from "zod";
 
 export type SubmitMemeProps = {
-  onDone: (ctx: {
-    goToBranch: (branchId: BranchId) => void;
-    goToStatement: (statementLabel: string) => void;
-    goToNextStatement: (plusIndex?: number) => void;
-  }) => void;
+  onDone: (ctx: Navigation) => void;
   frame?: Frame;
   image?: string | Omit<ImageViewProps, "controls">;
 };
 
 export function SubmitMeme(props: SubmitMemeProps) {
-  const { goToBranch } = useGameContext();
-
-  const { containerRect, goToStatement, goToNextStatement } =
-    useBranchContext();
+  const navigation = useNavigation();
+  const { containerRect } = useBranchContext();
 
   const imageProps =
     typeof props.image === "string" ? { uri: props.image } : props.image;
@@ -50,25 +48,13 @@ export function SubmitMeme(props: SubmitMemeProps) {
         <>
           {imageProps && <ImageView controls={controls} {...imageProps} />}
 
-          <motion.div
+          <CommandSurface
+            controls={controls}
             className={twMerge(
               "absolute flex flex-col rvn-text",
               props.frame == null && "inset-0 p-8 py-20",
             )}
             style={props.frame && styleForFrame({ containerRect }, props.frame)}
-            variants={{
-              initial: { opacity: 0 },
-              entrance: {
-                opacity: 1,
-                transition: { duration: 1 },
-              },
-              exit: {
-                opacity: 0,
-                transition: { duration: 0.5, ease: "easeOut" },
-              },
-            }}
-            initial="initial"
-            animate={controls}
           >
             <MemeForm
               onSubmit={async (values) => {
@@ -90,10 +76,10 @@ export function SubmitMeme(props: SubmitMemeProps) {
                 }
               }}
               onDone={() => {
-                props.onDone({ goToStatement, goToBranch, goToNextStatement });
+                props.onDone(navigation);
               }}
             />
-          </motion.div>
+          </CommandSurface>
         </>
       )}
     </Command>

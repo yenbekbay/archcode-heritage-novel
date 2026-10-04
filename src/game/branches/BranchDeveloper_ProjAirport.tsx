@@ -13,8 +13,9 @@ import {
   transition2ShortMp3,
 } from "#assets/game/index.ts";
 import { LINKS } from "#game/links.ts";
+import { Say } from "#game/runtime.ts";
 import { SCENE_AUDIO } from "#game/sounds.ts";
-import { Branch, Say, Scene } from "react-visual-novel";
+import { Branch, Scene } from "react-visual-novel";
 
 export function BranchDeveloper_ProjAirport() {
   return (

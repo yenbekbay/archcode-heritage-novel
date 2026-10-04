@@ -1,32 +1,26 @@
 import type { definitions } from "#api/index.ts";
 import { getSupabase } from "#api/index.ts";
 import { TextForm } from "#game/commands/internal/index.ts";
-import { motion } from "framer-motion";
-import type { BranchId, Frame, ImageViewProps } from "react-visual-novel";
+import type { Navigation } from "#game/runtime.ts";
+import { useBranchContext, useNavigation } from "#game/runtime.ts";
+import type { Frame, ImageViewProps } from "react-visual-novel";
 import {
   Command,
+  CommandSurface,
   ImageView,
   styleForFrame,
-  useBranchContext,
-  useGameContext,
 } from "react-visual-novel";
 import { twMerge } from "tailwind-merge";
 
 export type SubmitPostProps = {
-  onDone: (ctx: {
-    goToBranch: (branchId: BranchId) => void;
-    goToStatement: (statementLabel: string) => void;
-    goToNextStatement: (plusIndex?: number) => void;
-  }) => void;
+  onDone: (ctx: Navigation) => void;
   frame?: Frame;
   image?: string | Omit<ImageViewProps, "controls">;
 };
 
 export function SubmitPost(props: SubmitPostProps) {
-  const { goToBranch } = useGameContext();
-
-  const { containerRect, goToStatement, goToNextStatement } =
-    useBranchContext();
+  const navigation = useNavigation();
+  const { containerRect } = useBranchContext();
 
   const imageProps =
     typeof props.image === "string" ? { uri: props.image } : props.image;
@@ -37,25 +31,13 @@ export function SubmitPost(props: SubmitPostProps) {
         <>
           {imageProps && <ImageView controls={controls} {...imageProps} />}
 
-          <motion.div
+          <CommandSurface
+            controls={controls}
             className={twMerge(
               "absolute flex flex-col rvn-text",
               props.frame == null && "inset-0 p-8 py-20",
             )}
             style={props.frame && styleForFrame({ containerRect }, props.frame)}
-            variants={{
-              initial: { opacity: 0 },
-              entrance: {
-                opacity: 1,
-                transition: { duration: 1 },
-              },
-              exit: {
-                opacity: 0,
-                transition: { duration: 0.5, ease: "easeOut" },
-              },
-            }}
-            initial="initial"
-            animate={controls}
           >
             <TextForm
               rows={10}
@@ -79,10 +61,10 @@ export function SubmitPost(props: SubmitPostProps) {
                   throw new Error("Failed to save post", { cause: error });
                 }
 
-                props.onDone({ goToStatement, goToBranch, goToNextStatement });
+                props.onDone(navigation);
               }}
             />
-          </motion.div>
+          </CommandSurface>
         </>
       )}
     </Command>

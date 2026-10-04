@@ -7,8 +7,9 @@ import {
 } from "#assets/game/index.ts";
 import { GameOverMenu, GameOverTitle } from "#game/commands/index.ts";
 import { LINKS } from "#game/links.ts";
+import { Say } from "#game/runtime.ts";
 import { SCENE_AUDIO } from "#game/sounds.ts";
-import { Branch, Play, Say, Scene, Show } from "react-visual-novel";
+import { Branch, Play, Scene, Show } from "react-visual-novel";
 
 export function BranchArchkot_ProjAirport_CheckOut_AssembleTeam_Bail() {
   return (

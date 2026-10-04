@@ -4,8 +4,10 @@ import {
   mayor6Png,
   stampRejectedPng,
 } from "#assets/game/index.ts";
+import { destinations } from "#game/destinations.ts";
+import { Menu, Say } from "#game/runtime.ts";
 import { SCENE_AUDIO } from "#game/sounds.ts";
-import { Branch, Menu, Say, Scene, Show } from "react-visual-novel";
+import { Branch, Scene, Show } from "react-visual-novel";
 
 export function BranchDeveloper_ProjAirport_Demolish_IgnoreRisks_Rejected() {
   return (
@@ -52,7 +54,7 @@ export function BranchDeveloper_ProjAirport_Demolish_IgnoreRisks_Rejected() {
           {
             label: "Дальше",
             onClick: (ctx) => {
-              ctx.goToLocation("Developer_ProjAirport_Preserve", 11);
+              ctx.goToLocation(destinations.airportPreservationResume);
             },
           },
         ]}

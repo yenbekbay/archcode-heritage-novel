@@ -14,8 +14,9 @@ import {
 } from "#assets/game/index.ts";
 import { GameOverMenu, GameOverTitle } from "#game/commands/index.ts";
 import { LINKS } from "#game/links.ts";
+import { Say } from "#game/runtime.ts";
 import { SCENE_AUDIO } from "#game/sounds.ts";
-import { Branch, Play, Say, Scene } from "react-visual-novel";
+import { Branch, Play, Scene } from "react-visual-novel";
 
 export function BranchDeveloper_ProjAirport_Preserve() {
   return (

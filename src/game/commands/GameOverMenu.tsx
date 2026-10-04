@@ -4,10 +4,12 @@ import {
   logoSorosPng,
 } from "#assets/game/index.ts";
 import { Image } from "#components/Image.tsx";
+import { destinations } from "#game/destinations.ts";
+import { MenuView } from "#game/runtime.ts";
 import { buildFeedbackHref, buildSavedLinksHref } from "#lib/routes.ts";
 import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
-import { Command, MenuView } from "react-visual-novel";
+import { Command } from "react-visual-novel";
 
 export function GameOverMenu() {
   const router = useRouter();
@@ -35,7 +37,7 @@ export function GameOverMenu() {
               {
                 label: "Начать заново",
                 onClick: (ctx) => {
-                  ctx.goToLocation("Intro", 13);
+                  ctx.goToLocation(destinations.roleSelection);
                 },
               },
             ]}

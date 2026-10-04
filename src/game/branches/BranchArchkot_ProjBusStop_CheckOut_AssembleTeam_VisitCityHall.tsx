@@ -11,8 +11,9 @@ import {
   transition1Mp3,
   transition2ShortMp3,
 } from "#assets/game/index.ts";
+import { Menu, Say } from "#game/runtime.ts";
 import { SCENE_AUDIO } from "#game/sounds.ts";
-import { Branch, Menu, Say, Scene } from "react-visual-novel";
+import { Branch, Scene } from "react-visual-novel";
 
 export function BranchArchkot_ProjBusStop_CheckOut_AssembleTeam_VisitCityHall() {
   return (

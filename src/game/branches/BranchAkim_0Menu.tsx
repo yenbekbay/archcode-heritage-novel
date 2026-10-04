@@ -8,8 +8,9 @@ import {
   transition2ShortMp3,
   transition3ShortMp3,
 } from "#assets/game/index.ts";
+import { Menu, Say } from "#game/runtime.ts";
 import { SCENE_AUDIO } from "#game/sounds.ts";
-import { Branch, Menu, Play, Say, Scene } from "react-visual-novel";
+import { Branch, Play, Scene } from "react-visual-novel";
 
 export function BranchAkim_0Menu() {
   return (
