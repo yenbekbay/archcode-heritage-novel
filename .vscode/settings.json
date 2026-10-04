@@ -22,6 +22,7 @@
     "src/__generated__/**": true,
     "public/**": true
   },
+  "js/ts.experimental.useTsgo": false,
   "js/ts.tsdk.path": "node_modules/typescript/lib",
   "js/ts.tsdk.promptToUseWorkspaceVersion": true,
   "tailwindCSS.classFunctions": ["twMerge", "tv"],
