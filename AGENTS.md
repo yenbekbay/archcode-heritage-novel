@@ -11,7 +11,7 @@ Interactive visual novel and editorial website about Almaty architectural herita
 5. Run the affected lint leaves for bounded work. Run `pnpm run check` before reporting broad cross-owner work complete when no cheaper targeted signal can cover the changed contracts.
 6. Review website UI changes through source and authoritative documentation. Do not propose or require agent-run browser acceptance. Launch a browser only when the user explicitly asks for rendered evidence.
 7. Verify changes with the lowest-cost sufficient check. Start with direct source inspection or a targeted check, and escalate only when it cannot establish the required result. Skip routine or speculative verification.
-8. Treat full builds, development servers, broad test or lint suites, dependency installs, and benchmarks as expensive commands. Run one only when the user explicitly asks or no cheaper targeted signal can settle the claim.
+8. Reserve full application builds for explicit user requests or changes to build configuration, build tooling, or release artifacts. Treat development servers, broad test or lint suites, dependency installs, and benchmarks as expensive commands. Run one only when the user explicitly asks or no cheaper targeted signal can settle the claim.
 9. Stop verification work when the user declines it.
 
 ## Boundaries
