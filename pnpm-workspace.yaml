@@ -12,3 +12,8 @@ packageExtensions:
   disqus-react@1.1.7:
     dependencies:
       prop-types: 15.8.1
+peerDependencyRules:
+  allowedVersions:
+    # react-visual-novel@0.4.0 declares ^13.1.1. Its unreleased source accepts
+    # Motion 14, and the story runtime uses only public Motion APIs.
+    "react-visual-novel>framer-motion": "14"
