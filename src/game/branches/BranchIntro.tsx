@@ -2,7 +2,7 @@ import { bgIntroJpg, calligraphyLogoPng } from "#assets/game/index.ts";
 import { Menu, Say, useBranchContext } from "#game/runtime.ts";
 import { SCENE_AUDIO } from "#game/sounds.ts";
 import { useElementRect } from "#lib/use-element-rect.ts";
-import { motion, useAnimation } from "framer-motion";
+import { motion } from "framer-motion";
 import React from "react";
 import { Branch, Command, Play, Show } from "react-visual-novel";
 
@@ -97,41 +97,14 @@ function IntroScene() {
   const { containerRect, focusedStatementIndex, getStatementCount } =
     useBranchContext();
 
-  const controls = useAnimation();
-
   const imgRef = React.useRef<HTMLImageElement>(null);
 
   const imgRect = useElementRect(imgRef);
 
-  React.useLayoutEffect(() => {
-    if (!imgRect) {
-      return;
-    }
-
-    const enteredPercent = Math.min(
-      1,
-      (focusedStatementIndex + 1) / getStatementCount(),
-    );
-
-    controls.stop();
-    void controls
-      .start({
-        y: `calc(${containerRect.height - imgRect.height}px * ${enteredPercent})`,
-        transition: {
-          duration: INTRO_SCENE_TRANSITION_DURATION_PER_STATEMENT / 1000,
-          ease: "easeOut",
-        },
-      })
-      .catch((error: unknown) => {
-        console.error("Failed to animate intro scene", error);
-      });
-  }, [
-    containerRect,
-    controls,
-    focusedStatementIndex,
-    getStatementCount,
-    imgRect,
-  ]);
+  const enteredPercent = Math.min(
+    1,
+    (focusedStatementIndex + 1) / getStatementCount(),
+  );
 
   return (
     <>
@@ -147,7 +120,17 @@ function IntroScene() {
         ref={imgRef}
         src={bgIntroJpg.src}
         initial={{ y: 0 }}
-        animate={controls}
+        animate={
+          imgRect
+            ? {
+                y: `calc(${containerRect.height - imgRect.height}px * ${enteredPercent})`,
+              }
+            : undefined
+        }
+        transition={{
+          duration: INTRO_SCENE_TRANSITION_DURATION_PER_STATEMENT / 1000,
+          ease: "easeOut",
+        }}
         className="w-full"
       />
     </>
