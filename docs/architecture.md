@@ -44,6 +44,8 @@ Supabase and Imgflip are separate failure boundaries. A provider response or thr
 
 The Russian-only URLs, game `location` query parameter, browser-storage keys, branch export names, generated Supabase types, and provider table names are compatibility boundaries. Changing one requires its callers or generated consumers to move in the same coherent change. A source change that adds, removes, or renames an exported branch or command must regenerate the barrel indexes before verification.
 
+Two dependencies hold this repository behind the shared toolchain majors. React Zorm reads Zod 3 schema internals to derive input props and defaults, so Zod stays on major 3 until the meme forms leave React Zorm. The Supabase schema command runs openapi-typescript, which requires the TypeScript JavaScript API, so TypeScript stays on major 6 until that generator runs without it. Upgrading either one is a dependency replacement rather than a version bump.
+
 The repository build generates audio, barrels, and Next.js route declarations before invoking the default Turbopack build. PostCSS compiles styles within the Next.js development and build pipelines. Generated public audio copies are ignored and rebuilt from retained MP3 sources. Deployment and provider mutation remain separate transitions. The exact hosting project and environment values stay with provider configuration and local environment owners.
 
 ## Implementation owners
