@@ -19,6 +19,8 @@ mise install
 pnpm install
 ```
 
+`pnpm-workspace.yaml` sets `verifyDepsBeforeRun: error`, so `pnpm run` and `pnpm exec` stop when installed dependencies are out of sync. Restore dependencies through an approved `pnpm install`, then retry the original command.
+
 `mise.lock` records supported artifact URLs and checksums for macOS arm64 development and Linux x64 CI.
 
 ## Recover the local environment
