@@ -1,10 +1,10 @@
 "use client";
 
+import { twMerge } from "#lib/tailwind.ts";
 import type { ImageInfo, MqlResponseData } from "@microlink/mql";
 import mql from "@microlink/mql";
 import React from "react";
 import useSWR from "swr";
-import { twMerge } from "tailwind-merge";
 
 export type LinkCardProps = {
   url: string;

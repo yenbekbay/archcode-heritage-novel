@@ -1,8 +1,9 @@
 "use client";
 
+import { tv } from "#lib/tailwind.ts";
 import type { ComponentPropsWithRef } from "react";
 import { Button as RACButton, composeRenderProps } from "react-aria-components";
-import { tv, type VariantProps } from "tailwind-variants";
+import type { VariantProps } from "tailwind-variants";
 
 const buttonStyles = tv({
   base: "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent disabled:pointer-events-none disabled:opacity-50 pressed:translate-y-px",

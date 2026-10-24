@@ -3,6 +3,7 @@ import { getSupabase } from "#api/index.ts";
 import { TextForm } from "#game/commands/internal/index.ts";
 import type { Navigation } from "#game/runtime.ts";
 import { useBranchContext, useNavigation } from "#game/runtime.ts";
+import { twMerge } from "#lib/tailwind.ts";
 import type { Frame, ImageViewProps } from "react-visual-novel";
 import {
   Command,
@@ -10,7 +11,6 @@ import {
   ImageView,
   styleForFrame,
 } from "react-visual-novel";
-import { twMerge } from "tailwind-merge";
 
 export type SubmitPostProps = {
   onDone: (ctx: Navigation) => void;

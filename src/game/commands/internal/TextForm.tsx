@@ -7,8 +7,8 @@ import { decodeSubmissionError } from "#game/submission-error.ts";
 import React from "react";
 import { toast } from "react-hot-toast";
 
+import { twMerge } from "#lib/tailwind.ts";
 import { useZorm } from "react-zorm";
-import { twMerge } from "tailwind-merge";
 import { z } from "zod";
 
 export type TextFormProps = {

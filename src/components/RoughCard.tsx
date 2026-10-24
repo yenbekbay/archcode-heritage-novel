@@ -1,10 +1,10 @@
 "use client";
 
+import { twMerge } from "#lib/tailwind.ts";
 import { useElementRect } from "#lib/use-element-rect.ts";
 import type { HTMLMotionProps } from "framer-motion";
 import React, { useEffect, useRef } from "react";
 import rough from "roughjs/bin/rough";
-import { twMerge } from "tailwind-merge";
 import { ProseArticle } from "./ProseView.tsx";
 import { Reveal } from "./Reveal.tsx";
 

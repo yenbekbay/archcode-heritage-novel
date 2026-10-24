@@ -12,9 +12,9 @@ import {
   buildPlayHref,
   buildSavedLinksHref,
 } from "#lib/routes.ts";
+import { twMerge } from "#lib/tailwind.ts";
 import type { IconProps } from "phosphor-react";
 import React from "react";
-import { twMerge } from "tailwind-merge";
 import { ActiveLink } from "./ActiveLink.tsx";
 import { GameController as GameControllerIcon } from "./Icons.tsx";
 

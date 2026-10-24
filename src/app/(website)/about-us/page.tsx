@@ -15,9 +15,9 @@ import { Image } from "#components/Image.tsx";
 import { Hero, HeroBackground, RoughCard } from "#components/index.ts";
 import { buildPageMetadata } from "#lib/metadata.ts";
 import { buildAboutUsHref } from "#lib/routes.ts";
+import { twMerge } from "#lib/tailwind.ts";
 import type { StaticImageData } from "next/image";
 import React from "react";
-import { twMerge } from "tailwind-merge";
 
 export const metadata = buildPageMetadata({
   pathname: buildAboutUsHref(),

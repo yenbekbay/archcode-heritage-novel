@@ -1,6 +1,6 @@
+import { twMerge } from "#lib/tailwind.ts";
 import NextLink from "next/link";
 import type { ComponentPropsWithRef } from "react";
-import { twMerge } from "tailwind-merge";
 
 export function Link(props: ComponentPropsWithRef<typeof NextLink>) {
   return (

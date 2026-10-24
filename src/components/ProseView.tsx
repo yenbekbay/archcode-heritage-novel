@@ -1,5 +1,6 @@
+import { tv } from "#lib/tailwind.ts";
 import type { ComponentPropsWithRef } from "react";
-import { tv, type VariantProps } from "tailwind-variants";
+import type { VariantProps } from "tailwind-variants";
 import styles from "./ProseView.module.css";
 
 const proseStyles = tv({

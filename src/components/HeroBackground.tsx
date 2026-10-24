@@ -1,9 +1,9 @@
 "use client";
 
+import { twMerge } from "#lib/tailwind.ts";
 import type { StaticImageData } from "next/image";
 import React from "react";
 import { ParallaxBanner } from "react-scroll-parallax";
-import { twMerge } from "tailwind-merge";
 
 export type HeroBackgroundProps = {
   src?: string | StaticImageData;

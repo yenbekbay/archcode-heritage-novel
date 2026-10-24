@@ -1,5 +1,5 @@
+import { twMerge } from "#lib/tailwind.ts";
 import React from "react";
-import { twMerge } from "tailwind-merge";
 import { ProseView } from "./ProseView.tsx";
 import { Reveal } from "./Reveal.tsx";
 

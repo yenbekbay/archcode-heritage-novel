@@ -12,6 +12,7 @@ import {
 } from "#game/runtime.ts";
 import { decodeSubmissionError } from "#game/submission-error.ts";
 import { MemeCaptionResponseSchema } from "#lib/meme-caption.ts";
+import { twMerge } from "#lib/tailwind.ts";
 import { useAtom } from "jotai";
 import { RESET } from "jotai/utils";
 import { X as XIcon } from "phosphor-react";
@@ -26,7 +27,6 @@ import {
 } from "react-visual-novel";
 import { useZorm } from "react-zorm";
 import useSWR from "swr";
-import { twMerge } from "tailwind-merge";
 import { z } from "zod";
 
 export type SubmitMemeProps = {
