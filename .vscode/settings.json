@@ -6,7 +6,7 @@
   "editor.formatOnSave": true,
   "editor.rulers": [80],
   "files.associations": {
-    "*.css": "tailwindcss"
+    "**/src/styles/globals.css": "tailwindcss"
   },
   "files.readonlyInclude": {
     ".local/**": true,
