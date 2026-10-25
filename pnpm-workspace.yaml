@@ -4,6 +4,7 @@ allowBuilds:
   re2: true
   sharp: true
   utf-8-validate: true
+minimumReleaseAge: 10080
 minimumReleaseAgeExclude:
   # Immediate adoption approved for the story runtime upgrade.
   - "react-visual-novel@0.4.1"
