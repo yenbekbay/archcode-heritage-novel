@@ -37,7 +37,7 @@ mise exec -- fnox export --if-missing error --output .env.local
 chmod 600 .env.local
 ```
 
-The Secure Note owns the canonical values. After approval for a field change, edit the matching concealed field and rerun the export command. Do not edit the exported file directly. Keep `.env.development.local` as an ignored override if a later local workflow needs one.
+The Secure Note owns the canonical values. After approval for a field change, edit the matching concealed field and rerun the export command. Do not edit the exported file directly.
 
 ## Run the local product
 
