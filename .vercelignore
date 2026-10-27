@@ -1,7 +1,3 @@
-# Vercel already skips `.env.local` and `.env.*.local`. These paths hold the
-# remaining repository-local secrets.
 /.env
 /.local/
-
-# Oversized repository-only roots that the build never reads.
 /.tmp/

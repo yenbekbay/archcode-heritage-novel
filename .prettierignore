@@ -1,5 +1,3 @@
-# Prettier reads `.gitignore` by default, so this file only adds tracked paths
-# that must stay unformatted.
 /pnpm-lock.yaml
 /public/
 /src/__generated__/
