@@ -1,6 +1,7 @@
 "use client";
 
 import { Button } from "#components/ui/Button.tsx";
+import { captureException } from "#lib/capture-exception.ts";
 
 import { bgArchcodeOfficeJpg } from "#assets/game/index.ts";
 import { HeroBackground } from "#components/HeroBackground.tsx";
@@ -14,8 +15,8 @@ export default function ErrorPage(props: {
   retry: () => void;
 }) {
   useEffect(() => {
-    console.error("Route rendering failed", { digest: props.error.digest });
-  }, [props.error.digest]);
+    captureException(props.error);
+  }, [props.error]);
 
   return (
     <WebsiteProviders>

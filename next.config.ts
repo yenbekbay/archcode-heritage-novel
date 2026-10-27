@@ -1,5 +1,10 @@
+import { withSentryConfig } from "@sentry/nextjs/config";
 import type { NextConfig } from "next";
 import "./src/config/env.ts";
+
+const isProduction = process.env.NODE_ENV === "production";
+
+const hasSentryBuildToken = Boolean(process.env["SENTRY_AUTH_TOKEN"]);
 
 const config: NextConfig = {
   reactStrictMode: true,
@@ -43,4 +48,22 @@ const config: NextConfig = {
   },
 };
 
-export default config;
+// Skip the Sentry wrap in dev: it adds source-map upload and bundle
+// instrumentation with no runtime to back it (instrumentation*.ts gates the
+// SDK on production).
+export default isProduction
+  ? withSentryConfig(config, {
+      // Marks bundled modules so the client third-party error filter in
+      // src/instrumentation-client.ts can tell application frames apart.
+      applicationKey: "archcode-heritage-novel",
+      org: "utilfirst",
+      project: "archcode-heritage-novel",
+      telemetry: false,
+      silent: true,
+      tunnelRoute: "/monitoring",
+      sourcemaps: {
+        disable: !hasSentryBuildToken,
+        deleteSourcemapsAfterUpload: true,
+      },
+    })
+  : config;

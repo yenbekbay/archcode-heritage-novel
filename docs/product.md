@@ -25,6 +25,7 @@ The fictional city **Аталма** provides the novel's setting. The playable r
 - The team page identifies project participants and supporting organizations.
 - The links page exposes reading saved during the game.
 - The feedback page embeds the project discussion surface.
+- Browser support follows `.browserslistrc`. A browser outside it receives a browser-update notice and can continue to the website.
 
 The shared header connects these surfaces, the Archcode website, and the primary play action. The product remains Russian-only unless an accepted localization change expands the audience contract.
 

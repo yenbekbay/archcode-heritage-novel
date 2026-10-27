@@ -1,3 +1,4 @@
+import { BrowserSupportGate } from "#components/status/BrowserSupportGate.tsx";
 import "#styles/globals.css";
 
 import { RootProviders } from "#components/RootProviders.tsx";
@@ -52,19 +53,28 @@ export const viewport: Viewport = {
 export const metadata = buildRootMetadata({ isIndexable: true });
 
 export default function RootLayout(props: { children: ReactNode }) {
+  const browserSupportCopy = {
+    title: "Неподдерживаемый браузер",
+    message:
+      "Пожалуйста, используйте современный браузер для доступа к этому сайту.",
+    continueLabel: "Всё равно продолжить",
+  };
+
   return (
     <html
       lang="ru"
       className={`${ibmPlexMono.variable} ${calligraph.variable}`}
     >
       <body>
-        <RootProviders>{props.children}</RootProviders>
+        <BrowserSupportGate copy={browserSupportCopy}>
+          <RootProviders>{props.children}</RootProviders>
 
-        <Script
-          data-goatcounter="https://archcode-heritage-novel.goatcounter.com/count"
-          src="https://gc.zgo.at/count.js"
-          strategy="afterInteractive"
-        />
+          <Script
+            data-goatcounter="https://archcode-heritage-novel.goatcounter.com/count"
+            src="https://gc.zgo.at/count.js"
+            strategy="afterInteractive"
+          />
+        </BrowserSupportGate>
       </body>
     </html>
   );

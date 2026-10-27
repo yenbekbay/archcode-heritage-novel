@@ -1,5 +1,10 @@
 "use client";
 
+import {
+  GLOBAL_FALLBACK_STYLES,
+  GlobalFallbackShell,
+} from "#components/status/GlobalFallbackShell.tsx";
+import { captureException } from "#lib/capture-exception.ts";
 import { useEffect } from "react";
 
 export default function GlobalErrorPage(props: {
@@ -7,18 +12,27 @@ export default function GlobalErrorPage(props: {
   retry: () => void;
 }) {
   useEffect(() => {
-    console.error("Root rendering failed", { digest: props.error.digest });
-  }, [props.error.digest]);
+    captureException(props.error);
+  }, [props.error]);
 
   return (
     <html lang="ru">
-      <body style={{ fontFamily: "monospace", padding: "2rem" }}>
-        <h1>Что-то пошло не так!</h1>
-        <p>Не удалось открыть страницу. Попробуйте еще раз.</p>
+      <head>
+        {/* No root layout or `globals.css` is available here. */}
+        <style>{GLOBAL_FALLBACK_STYLES}</style>
+      </head>
 
-        <button type="button" onClick={props.retry}>
-          Попробовать снова
-        </button>
+      <body>
+        <GlobalFallbackShell
+          title="500"
+          action={
+            <button type="button" onClick={props.retry}>
+              Попробовать снова
+            </button>
+          }
+        >
+          <p>Произошла ошибка. Пожалуйста, попробуйте позже.</p>
+        </GlobalFallbackShell>
       </body>
     </html>
   );

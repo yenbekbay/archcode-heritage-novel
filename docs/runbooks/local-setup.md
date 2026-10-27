@@ -48,6 +48,8 @@ pnpm run lint
 pnpm run dev
 ```
 
+Run `pnpm run generate:browserslist` after changing `.browserslistrc`. `pnpm run dev` and `pnpm run build` regenerate the ignored browser-support expression.
+
 Open the local URL printed by Next.js. Confirm the editorial home page, visual-novel entry, and game asset loading reach their initial states without a Supabase or Imgflip environment error. Do not submit game content during this check.
 
 ## Failure recovery

@@ -12,3 +12,4 @@
 /src/__generated__/audio.ts
 .DS_Store
 *-debug.log*
+/src/__generated__/browserslist.mjs
