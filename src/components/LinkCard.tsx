@@ -1,7 +1,7 @@
 "use client";
 
 import { twMerge } from "#lib/tailwind.ts";
-import type { ImageInfo, MqlResponseData } from "@microlink/mql";
+import type { MqlResponseData } from "@microlink/mql";
 import mql from "@microlink/mql";
 import React from "react";
 import useSWR from "swr";
@@ -29,8 +29,8 @@ type LinkCardViewProps = {
   url: string;
   title?: string | null;
   description?: string | null;
-  image?: ImageInfo | null;
-  screenshot?: ImageInfo | null;
+  image?: MqlResponseData["image"];
+  screenshot?: MqlResponseData["screenshot"];
   size?: "md" | "sm";
 } & Omit<React.ComponentPropsWithRef<"a">, "title" | "lang" | "href">;
 
@@ -57,7 +57,7 @@ function LinkCardView({
         <img
           alt=""
           src={
-            image && image.width < 400
+            image?.width !== undefined && image.width < 400
               ? (screenshot?.url ?? image.url)
               : (image?.url ?? screenshot?.url)
           }
