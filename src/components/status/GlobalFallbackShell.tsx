@@ -45,6 +45,8 @@ export const GLOBAL_FALLBACK_STYLES = `
     flex-wrap: wrap;
   }
   a, button {
+    display: inline-flex;
+    align-items: center;
     min-height: 44px;
     padding: 0;
     border: 0;
@@ -61,7 +63,7 @@ export const GLOBAL_FALLBACK_STYLES = `
 `;
 
 // Shared composition for routes that render without the website stylesheet.
-// Callers choose one locale or present every supported language when no
+// Callers choose one locale or present every supported locale when no
 // locale context exists.
 export function GlobalFallbackShell(props: {
   action: ReactNode;
