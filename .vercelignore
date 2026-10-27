@@ -1,9 +1,7 @@
+# Vercel already skips `.env.local` and `.env.*.local`. These paths hold the
+# remaining repository-local secrets.
 /.env
-/.env*.local
-/.claude/
 /.local/
+
+# Oversized repository-only roots that the build never reads.
 /.tmp/
-/.vscode/
-/docs/
-/AGENTS.md
-/CLAUDE.md
