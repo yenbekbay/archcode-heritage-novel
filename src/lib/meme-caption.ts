@@ -8,18 +8,15 @@ export const MemeCaptionRequestSchema = z
   .strict();
 
 export const MemeCaptionResponseSchema = z.object({
-  url: z
-    .string()
-    .url()
-    .refine((value) => {
-      const url = new URL(value);
+  url: z.url().refine((value) => {
+    const url = new URL(value);
 
-      return (
-        url.protocol === "https:" &&
-        url.hostname === "i.imgflip.com" &&
-        url.username === "" &&
-        url.password === "" &&
-        url.port === ""
-      );
-    }),
+    return (
+      url.protocol === "https:" &&
+      url.hostname === "i.imgflip.com" &&
+      url.username === "" &&
+      url.password === "" &&
+      url.port === ""
+    );
+  }),
 });

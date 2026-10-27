@@ -33,7 +33,7 @@ The game occupies a viewport-bound surface that scales its scenes and controls t
 
 External story links open a named React Aria confirmation dialog. The dialog shows the destination preview and separates immediate reading from saving for later. Escape, the backdrop, and the close action dismiss it. Focus remains inside the open dialog and returns after dismissal. React Aria buttons expose disabled, keyboard focus, and press states. Optional forms expose labels, submission progress, failure feedback, and the branch action that continues play.
 
-Text inputs and textareas use explicit white surfaces, borders, padding, and keyboard focus outlines. Zorm errors set the invalid state and link each field to its visible error message. Validation and submission continue through the native form.
+Text inputs and textareas use explicit white surfaces, borders, padding, and keyboard focus outlines. `src/components/ui/Form.tsx` validates each form with its schema on submit through TanStack Form. A field error sets the React Aria invalid state and links the field to its visible error message.
 
 The meme form shares submission progress across its caption and preview states. Back, skip, and submission controls stay disabled while captioning or saving. Back identifies whether it returns to caption text or template selection.
 

@@ -2,6 +2,7 @@ import type { definitions } from "#api/index.ts";
 import { getSupabase } from "#api/index.ts";
 import { Spinner } from "#components/index.ts";
 import { Button } from "#components/ui/Button.tsx";
+import { Form, FormField } from "#components/ui/Form.tsx";
 import { Input } from "#components/ui/Input.tsx";
 import { memePreviewUrlAtom, memeTemplateIdAtom } from "#game/meme-draft.ts";
 import type { Navigation } from "#game/runtime.ts";
@@ -17,6 +18,7 @@ import { useAtom } from "jotai";
 import { RESET } from "jotai/utils";
 import { X as XIcon } from "phosphor-react";
 import React from "react";
+import { Label } from "react-aria-components";
 import { toast } from "react-hot-toast";
 import type { Frame, ImageViewProps } from "react-visual-novel";
 import {
@@ -25,7 +27,6 @@ import {
   ImageView,
   styleForFrame,
 } from "react-visual-novel";
-import { useZorm } from "react-zorm";
 import useSWR from "swr";
 import { z } from "zod";
 
@@ -325,84 +326,80 @@ function MemePreview(props: MemePreviewProps) {
 
   const { isSubmitting } = props;
 
-  const zo = useZorm("meme-preview", MemePreviewSchema, {
-    onValidSubmit: async (event) => {
-      event.preventDefault();
-
-      if (isSubmitting) {
-        return;
-      }
-
-      await props.onSubmit({ url: props.url, name: event.data.name });
-    },
-  });
-
   return (
     <div className="relative flex flex-col">
-      <form
-        ref={zo.ref}
+      <Form
+        schema={MemePreviewSchema}
+        initialValues={{ name: "" }}
+        onSubmit={async (values) => {
+          if (isSubmitting) {
+            return;
+          }
+
+          await props.onSubmit({ url: props.url, name: values.name });
+        }}
         className={twMerge(
           "flex flex-col gap-y-2",
           isSubmitting && "pointer-events-none opacity-50",
         )}
       >
-        <div className="flex flex-col gap-y-2">
-          <label className="text-sm font-bold" htmlFor="name">
-            Ваше имя (необязательно)
-          </label>
+        {(form) => (
+          <>
+            <FormField form={form} name="name">
+              {(field) => (
+                <>
+                  <Label className="text-sm font-bold">
+                    Ваше имя (необязательно)
+                  </Label>
 
-          <Input
-            aria-invalid={zo.errors.name() !== undefined}
-            aria-describedby={zo.errors.name(zo.fields.name("errorid"))}
-            id="name"
-            name="name"
-            type="text"
-          />
+                  <Input
+                    type="text"
+                    value={field.value}
+                    onChange={(event) => {
+                      field.change(event.target.value);
+                    }}
+                    onBlur={field.blur}
+                  />
+                </>
+              )}
+            </FormField>
 
-          {zo.errors.name((err) => (
-            <span
-              id={zo.fields.name("errorid")}
-              className="text-sm/[1.5] text-error"
+            <Button
+              onHoverStart={() => {
+                playSound("mouseover");
+              }}
+              onPress={() => {
+                playSound("click");
+                props.onSkip();
+              }}
+              variant="game"
+              isDisabled={isSubmitting}
             >
-              {err.message}
+              Пропустить
+            </Button>
+
+            <Button
+              type="submit"
+              isDisabled={isSubmitting}
+              onHoverStart={() => {
+                playSound("mouseover");
+              }}
+              onPress={() => {
+                playSound("click");
+              }}
+              variant="game_opaque"
+            >
+              Опубликовать мем
+            </Button>
+
+            <span className="max-w-[65ch] text-xs/[1.5] text-gray-700">
+              Нажав на кнопку «Опубликовать мем», вы даёте нам разрешение
+              копировать, изменять, распространять и исполнять ваше
+              произведение, даже в коммерческих целях.
             </span>
-          ))}
-        </div>
-
-        <Button
-          onHoverStart={() => {
-            playSound("mouseover");
-          }}
-          onPress={() => {
-            playSound("click");
-            props.onSkip();
-          }}
-          variant="game"
-          isDisabled={isSubmitting}
-        >
-          Пропустить
-        </Button>
-
-        <Button
-          type="submit"
-          isDisabled={isSubmitting || zo.validation?.success === false}
-          onHoverStart={() => {
-            playSound("mouseover");
-          }}
-          onPress={() => {
-            playSound("click");
-          }}
-          variant="game_opaque"
-        >
-          Опубликовать мем
-        </Button>
-
-        <span className="max-w-[65ch] text-xs/[1.5] text-gray-700">
-          Нажав на кнопку «Опубликовать мем», вы даёте нам разрешение
-          копировать, изменять, распространять и исполнять ваше произведение,
-          даже в коммерческих целях.
-        </span>
-      </form>
+          </>
+        )}
+      </Form>
 
       {isSubmitting && (
         <div className="absolute inset-0 flex flex-col items-center justify-center">
@@ -443,70 +440,62 @@ function MemeTemplateForm(props: MemeTemplateFormProps) {
     [template.box_count],
   );
 
-  const zo = useZorm("meme-template", FormSchema, {
-    onValidSubmit: async (event) => {
-      event.preventDefault();
-
-      if (isSubmitting) {
-        return;
-      }
-
-      await props.onSubmit(Object.values(event.data));
-    },
-  });
+  const fieldNames = Object.keys(FormSchema.shape);
 
   return (
     <div className="relative flex flex-col">
-      <form
-        ref={zo.ref}
+      <Form
+        schema={FormSchema}
+        initialValues={Object.fromEntries(fieldNames.map((name) => [name, ""]))}
+        onSubmit={async (values) => {
+          if (isSubmitting) {
+            return;
+          }
+
+          await props.onSubmit(fieldNames.map((name) => values[name] ?? ""));
+        }}
         className={twMerge(
           "flex flex-col gap-y-4",
           isSubmitting && "pointer-events-none opacity-50",
         )}
       >
-        {Object.keys(FormSchema.shape).map((name, i) => (
-          <div key={name} className="flex flex-col gap-y-2">
-            <label className="text-sm font-bold" htmlFor={name}>
-              Текст {i + 1}
-            </label>
+        {(form) => (
+          <>
+            {fieldNames.map((name, i) => (
+              <FormField key={name} form={form} name={name}>
+                {(field) => (
+                  <>
+                    <Label className="text-sm font-bold">Текст {i + 1}</Label>
 
-            <Input
-              aria-invalid={zo.errors[name]?.() !== undefined}
-              aria-describedby={
-                zo.errors[name]?.() !== undefined
-                  ? zo.fields[name]?.("errorid")
-                  : undefined
-              }
-              id={name}
-              name={name}
-              type="text"
-            />
-
-            {zo.errors[name]?.((err) => (
-              <span
-                id={zo.fields[name]?.("errorid")}
-                className="text-sm/[1.5] text-error"
-              >
-                {err.message}
-              </span>
+                    <Input
+                      type="text"
+                      value={field.value}
+                      onChange={(event) => {
+                        field.change(event.target.value);
+                      }}
+                      onBlur={field.blur}
+                    />
+                  </>
+                )}
+              </FormField>
             ))}
-          </div>
-        ))}
 
-        <Button
-          type="submit"
-          isDisabled={isSubmitting || zo.validation?.success === false}
-          onHoverStart={() => {
-            playSound("mouseover");
-          }}
-          onPress={() => {
-            playSound("click");
-          }}
-          variant="game_opaque"
-        >
-          Посмотреть
-        </Button>
-      </form>
+            <Button
+              type="submit"
+              isDisabled={isSubmitting}
+              onHoverStart={() => {
+                playSound("mouseover");
+              }}
+              onPress={() => {
+                playSound("click");
+              }}
+              variant="game_opaque"
+            >
+              Посмотреть
+            </Button>
+          </>
+        )}
+      </Form>
 
       {isSubmitting && (
         <div className="absolute inset-0 flex flex-col items-center justify-center">
@@ -520,7 +509,7 @@ function MemeTemplateForm(props: MemeTemplateFormProps) {
 const ImgFlipMemeTemplateSchema = z.object({
   id: z.string().min(1),
   name: z.string(),
-  url: z.string().url(),
+  url: z.url(),
   width: z.number().positive(),
   height: z.number().positive(),
   box_count: z.number().int().positive(),
